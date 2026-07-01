@@ -1,0 +1,41 @@
+{
+  "id": "jindou-corporate",
+  "title": "金豆投资控股集团 · 企业形象介绍",
+  "subtitle": "Style C · Atelier · Tongyi qwen3.7-max",
+  "description": "Tongyi qwen3.7-max generated from 金豆投资控股集团_PPT设计任务书.md",
+  "slideCount": 12,
+  "deckPath": "slides/projects/jindou-corporate/deck/index.html",
+  "skill": "skills/tableai-guizang-ppt-skill",
+  "theme": "atelier",
+  "modules": [
+    {
+      "id": "overview",
+      "title": "集团概览",
+      "start": 1,
+      "end": 6,
+      "act": "Overview"
+    },
+    {
+      "id": "portfolio",
+      "title": "八大产业",
+      "start": 7,
+      "end": 10,
+      "act": "Portfolio"
+    },
+    {
+      "id": "honors",
+      "title": "荣誉责任",
+      "start": 11,
+      "end": 11,
+      "act": "Honors"
+    },
+    {
+      "id": "outro",
+      "title": "封底",
+      "start": 12,
+      "end": 12,
+      "act": "Contact"
+    }
+  ],
+  "generatedAt": "2026-07-01T13:33:24.378Z"
+}

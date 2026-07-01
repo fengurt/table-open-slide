@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@700&family=Noto+Sans+SC:wght@400;500;700&family=Cormorant+Garamond:wght@600&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        .slide-container { 
+            width: 1280px; 
+            min-height: 720px; 
+            background: #FFFFFF; 
+            position: relative;
+            font-family: 'Noto Sans SC', sans-serif;
+            overflow: hidden;
+        }
+        .header {
+            position: absolute;
+            top: 60px;
+            left: 120px;
+            width: 1040px;
+        }
+        .chapter-label {
+            font-family: 'Inter', sans-serif;
+            font-size: 14px;
+            color: #A88B52;
+            letter-spacing: 2px;
+            margin-bottom: 16px;
+            text-transform: uppercase;
+        }
+        .main-title {
+            font-family: 'Noto Serif SC', serif;
+            font-size: 44px;
+            color: #0A1626;
+        }
+        .content-area {
+            position: absolute;
+            top: 190px;
+            left: 120px;
+            width: 1040px;
+            display: flex;
+            flex-direction: column;
+        }
+        .comparison-section {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 26px;
+        }
+        .comp-item {
+            flex: 1;
+        }
+        .comp-year {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 76px;
+            color: #A88B52;
+            line-height: 1;
+            margin-bottom: 12px;
+        }
+        .comp-desc {
+            font-size: 20px;
+            color: #0A1626;
+            line-height: 1.5;
+        }
+        .comp-desc strong {
+            font-weight: 700;
+        }
+        .highlight {
+            color: #A88B52;
+            font-weight: 700;
+        }
+        .separator-mid {
+            width: 100%;
+            height: 1px;
+            background-color: #A88B52;
+            opacity: 0.5;
+            margin-bottom: 26px;
+        }
+        .layers-section {
+            display: flex;
+            gap: 50px;
+        }
+        .layer-item {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        .layer-label {
+            font-family: 'Inter', sans-serif;
+            font-size: 13px;
+            color: #A88B52;
+            letter-spacing: 2px;
+            margin-bottom: 12px;
+            border-bottom: 1px solid rgba(168, 139, 82, 0.3);
+            padding-bottom: 6px;
+            text-transform: uppercase;
+        }
+        .layer-desc {
+            font-size: 16px;
+            color: #6B7280;
+            line-height: 1.5;
+        }
+        .layer-desc strong {
+            color: #0A1626;
+            font-weight: 700;
+        }
+        .conclusion {
+            position: absolute;
+            bottom: 56px;
+            left: 120px;
+            width: 1040px;
+            border-top: 1px solid #A88B52;
+            padding-top: 18px;
+            text-align: center;
+            font-family: 'Noto Serif SC', serif;
+            font-size: 22px;
+            color: #0A1626;
+            font-weight: 700;
+        }
+        .conclusion strong {
+            color: #A88B52;
+        }
+        .footer {
+            position: absolute;
+            right: 40px;
+            bottom: 20px;
+            font-size: 10px;
+            color: #A88B52;
+            font-family: 'Inter', sans-serif;
+        }
+    </style>
+</head>
+<body>
+    <div class="slide-container">
+        <div class="header">
+            <div class="chapter-label">HEFEI MOMENT · 决策权重不对称</div>
+            <div class="main-title">合肥时刻</div>
+        </div>
+        
+        <div class="content-area">
+            <div class="comparison-section">
+                <div class="comp-item">
+                    <div class="comp-year">2005</div>
+                    <div class="comp-desc">合肥 ≈ 太原 GDP <strong>基本持平</strong></div>
+                </div>
+                <div class="comp-item">
+                    <div class="comp-year">2023</div>
+                    <div class="comp-desc">合肥 <strong>12,674 亿</strong> vs 太原 <strong>5,574 亿</strong><br><span class="highlight">— 差距 2.3×</span></div>
+                </div>
+            </div>
+            
+            <div class="separator-mid"></div>
+            
+            <div class="layers-section">
+                <div class="layer-item">
+                    <div class="layer-label">LAYER 1 · 产业</div>
+                    <div class="layer-desc">合肥选对了产业——<br><strong>新能源、半导体、显示面板</strong></div>
+                </div>
+                <div class="layer-item">
+                    <div class="layer-label">LAYER 2 · 判断</div>
+                    <div class="layer-desc">关键节点上，老板与政府做了<br><strong>正确判断</strong></div>
+                </div>
+                <div class="layer-item">
+                    <div class="layer-label">LAYER 3 · 体系</div>
+                    <div class="layer-desc">判断的背后，是<br><strong>信息质量 + 决策框架</strong></div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="conclusion">
+            "AI，是 2026 年的'<strong>新能源选择时刻</strong>'。"
+        </div>
+        
+        <div class="footer">少数人的视野 — 岁知社闭门分享 · 郭峰 · 2026.05.14</div>
+    </div>
+</body>
+</html>

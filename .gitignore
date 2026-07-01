@@ -1,7 +1,32 @@
 node_modules
 dist
+.next
 .DS_Store
 *.log
 .vite
 *.tsbuildinfo
 .turbo
+tools/slides-showcase/.venv
+
+# Local secrets / dev env (use docs/env.example as the template)
+.env
+.env.local
+.env.*.local
+
+# Vendored agent clones (sync via pnpm sync:ppt-master)
+modules/tableai-ppt-master/
+
+# Vendored brand repos (design.md) — example kept: modules/atelier-brand/
+modules/*
+!modules/README.md
+!modules/atelier-brand/
+!modules/atelier-brand/**
+!modules/kind-brand/
+!modules/kind-brand/**
+!modules/tableai-brand/
+!modules/tableai-brand/**
+!modules/microsoft-brand/
+!modules/microsoft-brand/**
+
+# docx-master output
+out/

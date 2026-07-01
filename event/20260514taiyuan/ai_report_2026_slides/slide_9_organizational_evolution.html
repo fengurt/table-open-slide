@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@200;300;400;600&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; background-color: #FFFFFF; color: #2C3E50; }
+        .slide-container {
+            width: 1280px;
+            min-height: 720px;
+            background: #FFFFFF;
+            position: relative;
+            padding: 80px 100px 0 100px;
+            display: flex;
+            flex-direction: column;
+        }
+        .chapter-anchor {
+            font-family: 'Playfair Display', serif;
+            font-weight: 900;
+            font-size: 20px;
+            color: #A88B52;
+            letter-spacing: 2px;
+            margin-bottom: 20px;
+        }
+        .chapter-anchor span {
+            font-family: 'Inter', sans-serif;
+            font-weight: 300;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            margin-left: 15px;
+        }
+        .main-title {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            font-size: 36px;
+            color: #0A1626;
+            margin-bottom: 50px;
+        }
+        .content-grid {
+            display: flex;
+            gap: 80px;
+            flex: 1;
+        }
+        .left-col {
+            flex: 1;
+        }
+        .right-col {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+        }
+        .section-title {
+            font-family: 'Inter', sans-serif;
+            font-weight: 600;
+            font-size: 14px;
+            color: #A88B52;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 30px;
+        }
+        .data-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+        .data-item {
+            border-top: 2px solid #E8E6E1;
+            padding-top: 20px;
+        }
+        .data-item.highlight {
+            border-top: 2px solid #A88B52;
+        }
+        .data-value {
+            font-family: 'Playfair Display', serif;
+            font-weight: 900;
+            font-size: 48px;
+            color: #0A1626;
+            margin-bottom: 10px;
+            line-height: 1;
+        }
+        .data-label {
+            font-family: 'Inter', sans-serif;
+            font-weight: 300;
+            font-size: 16px;
+            color: #2C3E50;
+            line-height: 1.5;
+        }
+        .accelerator-block {
+            position: relative;
+            padding-left: 30px;
+            border-left: 2px solid #A88B52;
+        }
+        .accelerator-title {
+            font-family: 'Inter', sans-serif;
+            font-weight: 600;
+            font-size: 18px;
+            color: #0A1626;
+            margin-bottom: 15px;
+        }
+        .accelerator-quote {
+            font-family: 'Inter', sans-serif;
+            font-weight: 300;
+            font-size: 20px;
+            color: #A88B52;
+            line-height: 1.6;
+            font-style: italic;
+        }
+        .decision-ref {
+            background-color: rgba(168, 139, 82, 0.05);
+            padding: 30px;
+            font-family: 'Inter', sans-serif;
+            font-weight: 300;
+            font-size: 15px;
+            color: #2C3E50;
+            line-height: 1.8;
+            border-left: 2px solid #0A1626;
+        }
+        .decision-title {
+            font-weight: 600;
+            color: #0A1626;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            font-size: 12px;
+            letter-spacing: 1px;
+        }
+        .decision-list {
+            list-style: none;
+        }
+        .decision-list li {
+            position: relative;
+            padding-left: 15px;
+            margin-bottom: 10px;
+        }
+        .decision-list li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 10px;
+            width: 4px;
+            height: 4px;
+            background-color: #A88B52;
+            border-radius: 50%;
+        }
+        .decision-highlight {
+            font-weight: 600;
+            color: #0A1626;
+        }
+    </style>
+</head>
+<body>
+    <div class="slide-container">
+        <div class="chapter-anchor">07 <span>Organizational Evolution</span></div>
+        <h1 class="main-title">人均产值高出 2.5 倍的，是重新定义工作流的企业</h1>
+        
+        <div class="content-grid">
+            <div class="left-col">
+                <div class="section-title">51 家样本企业人员变动分布</div>
+                <div class="data-grid">
+                    <div class="data-item">
+                        <div class="data-value">45%</div>
+                        <div class="data-label">实施了直接的员额缩减</div>
+                    </div>
+                    <div class="data-item">
+                        <div class="data-value">19%</div>
+                        <div class="data-label">选择停止新增招聘规模</div>
+                    </div>
+                    <div class="data-item highlight">
+                        <div class="data-value">17%</div>
+                        <div class="data-label">进行了内部岗位的全面重塑与转岗</div>
+                    </div>
+                    <div class="data-item">
+                        <div class="data-value">19%</div>
+                        <div class="data-label">保持原有规模不变</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="right-col">
+                <div class="accelerator-block">
+                    <div class="accelerator-title">加速器效应 (Accelerator Effect)</div>
+                    <div class="accelerator-quote">
+                        "55% 表现最优的成功企业，明确将系统定位为加速现有员工产出的引擎，而非替代人力的工具。"
+                    </div>
+                </div>
+                
+                <div class="decision-ref">
+                    <div class="decision-title">决策参考 / Decision Reference</div>
+                    <ul class="decision-list">
+                        <li>建立跨部门的人工智能卓越中心（Center of Excellence）。</li>
+                        <li>将人力资源的规划重点放在设计全新的岗位职责描述上。</li>
+                        <li>长期来看，应用系统重新定义工作流的企业，其人均产值比单纯实施减员的企业高出 <span class="decision-highlight">2.5 倍</span>。</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

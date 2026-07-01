@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;500;700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        .slide-container {
+            width: 1280px;
+            min-height: 720px;
+            background-color: #FFFFFF;
+            font-family: 'Noto Sans SC', sans-serif;
+            position: relative;
+            padding-top: 80px;
+        }
+        .header {
+            margin-left: 100px;
+            margin-right: 100px;
+            margin-bottom: 60px;
+        }
+        .title {
+            font-size: 32px;
+            color: #0A1626;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+        .subtitle {
+            font-size: 20px;
+            color: rgba(10, 22, 38, 0.6);
+            font-weight: 300;
+            margin-bottom: 15px;
+            letter-spacing: 1px;
+        }
+        .divider {
+            width: 80px;
+            height: 2px;
+            background-color: #A88B52;
+        }
+        .pillars-container {
+            display: flex;
+            justify-content: space-between;
+            margin-left: 100px;
+            margin-right: 100px;
+        }
+        .pillar {
+            width: 30%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .pillar-box {
+            width: 100%;
+            background-color: #0A1626;
+            border-top: 4px solid #A88B52;
+            padding: 40px 20px;
+            text-align: center;
+            height: 200px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .pillar-title {
+            font-size: 28px;
+            color: #FFFFFF;
+            font-weight: 700;
+            margin-bottom: 10px;
+            letter-spacing: 2px;
+        }
+        .pillar-eng {
+            font-size: 14px;
+            color: #A88B52;
+            font-weight: 300;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+        .pillar-desc {
+            margin-top: 30px;
+            font-size: 20px;
+            color: #0A1626;
+            font-weight: 300;
+            text-align: center;
+            line-height: 1.6;
+            letter-spacing: 1px;
+            padding: 0 10px;
+        }
+        .loop-container {
+            position: relative;
+            margin: 40px 100px 0 100px;
+            height: 100px;
+        }
+        .loop-line-v {
+            position: absolute;
+            width: 2px;
+            background-color: #A88B52;
+            height: 40px;
+            top: 0;
+        }
+        .loop-line-h {
+            position: absolute;
+            height: 2px;
+            background-color: #A88B52;
+            width: 70%;
+            left: 15%;
+            top: 40px;
+        }
+        .loop-label {
+            position: absolute;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #FFFFFF;
+            padding: 0 24px;
+            text-align: center;
+            z-index: 2;
+        }
+        .loop-label-main {
+            font-size: 20px;
+            color: #A88B52;
+            font-weight: 700;
+            letter-spacing: 2px;
+            margin-bottom: 4px;
+        }
+        .loop-label-sub {
+            font-size: 12px;
+            color: rgba(168, 139, 82, 0.8);
+            font-weight: 300;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+        .logo-watermark {
+            position: absolute;
+            bottom: 30px;
+            right: 40px;
+        }
+        .logo-watermark img {
+            width: 36px;
+            height: 36px;
+            object-fit: contain;
+            opacity: 0.3;
+        }
+    </style>
+</head>
+<body>
+    <div class="slide-container">
+        <div class="header">
+            <div class="title">核心业务版图 Business Landscape</div>
+            <div class="subtitle">"咨询指路·教育育人·科技落地"的完整闭环</div>
+            <div class="divider"></div>
+        </div>
+        
+        <div class="pillars-container">
+            <div class="pillar">
+                <div class="pillar-box">
+                    <div class="pillar-title">智库咨询</div>
+                    <div class="pillar-eng">Think Tank Consulting</div>
+                </div>
+                <div class="pillar-desc">赋能组织进化与基业长青</div>
+            </div>
+            <div class="pillar">
+                <div class="pillar-box">
+                    <div class="pillar-title">教育培训</div>
+                    <div class="pillar-eng">Education & Training</div>
+                </div>
+                <div class="pillar-desc">跨界融合与人才共创</div>
+            </div>
+            <div class="pillar">
+                <div class="pillar-box">
+                    <div class="pillar-title">科技应用</div>
+                    <div class="pillar-eng">Technology Application</div>
+                </div>
+                <div class="pillar-desc">让智慧落地生根</div>
+            </div>
+        </div>
+
+        <div class="loop-container">
+            <div class="loop-line-v" style="left: 15%;"></div>
+            <div class="loop-line-v" style="left: 50%; transform: translateX(-50%);"></div>
+            <div class="loop-line-v" style="right: 15%;"></div>
+            <div class="loop-line-h"></div>
+            <div class="loop-label">
+                <div class="loop-label-main">战略闭环</div>
+                <div class="loop-label-sub">Strategic Closed Loop</div>
+            </div>
+        </div>
+        <div class="logo-watermark"><img src="/home/ubuntu/table_ai_presentation/a2a_logo_dark.png" alt="Logo" /></div>
+    </div>
+</body>
+</html>

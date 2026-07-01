@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@800&family=Work+Sans:wght@400;600&family=JetBrains+Mono&display=swap" rel="stylesheet">
+    <style>
+      body { margin: 0; background: #0B0F19; }
+      .slide-container {
+        width: 1280px;
+        min-height: 720px;
+        background: #0B0F19;
+        color: #F1F5F9;
+        font-family: 'Work Sans', sans-serif;
+        display: flex;
+        position: relative;
+        overflow: hidden;
+      }
+      .left-panel {
+        width: 30%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding-left: 80px;
+        border-right: 1px solid rgba(56, 189, 248, 0.2);
+      }
+      .right-panel {
+        width: 70%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding-top: 48px;
+        padding-left: 60px;
+        padding-right: 80px;
+      }
+      .label-mono {
+        font-family: 'JetBrains Mono', monospace;
+        color: #38BDF8;
+        font-size: 18px;
+        margin-bottom: 10px;
+      }
+      .huge-title {
+        font-family: 'Inter', sans-serif;
+        font-weight: 800;
+        font-size: 100px;
+        line-height: 0.9;
+        color: #F1F5F9;
+        text-transform: uppercase;
+      }
+      .milestone-grid {
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+      }
+      .milestone-row {
+        display: flex;
+        align-items: center;
+        border-bottom: 1px solid rgba(203, 213, 225, 0.1);
+        padding-top: 20px;
+        padding-bottom: 20px;
+      }
+      .milestone-id {
+        font-family: 'JetBrains Mono', monospace;
+        color: #0EA5E9;
+        font-size: 20px;
+        width: 80px;
+        flex-shrink: 0;
+      }
+      .milestone-content {
+        flex-grow: 1;
+      }
+      .milestone-title {
+        font-family: 'Inter', sans-serif;
+        font-size: 24px;
+        font-weight: 700;
+        margin-bottom: 4px;
+      }
+      .milestone-desc {
+        font-size: 16px;
+        color: #CBD5E1;
+      }
+      .milestone-binary {
+        font-family: 'JetBrains Mono', monospace;
+        font-size: 14px;
+        color: #38BDF8;
+        background: rgba(56, 189, 248, 0.1);
+        padding: 8px 16px;
+        margin-left: 40px;
+        white-space: nowrap;
+      }
+      .deco-line {
+        position: absolute;
+        width: 100%;
+        height: 1px;
+        background: #0EA5E9;
+        top: 120px;
+        left: 0;
+        opacity: 0.2;
+      }
+    </style>
+</head>
+<body>
+    <div class="slide-container">
+        <div class="deco-line"></div>
+        <div class="left-panel">
+            <div class="label-mono">BINARY // GOALS</div>
+            <h2 class="huge-title">90<br>DAY<br>ROAD</h2>
+        </div>
+        <div class="right-panel">
+            <div class="milestone-grid">
+                <div class="milestone-row">
+                    <div class="milestone-id">#01</div>
+                    <div class="milestone-content">
+                        <div class="milestone-title">3 Enterprise Paid Deliveries</div>
+                        <div class="milestone-desc">Validating willingness to pay for "Expert Results" at 300k+ RMB.</div>
+                    </div>
+                    <div class="milestone-binary">[ BINARY: YES/NO ]</div>
+                </div>
+                <div class="milestone-row">
+                    <div class="milestone-id">#02</div>
+                    <div class="milestone-content">
+                        <div class="milestone-title">100 Exclusive Expert Signings</div>
+                        <div class="milestone-desc">Securing the supply side with exclusive IP authorization contracts.</div>
+                    </div>
+                    <div class="milestone-binary">[ BINARY: YES/NO ]</div>
+                </div>
+                <div class="milestone-row">
+                    <div class="milestone-id">#03</div>
+                    <div class="milestone-content">
+                        <div class="milestone-title">Hardware Prototype Delivery</div>
+                        <div class="milestone-desc">BOM &lt; 3000 RMB, validating the physical interaction experience.</div>
+                    </div>
+                    <div class="milestone-binary">[ BINARY: YES/NO ]</div>
+                </div>
+                <div class="milestone-row">
+                    <div class="milestone-id">#04</div>
+                    <div class="milestone-content">
+                        <div class="milestone-title">$2M Angel Funding Secured</div>
+                        <div class="milestone-desc">Capital market validation of the "Hardware-Software-Expert" model.</div>
+                    </div>
+                    <div class="milestone-binary">[ BINARY: YES/NO ]</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

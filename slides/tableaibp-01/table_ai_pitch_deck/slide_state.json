@@ -1,0 +1,324 @@
+{
+  "project_info": {
+    "title": "TABLE AI 泰博乐",
+    "created": 1778558888.4682693,
+    "last_updated": 1778561654.6826527,
+    "total_slides": 26
+  },
+  "slides": [
+    {
+      "id": "cover",
+      "state": "edited",
+      "pageNum": 1
+    },
+    {
+      "id": "letter",
+      "state": "edited",
+      "pageNum": 2
+    },
+    {
+      "id": "ultimate_pain",
+      "state": "edited",
+      "pageNum": 3
+    },
+    {
+      "id": "first_principles",
+      "state": "edited",
+      "pageNum": 4
+    },
+    {
+      "id": "worldview",
+      "state": "edited",
+      "pageNum": 5
+    },
+    {
+      "id": "pain_depth",
+      "state": "edited",
+      "pageNum": 6
+    },
+    {
+      "id": "ai_native_insight",
+      "state": "edited",
+      "pageNum": 7
+    },
+    {
+      "id": "timing",
+      "state": "edited",
+      "pageNum": 8
+    },
+    {
+      "id": "real_demand",
+      "state": "edited",
+      "pageNum": 9
+    },
+    {
+      "id": "tam_reconstruction",
+      "state": "edited",
+      "pageNum": 10
+    },
+    {
+      "id": "business_model",
+      "state": "edited",
+      "pageNum": 11
+    },
+    {
+      "id": "gtm_strategy",
+      "state": "edited",
+      "pageNum": 12
+    },
+    {
+      "id": "value_realization",
+      "state": "edited",
+      "pageNum": 13
+    },
+    {
+      "id": "flywheel",
+      "state": "edited",
+      "pageNum": 14
+    },
+    {
+      "id": "unit_economics",
+      "state": "edited",
+      "pageNum": 15
+    },
+    {
+      "id": "risk_topology",
+      "state": "edited",
+      "pageNum": 16
+    },
+    {
+      "id": "core_team",
+      "state": "edited",
+      "pageNum": 17
+    },
+    {
+      "id": "ceo_profile",
+      "state": "edited",
+      "pageNum": 18
+    },
+    {
+      "id": "ecosystem_partners_1",
+      "state": "edited",
+      "pageNum": 19
+    },
+    {
+      "id": "roadmap",
+      "state": "edited",
+      "pageNum": 20
+    },
+    {
+      "id": "revenue_engines",
+      "state": "edited",
+      "pageNum": 21
+    },
+    {
+      "id": "3_year_pnl",
+      "state": "edited",
+      "pageNum": 22
+    },
+    {
+      "id": "cash_flow",
+      "state": "edited",
+      "pageNum": 23
+    },
+    {
+      "id": "capital_filter",
+      "state": "edited",
+      "pageNum": 24
+    },
+    {
+      "id": "term_sheet",
+      "state": "edited",
+      "pageNum": 25
+    },
+    {
+      "id": "final_question",
+      "state": "edited",
+      "pageNum": 26
+    }
+  ],
+  "outline": [
+    {
+      "id": "cover",
+      "title": "TABLE AI 泰博乐",
+      "summary": "封面：TABLE AI 泰博乐，AI 时代的全球终身大学。善用 AI · 终获自由。商业计划书 v10 · 香港泰博乐科技有限公司 · 2026",
+      "image_plan": "",
+      "slide_template_key": ""
+    },
+    {
+      "id": "letter",
+      "title": "致投资人的一封信",
+      "summary": "致投资人的一封信：我们不寻找快钱，我们寻找同道。在 AI 重塑人类文明的关键节点，我们正在建立下一个百年的全球终身大学。",
+      "image_plan": "",
+      "slide_template_key": ""
+    },
+    {
+      "id": "ultimate_pain",
+      "title": "The Ultimate Human Pain",
+      "summary": "Address the ultimate human pain: how to survive, grow stronger, and achieve the ultimate joy of flow and growth. Shift focus from algorithm addiction to new hope and opportunities.",
+      "image_plan": "",
+      "slide_template_key": ""
+    },
+    {
+      "id": "first_principles",
+      "title": "第一性原理：人为什么学习？",
+      "summary": "第一性原理：旧教育由焦虑驱动，新教育由幸福感驱动。从神经学视角对比多巴胺、内啡肽、催产素在 TABLE AI 产品中的体现。",
+      "image_plan": "/home/ubuntu/project/v8_global_neuroscience.png - The image visually represents the 'First Principles' and the neurological perspective of learning, aligning with the slide's content on dopamine, endorphins, and oxytocin.",
+      "slide_template_key": ""
+    },
+    {
+      "id": "worldview",
+      "title": "我们的世界观",
+      "summary": "我们的世界观：AI 不是工具升级，是教育底层逻辑的重写。传统高校、专家、企业的死局，以及 TABLE AI 基于真实商业项目无界网络的解法。",
+      "image_plan": "",
+      "slide_template_key": ""
+    },
+    {
+      "id": "pain_depth",
+      "title": "I1 · 痛点深度",
+      "summary": "I1 · 痛点深度：顶尖专家的判断力，是 AI 时代最被低估的稀缺资产。通过 Service-as-a-Software 检验，交付确权后的专家 Agent 与真实商业成果。",
+      "image_plan": "",
+      "slide_template_key": ""
+    },
+    {
+      "id": "ai_native_insight",
+      "title": "I2 · AI 原生洞察",
+      "summary": "I2 · AI 原生洞察：LLM 第一次让判断力可以被代码化为带产权的资产。对比前 LLM 时代与 LLM 时代经验传承机制的边际成本与产权。",
+      "image_plan": "",
+      "slide_template_key": ""
+    },
+    {
+      "id": "timing",
+      "title": "T1 · 入场时机",
+      "summary": "T1 · 入场时机：技术与社会两条曲线在 2026 年同步收敛。Multi-Agent 技术成熟，全球脑力劳动者面临意义危机，高净值人群急需传承解决方案。",
+      "image_plan": "",
+      "slide_template_key": ""
+    },
+    {
+      "id": "real_demand",
+      "title": "Real Demand and Capital Comparables",
+      "summary": "Cite WEF, McKinsey, Goldman Sachs data points to validate the demand for AI-native learning and collaboration; reference Multiverse, Eightfold AI, Sana Labs as capital market comparables.",
+      "image_plan": "",
+      "slide_template_key": ""
+    },
+    {
+      "id": "tam_reconstruction",
+      "title": "R1 · 市场重构",
+      "summary": "R1 · 市场重构：我们不在千亿培训市场，我们在 5 万亿协作经济。重构后的 TAM = (全球高校学费 + 猎头佣金 + 早期创业起盘成本) × AI Agent 渗透率。",
+      "image_plan": "",
+      "slide_template_key": ""
+    },
+    {
+      "id": "business_model",
+      "title": "Simplified Business Model",
+      "summary": "A 3-layer architecture: Top (Traditional organizations transforming), Middle (Growth Facilitators / Delivery Partners), Bottom (Agents + Single-layer points + Settlement). Transitioning the old world into the new Da Vinci-style integrated world of TABLE AI.",
+      "image_plan": "",
+      "slide_template_key": ""
+    },
+    {
+      "id": "gtm_strategy",
+      "title": "R2 · GTM 策略",
+      "summary": "R2 · GTM 策略：双侧 GTM——供给侧 PLG，需求侧 Sales-led。供给侧通过 Impact 与 Legacy 动机吸引专家，需求侧通过合伙人矩阵切入高净值渠道。",
+      "image_plan": "",
+      "slide_template_key": ""
+    },
+    {
+      "id": "value_realization",
+      "title": "R3 · 价值实现",
+      "summary": "R3 · 价值实现：法币结算外部世界，PTS 锚定内部价值。企业客户法币结算，专家与学生通过 PTS 积分结算，精确奖励做有价值事的人。",
+      "image_plan": "/home/ubuntu/project/v6_architecture.png - The image depicts the dual currency system and the flow of value between enterprise clients and experts/students, directly illustrating the slide's core concept of '法币结算外部世界，PTS 锚定内部价值'.",
+      "slide_template_key": ""
+    },
+    {
+      "id": "flywheel",
+      "title": "U2 · 飞轮效应",
+      "summary": "U2 · 飞轮效应：四步闭环，每一圈都让网络更不可替代。真实订单吸引学生，学生吸引专家，专家沉淀 Agent 资产，资产拿下更高难度订单。",
+      "image_plan": "/home/ubuntu/project/v7_worldview.png - The image visually represents the 'Ultimate Flywheel' with its four steps, directly corresponding to the slide's explanation of the flywheel effect.",
+      "slide_template_key": ""
+    },
+    {
+      "id": "unit_economics",
+      "title": "S1 · 单位经济",
+      "summary": "S1 · 单位经济：极简架构带来极佳的单位经济。极低 CAC、极高 LTV，LTV/CAC 达 44x，综合毛利率 55-65%，回收周期小于 6 个月。",
+      "image_plan": "",
+      "slide_template_key": ""
+    },
+    {
+      "id": "risk_topology",
+      "title": "S3 · 风险图谱",
+      "summary": "S3 · 风险图谱：四维风险，已逐项主动设防。分析基础模型依赖、监管合规、客户集中度、关键人风险，并提出 TABLE AI 的主动对冲策略。",
+      "image_plan": "",
+      "slide_template_key": ""
+    },
+    {
+      "id": "core_team",
+      "title": "T1 · 核心团队",
+      "summary": "T1 · 核心团队：罕见的 AI 原生 + 顶尖学术 + 全球商业实战三位一体。郭峰、俞勇、周健三位核心成员的背景与角色。",
+      "image_plan": "",
+      "slide_template_key": ""
+    },
+    {
+      "id": "ceo_profile",
+      "title": "CEO Profile",
+      "summary": "Detailed profile of CEO Guo Feng focusing on his cross-domain expertise and fit for TABLE AI",
+      "image_plan": "/home/ubuntu/project/table_ai_pitch_deck/assets/ceo_guofeng.png",
+      "slide_template_key": ""
+    },
+    {
+      "id": "ecosystem_partners_1",
+      "title": "T1 · 生态合伙人矩阵 I",
+      "summary": "T1 · 生态合伙人矩阵 I：四大场景，16 位顶级合伙人就位。跨界与出海课堂、个体赋能与家庭课堂的合伙人名单及职责。",
+      "image_plan": "",
+      "slide_template_key": ""
+    },
+    {
+      "id": "roadmap",
+      "title": "T2 · 36 个月路线图",
+      "summary": "T2 · 36 个月路线图：三阶段，从冷启动到全球协议。基建与冷启动、网络规模化、生态涌现三个阶段的资本需求与里程碑。",
+      "image_plan": "",
+      "slide_template_key": ""
+    },
+    {
+      "id": "revenue_engines",
+      "title": "财务模型 · 收入引擎",
+      "summary": "财务模型 · 收入引擎：3 大引擎驱动，结构化收入组合。Platform Subscription、Expert Delivery、Certification & IP 三大引擎的业务形态、占比与毛利率。",
+      "image_plan": "",
+      "slide_template_key": ""
+    },
+    {
+      "id": "3_year_pnl",
+      "title": "财务模型 · 三年损益预测",
+      "summary": "财务模型 · 三年损益预测：Y3 收入 $8M，毛利 $4.8M，单月经营性现金流转正于 M14。三年 P&L 预测表及 EBITDA 分析。",
+      "image_plan": "/home/ubuntu/project/cash_chart.png - The image is a 36-month cash balance projection chart, directly illustrating the financial model and 3-year P&L.",
+      "slide_template_key": ""
+    },
+    {
+      "id": "cash_flow",
+      "title": "财务模型 · 36 个月现金流",
+      "summary": "财务模型 · 36 个月现金流：现金低点 $117K @ M27，单月转正于 M14。关键现金流指标与简化季度现金流表。",
+      "image_plan": "",
+      "slide_template_key": ""
+    },
+    {
+      "id": "capital_filter",
+      "title": "资本筛选器",
+      "summary": "资本筛选器：我们主动筛选投资人，因为同道比金钱更稀缺。拒绝纯财务 VC 与对赌 PE，寻找家族办公室、主权基金与长期主义资本。",
+      "image_plan": "",
+      "slide_template_key": ""
+    },
+    {
+      "id": "term_sheet",
+      "title": "Term Sheet 核心条款",
+      "summary": "Term Sheet 核心条款：股权 + PTS 双重资产，告别脆弱对赌。本轮融资、估值、资产组合、回购权、董事会等核心条款。",
+      "image_plan": "",
+      "slide_template_key": ""
+    },
+    {
+      "id": "final_question",
+      "title": "终极叩问",
+      "summary": "终极叩问：传统大学是避风港，TABLE AI 是 AI 时代人类一生的竞技场。投资下一个百年的常春藤联盟。底部联系方式。",
+      "image_plan": "",
+      "slide_template_key": ""
+    }
+  ]
+}

@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;500;700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        .slide-container {
+            width: 1280px;
+            min-height: 720px;
+            background-color: #FFFFFF;
+            font-family: 'Noto Sans SC', sans-serif;
+            position: relative;
+            padding-top: 80px;
+        }
+        .header {
+            margin-left: 100px;
+            margin-right: 100px;
+            margin-bottom: 50px;
+        }
+        .title {
+            font-size: 32px;
+            color: #0A1626;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+        .subtitle {
+            font-size: 20px;
+            color: rgba(10, 22, 38, 0.6);
+            font-weight: 300;
+            margin-bottom: 15px;
+            letter-spacing: 1px;
+        }
+        .divider {
+            width: 80px;
+            height: 2px;
+            background-color: #A88B52;
+        }
+.diagram-container {
+            width: 1080px;
+            height: 320px;
+            position: relative;
+            margin: 0 auto;
+        }
+/* Horizontal Line */
+        .main-line {
+            position: absolute;
+            top: 149px;
+            left: 0;
+            width: 1050px;
+            height: 2px;
+            background-color: #0A1626;
+        }
+        .main-arrow {
+            position: absolute;
+            top: 145px;
+            left: 1050px;
+            width: 0;
+            height: 0;
+            border-top: 5px solid transparent;
+            border-bottom: 5px solid transparent;
+            border-left: 8px solid #0A1626;
+        }
+/* Nodes */
+        .node {
+            position: absolute;
+            top: 138px;
+            width: 24px;
+            height: 24px;
+            border: 2px solid #A88B52;
+            background-color: #FFFFFF;
+            border-radius: 50%;
+            z-index: 10;
+        }
+        .node-1 { left: 123px; }
+        .node-2 { left: 393px; }
+        .node-3 { left: 663px; }
+        .node-4 { left: 933px; }
+/* Vertical Lines */
+        .v-line {
+            position: absolute;
+            width: 2px;
+            background-color: #A88B52;
+            z-index: 5;
+        }
+        .v-line-top { top: 108px; height: 30px; }
+        .v-line-bottom { top: 162px; height: 30px; }
+        .v-line-1 { left: 134px; }
+        .v-line-2 { left: 404px; }
+        .v-line-3 { left: 674px; }
+        .v-line-4 { left: 944px; }
+/* Dots */
+        .dot {
+            position: absolute;
+            width: 6px;
+            height: 6px;
+            background-color: #A88B52;
+            border-radius: 50%;
+            z-index: 6;
+        }
+        .dot-top { top: 106px; }
+        .dot-bottom { top: 190px; }
+        .dot-1 { left: 132px; }
+        .dot-2 { left: 402px; }
+        .dot-3 { left: 672px; }
+        .dot-4 { left: 942px; }
+/* Text Boxes */
+        .text-box {
+            position: absolute;
+            width: 220px;
+            text-align: center;
+        }
+        .box-top { top: 10px; }
+        .box-bottom { top: 200px; }
+        .box-1 { left: 25px; }
+        .box-2 { left: 295px; }
+        .box-3 { left: 565px; }
+        .box-4 { left: 835px; }
+.step-num {
+            font-size: 36px;
+            color: #A88B52;
+            font-weight: 700;
+            margin-bottom: 5px;
+            line-height: 1;
+            letter-spacing: 2px;
+        }
+        .step-title {
+            font-size: 20px;
+            color: #0A1626;
+            font-weight: 500;
+            margin-bottom: 5px;
+            letter-spacing: 1px;
+        }
+        .step-sub {
+            font-size: 14px;
+            color: rgba(10, 22, 38, 0.6);
+            font-weight: 300;
+            line-height: 1.4;
+        }
+/* Insight */
+        .insight-container {
+            margin-left: 100px;
+            margin-right: 100px;
+            margin-top: 40px;
+            border-left: 2px solid #A88B52;
+            padding-left: 20px;
+        }
+        .insight-text {
+            font-size: 20px;
+            color: #0A1626;
+            font-weight: 300;
+            line-height: 1.6;
+            letter-spacing: 1px;
+        }
+        .logo-watermark {
+            position: absolute;
+            bottom: 30px;
+            right: 40px;
+        }
+        .logo-watermark img {
+            width: 36px;
+            height: 36px;
+            object-fit: contain;
+            opacity: 0.3;
+        }
+    </style>
+</head>
+<body><div class="slide-container">
+        <div class="header">
+            <div class="title">智慧传承：化隐性经验为时代资产</div>
+            <div class="subtitle">Digitizing Tacit Knowledge into Era Assets</div>
+            <div class="divider"></div>
+        </div>
+<div class="diagram-container">
+            <!-- Main Line -->
+            <div class="main-line"></div>
+            <div class="main-arrow"></div>
+<!-- Nodes -->
+            <div class="node node-1"></div>
+            <div class="node node-2"></div>
+            <div class="node node-3"></div>
+            <div class="node node-4"></div>
+<!-- Vertical Lines -->
+            <div class="v-line v-line-top v-line-1"></div>
+            <div class="v-line v-line-bottom v-line-2"></div>
+            <div class="v-line v-line-top v-line-3"></div>
+            <div class="v-line v-line-bottom v-line-4"></div>
+<!-- Dots -->
+            <div class="dot dot-top dot-1"></div>
+            <div class="dot dot-bottom dot-2"></div>
+            <div class="dot dot-top dot-3"></div>
+            <div class="dot dot-bottom dot-4"></div>
+<!-- Text Boxes -->
+            <div class="text-box box-top box-1">
+                <div class="step-num">01</div>
+                <div class="step-title">隐性经验识别</div>
+                <div class="step-sub">Tacit Knowledge<br>Identification</div>
+            </div>
+<div class="text-box box-bottom box-2">
+                <div class="step-num">02</div>
+                <div class="step-title">数字化解剖与萃取</div>
+                <div class="step-sub">Digital<br>Extraction</div>
+            </div>
+<div class="text-box box-top box-3">
+                <div class="step-num">03</div>
+                <div class="step-title">专家智能体构建</div>
+                <div class="step-sub">Expert Agent<br>Building</div>
+            </div>
+<div class="text-box box-bottom box-4">
+                <div class="step-num">04</div>
+                <div class="step-title">规模化传承与应用</div>
+                <div class="step-sub">Scalable Legacy<br>&amp; Application</div>
+            </div>
+        </div>
+<div class="insight-container" style="transform: translate(0px, 10.2275px);">
+            <div class="insight-text" style="width: 1100.1px; min-width: 1100.1px; max-width: 1100.1px; transform: translate(0px, 0px);">各领域最宝贵的财富是专家脑海中无法轻易言传的“默会知识”。TABLE AI将其转化为可计算、可追溯的数字资产。</div>
+        </div>
+        <div class="logo-watermark"><img src="/home/ubuntu/table_ai_presentation/a2a_logo_dark.png" alt="Logo"></div>
+    </div>
+</body>
+</html>

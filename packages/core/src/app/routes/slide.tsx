@@ -28,6 +28,8 @@ import { useFolders } from '@/lib/folders';
 import { useLocale } from '@/lib/use-locale';
 import { useWheelPageNavigation } from '@/lib/use-wheel-page-navigation';
 import { cn } from '@/lib/utils';
+import type { ContentLocaleId } from '../../config.ts';
+import { useSlideContentContext } from '../../content/content-context.tsx';
 import { ClickNavZones } from '../components/click-nav-zones';
 import { PdfProgressToast } from '../components/pdf-progress-toast';
 import { Player } from '../components/player';
@@ -51,6 +53,7 @@ export function Slide() {
   const { renameSlide } = useFolders();
   const slideViewportRef = useRef<HTMLElement>(null);
   const t = useLocale();
+  const contentCtx = useSlideContentContext();
 
   useEffect(() => {
     let cancelled = false;
@@ -323,6 +326,24 @@ export function Slide() {
               )}
               {view === 'slides' && (
                 <DesignToggleButton active={designOpen} onToggle={() => setDesignOpen((v) => !v)} />
+              )}
+              {view === 'slides' && contentCtx && (
+                <label
+                  className="mr-1 flex items-center gap-1 text-[11px] text-muted-foreground"
+                  data-inspector-ui
+                >
+                  <span className="hidden lg:inline">Locale</span>
+                  <select
+                    className="max-w-[5.5rem] rounded border border-hairline bg-background px-1 py-0.5 font-mono text-[10px]"
+                    value={contentCtx.locale}
+                    onChange={(e) => contentCtx.setLocale(e.target.value as ContentLocaleId)}
+                  >
+                    <option value="en">en</option>
+                    <option value="zh-CN">zh-CN</option>
+                    <option value="zh-TW">zh-TW</option>
+                    <option value="ja">ja</option>
+                  </select>
+                </label>
               )}
               {view === 'slides' && <InspectToggleButton />}
               <span aria-hidden className="mx-0.5 hidden h-5 w-px bg-hairline md:block" />

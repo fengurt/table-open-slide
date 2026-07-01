@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@800&family=Work+Sans:wght@400;600&family=JetBrains+Mono&display=swap" rel="stylesheet">
+    <style>
+      body { margin: 0; background: #0B0F19; }
+      .slide-container {
+        width: 1280px;
+        min-height: 720px;
+        background: #0B0F19;
+        color: #F1F5F9;
+        font-family: 'Work Sans', sans-serif;
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        overflow: hidden;
+      }
+      .header-section {
+        padding-top: 48px;
+        padding-left: 80px;
+        width: 100%;
+      }
+      .title-label {
+        color: #38BDF8;
+        font-family: 'JetBrains Mono', monospace;
+        font-size: 18px;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        margin-bottom: 10px;
+      }
+      .main-title {
+        font-family: 'Inter', sans-serif;
+        font-weight: 800;
+        font-size: 56px;
+        line-height: 1.1;
+      }
+      .pillars-container {
+        display: flex;
+        justify-content: space-between;
+        padding-top: 44px;
+        padding-left: 80px;
+        padding-right: 80px;
+        gap: 40px;
+      }
+      .pillar-card {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+      }
+      .pillar-num {
+        font-family: 'Inter', sans-serif;
+        font-weight: 800;
+        font-size: 96px;
+        color: #0EA5E9;
+        line-height: 0.8;
+        margin-bottom: 20px;
+      }
+      .pillar-box {
+        border-top: 4px solid #38BDF8;
+        padding-top: 20px;
+      }
+      .pillar-title {
+        font-size: 28px;
+        font-weight: 700;
+        margin-bottom: 15px;
+        color: #F1F5F9;
+      }
+      .pillar-desc {
+        font-size: 18px;
+        color: #CBD5E1;
+        line-height: 1.6;
+      }
+      .deco-square {
+        position: absolute;
+        width: 200px;
+        height: 200px;
+        border: 2px solid rgba(56, 189, 248, 0.1);
+        bottom: 40px;
+        right: 40px;
+      }
+    </style>
+</head>
+<body>
+    <div class="slide-container">
+        <div class="deco-square"></div>
+        <div class="header-section">
+            <div class="title-label">Strategic Framework</div>
+            <h1 class="main-title">The KiND Solution:<br>Three Pillars</h1>
+        </div>
+        <div class="pillars-container">
+            <div class="pillar-card">
+                <div class="pillar-num">01</div>
+                <div class="pillar-box">
+                    <div class="pillar-title">Hardware-Software Integration</div>
+                    <div class="pillar-desc">Tangible presence that lowers decision barriers and creates a seamless interaction layer beyond standard SaaS.</div>
+                </div>
+            </div>
+            <div class="pillar-card">
+                <div class="pillar-num">02</div>
+                <div class="pillar-box">
+                    <div class="pillar-title">Expert Deep Mentorship</div>
+                    <div class="pillar-desc">Moving beyond tools to active guidance, backed by real expert oversight and the OPC Global network.</div>
+                </div>
+            </div>
+            <div class="pillar-card">
+                <div class="pillar-num">03</div>
+                <div class="pillar-box">
+                    <div class="pillar-title">Result Delivery</div>
+                    <div class="pillar-desc">We don't sell features; we deliver business outcomes in marketing, sales, and consulting with measurable ROI.</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

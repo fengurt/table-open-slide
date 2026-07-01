@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500&family=Noto+Serif+SC:wght@700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        .slide-container {
+            width: 1280px;
+            min-height: 720px;
+            background: #FFFFFF;
+            position: relative;
+            font-family: 'Noto Sans SC', sans-serif;
+            color: #1A2B4C;
+            overflow: hidden;
+        }
+        .header {
+            position: absolute;
+            top: 70px;
+            left: 120px;
+            width: 1040px;
+        }
+        .header-title {
+            font-family: 'Noto Serif SC', serif;
+            font-size: 40px;
+            color: #0A1626;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+        .content-wrapper {
+            position: absolute;
+            top: 150px;
+            left: 120px;
+            width: 1040px;
+            display: flex;
+            justify-content: space-between;
+        }
+        .column {
+            width: 480px;
+            padding: 30px;
+            background: #FFFFFF;
+        }
+        .col-left {
+            border: 1px solid #0A1626;
+        }
+        .col-right {
+            border: 1px solid #A88B52;
+        }
+        .col-title {
+            font-family: 'Noto Serif SC', serif;
+            font-size: 28px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .col-left .col-title {
+            color: #0A1626;
+        }
+        .col-right .col-title {
+            color: #A88B52;
+        }
+        .list-item {
+            font-size: 18px;
+            line-height: 1.6;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: flex-start;
+        }
+        .col-left .list-item::before {
+            content: "·";
+            color: #0A1626;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+        .col-right .list-item::before {
+            content: "·";
+            color: #A88B52;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+        .cost-box {
+            margin-top: 25px;
+            padding-top: 15px;
+            font-size: 20px;
+            font-weight: 500;
+            text-align: center;
+        }
+        .col-left .cost-box {
+            border-top: 1px solid rgba(10, 22, 38, 0.2);
+            color: #0A1626;
+        }
+        .col-right .cost-box {
+            border-top: 1px solid rgba(168, 139, 82, 0.4);
+            color: #A88B52;
+        }
+        .footer-bar {
+            position: absolute;
+            bottom: 40px;
+            left: 120px;
+            width: 1040px;
+            border-top: 1px solid #A88B52;
+            padding-top: 15px;
+            font-size: 16px;
+            color: #0A1626;
+            letter-spacing: 1px;
+            text-align: center;
+        }
+        .accent-bg {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 400px;
+            height: 100%;
+            background: rgba(168, 139, 82, 0.03);
+            z-index: 0;
+        }
+        .content-wrapper, .header, .footer-bar {
+            z-index: 1;
+        }
+    </style>
+</head>
+<body>
+    <div class="slide-container">
+        <div class="accent-bg"></div>
+        
+        <div class="header">
+            <div class="header-title">一个带 AI 的超级个体，正在跑赢一支 5 人团队</div>
+        </div>
+        
+        <div class="content-wrapper">
+            <div class="column col-left">
+                <div class="col-title">传统 5 人团队</div>
+                <div class="list-item">1 人写报告</div>
+                <div class="list-item">1 人做数据</div>
+                <div class="list-item">1 人客服</div>
+                <div class="list-item">1 人合同</div>
+                <div class="list-item">1 人行政</div>
+                <div class="cost-box">月成本：约 10 – 15 万元</div>
+            </div>
+            
+            <div class="column col-right">
+                <div class="col-title">1 个带 AI 的超级个体</div>
+                <div class="list-item">报告：AI 辅助，2 小时完成</div>
+                <div class="list-item">数据：AI 分析，实时输出</div>
+                <div class="list-item">客服：AI Agent，7×24 小时</div>
+                <div class="list-item">合同：AI 初审，律师复核</div>
+                <div class="list-item">行政：AI 日程 + 会议纪要</div>
+                <div class="cost-box">月成本：1 人薪资 + AI 订阅<br>（约 500–2 000 元 / 月）</div>
+            </div>
+        </div>
+        
+        <div class="footer-bar">
+            制造业 AI 视觉质检：质检效率 +300%，人工成本 −60% — 行业调研，2025
+        </div>
+    </div>
+</body>
+</html>

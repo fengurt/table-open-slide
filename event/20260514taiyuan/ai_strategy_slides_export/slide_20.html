@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500&family=Noto+Serif+SC:wght@700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        .slide-container {
+            width: 1280px;
+            min-height: 720px;
+            background: #FFFFFF;
+            position: relative;
+            font-family: 'Noto Sans SC', sans-serif;
+            color: #1A2B4C;
+            overflow: hidden;
+        }
+        .header {
+            position: absolute;
+            top: 60px;
+            left: 120px;
+            width: 1040px;
+        }
+        .header-title {
+            font-family: 'Noto Serif SC', serif;
+            font-size: 36px;
+            color: #0A1626;
+            font-weight: 700;
+            letter-spacing: 1px;
+            margin-bottom: 15px;
+        }
+        .header-line {
+            width: 60px;
+            height: 2px;
+            background: #A88B52;
+        }
+        .content-wrapper {
+            position: absolute;
+            top: 160px;
+            left: 120px;
+            width: 1040px;
+            display: flex;
+            justify-content: space-between;
+        }
+        .column {
+            width: 480px;
+            border-top: 1px solid #0A1626;
+            padding-top: 20px;
+        }
+        .col-right {
+            border-top: 1px solid #A88B52;
+        }
+        .col-title {
+            font-family: 'Noto Serif SC', serif;
+            font-size: 22px;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+        .col-left .col-title {
+            color: #0A1626;
+        }
+        .col-right .col-title {
+            color: #A88B52;
+        }
+        .section {
+            margin-bottom: 20px;
+        }
+        .section-title {
+            font-size: 16px;
+            color: #A88B52;
+            font-weight: 500;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .section-text {
+            font-size: 16px;
+            line-height: 1.6;
+            color: #1A2B4C;
+            font-weight: 300;
+        }
+        .list-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 8px;
+        }
+        .bullet {
+            color: #A88B52;
+            margin-right: 10px;
+            font-size: 16px;
+        }
+        .result-box {
+            margin-top: 20px;
+            padding-top: 15px;
+            border-top: 1px dashed rgba(10, 22, 38, 0.2);
+            font-size: 16px;
+            line-height: 1.6;
+            color: #0A1626;
+            font-weight: 500;
+        }
+        .quote-wrapper {
+            position: absolute;
+            bottom: 50px;
+            left: 120px;
+            width: 1040px;
+            text-align: center;
+        }
+        .quote-text {
+            font-family: 'Noto Serif SC', serif;
+            font-size: 28px;
+            color: #A88B52;
+            font-weight: 700;
+            letter-spacing: 2px;
+        }
+        .accent-bg {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 300px;
+            height: 100%;
+            background: linear-gradient(to left, rgba(168, 139, 82, 0.03), transparent);
+            z-index: 0;
+        }
+        .header, .content-wrapper, .quote-wrapper {
+            z-index: 1;
+        }
+    </style>
+</head>
+<body>
+    <div class="slide-container">
+        <div class="accent-bg"></div>
+        
+        <div class="header">
+            <div class="header-title">服务降本可复制，"为 AI 而 AI"会翻车</div>
+            <div class="header-line"></div>
+        </div>
+        
+        <div class="content-wrapper">
+            <div class="column col-left">
+                <div class="col-title">案例 D · 企业服务 AI 降本（可借鉴）</div>
+                
+                <div class="section">
+                    <div class="section-title">背景与痛点</div>
+                    <div class="section-text">某大宗商品贸易企业（国内典型综合）<br>报价慢、合同多、客服重复占人力</div>
+                </div>
+                
+                <div class="section">
+                    <div class="section-title">AI 三步走</div>
+                    <div class="list-item">
+                        <div class="bullet">■</div>
+                        <div class="section-text">智能报价系统：接入市场实时数据，自动生成报价单</div>
+                    </div>
+                    <div class="list-item">
+                        <div class="bullet">■</div>
+                        <div class="section-text">AI 合同初审：识别不合规条款，降低法务风险</div>
+                    </div>
+                    <div class="list-item">
+                        <div class="bullet">■</div>
+                        <div class="section-text">智能客服：常见问题 AI 回复，复杂问题转人工</div>
+                    </div>
+                </div>
+                
+                <div class="result-box">
+                    结果：销售人效 +40–50%，合同纠纷率 −30%，客服可减 60%
+                </div>
+            </div>
+            
+            <div class="column col-right">
+                <div class="col-title">案例 E · 警示："为 AI 而 AI"（踩坑类）</div>
+                
+                <div class="section">
+                    <div class="section-title">背景与过程</div>
+                    <div class="section-text">某传统制造企业，2023 年投入 300 万做"AI 数字化转型"</div>
+                    <div class="list-item" style="margin-top: 8px;">
+                        <div class="bullet">■</div>
+                        <div class="section-text">引入知名服务商，签 3 年合同</div>
+                    </div>
+                    <div class="list-item">
+                        <div class="bullet">■</div>
+                        <div class="section-text">系统上线后业务不用，IT 维护成本高</div>
+                    </div>
+                    <div class="list-item">
+                        <div class="bullet">■</div>
+                        <div class="section-text">18 个月后 COO 认为无法量化 ROI，项目停止</div>
+                    </div>
+                </div>
+                
+                <div class="section">
+                    <div class="section-title">失败根因</div>
+                    <div class="list-item">
+                        <div class="bullet">■</div>
+                        <div class="section-text">决策者没参与需求定义，买的是供应商的标准方案</div>
+                    </div>
+                    <div class="list-item">
+                        <div class="bullet">■</div>
+                        <div class="section-text">没有内部 AI 推动者：老板拍板、IT 执行、业务抵触</div>
+                    </div>
+                    <div class="list-item">
+                        <div class="bullet">■</div>
+                        <div class="section-text">没有"最小可验证"阶段，直接上大项目</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="quote-wrapper">
+            <div class="quote-text">"AI 项目失败，不是 AI 的问题，是决策的问题。"</div>
+        </div>
+    </div>
+</body>
+</html>

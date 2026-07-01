@@ -1,0 +1,793 @@
+<!DOCTYPE html>
+<html lang='zh-CN'>
+<head>
+    <meta charset='UTF-8'>
+    <title>董家大院天坛项目沟通蓝图</title>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js'></script>
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css'>
+    <style>
+        :root {
+            --bg-color: #F9F8F6;
+            --text-main: #2C2C2C;
+            --text-muted: #5A5A5A;
+            --border-color: #DCD8D3;
+            --accent-color: #8C7B66;
+            --accent-light: #D4C9BD;
+            --card-bg: #FFFFFF;
+            --grid-gap: 0;
+        }
+
+        body {
+            background-color: #EBEBEB;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            margin: 0;
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            color: var(--text-main);
+        }
+
+        .toolbar {
+            width: 1587px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            background: #FFF;
+            padding: 15px 25px;
+            border-radius: 8px;
+            box-sizing: border-box;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+
+        .export-actions {
+            display: flex;
+            gap: 15px;
+        }
+
+        .btn-export {
+            background-color: var(--text-main);
+            color: #FFF;
+            border: none;
+            padding: 12px 24px;
+            font-size: 14px;
+            cursor: pointer;
+            border-radius: 4px;
+            transition: background 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-export:hover {
+            background-color: var(--accent-color);
+        }
+
+        .instruction {
+            font-size: 14px;
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+
+        /* A3 Landscape Dimension at 96 DPI: 1587px x 1122px */
+        .a3-canvas {
+            width: 1587px;
+            height: 1122px;
+            background-color: var(--bg-color);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            padding: 52px 56px;
+            box-sizing: border-box;
+            position: relative;
+            margin-bottom: 40px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 24px;
+            border-bottom: 2px solid var(--text-main);
+            padding-bottom: 12px;
+            flex-shrink: 0;
+        }
+
+        .header h1 {
+            font-size: 32px;
+            font-weight: 600;
+            letter-spacing: 2px;
+            margin: 0 0 10px 0;
+            outline: none;
+        }
+
+        .header p {
+            font-size: 15px;
+            color: var(--text-muted);
+            margin: 0;
+            letter-spacing: 1px;
+            outline: none;
+            font-weight: 500;
+        }
+
+        /* 页面1：表格样式 */
+        .blueprint-grid {
+            display: grid;
+            grid-template-columns: 1.45fr 0.95fr 0.95fr 2.65fr;
+            grid-template-rows: repeat(8, minmax(0, 1fr));
+            border-top: 1px solid var(--border-color);
+            border-left: 1px solid var(--border-color);
+            flex: 1;
+            min-height: 0;
+        }
+
+        .grid-header {
+            background-color: #EAE6DF;
+            font-weight: 600;
+            font-size: 15px;
+            text-align: center;
+            padding: 12px;
+            border-right: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--border-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .grid-cell {
+            padding: 10px 12px;
+            font-size: 12px;
+            line-height: 1.45;
+            border-right: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--border-color);
+            outline: none;
+            transition: background 0.2s ease;
+            overflow-x: hidden;
+            overflow-y: auto;
+            min-height: 0;
+            word-break: break-word;
+            overflow-wrap: anywhere;
+        }
+
+        .grid-cell:focus {
+            background-color: #FFF;
+        }
+
+        .grid-cell strong {
+            color: var(--accent-color);
+            font-weight: 600;
+        }
+
+        .icon-box {
+            display: flex;
+            align-items: center;
+            margin-bottom: 8px;
+            font-weight: 600;
+            font-size: 14px;
+            color: var(--accent-color);
+        }
+
+        .icon-box i {
+            margin-right: 8px;
+            font-size: 16px;
+        }
+
+        ul {
+            margin: 6px 0 0 0;
+            padding-left: 18px;
+        }
+
+        li {
+            margin-bottom: 4px;
+        }
+
+        .grid-cell ul {
+            padding-left: 16px;
+        }
+
+        .grid-cell li:last-child {
+            margin-bottom: 0;
+        }
+
+        /* 页面2：信息图表样式 */
+        .info-dashboard {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: minmax(0, 0.42fr) minmax(0, 0.58fr);
+            gap: 18px;
+            flex: 1;
+            min-height: 0;
+        }
+
+        .info-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 18px 20px;
+            display: flex;
+            flex-direction: column;
+            min-height: 0;
+            overflow: hidden;
+        }
+
+        .info-card-full {
+            grid-column: span 3;
+            display: grid;
+            grid-template-columns: 1fr 1.45fr;
+            gap: 22px;
+            min-height: 0;
+            overflow: hidden;
+        }
+
+        .info-card-full > div {
+            min-height: 0;
+            overflow-y: auto;
+            overflow-x: hidden;
+            padding-right: 4px;
+        }
+
+        .card-title {
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--text-main);
+            margin-bottom: 14px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            border-bottom: 1px solid #EEE;
+            padding-bottom: 8px;
+            flex-shrink: 0;
+            line-height: 1.3;
+        }
+
+        .card-title i {
+            color: var(--accent-color);
+        }
+
+        /* 数据卡片 */
+        .stat-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            flex: 1;
+            min-height: 0;
+        }
+
+        .stat-item {
+            background: #F9F8F6;
+            padding: 12px 8px;
+            border-radius: 6px;
+            text-align: center;
+            border: 1px solid #EFEFEF;
+            min-height: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .stat-num {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--accent-color);
+            margin-bottom: 4px;
+            line-height: 1.1;
+            word-break: keep-all;
+        }
+
+        .stat-label {
+            font-size: 12px;
+            color: var(--text-muted);
+            font-weight: 500;
+            line-height: 1.35;
+            word-break: keep-all;
+        }
+
+        /* 进度条图表 */
+        .bar-chart-item {
+            margin-bottom: 12px;
+            flex-shrink: 0;
+        }
+
+        .bar-chart-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .info-card:not(.info-card-full) {
+            overflow-y: auto;
+        }
+
+        .bar-label {
+            display: flex;
+            justify-content: space-between;
+            font-size: 13px;
+            font-weight: 600;
+            margin-bottom: 6px;
+        }
+
+        .bar-track {
+            width: 100%;
+            height: 10px;
+            background: #EAE6DF;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+
+        .bar-fill {
+            height: 100%;
+            background: var(--accent-color);
+            border-radius: 5px;
+        }
+
+        /* 堆叠柱状图 */
+        .stacked-bar-container {
+            margin-top: 10px;
+        }
+
+        .stacked-bar {
+            display: flex;
+            height: 28px;
+            border-radius: 6px;
+            overflow: hidden;
+            margin-bottom: 12px;
+            flex-shrink: 0;
+        }
+
+        .segment {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #FFF;
+            font-size: 11px;
+            font-weight: 600;
+            min-width: 36px;
+            white-space: nowrap;
+            flex-shrink: 0;
+        }
+
+        .seg-1 { background: var(--accent-color); width: 40%; }
+        .seg-2 { background: #A49584; width: 35%; }
+        .seg-3 { background: #C5B9AB; width: 25%; }
+
+        .legend {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px 16px;
+            font-size: 12px;
+            color: var(--text-muted);
+            line-height: 1.4;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+        }
+
+        /* 时间线 */
+        .timeline {
+            position: relative;
+            padding-left: 20px;
+            margin-top: 10px;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 5px;
+            bottom: 5px;
+            width: 2px;
+            background: var(--accent-light);
+        }
+
+        .time-node {
+            position: relative;
+            margin-bottom: 16px;
+            padding-left: 4px;
+        }
+
+        .time-node:last-child {
+            margin-bottom: 0;
+        }
+
+        .time-dot {
+            position: absolute;
+            left: -25px;
+            top: 2px;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: var(--accent-color);
+            border: 3px solid #FFF;
+        }
+
+        .time-content h4 {
+            margin: 0 0 4px 0;
+            font-size: 14px;
+            color: var(--text-main);
+            line-height: 1.35;
+            font-weight: 600;
+        }
+
+        .time-content p {
+            margin: 0;
+            font-size: 12px;
+            color: var(--text-muted);
+            line-height: 1.45;
+        }
+
+        /* 标签 */
+        .tag-cloud {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .tag {
+            padding: 6px 12px;
+            background: #F0EDE8;
+            color: var(--text-main);
+            border-radius: 4px;
+            font-size: 13px;
+            font-weight: 600;
+            border: 1px solid var(--border-color);
+        }
+    </style>
+</head>
+<body>
+
+    <div class='toolbar'>
+        <div class='instruction'>
+            <i class='fas fa-info-circle'></i> 文档已设为严格的 A3 尺寸。文本支持直接点击编辑，编辑完成后可按页导出高清源文件。
+        </div>
+        <div class='export-actions'>
+            <button class='btn-export' onclick='exportToPNG("page1", "董家大院_沟通蓝图_Page1.png")'>
+                <i class='fas fa-file-image'></i> 导出 沟通蓝图 (PNG)
+            </button>
+            <button class='btn-export' onclick='exportToPNG("page2", "董家大院_数据看板_Page2.png")'>
+                <i class='fas fa-chart-pie'></i> 导出 数据可视化 (PNG)
+            </button>
+        </div>
+    </div>
+
+    <!-- 页面 1：政企沟通蓝图 -->
+    <div class='a3-canvas' id='page1'>
+        <div class='header'>
+            <h1 contenteditable='true'>董家大院天坛项目沟通蓝图</h1>
+            <p contenteditable='true'>政企协同与深度资源整合矩阵</p>
+        </div>
+
+        <div class='blueprint-grid' id='main-grid'>
+            <div class='grid-header'>项目定位 / 项目价值 / 预期成果</div>
+            <div class='grid-header'>筹备相关模块</div>
+            <div class='grid-header'>政府职能部门</div>
+            <div class='grid-header'>核心支持需求与政策沟通方向</div>
+
+            <div class='grid-cell' contenteditable='true'>
+                <strong>定位：</strong>南中轴城市更新与文化商业复兴标杆<br><br>
+                <strong>价值：</strong>盘活存量空间，提升地块商业能级与街区风貌<br><br>
+                <strong>成果：</strong>打造市级文化商业融合示范点，带动周边产业升级
+            </div>
+            <div class='grid-cell' contenteditable='true'>
+                <div class='icon-box'><i class='fas fa-map'></i> 顶层规划与区域协同</div>
+            </div>
+            <div class='grid-cell' contenteditable='true'>
+                北京南中轴地区建设办公室<br>
+                规划和自然资源委员会
+            </div>
+            <div class='grid-cell' contenteditable='true'>
+                <ul>
+                    <li><strong>城市更新示范立项：</strong>申请纳入南中轴重点项目库，获取定制服务包支持。</li>
+                    <li><strong>国资协同投资：</strong>探讨与区属文旅投资集团成立混合所有制公司或引入产业基金。</li>
+                    <li><strong>租税定向返还：</strong>落实特色产业基地租金补贴及投产前三年专项税收返还。</li>
+                    <li><strong>跨区域引流联动：</strong>建立与首都商务新区、南苑森林湿地公园的联合营销机制。</li>
+                </ul>
+            </div>
+
+            <div class='grid-cell' contenteditable='true'>
+                <strong>定位：</strong>高品质沉浸式消费首发目的地<br><br>
+                <strong>价值：</strong>提振区域社零额指标，引入高端精致餐饮管理标准<br><br>
+                <strong>成果：</strong>实现日均500人次高客单价消费，开辟夜经济增长极
+            </div>
+            <div class='grid-cell' contenteditable='true'>
+                <div class='icon-box'><i class='fas fa-chart-line'></i> 商业赋能与消费促进</div>
+            </div>
+            <div class='grid-cell' contenteditable='true'>
+                商务局<br>
+                金融服务办公室
+            </div>
+            <div class='grid-cell' contenteditable='true'>
+                <ul>
+                    <li><strong>首店经济与品质补贴：</strong>申报首店首发经济专项资金及黑珍珠培育专项奖励。</li>
+                    <li><strong>管理资产化资金：</strong>依托智能体物业管理系统，申请服务业数智化转型补贴。</li>
+                    <li><strong>夜间经济外摆特批：</strong>申报夜间经济示范点，获取特色文化餐饮夜间外摆许可豁免。</li>
+                    <li><strong>消费季官方配额：</strong>纳入消费季核心日程，争取市、区两级专项消费券定向额度。</li>
+                </ul>
+            </div>
+
+            <div class='grid-cell' contenteditable='true'>
+                <strong>定位：</strong>大明风华与中轴线文化全景体验馆<br><br>
+                <strong>价值：</strong>活化传统礼乐与农耕智慧，提供沉浸式文化供给<br><br>
+                <strong>成果：</strong>塑造全国级文旅打卡地，输出具有北京特色的文化自信
+            </div>
+            <div class='grid-cell' contenteditable='true'>
+                <div class='icon-box'><i class='fas fa-landmark'></i> 文旅融合与非遗传承</div>
+            </div>
+            <div class='grid-cell' contenteditable='true'>
+                文化和旅游局<br>
+                委宣传部
+            </div>
+            <div class='grid-cell' contenteditable='true'>
+                <ul>
+                    <li><strong>非遗活化基地挂牌：</strong>将大明礼乐上菜仪式申报区级非遗，设立活化展示基地。</li>
+                    <li><strong>官方线路深度捆绑：</strong>编入官方精品线路，列为官方指定的特色旅游接待场所。</li>
+                    <li><strong>文旅产业专项基金：</strong>以强主题IP与文化消费场景构建为核心，申报专项资金。</li>
+                    <li><strong>文创IP联合开发：</strong>与核心博物馆建立文化IP授权与文创周边联合开发通道。</li>
+                </ul>
+            </div>
+
+            <div class='grid-cell' contenteditable='true'>
+                <strong>定位：</strong>声光电与文化交融的创新科技餐饮<br><br>
+                <strong>价值：</strong>提升实体商业的科技互动属性与数字化呈现<br><br>
+                <strong>成果：</strong>建成文化与科技融合示范应用场景
+            </div>
+            <div class='grid-cell' contenteditable='true'>
+                <div class='icon-box'><i class='fas fa-microchip'></i> 科技场景与数字化应用</div>
+            </div>
+            <div class='grid-cell' contenteditable='true'>
+                科学技术和信息化局<br>
+                大数据管理中心
+            </div>
+            <div class='grid-cell' contenteditable='true'>
+                <ul>
+                    <li><strong>前沿场景应用补贴：</strong>针对全息投影、四季花墙等硬件，申报创新应用场景专项资金。</li>
+                    <li><strong>智慧文旅数据接入：</strong>接入智慧旅游数据大屏，获取区域客流精准预警及资源调度支持。</li>
+                </ul>
+            </div>
+
+            <div class='grid-cell' contenteditable='true'>
+                <strong>定位：</strong>高标准现代化餐饮企业与行业规范标杆<br><br>
+                <strong>价值：</strong>建立食品安全高地，探索新业态合规路径<br><br>
+                <strong>成果：</strong>实现规范化与高效能运营，沉淀特色品牌IP
+            </div>
+            <div class='grid-cell' contenteditable='true'>
+                <div class='icon-box'><i class='fas fa-shield-alt'></i> 市场准入与知识产权</div>
+            </div>
+            <div class='grid-cell' contenteditable='true'>
+                市场监督管理局
+            </div>
+            <div class='grid-cell' contenteditable='true'>
+                <ul>
+                    <li><strong>包容审慎监管试点：</strong>针对复合创新业态，申请极速审批与跨界经营综合许可制。</li>
+                    <li><strong>高标前置指导：</strong>邀请专家提前介入明档厨房动线及食安溯源建设，确保高规格验收。</li>
+                    <li><strong>品牌护城河建设：</strong>建立专属商标保护名录，申请知识产权建设指导与维权绿色通道。</li>
+                </ul>
+            </div>
+
+            <div class='grid-cell' contenteditable='true'>
+                <strong>定位：</strong>全时段高通量商业集散地<br><br>
+                <strong>价值：</strong>完善周边市政配套，解决非临街商业可视性痛点<br><br>
+                <strong>成果：</strong>打通交通微循环，保障日均高客流运转顺畅
+            </div>
+            <div class='grid-cell' contenteditable='true'>
+                <div class='icon-box'><i class='fas fa-road'></i> 城市运行与交通配套</div>
+            </div>
+            <div class='grid-cell' contenteditable='true'>
+                城市管理委员会<br>
+                交通管理局
+            </div>
+            <div class='grid-cell' contenteditable='true'>
+                <ul>
+                    <li><strong>立体导视系统规划：</strong>在主干道及地铁周边设立具备城市艺术属性的主题文化导视装置。</li>
+                    <li><strong>市政接驳与夜间亮化：</strong>协调垃圾分类、污水管网高标接驳，申请增加夜间景观亮化工程。</li>
+                    <li><strong>交通动线优化：</strong>优化临时落客区，规划高峰期停车位、大巴停靠区及代驾等候专区。</li>
+                </ul>
+            </div>
+            
+            <div class='grid-cell' contenteditable='true'>
+                <strong>定位：</strong>多功能复合型人群密集空间<br><br>
+                <strong>价值：</strong>提供绝对安全的用餐与互动环境<br><br>
+                <strong>成果：</strong>实现零事故、零隐患的高效稳定运营
+            </div>
+            <div class='grid-cell' contenteditable='true'>
+                <div class='icon-box'><i class='fas fa-hard-hat'></i> 安全保障与应急管理</div>
+            </div>
+            <div class='grid-cell' contenteditable='true'>
+                消防救援支队<br>
+                公安分局治安大队
+            </div>
+            <div class='grid-cell' contenteditable='true'>
+                <ul>
+                    <li><strong>复杂结构消防特批指导：</strong>针对木质造景及密集布线，申请图纸提前会审与定制化指导。</li>
+                    <li><strong>微型消防站政企共建：</strong>联合建立智能化微型消防站，提升应急能力，加快验收进度。</li>
+                    <li><strong>常态化演练支持：</strong>协助开展全员消防安全培训与大客流疏散演练，建立安全示范门店。</li>
+                </ul>
+            </div>
+
+            <div class='grid-cell' contenteditable='true'>
+                <strong>定位：</strong>区域就业与社区共建驱动引擎<br><br>
+                <strong>价值：</strong>吸纳高端人才与本地劳动力，回馈社区居民<br><br>
+                <strong>成果：</strong>构建和谐属地政企关系，发挥民生保障功能
+            </div>
+            <div class='grid-cell' contenteditable='true'>
+                <div class='icon-box'><i class='fas fa-users'></i> 人才支撑与属地共建</div>
+            </div>
+            <div class='grid-cell' contenteditable='true'>
+                人力资源和社会保障局<br>
+                街道办事处
+            </div>
+            <div class='grid-cell' contenteditable='true'>
+                <ul>
+                    <li><strong>高端人才与稳岗补贴：</strong>建立特色餐饮大师工作室，落实本地劳动力就业与培训补贴。</li>
+                    <li><strong>属地综合协调：</strong>依托网格化管理，化解施工及夜场运营周边投诉，建立常态沟通机制。</li>
+                    <li><strong>社区文化会客厅：</strong>非高峰时段开放公共空间作为社区文化体验点，获取基层托底支持。</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- 页面 2：信息图表与数据看板 -->
+    <div class='a3-canvas' id='page2'>
+        <div class='header'>
+            <h1 contenteditable='true'>董家大院天坛项目：特色与价值评估</h1>
+            <p contenteditable='true'>多维商业数据指标与落地成果预测看板</p>
+        </div>
+
+        <div class='info-dashboard'>
+            
+            <!-- 卡片 1：区域影响力基盘 -->
+            <div class='info-card'>
+                <div class='card-title'><i class='fas fa-chart-area'></i> 核心影响力基盘</div>
+                <div class='stat-grid'>
+                    <div class='stat-item'>
+                        <div class='stat-num'>1237</div>
+                        <div class='stat-label'>覆盖周边小区</div>
+                    </div>
+                    <div class='stat-item'>
+                        <div class='stat-num'>778</div>
+                        <div class='stat-label'>周边写字楼栋</div>
+                    </div>
+                    <div class='stat-item'>
+                        <div class='stat-num'>142.9<span style='font-size:16px'>万</span></div>
+                        <div class='stat-label'>常住居住人口</div>
+                    </div>
+                    <div class='stat-item'>
+                        <div class='stat-num'>500<span style='font-size:16px'>+</span></div>
+                        <div class='stat-label'>保底日均客流</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 卡片 2：核心成功要素权重 -->
+            <div class='info-card'>
+                <div class='card-title'><i class='fas fa-tasks'></i> 高端餐饮成功要素执行权重</div>
+                <div class='bar-chart-item'>
+                    <div class='bar-label'><span>食物 (技艺、融合、创新)</span><span>60%</span></div>
+                    <div class='bar-track'><div class='bar-fill' style='width: 60%;'></div></div>
+                </div>
+                <div class='bar-chart-item'>
+                    <div class='bar-label'><span>环境 (文化沉淀、装潢私密性)</span><span>20%</span></div>
+                    <div class='bar-track'><div class='bar-fill' style='width: 20%; background: #A49584;'></div></div>
+                </div>
+                <div class='bar-chart-item'>
+                    <div class='bar-label'><span>服务 (大明礼乐与仪式感)</span><span>10%</span></div>
+                    <div class='bar-track'><div class='bar-fill' style='width: 10%; background: #C5B9AB;'></div></div>
+                </div>
+                <div class='bar-chart-item'>
+                    <div class='bar-label'><span>酒水 (酒窖储备与餐酒搭配)</span><span>10%</span></div>
+                    <div class='bar-track'><div class='bar-fill' style='width: 10%; background: #DCD8D3;'></div></div>
+                </div>
+            </div>
+
+            <!-- 卡片 3：商业特质与标签 -->
+            <div class='info-card'>
+                <div class='card-title'><i class='fas fa-gem'></i> 核心商业特质标签</div>
+                <p style='font-size: 13px; color: var(--text-muted); margin-top: 0;'>依托北京中轴线文化IP，打造差异化护城河</p>
+                <div class='tag-cloud'>
+                    <div class='tag'>敬天法祖哲学</div>
+                    <div class='tag'>大明风华叙事</div>
+                    <div class='tag'>顺应四时节律</div>
+                    <div class='tag'>全息互动投影</div>
+                    <div class='tag'>对标黑珍珠/米其林</div>
+                    <div class='tag'>沉浸式声光电</div>
+                    <div class='tag'>文化主题演艺</div>
+                    <div class='tag'>数字物业管理</div>
+                </div>
+            </div>
+
+            <!-- 宽卡片：运营模型与客群 -->
+            <div class='info-card info-card-full'>
+                <div>
+                    <div class='card-title'><i class='fas fa-users-cog'></i> 目标客群结构分配</div>
+                    <p style='font-size: 13px; color: var(--text-muted);'>多时段错峰运营，实现空间与时间资产利用最大化</p>
+                    
+                    <div class='stacked-bar-container'>
+                        <div class='stacked-bar'>
+                            <div class='segment seg-1'>40%</div>
+                            <div class='segment seg-2'>35%</div>
+                            <div class='segment seg-3'>25%</div>
+                        </div>
+                        <div class='legend'>
+                            <div class='legend-item'><div class='dot' style='background: var(--accent-color);'></div>家庭与社区日常</div>
+                            <div class='legend-item'><div class='dot' style='background: #A49584;'></div>高端商务与宴请</div>
+                            <div class='legend-item'><div class='dot' style='background: #C5B9AB;'></div>夜场互动年轻人</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div>
+                    <div class='card-title'><i class='fas fa-flag-checkered'></i> 落地预期里程碑与社会价值</div>
+                    <div class='timeline'>
+                        <div class='time-node'>
+                            <div class='time-dot'></div>
+                            <div class='time-content'>
+                                <h4>拉动区域高端餐饮与商务接待规格</h4>
+                                <p>启用268个包间餐位，承接南中轴区域高净值商务宴请与文化雅集，实现区域消费能级跃升。</p>
+                            </div>
+                        </div>
+                        <div class='time-node'>
+                            <div class='time-dot'></div>
+                            <div class='time-content'>
+                                <h4>引爆夜间经济，填补夜间文化空白</h4>
+                                <p>晚21:00-24:00夜场启动，预计吸引300-500名年轻群体打卡，打造北京南城时尚潮流夜生活地标。</p>
+                            </div>
+                        </div>
+                        <div class='time-node'>
+                            <div class='time-dot'></div>
+                            <div class='time-content'>
+                                <h4>实现文旅赋能与可持续社会责任</h4>
+                                <p>提供本地就业岗位，弘扬中轴线文化自信；同时引入低碳运营理念，树立环保与ESG发展餐饮先锋。</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+        function exportToPNG(elementId, fileName) {
+            const element = document.getElementById(elementId);
+            const buttons = document.querySelectorAll('.btn-export');
+            
+            // 禁用按钮防误触
+            buttons.forEach(btn => {
+                btn.style.opacity = '0.5';
+                btn.disabled = true;
+            });
+
+            html2canvas(element, {
+                scale: 2, 
+                useCORS: true,
+                backgroundColor: '#F9F8F6'
+            }).then(canvas => {
+                const link = document.createElement('a');
+                link.download = fileName;
+                link.href = canvas.toDataURL('image/png');
+                link.click();
+                
+                // 恢复按钮状态
+                buttons.forEach(btn => {
+                    btn.style.opacity = '1';
+                    btn.disabled = false;
+                });
+            }).catch(err => {
+                console.error('导出失败:', err);
+                alert('图片导出发生错误，请查看控制台日志。');
+                buttons.forEach(btn => {
+                    btn.style.opacity = '1';
+                    btn.disabled = false;
+                });
+            });
+        }
+    </script>
+</body>
+</html>

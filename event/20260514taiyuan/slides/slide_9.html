@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&family=Noto+Serif+SC:wght@400;600&family=Inter:wght@300;400;600&family=Noto+Sans+SC:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        .slide-container { 
+            width: 1280px; 
+            min-height: 720px; 
+            background: #FFFFFF; 
+            position: relative;
+            overflow: hidden;
+            font-family: 'Inter', 'Noto Sans SC', sans-serif;
+            color: #1A2639;
+        }
+        .content-wrapper {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            padding: 80px 100px;
+            display: flex;
+            flex-direction: column;
+        }
+        .eyebrow {
+            font-family: 'Inter', sans-serif;
+            font-size: 14px;
+            color: #A88B52;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 16px;
+        }
+        .headline {
+            font-family: 'Cormorant Garamond', 'Noto Serif SC', serif;
+            font-size: 40px;
+            color: #0A1626;
+            font-weight: 600;
+            margin-bottom: 16px;
+        }
+        .sub-lede {
+            font-size: 18px;
+            color: #1A2639;
+            opacity: 0.8;
+            margin-bottom: 40px;
+        }
+        .table-container {
+            width: 100%;
+            flex: 1;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 16px;
+        }
+        th {
+            background-color: #0A1626;
+            color: #FFFFFF;
+            font-family: 'Inter', 'Noto Sans SC', sans-serif;
+            font-weight: 400;
+            text-align: left;
+            padding: 16px 24px;
+            letter-spacing: 1px;
+        }
+        td {
+            padding: 16px 24px;
+            border-bottom: 1px solid rgba(168, 139, 82, 0.3);
+            color: #1A2639;
+        }
+        tr:last-child td {
+            border-bottom: 2px solid #0A1626;
+        }
+        .col-scenario {
+            width: 25%;
+            font-weight: 600;
+            color: #0A1626;
+        }
+        .col-tools {
+            width: 50%;
+        }
+        .col-cost {
+            width: 25%;
+            font-family: 'Inter', sans-serif;
+        }
+        .footer-note {
+            margin-top: 30px;
+            font-family: 'Cormorant Garamond', 'Noto Serif SC', serif;
+            font-size: 18px;
+            color: #A88B52;
+            font-style: italic;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="slide-container">
+        <div class="content-wrapper">
+            <div class="eyebrow">SLIDE 45 · TOOLKIT</div>
+            <h2 class="headline">工具会变，场景与需求不会变</h2>
+            <div class="sub-lede">按场景挑工具，而不是反过来。</div>
+            
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th class="col-scenario">场景</th>
+                            <th class="col-tools">推荐工具</th>
+                            <th class="col-cost">月成本参考</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="col-scenario">文档写作 / 报告</td>
+                            <td class="col-tools">文心一言企业版 · 通义千问 · 豆包</td>
+                            <td class="col-cost">100–500 元</td>
+                        </tr>
+                        <tr>
+                            <td class="col-scenario">市场分析 / 情报</td>
+                            <td class="col-tools">Perplexity · 秘塔搜索</td>
+                            <td class="col-cost">免费–200 元</td>
+                        </tr>
+                        <tr>
+                            <td class="col-scenario">会议纪要 / 录音转写</td>
+                            <td class="col-tools">通义听悟 · 飞书妙记</td>
+                            <td class="col-cost">免费–300 元</td>
+                        </tr>
+                        <tr>
+                            <td class="col-scenario">合同初审</td>
+                            <td class="col-tools">法大大 AI · 律临 AI</td>
+                            <td class="col-cost">500–2,000 元</td>
+                        </tr>
+                        <tr>
+                            <td class="col-scenario">客服自动化</td>
+                            <td class="col-tools">智齿客服 · 网易七鱼 AI</td>
+                            <td class="col-cost">1,000–5,000 元</td>
+                        </tr>
+                        <tr>
+                            <td class="col-scenario">图纸 / 质检辅助</td>
+                            <td class="col-tools">旷视工业 AI · 商汤 AI</td>
+                            <td class="col-cost">定制报价</td>
+                        </tr>
+                        <tr>
+                            <td class="col-scenario">老板个人 AI 助理</td>
+                            <td class="col-tools">Claude · GPT-4o · Kimi</td>
+                            <td class="col-cost">100–200 元</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            
+            <div class="footer-note">
+                工具会变，但场景和需求不会变。先想清楚你要解决什么问题，再选工具。
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@200;300;400;600&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; background-color: #FFFFFF; color: #2C3E50; }
+        .slide-container {
+            width: 1280px;
+            min-height: 720px;
+            background: #FFFFFF;
+            position: relative;
+            padding: 80px 100px 0 100px;
+        }
+        .chapter-anchor {
+            font-family: 'Playfair Display', serif;
+            font-weight: 900;
+            font-size: 20px;
+            color: #A88B52;
+            letter-spacing: 2px;
+            margin-bottom: 20px;
+        }
+        .chapter-anchor span {
+            font-family: 'Inter', sans-serif;
+            font-weight: 300;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            margin-left: 15px;
+        }
+        .main-title {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            font-size: 36px;
+            color: #0A1626;
+            margin-bottom: 50px;
+        }
+        .key-data-container {
+            display: flex;
+            gap: 60px;
+            margin-bottom: 50px;
+            border-bottom: 1px solid rgba(168, 139, 82, 0.3);
+            padding-bottom: 30px;
+        }
+        .data-item {
+            flex: 1;
+        }
+        .data-number {
+            font-family: 'Playfair Display', serif;
+            font-weight: 900;
+            font-size: 64px;
+            color: #0A1626;
+            line-height: 1;
+            margin-bottom: 10px;
+        }
+        .data-desc {
+            font-family: 'Inter', sans-serif;
+            font-weight: 300;
+            font-size: 16px;
+            color: #2C3E50;
+        }
+        .content-grid {
+            display: flex;
+            gap: 60px;
+        }
+        .cost-section {
+            flex: 1;
+        }
+        .section-title {
+            font-family: 'Inter', sans-serif;
+            font-weight: 600;
+            font-size: 16px;
+            color: #A88B52;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 25px;
+        }
+        .cost-list {
+            list-style: none;
+        }
+        .cost-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            font-family: 'Inter', sans-serif;
+            font-weight: 300;
+            font-size: 16px;
+        }
+        .cost-label {
+            width: 250px;
+            color: #0A1626;
+        }
+        .cost-dots {
+            flex: 1;
+            border-bottom: 1px dotted #A8ADAD;
+            margin: 0 15px;
+            position: relative;
+            top: -4px;
+        }
+        .cost-value {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            font-size: 20px;
+            color: #0A1626;
+            width: 50px;
+            text-align: right;
+        }
+        .insight-section {
+            flex: 1;
+            border-left: 2px solid #A88B52;
+            padding-left: 40px;
+        }
+        .quote-block {
+            font-family: 'Inter', sans-serif;
+            font-weight: 300;
+            font-size: 18px;
+            color: #0A1626;
+            line-height: 1.6;
+            margin-bottom: 30px;
+            position: relative;
+        }
+        .quote-block::before {
+            content: '"';
+            font-family: 'Playfair Display', serif;
+            font-size: 60px;
+            color: rgba(168, 139, 82, 0.2);
+            position: absolute;
+            top: -20px;
+            left: -20px;
+            line-height: 1;
+        }
+        .decision-ref {
+            background-color: rgba(168, 139, 82, 0.05);
+            padding: 20px;
+            font-family: 'Inter', sans-serif;
+            font-weight: 300;
+            font-size: 14px;
+            color: #2C3E50;
+            line-height: 1.6;
+            border-left: 2px solid #0A1626;
+        }
+        .decision-title {
+            font-weight: 600;
+            color: #0A1626;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+            font-size: 12px;
+            letter-spacing: 1px;
+        }
+    </style>
+</head>
+<body>
+    <div class="slide-container">
+        <div class="chapter-anchor">01 <span>Macro Perspective</span></div>
+        <h1 class="main-title">J 曲线底部的误判，是 95% 试点失败的真正起点</h1>
+        
+        <div class="key-data-container">
+            <div class="data-item">
+                <div class="data-number">95%</div>
+                <div class="data-desc">试点项目首年财务回报为零或亏损 (MIT NANDA, 2025)</div>
+            </div>
+            <div class="data-item">
+                <div class="data-number">1 : 10</div>
+                <div class="data-desc">硬件软件投入与组织管理隐性成本之比</div>
+            </div>
+        </div>
+        
+        <div class="content-grid">
+            <div class="cost-section">
+                <div class="section-title">成本结构量化拆解</div>
+                <ul class="cost-list">
+                    <li class="cost-item">
+                        <span class="cost-label">流程重构与员工技能培训</span>
+                        <span class="cost-dots"></span>
+                        <span class="cost-value">33%</span>
+                    </li>
+                    <li class="cost-item">
+                        <span class="cost-label">跨部门协同与合规审查</span>
+                        <span class="cost-dots"></span>
+                        <span class="cost-value">27%</span>
+                    </li>
+                    <li class="cost-item">
+                        <span class="cost-label">数据清洗与内部知识库建设</span>
+                        <span class="cost-dots"></span>
+                        <span class="cost-value">17%</span>
+                    </li>
+                    <li class="cost-item">
+                        <span class="cost-label">其他基础设施与许可成本</span>
+                        <span class="cost-dots"></span>
+                        <span class="cost-value">23%</span>
+                    </li>
+                </ul>
+            </div>
+            
+            <div class="insight-section">
+                <div class="quote-block">
+                    过早要求直接财务回报，会让人工智能项目退化为简单的文本生成工具，从而丧失核心商业价值。
+                </div>
+                <div class="decision-ref">
+                    <div class="decision-title">决策参考 / Decision Reference</div>
+                    将考核周期延长至 18–24 个月。首年考核系统调用频次与员工单点任务时间缩减率，次年再引入实际利润指标。
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500&family=Noto+Serif+SC:wght@700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        .slide-container {
+            width: 1280px;
+            min-height: 720px;
+            background: #FFFFFF;
+            position: relative;
+            font-family: 'Noto Sans SC', sans-serif;
+            color: #1A2B4C;
+            overflow: hidden;
+        }
+        .header {
+            position: absolute;
+            top: 80px;
+            left: 120px;
+            width: 1040px;
+        }
+        .header-title {
+            font-family: 'Noto Serif SC', serif;
+            font-size: 40px;
+            color: #0A1626;
+            font-weight: 700;
+            letter-spacing: 2px;
+            margin-bottom: 20px;
+        }
+        .header-line {
+            width: 60px;
+            height: 2px;
+            background: #A88B52;
+        }
+        .content-wrapper {
+            position: absolute;
+            top: 220px;
+            left: 120px;
+            width: 1040px;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            column-gap: 60px;
+        }
+        .column {
+            display: flex;
+            flex-direction: column;
+            border-top: 1px solid rgba(168, 139, 82, 0.3);
+            padding-top: 30px;
+        }
+        .col-header {
+            font-family: 'Noto Serif SC', serif;
+            font-size: 24px;
+            color: #A88B52;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+        .col-title {
+            font-size: 28px;
+            color: #0A1626;
+            margin-bottom: 30px;
+            font-weight: 500;
+        }
+        .col-text {
+            font-size: 18px;
+            color: #1A2B4C;
+            line-height: 1.8;
+            font-weight: 300;
+            margin-bottom: 40px;
+            min-height: 64px;
+        }
+        .col-winner {
+            font-size: 18px;
+            color: #0A1626;
+            font-weight: 500;
+            border-left: 2px solid #A88B52;
+            padding-left: 15px;
+        }
+        .quote-wrapper {
+            position: absolute;
+            bottom: 80px;
+            left: 120px;
+            width: 1040px;
+            text-align: center;
+        }
+        .quote-mark {
+            font-family: 'Noto Serif SC', serif;
+            font-size: 60px;
+            color: rgba(168, 139, 82, 0.2);
+            line-height: 0;
+            margin-bottom: 20px;
+        }
+        .quote-text {
+            font-family: 'Noto Serif SC', serif;
+            font-size: 24px;
+            color: #0A1626;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+    </style>
+</head>
+<body>
+    <div class="slide-container">
+        <div class="header">
+            <div class="header-title">信息差正在从"知道"迁移到"行动"</div>
+            <div class="header-line"></div>
+        </div>
+        
+        <div class="content-wrapper">
+            <div class="column">
+                <div class="col-header">过去</div>
+                <div class="col-title">有没有</div>
+                <div class="col-text">你有消息，我没有</div>
+                <div class="col-winner">赢家：消息灵通的人</div>
+            </div>
+            <div class="column">
+                <div class="col-header">现在</div>
+                <div class="col-title">信不信</div>
+                <div class="col-text">同样的报告，谁能读出行动路径</div>
+                <div class="col-winner">赢家：判断力强的人</div>
+            </div>
+            <div class="column">
+                <div class="col-header">未来</div>
+                <div class="col-title">快不快</div>
+                <div class="col-text">谁先把判断转化为行动</div>
+                <div class="col-winner">赢家：执行力强的人</div>
+            </div>
+        </div>
+        
+        <div class="quote-wrapper">
+            <div class="quote-mark">"</div>
+            <div class="quote-text">今天这场会，就是压缩你和北京老板之间的'信不信'这层信息差。</div>
+        </div>
+    </div>
+</body>
+</html>

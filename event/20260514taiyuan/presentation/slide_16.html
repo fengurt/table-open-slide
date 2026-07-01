@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@700&family=Noto+Sans+SC:wght@400;500;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        .slide-container { 
+            width: 1280px; 
+            min-height: 720px; 
+            background: #FFFFFF; 
+            position: relative;
+            font-family: 'Noto Sans SC', sans-serif;
+            overflow: hidden;
+        }
+        .header {
+            position: absolute;
+            top: 70px;
+            left: 120px;
+            width: 1040px;
+        }
+        .chapter-label {
+            font-family: 'Inter', sans-serif;
+            font-size: 14px;
+            color: #A88B52;
+            letter-spacing: 2px;
+            margin-bottom: 18px;
+            text-transform: uppercase;
+        }
+        .main-title {
+            font-family: 'Noto Serif SC', serif;
+            font-size: 44px;
+            color: #0A1626;
+        }
+        .content-area {
+            position: absolute;
+            top: 190px;
+            left: 120px;
+            width: 1040px;
+            display: flex;
+            flex-direction: column;
+        }
+        .timeline-row {
+            display: flex;
+            align-items: flex-start;
+            padding: 20px 0;
+            border-bottom: 1px solid rgba(168, 139, 82, 0.2);
+        }
+        .timeline-row:last-child {
+            border-bottom: none;
+        }
+        .timeline-label {
+            font-family: 'Noto Serif SC', serif;
+            font-size: 22px;
+            color: #A88B52;
+            font-weight: 700;
+            width: 320px;
+            padding-right: 30px;
+            line-height: 1.4;
+        }
+        .timeline-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+        .timeline-desc {
+            font-size: 18px;
+            color: #0A1626;
+            line-height: 1.55;
+        }
+        .timeline-desc strong {
+            font-weight: 700;
+        }
+        .timeline-source {
+            font-size: 13px;
+            color: #6B7280;
+        }
+        .bottom-line {
+            position: absolute;
+            bottom: 60px;
+            left: 120px;
+            width: 1040px;
+            height: 1px;
+            background-color: #A88B52;
+        }
+        .footer {
+            position: absolute;
+            right: 40px;
+            bottom: 24px;
+            font-size: 10px;
+            color: #A88B52;
+            font-family: 'Inter', sans-serif;
+        }
+    </style>
+</head>
+<body>
+    <div class="slide-container">
+        <div class="header">
+            <div class="chapter-label">THE WINDOW · 为什么是现在</div>
+            <div class="main-title">太原的窗口期，正在打开</div>
+        </div>
+        
+        <div class="content-area">
+            <div class="timeline-row">
+                <div class="timeline-label">2026 · 十五五开局</div>
+                <div class="timeline-content">
+                    <div class="timeline-desc">AI 赋能千行百业是国家<strong>核心战略</strong>——开局之年的政策红利最浓。</div>
+                </div>
+            </div>
+            
+            <div class="timeline-row">
+                <div class="timeline-label">30%+ · 新兴产业占比</div>
+                <div class="timeline-content">
+                    <div class="timeline-desc">太原战略性新兴产业 <strong>2025 年占比突破 30%</strong>，政策窗口正式打开。</div>
+                    <div class="timeline-source">— 太原市政府数据</div>
+                </div>
+            </div>
+            
+            <div class="timeline-row">
+                <div class="timeline-label">算力券 · 补贴跟进</div>
+                <div class="timeline-content">
+                    <div class="timeline-desc">上海、珠海等地已发放<strong>算力补贴</strong>，降低中小企业使用门槛——太原跟进窗口正在开启。</div>
+                </div>
+            </div>
+            
+            <div class="timeline-row">
+                <div class="timeline-label">煤炭达峰 · 第二曲线信号</div>
+                <div class="timeline-content">
+                    <div class="timeline-desc">煤炭消费即将达峰是政策共识——这不是威胁，是<strong>第二曲线</strong>的信号。</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="bottom-line"></div>
+        
+        <div class="footer">少数人的视野 — 岁知社闭门分享 · 郭峰 · 2026.05.14</div>
+    </div>
+</body>
+</html>

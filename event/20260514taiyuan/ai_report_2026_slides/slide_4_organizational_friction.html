@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@200;300;400;600&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; background-color: #FFFFFF; color: #2C3E50; }
+        .slide-container {
+            width: 1280px;
+            min-height: 720px;
+            background: #FFFFFF;
+            position: relative;
+            padding: 80px 100px 0 100px;
+            display: flex;
+            flex-direction: column;
+        }
+        .chapter-anchor {
+            font-family: 'Playfair Display', serif;
+            font-weight: 900;
+            font-size: 20px;
+            color: #A88B52;
+            letter-spacing: 2px;
+            margin-bottom: 20px;
+        }
+        .chapter-anchor span {
+            font-family: 'Inter', sans-serif;
+            font-weight: 300;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            margin-left: 15px;
+        }
+        .main-title {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            font-size: 36px;
+            color: #0A1626;
+            margin-bottom: 40px;
+        }
+        .content-grid {
+            display: flex;
+            gap: 60px;
+            flex: 1;
+        }
+        .left-col {
+            flex: 0.4;
+            border-right: 1px solid rgba(168, 139, 82, 0.3);
+            padding-right: 40px;
+        }
+        .right-col {
+            flex: 0.6;
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+        .section-title {
+            font-family: 'Inter', sans-serif;
+            font-weight: 600;
+            font-size: 14px;
+            color: #A88B52;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 30px;
+        }
+        .friction-list {
+            list-style: none;
+        }
+        .friction-item {
+            margin-bottom: 25px;
+        }
+        .friction-label {
+            font-family: 'Inter', sans-serif;
+            font-weight: 400;
+            font-size: 16px;
+            color: #0A1626;
+            margin-bottom: 5px;
+        }
+        .friction-value {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            font-size: 32px;
+            color: #0A1626;
+        }
+        .friction-bar-container {
+            width: 100%;
+            height: 2px;
+            background-color: #E8E6E1;
+            margin-top: 8px;
+        }
+        .friction-bar {
+            height: 100%;
+            background-color: #A88B52;
+        }
+        .model-comparison {
+            display: flex;
+            gap: 40px;
+        }
+        .model-block {
+            flex: 1;
+            padding-left: 20px;
+            border-left: 2px solid #E8E6E1;
+        }
+        .model-block.recommended {
+            border-left: 2px solid #A88B52;
+        }
+        .model-title {
+            font-family: 'Inter', sans-serif;
+            font-weight: 600;
+            font-size: 18px;
+            color: #0A1626;
+            margin-bottom: 15px;
+        }
+        .model-desc {
+            font-family: 'Inter', sans-serif;
+            font-weight: 300;
+            font-size: 14px;
+            color: #2C3E50;
+            line-height: 1.6;
+            margin-bottom: 15px;
+            min-height: 66px;
+        }
+        .model-metric {
+            font-family: 'Inter', sans-serif;
+            font-weight: 400;
+            font-size: 14px;
+            color: #A88B52;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .model-metric span {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            font-size: 24px;
+            color: #0A1626;
+            margin-left: 10px;
+        }
+        .bottom-section {
+            margin-top: 40px;
+            padding-top: 30px;
+            border-top: 1px solid rgba(168, 139, 82, 0.3);
+            display: flex;
+            gap: 60px;
+        }
+        .insight-block {
+            flex: 1;
+            font-family: 'Inter', sans-serif;
+            font-weight: 300;
+            font-size: 16px;
+            color: #0A1626;
+            line-height: 1.6;
+        }
+        .insight-block strong {
+            font-weight: 600;
+            color: #A88B52;
+        }
+        .decision-block {
+            flex: 1;
+            background-color: rgba(168, 139, 82, 0.05);
+            padding: 20px;
+            font-family: 'Inter', sans-serif;
+            font-weight: 300;
+            font-size: 14px;
+            color: #2C3E50;
+            line-height: 1.6;
+            border-left: 2px solid #0A1626;
+        }
+        .decision-title {
+            font-weight: 600;
+            color: #0A1626;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+            font-size: 12px;
+            letter-spacing: 1px;
+        }
+    </style>
+</head>
+<body>
+    <div class="slide-container">
+        <div class="chapter-anchor">02 <span>Organizational Friction</span></div>
+        <h1 class="main-title">阻力不在一线，而在中后台的“隐形看门人”</h1>
+        
+        <div class="content-grid">
+            <div class="left-col">
+                <div class="section-title">阻力结构分布</div>
+                <ul class="friction-list">
+                    <li class="friction-item">
+                        <div class="friction-label">法务与合规部门</div>
+                        <div class="friction-value">35%</div>
+                        <div class="friction-bar-container"><div class="friction-bar" style="width: 35%;"></div></div>
+                    </li>
+                    <li class="friction-item">
+                        <div class="friction-label">人力资源部门</div>
+                        <div class="friction-value">28%</div>
+                        <div class="friction-bar-container"><div class="friction-bar" style="width: 28%;"></div></div>
+                    </li>
+                    <li class="friction-item">
+                        <div class="friction-label">中层管理者</div>
+                        <div class="friction-value">23%</div>
+                        <div class="friction-bar-container"><div class="friction-bar" style="width: 23%;"></div></div>
+                    </li>
+                    <li class="friction-item">
+                        <div class="friction-label">一线基层员工</div>
+                        <div class="friction-value">14%</div>
+                        <div class="friction-bar-container"><div class="friction-bar" style="width: 14%;"></div></div>
+                    </li>
+                </ul>
+            </div>
+            
+            <div class="right-col">
+                <div class="section-title">人机协同模式对比</div>
+                <div class="model-comparison">
+                    <div class="model-block">
+                        <div class="model-title">串联审批模式</div>
+                        <div class="model-desc">员工完成初稿 → 系统检查 → 管理者复核。<br>人始终在环，效能受限。</div>
+                        <div class="model-metric">生产力提升 <span>+30%</span></div>
+                    </div>
+                    <div class="model-block recommended">
+                        <div class="model-title">异常拦截模式</div>
+                        <div class="model-desc">系统执行 80%+ 决策 → 仅低置信度交由人类。<br>人聚焦于例外与判断。</div>
+                        <div class="model-metric">生产力提升 <span>+71%</span></div>
+                    </div>
+                </div>
+                
+                <div class="bottom-section">
+                    <div class="insight-block">
+                        <strong>深度启发：</strong><br>
+                        持续强调人类始终在环控制会严重拖累系统效能。企业对风险容忍度边界的划分，直接决定了生产力的提升上限。
+                    </div>
+                    <div class="decision-block">
+                        <div class="decision-title">决策参考 / Decision Reference</div>
+                        将高管 OKR 与人工智能采用率绑定，自上而下打破部门防御机制。对于内部高频且低风险的任务，应强制推行异常拦截模式。
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

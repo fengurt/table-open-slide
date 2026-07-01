@@ -4,6 +4,8 @@ import { useParams } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { format, useLocale } from '@/lib/use-locale';
 import { cn } from '@/lib/utils';
+import type { ContentLocaleId } from '../../config.ts';
+import { useSlideContentContext } from '../../content/content-context.tsx';
 import {
   type PresenterState,
   usePresenterChannel,
@@ -28,6 +30,7 @@ export function Presenter() {
   const [hasProjection, setHasProjection] = useState(false);
   const requestedRef = useRef(false);
   const t = useLocale();
+  const contentCtx = useSlideContentContext();
 
   useEffect(() => {
     let cancelled = false;
@@ -148,6 +151,15 @@ export function Presenter() {
         startedAt={startedAt}
         slideTitle={slide.meta?.title ?? slideId}
         connected={hasProjection}
+        contentLocale={contentCtx?.locale}
+        onContentLocaleChange={
+          contentCtx
+            ? (locale) => {
+                contentCtx.setLocale(locale);
+                channel.send({ type: 'set-content-locale', locale });
+              }
+            : undefined
+        }
       />
 
       <div className="grid min-h-0 flex-1 grid-cols-1 gap-6 px-6 pb-4 lg:grid-cols-[2fr_1fr]">
@@ -232,12 +244,16 @@ function PresenterTopBar({
   startedAt,
   slideTitle,
   connected,
+  contentLocale,
+  onContentLocaleChange,
 }: {
   index: number;
   total: number;
   startedAt: number;
   slideTitle: string;
   connected: boolean;
+  contentLocale?: ContentLocaleId;
+  onContentLocaleChange?: (locale: ContentLocaleId) => void;
 }) {
   const t = useLocale();
   return (
@@ -254,6 +270,21 @@ function PresenterTopBar({
         )}
       </div>
       <div className="flex items-center gap-6">
+        {onContentLocaleChange && contentLocale ? (
+          <label className="flex items-center gap-1 text-[10px] uppercase tracking-wider text-white/50">
+            <span className="sr-only">Content locale</span>
+            <select
+              className="rounded border border-white/15 bg-black/40 px-1 py-0.5 font-mono text-[11px] text-white/90"
+              value={contentLocale}
+              onChange={(e) => onContentLocaleChange(e.target.value as ContentLocaleId)}
+            >
+              <option value="en">en</option>
+              <option value="zh-CN">zh-CN</option>
+              <option value="zh-TW">zh-TW</option>
+              <option value="ja">ja</option>
+            </select>
+          </label>
+        ) : null}
         <Clock />
         <ElapsedClock startedAt={startedAt} />
         <div className="font-mono text-[18px] tabular-nums">

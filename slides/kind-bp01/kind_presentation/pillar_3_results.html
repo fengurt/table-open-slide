@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@800&family=Work+Sans:wght@400;600&family=JetBrains+Mono&display=swap" rel="stylesheet">
+    <style>
+      body { margin: 0; background: #0B0F19; }
+      .slide-container {
+        width: 1280px;
+        min-height: 720px;
+        background: #0B0F19;
+        color: #F1F5F9;
+        font-family: 'Work Sans', sans-serif;
+        display: flex;
+        position: relative;
+        overflow: hidden;
+      }
+      .left-panel {
+        width: 45%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding-left: 80px;
+        background: rgba(56, 189, 248, 0.03);
+        border-right: 1px solid rgba(56, 189, 248, 0.2);
+      }
+      .right-panel {
+        width: 55%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding-top: 48px;
+        padding-left: 60px;
+      }
+      .pillar-num {
+        font-family: 'JetBrains Mono', monospace;
+        color: #0EA5E9;
+        font-size: 32px;
+        margin-bottom: 10px;
+      }
+      .huge-title {
+        font-family: 'Inter', sans-serif;
+        font-weight: 800;
+        font-size: 100px;
+        color: #F1F5F9;
+        line-height: 0.9;
+        text-transform: uppercase;
+      }
+      .accent-box {
+        width: 80px;
+        height: 80px;
+        background: #0EA5E9;
+        margin-top: 40px;
+      }
+      .outcome-grid {
+        display: flex;
+        flex-direction: column;
+        gap: 40px;
+      }
+      .outcome-item {
+        display: flex;
+        align-items: flex-start;
+      }
+      .outcome-label {
+        font-family: 'JetBrains Mono', monospace;
+        color: #38BDF8;
+        font-size: 16px;
+        width: 140px;
+        flex-shrink: 0;
+        padding-top: 8px;
+      }
+      .outcome-content {
+        border-left: 2px solid #0EA5E9;
+        padding-left: 30px;
+      }
+      .outcome-title {
+        font-family: 'Inter', sans-serif;
+        font-size: 32px;
+        font-weight: 700;
+        margin-bottom: 10px;
+      }
+      .outcome-desc {
+        font-size: 18px;
+        color: #CBD5E1;
+        line-height: 1.5;
+        max-width: 450px;
+      }
+      .deco-circle {
+        position: absolute;
+        width: 500px;
+        height: 500px;
+        border: 1px solid rgba(14, 165, 233, 0.1);
+        border-radius: 50%;
+        bottom: -250px;
+        right: -250px;
+      }
+    </style>
+</head>
+<body>
+    <div class="slide-container">
+        <div class="deco-circle"></div>
+        <div class="left-panel">
+            <div class="pillar-num">PILLAR // 03</div>
+            <h2 class="huge-title">DELIVERING<br>RESULTS</h2>
+            <div class="accent-box"></div>
+        </div>
+        <div class="right-panel">
+            <div class="outcome-grid">
+                <div class="outcome-item">
+                    <div class="outcome-label">[ MARKETING ]</div>
+                    <div class="outcome-content">
+                        <div class="outcome-title">Content ROI</div>
+                        <div class="outcome-desc">High-converting marketing narratives and content strategies that drive measurable engagement.</div>
+                    </div>
+                </div>
+                <div class="outcome-item">
+                    <div class="outcome-label">[ SALES ]</div>
+                    <div class="outcome-content">
+                        <div class="outcome-title">Closing Velocity</div>
+                        <div class="outcome-desc">AI-powered sales clones that coach teams in real-time to accelerate deal closure rates.</div>
+                    </div>
+                </div>
+                <div class="outcome-item">
+                    <div class="outcome-label">[ CONSULTING ]</div>
+                    <div class="outcome-content">
+                        <div class="outcome-title">Expert Reports</div>
+                        <div class="outcome-desc">Data-driven consulting reports with the depth and nuance of top-tier industry experts.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

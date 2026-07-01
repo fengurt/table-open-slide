@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&family=Noto+Serif+SC:wght@400;600&family=Inter:wght@300;400;600&family=Noto+Sans+SC:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        .slide-container { 
+            width: 1280px; 
+            min-height: 720px; 
+            background: #FFFFFF; 
+            position: relative;
+            overflow: hidden;
+            font-family: 'Inter', 'Noto Sans SC', sans-serif;
+            color: #1A2639;
+        }
+        .content-wrapper {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            padding: 80px 100px;
+            display: flex;
+            flex-direction: column;
+        }
+        .header {
+            margin-bottom: 60px;
+        }
+        .eyebrow {
+            font-family: 'Inter', sans-serif;
+            font-size: 14px;
+            color: #A88B52;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 16px;
+        }
+        .headline {
+            font-family: 'Cormorant Garamond', 'Noto Serif SC', serif;
+            font-size: 40px;
+            color: #0A1626;
+            font-weight: 600;
+        }
+        .main-content {
+            display: flex;
+            flex: 1;
+            gap: 60px;
+        }
+        .column {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        .column-title {
+            font-family: 'Cormorant Garamond', 'Noto Serif SC', serif;
+            font-size: 28px;
+            color: #0A1626;
+            font-weight: 600;
+            margin-bottom: 30px;
+            padding-bottom: 16px;
+            border-bottom: 1px solid rgba(168, 139, 82, 0.4);
+        }
+        .detail-row {
+            display: flex;
+            margin-bottom: 24px;
+        }
+        .detail-label {
+            font-weight: 600;
+            color: #0A1626;
+            width: 80px;
+            font-size: 18px;
+        }
+        .detail-value {
+            flex: 1;
+            font-size: 16px;
+            color: #1A2639;
+            line-height: 1.6;
+        }
+        .ecosystem-intro {
+            font-size: 16px;
+            color: #1A2639;
+            line-height: 1.6;
+            margin-bottom: 24px;
+            font-weight: 600;
+        }
+        .list-item {
+            position: relative;
+            padding-left: 24px;
+            margin-bottom: 20px;
+            font-size: 16px;
+            color: #1A2639;
+            line-height: 1.6;
+        }
+        .list-item::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 10px;
+            width: 6px;
+            height: 6px;
+            background-color: #A88B52;
+            border-radius: 50%;
+        }
+        .footer-quote {
+            margin-top: 40px;
+            text-align: center;
+            font-family: 'Cormorant Garamond', 'Noto Serif SC', serif;
+            font-size: 22px;
+            color: #A88B52;
+            font-style: italic;
+            letter-spacing: 2px;
+            padding-top: 30px;
+            border-top: 1px solid #A88B52;
+        }
+    </style>
+</head>
+<body>
+    <div class="slide-container">
+        <div class="content-wrapper">
+            <div class="header">
+                <div class="eyebrow">SLIDE 48 + 49 · WHAT'S NEXT</div>
+                <h2 class="headline">三周后再见，并不只是再见</h2>
+            </div>
+            
+            <div class="main-content">
+                <div class="column">
+                    <div class="column-title">下一步：3 周后线上加餐</div>
+                    <div class="detail-row">
+                        <div class="detail-label">主题：</div>
+                        <div class="detail-value">太原制造 / 能源行业 AI 落地方案专场</div>
+                    </div>
+                    <div class="detail-row">
+                        <div class="detail-label">形式：</div>
+                        <div class="detail-value">线上 90 分钟，限察级别成员</div>
+                    </div>
+                    <div class="detail-row">
+                        <div class="detail-label">内容：</div>
+                        <div class="detail-value">针对今天圆桌收集的问题，深度拆解</div>
+                    </div>
+                </div>
+                
+                <div class="column">
+                    <div class="column-title">OPC Global 共创生态</div>
+                    <div class="ecosystem-intro">郭峰 + OPC Global + 岁知社的生态连接价值：</div>
+                    <div class="list-item">全球 AI 实践资源网络</div>
+                    <div class="list-item">跨行业决策陪跑</div>
+                    <div class="list-item">企业主社群与投资者连接</div>
+                </div>
+            </div>
+            
+            <div class="footer-quote">
+                这不是一场讲座的结束，是一张关系网的起点。
+            </div>
+        </div>
+    </div>
+</body>
+</html>

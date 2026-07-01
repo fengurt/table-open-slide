@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>研究技术路线图</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script type="module">
+        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+        mermaid.initialize({
+            startOnLoad: true,
+            theme: 'base',
+            flowchart: { htmlLabels: true, curve: 'basis' },
+            themeVariables: {
+                fontFamily: 'system-ui, -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif',
+                fontSize: '14px',
+            },
+        });
+    </script>
+    <style>
+        .mermaid svg {
+            max-width: 100%;
+            height: auto;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 min-h-screen p-8 flex flex-col items-center justify-center">
+
+    <div class="max-w-4xl w-full bg-white rounded-xl shadow-lg p-10 overflow-x-auto">
+
+        <div class="text-center mb-8">
+            <h1 class="text-2xl font-bold text-gray-800">技术路线图</h1>
+            <p class="text-sm text-gray-500 mt-2">基于 XGBoost 算法的 IVF 患者黄体酮注射迟发性硬结预测模型构建</p>
+        </div>
+
+        <div class="flex justify-center">
+            <div class="mermaid">
+graph TD
+    classDef start_end fill:#e1f5fe,stroke:#01579b,stroke-width:2px,color:#000
+    classDef clinical fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px,color:#000
+    classDef data fill:#fff3e0,stroke:#e65100,stroke-width:2px,color:#000
+    classDef analysis fill:#f3e5f5,stroke:#4a148c,stroke-width:2px,color:#000
+    classDef output fill:#ffebee,stroke:#c62828,stroke-width:2px,color:#000
+
+    Patient["入组患者: IVF周期需黄体酮注射者 (N=556)"] --> T0
+    T0["T0 基线期<br/>表单A 患者自填基本特征<br/>+<br/>表单B 护士评估血糖/E2/基线触诊/基线温度"] --> Care
+    Care["执行护理操作<br/>记录推注速度、护士层级等"] --> T1
+    T1["T1 即刻期 拔针后15-30min<br/>表单C 护士评估即刻触诊/温度, 计算ΔT与ΔH"] --> T2T3
+    T2T3["T2/T3 随访期 第3天/第5天<br/>表单D 患者通过手机自报结局 PROMs"] --> Preprocess
+    Preprocess["数据预处理与特征工程"] --> Modeling
+    Modeling["模型训练与验证<br/>LR / RF / XGBoost 7:3划分数据集"] --> Evaluation
+    Evaluation["模型评价与解释<br/>ROC/AUC、DCA临床决策曲线、SHAP特征归因"] --> Result
+    Result["构建转化工具<br/>输出临床指导决策树，发表论文"]
+
+    class Patient start_end
+    class T0,Care,T1 clinical
+    class T2T3,Preprocess data
+    class Modeling,Evaluation analysis
+    class Result output
+            </div>
+        </div>
+
+        <div class="mt-12 border-t pt-6">
+            <h3 class="text-sm font-semibold text-gray-700 mb-2">图例说明</h3>
+            <div class="flex flex-wrap gap-4 text-xs">
+                <div class="flex items-center"><span class="w-4 h-4 rounded border-2 border-[#01579b] bg-[#e1f5fe] inline-block mr-2"></span> 研究对象起始</div>
+                <div class="flex items-center"><span class="w-4 h-4 rounded border-2 border-[#2e7d32] bg-[#e8f5e9] inline-block mr-2"></span> 临床护理操作与评估</div>
+                <div class="flex items-center"><span class="w-4 h-4 rounded border-2 border-[#e65100] bg-[#fff3e0] inline-block mr-2"></span> 结局随访与数据处理</div>
+                <div class="flex items-center"><span class="w-4 h-4 rounded border-2 border-[#4a148c] bg-[#f3e5f5] inline-block mr-2"></span> 机器学习建模分析</div>
+                <div class="flex items-center"><span class="w-4 h-4 rounded border-2 border-[#c62828] bg-[#ffebee] inline-block mr-2"></span> 产出结果转化</div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

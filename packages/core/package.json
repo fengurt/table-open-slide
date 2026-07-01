@@ -16,6 +16,10 @@
       "types": "./dist/locale/index.d.ts",
       "import": "./dist/locale/index.js"
     },
+    "./content": {
+      "types": "./dist/content/index.d.ts",
+      "import": "./dist/content/index.js"
+    },
     "./env": {
       "types": "./env.d.ts"
     }
@@ -28,6 +32,7 @@
     "dist",
     "env.d.ts",
     "src/app",
+    "src/content",
     "src/locale",
     "skills",
     "README.md"

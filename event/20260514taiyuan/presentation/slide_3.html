@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@700&family=Noto+Sans+SC:wght@400;500;700&family=Cormorant+Garamond:wght@600&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        .slide-container { 
+            width: 1280px; 
+            min-height: 720px; 
+            background: #FFFFFF; 
+            position: relative;
+            font-family: 'Noto Sans SC', sans-serif;
+            overflow: hidden;
+        }
+        .header {
+            position: absolute;
+            top: 80px;
+            left: 120px;
+            width: 1040px;
+        }
+        .chapter-label {
+            font-family: 'Inter', sans-serif;
+            font-size: 14px;
+            color: #A88B52;
+            letter-spacing: 2px;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+        .main-title {
+            font-family: 'Noto Serif SC', serif;
+            font-size: 48px;
+            color: #0A1626;
+            margin-bottom: 16px;
+        }
+        .subtitle {
+            font-size: 20px;
+            color: #6B7280;
+        }
+        .content-area {
+            position: absolute;
+            top: 260px;
+            left: 120px;
+            width: 1040px;
+            display: flex;
+            gap: 40px;
+        }
+        .column {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        .roman-numeral {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 48px;
+            color: #A88B52;
+            margin-bottom: 24px;
+            line-height: 1;
+        }
+        .col-desc {
+            font-size: 18px;
+            color: #0A1626;
+            line-height: 1.6;
+            margin-bottom: 16px;
+        }
+        .col-desc strong {
+            font-weight: 700;
+        }
+        .col-label {
+            font-family: 'Inter', sans-serif;
+            font-size: 12px;
+            color: #6B7280;
+            font-style: italic;
+        }
+        .conclusion {
+            position: absolute;
+            bottom: 80px;
+            left: 120px;
+            width: 1040px;
+            border-top: 1px solid #A88B52;
+            padding-top: 24px;
+            font-size: 16px;
+            color: #0A1626;
+        }
+        .footer {
+            position: absolute;
+            right: 40px;
+            bottom: 30px;
+            font-size: 10px;
+            color: #A88B52;
+            font-family: 'Inter', sans-serif;
+        }
+    </style>
+</head>
+<body>
+    <div class="slide-container">
+        <div class="header">
+            <div class="chapter-label">BRIEFING OBJECTIVES · 四重收获</div>
+            <div class="main-title">今天你能带走什么</div>
+            <div class="subtitle">四重收获 · 不做展开 · 60 分钟内交付</div>
+        </div>
+        
+        <div class="content-area">
+            <div class="column">
+                <div class="roman-numeral">I.</div>
+                <div class="col-desc">建立 AI 投资与采购的初步<strong>判断逻辑</strong></div>
+                <div class="col-label">Investment Judgement Framework</div>
+            </div>
+            <div class="column">
+                <div class="roman-numeral">II.</div>
+                <div class="col-desc">拆解斯坦福 <strong>51 个全球企业</strong>落地案例</div>
+                <div class="col-label">51 Global Case Decoding</div>
+            </div>
+            <div class="column">
+                <div class="roman-numeral">III.</div>
+                <div class="col-desc">区分<strong>决策型工作</strong>与<strong>执行型工作</strong></div>
+                <div class="col-label">Decision vs Execution</div>
+            </div>
+            <div class="column">
+                <div class="roman-numeral">IV.</div>
+                <div class="col-desc">进入岁知社<strong>察级别</strong>会员生态</div>
+                <div class="col-label">Insider Membership Tier</div>
+            </div>
+        </div>
+        
+        <div class="conclusion">
+            "接下来 60 分钟，我们只谈三件事：判断、趋势、能力。"
+        </div>
+        
+        <div class="footer">少数人的视野 — 岁知社闭门分享 · 郭峰 · 2026.05.14</div>
+    </div>
+</body>
+</html>

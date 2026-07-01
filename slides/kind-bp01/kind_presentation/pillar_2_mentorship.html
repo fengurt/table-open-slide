@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@800&family=Work+Sans:wght@400;600&family=JetBrains+Mono&display=swap" rel="stylesheet">
+    <style>
+      body { margin: 0; background: #0B0F19; }
+      .slide-container {
+        width: 1280px;
+        min-height: 720px;
+        background: #0B0F19;
+        color: #F1F5F9;
+        font-family: 'Work Sans', sans-serif;
+        display: flex;
+        position: relative;
+        overflow: hidden;
+      }
+      .left-panel {
+        width: 40%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding-left: 80px;
+        background: rgba(14, 165, 233, 0.05);
+        border-right: 1px solid rgba(14, 165, 233, 0.2);
+      }
+      .right-panel {
+        width: 60%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding-top: 48px;
+        padding-left: 60px;
+        padding-right: 60px;
+      }
+      .pillar-num {
+        font-family: 'JetBrains Mono', monospace;
+        color: #0EA5E9;
+        font-size: 24px;
+        margin-bottom: 10px;
+      }
+      .huge-title {
+        font-family: 'Inter', sans-serif;
+        font-weight: 800;
+        font-size: 90px;
+        line-height: 1;
+        color: #F1F5F9;
+        text-transform: uppercase;
+      }
+      .content-block {
+        margin-bottom: 40px;
+      }
+      .label {
+        font-family: 'JetBrains Mono', monospace;
+        color: #38BDF8;
+        font-size: 18px;
+        text-transform: uppercase;
+        margin-bottom: 15px;
+        display: block;
+      }
+      .mentorship-item {
+        display: flex;
+        align-items: flex-start;
+        margin-bottom: 25px;
+      }
+      .square-bullet {
+        width: 16px;
+        height: 16px;
+        background: #0EA5E9;
+        margin-right: 20px;
+        margin-top: 6px;
+        flex-shrink: 0;
+      }
+      .item-text {
+        font-size: 24px;
+        font-weight: 600;
+        line-height: 1.3;
+      }
+      .sub-text {
+        font-size: 18px;
+        color: #CBD5E1;
+        margin-top: 5px;
+        font-weight: 400;
+      }
+      .deco-line {
+        position: absolute;
+        width: 100%;
+        height: 1px;
+        background: linear-gradient(90deg, transparent, #38BDF8, transparent);
+        top: 100px;
+        left: 0;
+        opacity: 0.3;
+      }
+    </style>
+</head>
+<body>
+    <div class="slide-container">
+        <div class="deco-line"></div>
+        <div class="left-panel">
+            <div class="pillar-num">PILLAR 02</div>
+            <h2 class="huge-title">EXPERT<br>DEEP<br>MENTOR</h2>
+        </div>
+        <div class="right-panel">
+            <div class="content-block">
+                <span class="label">// THE HUMAN ELEMENT</span>
+                <div class="mentorship-item">
+                    <div class="square-bullet"></div>
+                    <div>
+                        <div class="item-text">Real Expert Oversight</div>
+                        <div class="sub-text">AI clones are not black boxes; they are backed by the actual methodologies and periodic reviews of top-tier experts.</div>
+                    </div>
+                </div>
+            </div>
+            <div class="content-block">
+                <span class="label">// ECOSYSTEM SYNERGY</span>
+                <div class="mentorship-item">
+                    <div class="square-bullet"></div>
+                    <div>
+                        <div class="item-text">OPC Global Network</div>
+                        <div class="sub-text">Leveraging 500+ certified coaches to provide localized, high-touch "deep accompaniment" for every client.</div>
+                    </div>
+                </div>
+            </div>
+            <div class="content-block">
+                <span class="label">// BEYOND TOOLS</span>
+                <div class="mentorship-item">
+                    <div class="square-bullet"></div>
+                    <div>
+                        <div class="item-text">Active Implementation</div>
+                        <div class="sub-text">We don't just hand over a tool; we guide the entire journey from integration to measurable business results.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

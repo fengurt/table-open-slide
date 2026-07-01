@@ -14,6 +14,7 @@ import { useHistory } from '@/components/history-provider';
 import { Button } from '@/components/ui/button';
 import { type SlideComment, useComments } from '@/lib/inspector/use-comments';
 import { type Edit, type EditOp, type EditResult, useEditor } from '@/lib/inspector/use-editor';
+import { canUseInspectorComments, useCollaborationRole } from '@/lib/use-collaboration-role';
 import { useLocale } from '@/lib/use-locale';
 
 export type SelectedTarget = {
@@ -80,6 +81,7 @@ export function useInspector(): InspectorCtx {
 }
 
 export function InspectorProvider({ slideId, children }: { slideId: string; children: ReactNode }) {
+  const collaborationRole = useCollaborationRole();
   const [active, setActive] = useState(false);
   const [selected, setSelected] = useState<SelectedTarget | null>(null);
   const { comments, error, refetch, add, remove } = useComments(slideId);
@@ -518,11 +520,12 @@ export function InspectorProvider({ slideId, children }: { slideId: string; chil
   }, []);
 
   const toggle = useCallback(() => {
+    if (!canUseInspectorComments(collaborationRole)) return;
     setActive((a) => {
       if (a) setSelected(null);
       return !a;
     });
-  }, []);
+  }, [collaborationRole]);
 
   const cancel = useCallback(() => {
     setActive(false);
@@ -576,8 +579,10 @@ export function InspectorProvider({ slideId, children }: { slideId: string; chil
 
 export function InspectToggleButton() {
   const t = useLocale();
+  const role = useCollaborationRole();
   const { active, toggle } = useInspector();
   if (import.meta.env.PROD) return null;
+  if (!canUseInspectorComments(role)) return null;
   return (
     <Button
       size="sm"

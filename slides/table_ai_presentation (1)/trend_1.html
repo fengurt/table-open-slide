@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;500;700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        .slide-container {
+            width: 1280px;
+            min-height: 720px;
+            background-color: #FFFFFF;
+            font-family: 'Noto Sans SC', sans-serif;
+            position: relative;
+            padding-top: 80px;
+        }
+        .header {
+            margin-left: 100px;
+            margin-right: 100px;
+            margin-bottom: 60px;
+        }
+        .title {
+            font-size: 32px;
+            color: #0A1626;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+        .divider {
+            width: 80px;
+            height: 2px;
+            background-color: #A88B52;
+        }
+        .content-container {
+            display: flex;
+            margin-left: 100px;
+            margin-right: 100px;
+            justify-content: space-between;
+            align-items: stretch;
+        }
+        .left-column {
+            width: 55%;
+            display: flex;
+            flex-direction: column;
+            gap: 50px;
+        }
+        .data-item {
+            display: flex;
+            flex-direction: column;
+        }
+        .data-header {
+            display: flex;
+            align-items: baseline;
+            margin-bottom: 15px;
+        }
+        .data-number {
+            font-size: 48px;
+            color: #A88B52;
+            font-weight: 700;
+            margin-right: 20px;
+            width: 140px;
+        }
+        .data-text {
+            font-size: 20px;
+            color: #0A1626;
+            font-weight: 500;
+        }
+        .bar-container {
+            width: 100%;
+            height: 2px;
+            background-color: rgba(10, 22, 38, 0.1);
+            position: relative;
+        }
+        .bar-fill {
+            height: 2px;
+            background-color: #A88B52;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+        .right-column {
+            width: 35%;
+            border-left: 2px solid #0A1626;
+            padding-left: 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .analysis-text {
+            font-size: 20px;
+            color: #0A1626;
+            font-weight: 300;
+            line-height: 1.8;
+            letter-spacing: 1px;
+        }
+        .source {
+            position: absolute;
+            bottom: 40px;
+            left: 100px;
+            font-size: 14px;
+            color: rgba(10, 22, 38, 0.5);
+            font-weight: 300;
+        }
+        .logo-watermark {
+            position: absolute;
+            bottom: 30px;
+            right: 40px;
+        }
+        .logo-watermark img {
+            width: 36px;
+            height: 36px;
+            object-fit: contain;
+            opacity: 0.3;
+        }
+    </style>
+</head>
+<body><div class="slide-container">
+        <div class="header">
+            <div class="title">趋势一：大退休危机与隐性知识流失</div>
+            <div class="divider"></div>
+        </div>
+        <div class="content-container">
+            <div class="left-column">
+                <div class="data-item">
+                    <div class="data-header">
+                        <div class="data-number" style="width: 159.158px; min-width: 159.158px; max-width: 159.158px; transform: translate(0px, 0px);">1.1万+</div>
+                        <div class="data-text">美国每日新增65岁退休人口</div>
+                    </div>
+                    <div class="bar-container">
+                        <div class="bar-fill" style="width: 100%;"></div>
+                    </div>
+                </div>
+                <div class="data-item">
+                    <div class="data-header">
+                        <div class="data-number">58%</div>
+                        <div class="data-text">企业高管对知识流失"非常担忧"</div>
+                    </div>
+                    <div class="bar-container">
+                        <div class="bar-fill" style="width: 58%;"></div>
+                    </div>
+                </div>
+                <div class="data-item">
+                    <div class="data-header">
+                        <div class="data-number">92%</div>
+                        <div class="data-text">组织未系统性捕获退休专家知识</div>
+                    </div>
+                    <div class="bar-container">
+                        <div class="bar-fill" style="width: 92%;"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="right-column">
+                <div class="analysis-text">
+                    各行各业正面临严重的专家断层。在中国，医疗、工程、制造等领域的"老专家"退休同样带走了极其宝贵的隐性经验。
+                </div>
+            </div>
+        </div>
+        <div class="source">Source: APQC (2025). APQC Study on "Great Retirement" Crisis.</div>
+        <div class="logo-watermark"><img src="/home/ubuntu/table_ai_presentation/a2a_logo_dark.png" alt="Logo"></div>
+    </div>
+</body>
+</html>

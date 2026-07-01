@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;800&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        .slide-container {
+            width: 1280px;
+            min-height: 720px;
+            background-color: #FFFFFF;
+            font-family: 'Google Sans', 'Noto Sans SC', sans-serif;
+            position: relative;
+            padding-top: 60px;
+            padding-left: 80px;
+            padding-right: 80px;
+        }
+        .header {
+            margin-bottom: 60px;
+        }
+        .page-title {
+            color: #A88B52;
+            font-size: 16px;
+            font-weight: 400;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+        }
+        .title {
+            color: #0A1626;
+            font-size: 36px;
+            font-weight: 800;
+            line-height: 1.3;
+        }
+        .timeline-container {
+            display: flex;
+            justify-content: space-between;
+            position: relative;
+            margin-top: 40px;
+        }
+        /* The continuous timeline line */
+        .timeline-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background-color: #0A1626;
+            z-index: 1;
+        }
+        .phase-col {
+            flex: 1;
+            position: relative;
+            padding-top: 30px;
+            padding-right: 40px;
+            z-index: 2;
+        }
+        /* The timeline node */
+        .phase-col::before {
+            content: '';
+            position: absolute;
+            top: -6px;
+            left: 0;
+            width: 14px;
+            height: 14px;
+            background-color: #A88B52;
+        }
+        .phase-time {
+            color: #A88B52;
+            font-size: 18px;
+            font-weight: 800;
+            margin-bottom: 10px;
+            letter-spacing: 1px;
+        }
+        .phase-title {
+            color: #0A1626;
+            font-size: 24px;
+            font-weight: 800;
+            margin-bottom: 25px;
+        }
+        .milestone-list {
+            list-style: none;
+        }
+        .milestone-list li {
+            color: #2C3E50;
+            font-size: 16px;
+            font-weight: 300;
+            line-height: 1.6;
+            margin-bottom: 15px;
+            position: relative;
+            padding-left: 20px;
+        }
+        .milestone-list li::before {
+            content: "■";
+            color: #A88B52;
+            font-size: 10px;
+            position: absolute;
+            left: 0;
+            top: 6px;
+        }
+        .highlight {
+            font-weight: 800;
+            color: #0A1626;
+        }
+        .footer {
+            position: absolute;
+            bottom: 30px;
+            left: 80px;
+            right: 80px;
+            color: #2C3E50;
+            font-size: 14px;
+            font-weight: 300;
+            border-top: 1px solid #A88B52;
+            padding-top: 10px;
+            display: flex;
+            justify-content: space-between;
+        }
+    </style>
+</head>
+<body>
+    <div class="slide-container">
+        <div class="header">
+            <div class="page-title">T2 · 36 个月路线图</div>
+            <div class="title">三阶段，从冷启动到全球协议</div>
+        </div>
+        
+        <div class="timeline-container">
+            <!-- Phase 1 -->
+            <div class="phase-col">
+                <div class="phase-time">M1 - M12</div>
+                <div class="phase-title">基建与冷启动</div>
+                <ul class="milestone-list">
+                    <li>完成 TABLE AI 核心基座（分账/研发/生态/合伙人中心）上线。</li>
+                    <li>完成首批 <span class="highlight">100 位全球教练合伙人</span> onboarding。</li>
+                    <li>跑通中信商旅游学与政企数字化首批标杆大单。</li>
+                </ul>
+            </div>
+            
+            <!-- Phase 2 -->
+            <div class="phase-col">
+                <div class="phase-time">M13 - M24</div>
+                <div class="phase-title">网络规模化</div>
+                <ul class="milestone-list">
+                    <li>专家 Agent 资产库规模达到 <span class="highlight">1000+</span>，边际交付成本显著下降。</li>
+                    <li>实现<span class="highlight">单月经营性现金流转正 (M14)</span>。</li>
+                    <li>开启东南亚与中东节点，实现跨国业务复制。</li>
+                </ul>
+            </div>
+            
+            <!-- Phase 3 -->
+            <div class="phase-col">
+                <div class="phase-time">M25 - M36</div>
+                <div class="phase-title">生态涌现</div>
+                <ul class="milestone-list">
+                    <li><span class="highlight">PTS 积分实现二级流动性</span>，形成内部价值闭环。</li>
+                    <li>形成完整的"教育-就业-创业"跨国零摩擦闭环。</li>
+                    <li>筹备下一轮扩张融资或战略并购退出。</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer">
+            <span>T2 · 36 个月路线图</span>
+            <span>TABLE AI · Confidential · 2026</span>
+        </div>
+    </div>
+</body>
+</html>

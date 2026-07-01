@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;500;700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        .slide-container {
+            width: 1280px;
+            min-height: 720px;
+            background-color: #0A1626;
+            font-family: 'Noto Sans SC', sans-serif;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+        .content-wrapper {
+            width: 1000px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: -20px;
+        }
+        .quote-section {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        .quote-mark {
+            font-size: 80px;
+            color: rgba(168, 139, 82, 0.4);
+            line-height: 0.5;
+            margin-bottom: 20px;
+            font-family: Georgia, serif;
+        }
+        .quote-text {
+            font-size: 32px;
+            color: #FFFFFF;
+            font-weight: 300;
+            line-height: 1.6;
+            letter-spacing: 4px;
+            margin-bottom: 25px;
+        }
+        .quote-author {
+            font-size: 16px;
+            color: #A88B52;
+            font-weight: 500;
+            letter-spacing: 2px;
+        }
+        .vertical-divider {
+            width: 1px;
+            height: 60px;
+            background-color: rgba(168, 139, 82, 0.5);
+            margin: 0 auto 40px auto;
+        }
+        .narrative-section {
+            display: flex;
+            gap: 60px;
+            width: 100%;
+        }
+        .narrative-col {
+            flex: 1;
+            text-align: justify;
+        }
+        .narrative-text {
+            font-size: 16px;
+            color: rgba(255, 255, 255, 0.7);
+            font-weight: 300;
+            line-height: 2;
+            margin-bottom: 20px;
+        }
+        .narrative-highlight {
+            font-size: 20px;
+            color: #FFFFFF;
+            font-weight: 500;
+            line-height: 1.8;
+            border-left: 3px solid #A88B52;
+            padding-left: 24px;
+            margin-top: 10px;
+        }
+        .narrative-highlight span {
+            color: #A88B52;
+            font-weight: 700;
+        }
+        .global-footer {
+            position: absolute;
+            bottom: 25px;
+            left: 0;
+            right: 0;
+            text-align: center;
+            font-size: 11px;
+            color: rgba(255, 255, 255, 0.35);
+            font-weight: 300;
+            letter-spacing: 2px;
+        }
+    </style>
+</head>
+<body>
+    <div class="slide-container">
+        <div class="content-wrapper">
+            <div class="quote-section">
+                <div class="quote-mark">"</div>
+                <div class="quote-text">
+                    上午打猎，下午捕鱼，<br>傍晚从事畜牧，晚饭后从事批判。
+                </div>
+                <div class="quote-author">— 卡尔·马克思，《德意志意识形态》，1846</div>
+            </div>
+            
+            <div class="vertical-divider"></div>
+            
+            <div class="narrative-section">
+                <div class="narrative-col">
+                    <div class="narrative-text">
+                        一百八十年前，马克思在工业革命的烟尘中写下了对人类自由的构想。在他的时代，这是哲学家的理想；在我们的时代，这正在成为技术的现实。
+                    </div>
+                    <div class="narrative-text">
+                        当通用人工智能将智力成本推向零点，一个人可以在上午担任开源 AI 项目的架构师，下午运营一个跨越三大洲的数字游民社区，晚间创作沉浸式虚拟现实艺术。
+                    </div>
+                </div>
+                <div class="narrative-col">
+                    <div class="narrative-text" style="margin-bottom: 30px;">
+                        然而，从今天到那个未来之间，横亘着一道深刻的鸿沟。专业智慧无法规模化传递，个体能力被迅速商品化，社会保障体系尚未为此做好准备。
+                    </div>
+                    <div class="narrative-highlight">
+                        <span>OPC Global</span> 的存在，<br>就是为了铺设跨越这道鸿沟的基础设施。
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="global-footer">善用智能 终获自由 &nbsp;&nbsp;|&nbsp;&nbsp; OPC Global All Rights Reserved</div>
+    </div>
+</body>
+</html>

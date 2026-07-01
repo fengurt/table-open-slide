@@ -1,0 +1,164 @@
+# docx-master studio — GUI + REST API + LLM format/build
+# MCP stdio: docker compose --profile mcp run --rm -i docx-mcp
+#
+#   cp docs/env.example .env          # set DOCX_MASTER_AI_* keys + DOCX_STUDIO_TOKEN
+#   docker compose -f docker-compose.docx-studio.yml up -d --build
+#   open http://localhost:3333/docx
+#
+# With TLS reverse proxy + a domain:
+#   DOCX_STUDIO_DOMAIN=docx.example.com docker compose -f docker-compose.docx-studio.yml \
+#     --profile proxy up -d --build
+#   → https://docx.example.com (Caddy auto-HTTPS)
+
+services:
+  docx-studio:
+    build:
+      context: .
+      dockerfile: apps/html-lab/Dockerfile
+      platforms:
+        - linux/amd64
+    platform: linux/amd64
+    restart: unless-stopped
+    # When fronted by Caddy (proxy profile), you can drop this public port mapping.
+    ports:
+      - "${DOCX_STUDIO_PORT:-3333}:3333"
+    environment:
+      NODE_ENV: production
+      # --- Access control (set DOCX_STUDIO_TOKEN before exposing publicly) ---
+      DOCX_STUDIO_TOKEN: ${DOCX_STUDIO_TOKEN:-}
+      DOCX_STUDIO_RATE_LIMIT: ${DOCX_STUDIO_RATE_LIMIT:-120}
+      DOCX_STUDIO_MAX_BODY: ${DOCX_STUDIO_MAX_BODY:-31457280}
+      DOCX_STUDIO_ALLOW_HTML_WRITE: ${DOCX_STUDIO_ALLOW_HTML_WRITE:-}
+      # --- Admin panel (/admin): runtime LLM config, written to the shared
+      # docx_out volume so the MCP services pick it up too. Overrides env LLM. ---
+      DOCX_STUDIO_ADMIN_PASSWORD: ${DOCX_STUDIO_ADMIN_PASSWORD:-}
+      DOCX_STUDIO_ADMIN_TTL_MS: ${DOCX_STUDIO_ADMIN_TTL_MS:-43200000}
+      DOCX_STUDIO_SETTINGS_FILE: ${DOCX_STUDIO_SETTINGS_FILE:-/repo/out/.studio/settings.json}
+      # --- Render reliability ---
+      DOCX_BUILD_CONCURRENCY: ${DOCX_BUILD_CONCURRENCY:-1}
+      DOCX_SOFFICE_TIMEOUT_MS: ${DOCX_SOFFICE_TIMEOUT_MS:-120000}
+      DOCX_PDFTOPPM_TIMEOUT_MS: ${DOCX_PDFTOPPM_TIMEOUT_MS:-60000}
+      # Primary LLM (OpenAI-compatible)
+      DOCX_MASTER_AI_API_KEY: ${DOCX_MASTER_AI_API_KEY:-}
+      DOCX_MASTER_AI_BASE_URL: ${DOCX_MASTER_AI_BASE_URL:-https://api.openai.com/v1}
+      DOCX_MASTER_AI_MODEL: ${DOCX_MASTER_AI_MODEL:-gpt-4o-mini}
+      # Fallback gateway (DeepSeek, n1n.ai, etc.) — tried if primary fails
+      DOCX_MASTER_AI_FALLBACK_API_KEY: ${DOCX_MASTER_AI_FALLBACK_API_KEY:-}
+      DOCX_MASTER_AI_FALLBACK_BASE_URL: ${DOCX_MASTER_AI_FALLBACK_BASE_URL:-}
+      DOCX_MASTER_AI_FALLBACK_MODEL: ${DOCX_MASTER_AI_FALLBACK_MODEL:-}
+      # Legacy shared OpenAI env (tertiary)
+      OPENAI_API_KEY: ${OPENAI_API_KEY:-}
+      OPENAI_BASE_URL: ${OPENAI_BASE_URL:-}
+      OPENAI_MODEL: ${OPENAI_MODEL:-}
+      # Optional explicit provider chain (JSON array) — overrides prefix env when set
+      DOCX_MASTER_AI_PROVIDERS: ${DOCX_MASTER_AI_PROVIDERS:-}
+    volumes:
+      - docx_out:/repo/out
+
+  # Reverse proxy + automatic HTTPS. Enable with: --profile proxy
+  caddy:
+    image: caddy:2
+    profiles:
+      - proxy
+    restart: unless-stopped
+    depends_on:
+      - docx-studio
+    ports:
+      - "${DOCX_STUDIO_HTTP_PORT:-80}:80"
+      - "${DOCX_STUDIO_HTTPS_PORT:-443}:443"
+    environment:
+      DOCX_STUDIO_DOMAIN: ${DOCX_STUDIO_DOMAIN:-localhost}
+      DOCX_STUDIO_TLS_EMAIL: ${DOCX_STUDIO_TLS_EMAIL:-admin@example.com}
+      DOCX_STUDIO_MAX_BODY_HUMAN: ${DOCX_STUDIO_MAX_BODY_HUMAN:-30MB}
+    volumes:
+      - ./deploy/Caddyfile:/etc/caddy/Caddyfile:ro
+      - caddy_data:/data
+      - caddy_config:/config
+
+  # Retention sweeper — deletes out/documents/* older than DOCX_RETENTION_DAYS.
+  docx-cleanup:
+    build:
+      context: .
+      dockerfile: apps/html-lab/Dockerfile
+      platforms:
+        - linux/amd64
+    platform: linux/amd64
+    restart: unless-stopped
+    environment:
+      DOCX_RETENTION_DAYS: ${DOCX_RETENTION_DAYS:-14}
+      DOCX_CLEANUP_INTERVAL_SECONDS: ${DOCX_CLEANUP_INTERVAL_SECONDS:-86400}
+    entrypoint:
+      - /bin/sh
+      - -c
+      - 'while true; do node scripts/cleanup-out.mjs || true; sleep "${DOCX_CLEANUP_INTERVAL_SECONDS:-86400}"; done'
+    volumes:
+      - docx_out:/repo/out
+
+  # Stdio MCP for Cursor / Claude Desktop — attach with: docker compose -f docker-compose.docx-studio.yml --profile mcp run --rm -i docx-mcp
+  docx-mcp:
+    build:
+      context: .
+      dockerfile: apps/html-lab/Dockerfile
+      platforms:
+        - linux/amd64
+    platform: linux/amd64
+    profiles:
+      - mcp
+    stdin_open: true
+    tty: true
+    environment:
+      # Shares admin-configured providers from the studio volume (overrides env).
+      DOCX_STUDIO_SETTINGS_FILE: ${DOCX_STUDIO_SETTINGS_FILE:-/repo/out/.studio/settings.json}
+      DOCX_MASTER_AI_API_KEY: ${DOCX_MASTER_AI_API_KEY:-}
+      DOCX_MASTER_AI_BASE_URL: ${DOCX_MASTER_AI_BASE_URL:-https://api.openai.com/v1}
+      DOCX_MASTER_AI_MODEL: ${DOCX_MASTER_AI_MODEL:-gpt-4o-mini}
+      DOCX_MASTER_AI_FALLBACK_API_KEY: ${DOCX_MASTER_AI_FALLBACK_API_KEY:-}
+      DOCX_MASTER_AI_FALLBACK_BASE_URL: ${DOCX_MASTER_AI_FALLBACK_BASE_URL:-}
+      DOCX_MASTER_AI_FALLBACK_MODEL: ${DOCX_MASTER_AI_FALLBACK_MODEL:-}
+      OPENAI_API_KEY: ${OPENAI_API_KEY:-}
+      OPENAI_BASE_URL: ${OPENAI_BASE_URL:-}
+      OPENAI_MODEL: ${OPENAI_MODEL:-}
+      DOCX_MASTER_AI_PROVIDERS: ${DOCX_MASTER_AI_PROVIDERS:-}
+    volumes:
+      - docx_out:/repo/out
+    entrypoint: ["node", "apps/docx-mcp-server/dist/index.js"]
+
+  # Streamable-HTTP MCP for remote agents — enable with: --profile mcp-http
+  # POST http://host:3334/mcp  with  Authorization: Bearer $DOCX_STUDIO_TOKEN
+  docx-mcp-http:
+    build:
+      context: .
+      dockerfile: apps/html-lab/Dockerfile
+      platforms:
+        - linux/amd64
+    platform: linux/amd64
+    profiles:
+      - mcp-http
+    restart: unless-stopped
+    ports:
+      - "${DOCX_MCP_HTTP_PORT:-3334}:3334"
+    environment:
+      DOCX_MCP_HTTP_PORT: 3334
+      DOCX_MCP_HTTP_HOST: 0.0.0.0
+      DOCX_STUDIO_TOKEN: ${DOCX_STUDIO_TOKEN:-}
+      DOCX_STUDIO_MAX_BODY: ${DOCX_STUDIO_MAX_BODY:-31457280}
+      # Shares admin-configured providers from the studio volume (overrides env).
+      DOCX_STUDIO_SETTINGS_FILE: ${DOCX_STUDIO_SETTINGS_FILE:-/repo/out/.studio/settings.json}
+      DOCX_MASTER_AI_API_KEY: ${DOCX_MASTER_AI_API_KEY:-}
+      DOCX_MASTER_AI_BASE_URL: ${DOCX_MASTER_AI_BASE_URL:-https://api.openai.com/v1}
+      DOCX_MASTER_AI_MODEL: ${DOCX_MASTER_AI_MODEL:-gpt-4o-mini}
+      DOCX_MASTER_AI_FALLBACK_API_KEY: ${DOCX_MASTER_AI_FALLBACK_API_KEY:-}
+      DOCX_MASTER_AI_FALLBACK_BASE_URL: ${DOCX_MASTER_AI_FALLBACK_BASE_URL:-}
+      DOCX_MASTER_AI_FALLBACK_MODEL: ${DOCX_MASTER_AI_FALLBACK_MODEL:-}
+      OPENAI_API_KEY: ${OPENAI_API_KEY:-}
+      OPENAI_BASE_URL: ${OPENAI_BASE_URL:-}
+      OPENAI_MODEL: ${OPENAI_MODEL:-}
+      DOCX_MASTER_AI_PROVIDERS: ${DOCX_MASTER_AI_PROVIDERS:-}
+    entrypoint: ["node", "apps/docx-mcp-server/dist/http.js"]
+    volumes:
+      - docx_out:/repo/out
+
+volumes:
+  docx_out:
+  caddy_data:
+  caddy_config:

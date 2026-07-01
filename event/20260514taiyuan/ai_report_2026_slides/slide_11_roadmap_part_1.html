@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@200;300;400;600&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; background-color: #FFFFFF; color: #2C3E50; }
+        .slide-container {
+            width: 1280px;
+            min-height: 720px;
+            background: #FFFFFF;
+            position: relative;
+            padding: 80px 100px 0 100px;
+            display: flex;
+            flex-direction: column;
+        }
+        .chapter-anchor {
+            font-family: 'Playfair Display', serif;
+            font-weight: 900;
+            font-size: 20px;
+            color: #A88B52;
+            letter-spacing: 2px;
+            margin-bottom: 20px;
+        }
+        .chapter-anchor span {
+            font-family: 'Inter', sans-serif;
+            font-weight: 300;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            margin-left: 15px;
+        }
+        .main-title {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            font-size: 36px;
+            color: #0A1626;
+            margin-bottom: 50px;
+        }
+        .roadmap-container {
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+            position: relative;
+            padding-left: 40px;
+            border-left: 2px solid rgba(168, 139, 82, 0.3);
+        }
+        .stage-block {
+            position: relative;
+        }
+        .stage-block::before {
+            content: '';
+            position: absolute;
+            left: -45px;
+            top: 5px;
+            width: 8px;
+            height: 8px;
+            background-color: #A88B52;
+            border-radius: 50%;
+        }
+        .stage-header {
+            display: flex;
+            align-items: baseline;
+            margin-bottom: 15px;
+        }
+        .stage-num {
+            font-family: 'Inter', sans-serif;
+            font-weight: 600;
+            font-size: 14px;
+            color: #A88B52;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-right: 20px;
+            width: 60px;
+        }
+        .stage-title {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            font-size: 24px;
+            color: #0A1626;
+        }
+        .stage-content {
+            display: flex;
+            gap: 40px;
+            padding-left: 80px;
+        }
+        .content-item {
+            flex: 1;
+        }
+        .item-label {
+            font-family: 'Inter', sans-serif;
+            font-weight: 600;
+            font-size: 12px;
+            color: #0A1626;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+        }
+        .item-text {
+            font-family: 'Inter', sans-serif;
+            font-weight: 300;
+            font-size: 15px;
+            color: #2C3E50;
+            line-height: 1.6;
+        }
+        .highlight-text {
+            font-weight: 600;
+            color: #A88B52;
+        }
+    </style>
+</head>
+<body>
+    <div class="slide-container">
+        <div class="chapter-anchor">09 <span>Executive Roadmap — Part I</span></div>
+        <h1 class="main-title">从受控实验，到架构抽象</h1>
+        
+        <div class="roadmap-container">
+            <!-- Stage 1 -->
+            <div class="stage-block">
+                <div class="stage-header">
+                    <div class="stage-num">阶段一</div>
+                    <div class="stage-title">受控沙盒阶段 (Sandbox Experimentation)</div>
+                </div>
+                <div class="stage-content">
+                    <div class="content-item">
+                        <div class="item-label">核心动作 / Action</div>
+                        <div class="item-text">挑选数据相对隔离、容错率较高的单一业务场景进行试点，避免追求跨部门的复杂集成。</div>
+                    </div>
+                    <div class="content-item">
+                        <div class="item-label">关键产出 / Output</div>
+                        <div class="item-text">可量化的单点效率提升 + 风险边界清单</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Stage 2 -->
+            <div class="stage-block">
+                <div class="stage-header">
+                    <div class="stage-num">阶段二</div>
+                    <div class="stage-title">流程深度重构 (Workflow Redesign)</div>
+                </div>
+                <div class="stage-content">
+                    <div class="content-item">
+                        <div class="item-label">核心动作 / Action</div>
+                        <div class="item-text">应用新工具必须伴随流程的彻底重构。<span class="highlight-text">禁止</span>将自动化系统强行接入陈旧的审批链条中。</div>
+                    </div>
+                    <div class="content-item">
+                        <div class="item-label">关键产出 / Output</div>
+                        <div class="item-text">去除冗余审批节点 + 建立异常拦截机制</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Stage 3 -->
+            <div class="stage-block">
+                <div class="stage-header">
+                    <div class="stage-num">阶段三</div>
+                    <div class="stage-title">抽象网关建设 (Architecture Abstraction)</div>
+                </div>
+                <div class="stage-content">
+                    <div class="content-item">
+                        <div class="item-label">核心动作 / Action</div>
+                        <div class="item-text">在企业内部应用与底层大模型之间建立统一的网关层。确保企业可以随时切换不同供应商的底层模型。</div>
+                    </div>
+                    <div class="content-item">
+                        <div class="item-label">关键产出 / Output</div>
+                        <div class="item-text">消除技术锁定风险 + 形成模型组合采购能力</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

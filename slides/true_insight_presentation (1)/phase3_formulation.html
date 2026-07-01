@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;500;700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        .slide-container {
+            width: 1280px;
+            min-height: 720px;
+            background-color: #FFFFFF;
+            font-family: 'Noto Sans SC', sans-serif;
+            position: relative;
+            padding-top: 80px;
+        }
+        .header {
+            margin-left: 100px;
+            margin-right: 100px;
+            margin-bottom: 40px;
+        }
+        .title {
+            font-size: 32px;
+            color: #0A1626;
+            font-weight: 700;
+            margin-bottom: 15px;
+            letter-spacing: 2px;
+        }
+        .divider {
+            width: 80px;
+            height: 2px;
+            background-color: #A88B52;
+        }
+        .goal-box {
+            margin-left: 100px;
+            margin-right: 100px;
+            margin-bottom: 60px;
+            padding: 30px;
+            border-left: 4px solid #A88B52;
+            background-color: rgba(10, 22, 38, 0.03);
+        }
+        .goal-label {
+            font-size: 16px;
+            color: #A88B52;
+            font-weight: 700;
+            margin-bottom: 10px;
+            letter-spacing: 2px;
+        }
+        .goal-text {
+            font-size: 24px;
+            color: #0A1626;
+            font-weight: 500;
+            line-height: 1.6;
+        }
+        .columns-container {
+            display: flex;
+            margin-left: 100px;
+            margin-right: 100px;
+            gap: 40px;
+        }
+        .column {
+            flex: 1;
+            border-top: 2px solid #0A1626;
+            padding-top: 20px;
+        }
+        .col-number {
+            font-size: 36px;
+            color: #A88B52;
+            font-weight: 700;
+            margin-bottom: 15px;
+            opacity: 0.5;
+        }
+        .col-title {
+            font-size: 22px;
+            color: #0A1626;
+            font-weight: 700;
+            margin-bottom: 20px;
+            letter-spacing: 1px;
+        }
+        .col-desc {
+            font-size: 18px;
+            color: rgba(10, 22, 38, 0.8);
+            font-weight: 300;
+            line-height: 1.8;
+        }
+        .logo-watermark {
+            position: absolute;
+            bottom: 30px;
+            right: 40px;
+        }
+        .logo-watermark img {
+            width: 36px;
+            height: 36px;
+            object-fit: contain;
+            opacity: 0.3;
+        }
+    </style>
+</head>
+<body>
+    <div class="slide-container">
+        <div class="header">
+            <div class="title">阶段三：方案拟定 Scheme Formulation</div>
+            <div class="divider"></div>
+        </div>
+        
+        <div class="goal-box">
+            <div class="goal-label">战略目标 STRATEGIC GOAL</div>
+            <div class="goal-text">
+                将专家痛点与产品优势，翻译为“极具杀伤力且防抄袭”的独家评价体系。
+            </div>
+        </div>
+        
+        <div class="columns-container">
+            <div class="column">
+                <div class="col-number">01</div>
+                <div class="col-title">实战脚本定制</div>
+                <div class="col-desc">
+                    摒弃标准测试套件，设计独家高压真实业务流（Proprietary Workloads）。
+                </div>
+            </div>
+            <div class="column">
+                <div class="col-number">02</div>
+                <div class="col-title">评价指标重构</div>
+                <div class="col-desc">
+                    掌握品类定义权，转向全生命周期ROI、零摩擦体验与宕机风险率。
+                </div>
+            </div>
+            <div class="column">
+                <div class="col-number">03</div>
+                <div class="col-title">方法论严谨报备</div>
+                <div class="col-desc">
+                    输出详尽白皮书，确保流程绝对科学性与可复现性，经得起审计。
+                </div>
+            </div>
+        </div>
+        
+        <div class="logo-watermark"><img src="/home/ubuntu/true_insight_presentation/a2a_logo_dark.png" alt="Logo" /></div>
+    </div>
+</body>
+</html>

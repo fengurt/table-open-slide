@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@700&family=Noto+Sans+SC:wght@400;500&family=Cormorant+Garamond:wght@600&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        .slide-container { 
+            width: 1280px; 
+            min-height: 720px; 
+            background: #FFFFFF; 
+            position: relative;
+            font-family: 'Noto Sans SC', sans-serif;
+            overflow: hidden;
+        }
+        .header {
+            position: absolute;
+            top: 80px;
+            left: 120px;
+            width: 1040px;
+        }
+        .chapter-label {
+            font-family: 'Inter', sans-serif;
+            font-size: 14px;
+            color: #A88B52;
+            letter-spacing: 2px;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+        .main-title {
+            font-family: 'Noto Serif SC', serif;
+            font-size: 48px;
+            color: #0A1626;
+            margin-bottom: 16px;
+        }
+        .subtitle {
+            font-size: 20px;
+            color: #6B7280;
+        }
+        .content-area {
+            position: absolute;
+            top: 240px;
+            left: 120px;
+            width: 1040px;
+            display: flex;
+        }
+        .column {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+        }
+        .column-left {
+            padding-right: 60px;
+            border-right: 1px solid rgba(168, 139, 82, 0.3);
+        }
+        .column-right {
+            padding-left: 60px;
+        }
+        .col-header {
+            font-family: 'Inter', sans-serif;
+            font-size: 12px;
+            color: #A88B52;
+            letter-spacing: 2px;
+            margin-bottom: 20px;
+        }
+        .data-block {
+            display: flex;
+            flex-direction: column;
+        }
+        .huge-number {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 80px;
+            color: #A88B52;
+            line-height: 1;
+            margin-bottom: 12px;
+        }
+        .data-desc {
+            font-size: 16px;
+            color: #0A1626;
+            line-height: 1.6;
+        }
+        .data-sub {
+            font-size: 12px;
+            color: #6B7280;
+            margin-top: 4px;
+        }
+        .conclusion {
+            position: absolute;
+            bottom: 80px;
+            left: 120px;
+            width: 1040px;
+            border-top: 1px solid #A88B52;
+            padding-top: 24px;
+            text-align: center;
+            font-family: 'Noto Serif SC', serif;
+            font-size: 24px;
+            color: #0A1626;
+            font-weight: 700;
+        }
+        .footer {
+            position: absolute;
+            right: 40px;
+            bottom: 30px;
+            font-size: 10px;
+            color: #A88B52;
+            font-family: 'Inter', sans-serif;
+        }
+    </style>
+</head>
+<body>
+    <div class="slide-container">
+        <div class="header">
+            <div class="chapter-label">PROLOGUE · 张力</div>
+            <div class="main-title">两组数字之间的张力</div>
+            <div class="subtitle">这就是今天我们在这里的原因</div>
+        </div>
+        
+        <div class="content-area">
+            <div class="column column-left">
+                <div class="col-header">I. THE GROUND</div>
+                <div class="data-block">
+                    <div class="huge-number">53.7%</div>
+                    <div class="data-desc">太原传统产业占工业产值</div>
+                    <div class="data-sub">（2024，太原统计局）</div>
+                </div>
+                <div class="data-block">
+                    <div class="huge-number">2.3×</div>
+                    <div class="data-desc">2005 年 GDP 相当；2023 年合肥已是太原的 2.3 倍</div>
+                </div>
+            </div>
+            
+            <div class="column column-right">
+                <div class="col-header">II. THE WAVE</div>
+                <div class="data-block">
+                    <div class="huge-number">300×</div>
+                    <div class="data-desc">中国 AI 日均使用量，18 个月增长 300 倍</div>
+                    <div class="data-sub">（国家数据局）</div>
+                </div>
+                <div class="data-block">
+                    <div class="huge-number">¥1.2 万亿</div>
+                    <div class="data-desc">2026 年中国 AI 核心产业规模预计，同比增长近 30%</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="conclusion">
+            「这两组数字之间的张力，就是今天我们在这里的原因。」
+        </div>
+        
+        <div class="footer">少数人的视野 — 岁知社闭门分享 · 郭峰 · 2026.05.14</div>
+    </div>
+</body>
+</html>

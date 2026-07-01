@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;500;700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        .slide-container {
+            width: 1280px;
+            min-height: 720px;
+            background-color: #FFFFFF;
+            font-family: 'Noto Sans SC', sans-serif;
+            position: relative;
+            padding-top: 80px;
+        }
+        .header {
+            margin-left: 100px;
+            margin-right: 100px;
+            margin-bottom: 30px;
+        }
+        .title {
+            font-size: 32px;
+            color: #0A1626;
+            font-weight: 700;
+            margin-bottom: 15px;
+            letter-spacing: 2px;
+        }
+        .divider {
+            width: 80px;
+            height: 2px;
+            background-color: #A88B52;
+        }
+        
+        .intro-text {
+            margin-left: 100px;
+            margin-right: 100px;
+            font-size: 18px;
+            color: #0A1626;
+            font-weight: 500;
+            margin-bottom: 30px;
+            padding-left: 20px;
+            border-left: 4px solid #A88B52;
+            line-height: 1.6;
+        }
+        
+        .intro-text span {
+            color: #A88B52;
+            font-weight: 700;
+        }
+        
+        .architecture-table {
+            margin-left: 100px;
+            margin-right: 100px;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .arch-row {
+            display: flex;
+            border-top: 1px solid rgba(10, 22, 38, 0.2);
+            padding: 22px 0;
+        }
+        
+        .arch-row:last-child {
+            border-bottom: 1px solid rgba(10, 22, 38, 0.2);
+        }
+        
+        .arch-left {
+            width: 260px;
+            padding-right: 30px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        
+        .arch-title {
+            font-size: 20px;
+            color: #0A1626;
+            font-weight: 700;
+            margin-bottom: 6px;
+        }
+        
+        .arch-en {
+            font-size: 12px;
+            color: #A88B52;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+        
+        .arch-right {
+            flex: 1;
+            font-size: 16px;
+            color: rgba(10, 22, 38, 0.8);
+            font-weight: 300;
+            line-height: 1.6;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            text-align: justify;
+        }
+        
+        .sub-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 20px;
+        }
+        
+        .sub-item {
+            background-color: rgba(10, 22, 38, 0.02);
+            padding: 15px;
+            border-left: 3px solid #A88B52;
+        }
+        
+        .sub-title {
+            font-size: 15px;
+            color: #0A1626;
+            font-weight: 700;
+            margin-bottom: 6px;
+        }
+        
+        .sub-desc {
+            font-size: 14px;
+            color: rgba(10, 22, 38, 0.8);
+            line-height: 1.5;
+        }
+        
+        .logo-watermark {
+            position: absolute;
+            bottom: 30px;
+            right: 40px;
+        }
+        .logo-watermark img {
+            width: 36px;
+            height: 36px;
+            object-fit: contain;
+            opacity: 0.3;
+        }
+    </style>
+</head>
+<body>
+    <div class="slide-container">
+        <div class="header">
+            <div class="title">液态协同组织架构 Liquid Organizational Structure</div>
+            <div class="divider"></div>
+        </div>
+        
+        <div class="intro-text">
+            摒弃传统的科层制（Hierarchy）金字塔模型，采用<span>“强中台赋能 + 去中心化节点 + 液态协同网络”</span>的星系架构。
+        </div>
+        
+        <div class="architecture-table">
+            <div class="arch-row">
+                <div class="arch-left">
+                    <div class="arch-title">DAO 治理委员会</div>
+                    <div class="arch-en">Governance Council</div>
+                </div>
+                <div class="arch-right">
+                    核心决策机构。由生态发起人、核心专家、L3教练与投资方组成。基于链上共识进行决策，确保生态的去中心化与持续进化。
+                </div>
+            </div>
+            
+            <div class="arch-row">
+                <div class="arch-left">
+                    <div class="arch-title">三大赋能中台</div>
+                    <div class="arch-en">Empowerment Platforms</div>
+                </div>
+                <div class="arch-right">
+                    <div class="sub-grid">
+                        <div class="sub-item">
+                            <div class="sub-title">HOM (基础设施与合规)</div>
+                            <div class="sub-desc">数字平台、空间拓展、全球合规财税。</div>
+                        </div>
+                        <div class="sub-item">
+                            <div class="sub-title">UNI (智慧与认证)</div>
+                            <div class="sub-desc">课程研发、国际认证、效能监控。</div>
+                        </div>
+                        <div class="sub-item">
+                            <div class="sub-title">DAO (资产与治理)</div>
+                            <div class="sub-desc">真理计划运营、数字确权与版税、仲裁解决。</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="arch-row">
+                <div class="arch-left">
+                    <div class="arch-title">液态协作网络</div>
+                    <div class="arch-en">Collaboration Network</div>
+                </div>
+                <div class="arch-right">
+                    创造商业价值的“前线”。专家（大脑）+ 教练（将领）+ 单元（特种兵），平时独立，遇需求瞬时集结，交付后瞬间解散。
+                </div>
+            </div>
+            
+            <div class="arch-row">
+                <div class="arch-left">
+                    <div class="arch-title">区域发展中心</div>
+                    <div class="arch-en">Regional Centers</div>
+                </div>
+                <div class="arch-right">
+                    设于香港、伦敦、上海等地的“路由器”，整合本地政企、高校与空间资源，推动在地化赋能与生态落地。
+                </div>
+            </div>
+        </div>
+        
+        <div class="logo-watermark"><img src="/home/ubuntu/opc_global_presentation/a2a_logo_dark.png" alt="Logo" /></div>
+    
+        <div style="position: absolute; bottom: 25px; left: 0; right: 0; text-align: center; font-size: 11px; color: rgba(10, 22, 38, 0.3); font-weight: 300; letter-spacing: 2px; font-family: 'Noto Sans SC', sans-serif;">善用智能 终获自由 &nbsp;&nbsp;|&nbsp;&nbsp; OPC Global All Rights Reserved</div>
+    </div>
+</body>
+</html>

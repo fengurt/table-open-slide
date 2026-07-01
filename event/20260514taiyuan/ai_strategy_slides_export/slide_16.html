@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500&family=Noto+Serif+SC:wght@700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        .slide-container {
+            width: 1280px;
+            min-height: 720px;
+            background: #FFFFFF;
+            position: relative;
+            font-family: 'Noto Sans SC', sans-serif;
+            color: #1A2B4C;
+            overflow: hidden;
+        }
+        .header {
+            position: absolute;
+            top: 80px;
+            left: 120px;
+            width: 1040px;
+        }
+        .header-title {
+            font-family: 'Noto Serif SC', serif;
+            font-size: 40px;
+            color: #0A1626;
+            font-weight: 700;
+            letter-spacing: 1px;
+            margin-bottom: 20px;
+        }
+        .header-line {
+            width: 60px;
+            height: 2px;
+            background: #A88B52;
+        }
+        .content-wrapper {
+            position: absolute;
+            top: 200px;
+            left: 120px;
+            width: 1040px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: 1fr 1fr;
+            column-gap: 60px;
+            row-gap: 50px;
+        }
+        .grid-item {
+            position: relative;
+            padding-top: 20px;
+            border-top: 1px solid rgba(168, 139, 82, 0.4);
+        }
+        .trap-label {
+            font-family: 'Noto Serif SC', serif;
+            font-size: 20px;
+            color: #A88B52;
+            font-weight: 700;
+            margin-bottom: 10px;
+            letter-spacing: 2px;
+        }
+        .trap-title {
+            font-size: 24px;
+            color: #0A1626;
+            font-weight: 500;
+            margin-bottom: 20px;
+            line-height: 1.4;
+        }
+        .trap-detail {
+            display: flex;
+            flex-direction: column;
+        }
+        .detail-row {
+            display: flex;
+            margin-bottom: 12px;
+            align-items: flex-start;
+        }
+        .detail-label {
+            font-size: 16px;
+            color: #A88B52;
+            font-weight: 500;
+            width: 60px;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+        .detail-text {
+            font-size: 18px;
+            color: #1A2B4C;
+            line-height: 1.6;
+            font-weight: 300;
+        }
+        .accent-bg {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 400px;
+            height: 100%;
+            background: linear-gradient(to left, rgba(168, 139, 82, 0.03), transparent);
+            z-index: 0;
+        }
+        .content-wrapper, .header {
+            z-index: 1;
+        }
+    </style>
+</head>
+<body>
+    <div class="slide-container">
+        <div class="accent-bg"></div>
+        
+        <div class="header">
+            <div class="header-title">90% 的 AI 项目失败，输在四个共性陷阱</div>
+            <div class="header-line"></div>
+        </div>
+        
+        <div class="content-wrapper">
+            <div class="grid-item">
+                <div class="trap-label">坑 01</div>
+                <div class="trap-title">买了全套系统，没人负责落地</div>
+                <div class="trap-detail">
+                    <div class="detail-row">
+                        <div class="detail-label">表现：</div>
+                        <div class="detail-text">IT 买了，业务不用</div>
+                    </div>
+                    <div class="detail-row">
+                        <div class="detail-label">根因：</div>
+                        <div class="detail-text">老板没参与、无内部推动者、无 KPI 绑定</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="grid-item">
+                <div class="trap-label">坑 02</div>
+                <div class="trap-title">数据在系统里，但没有连通</div>
+                <div class="trap-detail">
+                    <div class="detail-row">
+                        <div class="detail-label">表现：</div>
+                        <div class="detail-text">ERP + CRM 各自孤立，AI 无法分析</div>
+                    </div>
+                    <div class="detail-row">
+                        <div class="detail-label">根因：</div>
+                        <div class="detail-text">数据孤岛 — 部门 / 系统标准不统一</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="grid-item">
+                <div class="trap-label">坑 03</div>
+                <div class="trap-title">追最新工具，忽略业务目标</div>
+                <div class="trap-detail">
+                    <div class="detail-row">
+                        <div class="detail-label">表现：</div>
+                        <div class="detail-text">今天买 A，明天换 B，没有一个跑通</div>
+                    </div>
+                    <div class="detail-row">
+                        <div class="detail-label">根因：</div>
+                        <div class="detail-text">"工具焦虑"驱动，而非业务问题驱动</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="grid-item">
+                <div class="trap-label">坑 04</div>
+                <div class="trap-title">供应商跑路，数据没了</div>
+                <div class="trap-detail">
+                    <div class="detail-row">
+                        <div class="detail-label">表现：</div>
+                        <div class="detail-text">用了 3 年的 SaaS 倒闭，历史数据无法导出</div>
+                    </div>
+                    <div class="detail-row">
+                        <div class="detail-label">根因：</div>
+                        <div class="detail-text">缺乏数据主权意识</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

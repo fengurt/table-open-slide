@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500&family=Noto+Serif+SC:wght@700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        .slide-container {
+            width: 1280px;
+            min-height: 720px;
+            background: #FFFFFF;
+            position: relative;
+            font-family: 'Noto Sans SC', sans-serif;
+            color: #1A2B4C;
+            overflow: hidden;
+        }
+        .header {
+            position: absolute;
+            top: 80px;
+            left: 120px;
+            width: 1040px;
+        }
+        .header-title {
+            font-family: 'Noto Serif SC', serif;
+            font-size: 40px;
+            color: #0A1626;
+            font-weight: 700;
+            letter-spacing: 1px;
+            margin-bottom: 20px;
+        }
+        .header-line {
+            width: 60px;
+            height: 2px;
+            background: #A88B52;
+        }
+        .context-bar {
+            position: absolute;
+            top: 180px;
+            left: 120px;
+            width: 1040px;
+            background: rgba(10, 22, 38, 0.03);
+            border-left: 4px solid #0A1626;
+            padding: 15px 20px;
+            font-size: 18px;
+            color: #0A1626;
+            letter-spacing: 1px;
+            font-weight: 500;
+        }
+        .content-wrapper {
+            position: absolute;
+            top: 260px;
+            left: 120px;
+            width: 1040px;
+            display: flex;
+            justify-content: space-between;
+        }
+        .column {
+            width: 480px;
+        }
+        .col-title {
+            font-family: 'Noto Serif SC', serif;
+            font-size: 24px;
+            margin-bottom: 24px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid rgba(168, 139, 82, 0.3);
+        }
+        .col-left .col-title {
+            color: #0A1626;
+        }
+        .col-right .col-title {
+            color: #A88B52;
+        }
+        .list-item {
+            margin-bottom: 24px;
+        }
+        .item-title {
+            font-size: 20px;
+            color: #0A1626;
+            font-weight: 500;
+            margin-bottom: 8px;
+        }
+        .item-text {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #1A2B4C;
+            font-weight: 300;
+        }
+        .col-right .item-title {
+            color: #A88B52;
+        }
+        .bottom-bar {
+            position: absolute;
+            bottom: 60px;
+            left: 120px;
+            width: 1040px;
+            border-top: 1px solid #A88B52;
+            border-bottom: 1px solid #A88B52;
+            padding: 20px 0;
+            text-align: center;
+        }
+        .bottom-text {
+            font-size: 20px;
+            color: #A88B52;
+            font-weight: 500;
+            letter-spacing: 1px;
+        }
+        .accent-bg {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 300px;
+            height: 100%;
+            background: linear-gradient(to left, rgba(168, 139, 82, 0.05), transparent);
+            z-index: 0;
+        }
+        .header, .context-bar, .content-wrapper, .bottom-bar {
+            z-index: 1;
+        }
+    </style>
+</head>
+<body>
+    <div class="slide-container">
+        <div class="accent-bg"></div>
+        
+        <div class="header">
+            <div class="header-title">煤炭相关企业 — 从"安全合规"切入最稳</div>
+            <div class="header-line"></div>
+        </div>
+        
+        <div class="context-bar">
+            背景：煤炭采购 / 物流 / 中游贸易 · 员工 30–100 人
+        </div>
+        
+        <div class="content-wrapper">
+            <div class="column col-left">
+                <div class="col-title">现实痛点</div>
+                <div class="list-item">
+                    <div class="item-title">安全管理</div>
+                    <div class="item-text">巡检记录大量人工，合规压力大</div>
+                </div>
+                <div class="list-item">
+                    <div class="item-title">成本核算</div>
+                    <div class="item-text">多环节数据分散，报表耗时</div>
+                </div>
+                <div class="list-item">
+                    <div class="item-title">采购决策</div>
+                    <div class="item-text">市场信息量大，判断依赖老经验</div>
+                </div>
+            </div>
+            
+            <div class="column col-right">
+                <div class="col-title">行业案例参考（2025）</div>
+                <div class="list-item">
+                    <div class="item-title">国能集团、中煤集团</div>
+                    <div class="item-text">基于华为矿鸿系统，液压支架自动化、瓦斯智能巡检已规模化复制</div>
+                </div>
+                <div class="list-item">
+                    <div class="item-title">天地煤机"煤海蛟龙"</div>
+                    <div class="item-text">AI 化后效率提升 2-3 倍，同类装备年产值增长 35%（山西本地案例）</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="bottom-bar">
+            <div class="bottom-text">启示：不必自研，用成熟系统 + 内部适配；从"安全管理数字化"切入，合规压力本身就是驱动力</div>
+        </div>
+    </div>
+</body>
+</html>

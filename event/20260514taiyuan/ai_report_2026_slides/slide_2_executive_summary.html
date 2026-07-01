@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@200;300;400;600&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; background-color: #FFFFFF; color: #2C3E50; }
+        .slide-container {
+            width: 1280px;
+            min-height: 720px;
+            background: #FFFFFF;
+            position: relative;
+            padding: 80px 100px 0 100px;
+        }
+        .chapter-anchor {
+            font-family: 'Playfair Display', serif;
+            font-weight: 900;
+            font-size: 20px;
+            color: #A88B52;
+            letter-spacing: 2px;
+            margin-bottom: 20px;
+        }
+        .chapter-anchor span {
+            font-family: 'Inter', sans-serif;
+            font-weight: 300;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            margin-left: 15px;
+        }
+        .main-title {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            font-size: 48px;
+            color: #0A1626;
+            margin-bottom: 60px;
+        }
+        .content-grid {
+            display: flex;
+            gap: 80px;
+        }
+        .left-col {
+            flex: 1.2;
+        }
+        .right-col {
+            flex: 0.8;
+            border-left: 2px solid #A88B52;
+            padding-left: 40px;
+        }
+        .insight-item {
+            margin-bottom: 40px;
+            position: relative;
+            padding-left: 20px;
+        }
+        .insight-item::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 8px;
+            width: 4px;
+            height: 4px;
+            background-color: #A88B52;
+            border-radius: 50%;
+        }
+        .insight-title {
+            font-family: 'Inter', sans-serif;
+            font-weight: 600;
+            font-size: 18px;
+            color: #0A1626;
+            margin-bottom: 10px;
+        }
+        .insight-text {
+            font-family: 'Inter', sans-serif;
+            font-weight: 300;
+            font-size: 16px;
+            color: #2C3E50;
+            line-height: 1.6;
+        }
+        .framework-title {
+            font-family: 'Inter', sans-serif;
+            font-weight: 400;
+            font-size: 14px;
+            color: #A88B52;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 30px;
+        }
+        .framework-list {
+            list-style: none;
+        }
+        .framework-item {
+            display: flex;
+            align-items: baseline;
+            margin-bottom: 25px;
+        }
+        .framework-num {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            font-size: 24px;
+            color: #A88B52;
+            width: 40px;
+        }
+        .framework-text {
+            font-family: 'Inter', sans-serif;
+            font-weight: 300;
+            font-size: 18px;
+            color: #0A1626;
+        }
+    </style>
+</head>
+<body>
+    <div class="slide-container">
+        <div class="chapter-anchor">00 <span>Executive Summary</span></div>
+        <h1 class="main-title">从技术验证到利润表呈现的完整路径</h1>
+        
+        <div class="content-grid">
+            <div class="left-col">
+                <div class="insight-item">
+                    <div class="insight-title">现实挑战</div>
+                    <div class="insight-text">95% 的企业试点项目在首年呈现财务零回报，其根本原因并非技术局限，而是组织架构与既有流程的阻力。</div>
+                </div>
+                <div class="insight-item">
+                    <div class="insight-title">战略机会</div>
+                    <div class="insight-text">率先进行流程深度重构的 5% 领军企业，已经成功将技术能力转化为难以复制的竞争壁垒。</div>
+                </div>
+                <div class="insight-item">
+                    <div class="insight-title">进阶路径</div>
+                    <div class="insight-text">跨越 18–24 个月的 J 曲线底部，高度依赖五阶段进阶模型与“异常拦截式”的人机协同新范式。</div>
+                </div>
+            </div>
+            
+            <div class="right-col">
+                <div class="framework-title">汇报框架 / Framework</div>
+                <ul class="framework-list">
+                    <li class="framework-item">
+                        <span class="framework-num">I</span>
+                        <span class="framework-text">宏观经济与投资回报周期</span>
+                    </li>
+                    <li class="framework-item">
+                        <span class="framework-num">II</span>
+                        <span class="framework-text">组织壁垒与人机协同</span>
+                    </li>
+                    <li class="framework-item">
+                        <span class="framework-num">III</span>
+                        <span class="framework-text">八大行业实战案例</span>
+                    </li>
+                    <li class="framework-item">
+                        <span class="framework-num">IV</span>
+                        <span class="framework-text">技术基座演进</span>
+                    </li>
+                    <li class="framework-item">
+                        <span class="framework-num">V</span>
+                        <span class="framework-text">高管执行路线图</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

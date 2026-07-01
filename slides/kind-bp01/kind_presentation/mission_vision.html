@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@800&family=Work+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+      *{box-sizing:border-box}
+      body{margin:0}
+      .slide-container {
+        width: 1280px;
+        height: 720px;
+        min-height: 720px;
+        background: #0B0F19;
+        color: #F1F5F9;
+        font-family: 'Work Sans', sans-serif;
+        display: flex;
+        position: relative;
+        overflow: hidden;
+      }
+      .left-panel {
+        width: 52%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 64px 48px 64px 72px;
+      }
+      .right-panel {
+        width: 48%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: linear-gradient(145deg, #38BDF8 0%, #0EA5E9 55%, #0284C7 100%);
+        color: #0B0F19;
+        position: relative;
+      }
+      .right-panel::after {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: radial-gradient(circle at 30% 20%, rgba(255,255,255,0.2), transparent 50%);
+        pointer-events: none;
+      }
+      .section-label {
+        color: #38BDF8;
+        font-family: 'Inter', sans-serif;
+        font-weight: 800;
+        font-size: 13px;
+        text-transform: uppercase;
+        letter-spacing: 0.22em;
+        margin: 0 0 24px;
+      }
+      .mission-item {
+        margin-bottom: 32px;
+        display: flex;
+        align-items: flex-start;
+        gap: 18px;
+      }
+      .square-bullet {
+        width: 14px;
+        height: 14px;
+        background: #0EA5E9;
+        margin-top: 10px;
+        flex-shrink: 0;
+      }
+      .mission-text {
+        font-size: 30px;
+        line-height: 1.38;
+        font-weight: 600;
+        margin: 0;
+        max-width: 520px;
+      }
+      .belief-box {
+        border-top: 1px solid rgba(56, 189, 248, 0.5);
+        padding-top: 22px;
+        margin-top: 8px;
+        max-width: 520px;
+      }
+      .belief-text {
+        font-size: 18px;
+        color: #94A3B8;
+        line-height: 1.65;
+        margin: 0;
+      }
+      .belief-text strong {
+        color: #E2E8F0;
+        font-weight: 700;
+      }
+      .vision-big {
+        font-family: 'Inter', sans-serif;
+        font-weight: 800;
+        font-size: 132px;
+        line-height: 0.92;
+        text-align: center;
+        margin: 0;
+        transform: rotate(-4deg);
+        position: relative;
+        z-index: 1;
+        letter-spacing: -0.02em;
+      }
+      .kind-zh-typography .mission-text {
+        font-size: 26px;
+        line-height: 1.5;
+        font-weight: 600;
+      }
+      .kind-zh-typography .belief-text {
+        font-size: 17px;
+        line-height: 1.72;
+      }
+      .kind-zh-typography .vision-big {
+        font-size: 112px;
+        letter-spacing: 0.04em;
+        line-height: 1.02;
+      }
+      .kind-zh-typography .section-label {
+        letter-spacing: 0.16em;
+        font-size: 12px;
+      }
+    </style>
+</head>
+<body>
+    <div class="slide-container">
+        <div class="left-panel">
+            <p class="section-label">Our Mission</p>
+            <div class="mission-item">
+                <div class="square-bullet"></div>
+                <p class="mission-text">Democratizing high-end expertise for every individual and enterprise.</p>
+            </div>
+            <div class="belief-box">
+                <p class="belief-text">
+                    When AI makes <strong>knowing</strong> free, KiND makes <strong>experts</strong> reachable.
+                </p>
+            </div>
+        </div>
+        <div class="right-panel">
+            <h2 class="vision-big">KIND<br>FOR<br>ALL</h2>
+        </div>
+    </div>
+</body>
+</html>

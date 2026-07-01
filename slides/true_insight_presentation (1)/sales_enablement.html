@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;500;700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        .slide-container {
+            width: 1280px;
+            min-height: 720px;
+            background-color: #FFFFFF;
+            font-family: 'Noto Sans SC', sans-serif;
+            position: relative;
+            padding-top: 80px;
+        }
+        .header {
+            margin-left: 100px;
+            margin-right: 100px;
+            margin-bottom: 60px;
+        }
+        .title {
+            font-size: 32px;
+            color: #0A1626;
+            font-weight: 700;
+            margin-bottom: 15px;
+            letter-spacing: 2px;
+        }
+        .divider {
+            width: 80px;
+            height: 2px;
+            background-color: #A88B52;
+        }
+        
+        .grid-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px 80px;
+            margin-left: 100px;
+            margin-right: 100px;
+        }
+        
+        .grid-item {
+            position: relative;
+            padding-top: 25px;
+            border-top: 2px solid #0A1626;
+        }
+        
+        .item-category {
+            font-size: 14px;
+            color: #A88B52;
+            font-weight: 700;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        
+        .item-title {
+            font-size: 24px;
+            color: #0A1626;
+            font-weight: 700;
+            margin-bottom: 15px;
+            letter-spacing: 1px;
+        }
+        
+        .item-desc {
+            font-size: 16px;
+            color: rgba(10, 22, 38, 0.8);
+            font-weight: 300;
+            line-height: 1.8;
+            text-align: justify;
+        }
+        
+        .highlight {
+            color: #0A1626;
+            font-weight: 500;
+        }
+        
+        .logo-watermark {
+            position: absolute;
+            bottom: 30px;
+            right: 40px;
+        }
+        .logo-watermark img {
+            width: 36px;
+            height: 36px;
+            object-fit: contain;
+            opacity: 0.3;
+        }
+    </style>
+</head>
+<body>
+    <div class="slide-container">
+        <div class="header">
+            <div class="title">销售赋能与搜索卡位 Sales Enablement & SEO Dominance</div>
+            <div class="divider"></div>
+        </div>
+        
+        <div class="grid-container">
+            <!-- Item 1 -->
+            <div class="grid-item">
+                <div class="item-category">Sales Enablement</div>
+                <div class="item-title">B2B 销售“弹药库”</div>
+                <div class="item-desc">
+                    将白皮书拆解为针对大客户销售（Key Account Managers）的<span class="highlight">实战提案（Pitch Deck）</span>与<span class="highlight">竞品话术应对指南（Battle Card）</span>，提供降维打击的销售工具。
+                </div>
+            </div>
+            
+            <!-- Item 2 -->
+            <div class="grid-item">
+                <div class="item-category">Search Dominance</div>
+                <div class="item-title">SEO 与搜索引擎心智卡位</div>
+                <div class="item-desc">
+                    布局全网“痛点检索”关键词矩阵（如：“XX场景下总是失效怎么办”）。确保决策者或消费者在进行采购前置检索时，<span class="highlight">首屏即被我们的权威报告或切片拦截</span>。
+                </div>
+            </div>
+            
+            <!-- Item 3 -->
+            <div class="grid-item">
+                <div class="item-category">Retail Enablement</div>
+                <div class="item-title">B2C 零售端“秒懂卡”</div>
+                <div class="item-desc">
+                    提取核心体验的可视化图表，转化为线下门店与线上客服的<span class="highlight">“一句话核心卖点”</span>与高转化话术，降低一线人员的解释成本，提升转化效率。
+                </div>
+            </div>
+            
+            <!-- Item 4 -->
+            <div class="grid-item">
+                <div class="item-category">Event Integration</div>
+                <div class="item-title">行业大事件与峰会植入</div>
+                <div class="item-desc">
+                    将本报告包装为年度行业重磅洞察，投递至顶级行业奖项评选。协助品牌方将此白皮书作为年度峰会或产品发布会的<span class="highlight">主旨演讲核心支撑</span>，实现最高规格的官方曝光。
+                </div>
+            </div>
+        </div>
+        
+        <div class="logo-watermark"><img src="/home/ubuntu/true_insight_presentation/a2a_logo_dark.png" alt="Logo" /></div>
+    </div>
+</body>
+</html>

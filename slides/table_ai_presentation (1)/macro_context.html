@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;500;700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        .slide-container {
+            width: 1280px;
+            min-height: 720px;
+            background-color: #FFFFFF;
+            font-family: 'Noto Sans SC', sans-serif;
+            position: relative;
+            padding-top: 80px;
+        }
+        .header {
+            margin-left: 100px;
+            margin-right: 100px;
+            margin-bottom: 40px;
+        }
+        .title {
+            font-size: 32px;
+            color: #0A1626;
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+        .subtitle {
+            font-size: 18px;
+            color: rgba(10, 22, 38, 0.6);
+            font-weight: 300;
+            margin-bottom: 15px;
+            letter-spacing: 1px;
+        }
+        .divider {
+            width: 80px;
+            height: 2px;
+            background-color: #A88B52;
+        }
+        
+        .diagram-container {
+            width: 1080px;
+            height: 420px;
+            margin: 0 auto;
+            position: relative;
+        }
+        
+        /* Center Node */
+        .center-circle {
+            width: 140px;
+            height: 140px;
+            border: 2px solid #0A1626;
+            border-radius: 50%;
+            position: absolute;
+            top: 140px;
+            left: 470px;
+            background: #fff;
+            z-index: 10;
+            padding: 6px;
+        }
+        .center-inner {
+            width: 100%;
+            height: 100%;
+            border: 2px solid #A88B52;
+            border-radius: 50%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        .center-title {
+            font-size: 22px;
+            font-weight: 700;
+            color: #0A1626;
+            letter-spacing: 2px;
+        }
+        .center-sub {
+            font-size: 12px;
+            color: #A88B52;
+            margin-top: 4px;
+            text-align: center;
+            line-height: 1.2;
+        }
+
+        /* Nodes */
+        .node {
+            width: 12px;
+            height: 12px;
+            border: 2px solid #0A1626;
+            border-radius: 50%;
+            background: #fff;
+            position: absolute;
+            z-index: 2;
+        }
+        .node-top { top: 64px; left: 534px; }
+        .node-bottom { top: 344px; left: 534px; }
+        .node-left { top: 204px; left: 324px; }
+        .node-right { top: 204px; left: 744px; }
+
+        /* Lines */
+        .line {
+            position: absolute;
+            background: #A88B52;
+            z-index: 1;
+        }
+        .line-top { top: 76px; left: 539px; width: 2px; height: 64px; }
+        .line-bottom { top: 280px; left: 539px; width: 2px; height: 64px; }
+        .line-left { top: 209px; left: 336px; width: 134px; height: 2px; }
+        .line-right { top: 209px; left: 610px; width: 134px; height: 2px; }
+
+        /* Arrows */
+        .arrow {
+            position: absolute;
+            width: 0;
+            height: 0;
+            z-index: 2;
+        }
+        .arrow-top {
+            top: 134px; left: 536px;
+            border-left: 4px solid transparent;
+            border-right: 4px solid transparent;
+            border-top: 6px solid #A88B52;
+        }
+        .arrow-bottom {
+            top: 280px; left: 536px;
+            border-left: 4px solid transparent;
+            border-right: 4px solid transparent;
+            border-bottom: 6px solid #A88B52;
+        }
+        .arrow-left {
+            top: 206px; left: 464px;
+            border-top: 4px solid transparent;
+            border-bottom: 4px solid transparent;
+            border-left: 6px solid #A88B52;
+        }
+        .arrow-right {
+            top: 206px; left: 610px;
+            border-top: 4px solid transparent;
+            border-bottom: 4px solid transparent;
+            border-right: 6px solid #A88B52;
+        }
+
+        /* Text Boxes */
+        .text-box {
+            position: absolute;
+        }
+        .text-top { top: 10px; left: 440px; width: 200px; text-align: center; }
+        .text-bottom { top: 365px; left: 440px; width: 200px; text-align: center; }
+        .text-left { top: 190px; left: 70px; width: 240px; text-align: right; }
+        .text-right { top: 190px; left: 770px; width: 240px; text-align: left; }
+
+        .q-title {
+            font-size: 20px;
+            color: #0A1626;
+            font-weight: 700;
+            margin-bottom: 4px;
+            letter-spacing: 1px;
+        }
+        .q-sub {
+            font-size: 14px;
+            color: #A88B52;
+            font-weight: 300;
+            letter-spacing: 0.5px;
+        }
+
+        /* Bottom Note */
+        .bottom-note {
+            margin: 0 100px;
+            text-align: center;
+            font-size: 18px;
+            color: #0A1626;
+            font-weight: 300;
+            line-height: 1.6;
+            padding-top: 20px;
+            border-top: 1px solid rgba(10, 22, 38, 0.1);
+            letter-spacing: 1px;
+        }
+        .logo-watermark {
+            position: absolute;
+            bottom: 30px;
+            right: 40px;
+        }
+        .logo-watermark img {
+            width: 36px;
+            height: 36px;
+            object-fit: contain;
+            opacity: 0.3;
+        }
+    </style>
+</head>
+<body>
+    <div class="slide-container">
+        <div class="header">
+            <div class="title">时代背景：全球智能经济的范式转移</div>
+            <div class="subtitle">The Paradigm Shift of Global Intelligent Economy</div>
+            <div class="divider"></div>
+        </div>
+        
+        <div class="diagram-container">
+            <!-- Center -->
+            <div class="center-circle">
+                <div class="center-inner">
+                    <div class="center-title">范式转移</div>
+                    <div class="center-sub">Paradigm<br>Shift</div>
+                </div>
+            </div>
+
+            <!-- Nodes -->
+            <div class="node node-top"></div>
+            <div class="node node-bottom"></div>
+            <div class="node node-left"></div>
+            <div class="node node-right"></div>
+
+            <!-- Lines -->
+            <div class="line line-top"></div>
+            <div class="line line-bottom"></div>
+            <div class="line line-left"></div>
+            <div class="line line-right"></div>
+
+            <!-- Arrows -->
+            <div class="arrow arrow-top"></div>
+            <div class="arrow arrow-bottom"></div>
+            <div class="arrow arrow-left"></div>
+            <div class="arrow arrow-right"></div>
+
+            <!-- Text Boxes -->
+            <div class="text-box text-top">
+                <div class="q-title">人口结构变迁</div>
+                <div class="q-sub">Demographic Shift</div>
+            </div>
+            <div class="text-box text-bottom">
+                <div class="q-title">智能体崛起</div>
+                <div class="q-sub">Rise of Agentic AI</div>
+            </div>
+            <div class="text-box text-left">
+                <div class="q-title">智力平权运动</div>
+                <div class="q-sub">Intelligence Equity</div>
+            </div>
+            <div class="text-box text-right">
+                <div class="q-title">教科文一体化</div>
+                <div class="q-sub">Edu-Tech-Culture Integration</div>
+            </div>
+        </div>
+
+        <div class="bottom-note">
+            在人工智能全面崛起的时代，单一领域的技术突破已触及天花板，真正的创新诞生于跨学科的边缘。
+        </div>
+        <div class="logo-watermark"><img src="/home/ubuntu/table_ai_presentation/a2a_logo_dark.png" alt="Logo" /></div>
+    </div>
+</body>
+</html>

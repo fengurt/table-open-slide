@@ -1,0 +1,10 @@
+services:
+  demo-slides:
+    build:
+      context: .
+      dockerfile: apps/demo/Dockerfile
+    restart: unless-stopped
+    ports:
+      # http://localhost:5191/s/restaurant-profit-breakthrough-day1
+      # http://localhost:5191/s/restaurant-profit-breakthrough-day2
+      - "5191:80"

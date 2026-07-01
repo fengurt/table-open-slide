@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
+import type { ContentLocaleId } from '../../../config.ts';
 
 export type PresenterState = {
   index: number;
@@ -14,7 +15,8 @@ export type PresenterCommand =
   | { type: 'prev' }
   | { type: 'request-state' }
   | { type: 'restart-timer' }
-  | { type: 'toggle-blackout'; mode: 'black' | 'white' };
+  | { type: 'toggle-blackout'; mode: 'black' | 'white' }
+  | { type: 'set-content-locale'; locale: ContentLocaleId };
 
 type Handler = (msg: PresenterCommand) => void;
 

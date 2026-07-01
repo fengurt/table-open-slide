@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@200;300;400;600&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; background-color: #FFFFFF; color: #2C3E50; }
+        .slide-container {
+            width: 1280px;
+            min-height: 720px;
+            background: #FFFFFF;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+        .branding-top-left {
+            position: absolute;
+            top: 50px;
+            left: 60px;
+            display: flex;
+            align-items: center;
+        }
+        .branding-line {
+            width: 30px;
+            height: 1px;
+            background-color: #A88B52;
+            margin-right: 15px;
+        }
+        .branding-text {
+            font-family: 'Inter', sans-serif;
+            font-weight: 400;
+            font-size: 14px;
+            color: #0A1626;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+        .branding-text span {
+            color: #A88B52;
+        }
+        .content-wrapper {
+            text-align: center;
+            width: 85%;
+            margin-top: -40px;
+        }
+        .quote-mark {
+            font-family: 'Playfair Display', serif;
+            font-size: 120px;
+            color: rgba(168, 139, 82, 0.15);
+            line-height: 0;
+            margin-bottom: 40px;
+        }
+        .main-quote {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            font-size: 42px;
+            color: #0A1626;
+            line-height: 1.4;
+            margin-bottom: 80px;
+        }
+        .main-quote span {
+            color: #A88B52;
+        }
+        .backing-container {
+            border-top: 1px solid #A88B52;
+            padding-top: 40px;
+            display: flex;
+            justify-content: space-between;
+            text-align: left;
+            width: 100%;
+        }
+        .backing-item {
+            flex: 1;
+            padding: 0 30px;
+        }
+        .backing-item:not(:last-child) {
+            border-right: 1px solid rgba(168, 139, 82, 0.3);
+        }
+        .backing-label {
+            font-family: 'Inter', sans-serif;
+            font-weight: 600;
+            font-size: 12px;
+            color: #A88B52;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 12px;
+        }
+        .backing-text {
+            font-family: 'Inter', sans-serif;
+            font-weight: 300;
+            font-size: 15px;
+            color: #2C3E50;
+            line-height: 1.6;
+        }
+        .end-mark-container {
+            position: absolute;
+            bottom: 60px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .end-mark-line {
+            width: 40px;
+            height: 2px;
+            background-color: #A88B52;
+            margin-bottom: 15px;
+        }
+        .end-mark-text {
+            font-family: 'Inter', sans-serif;
+            font-weight: 300;
+            font-size: 14px;
+            letter-spacing: 4px;
+            color: #0A1626;
+            text-transform: uppercase;
+        }
+    </style>
+</head>
+<body>
+    <div class="slide-container">
+        <div class="branding-top-left">
+            <div class="branding-line"></div>
+            <div class="branding-text">TABLE AI <span>岁知社出品</span></div>
+        </div>
+        
+        <div class="content-wrapper">
+            <div class="quote-mark">"</div>
+            <div class="main-quote">
+                真正的竞争壁垒，不在于谁最先采用人工智能，<br>
+                而在于谁最先<span>重新定义了工作本身</span>。
+            </div>
+            
+            <div class="backing-container">
+                <div class="backing-item">
+                    <div class="backing-label">数据基础 / Data Base</div>
+                    <div class="backing-text">51 家深度验证企业案例</div>
+                </div>
+                <div class="backing-item">
+                    <div class="backing-label">学术支撑 / Academic Support</div>
+                    <div class="backing-text">斯坦福数字经济实验室<br>MIT NANDA 研究团队</div>
+                </div>
+                <div class="backing-item">
+                    <div class="backing-label">行业覆盖 / Industry Coverage</div>
+                    <div class="backing-text">物流 · 零售 · 快消 · 科技<br>半导体 · 金融 · 教育 · 客户服务</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="end-mark-container">
+            <div class="end-mark-line"></div>
+            <div class="end-mark-text">END OF BRIEFING · 2026</div>
+        </div>
+    </div>
+</body>
+</html>

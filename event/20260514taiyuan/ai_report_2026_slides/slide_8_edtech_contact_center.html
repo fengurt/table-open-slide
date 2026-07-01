@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@200;300;400;600&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; background-color: #FFFFFF; color: #2C3E50; }
+        .slide-container {
+            width: 1280px;
+            min-height: 720px;
+            background: #FFFFFF;
+            position: relative;
+            padding: 80px 100px 0 100px;
+            display: flex;
+            flex-direction: column;
+        }
+        .chapter-anchor {
+            font-family: 'Playfair Display', serif;
+            font-weight: 900;
+            font-size: 20px;
+            color: #A88B52;
+            letter-spacing: 2px;
+            margin-bottom: 20px;
+        }
+        .chapter-anchor span {
+            font-family: 'Inter', sans-serif;
+            font-weight: 300;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            margin-left: 15px;
+        }
+        .main-title {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            font-size: 36px;
+            color: #0A1626;
+            margin-bottom: 40px;
+        }
+        .cases-container {
+            display: flex;
+            gap: 60px;
+            flex: 1;
+        }
+        .case-col {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        .case-col:first-child {
+            border-right: 1px solid rgba(168, 139, 82, 0.3);
+            padding-right: 60px;
+        }
+        .case-header {
+            margin-bottom: 25px;
+        }
+        .case-number {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            font-size: 14px;
+            color: #A88B52;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 5px;
+        }
+        .case-title {
+            font-family: 'Inter', sans-serif;
+            font-weight: 600;
+            font-size: 20px;
+            color: #0A1626;
+        }
+        .case-section {
+            margin-bottom: 20px;
+        }
+        .section-label {
+            font-family: 'Inter', sans-serif;
+            font-weight: 600;
+            font-size: 12px;
+            color: #A88B52;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+        }
+        .section-text {
+            font-family: 'Inter', sans-serif;
+            font-weight: 300;
+            font-size: 14px;
+            color: #2C3E50;
+            line-height: 1.6;
+        }
+        .data-highlight {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            font-size: 18px;
+            color: #0A1626;
+        }
+        .decision-ref {
+            background-color: rgba(168, 139, 82, 0.05);
+            padding: 16px 24px;
+            font-family: 'Inter', sans-serif;
+            font-weight: 300;
+            font-size: 14px;
+            color: #2C3E50;
+            line-height: 1.6;
+            border-left: 2px solid #0A1626;
+            margin-top: 10px; /* reduced from 30px to save vertical space */
+            margin-bottom: 0; /* removed extra bottom gap */
+        }
+        .decision-title {
+            font-weight: 600;
+            color: #0A1626;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+            font-size: 12px;
+            letter-spacing: 1px;
+        }
+    </style>
+</head>
+<body>
+    <div class="slide-container">
+        <div class="chapter-anchor">06 <span>Case Studies — EdTech & Contact Center</span></div>
+        <h1 class="main-title">节省的工时，必须重新投入到创新与共情</h1>
+        
+        <div class="cases-container">
+            <div class="case-col">
+                <div class="case-header">
+                    <div class="case-number">Case 07</div>
+                    <div class="case-title">教育软件服务商 — 研发路线图加速</div>
+                </div>
+                <div class="case-section">
+                    <div class="section-label">挑战 / Challenge</div>
+                    <div class="section-text">研发团队长期受困于基础代码编写、旧系统维护与缺陷修复，导致新产品功能上线严重滞后。</div>
+                </div>
+                <div class="case-section">
+                    <div class="section-label">方案 / Solution</div>
+                    <div class="section-text">全面为研发团队配备智能代码生成助手，并接入自动化测试脚本生成与代码审查流程。</div>
+                </div>
+                <div class="case-section">
+                    <div class="section-label">核心数据 / Core Data</div>
+                    <div class="section-text">
+                        • 软件整体开发周期缩短 <span class="data-highlight">30%</span><br>
+                        • 节省的工时全额重新投入到核心架构升级与新产品线研发中
+                    </div>
+                </div>
+            </div>
+            
+            <div class="case-col">
+                <div class="case-header">
+                    <div class="case-number">Case 08</div>
+                    <div class="case-title">大型外包呼叫中心 — 实时智能教练系统</div>
+                </div>
+                <div class="case-section">
+                    <div class="section-label">挑战 / Challenge</div>
+                    <div class="section-text">客户服务人员流失率高，情绪劳动强度大，处理复杂客诉时严重依赖个人经验，服务标准难以统一。</div>
+                </div>
+                <div class="case-section">
+                    <div class="section-label">方案 / Solution</div>
+                    <div class="section-text">部署实时语音转文本与情感分析模型，在通话过程中向客服人员屏幕动态推送最佳话术建议、相关知识库链接以及情绪安抚提示。</div>
+                </div>
+                <div class="case-section">
+                    <div class="section-label">核心数据 / Core Data</div>
+                    <div class="section-text">
+                        • 凭借此项技术优势，成功竞标 <span class="data-highlight">20+</span> 个跨国企业新项目<br>
+                        • 客户满意度得分稳居行业 <span class="data-highlight">前四</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="decision-ref">
+            <div class="decision-title">决策参考 / Decision Reference</div>
+            对于研发团队，效率提升不应转化为裁员指标。节省的工时必须强制转化为产品创新时间，以此建立长期的市场技术壁垒。客户服务系统的升级重点应放在增强员工的服务能力，而非粗暴的机器自动语音替代。实时辅助系统能够显著降低新员工的培训成本。
+        </div>
+    </div>
+</body>
+</html>

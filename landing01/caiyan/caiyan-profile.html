@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>蔡艳 Profile</title>
+  <style>
+    :root {
+      --hl-header-py: 14px;
+      --hl-header-px: 32px;
+      --hl-main-py: 10px;
+      --hl-main-px: 28px;
+      --hl-main-gap: 6px;
+      --hl-intro-size: 10.25px;
+      --hl-body-size: 9.25px;
+      --hl-col-pad: 8px;
+      --hl-slide-max: 1280px;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC",
+        "Microsoft YaHei", "Noto Sans SC", sans-serif;
+      -webkit-font-smoothing: antialiased;
+      background: #e8e8e8;
+      min-height: 100vh;
+      margin: 0;
+      padding: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .slide-wrap {
+      width: 100%;
+      max-width: var(--hl-slide-max);
+      display: flex;
+      justify-content: center;
+    }
+
+    .slide {
+      width: 100%;
+      max-width: var(--hl-slide-max);
+      aspect-ratio: 16 / 9;
+      background: #fff;
+      border: 1px solid #d1d5db;
+      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.12);
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+
+    .header {
+      background: #b12137;
+      color: #fff;
+      padding: var(--hl-header-py) var(--hl-header-px) calc(var(--hl-header-py) * 0.78);
+      flex-shrink: 0;
+      border-bottom: 3px solid #8f1a2b;
+    }
+
+    .header-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      gap: 16px;
+      margin-bottom: 10px;
+    }
+
+    .header h1 {
+      font-size: clamp(24px, 2.8vw, 36px);
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      margin-bottom: 6px;
+    }
+
+    .header h1 span {
+      font-weight: 400;
+      font-size: 0.82em;
+      letter-spacing: 0.12em;
+      margin-left: 12px;
+    }
+
+    .header .role {
+      font-size: clamp(11px, 1.1vw, 15px);
+      font-weight: 300;
+      letter-spacing: 0.08em;
+      line-height: 1.45;
+    }
+
+    .header .role + .role {
+      margin-top: 2px;
+      font-size: clamp(10px, 1vw, 13px);
+      opacity: 0.92;
+    }
+
+    .logo {
+      font-size: clamp(22px, 2.4vw, 36px);
+      font-weight: 300;
+      letter-spacing: 0.22em;
+      white-space: nowrap;
+    }
+
+    .tags {
+      border-top: 1px solid rgba(255, 255, 255, 0.35);
+      padding-top: 8px;
+      font-size: 9.5px;
+      font-weight: 300;
+      line-height: 1.45;
+      letter-spacing: 0.02em;
+      opacity: 0.95;
+    }
+
+    .main {
+      flex: 1;
+      min-height: 0;
+      padding: var(--hl-main-py) var(--hl-main-px) calc(var(--hl-main-py) * 1.27);
+      display: flex;
+      flex-direction: column;
+      gap: var(--hl-main-gap);
+      overflow: hidden;
+    }
+
+    .intro {
+      flex-shrink: 0;
+      font-size: var(--hl-intro-size);
+      line-height: 1.55;
+      color: #374151;
+      text-align: justify;
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid #e5e7eb;
+    }
+
+    .intro strong {
+      color: #b12137;
+      font-weight: 600;
+    }
+
+    .columns {
+      flex: 1;
+      min-height: 0;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+      border: 1px solid #e5e7eb;
+      border-radius: 4px;
+      overflow: hidden;
+    }
+
+    .col {
+      padding: var(--hl-col-pad) calc(var(--hl-col-pad) * 1.25) calc(var(--hl-col-pad) * 1.12);
+      overflow-y: auto;
+      min-height: 0;
+    }
+
+    .col:first-child {
+      border-right: 1px solid #e5e7eb;
+      background: #fafafa;
+    }
+
+    .col h3 {
+      font-size: calc(var(--hl-body-size) + 4px);
+      font-weight: 700;
+      color: #111;
+      margin-bottom: 8px;
+      padding-bottom: 5px;
+      border-bottom: 2px solid #b12137;
+      letter-spacing: 0.06em;
+    }
+
+    .col p {
+      font-size: var(--hl-body-size);
+      line-height: 1.5;
+      color: #374151;
+      text-align: justify;
+      margin-bottom: 6px;
+    }
+
+    .col p:last-child { margin-bottom: 0; }
+
+    .block { margin-bottom: 6px; }
+    .block:last-child { margin-bottom: 0; }
+
+    .block h4 {
+      font-size: calc(var(--hl-body-size) + 0.25px);
+      font-weight: 600;
+      color: #b12137;
+      margin-bottom: 2px;
+    }
+
+    .block ul {
+      list-style: none;
+      font-size: var(--hl-body-size);
+      line-height: 1.48;
+      color: #374151;
+    }
+
+    .block li {
+      display: flex;
+      gap: 4px;
+      margin-bottom: 2px;
+    }
+
+    .block li::before {
+      content: "–";
+      flex-shrink: 0;
+      color: #b12137;
+    }
+
+    @media (max-width: 900px) {
+      body { padding: 12px; align-items: flex-start; }
+      .slide { aspect-ratio: auto; min-height: auto; max-height: none; }
+      .columns { grid-template-columns: 1fr; }
+      .col:first-child { border-right: none; border-bottom: 1px solid #e5e7eb; }
+      .header-top { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="slide-wrap">
+  <article class="slide">
+    <header class="header">
+      <div class="header-top">
+        <div>
+          <h1>蔡艳 <span>CAI Yan</span></h1>
+          <p class="role">VΛNΛHOM 品牌与发展合伙人</p>
+          <p class="role">总经理 · 广州一悦酒店管理公司</p>
+        </div>
+        <div class="logo">VΛNΛHOM</div>
+      </div>
+      <div class="tags" data-hl-module="tags">
+        高端酒店全链路运营管理 &nbsp;|&nbsp; 主题乐园与高端酒店筹建实战者 &nbsp;|&nbsp; 连锁餐饮品牌0到1盈利增长推手 &nbsp;|&nbsp; 酒店与景区的人才体系构建 &nbsp;|&nbsp; 品牌数字化营销增长引擎
+      </div>
+    </header>
+
+    <main class="main">
+      <section class="intro">
+        <p data-hl-module="intro">
+          拥有<strong>瑞士顶尖酒店管理教育背景</strong>与<strong>中山大学MBA学位</strong>，横跨国际高端酒店、主题乐园筹建、餐饮品牌孵化、文旅地产与数字化营销等领域，擅长「战略定位—产品规划—组织搭建—营销增长」全价值链推动项目从0到1突破。职业生涯始于瑞士喜来登等奢牌酒店，归国后任职广州长隆酒店并参与长隆欢乐世界早期筹建；主导高端连锁意大利餐厅品牌孵化；后投身文旅地产人才体系与前期策划。现以一悦酒店管理公司总经理及<strong>抖音官方服务商</strong>身份，赋能百余家品牌酒店及景区，引领线上渠道营销变革，实现品效合一增长。
+        </p>
+      </section>
+
+      <section class="columns">
+        <div class="col">
+          <h3>专业背景</h3>
+          <p data-hl-module="bg"><strong>教育经历：</strong>瑞士国际旅游与酒店管理学院 | 中山大学MBA（战略管理与市场营销方向）</p>
+          <p data-hl-module="bg"><strong>核心能力：</strong>国际酒店服务标准体系 | 主题乐园与高端酒店筹建运营 | 高端餐饮品牌0到1孵化与盈利模型 | 文旅地产人才组织体系搭建 | 抖音生态全链路数字化营销</p>
+        </div>
+
+        <div class="col">
+          <h3>主要项目经验</h3>
+          <div class="block">
+            <h4>高端酒店与主题乐园筹建</h4>
+            <ul>
+              <li data-hl-module="exp">任职于广州长隆酒店期间，深入参与国内顶级主题乐园酒店的日常运营及服务优化，作为核心成员参与长隆欢乐世界早期筹建，涵盖设备安装跟进、运营及开园筹备</li>
+              <li data-hl-module="exp">早期在瑞士喜来登、Hotel Montbrillant、广州长隆酒店等高端酒店任职，积累严苛的国际服务标准与跨文化团队协作经验</li>
+            </ul>
+          </div>
+          <div class="block">
+            <h4>连锁餐饮品牌从0到1孵化与盈利增长</h4>
+            <ul>
+              <li data-hl-module="exp">主导中外合资企业旗下高端连锁意大利餐厅品牌全流程孵化：选址、团队搭建、菜单设计到服务标准制定，推动各分店从0到1开业并实现多区域盈利拓展</li>
+            </ul>
+          </div>
+          <div class="block">
+            <h4>文旅地产策划与人才体系构建</h4>
+            <ul>
+              <li data-hl-module="exp">在佛山青旅任职期间，参与文旅地产板块前期策划与规划，协助综合体项目可行性研究、概念定位，推动项目落地</li>
+              <li data-hl-module="exp">参与企业人才发展体系搭建，协助建立招聘、培训、绩效激励等机制，提升组织效能，支撑文旅地产业务拓展</li>
+            </ul>
+          </div>
+          <div class="block">
+            <h4>数字化营销赋能与线上高增长</h4>
+            <ul>
+              <li data-hl-module="exp">以一悦酒店管理公司总经理及抖音官方服务商身份，赋能100+品牌酒店及景区，定制线上渠道整合营销方案</li>
+              <li data-hl-module="exp">运用抖音内容算法、直播带货及本地推流，帮助合作方线上销售额平均增长200%+，打造单月GMV破百万案例，推动数字化转型与私域沉淀</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+    </main>
+  </article>
+  </div>
+
+</body>
+</html>

@@ -1,0 +1,9 @@
+{
+  "mcpServers": {
+    "docx-master": {
+      "command": "node",
+      "args": ["apps/docx-mcp-server/dist/index.js"],
+      "cwd": "/Users/af/cpro01/prioritized01/table-slides01"
+    }
+  }
+}

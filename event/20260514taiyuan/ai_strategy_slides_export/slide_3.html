@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400&family=Noto+Serif+SC:wght@700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        .slide-container {
+            width: 1280px;
+            min-height: 720px;
+            background: #0A1626;
+            position: relative;
+            font-family: 'Noto Sans SC', sans-serif;
+            color: #FFFFFF;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .content-wrapper {
+            text-align: center;
+            z-index: 2;
+        }
+        .eyebrow {
+            color: #A88B52;
+            font-size: 20px;
+            letter-spacing: 8px;
+            text-transform: uppercase;
+            margin-bottom: 40px;
+            font-weight: 300;
+        }
+        .main-title {
+            font-family: 'Noto Serif SC', serif;
+            font-size: 64px;
+            color: #FFFFFF;
+            margin-bottom: 40px;
+            font-weight: 700;
+            letter-spacing: 4px;
+        }
+        .divider {
+            width: 120px;
+            height: 1px;
+            background: #A88B52;
+            margin: 0 auto 40px auto;
+        }
+        .subtitle {
+            font-size: 24px;
+            color: rgba(255, 255, 255, 0.8);
+            font-weight: 300;
+            letter-spacing: 2px;
+        }
+        .accent-circle-1 {
+            position: absolute;
+            top: -200px;
+            left: -200px;
+            width: 600px;
+            height: 600px;
+            border: 1px solid rgba(168, 139, 82, 0.2);
+            border-radius: 50%;
+            z-index: 0;
+        }
+        .accent-circle-2 {
+            position: absolute;
+            bottom: -300px;
+            right: -100px;
+            width: 800px;
+            height: 800px;
+            border: 1px solid rgba(168, 139, 82, 0.1);
+            border-radius: 50%;
+            z-index: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="slide-container">
+        <div class="accent-circle-1"></div>
+        <div class="accent-circle-2"></div>
+        
+        <div class="content-wrapper">
+            <div class="eyebrow">CHAPTER ONE</div>
+            <div class="main-title">信息差分层</div>
+            <div class="divider"></div>
+            <div class="subtitle">谁能把判断转化为行动，谁就赢得这个时代</div>
+        </div>
+    </div>
+</body>
+</html>

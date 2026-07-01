@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@700&family=Noto+Sans+SC:wght@400;500;700&family=Cormorant+Garamond:wght@600&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        .slide-container { 
+            width: 1280px; 
+            min-height: 720px; 
+            background: #FFFFFF; 
+            position: relative;
+            font-family: 'Noto Sans SC', sans-serif;
+            overflow: hidden;
+        }
+        .header {
+            position: absolute;
+            top: 80px;
+            left: 120px;
+            width: 1040px;
+        }
+        .chapter-label {
+            font-family: 'Inter', sans-serif;
+            font-size: 14px;
+            color: #A88B52;
+            letter-spacing: 2px;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+        .main-title {
+            font-family: 'Noto Serif SC', serif;
+            font-size: 40px;
+            color: #0A1626;
+            margin-bottom: 16px;
+        }
+        .content-area {
+            position: absolute;
+            top: 240px;
+            left: 120px;
+            width: 1040px;
+            display: flex;
+        }
+        .column {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        .column-left {
+            padding-right: 60px;
+            border-right: 1px solid rgba(168, 139, 82, 0.5);
+        }
+        .column-right {
+            padding-left: 60px;
+        }
+        .col-header-gold {
+            font-family: 'Inter', sans-serif;
+            font-size: 14px;
+            color: #A88B52;
+            letter-spacing: 2px;
+            margin-bottom: 40px;
+            text-transform: uppercase;
+        }
+        .col-header-blue {
+            font-family: 'Inter', sans-serif;
+            font-size: 14px;
+            color: #0A1626;
+            letter-spacing: 2px;
+            margin-bottom: 40px;
+            text-transform: uppercase;
+        }
+        .bullet-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 32px;
+        }
+        .bullet-item {
+            position: relative;
+            padding-left: 24px;
+            font-size: 20px;
+            color: #0A1626;
+            line-height: 1.6;
+        }
+        .bullet-item::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 12px;
+            width: 6px;
+            height: 6px;
+            background-color: #A88B52;
+            border-radius: 50%;
+        }
+        .bullet-item strong {
+            font-weight: 700;
+        }
+        .quote-list {
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+        }
+        .quote-item {
+            font-family: 'Noto Serif SC', serif;
+            font-size: 24px;
+            color: #0A1626;
+            line-height: 1.6;
+            position: relative;
+        }
+        .quote-item strong {
+            font-weight: 700;
+            color: #A88B52;
+        }
+        .bottom-line {
+            position: absolute;
+            bottom: 80px;
+            left: 120px;
+            width: 1040px;
+            height: 1px;
+            background-color: #A88B52;
+        }
+        .footer {
+            position: absolute;
+            right: 40px;
+            bottom: 30px;
+            font-size: 10px;
+            color: #A88B52;
+            font-family: 'Inter', sans-serif;
+        }
+    </style>
+</head>
+<body>
+    <div class="slide-container">
+        <div class="header">
+            <div class="chapter-label">SEQUOIA · 翻译为太原视角</div>
+            <div class="main-title">工具趋近零成本，竞争优势转向"会不会用"</div>
+        </div>
+        
+        <div class="content-area">
+            <div class="column column-left">
+                <div class="col-header-gold">原始结论 / RAW</div>
+                <ul class="bullet-list">
+                    <li class="bullet-item">AI 的真正护城河：<strong>数据、流程、人</strong>——而非工具本身</li>
+                    <li class="bullet-item">工具的价格<strong>趋近于零</strong>，竞争优势转向"会不会用"</li>
+                    <li class="bullet-item">区分「<strong>AI 原生企业</strong>」vs「<strong>AI 使用企业</strong>」</li>
+                </ul>
+            </div>
+            
+            <div class="column column-right">
+                <div class="col-header-blue">太原视角 / TAIYUAN</div>
+                <div class="quote-list">
+                    <div class="quote-item">「太原企业现阶段目标：成为 <strong>AI 使用企业里的头部</strong>——这个门槛不高，但要快。」</div>
+                    <div class="quote-item">「你的<strong>行业数据</strong>是你最大的护城河——别让别人先把它用起来。」</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="bottom-line"></div>
+        
+        <div class="footer">少数人的视野 — 岁知社闭门分享 · 郭峰 · 2026.05.14</div>
+    </div>
+</body>
+</html>

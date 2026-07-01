@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;500;700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        .slide-container {
+            width: 1280px;
+            min-height: 720px;
+            background-color: #FFFFFF;
+            font-family: 'Noto Sans SC', sans-serif;
+            position: relative;
+            padding-top: 80px;
+        }
+        .header {
+            margin-left: 100px;
+            margin-right: 100px;
+            margin-bottom: 60px;
+        }
+        .title {
+            font-size: 32px;
+            color: #0A1626;
+            font-weight: 700;
+            margin-bottom: 15px;
+            letter-spacing: 2px;
+        }
+        .divider {
+            width: 80px;
+            height: 2px;
+            background-color: #A88B52;
+        }
+        .scenarios-container {
+            display: flex;
+            margin-left: 100px;
+            margin-right: 100px;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        .scenario-box {
+            flex: 1;
+            border: 1px solid rgba(10, 22, 38, 0.2);
+            padding: 40px;
+            position: relative;
+        }
+        .scenario-box::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background-color: #0A1626;
+        }
+        .scenario-type {
+            font-size: 24px;
+            color: #A88B52;
+            font-weight: 700;
+            margin-bottom: 10px;
+            letter-spacing: 1px;
+        }
+        .scenario-title {
+            font-size: 20px;
+            color: #0A1626;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+        .scenario-desc {
+            font-size: 16px;
+            color: rgba(10, 22, 38, 0.8);
+            font-weight: 300;
+            line-height: 1.8;
+        }
+        .metrics-container {
+            margin-left: 100px;
+            margin-right: 100px;
+            background-color: #0A1626;
+            padding: 30px; /* reduced from 40px to save vertical space */
+            color: #FFFFFF;
+        }
+        .metrics-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        .metrics-title {
+            font-size: 24px;
+            font-weight: 700;
+            color: #A88B52;
+            margin-right: 20px;
+        }
+        .metrics-subtitle {
+            font-size: 16px;
+            font-weight: 300;
+            opacity: 0.8;
+        }
+        .metrics-grid {
+            display: flex;
+            gap: 30px;
+        }
+        .metric-item {
+            flex: 1;
+            border-top: 1px solid rgba(168, 139, 82, 0.3);
+            padding-top: 20px;
+        }
+        .metric-name {
+            font-size: 18px;
+            font-weight: 500;
+            margin-bottom: 10px;
+            color: #FFFFFF;
+        }
+        .metric-desc {
+            font-size: 14px;
+            font-weight: 300;
+            opacity: 0.7;
+            line-height: 1.6;
+        }
+        .logo-watermark {
+            position: absolute;
+            bottom: 30px;
+            right: 40px;
+        }
+        .logo-watermark img {
+            width: 36px;
+            height: 36px;
+            object-fit: contain;
+            opacity: 0.3;
+        }
+    </style>
+</head>
+<body>
+    <div class="slide-container">
+        <div class="header">
+            <div class="title">场景化实战矩阵 Scenario-Based Combat Matrix</div>
+            <div class="divider"></div>
+        </div>
+        
+        <div class="scenarios-container">
+            <div class="scenario-box">
+                <div class="scenario-type">B2B 场景示例</div>
+                <div class="scenario-title">极限压力测试与容灾响应</div>
+                <div class="scenario-desc">
+                    模拟连续 72 小时流量洪峰冲击下的系统韧性与容灾响应。摒弃行业内泛滥的标准测试套件，设计独家的高压真实业务流 (Proprietary Workloads)，展现极端条件下的绝对稳定性。
+                </div>
+            </div>
+            <div class="scenario-box">
+                <div class="scenario-type">B2C 场景示例</div>
+                <div class="scenario-title">全生命周期性能衰减评估</div>
+                <div class="scenario-desc">
+                    模拟长达数年的加速老化测试或极端气候下的性能衰减曲线。从用户最痛的隐形成本出发，量化产品在长期使用中的真实表现，打破“出厂即巅峰”的营销幻象。
+                </div>
+            </div>
+        </div>
+        
+        <div class="metrics-container">
+            <div class="metrics-header">
+                <div class="metrics-title">评价指标重构 Metrics Reconstruction</div>
+                <div class="metrics-subtitle">掌握品类定义权，从常规指标向核心价值转移</div>
+            </div>
+            <div class="metrics-grid">
+                <div class="metric-item">
+                    <div class="metric-name">全生命周期投资回报率 (ROI)</div>
+                    <div class="metric-desc">超越单一采购成本，将维护、升级、培训等隐性成本纳入考量，展现长期价值。</div>
+                </div>
+                <div class="metric-item">
+                    <div class="metric-name">零摩擦体验指数</div>
+                    <div class="metric-desc">量化用户在使用过程中的顺畅度，评估系统兼容性与交互设计的无缝衔接能力。</div>
+                </div>
+                <div class="metric-item">
+                    <div class="metric-name">业务/生活宕机风险率</div>
+                    <div class="metric-desc">直击核心痛点，评估极端场景下系统失效的概率及其对业务连续性的潜在影响。</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="logo-watermark"><img src="/home/ubuntu/true_insight_presentation/a2a_logo_dark.png" alt="Logo" /></div>
+    </div>
+</body>
+</html>

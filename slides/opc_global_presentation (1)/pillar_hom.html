@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;500;700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        .slide-container {
+            width: 1280px;
+            min-height: 720px;
+            background-color: #FFFFFF;
+            font-family: 'Noto Sans SC', sans-serif;
+            position: relative;
+            padding-top: 80px;
+        }
+        .header {
+            margin-left: 100px;
+            margin-right: 100px;
+            margin-bottom: 60px;
+        }
+        .title {
+            font-size: 32px;
+            color: #0A1626;
+            font-weight: 700;
+            margin-bottom: 15px;
+            letter-spacing: 2px;
+        }
+        .divider {
+            width: 80px;
+            height: 2px;
+            background-color: #A88B52;
+        }
+        .grid-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px 80px;
+            margin-left: 100px;
+            margin-right: 100px;
+        }
+        .card {
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            padding-top: 25px;
+        }
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 40px;
+            height: 3px;
+            background-color: #A88B52;
+        }
+        .card-header {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 20px;
+        }
+        .card-number {
+            font-size: 54px;
+            font-weight: 300;
+            color: rgba(10, 22, 38, 0.08);
+            line-height: 0.8;
+            margin-right: 20px;
+            font-family: Georgia, serif;
+        }
+        .card-title-group {
+            display: flex;
+            flex-direction: column;
+        }
+        .card-title {
+            font-size: 24px;
+            color: #0A1626;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+        .card-en {
+            font-size: 13px;
+            color: #A88B52;
+            font-weight: 500;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-top: 6px;
+        }
+        .card-desc {
+            font-size: 16px;
+            color: rgba(10, 22, 38, 0.8);
+            font-weight: 300;
+            line-height: 1.8;
+            text-align: justify;
+        }
+        .highlight {
+            color: #0A1626;
+            font-weight: 700;
+            box-shadow: inset 0 -10px 0 rgba(168, 139, 82, 0.2);
+        }
+        .logo-watermark {
+            position: absolute;
+            bottom: 30px;
+            right: 40px;
+        }
+        .logo-watermark img {
+            width: 36px;
+            height: 36px;
+            object-fit: contain;
+            opacity: 0.3;
+        }
+        .global-footer {
+            position: absolute;
+            bottom: 25px;
+            left: 0;
+            right: 0;
+            text-align: center;
+            font-size: 11px;
+            color: rgba(10, 22, 38, 0.3);
+            font-weight: 300;
+            letter-spacing: 2px;
+            font-family: 'Noto Sans SC', sans-serif;
+        }
+    </style>
+</head>
+<body>
+    <div class="slide-container">
+        <div class="header">
+            <div class="title">赋能支柱二：OPC HOM — 物理与数字接口</div>
+            <div class="divider"></div>
+        </div>
+        
+        <div class="grid-container">
+            <!-- Item 1 -->
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-number">01</div>
+                    <div class="card-title-group">
+                        <div class="card-title">数字平台</div>
+                        <div class="card-en">Digital Platform</div>
+                    </div>
+                </div>
+                <div class="card-desc">
+                    作为超级个体的<span class="highlight">“外骨骼”</span>，通过自研的全球订单分发与合规分账系统，将税务、法务等行政事务自动化，确保“所学即所赚”，让个体专注于核心价值创造。
+                </div>
+            </div>
+
+            <!-- Item 2 -->
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-number">02</div>
+                    <div class="card-title-group">
+                        <div class="card-title">心灵港湾</div>
+                        <div class="card-en">Heart &amp; Home</div>
+                    </div>
+                </div>
+                <div class="card-desc">
+                    针对数字游民的孤独感，提供心理安全感社区与身心韧性护航。在分布式的协作网络中，重建真实的<span class="highlight">“友爱”连接</span>与归属感。
+                </div>
+            </div>
+
+            <!-- Item 3 -->
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-number">03</div>
+                    <div class="card-title-group">
+                        <div class="card-title">线下空间赋能</div>
+                        <div class="card-en">Space Enablement</div>
+                    </div>
+                </div>
+                <div class="card-desc">
+                    联合全球存量地产与文旅资产，挂牌成立“OPC 区域服务中心”。摒弃死收租模式，引入动态分账机制与 AI 空间主理人驻场，将空间升级为<span class="highlight">智力成果交付枢纽</span>。
+                </div>
+            </div>
+
+            <!-- Item 4 -->
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-number">04</div>
+                    <div class="card-title-group">
+                        <div class="card-title">创新商业模式</div>
+                        <div class="card-en">Reverse-Charging Model</div>
+                    </div>
+                </div>
+                <div class="card-desc">
+                    采用<span class="highlight">逆向收费</span>机制：B端/G端先行付费，C端个体零门槛入驻。仅在个体成功接单并获利后，系统才自动划扣小比例佣金，打破传统平台的抽成逻辑。
+                </div>
+            </div>
+        </div>
+
+        <div class="logo-watermark">
+            <img src="/home/ubuntu/opc_global_presentation/a2a_logo_dark.png" alt="Logo">
+        </div>
+        <div class="global-footer">善用智能 终获自由 &nbsp;&nbsp;|&nbsp;&nbsp; OPC Global All Rights Reserved</div>
+    </div>
+</body>
+</html>

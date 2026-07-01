@@ -9,5 +9,10 @@ export type {
 export { cssVarsToString, defaultDesign, designToCssVars } from './app/lib/design.ts';
 export type { Page, SlideMeta, SlideModule } from './app/lib/sdk.ts';
 export { CANVAS_HEIGHT, CANVAS_WIDTH } from './app/lib/sdk.ts';
-export type { OpenSlideConfig } from './config.ts';
+export type {
+  CollaborationRole,
+  ContentLocaleId,
+  OpenSlideConfig,
+  SlideContentConfig,
+} from './config.ts';
 export type { Locale, Plural } from './locale/types.ts';

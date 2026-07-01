@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@800&family=Work+Sans:wght@400;600&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+    <style>
+      *{box-sizing:border-box}
+      body{margin:0;background:#0B0F19}
+      .slide-container {
+        width: 1280px;
+        height: 720px;
+        min-height: 720px;
+        background: #0B0F19;
+        color: #F1F5F9;
+        font-family: 'Work Sans', sans-serif;
+        display: flex;
+        position: relative;
+        overflow: hidden;
+      }
+      .left-panel {
+        width: 36%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 0 40px 0 64px;
+        border-right: 1px solid rgba(56, 189, 248, 0.2);
+      }
+      .panel-eyebrow {
+        font-family: 'Inter', sans-serif;
+        font-size: 12px;
+        font-weight: 700;
+        letter-spacing: 0.24em;
+        text-transform: uppercase;
+        color: #64748B;
+        margin: 0 0 16px;
+      }
+      .huge-text {
+        font-family: 'Inter', sans-serif;
+        font-weight: 800;
+        font-size: 96px;
+        color: #38BDF8;
+        line-height: 0.95;
+        margin: 0;
+        text-transform: uppercase;
+      }
+      .right-panel {
+        width: 64%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 48px 56px 48px 40px;
+      }
+      .problem-grid {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+      }
+      .problem-row {
+        display: flex;
+        align-items: stretch;
+        gap: 0;
+        background: rgba(15, 23, 42, 0.65);
+        border: 1px solid rgba(56, 189, 248, 0.15);
+        border-radius: 4px;
+        padding: 18px 20px;
+      }
+      .problem-code {
+        font-family: 'JetBrains Mono', monospace;
+        color: #0EA5E9;
+        font-size: 13px;
+        font-weight: 500;
+        width: 108px;
+        flex-shrink: 0;
+        padding-top: 4px;
+        letter-spacing: 0.02em;
+      }
+      .problem-content {
+        border-left: 3px solid #38BDF8;
+        padding-left: 20px;
+        flex: 1;
+      }
+      .problem-title {
+        font-family: 'Inter', sans-serif;
+        font-size: 22px;
+        font-weight: 700;
+        margin: 0 0 6px;
+        color: #F1F5F9;
+      }
+      .problem-desc {
+        font-size: 16px;
+        color: #94A3B8;
+        line-height: 1.55;
+        margin: 0;
+      }
+      .deco-circle {
+        position: absolute;
+        width: 320px;
+        height: 320px;
+        border: 1px dashed rgba(56, 189, 248, 0.35);
+        border-radius: 50%;
+        top: -160px;
+        right: -120px;
+        opacity: 0.4;
+        pointer-events: none;
+      }
+      .kind-zh-typography .huge-text {
+        font-size: 80px;
+        letter-spacing: 0.06em;
+        line-height: 1.05;
+      }
+      .kind-zh-typography .problem-code {
+        width: 96px;
+        font-size: 12px;
+      }
+      .kind-zh-typography .problem-title {
+        font-size: 20px;
+        line-height: 1.35;
+      }
+      .kind-zh-typography .problem-desc {
+        font-size: 15px;
+        line-height: 1.68;
+      }
+      .kind-zh-typography .problem-grid {
+        gap: 14px;
+      }
+      .kind-zh-typography .panel-eyebrow {
+        letter-spacing: 0.14em;
+      }
+    </style>
+</head>
+<body>
+    <div class="slide-container">
+        <div class="deco-circle"></div>
+        <div class="left-panel">
+            <p class="panel-eyebrow">The Problem</p>
+            <h2 class="huge-text">THE<br>GAP</h2>
+        </div>
+        <div class="right-panel">
+            <div class="problem-grid">
+                <div class="problem-row">
+                    <div class="problem-code">ERR_01</div>
+                    <div class="problem-content">
+                        <p class="problem-title">Knowledge vs. Action</p>
+                        <p class="problem-desc">Standard AI answers questions but cannot carry execution depth, context, or accountability.</p>
+                    </div>
+                </div>
+                <div class="problem-row">
+                    <div class="problem-code">ERR_02</div>
+                    <div class="problem-content">
+                        <p class="problem-title">The Trust Deficit</p>
+                        <p class="problem-desc">Enterprises need verified expert judgment—not generic, unvetted model output.</p>
+                    </div>
+                </div>
+                <div class="problem-row">
+                    <div class="problem-code">ERR_03</div>
+                    <div class="problem-content">
+                        <p class="problem-title">Decision Friction</p>
+                        <p class="problem-desc">Software-only tools stall in procurement and fail to earn daily use for high-stakes work.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

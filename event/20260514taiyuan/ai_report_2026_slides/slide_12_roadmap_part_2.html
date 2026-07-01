@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@200;300;400;600&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; background-color: #FFFFFF; color: #2C3E50; }
+        .slide-container {
+            width: 1280px;
+            min-height: 720px;
+            background: #FFFFFF;
+            position: relative;
+            padding: 80px 100px 0 100px;
+            display: flex;
+            flex-direction: column;
+        }
+        .chapter-anchor {
+            font-family: 'Playfair Display', serif;
+            font-weight: 900;
+            font-size: 20px;
+            color: #A88B52;
+            letter-spacing: 2px;
+            margin-bottom: 20px;
+        }
+        .chapter-anchor span {
+            font-family: 'Inter', sans-serif;
+            font-weight: 300;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            margin-left: 15px;
+        }
+        .main-title {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            font-size: 36px;
+            color: #0A1626;
+            margin-bottom: 50px;
+        }
+        .stages-container {
+            display: flex;
+            gap: 60px;
+            flex: 1;
+        }
+        .stage-col {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        .stage-header {
+            border-bottom: 2px solid #0A1626;
+            padding-bottom: 15px;
+            margin-bottom: 30px;
+        }
+        .stage-num {
+            font-family: 'Inter', sans-serif;
+            font-weight: 600;
+            font-size: 14px;
+            color: #A88B52;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 5px;
+        }
+        .stage-title {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            font-size: 28px;
+            color: #0A1626;
+        }
+        .stage-content {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+        .content-block {
+            position: relative;
+            padding-left: 20px;
+        }
+        .content-block::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background-color: rgba(168, 139, 82, 0.3);
+        }
+        .block-label {
+            font-family: 'Inter', sans-serif;
+            font-weight: 600;
+            font-size: 12px;
+            color: #A88B52;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+        }
+        .block-text {
+            font-family: 'Inter', sans-serif;
+            font-weight: 300;
+            font-size: 16px;
+            color: #2C3E50;
+            line-height: 1.6;
+        }
+        .block-text strong {
+            font-weight: 600;
+            color: #0A1626;
+        }
+        .hint-bar {
+            margin-top: 40px;
+            background-color: #0A1626;
+            padding: 25px 40px;
+            display: flex;
+            align-items: center;
+            margin-bottom: 60px;
+        }
+        .hint-title {
+            font-family: 'Inter', sans-serif;
+            font-weight: 600;
+            font-size: 14px;
+            color: #A88B52;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-right: 40px;
+            white-space: nowrap;
+        }
+        .hint-text {
+            font-family: 'Inter', sans-serif;
+            font-weight: 300;
+            font-size: 16px;
+            color: #FFFFFF;
+            line-height: 1.6;
+        }
+        .hint-text span {
+            color: #A88B52;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+    <div class="slide-container">
+        <div class="chapter-anchor">09 <span>Executive Roadmap — Part II</span></div>
+        <h1 class="main-title">从能力倍增，到系统原生组织</h1>
+        
+        <div class="stages-container">
+            <div class="stage-col">
+                <div class="stage-header">
+                    <div class="stage-num">阶段四 / Stage IV</div>
+                    <div class="stage-title">核心能力倍增</div>
+                </div>
+                <div class="stage-content">
+                    <div class="content-block">
+                        <div class="block-label">核心动作 / Action</div>
+                        <div class="block-text">解决焦点应放在提升专业人才的产出上限，<strong>全面推广异常拦截模式</strong>。</div>
+                    </div>
+                    <div class="content-block">
+                        <div class="block-label">关键产出 / Output</div>
+                        <div class="block-text">单兵作战能力倍增 + 关键岗位的不可替代性增强。</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="stage-col">
+                <div class="stage-header">
+                    <div class="stage-num">阶段五 / Stage V</div>
+                    <div class="stage-title">系统原生组织</div>
+                </div>
+                <div class="stage-content">
+                    <div class="content-block">
+                        <div class="block-label">核心动作 / Action</div>
+                        <div class="block-text">所有业务决策高度依赖模型推理支撑，常规执行环节全部交由自主智能体完成。</div>
+                    </div>
+                    <div class="content-block">
+                        <div class="block-label">关键产出 / Output</div>
+                        <div class="block-text">组织结构扁平化 + 人均产值跃迁。</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="hint-bar">
+            <div class="hint-title">进阶节奏建议</div>
+            <div class="hint-text">
+                多数企业当前位于阶段一至阶段二之间。从阶段二跨越至阶段三是 J 曲线由负转正的关键拐点，平均耗时 <span>9–14 个月</span>。
+            </div>
+        </div>
+    </div>
+</body>
+</html>

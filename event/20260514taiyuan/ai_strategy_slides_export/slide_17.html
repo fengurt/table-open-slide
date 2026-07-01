@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500&family=Noto+Serif+SC:wght@700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        .slide-container {
+            width: 1280px;
+            min-height: 720px;
+            background: #FFFFFF;
+            position: relative;
+            font-family: 'Noto Sans SC', sans-serif;
+            color: #1A2B4C;
+            overflow: hidden;
+        }
+        .header {
+            position: absolute;
+            top: 80px;
+            left: 120px;
+            width: 1040px;
+        }
+        .header-title {
+            font-family: 'Noto Serif SC', serif;
+            font-size: 40px;
+            color: #0A1626;
+            font-weight: 700;
+            letter-spacing: 1px;
+            margin-bottom: 20px;
+        }
+        .header-line {
+            width: 60px;
+            height: 2px;
+            background: #A88B52;
+        }
+        .content-wrapper {
+            position: absolute;
+            top: 200px;
+            left: 120px;
+            width: 1040px;
+            display: flex;
+            justify-content: space-between;
+        }
+        .column {
+            width: 480px;
+            border-top: 1px solid #0A1626;
+            padding-top: 30px;
+        }
+        .col-title {
+            font-family: 'Noto Serif SC', serif;
+            font-size: 28px;
+            color: #0A1626;
+            margin-bottom: 40px;
+            font-weight: 700;
+        }
+        .checklist {
+            list-style: none;
+        }
+        .check-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 30px;
+        }
+        .checkbox {
+            width: 24px;
+            height: 24px;
+            border: 2px solid #A88B52;
+            margin-right: 20px;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+        .check-text {
+            font-size: 20px;
+            line-height: 1.6;
+            color: #1A2B4C;
+            font-weight: 300;
+        }
+        .footer {
+            position: absolute;
+            bottom: 60px;
+            left: 120px;
+            width: 1040px;
+            text-align: center;
+            font-size: 20px;
+            color: #A88B52;
+            letter-spacing: 4px;
+            font-weight: 400;
+            border-top: 1px solid rgba(168, 139, 82, 0.3);
+            padding-top: 20px;
+        }
+        .accent-bg {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 400px;
+            height: 100%;
+            background: linear-gradient(to left, rgba(168, 139, 82, 0.05), transparent);
+            z-index: 0;
+        }
+        .content-wrapper, .header, .footer {
+            z-index: 1;
+        }
+    </style>
+</head>
+<body>
+    <div class="slide-container">
+        <div class="accent-bg"></div>
+        
+        <div class="header">
+            <div class="header-title">一张可以带走的清单 — AI 投资决策核查表</div>
+            <div class="header-line"></div>
+        </div>
+        
+        <div class="content-wrapper">
+            <div class="column">
+                <div class="col-title">投资前问</div>
+                <ul class="checklist">
+                    <li class="check-item">
+                        <div class="checkbox"></div>
+                        <div class="check-text">我能说清楚这个 AI 替代了哪个具体动作？</div>
+                    </li>
+                    <li class="check-item">
+                        <div class="checkbox"></div>
+                        <div class="check-text">我算过 6 个月的总成本（人力 + 工具 + 时间）吗？</div>
+                    </li>
+                    <li class="check-item">
+                        <div class="checkbox"></div>
+                        <div class="check-text">有没有指定一个内部负责人？</div>
+                    </li>
+                    <li class="check-item">
+                        <div class="checkbox"></div>
+                        <div class="check-text">我的数据在哪里？供应商倒闭后还在我手里吗？</div>
+                    </li>
+                </ul>
+            </div>
+            
+            <div class="column">
+                <div class="col-title">投资后看</div>
+                <ul class="checklist">
+                    <li class="check-item">
+                        <div class="checkbox"></div>
+                        <div class="check-text">6 周内是否有可见的可量化效果？</div>
+                    </li>
+                    <li class="check-item">
+                        <div class="checkbox"></div>
+                        <div class="check-text">用 AI 的人愿不愿意用？阻力在哪里？</div>
+                    </li>
+                    <li class="check-item">
+                        <div class="checkbox"></div>
+                        <div class="check-text">这个场景跑通后，下一个可以复制的场景是哪里？</div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="footer">把这张清单贴在办公室门后</div>
+    </div>
+</body>
+</html>

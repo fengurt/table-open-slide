@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>岁知社 · 山石系列 · 闭门沟通会</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@300;400;600;700&family=Noto+Sans+SC:wght@300;400;500&display=swap');
+
+*{margin:0;padding:0;box-sizing:border-box}
+
+body{
+  font-family:'Noto Sans SC',sans-serif;
+  background:#0d0c0a;
+  color:#e8dfc8;
+  min-height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:flex-start;
+}
+
+.poster{
+  width:100%;
+  max-width:720px;
+  min-height:100vh;
+  background:#0d0c0a;
+  position:relative;
+  overflow:hidden;
+  padding-bottom:60px;
+}
+
+/* === TEXTURE LAYER === */
+.poster::before{
+  content:'';
+  position:fixed;
+  inset:0;
+  background:
+    radial-gradient(ellipse 80% 60% at 50% -10%, rgba(180,140,60,0.08) 0%, transparent 70%),
+    radial-gradient(ellipse 60% 40% at 80% 100%, rgba(100,80,40,0.06) 0%, transparent 60%);
+  pointer-events:none;
+  z-index:0;
+}
+
+/* === GOLD LINES === */
+.top-bar{
+  width:100%;
+  height:1px;
+  background:linear-gradient(90deg, transparent, rgba(190,150,60,0.6) 30%, rgba(190,150,60,0.6) 70%, transparent);
+  margin-bottom:0;
+}
+.bottom-bar{
+  width:100%;
+  height:1px;
+  background:linear-gradient(90deg, transparent, rgba(190,150,60,0.4) 30%, rgba(190,150,60,0.4) 70%, transparent);
+}
+
+/* === HEADER === */
+.header{
+  position:relative;
+  z-index:1;
+  text-align:center;
+  padding:48px 40px 36px;
+  border-bottom:1px solid rgba(190,150,60,0.15);
+}
+
+.org-name{
+  font-family:'Noto Serif SC',serif;
+  font-size:13px;
+  letter-spacing:8px;
+  color:rgba(190,150,60,0.7);
+  font-weight:300;
+  margin-bottom:6px;
+}
+
+.series-tag{
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  font-size:11px;
+  letter-spacing:5px;
+  color:rgba(190,150,60,0.5);
+  margin-bottom:28px;
+}
+.series-tag::before,.series-tag::after{
+  content:'';
+  width:28px;height:1px;
+  background:rgba(190,150,60,0.35);
+}
+
+.main-title{
+  font-family:'Noto Serif SC',serif;
+  font-size:38px;
+  font-weight:600;
+  color:#f0e4c4;
+  line-height:1.3;
+  letter-spacing:3px;
+  margin-bottom:10px;
+}
+
+.sub-title{
+  font-family:'Noto Serif SC',serif;
+  font-size:17px;
+  font-weight:300;
+  color:rgba(200,175,120,0.75);
+  letter-spacing:4px;
+  margin-bottom:28px;
+}
+
+.invite-badge{
+  display:inline-block;
+  border:1px solid rgba(190,150,60,0.5);
+  color:rgba(190,150,60,0.9);
+  font-size:11px;
+  letter-spacing:4px;
+  padding:6px 20px;
+  border-radius:1px;
+}
+
+/* === SECTION BASE === */
+.section{
+  position:relative;
+  z-index:1;
+  padding:36px 44px;
+  border-bottom:1px solid rgba(190,150,60,0.1);
+}
+
+.sec-label{
+  font-size:10px;
+  letter-spacing:5px;
+  color:rgba(190,150,60,0.55);
+  font-weight:500;
+  margin-bottom:20px;
+  display:flex;
+  align-items:center;
+  gap:12px;
+}
+.sec-label::after{
+  content:'';
+  flex:1;height:1px;
+  background:rgba(190,150,60,0.15);
+}
+
+/* === THEME TOPICS === */
+.topics-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:12px;
+}
+.topic-item{
+  background:rgba(255,255,255,0.028);
+  border:1px solid rgba(190,150,60,0.15);
+  border-left:2px solid rgba(190,150,60,0.5);
+  padding:16px 18px;
+  border-radius:1px;
+}
+.topic-num{
+  font-size:10px;
+  color:rgba(190,150,60,0.55);
+  letter-spacing:2px;
+  margin-bottom:6px;
+}
+.topic-title{
+  font-family:'Noto Serif SC',serif;
+  font-size:14px;
+  font-weight:600;
+  color:#e8dfc8;
+  margin-bottom:6px;
+  line-height:1.5;
+}
+.topic-desc{
+  font-size:12px;
+  color:rgba(180,165,130,0.65);
+  line-height:1.7;
+}
+
+/* === SPEAKERS === */
+.speakers-list{
+  display:flex;
+  flex-direction:column;
+  gap:0;
+}
+.speaker-item{
+  display:flex;
+  align-items:flex-start;
+  gap:18px;
+  padding:18px 0;
+  border-bottom:1px solid rgba(190,150,60,0.08);
+}
+.speaker-item:last-child{border-bottom:none;}
+
+.speaker-avatar{
+  width:48px;height:48px;min-width:48px;
+  border-radius:50%;
+  background:rgba(190,150,60,0.1);
+  border:1px solid rgba(190,150,60,0.3);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-family:'Noto Serif SC',serif;
+  font-size:16px;
+  font-weight:600;
+  color:rgba(190,150,60,0.85);
+}
+.speaker-info{flex:1;}
+.speaker-role{
+  font-size:11px;
+  letter-spacing:2px;
+  color:rgba(190,150,60,0.6);
+  margin-bottom:4px;
+}
+.speaker-name{
+  font-family:'Noto Serif SC',serif;
+  font-size:18px;
+  font-weight:600;
+  color:#f0e4c4;
+  margin-bottom:4px;
+}
+.speaker-tag{
+  font-size:12px;
+  color:rgba(180,165,130,0.6);
+  line-height:1.6;
+}
+
+.roundtable{
+  margin-top:16px;
+  background:rgba(190,150,60,0.04);
+  border:1px dashed rgba(190,150,60,0.2);
+  border-radius:1px;
+  padding:14px 18px;
+  display:flex;
+  align-items:center;
+  gap:14px;
+}
+.roundtable-icon{
+  font-size:20px;
+  opacity:0.5;
+}
+.roundtable p{
+  font-size:12px;
+  color:rgba(180,165,130,0.65);
+  line-height:1.6;
+}
+.roundtable strong{
+  color:rgba(190,150,60,0.75);
+  font-size:13px;
+  display:block;
+  margin-bottom:2px;
+}
+
+/* === FORMAT === */
+.format-row{
+  display:flex;
+  gap:12px;
+  flex-wrap:wrap;
+}
+.format-pill{
+  background:rgba(255,255,255,0.03);
+  border:1px solid rgba(190,150,60,0.2);
+  padding:8px 18px;
+  border-radius:100px;
+  font-size:12px;
+  color:rgba(200,180,130,0.8);
+  letter-spacing:1px;
+  display:flex;
+  align-items:center;
+  gap:7px;
+}
+.format-pill .dot{
+  width:5px;height:5px;
+  border-radius:50%;
+  background:rgba(190,150,60,0.6);
+  flex-shrink:0;
+}
+
+/* === FORM CTA === */
+.cta-section{
+  position:relative;
+  z-index:1;
+  padding:40px 44px;
+  text-align:center;
+}
+
+.cta-line{
+  font-family:'Noto Serif SC',serif;
+  font-size:15px;
+  color:rgba(200,175,120,0.7);
+  letter-spacing:3px;
+  margin-bottom:8px;
+}
+
+.cta-title{
+  font-family:'Noto Serif SC',serif;
+  font-size:20px;
+  font-weight:600;
+  color:#f0e4c4;
+  margin-bottom:28px;
+  letter-spacing:2px;
+}
+
+.form-box{
+  background:rgba(255,255,255,0.03);
+  border:1px solid rgba(190,150,60,0.2);
+  border-radius:2px;
+  padding:28px 32px;
+  max-width:480px;
+  margin:0 auto 24px;
+  text-align:left;
+}
+
+.form-row{
+  margin-bottom:16px;
+}
+.form-row label{
+  display:block;
+  font-size:11px;
+  letter-spacing:2px;
+  color:rgba(190,150,60,0.6);
+  margin-bottom:7px;
+}
+.form-row input,
+.form-row select,
+.form-row textarea{
+  width:100%;
+  background:rgba(255,255,255,0.04);
+  border:1px solid rgba(190,150,60,0.2);
+  border-radius:1px;
+  padding:10px 14px;
+  color:#e8dfc8;
+  font-size:13px;
+  font-family:'Noto Sans SC',sans-serif;
+  outline:none;
+  transition:border-color 0.2s;
+  -webkit-appearance:none;
+}
+.form-row input::placeholder,
+.form-row textarea::placeholder{color:rgba(180,160,110,0.35);}
+.form-row input:focus,
+.form-row select:focus,
+.form-row textarea:focus{border-color:rgba(190,150,60,0.5);}
+.form-row select option{background:#1a1712;color:#e8dfc8;}
+.form-row textarea{height:72px;resize:none;}
+
+.form-two{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:12px;
+}
+
+.submit-btn{
+  width:100%;
+  background:rgba(190,150,60,0.12);
+  border:1px solid rgba(190,150,60,0.55);
+  color:rgba(190,150,60,0.95);
+  font-size:14px;
+  letter-spacing:4px;
+  padding:14px;
+  cursor:pointer;
+  font-family:'Noto Serif SC',serif;
+  font-weight:400;
+  border-radius:1px;
+  transition:all 0.25s;
+  margin-top:6px;
+}
+.submit-btn:hover{
+  background:rgba(190,150,60,0.22);
+  border-color:rgba(190,150,60,0.8);
+  color:#f5e4a8;
+}
+
+.cta-note{
+  font-size:12px;
+  color:rgba(180,160,110,0.45);
+  line-height:1.8;
+  max-width:420px;
+  margin:0 auto;
+}
+
+/* === DISCLAIMER === */
+.disclaimer{
+  position:relative;z-index:1;
+  padding:20px 44px 12px;
+  text-align:center;
+}
+.disclaimer p{
+  font-size:11px;
+  color:rgba(150,135,100,0.4);
+  line-height:1.9;
+  letter-spacing:0.5px;
+}
+
+/* === FOOTER === */
+.footer{
+  position:relative;z-index:1;
+  text-align:center;
+  padding:24px 44px 40px;
+  border-top:1px solid rgba(190,150,60,0.1);
+  margin-top:8px;
+}
+.footer-logo{
+  font-family:'Noto Serif SC',serif;
+  font-size:16px;
+  color:rgba(190,150,60,0.55);
+  letter-spacing:6px;
+  margin-bottom:6px;
+}
+.footer-sub{
+  font-size:11px;
+  color:rgba(150,135,100,0.35);
+  letter-spacing:3px;
+}
+
+/* stone bg motif */
+.stone-motif{
+  position:fixed;
+  right:-80px;top:30%;
+  width:320px;height:320px;
+  border-radius:50%;
+  border:1px solid rgba(190,150,60,0.05);
+  pointer-events:none;z-index:0;
+}
+.stone-motif::before{
+  content:'';
+  position:absolute;
+  inset:30px;
+  border-radius:50%;
+  border:1px solid rgba(190,150,60,0.04);
+}
+.stone-motif::after{
+  content:'';
+  position:absolute;
+  inset:60px;
+  border-radius:50%;
+  border:1px solid rgba(190,150,60,0.03);
+}
+
+/* success state */
+.success-msg{
+  display:none;
+  text-align:center;
+  padding:28px 0 10px;
+}
+.success-msg .check{
+  font-size:32px;
+  color:rgba(190,150,60,0.8);
+  margin-bottom:12px;
+}
+.success-msg p{
+  font-size:14px;
+  color:rgba(200,180,130,0.8);
+  letter-spacing:2px;
+  font-family:'Noto Serif SC',serif;
+  line-height:1.9;
+}
+</style>
+</head>
+<body>
+
+<div class="stone-motif"></div>
+
+<div class="poster">
+  <div class="top-bar"></div>
+
+  <!-- HEADER -->
+  <div class="header">
+    <div class="org-name">岁 知 社</div>
+    <div class="series-tag">山 石 系 列</div>
+    <div class="main-title">闭门沟通会</div>
+    <div class="sub-title">超级个体 · AI智能体 · 全球出海</div>
+    <div class="invite-badge">邀 请 制 · 限 额 参 与</div>
+  </div>
+
+  <!-- THEMES -->
+  <div class="section">
+    <div class="sec-label">THEMES &nbsp; 本期议题</div>
+    <div class="topics-grid">
+      <div class="topic-item">
+        <div class="topic-num">01 · OPC浪潮</div>
+        <div class="topic-title">一人公司：从边缘走向国家战略</div>
+        <div class="topic-desc">2026年政策全面松绑，"1+AI"模式重构创业成本与效率边界</div>
+      </div>
+      <div class="topic-item">
+        <div class="topic-num">02 · AI智能体</div>
+        <div class="topic-title">Chat终结，智能体时代全面开启</div>
+        <div class="topic-desc">从"会说话"到"能干活"，AI Agent正重塑组织与生产关系</div>
+      </div>
+      <div class="topic-item">
+        <div class="topic-num">03 · 出海机遇</div>
+        <div class="topic-title">中国AI全球价值输出的分水岭</div>
+        <div class="topic-desc">出海下半场拼变现，Agent成为品牌出海核心基础设施</div>
+      </div>
+      <div class="topic-item">
+        <div class="topic-num">04 · AI变革</div>
+        <div class="topic-title">产业变革中的个体机遇与风险</div>
+        <div class="topic-desc">百模大战落幕，场景深耕耐力赛，高管转型的窗口期判断</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SPEAKERS -->
+  <div class="section">
+    <div class="sec-label">SPEAKERS &nbsp; 分享嘉宾</div>
+    <div class="speakers-list">
+
+      <div class="speaker-item">
+        <div class="speaker-avatar">郭</div>
+        <div class="speaker-info">
+          <div class="speaker-role">特邀主讲嘉宾</div>
+          <div class="speaker-name">郭 峰</div>
+          <div class="speaker-tag">Table AI 董事长<br>一人公司全球联盟 创始人 / 理事会秘书长</div>
+        </div>
+      </div>
+
+      <div class="speaker-item">
+        <div class="speaker-avatar">周</div>
+        <div class="speaker-info">
+          <div class="speaker-role">行业专家分享</div>
+          <div class="speaker-name">周 健</div>
+          <div class="speaker-tag">AI 智能体行业专家</div>
+        </div>
+      </div>
+
+      <div class="speaker-item">
+        <div class="speaker-avatar">阎</div>
+        <div class="speaker-info">
+          <div class="speaker-role">实战案例分享</div>
+          <div class="speaker-name">阎志涛</div>
+          <div class="speaker-tag">出 海 专 家</div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="roundtable">
+      <div class="roundtable-icon">◎</div>
+      <p><strong>圆桌沟通会</strong>三位嘉宾联合在场参与者，围绕核心议题展开开放式讨论，每位与会者均可提问互动</p>
+    </div>
+  </div>
+
+  <!-- FORMAT -->
+  <div class="section" style="padding-bottom:28px;">
+    <div class="sec-label">FORMAT &nbsp; 活动形式</div>
+    <div class="format-row">
+      <div class="format-pill"><span class="dot"></span>闭门小圆桌</div>
+      <div class="format-pill"><span class="dot"></span>线下面对面</div>
+      <div class="format-pill"><span class="dot"></span>北京 · 王府井周边</div>
+      <div class="format-pill"><span class="dot"></span>约 120 分钟</div>
+      <div class="format-pill"><span class="dot"></span>含茶歇交流</div>
+      <div class="format-pill"><span class="dot"></span>严格限额</div>
+    </div>
+  </div>
+
+  <!-- CTA FORM -->
+  <div class="cta-section">
+    <div class="cta-line">填写报名信息</div>
+    <div class="cta-title">组织方确认后第一时间邀请入群</div>
+
+    <div class="form-box">
+      <div id="form-area">
+        <div class="form-two">
+          <div class="form-row">
+            <label>姓 名 *</label>
+            <input type="text" id="f-name" placeholder="您的姓名">
+          </div>
+          <div class="form-row">
+            <label>联系电话 *</label>
+            <input type="tel" id="f-phone" placeholder="手机号码">
+          </div>
+        </div>
+        <div class="form-row">
+          <label>所在公司 / 机构</label>
+          <input type="text" id="f-company" placeholder="公司或机构名称">
+        </div>
+        <div class="form-row">
+          <label>职位 / 身份</label>
+          <input type="text" id="f-role" placeholder="如：CEO / 投资人 / 行业顾问">
+        </div>
+        <div class="form-row">
+          <label>您最感兴趣的议题</label>
+          <select id="f-topic">
+            <option value="">请选择</option>
+            <option>一人公司 OPC 模式</option>
+            <option>AI 智能体应用与落地</option>
+            <option>AI 出海机遇</option>
+            <option>AI 时代个人转型</option>
+            <option>以上都很感兴趣</option>
+          </select>
+        </div>
+        <div class="form-row">
+          <label>简单介绍您自己或期望从本次活动获得什么</label>
+          <textarea id="f-note" placeholder="选填，有助于组织方更好地了解您…"></textarea>
+        </div>
+        <button class="submit-btn" onclick="submitForm()">提 交 报 名 申 请</button>
+      </div>
+
+      <div class="success-msg" id="success-msg">
+        <div class="check">◆</div>
+        <p>报名信息已收到<br>组织方将在 24–48 小时内确认并邀请您入群<br><span style="font-size:12px;color:rgba(180,150,80,0.5);letter-spacing:1px">感谢您的关注，期待与您相见</span></p>
+      </div>
+    </div>
+
+    <div class="cta-note">
+      本活动为邀请制闭门沟通会，提交报名后由组织方进行资质确认，通过审核者将收到专属入群邀请及活动详情。名额有限，请尽早申请。
+    </div>
+  </div>
+
+  <!-- DISCLAIMER -->
+  <div class="disclaimer">
+    <p>
+      ※ 以上分享嘉宾可能根据实际情况有所调整<br>
+      最终解释权归主办方所有
+    </p>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    <div class="footer-logo">岁 知 社</div>
+    <div class="footer-sub">SUIZHI SOCIETY · SHANSHI SERIES · 2026</div>
+  </div>
+
+  <div class="bottom-bar"></div>
+</div>
+
+<script>
+function submitForm(){
+  var name = document.getElementById('f-name').value.trim();
+  var phone = document.getElementById('f-phone').value.trim();
+  if(!name || !phone){
+    var inputs = document.querySelectorAll('#form-area input');
+    inputs[0].style.borderColor = !name ? 'rgba(180,80,60,0.6)' : '';
+    inputs[1].style.borderColor = !phone ? 'rgba(180,80,60,0.6)' : '';
+    return;
+  }
+  document.getElementById('form-area').style.display='none';
+  document.getElementById('success-msg').style.display='block';
+}
+</script>
+</body>
+</html>

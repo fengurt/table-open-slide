@@ -1,6 +1,7 @@
 import { ThemeProvider } from 'next-themes';
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
+import { ContentRoot } from '../content/content-root.tsx';
 import { App } from './app';
 import './styles.css';
 
@@ -8,7 +9,9 @@ import './styles.css';
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
-      <App />
+      <ContentRoot>
+        <App />
+      </ContentRoot>
     </ThemeProvider>
   </StrictMode>,
 );

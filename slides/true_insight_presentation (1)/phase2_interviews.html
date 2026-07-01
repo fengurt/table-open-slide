@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;500;700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        .slide-container {
+            width: 1280px;
+            min-height: 720px;
+            background-color: #FFFFFF;
+            font-family: 'Noto Sans SC', sans-serif;
+            position: relative;
+            padding-top: 80px;
+        }
+        .header {
+            margin-left: 100px;
+            margin-right: 100px;
+            margin-bottom: 40px;
+        }
+        .title {
+            font-size: 32px;
+            color: #0A1626;
+            font-weight: 700;
+            margin-bottom: 15px;
+            letter-spacing: 2px;
+        }
+        .divider {
+            width: 80px;
+            height: 2px;
+            background-color: #A88B52;
+        }
+        .goal-box {
+            margin-left: 100px;
+            margin-right: 100px;
+            background-color: #0A1626;
+            padding: 30px 40px;
+            margin-bottom: 50px;
+            display: flex;
+            align-items: center;
+        }
+        .goal-label {
+            font-size: 18px;
+            color: #A88B52;
+            font-weight: 700;
+            margin-right: 40px;
+            white-space: nowrap;
+            letter-spacing: 2px;
+        }
+        .goal-text {
+            font-size: 22px;
+            color: #FFFFFF;
+            font-weight: 300;
+            line-height: 1.6;
+            letter-spacing: 1px;
+        }
+        .highlight-gold {
+            color: #A88B52;
+            font-weight: 500;
+        }
+        .columns-container {
+            display: flex;
+            margin-left: 100px;
+            margin-right: 100px;
+            gap: 40px;
+        }
+        .column {
+            flex: 1;
+            position: relative;
+        }
+        .column:not(:last-child)::after {
+            content: '';
+            position: absolute;
+            right: -20px;
+            top: 10px;
+            bottom: 10px;
+            width: 1px;
+            background-color: rgba(10, 22, 38, 0.1);
+        }
+        .col-number {
+            font-size: 36px;
+            color: #A88B52;
+            font-weight: 700;
+            margin-bottom: 15px;
+            opacity: 0.5;
+        }
+        .col-title {
+            font-size: 22px;
+            color: #0A1626;
+            font-weight: 700;
+            margin-bottom: 20px;
+            letter-spacing: 1px;
+        }
+        .col-text {
+            font-size: 16px;
+            color: rgba(10, 22, 38, 0.8);
+            font-weight: 300;
+            line-height: 1.8;
+        }
+        .col-text strong {
+            color: #0A1626;
+            font-weight: 500;
+        }
+        .logo-watermark {
+            position: absolute;
+            bottom: 30px;
+            right: 40px;
+        }
+        .logo-watermark img {
+            width: 36px;
+            height: 36px;
+            object-fit: contain;
+            opacity: 0.3;
+        }
+    </style>
+</head>
+<body>
+    <div class="slide-container">
+        <div class="header">
+            <div class="title">阶段二：专家访谈 Expert Interviews</div>
+            <div class="divider"></div>
+        </div>
+        
+        <div class="goal-box">
+            <div class="goal-label">战略目标</div>
+            <div class="goal-text">
+                借势借脑，构建<span class="highlight-gold">“产、学、研、用”</span>四维一体的信任域，让行业泰斗替品牌发声，确立绝对的行业公信力。
+            </div>
+        </div>
+        
+        <div class="columns-container">
+            <div class="column">
+                <div class="col-number">01</div>
+                <div class="col-title">“破冰式”深研访谈</div>
+                <div class="col-text">
+                    绕开常规公关话术，与我们邀约的行业意见领袖（如顶尖学者、头部企业高管、极端场景深度用户）进行 <strong>1v1 闭门深度访谈</strong>，获取最真实的市场洞察。
+                </div>
+            </div>
+            <div class="column">
+                <div class="col-number">02</div>
+                <div class="col-title">痛点共鸣提取</div>
+                <div class="col-text">
+                    引导专家分享在实际业务或生活中，因“产品不稳定、体验断层、兼容性差”导致的惨痛教训，深度挖掘<strong>隐性成本飙升、业务宕机、信任危机</strong>等核心痛点。
+                </div>
+            </div>
+            <div class="column">
+                <div class="col-number">03</div>
+                <div class="col-title">背书语料入库</div>
+                <div class="col-text">
+                    将专家的前瞻洞察提炼为评测与报告的<strong>“核心金句”与“引言”</strong>，形成强大的背书语料库，为后续的优势诠释定下绝对权威的基调。
+                </div>
+            </div>
+        </div>
+        
+        <div class="logo-watermark"><img src="/home/ubuntu/true_insight_presentation/a2a_logo_dark.png" alt="Logo" /></div>
+    </div>
+</body>
+</html>

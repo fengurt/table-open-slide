@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;500;700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        .slide-container {
+            width: 1280px;
+            min-height: 720px;
+            background-color: #FFFFFF;
+            font-family: 'Noto Sans SC', sans-serif;
+            position: relative;
+            padding-top: 80px;
+        }
+        .header {
+            margin-left: 100px;
+            margin-right: 100px;
+            margin-bottom: 40px;
+        }
+        .title {
+            font-size: 32px;
+            color: #0A1626;
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+        .subtitle {
+            font-size: 20px;
+            color: rgba(10, 22, 38, 0.6);
+            font-weight: 300;
+            margin-bottom: 15px;
+            letter-spacing: 1px;
+        }
+        .divider {
+            width: 80px;
+            height: 2px;
+            background-color: #A88B52;
+        }
+        .diagram-container {
+            width: 1080px;
+            height: 420px;
+            position: relative;
+            margin: 0 auto;
+        }
+        
+        /* Nodes */
+        .node {
+            position: absolute;
+            background-color: #0A1626;
+            color: #FFFFFF;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 15px 20px;
+            text-align: center;
+            z-index: 10;
+            width: 260px;
+            height: 130px;
+        }
+        .node-title {
+            font-size: 24px;
+            font-weight: 700;
+            color: #A88B52;
+            margin-bottom: 10px;
+            letter-spacing: 1px;
+        }
+        .node-desc {
+            font-size: 14px;
+            font-weight: 300;
+            line-height: 1.6;
+            color: rgba(255, 255, 255, 0.9);
+        }
+        
+        /* Lines */
+        .line-h { position: absolute; height: 2px; background-color: #A88B52; z-index: 1; }
+        .line-v { position: absolute; width: 2px; background-color: #A88B52; z-index: 1; }
+        
+        /* Arrows */
+        .arrow-down {
+            position: absolute;
+            width: 0;
+            height: 0;
+            border-left: 6px solid transparent;
+            border-right: 6px solid transparent;
+            border-top: 8px solid #A88B52;
+            z-index: 2;
+        }
+        .arrow-left {
+            position: absolute;
+            width: 0;
+            height: 0;
+            border-top: 6px solid transparent;
+            border-bottom: 6px solid transparent;
+            border-right: 8px solid #A88B52;
+            z-index: 2;
+        }
+        .arrow-right {
+            position: absolute;
+            width: 0;
+            height: 0;
+            border-top: 6px solid transparent;
+            border-bottom: 6px solid transparent;
+            border-left: 8px solid #A88B52;
+            z-index: 2;
+        }
+        
+        /* Labels */
+        .line-label {
+            position: absolute;
+            font-size: 16px;
+            font-weight: 500;
+            color: #A88B52;
+            background-color: #FFFFFF;
+            padding: 4px 8px;
+            z-index: 5;
+            text-align: center;
+            line-height: 1.4;
+        }
+        .center-label {
+            position: absolute;
+            left: 440px;
+            top: 170px;
+            width: 200px;
+            text-align: center;
+            font-size: 24px;
+            font-weight: 700;
+            color: #0A1626;
+            letter-spacing: 2px;
+        }
+        .logo-watermark {
+            position: absolute;
+            bottom: 30px;
+            right: 40px;
+        }
+        .logo-watermark img {
+            width: 36px;
+            height: 36px;
+            object-fit: contain;
+            opacity: 0.3;
+        }
+    </style>
+</head>
+<body>
+    <div class="slide-container">
+        <div class="header">
+            <div class="title">核心架构：AHA智库生态飞轮</div>
+            <div class="subtitle">AHA Ecosystem Flywheel</div>
+            <div class="divider"></div>
+        </div>
+        
+        <div class="diagram-container">
+            <!-- Nodes -->
+            <div class="node" style="left: 410px; top: 0px;">
+                <div class="node-title">Human 人</div>
+                <div class="node-desc">智库的核心。教育、科技、文化专家与青年人才</div>
+            </div>
+            <div class="node" style="left: 760px; top: 250px;">
+                <div class="node-title">Agent 智能体</div>
+                <div class="node-desc">智库的数字化载体。跨界专家思想交汇的"数字智囊"</div>
+            </div>
+            <div class="node" style="left: 60px; top: 250px;">
+                <div class="node-title">Assets 资产</div>
+                <div class="node-desc">智库的沉淀。公平确权与清算，可持续的智慧资产</div>
+            </div>
+
+            <!-- Line 1: Human to Agent -->
+            <div class="line-h" style="left: 670px; top: 64px; width: 220px;"></div>
+            <div class="line-v" style="left: 889px; top: 64px; height: 186px;"></div>
+            <div class="arrow-down" style="left: 884px; top: 242px;"></div>
+            <div class="line-label" style="left: 840px; top: 135px; width: 100px;">经验输入<br>智能体化</div>
+
+            <!-- Line 2: Agent to Assets -->
+            <div class="line-h" style="left: 320px; top: 314px; width: 440px;"></div>
+            <div class="arrow-left" style="left: 320px; top: 309px;"></div>
+            <div class="line-label" style="left: 490px; top: 303px; width: 100px;">资产沉淀</div>
+
+            <!-- Line 3: Assets to Human -->
+            <div class="line-v" style="left: 189px; top: 64px; height: 186px;"></div>
+            <div class="line-h" style="left: 190px; top: 64px; width: 220px;"></div>
+            <div class="arrow-right" style="left: 402px; top: 59px;"></div>
+            <div class="line-label" style="left: 150px; top: 145px; width: 80px;">反哺人才</div>
+
+            <!-- Center Label -->
+            <div class="center-label">AHA 生态飞轮</div>
+        </div>
+        <div class="logo-watermark"><img src="/home/ubuntu/table_ai_presentation/a2a_logo_dark.png" alt="Logo" /></div>
+    </div>
+</body>
+</html>

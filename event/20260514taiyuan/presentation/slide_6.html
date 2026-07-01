@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@700&family=Noto+Sans+SC:wght@400;500;700&family=Cormorant+Garamond:wght@600&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        .slide-container { 
+            width: 1280px; 
+            min-height: 720px; 
+            background: #FFFFFF; 
+            position: relative;
+            font-family: 'Noto Sans SC', sans-serif;
+            overflow: hidden;
+        }
+        .header {
+            position: absolute;
+            top: 80px;
+            left: 120px;
+            width: 1040px;
+        }
+        .chapter-label {
+            font-family: 'Inter', sans-serif;
+            font-size: 14px;
+            color: #A88B52;
+            letter-spacing: 2px;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+        .main-title {
+            font-family: 'Noto Serif SC', serif;
+            font-size: 48px;
+            color: #0A1626;
+            margin-bottom: 16px;
+        }
+        .content-area {
+            position: absolute;
+            top: 220px;
+            left: 120px;
+            width: 1040px;
+            display: flex;
+            gap: 60px;
+        }
+        .column-left {
+            width: 45%;
+            display: flex;
+            flex-direction: column;
+        }
+        .huge-number {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 160px;
+            color: #A88B52;
+            line-height: 1;
+            margin-bottom: 24px;
+        }
+        .separator-left {
+            width: 80px;
+            height: 1px;
+            background-color: #A88B52;
+            margin-bottom: 24px;
+        }
+        .left-desc {
+            font-family: 'Noto Serif SC', serif;
+            font-size: 28px;
+            color: #0A1626;
+            line-height: 1.5;
+            margin-bottom: 24px;
+        }
+        .left-desc strong {
+            font-weight: 700;
+        }
+        .left-source {
+            font-size: 12px;
+            color: #6B7280;
+        }
+        .column-right {
+            width: 55%;
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+            padding-top: 20px;
+        }
+        .data-row {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+        .row-header {
+            display: flex;
+            align-items: baseline;
+            gap: 16px;
+        }
+        .row-number {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 36px;
+            color: #A88B52;
+            font-weight: 600;
+            width: 80px;
+        }
+        .row-desc {
+            font-size: 18px;
+            color: #0A1626;
+            flex: 1;
+        }
+        .row-desc strong {
+            font-weight: 700;
+        }
+        .row-source {
+            font-size: 14px;
+            color: #6B7280;
+            padding-left: 96px;
+        }
+        .conclusion {
+            position: absolute;
+            bottom: 80px;
+            left: 120px;
+            width: 1040px;
+            border-top: 1px solid #A88B52;
+            padding-top: 24px;
+            font-family: 'Noto Serif SC', serif;
+            font-size: 20px;
+            color: #A88B52;
+            font-style: italic;
+        }
+        .footer {
+            position: absolute;
+            right: 40px;
+            bottom: 30px;
+            font-size: 10px;
+            color: #A88B52;
+            font-family: 'Inter', sans-serif;
+        }
+    </style>
+</head>
+<body>
+    <div class="slide-container">
+        <div class="header">
+            <div class="chapter-label">GLOBAL REALITY · 真实数据</div>
+            <div class="main-title">全球 AI 落地的真实底色</div>
+        </div>
+        
+        <div class="content-area">
+            <div class="column-left">
+                <div class="huge-number">95%</div>
+                <div class="separator-left"></div>
+                <div class="left-desc">的生成式 AI 试点项目，<br><strong>未能成功投产</strong></div>
+                <div class="left-source">— MIT《The GenAI Divide》／Gartner</div>
+            </div>
+            
+            <div class="column-right">
+                <div class="data-row">
+                    <div class="row-header">
+                        <div class="row-number">40%</div>
+                        <div class="row-desc">的 POC 项目能走到生产，60% 步履维艰</div>
+                    </div>
+                    <div class="row-source">— 亚马逊云科技调研 · 2025</div>
+                </div>
+                
+                <div class="data-row">
+                    <div class="row-header">
+                        <div class="row-number">1%</div>
+                        <div class="row-desc">仅 1% 的企业实现 AI 与业务的<strong>全面融合</strong></div>
+                    </div>
+                    <div class="row-source">— 行业报告 · 2025</div>
+                </div>
+                
+                <div class="data-row">
+                    <div class="row-header">
+                        <div class="row-number">80%+</div>
+                        <div class="row-desc">超 80% 的组织未实现 AI 对 <strong>EBIT</strong> 的实质影响</div>
+                    </div>
+                    <div class="row-source">— 麦肯锡</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="conclusion">
+            "失败——但不是因为模型不够好。"
+        </div>
+        
+        <div class="footer">少数人的视野 — 岁知社闭门分享 · 郭峰 · 2026.05.14</div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;500;700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        .slide-container {
+            width: 1280px;
+            min-height: 720px;
+            background-color: #FFFFFF;
+            font-family: 'Noto Sans SC', sans-serif;
+            position: relative;
+            padding-top: 80px;
+        }
+        .header {
+            margin-left: 100px;
+            margin-right: 100px;
+            margin-bottom: 40px;
+        }
+        .title {
+            font-size: 32px;
+            color: #0A1626;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+        .subtitle {
+            font-size: 20px;
+            color: rgba(10, 22, 38, 0.6);
+            font-weight: 300;
+            margin-bottom: 15px;
+            letter-spacing: 1px;
+        }
+        .divider {
+            width: 80px;
+            height: 2px;
+            background-color: #A88B52;
+        }
+.diagram-container {
+            width: 1080px;
+            height: 420px;
+            position: relative;
+            margin: 0 auto;
+        }
+/* Center Circle */
+        .center-circle {
+            position: absolute;
+            left: 460px;
+            top: 115px;
+            width: 160px;
+            height: 160px;
+            background-color: #0A1626;
+            border-radius: 50%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            z-index: 10;
+            border: 4px solid #FFFFFF;
+            box-shadow: 0 0 0 2px #A88B52;
+        }
+        .center-title {
+            font-size: 24px;
+            color: #FFFFFF;
+            font-weight: 700;
+            letter-spacing: 1px;
+            margin-bottom: 4px;
+        }
+        .center-subtitle {
+            font-size: 18px;
+            color: #A88B52;
+            font-weight: 300;
+            letter-spacing: 2px;
+        }
+/* Lines */
+        .line-v {
+            position: absolute;
+            width: 2px;
+            background-color: #A88B52;
+            z-index: 1;
+        }
+        .line-h {
+            position: absolute;
+            height: 2px;
+            background-color: #A88B52;
+            z-index: 1;
+        }
+/* Left Spine */
+        .left-spine-v { left: 379px; top: 60px; height: 270px; }
+        .left-spine-h { left: 380px; top: 194px; width: 80px; }
+        .left-branch-1 { left: 340px; top: 59px; width: 40px; }
+        .left-branch-2 { left: 340px; top: 149px; width: 40px; }
+        .left-branch-3 { left: 340px; top: 239px; width: 40px; }
+        .left-branch-4 { left: 340px; top: 329px; width: 40px; }
+/* Right Spine */
+        .right-spine-v { left: 699px; top: 60px; height: 270px; }
+        .right-spine-h { left: 620px; top: 194px; width: 80px; }
+        .right-branch-1 { left: 700px; top: 59px; width: 40px; }
+        .right-branch-2 { left: 700px; top: 149px; width: 40px; }
+        .right-branch-3 { left: 700px; top: 239px; width: 40px; }
+        .right-branch-4 { left: 700px; top: 329px; width: 40px; }
+/* Dots */
+        .dot {
+            position: absolute;
+            width: 12px;
+            height: 12px;
+            background-color: #FFFFFF;
+            border: 2px solid #A88B52;
+            border-radius: 50%;
+            z-index: 5;
+        }
+        .dot-l1 { left: 334px; top: 54px; }
+        .dot-l2 { left: 334px; top: 144px; }
+        .dot-l3 { left: 334px; top: 234px; }
+        .dot-l4 { left: 334px; top: 324px; }
+.dot-r1 { left: 734px; top: 54px; }
+        .dot-r2 { left: 734px; top: 144px; }
+        .dot-r3 { left: 734px; top: 234px; }
+        .dot-r4 { left: 734px; top: 324px; }
+/* Text Boxes */
+        .text-box {
+            position: absolute;
+            width: 280px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .text-left {
+            left: 40px;
+            text-align: right;
+        }
+        .text-right {
+            left: 760px;
+            text-align: left;
+        }
+.tb-l1 { top: 35px; }
+        .tb-l2 { top: 125px; }
+        .tb-l3 { top: 215px; }
+        .tb-l4 { top: 305px; }
+.tb-r1 { top: 35px; }
+        .tb-r2 { top: 125px; }
+        .tb-r3 { top: 215px; }
+        .tb-r4 { top: 305px; }
+.node-title {
+            font-size: 18px;
+            color: #0A1626;
+            font-weight: 700;
+            margin-bottom: 4px;
+            letter-spacing: 1px;
+        }
+        .node-desc {
+            font-size: 14px;
+            color: rgba(10, 22, 38, 0.6);
+            font-weight: 300;
+            letter-spacing: 0.5px;
+        }
+        .logo-watermark {
+            position: absolute;
+            bottom: 30px;
+            right: 40px;
+        }
+        .logo-watermark img {
+            width: 36px;
+            height: 36px;
+            object-fit: contain;
+            opacity: 0.3;
+        }
+    </style>
+</head>
+<body><div class="slide-container">
+        <div class="header">
+            <div class="title">生态合作网络 Ecosystem Partners</div>
+            <div class="subtitle">与全球领先机构共建智库网络</div>
+            <div class="divider"></div>
+        </div>
+<div class="diagram-container">
+            <!-- Center Circle -->
+            <div class="center-circle">
+                <div class="center-title">TABLE AI</div>
+                <div class="center-subtitle">泰博乐</div>
+            </div>
+<!-- Left Spine & Branches -->
+            <div class="line-v left-spine-v"></div>
+            <div class="line-h left-spine-h"></div>
+            <div class="line-h left-branch-1"></div>
+            <div class="line-h left-branch-2"></div>
+            <div class="line-h left-branch-3"></div>
+            <div class="line-h left-branch-4"></div>
+<!-- Right Spine & Branches -->
+            <div class="line-v right-spine-v"></div>
+            <div class="line-h right-spine-h"></div>
+            <div class="line-h right-branch-1"></div>
+            <div class="line-h right-branch-2"></div>
+            <div class="line-h right-branch-3"></div>
+            <div class="line-h right-branch-4"></div>
+<!-- Dots -->
+            <div class="dot dot-l1"></div>
+            <div class="dot dot-l2"></div>
+            <div class="dot dot-l3"></div>
+            <div class="dot dot-l4"></div>
+<div class="dot dot-r1"></div>
+            <div class="dot dot-r2"></div>
+            <div class="dot dot-r3"></div>
+            <div class="dot dot-r4"></div>
+<!-- Left Text Boxes -->
+            <div class="text-box text-left tb-l1">
+                <div class="node-title">伯禹教育</div>
+                <div class="node-desc">AI与编程人才培养</div>
+            </div>
+            <div class="text-box text-left tb-l2">
+                <div class="node-title">澜码科技</div>
+                <div class="node-desc">企业级AI Agent平台</div>
+            </div>
+            <div class="text-box text-left tb-l3">
+                <div class="node-title">首都医科大学附属北京朝阳医院</div>
+                <div class="node-desc">医疗知识传承</div>
+            </div>
+            <div class="text-box text-left tb-l4">
+                <div class="node-title">OPC Global</div>
+                <div class="node-desc">专业智慧实践转化平台</div>
+            </div>
+<!-- Right Text Boxes -->
+            <div class="text-box text-right tb-r1">
+                <div class="node-title">Nibiru 睿悦科技</div>
+                <div class="node-desc">XR系统与数字引擎</div>
+            </div>
+            <div class="text-box text-right tb-r2">
+                <div class="node-title">世界运河城市 Canal Walk</div>
+                <div class="node-desc">国际文化交流</div>
+            </div>
+            <div class="text-box text-right tb-r3">
+                <div class="node-title">中智游集团</div>
+                <div class="node-desc">智慧旅游解决方案</div>
+            </div>
+            <div class="text-box text-right tb-r4">
+                <div class="node-title">亚洲艺术疗愈研究院</div>
+                <div class="node-desc">艺术疗愈学术平台</div>
+            </div>
+        </div>
+        <div class="logo-watermark"><img src="/home/ubuntu/table_ai_presentation/a2a_logo_dark.png" alt="Logo"></div>
+    </div>
+</body>
+</html>

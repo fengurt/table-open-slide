@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;500;700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        .slide-container {
+            width: 1280px;
+            min-height: 720px;
+            background-color: #FFFFFF;
+            font-family: 'Noto Sans SC', sans-serif;
+            position: relative;
+            padding-top: 80px;
+        }
+        .header {
+            margin-left: 100px;
+            margin-right: 100px;
+            margin-bottom: 40px;
+        }
+        .title {
+            font-size: 32px;
+            color: #0A1626;
+            font-weight: 700;
+            margin-bottom: 10px;
+            letter-spacing: 2px;
+        }
+        .subtitle {
+            font-size: 20px;
+            color: #A88B52;
+            font-weight: 500;
+            margin-bottom: 15px;
+            letter-spacing: 1px;
+        }
+        .divider {
+            width: 80px;
+            height: 2px;
+            background-color: #A88B52;
+        }
+        .goal-banner {
+            margin-left: 100px;
+            margin-right: 100px;
+            background-color: #0A1626;
+            padding: 30px 40px;
+            margin-bottom: 50px;
+            display: flex;
+            align-items: center;
+            border-left: 6px solid #A88B52;
+        }
+        .goal-label {
+            font-size: 18px;
+            color: #A88B52;
+            font-weight: 700;
+            margin-right: 30px;
+            white-space: nowrap;
+            letter-spacing: 2px;
+        }
+        .goal-text {
+            font-size: 24px;
+            color: #FFFFFF;
+            font-weight: 500;
+            letter-spacing: 1px;
+        }
+        .pillars-container {
+            display: flex;
+            margin-left: 100px;
+            margin-right: 100px;
+            gap: 40px;
+        }
+        .pillar {
+            flex: 1;
+            position: relative;
+            padding-top: 20px;
+        }
+        .pillar::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 40px;
+            height: 3px;
+            background-color: #A88B52;
+        }
+        .pillar-title {
+            font-size: 22px;
+            color: #0A1626;
+            font-weight: 700;
+            margin-bottom: 15px;
+            letter-spacing: 1px;
+        }
+        .pillar-text {
+            font-size: 16px;
+            color: rgba(10, 22, 38, 0.8);
+            font-weight: 300;
+            line-height: 1.8;
+            text-align: justify;
+        }
+        .highlight-word {
+            color: #0A1626;
+            font-weight: 700;
+        }
+        .logo-watermark {
+            position: absolute;
+            bottom: 30px;
+            right: 40px;
+        }
+        .logo-watermark img {
+            width: 36px;
+            height: 36px;
+            object-fit: contain;
+            opacity: 0.3;
+        }
+    </style>
+</head>
+<body>
+    <div class="slide-container">
+        <div class="header">
+            <div class="title">阶段一：产品评估 Product Evaluation</div>
+            <div class="subtitle">挖掘真实护城河 Unearthing the True Moat</div>
+            <div class="divider"></div>
+        </div>
+        
+        <div class="goal-banner">
+            <div class="goal-label">战略目标</div>
+            <div class="goal-text">跳出“常规指标陷阱”，寻找品牌的“非对称优势”。</div>
+        </div>
+        
+        <div class="pillars-container">
+            <div class="pillar">
+                <div class="pillar-title">逆向工程思维</div>
+                <div class="pillar-text">
+                    不从“我们有什么功能”出发，而是从<span class="highlight-word">“竞品最怕什么场景”</span>和<span class="highlight-word">“用户最痛的隐形成本”</span>出发进行反向推演，重新定义竞争维度。
+                </div>
+            </div>
+            <div class="pillar">
+                <div class="pillar-title">暗箱盲测与极限摸底</div>
+                <div class="pillar-text">
+                    在内部实验室或模拟环境中，屏蔽品牌标识，进行极端的<span class="highlight-word">“边缘场景（Edge Cases）”</span>与<span class="highlight-word">“超高压环境”</span>量化摸底，获取最真实的性能数据。
+                </div>
+            </div>
+            <div class="pillar">
+                <div class="pillar-title">隐性优势锚定</div>
+                <div class="pillar-text">
+                    锁定产品/服务在当前市场中的核心长板。例如：极端条件下的绝对稳定性、超预期的全生命周期服务体系、被忽视的<span class="highlight-word">总拥有成本（TCO）</span>节约能力等。
+                </div>
+            </div>
+        </div>
+        
+        <div class="logo-watermark"><img src="/home/ubuntu/true_insight_presentation/a2a_logo_dark.png" alt="Logo" /></div>
+    </div>
+</body>
+</html>

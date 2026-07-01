@@ -1,5 +1,6 @@
-import type { CSSProperties } from 'react';
 import type { DesignSystem, Page, SlideMeta } from '@open-slide/core';
+import { T } from '@open-slide/core/content';
+import type { CSSProperties } from 'react';
 import openSlide from './assets/open-slide.png';
 
 export const design: DesignSystem = {
@@ -263,6 +264,22 @@ const Cover: Page = () => (
           />
         </span>
       </div>
+    </div>
+
+    <div
+      style={{
+        marginTop: 48,
+        fontSize: 30,
+        fontWeight: 600,
+        letterSpacing: '-0.02em',
+        maxWidth: 1200,
+        lineHeight: 1.25,
+      }}
+    >
+      <T
+        contentKey="open-slide-launch.cover.contentBlurb"
+        fallback="Content OS demo — CMS-bound copy"
+      />
     </div>
   </div>
 );

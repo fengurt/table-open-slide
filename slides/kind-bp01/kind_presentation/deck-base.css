@@ -1,0 +1,192 @@
+/* KiND BP deck — shared viewer polish (injected by kind-viewer) */
+
+.slide-md-host .slide-container {
+  width: 1280px !important;
+  height: 720px !important;
+  min-height: 720px !important;
+  max-height: 720px !important;
+  overflow: hidden !important;
+  box-sizing: border-box;
+}
+
+.slide-md-host .slide-container * {
+  box-sizing: border-box;
+}
+
+/* Column-first labels: shrink-wrap width, pretty line breaks (tall “I”, not wide “L”). */
+.slide-md-host .tagline,
+.slide-md-host .subtitle,
+.slide-md-host .panel-eyebrow,
+.slide-md-host .title-label,
+.slide-md-host .section-label,
+.slide-md-host .label-mono,
+.slide-md-host .problem-title,
+.slide-md-host .summary-label,
+.slide-md-host .footer-text {
+  display: block;
+  width: max-content;
+  max-width: 100%;
+  text-wrap: pretty;
+}
+
+/* —— Chinese typography (body.kind-zh-typography) —— */
+.kind-zh-typography .main-title,
+.kind-zh-typography .huge-title,
+.kind-zh-typography .huge-text {
+  text-wrap: balance;
+  line-height: 1.12;
+  letter-spacing: 0.02em;
+}
+
+.kind-zh-typography .tagline,
+.kind-zh-typography .subtitle,
+.kind-zh-typography .panel-eyebrow,
+.kind-zh-typography .title-label,
+.kind-zh-typography .section-label,
+.kind-zh-typography .label-mono,
+.kind-zh-typography .problem-title,
+.kind-zh-typography .summary-label {
+  display: block;
+  width: max-content;
+  max-width: 100%;
+  line-break: auto;
+  word-break: normal;
+  text-wrap: pretty;
+}
+
+.kind-zh-typography .title-label,
+.kind-zh-typography .section-label,
+.kind-zh-typography .label,
+.kind-zh-typography .label-mono,
+.kind-zh-typography .panel-eyebrow {
+  letter-spacing: 0.12em;
+}
+
+.kind-zh-typography .pillar-title,
+.kind-zh-typography .pillar-desc,
+.kind-zh-typography .problem-title,
+.kind-zh-typography .problem-desc,
+.kind-zh-typography .mission-text,
+.kind-zh-typography .belief-text,
+.kind-zh-typography .member-name,
+.kind-zh-typography .member-strengths,
+.kind-zh-typography .member-role,
+.kind-zh-typography .item-title,
+.kind-zh-typography .item-desc,
+.kind-zh-typography .benefit-title,
+.kind-zh-typography .benefit-desc,
+.kind-zh-typography .outcome-title,
+.kind-zh-typography .outcome-desc,
+.kind-zh-typography .milestone-title,
+.kind-zh-typography .milestone-desc,
+.kind-zh-typography .moat-title,
+.kind-zh-typography .moat-desc,
+.kind-zh-typography .use-case-title,
+.kind-zh-typography .use-case-desc,
+.kind-zh-typography .stage-title,
+.kind-zh-typography .stage-desc,
+.kind-zh-typography .summary-label,
+.kind-zh-typography .summary-value,
+.kind-zh-typography .risk-title,
+.kind-zh-typography .risk-desc,
+.kind-zh-typography .talent-title,
+.kind-zh-typography .talent-desc,
+.kind-zh-typography .product-title,
+.kind-zh-typography .product-desc,
+.kind-zh-typography .clone-title,
+.kind-zh-typography .clone-desc {
+  line-break: strict;
+  word-break: keep-all;
+  text-wrap: pretty;
+}
+
+.kind-zh-typography .main-title {
+  font-size: 52px;
+  line-height: 1.15;
+}
+
+.kind-zh-typography .pillar-title {
+  font-size: 22px;
+  line-height: 1.35;
+}
+
+.kind-zh-typography .pillar-desc,
+.kind-zh-typography .benefit-desc,
+.kind-zh-typography .outcome-desc,
+.kind-zh-typography .item-desc,
+.kind-zh-typography .milestone-desc,
+.kind-zh-typography .moat-desc,
+.kind-zh-typography .member-strengths {
+  font-size: 15px;
+  line-height: 1.68;
+}
+
+.kind-zh-typography .pillar-num {
+  font-size: 88px;
+}
+
+.kind-zh-typography .slide-container > .left-panel .huge-title {
+  font-size: 80px;
+}
+
+.kind-zh-typography .pillars-container {
+  padding-top: 36px !important;
+  gap: 24px !important;
+}
+
+.kind-zh-typography .team-grid {
+  padding-top: 28px !important;
+  gap: 20px !important;
+}
+
+.kind-zh-typography .header-section {
+  padding-top: 48px !important;
+}
+
+.kind-zh-typography .member-name {
+  font-size: 24px;
+}
+
+.kind-zh-typography .milestone-title,
+.kind-zh-typography .moat-title,
+.kind-zh-typography .benefit-title {
+  font-size: 20px;
+}
+
+/* P6–P8 two-column pillar slides: top-align, no vertical center bleed */
+.slide-md-host .slide-container > .left-panel,
+.slide-md-host .slide-container > .right-panel {
+  max-height: 720px;
+  min-height: 0;
+  overflow: hidden;
+  justify-content: flex-start !important;
+}
+
+.slide-md-host .benefit-list,
+.slide-md-host .outcome-grid {
+  flex: 1;
+  min-height: 0;
+  max-height: 100%;
+  justify-content: space-between;
+}
+
+.slide-md-host .slide-container .huge-title {
+  line-height: 1.05;
+  max-width: 100%;
+  overflow-wrap: break-word;
+}
+
+.slide-md-host .slide-container > .left-panel {
+  z-index: 2;
+}
+
+.slide-md-host .slide-container > .right-panel {
+  z-index: 1;
+  background: transparent !important;
+}
+
+.slide-md-host .benefit-content,
+.slide-md-host .outcome-content {
+  width: max-content;
+  max-width: 100%;
+}

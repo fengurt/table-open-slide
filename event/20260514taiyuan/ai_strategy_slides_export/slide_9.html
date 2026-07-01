@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500&family=Noto+Serif+SC:wght@700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        .slide-container {
+            width: 1280px;
+            min-height: 720px;
+            background: #FFFFFF;
+            position: relative;
+            font-family: 'Noto Sans SC', sans-serif;
+            color: #1A2B4C;
+            overflow: hidden;
+        }
+        .header {
+            position: absolute;
+            top: 80px;
+            left: 120px;
+            width: 1040px;
+        }
+        .header-title {
+            font-family: 'Noto Serif SC', serif;
+            font-size: 40px;
+            color: #0A1626;
+            font-weight: 700;
+            letter-spacing: 1px;
+            margin-bottom: 20px;
+        }
+        .header-line {
+            width: 60px;
+            height: 2px;
+            background: #A88B52;
+        }
+        .content-wrapper {
+            position: absolute;
+            top: 220px;
+            left: 120px;
+            width: 1040px;
+            display: flex;
+            justify-content: space-between;
+        }
+        .column {
+            width: 480px;
+        }
+        .col-title {
+            font-family: 'Noto Serif SC', serif;
+            font-size: 28px;
+            margin-bottom: 40px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid rgba(168, 139, 82, 0.3);
+        }
+        .col-left .col-title {
+            color: #0A1626;
+        }
+        .col-right .col-title {
+            color: #A88B52;
+        }
+        .list-item {
+            margin-bottom: 30px;
+            display: flex;
+            align-items: flex-start;
+        }
+        .col-left .bullet {
+            color: #A88B52;
+            font-size: 24px;
+            line-height: 1;
+            margin-right: 15px;
+            margin-top: -2px;
+        }
+        .col-left .text {
+            font-size: 18px;
+            line-height: 1.8;
+            color: #1A2B4C;
+            font-weight: 300;
+        }
+        .col-right .scenario-title {
+            font-size: 20px;
+            color: #0A1626;
+            font-weight: 500;
+            margin-bottom: 8px;
+        }
+        .col-right .scenario-text {
+            font-size: 18px;
+            line-height: 1.8;
+            color: #1A2B4C;
+            font-weight: 300;
+        }
+        .col-right .scenario-item {
+            margin-bottom: 35px;
+            padding-left: 20px;
+            border-left: 2px solid #A88B52;
+        }
+        .accent-line-vertical {
+            position: absolute;
+            top: 220px;
+            left: 640px;
+            width: 1px;
+            height: 400px;
+            background: rgba(168, 139, 82, 0.2);
+        }
+    </style>
+</head>
+<body>
+    <div class="slide-container">
+        <div class="header">
+            <div class="header-title">人才困境短期无解，但 AI 给出了第二条路径</div>
+            <div class="header-line"></div>
+        </div>
+        
+        <div class="accent-line-vertical"></div>
+        
+        <div class="content-wrapper">
+            <div class="column col-left">
+                <div class="col-title">现实困境</div>
+                <div class="list-item">
+                    <div class="bullet">■</div>
+                    <div class="text">优秀年轻人流向北京、深圳，结构性问题短期无解</div>
+                </div>
+                <div class="list-item">
+                    <div class="bullet">■</div>
+                    <div class="text">山西高端科技人才储备较弱（山西省社科院数据）</div>
+                </div>
+                <div class="list-item">
+                    <div class="bullet">■</div>
+                    <div class="text">培养职业经理人成本高、风险大</div>
+                </div>
+            </div>
+            
+            <div class="column col-right">
+                <div class="col-title">AI 解法</div>
+                <div class="scenario-item">
+                    <div class="scenario-title">接班人培养</div>
+                    <div class="scenario-text">AI 辅助决策，降低经验依赖；让二代更快建立判断力</div>
+                </div>
+                <div class="scenario-item">
+                    <div class="scenario-title">核心岗位留人</div>
+                    <div class="scenario-text">用 AI 工具放大个人能力，让留下的人价值翻倍</div>
+                </div>
+                <div class="scenario-item">
+                    <div class="scenario-title">组织韧性</div>
+                    <div class="scenario-text">关键人员离职时，AI 沉淀的知识库不随人走</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

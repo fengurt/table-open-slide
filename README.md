@@ -69,17 +69,35 @@ This repo is a pnpm + Turbo monorepo.
 | --- | --- |
 | [packages/core](packages/core) | `@open-slide/core` — runtime (home page, slide viewer, present mode, inspector), Vite plugin, and the `open-slide` dev/build/preview CLI. |
 | [packages/cli](packages/cli) | `@open-slide/cli` — `npx @open-slide/cli init` scaffolder. Generates a minimal workspace where Vite/React/tsconfig stay hidden inside core. |
+| [packages/content](packages/content) | `@table/content` — Zod schemas, REST client helpers, and surface bindings (website, brief, financials, …). |
 | [apps/demo](apps/demo) | Example workspace that consumes `@open-slide/core` via `workspace:*`. Used for local development of the framework. |
+| [apps/cms](apps/cms) | Payload CMS v3 + Postgres — localized `content-blocks`, slide bindings, slide comments, media. |
+| [apps/mcp-server](apps/mcp-server) | Stdio MCP server (`list_content`, `get_content`, `update_content`, `bind_slide`, …) over Payload REST. |
+| [apps/web](apps/web) | Fumadocs marketing/docs site (port 3000 in `pnpm dev:up`). |
+| [apps/html-lab](apps/html-lab) | **Unified local hub** at http://localhost:3333 — HTML Lab, docx-master, deck journeys; links to all runtimes, Content OS surfaces, and MCP pipelines. |
+| [apps/website](apps/website), [apps/brief](apps/brief), … | Minimal Next.js surfaces consuming `@table/content` bindings (run per-app `dev` for ports). |
 
 ## Development
 
 ```bash
 pnpm install
 pnpm dev      # runs the demo against the local @open-slide/core
+pnpm dev:html-lab   # unified hub :3333 — HTML lab, docx, deck links, Content OS index
+pnpm dev:up   # Postgres + web (:3000) + cms (:3001) + demo slides (:5173); see scripts/dev-up.sh
 pnpm build    # builds all packages
 pnpm check    # type-checks all packages
 pnpm lint     # lints via biome
+pnpm generate:cms   # Payload `payload-types.ts` + admin `importMap.js` (needs DATABASE_URI; see docs/env.example)
+pnpm scaffold:payload   # non-interactive `create-payload-app` blank + Postgres (see docs/scaffold-payload-blank.md)
 ```
+
+### Table Content OS (this fork)
+
+- **Hub**: `http://localhost:3333/` after `pnpm dev:html-lab` — index of every local tool, surface, and agent pipeline.
+- **CMS**: `http://localhost:3001/admin` after `pnpm dev:up` (seed user `dev@example.com` / `dev` in development).
+- **Slides**: `http://localhost:5173/` — `apps/demo/open-slide.config.ts` points `content.apiBaseUrl` at Payload REST.
+- **Env**: copy variables from [docs/env.example](docs/env.example) into `apps/cms/.env` and, for agents, `apps/mcp-server/.env`.
+- **MCP**: run `pnpm --filter mcp-server build` then point your MCP client at `apps/mcp-server/dist/index.js` (stdio transport).
 
 ## Support
 

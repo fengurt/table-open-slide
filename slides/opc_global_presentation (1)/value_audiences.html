@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;500;700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        .slide-container {
+            width: 1280px;
+            min-height: 720px;
+            background-color: #FFFFFF;
+            font-family: 'Noto Sans SC', sans-serif;
+            position: relative;
+            padding-top: 80px;
+        }
+        .header {
+            margin-left: 100px;
+            margin-right: 100px;
+            margin-bottom: 50px;
+        }
+        .title {
+            font-size: 32px;
+            color: #0A1626;
+            font-weight: 700;
+            margin-bottom: 15px;
+            letter-spacing: 2px;
+        }
+        .subtitle {
+            font-size: 18px;
+            color: #A88B52;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 15px;
+        }
+        .divider {
+            width: 80px;
+            height: 2px;
+            background-color: #A88B52;
+        }
+        
+        .grid-layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin-left: 100px;
+            margin-right: 100px;
+        }
+        
+        .value-card {
+            background-color: rgba(10, 22, 38, 0.03);
+            border-top: 4px solid #0A1626;
+            padding: 30px;
+            position: relative;
+        }
+        
+        .card-number {
+            position: absolute;
+            top: 20px;
+            right: 25px;
+            font-size: 48px;
+            font-weight: 700;
+            color: rgba(10, 22, 38, 0.05);
+            font-family: serif;
+        }
+        
+        .card-header {
+            font-size: 22px;
+            color: #0A1626;
+            font-weight: 700;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .card-header span {
+            font-size: 14px;
+            color: #A88B52;
+            font-weight: 700;
+            margin-left: 15px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            border: 1px solid #A88B52;
+            padding: 2px 8px;
+            border-radius: 2px;
+        }
+        
+        .card-desc {
+            font-size: 16px;
+            color: rgba(10, 22, 38, 0.85);
+            font-weight: 300;
+            line-height: 1.8;
+            text-align: justify;
+        }
+        
+        .card-desc strong {
+            color: #0A1626;
+            font-weight: 700;
+            background-color: rgba(168, 139, 82, 0.15);
+            padding: 0 4px;
+        }
+        
+        .logo-watermark {
+            position: absolute;
+            bottom: 30px;
+            right: 40px;
+        }
+        .logo-watermark img {
+            width: 36px;
+            height: 36px;
+            object-fit: contain;
+            opacity: 0.3;
+        }
+    </style>
+</head>
+<body>
+    <div class="slide-container">
+        <div class="header">
+            <div class="subtitle">外部赋能 External Empowerment</div>
+            <div class="title">我们可以为您做什么 What We Can Do For You</div>
+            <div class="divider"></div>
+        </div>
+        
+        <div class="grid-layout">
+            <div class="value-card">
+                <div class="card-number">01</div>
+                <div class="card-header">线下空间 <span>Offline Spaces</span></div>
+                <div class="card-desc"><strong>空间激活与流量导入：</strong>通过持续举办专业活动、讲座与实训营，为闲置或低效的线下空间注入创新人群与活力，实现物理空间的价值重塑与资产盘活。</div>
+            </div>
+            
+            <div class="value-card">
+                <div class="card-number">02</div>
+                <div class="card-header">投资方与基金 <span>Investors</span></div>
+                <div class="card-desc"><strong>经验证的商业模式参考：</strong>提供一套在真实市场中被反复验证的 OPC（一人公司）商业运作模式。基于持续的商业订单流水与规模化交付能力，为资本提供具有可预测性与稳定回报的投资标的参考。</div>
+            </div>
+            
+            <div class="value-card">
+                <div class="card-number">03</div>
+                <div class="card-header">政府与公共机构 <span>Governments</span></div>
+                <div class="card-desc"><strong>就业改善与创新孵化：</strong>协助区域政府建设数字创新试点。通过系统化的 AI 技能培训与订单导入，促进结构性就业转化，全面推动区域教育升级与 AI 产业的落地应用创新。</div>
+            </div>
+            
+            <div class="value-card">
+                <div class="card-number">04</div>
+                <div class="card-header">高校与研究机构 <span>Universities</span></div>
+                <div class="card-desc"><strong>教研升级与产教融合：</strong>将前沿的 AI 工具与真实的商业项目引入校园，提升学校的教研水平与学术前瞻性。通过专业指导下的实战交付，提高学生的就业竞争力与创新创业质量。</div>
+            </div>
+        </div>
+        
+        <div class="logo-watermark"><img src="/home/ubuntu/opc_global_presentation/a2a_logo_dark.png" alt="Logo" /></div>
+        <div style="position: absolute; bottom: 25px; left: 0; right: 0; text-align: center; font-size: 11px; color: rgba(10, 22, 38, 0.3); font-weight: 300; letter-spacing: 2px; font-family: 'Noto Sans SC', sans-serif;">善用智能 终获自由 &nbsp;&nbsp;|&nbsp;&nbsp; OPC Global All Rights Reserved</div>
+    </div>
+</body>
+</html>

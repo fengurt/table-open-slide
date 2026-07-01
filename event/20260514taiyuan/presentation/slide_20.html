@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@700&family=Noto+Sans+SC:wght@400;500;700&family=Cormorant+Garamond:ital,wght@0,600;1,600&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        .slide-container { 
+            width: 1280px; 
+            min-height: 720px; 
+            background: #FFFFFF; 
+            position: relative;
+            font-family: 'Noto Sans SC', sans-serif;
+            overflow: hidden;
+        }
+        .header {
+            position: absolute;
+            top: 60px;
+            left: 120px;
+            width: 1040px;
+        }
+        .chapter-label {
+            font-family: 'Inter', sans-serif;
+            font-size: 14px;
+            color: #A88B52;
+            letter-spacing: 2px;
+            margin-bottom: 16px;
+            text-transform: uppercase;
+        }
+        .main-title {
+            font-family: 'Noto Serif SC', serif;
+            font-size: 44px;
+            color: #0A1626;
+            margin-bottom: 12px;
+        }
+        .subtitle {
+            font-size: 18px;
+            color: #6B7280;
+        }
+        .content-area {
+            position: absolute;
+            top: 220px;
+            left: 120px;
+            width: 1040px;
+            display: flex;
+            gap: 50px;
+        }
+        .column {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        .q-label {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 30px;
+            color: #A88B52;
+            margin-bottom: 14px;
+            line-height: 1;
+        }
+        .q-label span {
+            font-family: 'Noto Serif SC', serif;
+            font-size: 18px;
+            margin-left: 6px;
+        }
+        .q-text {
+            font-size: 20px;
+            color: #0A1626;
+            line-height: 1.5;
+            margin-bottom: 18px;
+            min-height: 64px;
+        }
+        .q-text strong {
+            font-weight: 700;
+        }
+        .q-separator {
+            width: 100%;
+            height: 1px;
+            background-color: #A88B52;
+            opacity: 0.5;
+            margin-bottom: 18px;
+        }
+        .q-desc {
+            font-size: 15px;
+            color: #6B7280;
+            line-height: 1.6;
+        }
+        .q-desc strong {
+            color: #0A1626;
+            font-weight: 700;
+        }
+        .bottom-section {
+            position: absolute;
+            bottom: 50px;
+            left: 120px;
+            width: 1040px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .bottom-line {
+            width: 100%;
+            height: 1px;
+            background-color: #A88B52;
+            margin-bottom: 20px;
+        }
+        .conclusion {
+            font-family: 'Noto Serif SC', serif;
+            font-size: 22px;
+            color: #0A1626;
+            font-weight: 700;
+            text-align: center;
+            line-height: 1.6;
+            margin-bottom: 18px;
+        }
+        .final-note {
+            font-family: 'Noto Serif SC', serif;
+            font-size: 15px;
+            color: #A88B52;
+            font-style: italic;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="slide-container">
+        <div class="header">
+            <div class="chapter-label">SELF-AUDIT · 现场自测</div>
+            <div class="main-title">三个问题，照出你的盲区</div>
+            <div class="subtitle">现场填写 · 3 分钟 · 不交卷</div>
+        </div>
+        
+        <div class="content-area">
+            <div class="column">
+                <div class="q-label">Q01<span>· 重复性</span></div>
+                <div class="q-text">你的业务中，哪个环节<strong>重复性最高</strong>？</div>
+                <div class="q-separator"></div>
+                <div class="q-desc">→ 对应：AI 最先能替代的岗位 / <strong>降本最快</strong>的切入点</div>
+            </div>
+            
+            <div class="column">
+                <div class="q-label">Q02<span>· 最贵的人</span></div>
+                <div class="q-text">你<strong>最贵的人才成本</strong>在哪里？</div>
+                <div class="q-separator"></div>
+                <div class="q-desc">→ 对应：AI <strong>最大的降本空间</strong></div>
+            </div>
+            
+            <div class="column">
+                <div class="q-label">Q03<span>· 最怕的对手</span></div>
+                <div class="q-text">你<strong>最担心</strong>哪个竞争对手先用 AI？</div>
+                <div class="q-separator"></div>
+                <div class="q-desc">→ 对应：你<strong>最紧迫的防御点</strong></div>
+            </div>
+        </div>
+        
+        <div class="bottom-section">
+            <div class="bottom-line"></div>
+            <div class="conclusion">
+                "三个问题都答得清楚，你已经有了基本判断框架。<br>答不上的，就是你的盲区。"
+            </div>
+            <div class="final-note">— 少数人的视野 · 谢谢 —</div>
+        </div>
+    </div>
+</body>
+</html>

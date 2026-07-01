@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;500;700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        .slide-container {
+            width: 1280px;
+            min-height: 720px;
+            background-color: #FFFFFF;
+            font-family: 'Noto Sans SC', sans-serif;
+            position: relative;
+            padding-top: 80px;
+        }
+        .header {
+            margin-left: 100px;
+            margin-right: 100px;
+            margin-bottom: 60px;
+        }
+        .title {
+            font-size: 32px;
+            color: #0A1626;
+            font-weight: 700;
+            margin-bottom: 15px;
+            letter-spacing: 2px;
+        }
+        .divider {
+            width: 80px;
+            height: 2px;
+            background-color: #A88B52;
+        }
+        
+        .matrix-container {
+            display: flex;
+            margin-left: 100px;
+            margin-right: 100px;
+            gap: 40px;
+        }
+        
+        .matrix-item {
+            flex: 1;
+            border: 1px solid rgba(10, 22, 38, 0.2);
+            padding: 40px 30px;
+            position: relative;
+            background-color: #FFFFFF;
+        }
+        
+        .matrix-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 6px;
+            background-color: #0A1626;
+        }
+        
+        .matrix-item:nth-child(2)::before {
+            background-color: #A88B52;
+        }
+        
+        .matrix-item:nth-child(3)::before {
+            background-color: rgba(10, 22, 38, 0.5);
+        }
+        
+        .tier-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-bottom: 20px;
+            border-bottom: 1px solid rgba(10, 22, 38, 0.1);
+            padding-bottom: 15px;
+        }
+        
+        .tier-name {
+            font-size: 24px;
+            color: #0A1626;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+        
+        .tier-role {
+            font-size: 14px;
+            color: #A88B52;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .tier-target {
+            font-size: 18px;
+            color: #0A1626;
+            font-weight: 500;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .tier-target::before {
+            content: '';
+            display: inline-block;
+            width: 4px;
+            height: 18px;
+            background-color: #A88B52;
+            margin-right: 10px;
+        }
+        
+        .tier-desc {
+            font-size: 16px;
+            color: rgba(10, 22, 38, 0.8);
+            font-weight: 300;
+            line-height: 1.8;
+            text-align: justify;
+        }
+        
+        .logo-watermark {
+            position: absolute;
+            bottom: 30px;
+            right: 40px;
+        }
+        .logo-watermark img {
+            width: 36px;
+            height: 36px;
+            object-fit: contain;
+            opacity: 0.3;
+        }
+    </style>
+</head>
+<body>
+    <div class="slide-container">
+        <div class="header">
+            <div class="title">精准 KOL 矩阵化分发 Influencer Matrix Strategy</div>
+            <div class="divider"></div>
+        </div>
+        
+        <div class="matrix-container">
+            <div class="matrix-item">
+                <div class="tier-header">
+                    <div class="tier-name">垂直硬核圈</div>
+                    <div class="tier-role">破圈源头</div>
+                </div>
+                <div class="tier-target">头部极客 / 学术大 V</div>
+                <div class="tier-desc">
+                    深度解读白皮书中的底层逻辑与技术参数，通过硬核的专业分析，夯实品牌的专业基石，建立不可动摇的技术权威性。
+                </div>
+            </div>
+            
+            <div class="matrix-item">
+                <div class="tier-header">
+                    <div class="tier-name">泛商业圈</div>
+                    <div class="tier-role">影响决策者</div>
+                </div>
+                <div class="tier-target">财经与商业评论大咖</div>
+                <div class="tier-desc">
+                    引用报告中的 TCO（总拥有成本）与 ROI（投资回报率）数据，深度分析“选错产品对企业或个人的隐性伤害”，直接触达并影响高层决策者。
+                </div>
+            </div>
+            
+            <div class="matrix-item">
+                <div class="tier-header">
+                    <div class="tier-name">应用体验圈</div>
+                    <div class="tier-role">共鸣消费者</div>
+                </div>
+                <div class="tier-target">生活方式 / 职场达人</div>
+                <div class="tier-desc">
+                    通过达人现身说法，痛陈过往在实际场景中遇到的痛点与摩擦，引发广泛的情绪共鸣，顺势带出本品牌解决方案的绝对优越性。
+                </div>
+            </div>
+        </div>
+        
+        <div class="logo-watermark"><img src="/home/ubuntu/true_insight_presentation/a2a_logo_dark.png" alt="Logo" /></div>
+    </div>
+</body>
+</html>

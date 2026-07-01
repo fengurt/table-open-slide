@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;500;700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        .slide-container {
+            width: 1280px;
+            min-height: 720px;
+            background-color: #FFFFFF;
+            font-family: 'Noto Sans SC', sans-serif;
+            position: relative;
+            padding-top: 80px;
+        }
+        .header {
+            margin-left: 100px;
+            margin-right: 100px;
+            margin-bottom: 80px;
+        }
+        .title {
+            font-size: 32px;
+            color: #0A1626;
+            font-weight: 700;
+            margin-bottom: 15px;
+            letter-spacing: 2px;
+        }
+        .divider {
+            width: 80px;
+            height: 2px;
+            background-color: #A88B52;
+        }
+        .content-container {
+            display: flex;
+            margin-left: 100px;
+            margin-right: 100px;
+            gap: 60px;
+        }
+        .left-col {
+            flex: 1;
+            border-right: 1px solid rgba(10, 22, 38, 0.1);
+            padding-right: 60px;
+        }
+        .right-col {
+            flex: 1;
+        }
+        .section-label {
+            font-size: 16px;
+            color: #A88B52;
+            font-weight: 700;
+            letter-spacing: 2px;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+        .insight-text {
+            font-size: 36px;
+            color: #0A1626;
+            font-weight: 700;
+            line-height: 1.5;
+            margin-bottom: 30px;
+        }
+        .insight-sub {
+            font-size: 20px;
+            color: rgba(10, 22, 38, 0.7);
+            font-weight: 300;
+            line-height: 1.8;
+        }
+        .highlight {
+            color: #A88B52;
+        }
+        .solution-box {
+            background-color: #0A1626;
+            padding: 40px;
+            color: #FFFFFF;
+            margin-bottom: 30px;
+        }
+        .solution-title {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: #A88B52;
+        }
+        .solution-text {
+            font-size: 18px;
+            font-weight: 300;
+            line-height: 1.8;
+            opacity: 0.9;
+        }
+        .logo-watermark {
+            position: absolute;
+            bottom: 30px;
+            right: 40px;
+        }
+        .logo-watermark img {
+            width: 36px;
+            height: 36px;
+            object-fit: contain;
+            opacity: 0.3;
+        }
+    </style>
+</head>
+<body>
+    <div class="slide-container">
+        <div class="header">
+            <div class="title">战略提案总览 Executive Overview</div>
+            <div class="divider"></div>
+        </div>
+        
+        <div class="content-container">
+            <div class="left-col">
+                <div class="section-label">核心战略洞察 Strategic Insight</div>
+                <div class="insight-text">
+                    在产品高度同质化的时代，客户真正买单的，是<span class="highlight">“确定性”</span>与<span class="highlight">“无缝体验”</span>。
+                </div>
+                <div class="insight-sub">
+                    单纯的“参数比拼”与“功能罗列”已无法驱动高级商业决策与高净值消费。零故障的信任底座、极低的隐性成本与情绪价值，才是决胜关键。
+                </div>
+            </div>
+            
+            <div class="right-col">
+                <div class="section-label">核心目标 Core Objective</div>
+                <div class="solution-box">
+                    <div class="solution-title">重塑品牌优势叙事与心智占有率</div>
+                    <div class="solution-text">
+                        通过六大标准流程，挖掘企业被忽视的隐性机遇。我们将冰冷的产品参数，转化为引发目标客群强烈共鸣的行业白皮书与全景营销资产，帮助企业掌握品类解释权。
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="logo-watermark"><img src="/home/ubuntu/true_insight_presentation/a2a_logo_dark.png" alt="Logo" /></div>
+    </div>
+</body>
+</html>

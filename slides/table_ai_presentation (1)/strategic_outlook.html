@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;500;700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        .slide-container {
+            width: 1280px;
+            min-height: 720px;
+            background-color: #FFFFFF;
+            font-family: 'Noto Sans SC', sans-serif;
+            position: relative;
+            padding-top: 80px;
+        }
+        .header {
+            margin-left: 100px;
+            margin-right: 100px;
+            margin-bottom: 40px;
+        }
+        .title {
+            font-size: 32px;
+            color: #0A1626;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+        .divider {
+            width: 80px;
+            height: 2px;
+            background-color: #A88B52;
+        }
+        .diagram-container {
+            width: 1080px;
+            height: 420px;
+            position: relative;
+            margin: 0 auto;
+        }
+/* Lines */
+        .line-h { position: absolute; height: 2px; background-color: #0A1626; z-index: 1; }
+        .line-v { position: absolute; width: 2px; background-color: #0A1626; z-index: 1; }
+        .arrow-right {
+            position: absolute;
+            width: 0;
+            height: 0;
+            border-top: 6px solid transparent;
+            border-bottom: 6px solid transparent;
+            border-left: 8px solid #0A1626;
+            z-index: 2;
+        }
+/* Nodes */
+        .node {
+            position: absolute;
+            width: 24px;
+            height: 24px;
+            border: 2px solid #A88B52;
+            background-color: #FFFFFF;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 10;
+        }
+        .node-inner {
+            width: 10px;
+            height: 10px;
+            background-color: #0A1626;
+            border-radius: 50%;
+        }
+/* Text Boxes */
+        .text-box {
+            position: absolute;
+            width: 240px;
+            text-align: left;
+        }
+        .phase-label {
+            font-size: 16px;
+            color: #A88B52;
+            font-weight: 700;
+            letter-spacing: 1px;
+            margin-bottom: 4px;
+            text-transform: uppercase;
+        }
+        .phase-title {
+            font-size: 24px;
+            color: #0A1626;
+            font-weight: 700;
+            margin-bottom: 10px;
+            letter-spacing: 1px;
+        }
+        .phase-desc {
+            font-size: 16px;
+            color: #0A1626;
+            font-weight: 300;
+            line-height: 1.6;
+            letter-spacing: 1px;
+        }
+/* Insight */
+        .insight-container {
+            margin-left: 100px;
+            margin-right: 100px;
+            margin-top: 20px;
+            border-left: 2px solid #A88B52;
+            padding-left: 20px;
+        }
+        .insight-text {
+            font-size: 20px;
+            color: #0A1626;
+            font-weight: 300;
+            line-height: 1.6;
+            letter-spacing: 1px;
+        }
+        .logo-watermark {
+            position: absolute;
+            bottom: 30px;
+            right: 40px;
+        }
+        .logo-watermark img {
+            width: 36px;
+            height: 36px;
+            object-fit: contain;
+            opacity: 0.3;
+        }
+    </style>
+</head>
+<body><div class="slide-container">
+        <div class="header">
+            <div class="title">战略展望：从智库到智能基础设施 Strategic Outlook</div>
+            <div class="divider"></div>
+        </div>
+<div class="diagram-container">
+            <!-- Stepped Lines -->
+            <div class="line-h" style="left: 150px; top: 279px; width: 195px;"></div>
+            <div class="line-v" style="left: 344px; top: 170px; height: 110px;"></div>
+            <div class="line-h" style="left: 344px; top: 169px; width: 196px;"></div>
+<div class="line-h" style="left: 540px; top: 169px; width: 195px;"></div>
+            <div class="line-v" style="left: 734px; top: 60px; height: 110px;"></div>
+            <div class="line-h" style="left: 734px; top: 59px; width: 196px;"></div>
+<div class="line-h" style="left: 930px; top: 59px; width: 100px;"></div>
+            <div class="arrow-right" style="left: 1025px; top: 54px;"></div>
+<!-- Nodes -->
+            <div class="node" style="left: 138px; top: 268px;">
+                <div class="node-inner"></div>
+            </div>
+            <div class="node" style="left: 528px; top: 158px;">
+                <div class="node-inner"></div>
+            </div>
+            <div class="node" style="left: 918px; top: 48px;">
+                <div class="node-inner"></div>
+            </div>
+<!-- Anchor Lines -->
+            <div class="line-v" style="left: 149px; top: 292px; height: 18px; background-color: #A88B52;"></div>
+            <div class="line-v" style="left: 539px; top: 182px; height: 18px; background-color: #A88B52;"></div>
+            <div class="line-v" style="left: 929px; top: 72px; height: 18px; background-color: #A88B52;"></div>
+<!-- Text Boxes -->
+            <div class="text-box" style="left: 130px; top: 310px;">
+                <div class="phase-label">Phase 1</div>
+                <div class="phase-title">当下 Now</div>
+                <div class="phase-desc" style="width: 236.698px; min-width: 236.698px; max-width: 236.698px; transform: translate(3.30244px, 0px);">构建跨界专家网络，完善AHA架构，打造标杆案例</div>
+            </div>
+            <div class="text-box" style="left: 520px; top: 200px;">
+                <div class="phase-label">Phase 2</div>
+                <div class="phase-title">近期 Near-term</div>
+                <div class="phase-desc">规模化专家智能体部署，深化行业垂直应用</div>
+            </div>
+            <div class="text-box" style="left: 910px; top: 90px;">
+                <div class="phase-label">Phase 3</div>
+                <div class="phase-title">远景 Long-term</div>
+                <div class="phase-desc">成为全球智能经济基础设施，实现智力平权愿景</div>
+            </div>
+        </div>
+<div class="insight-container">
+            <div class="insight-text">从"一张桌子"到"一个生态"，TABLE AI正在构建AI时代的智慧基础设施。</div>
+        </div>
+        <div class="logo-watermark"><img src="/home/ubuntu/table_ai_presentation/a2a_logo_dark.png" alt="Logo"></div>
+    </div>
+</body>
+</html>

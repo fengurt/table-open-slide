@@ -1,0 +1,761 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TABLE AI · Pitch Deck</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0A1626; --gold: #A88B52; --bg-light: #102035;
+    --text: #fff; --text-muted: #8899AA; --panel-bg: #F5F5F5; --border: #2A3A4A;
+    --sel: #3B82F6; --sel-bg: rgba(59,130,246,.08);
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Noto Sans SC', sans-serif; display: flex; height: 100vh; overflow: hidden; background: var(--bg); }
+
+  /* ── Sidebar ── */
+  .sidebar { width: 280px; min-width: 280px; background: var(--bg); color: var(--text); display: flex; flex-direction: column; overflow: hidden; border-right: 1px solid var(--border); z-index: 10; }
+  .sidebar-header { padding: 20px 16px 12px; border-bottom: 1px solid var(--border); }
+  .sidebar-header h2 { color: var(--gold); font-size: 15px; letter-spacing: 2px; font-weight: 600; }
+  .sidebar-header .subtitle { color: var(--text-muted); font-size: 11px; margin-top: 4px; }
+  .sidebar-tools { display: flex; gap: 6px; padding: 10px 16px; border-bottom: 1px solid var(--border); }
+  .sidebar-tools button { flex: 1; background: var(--bg-light); border: 1px solid var(--border); color: var(--text-muted); padding: 6px 8px; border-radius: 4px; cursor: pointer; font-size: 11px; font-family: inherit; transition: all .15s; }
+  .sidebar-tools button:hover { color: var(--text); border-color: var(--gold); }
+  .sidebar-tools button.active { background: var(--gold); color: #000; border-color: var(--gold); font-weight: 600; }
+  .slide-list-wrap { flex: 1; overflow-y: auto; padding: 8px 0; }
+  .slide-list { list-style: none; }
+  .slide-item { display: flex; align-items: center; gap: 10px; padding: 8px 16px; cursor: grab; border-left: 3px solid transparent; transition: all .12s; user-select: none; position: relative; }
+  .slide-item:hover { background: var(--bg-light); }
+  .slide-item.active { border-left-color: var(--gold); background: var(--bg-light); }
+  .slide-item.dragging { opacity: 0.4; background: var(--bg-light); }
+  .slide-item.drag-over { border-top: 2px solid var(--gold); }
+  .slide-num { color: var(--gold); font-size: 11px; font-weight: 600; min-width: 24px; text-align: right; }
+  .slide-title { color: var(--text); font-size: 12px; line-height: 1.3; pointer-events: none; }
+  .drag-handle { color: var(--text-muted); font-size: 12px; cursor: grab; opacity: 0; transition: opacity .15s; margin-left: auto; }
+  .slide-item:hover .drag-handle { opacity: 1; }
+
+  /* ── Main viewer ── */
+  .viewer-wrap { flex: 1; display: flex; flex-direction: column; background: var(--panel-bg); overflow: hidden; }
+  .viewer-toolbar { display: flex; align-items: center; justify-content: space-between; padding: 8px 20px; background: #fff; border-bottom: 1px solid #E0E0E0; gap: 16px; flex-wrap: wrap; }
+  .nav-group { display: flex; align-items: center; gap: 12px; }
+  .nav-group button { background: none; border: 1px solid #D0D0D0; padding: 6px 14px; border-radius: 6px; cursor: pointer; font-size: 13px; font-family: inherit; color: #333; transition: all .12s; }
+  .nav-group button:hover:not(:disabled) { background: #0A1626; color: #fff; border-color: #0A1626; }
+  .nav-group button:disabled { opacity: 0.35; cursor: default; }
+  .slide-counter { font-size: 13px; color: #666; min-width: 80px; text-align: center; font-weight: 500; }
+  .tool-group { display: flex; gap: 8px; align-items: center; }
+  .tool-group button { background: none; border: 1px solid #D0D0D0; padding: 6px 14px; border-radius: 6px; cursor: pointer; font-size: 12px; font-family: inherit; color: #333; transition: all .12s; white-space: nowrap; }
+  .tool-group button:hover { background: #f0f0f0; }
+  .tool-group button.active { background: var(--gold); color: #fff; border-color: var(--gold); }
+  .tool-group button.primary { background: var(--sel); color: #fff; border-color: var(--sel); }
+  .tool-sep { width: 1px; height: 20px; background: #ddd; margin: 0 4px; }
+  .fs-label { font-size: 11px; color: #888; white-space: nowrap; }
+  .fs-input { width: 44px; padding: 4px 6px; border: 1px solid #D0D0D0; border-radius: 4px; text-align: center; font-size: 12px; font-family: inherit; }
+  .fs-input:focus { outline: none; border-color: var(--sel); }
+  .save-status { font-size: 11px; color: #999; white-space: nowrap; }
+
+  .viewer { flex: 1; overflow: auto; display: flex; align-items: center; justify-content: center; padding: 40px; }
+  .slide-stage { background: #fff; box-shadow: 0 4px 24px rgba(0,0,0,.12); border-radius: 4px; width: 1280px; min-height: 720px; position: relative; transition: box-shadow .2s; }
+  .slide-stage.editing { box-shadow: 0 4px 24px rgba(168,139,82,.35), 0 0 0 2px var(--gold); }
+
+  /* ── Block selection styles ── */
+  .slide-stage.editing .slide-container * { cursor: default; }
+  .slide-stage.editing .slide-container .block-selectable { cursor: pointer; outline: 2px dashed transparent; outline-offset: 2px; transition: outline-color .12s; }
+  .slide-stage.editing .slide-container .block-selectable:hover { outline-color: rgba(59,130,246,.3); }
+  .slide-stage.editing .slide-container .block-selected { outline: 2px solid var(--sel) !important; outline-offset: 2px; background: var(--sel-bg); }
+  .slide-stage.editing .slide-container .block-dragging { opacity: 0.6; }
+
+  .edit-indicator { display: none; position: absolute; top: -32px; right: 0; font-size: 11px; color: var(--gold); font-weight: 600; letter-spacing: 1px; background: #fff; padding: 4px 10px; border-radius: 4px; border: 1px solid var(--gold); }
+  .slide-stage.editing .edit-indicator { display: block; }
+
+  /* ── Keyboard hint ── */
+  .kbd-hint { position: fixed; bottom: 12px; right: 16px; font-size: 11px; color: #aaa; background: #fff; padding: 6px 12px; border-radius: 20px; box-shadow: 0 1px 6px rgba(0,0,0,.08); z-index: 100; }
+  .kbd-hint kbd { background: #f0f0f0; border: 1px solid #ddd; border-radius: 3px; padding: 1px 5px; font-size: 10px; font-family: monospace; }
+
+  @media (max-width: 900px) { .sidebar { width: 220px; min-width: 220px; } .slide-stage { width: 100%; min-height: auto; } .viewer { padding: 16px; } }
+</style>
+</head>
+<body>
+
+<!-- ════════════ SIDEBAR ════════════ -->
+<nav class="sidebar">
+  <div class="sidebar-header">
+    <h2>TABLE AI · PITCH DECK</h2>
+    <div class="subtitle" id="slideCount">26 slides</div>
+  </div>
+  <div class="sidebar-tools">
+    <button id="btnReset" title="Reset order to default">↻ Reset</button>
+  </div>
+  <div class="slide-list-wrap">
+    <ul class="slide-list" id="slideList"></ul>
+  </div>
+</nav>
+
+<!-- ════════════ VIEWER ════════════ -->
+<div class="viewer-wrap">
+  <div class="viewer-toolbar">
+    <div class="nav-group">
+      <button id="btnPrev" title="Previous slide (←)">◂ Prev</button>
+      <span class="slide-counter" id="counter">1 / 26</span>
+      <button id="btnNext" title="Next slide (→)">Next ▸</button>
+    </div>
+    <div class="tool-group">
+      <span class="fs-label">字号:</span>
+      <button id="btnFsDown" title="Decrease font size">A⁻</button>
+      <input type="number" class="fs-input" id="fsInput" value="16" min="8" max="200" title="Font size (px)">
+      <button id="btnFsUp" title="Increase font size">A⁺</button>
+      <span class="tool-sep"></span>
+      <button id="btnEdit" title="Toggle block select/move/edit mode">✎ 选择/移动</button>
+      <button id="btnSave" title="Download current slide">💾 保存</button>
+      <span class="save-status" id="saveStatus"></span>
+    </div>
+  </div>
+  <div class="viewer">
+    <div class="slide-stage" id="slideStage">
+      <div class="edit-indicator">编辑模式 — 点击元素选中 · 拖动移动 · Shift+点击多选</div>
+    </div>
+  </div>
+</div>
+
+<div class="kbd-hint">
+  <kbd>←</kbd><kbd>→</kbd>翻页 &nbsp;|&nbsp; <kbd>E</kbd>编辑模式 &nbsp;|&nbsp; <kbd>Shift</kbd>+点击多选 &nbsp;|&nbsp; <kbd>Del</kbd>删除选中 &nbsp;|&nbsp; <kbd>Esc</kbd>取消选中
+</div>
+
+<script>
+// ══════════════════════════════════════
+// SLIDE DATA
+// ══════════════════════════════════════
+const SLIDES = [
+  { id: "cover",               title: "封面 · TABLE AI 泰博乐" },
+  { id: "letter",              title: "致投资人的一封信" },
+  { id: "ultimate_pain",       title: "The Ultimate Human Pain" },
+  { id: "first_principles",    title: "第一性原理" },
+  { id: "worldview",           title: "我们的世界观" },
+  { id: "pain_depth",          title: "I1 · 痛点深度" },
+  { id: "ai_native_insight",   title: "I2 · AI 原生洞察" },
+  { id: "timing",              title: "T1 · 入场时机" },
+  { id: "real_demand",         title: "Real Demand & Comparables" },
+  { id: "tam_reconstruction",  title: "R1 · 市场重构" },
+  { id: "business_model",      title: "Business Model" },
+  { id: "gtm_strategy",        title: "R2 · GTM 策略" },
+  { id: "value_realization",   title: "R3 · 价值实现" },
+  { id: "flywheel",            title: "U2 · 飞轮效应" },
+  { id: "unit_economics",      title: "S1 · 单位经济" },
+  { id: "risk_topology",       title: "S3 · 风险图谱" },
+  { id: "core_team",           title: "T1 · 核心团队" },
+  { id: "ceo_profile",         title: "CEO Profile" },
+  { id: "ecosystem_partners_1",title: "T1 · 生态合伙人矩阵 I" },
+  { id: "roadmap",             title: "T2 · 36 个月路线图" },
+  { id: "revenue_engines",     title: "财务模型 · 收入引擎" },
+  { id: "3_year_pnl",          title: "财务模型 · 三年损益预测" },
+  { id: "cash_flow",           title: "财务模型 · 36 个月现金流" },
+  { id: "capital_filter",      title: "资本筛选器" },
+  { id: "term_sheet",          title: "Term Sheet 核心条款" },
+  { id: "final_question",      title: "终极叩问" },
+];
+
+// ══════════════════════════════════════
+// STATE
+// ══════════════════════════════════════
+let currentIdx = 0;
+let editing = false;
+let slideCache = {};
+let slideBodyCache = {};
+let selectedBlocks = new Set();   // Set of DOM elements
+
+// ══════════════════════════════════════
+// DOM REFS
+// ══════════════════════════════════════
+const slideList   = document.getElementById("slideList");
+const slideStage  = document.getElementById("slideStage");
+const counter     = document.getElementById("counter");
+const slideCount  = document.getElementById("slideCount");
+const btnPrev     = document.getElementById("btnPrev");
+const btnNext     = document.getElementById("btnNext");
+const btnEdit     = document.getElementById("btnEdit");
+const btnSave     = document.getElementById("btnSave");
+const btnReset    = document.getElementById("btnReset");
+const saveStatus  = document.getElementById("saveStatus");
+const fsInput     = document.getElementById("fsInput");
+const btnFsUp     = document.getElementById("btnFsUp");
+const btnFsDown   = document.getElementById("btnFsDown");
+
+// ══════════════════════════════════════
+// SIDEBAR RENDER
+// ══════════════════════════════════════
+function renderSidebar() {
+  slideList.innerHTML = SLIDES.map((s, i) => `
+    <li class="slide-item${i === currentIdx ? ' active' : ''}"
+        draggable="true" data-index="${i}" id="slideItem${i}">
+      <span class="slide-num">${String(i + 1).padStart(2, '0')}</span>
+      <span class="slide-title">${s.title}</span>
+      <span class="drag-handle">⋮⋮</span>
+    </li>
+  `).join("");
+  slideCount.textContent = `${SLIDES.length} slides`;
+
+  document.querySelectorAll(".slide-item").forEach(el => {
+    el.addEventListener("dragstart", onSlideDragStart);
+    el.addEventListener("dragover", onSlideDragOver);
+    el.addEventListener("dragleave", onSlideDragLeave);
+    el.addEventListener("drop", onSlideDrop);
+    el.addEventListener("dragend", onSlideDragEnd);
+    el.addEventListener("click", onSlideClick);
+  });
+}
+
+// ══════════════════════════════════════
+// LOAD SLIDE
+// ══════════════════════════════════════
+async function loadSlide(idx) {
+  clearSelection();
+  const slide = SLIDES[idx];
+  if (!slide) return;
+
+  if (!slideCache[slide.id]) {
+    const resp = await fetch(slide.id + ".html");
+    slideCache[slide.id] = await resp.text();
+  }
+  const html = slideCache[slide.id];
+  const styleMatch = html.match(/<style[^>]*>([\s\S]*?)<\/style>/i);
+  const bodyMatch = html.match(/<body[^>]*>([\s\S]*?)<\/body>/i);
+
+  if (!slideBodyCache[slide.id] && bodyMatch) {
+    slideBodyCache[slide.id] = bodyMatch[1].trim();
+  }
+
+  let content = "";
+  if (styleMatch) content += `<style>${styleMatch[1]}</style>`;
+  if (bodyMatch)  content += bodyMatch[1].trim();
+
+  slideStage.innerHTML = content + '<div class="edit-indicator">编辑模式 — 点击元素选中 · 拖动移动 · Shift+点击多选</div>';
+  slideStage.classList.remove("editing");
+  if (editing) enableBlockEditor();
+}
+
+// ══════════════════════════════════════
+// NAVIGATION
+// ══════════════════════════════════════
+function goToSlide(idx) {
+  if (idx < 0 || idx >= SLIDES.length) return;
+  currentIdx = idx;
+  updateUI();
+  loadSlide(idx);
+}
+
+function updateUI() {
+  counter.textContent = `${currentIdx + 1} / ${SLIDES.length}`;
+  btnPrev.disabled = currentIdx === 0;
+  btnNext.disabled = currentIdx === SLIDES.length - 1;
+  document.querySelectorAll(".slide-item").forEach((el, i) => {
+    el.classList.toggle("active", i === currentIdx);
+  });
+  const activeEl = document.getElementById(`slideItem${currentIdx}`);
+  if (activeEl) activeEl.scrollIntoView({ block: "nearest", behavior: "smooth" });
+}
+
+// ══════════════════════════════════════
+// BLOCK EDITOR — SELECTION
+// ══════════════════════════════════════
+
+// Determine which elements in the slide are selectable "blocks".
+// Strategy: walk depth-first. An element is selectable if it:
+//   1. Has direct text nodes (leaf text element), OR
+//   2. Is an <img> / <canvas> / <video>, OR
+//   3. Is a direct child (depth 1) of the slide container (major layout blocks)
+// For parent wrappers with children, we prefer the children unless the parent
+// itself has text or is a direct child of the container.
+function getSelectableBlocks() {
+  const container = slideStage.querySelector(".slide-container");
+  if (!container) return [];
+  const blocks = [];
+
+  function hasOwnText(el) {
+    return Array.from(el.childNodes).some(n =>
+      n.nodeType === 3 && n.textContent.trim()
+    );
+  }
+
+  function walk(el, depth) {
+    if (el === container) {
+      for (const c of el.children) walk(c, depth + 1);
+      return;
+    }
+    const isImg = ["IMG","CANVAS","VIDEO","SVG"].includes(el.tagName);
+    const ownText = hasOwnText(el);
+    const isDirectChild = depth === 1;
+
+    // If this element has own text or is media, it's a leaf block
+    if (ownText || isImg) {
+      blocks.push(el);
+      return;
+    }
+
+    // Direct children of container are always blocks
+    if (isDirectChild) {
+      blocks.push(el);
+      // Also recurse so inner text elements are selectable too
+      for (const c of el.children) walk(c, depth + 1);
+      return;
+    }
+
+    // For anything else, recurse to find leaf blocks
+    if (el.children.length > 0) {
+      for (const c of el.children) walk(c, depth + 1);
+    } else if (el.textContent.trim()) {
+      // Empty element with text — could be an inline wrapper like <b> or <span>
+      blocks.push(el);
+    }
+  }
+
+  walk(container, 0);
+  return blocks;
+}
+
+function clearSelection() {
+  selectedBlocks.forEach(el => el.classList.remove("block-selected"));
+  selectedBlocks.clear();
+  updateFsInputFromSelection();
+}
+
+function selectBlock(el, additive = false) {
+  if (!additive) clearSelection();
+  if (selectedBlocks.has(el)) {
+    if (additive) {
+      el.classList.remove("block-selected");
+      selectedBlocks.delete(el);
+    }
+  } else {
+    el.classList.add("block-selected");
+    selectedBlocks.add(el);
+  }
+  updateFsInputFromSelection();
+}
+
+function updateFsInputFromSelection() {
+  if (selectedBlocks.size === 0) {
+    fsInput.value = "";
+    fsInput.placeholder = "—";
+    return;
+  }
+  const first = selectedBlocks.values().next().value;
+  const sz = parseFloat(getComputedStyle(first).fontSize);
+  fsInput.value = Math.round(sz);
+  fsInput.placeholder = "";
+}
+
+// ══════════════════════════════════════
+// BLOCK EDITOR — DRAGGING SELECTED BLOCKS
+// ══════════════════════════════════════
+let blockDragInfo = null;
+
+function onBlockMouseDown(e) {
+  if (!editing) return;
+
+  // Find the nearest selectable ancestor (or self)
+  let target = e.target;
+  const container = slideStage.querySelector(".slide-container");
+  while (target && target !== container && !target.classList.contains("block-selectable")) {
+    target = target.parentElement;
+  }
+  if (!target || target === container || !target.classList.contains("block-selectable")) return;
+
+  const additive = e.shiftKey;
+
+  // If clicking an already-selected block without shift → start drag
+  if (!additive && selectedBlocks.has(target)) {
+    blockDragInfo = {
+      startX: e.clientX,
+      startY: e.clientY,
+      moved: false,
+      offsets: new Map(),
+    };
+    for (const el of selectedBlocks) {
+      const cs = getComputedStyle(el);
+      blockDragInfo.offsets.set(el, {
+        left: parseFloat(el.style.left || cs.left) || 0,
+        top: parseFloat(el.style.top || cs.top) || 0,
+        origPosition: el.style.position,
+        origLeft: el.style.left,
+        origTop: el.style.top,
+        origPointerEvents: el.style.pointerEvents,
+      });
+      if (!el.style.position || el.style.position === "static") {
+        el.style.position = "relative";
+      }
+      el.style.pointerEvents = "none";
+    }
+    e.preventDefault();
+    return;
+  }
+
+  selectBlock(target, additive);
+  e.stopPropagation();
+}
+
+function onBlockMouseMove(e) {
+  if (!blockDragInfo) return;
+  const dx = e.clientX - blockDragInfo.startX;
+  const dy = e.clientY - blockDragInfo.startY;
+  if (Math.abs(dx) < 3 && Math.abs(dy) < 3) return;
+  blockDragInfo.moved = true;
+
+  for (const [el, off] of blockDragInfo.offsets) {
+    el.style.left = (off.left + dx) + "px";
+    el.style.top  = (off.top + dy) + "px";
+  }
+}
+
+function onBlockMouseUp(e) {
+  if (!blockDragInfo) return;
+  for (const [el, off] of blockDragInfo.offsets) {
+    el.style.pointerEvents = off.origPointerEvents || "";
+  }
+  blockDragInfo = null;
+}
+
+function onStageClick(e) {
+  if (!editing) return;
+  if (e.target === slideStage || e.target.classList.contains("edit-indicator")) {
+    clearSelection();
+  }
+}
+
+// ══════════════════════════════════════
+// BLOCK EDITOR — ENABLE / DISABLE
+// ══════════════════════════════════════
+function enableBlockEditor() {
+  const container = slideStage.querySelector(".slide-container");
+  if (!container) return;
+
+  const blocks = getSelectableBlocks();
+  blocks.forEach(el => {
+    el.classList.add("block-selectable");
+    // use mousedown (not click) so drag works reliably
+    el.addEventListener("mousedown", onBlockMouseDown);
+  });
+}
+
+function disableBlockEditor() {
+  clearSelection();
+  const container = slideStage.querySelector(".slide-container");
+  if (!container) return;
+  container.querySelectorAll(".block-selectable").forEach(el => {
+    el.classList.remove("block-selectable", "block-selected");
+    el.removeEventListener("mousedown", onBlockMouseDown);
+    el.style.position = "";
+    el.style.left = "";
+    el.style.top = "";
+    el.style.pointerEvents = "";
+  });
+}
+
+// ══════════════════════════════════════
+// FONT SIZE CONTROLS
+// ══════════════════════════════════════
+function changeFontSize(delta) {
+  if (selectedBlocks.size === 0) return;
+  for (const el of selectedBlocks) {
+    const current = parseFloat(getComputedStyle(el).fontSize);
+    const next = Math.max(6, Math.min(200, current + delta));
+    el.style.fontSize = next + "px";
+  }
+  updateFsInputFromSelection();
+}
+
+function setFontSize(size) {
+  if (selectedBlocks.size === 0) return;
+  const sz = Math.max(6, Math.min(200, parseInt(size) || 16));
+  for (const el of selectedBlocks) {
+    el.style.fontSize = sz + "px";
+  }
+  fsInput.value = sz;
+}
+
+fsInput.addEventListener("change", () => setFontSize(fsInput.value));
+fsInput.addEventListener("keydown", (e) => {
+  if (e.key === "Enter") { e.preventDefault(); setFontSize(fsInput.value); }
+  if (e.key === "ArrowUp")   { e.preventDefault(); changeFontSize(2); }
+  if (e.key === "ArrowDown") { e.preventDefault(); changeFontSize(-2); }
+});
+btnFsUp.addEventListener("click", () => changeFontSize(2));
+btnFsDown.addEventListener("click", () => changeFontSize(-2));
+
+// ══════════════════════════════════════
+// DELETE SELECTED BLOCKS
+// ══════════════════════════════════════
+function deleteSelectedBlocks() {
+  if (!editing || selectedBlocks.size === 0) return;
+  for (const el of selectedBlocks) {
+    el.remove();
+  }
+  selectedBlocks.clear();
+  updateFsInputFromSelection();
+  // Re-index selectable blocks
+  disableBlockEditor();
+  enableBlockEditor();
+}
+
+// ══════════════════════════════════════
+// TOGGLE EDIT MODE
+// ══════════════════════════════════════
+function toggleEdit() {
+  editing = !editing;
+  slideStage.classList.toggle("editing", editing);
+  btnEdit.classList.toggle("active", editing);
+
+  if (editing) {
+    enableBlockEditor();
+  } else {
+    disableBlockEditor();
+  }
+}
+
+// ══════════════════════════════════════
+// SAVE SLIDE (writes to disk via POST)
+// ══════════════════════════════════════
+async function saveCurrentSlide() {
+  const slide = SLIDES[currentIdx];
+
+  // Strip editor classes before saving
+  const container = slideStage.querySelector(".slide-container");
+  if (container) {
+    container.querySelectorAll(".block-selectable, .block-selected, .block-dragging").forEach(el => {
+      el.classList.remove("block-selectable", "block-selected", "block-dragging");
+      // Keep non-default position/left/top so dragged blocks stay where placed
+    });
+  }
+
+  const styleEl = slideStage.querySelector("style");
+  const newBodyHTML = container ? container.outerHTML : "";
+  const styleHTML = styleEl ? styleEl.outerHTML : "";
+
+  const fullHTML = `<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;800&display=swap" rel="stylesheet">
+    ${styleHTML}
+</head>
+<body>
+    ${newBodyHTML}
+</body>
+</html>`;
+
+  saveStatus.textContent = "保存中…";
+
+  try {
+    const resp = await fetch(slide.id + ".html", {
+      method: "POST",
+      headers: { "Content-Type": "text/html; charset=utf-8" },
+      body: fullHTML,
+    });
+    if (resp.ok) {
+      slideCache[slide.id] = fullHTML;
+      if (container) slideBodyCache[slide.id] = container.outerHTML;
+      saveStatus.textContent = "已保存 ✓";
+    } else {
+      saveStatus.textContent = "保存失败 " + resp.status;
+    }
+  } catch (err) {
+    // Fallback: download if server POST not available
+    saveStatus.textContent = "无写权限，改为下载…";
+    const blob = new Blob([fullHTML], { type: "text/html" });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = slide.id + ".html";
+    a.click();
+    URL.revokeObjectURL(url);
+    slideCache[slide.id] = fullHTML;
+    if (container) slideBodyCache[slide.id] = container.outerHTML;
+    saveStatus.textContent = "已下载 ✓";
+  }
+
+  // Re-enable editor classes
+  if (editing) {
+    disableBlockEditor();
+    enableBlockEditor();
+  }
+
+  setTimeout(() => { saveStatus.textContent = ""; }, 2000);
+}
+
+// ══════════════════════════════════════
+// SLIDE DRAG & DROP (sidebar)
+// ══════════════════════════════════════
+let dragSrcIdx = null;
+
+function onSlideDragStart(e) {
+  if (editing) { e.preventDefault(); return; }
+  dragSrcIdx = parseInt(this.dataset.index);
+  this.classList.add("dragging");
+  e.dataTransfer.effectAllowed = "move";
+  e.dataTransfer.setData("text/plain", dragSrcIdx.toString());
+}
+
+function onSlideDragOver(e) {
+  if (editing) return;
+  e.preventDefault();
+  e.dataTransfer.dropEffect = "move";
+  this.classList.add("drag-over");
+}
+
+function onSlideDragLeave(e) { this.classList.remove("drag-over"); }
+
+function onSlideDrop(e) {
+  e.preventDefault();
+  this.classList.remove("drag-over");
+  const targetIdx = parseInt(this.dataset.index);
+  if (dragSrcIdx === null || dragSrcIdx === targetIdx) return;
+
+  const [moved] = SLIDES.splice(dragSrcIdx, 1);
+  SLIDES.splice(targetIdx, 0, moved);
+
+  if (currentIdx === dragSrcIdx) currentIdx = targetIdx;
+  else if (dragSrcIdx < currentIdx && targetIdx >= currentIdx) currentIdx--;
+  else if (dragSrcIdx > currentIdx && targetIdx <= currentIdx) currentIdx++;
+
+  renderSidebar();
+  updateUI();
+  dragSrcIdx = null;
+}
+
+function onSlideDragEnd(e) {
+  this.classList.remove("dragging");
+  document.querySelectorAll(".slide-item").forEach(el => el.classList.remove("drag-over"));
+  dragSrcIdx = null;
+}
+
+function onSlideClick(e) {
+  if (editing) return;
+  const idx = parseInt(this.dataset.index);
+  if (idx !== currentIdx) goToSlide(idx);
+}
+
+// ══════════════════════════════════════
+// RESET ORDER
+// ══════════════════════════════════════
+function resetOrder() {
+  const order = [
+    "cover","letter","ultimate_pain","first_principles","worldview",
+    "pain_depth","ai_native_insight","timing","real_demand","tam_reconstruction",
+    "business_model","gtm_strategy","value_realization","flywheel","unit_economics",
+    "risk_topology","core_team","ceo_profile","ecosystem_partners_1","roadmap",
+    "revenue_engines","3_year_pnl","cash_flow","capital_filter","term_sheet","final_question"
+  ];
+  SLIDES.sort((a, b) => order.indexOf(a.id) - order.indexOf(b.id));
+  currentIdx = 0;
+  clearSelection();
+  if (editing) toggleEdit();
+  renderSidebar();
+  updateUI();
+  loadSlide(currentIdx);
+}
+
+// ══════════════════════════════════════
+// GLOBAL MOUSE EVENTS (for block drag)
+// ══════════════════════════════════════
+document.addEventListener("mousemove", onBlockMouseMove);
+document.addEventListener("mouseup", onBlockMouseUp);
+slideStage.addEventListener("click", onStageClick);
+
+// ══════════════════════════════════════
+// KEYBOARD SHORTCUTS
+// ══════════════════════════════════════
+document.addEventListener("keydown", (e) => {
+  // In edit mode with blocks selected: Delete key
+  if (editing && (e.key === "Delete" || e.key === "Backspace")) {
+    // Don't delete if user is typing in the font size input
+    if (e.target.tagName === "INPUT") return;
+    deleteSelectedBlocks();
+    e.preventDefault();
+    return;
+  }
+
+  // In edit mode, Esc clears selection or exits edit
+  if (editing && e.key === "Escape") {
+    if (selectedBlocks.size > 0) {
+      clearSelection();
+    } else {
+      toggleEdit();
+    }
+    return;
+  }
+
+  // Don't capture arrows when editing and have blocks selected
+  if (editing && selectedBlocks.size > 0) {
+    if (e.key.startsWith("Arrow")) {
+      // Nudge selected blocks with arrow keys
+      const delta = e.shiftKey ? 10 : 1;
+      for (const el of selectedBlocks) {
+        const curLeft = parseFloat(el.style.left || getComputedStyle(el).left) || 0;
+        const curTop  = parseFloat(el.style.top || getComputedStyle(el).top) || 0;
+        el.style.position = "relative";
+        if (e.key === "ArrowLeft")  el.style.left = (curLeft - delta) + "px";
+        if (e.key === "ArrowRight") el.style.left = (curLeft + delta) + "px";
+        if (e.key === "ArrowUp")    el.style.top  = (curTop - delta) + "px";
+        if (e.key === "ArrowDown")  el.style.top  = (curTop + delta) + "px";
+      }
+      e.preventDefault();
+      return;
+    }
+  }
+
+  // Ctrl+S / Cmd+S — save
+  if ((e.ctrlKey || e.metaKey) && e.key === "s") {
+    e.preventDefault();
+    saveCurrentSlide();
+    return;
+  }
+
+  // Don't capture when typing in input
+  if (e.target.tagName === "INPUT" || e.target.tagName === "TEXTAREA") return;
+
+  if (e.key === "ArrowLeft" && !editing)  { goToSlide(currentIdx - 1); return; }
+  if (e.key === "ArrowRight" && !editing) { goToSlide(currentIdx + 1); return; }
+  if (e.key === "e" || e.key === "E") {
+    if (!e.ctrlKey && !e.metaKey) toggleEdit();
+    return;
+  }
+  if (e.key === "Home") { goToSlide(0); return; }
+  if (e.key === "End")  { goToSlide(SLIDES.length - 1); return; }
+});
+
+// ══════════════════════════════════════
+// TOUCH SWIPE
+// ══════════════════════════════════════
+let touchStartX = 0, touchStartY = 0;
+slideStage.addEventListener("touchstart", (e) => {
+  touchStartX = e.touches[0].clientX;
+  touchStartY = e.touches[0].clientY;
+}, { passive: true });
+slideStage.addEventListener("touchend", (e) => {
+  if (editing) return;
+  const dx = e.changedTouches[0].clientX - touchStartX;
+  const dy = e.changedTouches[0].clientY - touchStartY;
+  if (Math.abs(dx) > Math.abs(dy) && Math.abs(dx) > 60) {
+    goToSlide(currentIdx + (dx < 0 ? 1 : -1));
+  }
+});
+
+// ══════════════════════════════════════
+// BUTTON HANDLERS
+// ══════════════════════════════════════
+btnPrev.addEventListener("click", () => goToSlide(currentIdx - 1));
+btnNext.addEventListener("click", () => goToSlide(currentIdx + 1));
+btnEdit.addEventListener("click", toggleEdit);
+btnSave.addEventListener("click", saveCurrentSlide);
+btnReset.addEventListener("click", () => {
+  if (confirm("确定要恢复默认顺序吗？")) resetOrder();
+});
+
+// ══════════════════════════════════════
+// INIT
+// ══════════════════════════════════════
+renderSidebar();
+updateUI();
+loadSlide(0);
+</script>
+</body>
+</html>

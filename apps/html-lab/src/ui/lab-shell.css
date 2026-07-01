@@ -1,0 +1,581 @@
+/* Shared chrome — top bar + global sidebar on every route */
+
+.lab-root {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  min-height: 100vh;
+  overflow: hidden;
+  background: var(--hl-deep);
+  color: var(--hl-cream);
+}
+
+.lab-topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  flex-shrink: 0;
+  padding: 0.55rem 1rem;
+  border-bottom: 1px solid var(--hl-border);
+  background: rgba(10, 22, 38, 0.96);
+  backdrop-filter: blur(8px);
+}
+
+.lab-topbar-start {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  min-width: 0;
+  flex: 1;
+}
+
+.lab-sidebar-toggle {
+  flex-shrink: 0;
+  width: 32px;
+  height: 32px;
+  border-radius: 6px;
+  border: 1px solid var(--hl-border);
+  background: rgba(255, 255, 255, 0.03);
+  color: var(--hl-gold-light);
+  font-size: 1.1rem;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition:
+    background 0.15s,
+    border-color 0.15s;
+}
+
+.lab-sidebar-toggle:hover {
+  background: var(--hl-gold-glow);
+  border-color: var(--hl-border-strong);
+  color: var(--hl-white);
+}
+
+.lab-topbar-brand {
+  display: flex;
+  align-items: baseline;
+  gap: 0.65rem;
+  min-width: 0;
+  text-decoration: none;
+  color: inherit;
+}
+
+.lab-topbar-brand:hover .lab-topbar-title {
+  color: var(--hl-gold-light);
+}
+
+.lab-topbar-eyebrow {
+  font-family: var(--font-display);
+  font-size: 0.88rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--hl-gold-light);
+  flex-shrink: 0;
+}
+
+.lab-topbar-title {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  color: var(--hl-white);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.lab-topbar-quick {
+  display: flex;
+  gap: 4px;
+  flex-shrink: 0;
+  padding: 2px;
+  border-radius: 8px;
+  border: 1px solid var(--hl-border);
+  background: rgba(0, 0, 0, 0.15);
+}
+
+.lab-quick-link {
+  padding: 0.3rem 0.65rem;
+  border-radius: 6px;
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--hl-muted);
+  transition:
+    background 0.15s,
+    color 0.15s;
+}
+
+.lab-quick-link:hover {
+  color: var(--hl-white);
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.lab-quick-link.is-active {
+  color: var(--hl-white);
+  background: var(--hl-gold-glow);
+  border: 1px solid rgba(168, 139, 82, 0.35);
+}
+
+.lab-topbar-hint {
+  margin: 0;
+  font-size: 0.68rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--hl-muted);
+  flex-shrink: 0;
+  font-family: var(--font-mono, ui-monospace, monospace);
+}
+
+.lab-topbar-help {
+  flex-shrink: 0;
+  width: 28px;
+  height: 28px;
+  border-radius: 6px;
+  border: 1px solid var(--hl-border);
+  background: rgba(255, 255, 255, 0.03);
+  color: var(--hl-muted);
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+.lab-topbar-help:hover {
+  color: var(--hl-white);
+  border-color: var(--hl-border-strong);
+  background: var(--hl-gold-glow);
+}
+
+/* ─── Studio access lock (topbar) ─── */
+
+.studio-lock {
+  position: relative;
+  flex-shrink: 0;
+}
+
+.studio-lock-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  height: 28px;
+  padding: 0 0.6rem;
+  border-radius: 6px;
+  border: 1px solid var(--hl-border);
+  background: rgba(255, 255, 255, 0.03);
+  color: var(--hl-muted);
+  font-size: 0.72rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition:
+    background 0.15s,
+    border-color 0.15s,
+    color 0.15s;
+}
+
+.studio-lock-btn.is-locked {
+  border-color: rgba(212, 160, 116, 0.5);
+  color: #e8b98c;
+  background: rgba(212, 160, 116, 0.1);
+}
+
+.studio-lock-btn.is-unlocked {
+  border-color: rgba(126, 196, 160, 0.4);
+  color: var(--hl-ok, #7ec4a0);
+}
+
+.studio-lock-btn:hover {
+  border-color: var(--hl-border-strong);
+  color: var(--hl-white);
+}
+
+.studio-lock-pop {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  z-index: 200;
+  width: 264px;
+  padding: 0.85rem;
+  border-radius: 10px;
+  border: 1px solid var(--hl-border-strong);
+  background: rgba(13, 28, 48, 0.98);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.45);
+  backdrop-filter: blur(10px);
+  animation: lab-toast-in 0.15s ease;
+}
+
+.studio-lock-pop-label {
+  display: block;
+  margin-bottom: 0.4rem;
+  font-size: 0.66rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--hl-gold);
+}
+
+.studio-lock-input {
+  width: 100%;
+  padding: 0.5rem 0.6rem;
+  border-radius: 6px;
+  border: 1px solid var(--hl-border);
+  background: rgba(0, 0, 0, 0.3);
+  color: var(--hl-cream);
+  font: inherit;
+  font-size: 0.82rem;
+}
+
+.studio-lock-input:focus {
+  outline: none;
+  border-color: var(--hl-gold);
+}
+
+.studio-lock-pop-actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  margin-top: 0.6rem;
+}
+
+.studio-lock-save,
+.studio-lock-clear {
+  padding: 0.4rem 0.85rem;
+  border-radius: 6px;
+  font: inherit;
+  font-size: 0.78rem;
+  cursor: pointer;
+}
+
+.studio-lock-save {
+  border: 1px solid var(--hl-gold);
+  background: var(--hl-gold-glow);
+  color: var(--hl-white);
+}
+
+.studio-lock-save:hover {
+  background: rgba(168, 139, 82, 0.25);
+}
+
+.studio-lock-clear {
+  border: 1px solid var(--hl-border);
+  background: transparent;
+  color: var(--hl-muted);
+}
+
+.studio-lock-clear:hover {
+  color: var(--hl-white);
+  border-color: var(--hl-border-strong);
+}
+
+.studio-lock-hint {
+  margin: 0.55rem 0 0;
+  font-size: 0.66rem;
+  line-height: 1.4;
+  color: var(--hl-muted);
+}
+
+.lab-frame {
+  display: flex;
+  flex: 1;
+  min-height: 0;
+  overflow: hidden;
+  position: relative;
+}
+
+.lab-main {
+  flex: 1;
+  min-width: 0;
+  min-height: 0;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Drawer scrim — only rendered/visible when the sidebar becomes an overlay
+   (small screens). On desktop the sidebar is in-flow, so the scrim stays off. */
+.lab-scrim {
+  display: none;
+}
+
+@keyframes lab-scrim-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* ─── Global sidebar ─── */
+
+.lab-global-sidebar {
+  flex-shrink: 0;
+  width: 252px;
+  border-right: 1px solid var(--hl-border);
+  background: linear-gradient(180deg, var(--hl-deep-mid) 0%, var(--hl-deep) 100%);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: width 0.2s ease;
+}
+
+.lab-global-sidebar.is-collapsed {
+  width: 52px;
+}
+
+.lab-global-sidebar-inner {
+  flex: 1;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 10px 8px 16px;
+}
+
+.lab-global-sidebar.is-collapsed .lab-global-sidebar-inner {
+  padding: 8px 6px;
+}
+
+.lab-sidebar-section + .lab-sidebar-section {
+  margin-top: 0.65rem;
+}
+
+.lab-sidebar-section-rail {
+  height: 1px;
+  margin: 6px 4px;
+  background: var(--hl-border);
+}
+
+.lab-sidebar-section-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 4px 8px;
+  margin-bottom: 2px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  color: inherit;
+  font: inherit;
+  border-radius: 4px;
+}
+
+.lab-sidebar-section-toggle:hover {
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.lab-sidebar-section-title {
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--hl-gold);
+}
+
+.lab-sidebar-section-chevron {
+  font-size: 12px;
+  color: var(--hl-muted);
+  line-height: 1;
+}
+
+.lab-sidebar-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.lab-sidebar-link {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  padding: 7px 8px;
+  border: 1px solid transparent;
+  border-radius: 6px;
+  background: transparent;
+  color: inherit;
+  text-decoration: none;
+  text-align: left;
+  font: inherit;
+  cursor: pointer;
+  transition:
+    background 0.15s,
+    color 0.15s,
+    border-color 0.15s;
+  min-height: 34px;
+}
+
+.lab-global-sidebar.is-collapsed .lab-sidebar-link {
+  justify-content: center;
+  padding: 8px 4px;
+}
+
+.lab-sidebar-link:hover {
+  background: rgba(255, 255, 255, 0.04);
+  color: var(--hl-white);
+}
+
+.lab-sidebar-link.is-active {
+  background: var(--hl-gold-glow);
+  border-color: rgba(168, 139, 82, 0.35);
+}
+
+.lab-sidebar-link-icon {
+  flex-shrink: 0;
+  width: 22px;
+  height: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.82rem;
+  font-weight: 500;
+  border-radius: 5px;
+  background: rgba(255, 255, 255, 0.04);
+  color: var(--hl-gold-light);
+}
+
+.lab-sidebar-link.is-active .lab-sidebar-link-icon {
+  background: rgba(168, 139, 82, 0.22);
+  color: var(--hl-white);
+}
+
+.lab-sidebar-link-text {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  min-width: 0;
+  flex: 1;
+}
+
+.lab-sidebar-link-label {
+  font-size: 0.84rem;
+  letter-spacing: 0.02em;
+  color: var(--hl-cream);
+  line-height: 1.25;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.lab-sidebar-link.is-active .lab-sidebar-link-label {
+  color: var(--hl-white);
+}
+
+.lab-sidebar-link-meta {
+  font-size: 9px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--hl-muted);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.lab-sidebar-link-external .lab-sidebar-link-label::after {
+  content: ' ↗';
+  font-size: 0.75em;
+  color: var(--hl-gold-light);
+}
+
+.lab-sidebar-link-command .lab-sidebar-link-meta {
+  color: var(--hl-gold);
+  opacity: 0.85;
+}
+
+.lab-sidebar-online {
+  position: absolute;
+  top: 7px;
+  right: 8px;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.lab-sidebar-online.is-on {
+  background: var(--hl-ok);
+  box-shadow: 0 0 6px rgba(126, 196, 160, 0.5);
+}
+
+.lab-global-sidebar.is-collapsed .lab-sidebar-online {
+  top: 4px;
+  right: 4px;
+}
+
+.lab-toast {
+  position: fixed;
+  bottom: 1.25rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 9999;
+  padding: 0.55rem 1rem;
+  border-radius: 8px;
+  border: 1px solid var(--hl-border-strong);
+  background: rgba(13, 28, 48, 0.96);
+  color: var(--hl-cream);
+  font-size: 0.82rem;
+  letter-spacing: 0.02em;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.35);
+  animation: lab-toast-in 0.2s ease;
+  pointer-events: none;
+}
+
+@keyframes lab-toast-in {
+  from {
+    opacity: 0;
+    transform: translateX(-50%) translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+}
+
+@media (max-width: 900px) {
+  .lab-topbar-quick {
+    display: none;
+  }
+
+  .lab-global-sidebar:not(.is-collapsed) {
+    width: 220px;
+  }
+
+  .lab-sidebar-link-meta {
+    display: none;
+  }
+}
+
+@media (max-width: 640px) {
+  .lab-topbar-title {
+    max-width: 120px;
+  }
+
+  .lab-global-sidebar:not(.is-collapsed) {
+    position: absolute;
+    z-index: 100;
+    height: 100%;
+    box-shadow: 8px 0 24px rgba(0, 0, 0, 0.45);
+  }
+
+  .lab-root.is-sidebar-collapsed .lab-main {
+    width: 100%;
+  }
+
+  /* Tap-to-dismiss backdrop behind the overlay drawer. */
+  .lab-scrim {
+    display: block;
+    position: absolute;
+    inset: 0;
+    z-index: 90;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    background: rgba(4, 10, 20, 0.55);
+    cursor: pointer;
+    animation: lab-scrim-in 0.15s ease;
+  }
+}

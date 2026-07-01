@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;500;700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        .slide-container {
+            width: 1280px;
+            min-height: 720px; /* keep as required */
+            background-color: #FFFFFF;
+            font-family: 'Noto Sans SC', sans-serif;
+            position: relative;
+            padding-top: 80px; /* do not change */
+        }
+        .header {
+            margin-left: 100px;
+            margin-right: 100px;
+            margin-bottom: 20px; /* reduced to save vertical space */
+        }
+        .title {
+            font-size: 32px;
+            color: #0A1626;
+            font-weight: 700;
+            margin-bottom: 15px;
+            letter-spacing: 2px;
+        }
+        .divider {
+            width: 80px;
+            height: 2px;
+            background-color: #A88B52;
+        }
+        /* New compact horizontal layout for the three nodes */
+        .tree-container {
+            display: flex;
+            flex-direction: row; /* put nodes in one row to reduce vertical stacking */
+            justify-content: center;
+            gap: 40px; /* horizontal spacing only */
+            align-items: flex-start;
+            margin-top: 20px;
+        }
+        .node {
+            width: 320px;
+            border-top: 4px solid #0A1626;
+            background-color: rgba(10, 22, 38, 0.02);
+            padding: 12px 16px; /* shrink inner padding to reduce height (font sizes unchanged) */
+            position: relative;
+        }
+        .node-role {
+            color: #A88B52;
+            font-size: 14px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+        }
+        .node-title {
+            color: #0A1626;
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 12px; /* slightly reduced */
+        }
+        .node-desc {
+            color: rgba(10, 22, 38, 0.8);
+            font-size: 15px;
+            line-height: 1.6;
+            font-weight: 300;
+            text-align: justify;
+        }
+        /* small connector under each node to keep visual relation, but short */
+        .connector {
+            width: 2px;
+            height: 18px;
+            background-color: #A88B52;
+            margin: 8px auto 0 auto;
+        }
+        .summary-box {
+            margin-top: 28px; /* reduced to pull summary up */
+            padding: 16px 30px; /* reduced padding */
+            background-color: #0A1626;
+            color: #FFFFFF;
+            text-align: center;
+            width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+            border-left: 4px solid #A88B52;
+        }
+        .summary-text {
+            font-size: 18px;
+            font-weight: 300;
+            line-height: 1.6;
+            letter-spacing: 1px;
+        }
+        .summary-text .highlight {
+            color: #A88B52;
+            font-weight: 700;
+            margin-right: 10px;
+        }
+        .logo-watermark {
+            position: absolute;
+            bottom: 24px; /* slightly adjusted */
+            right: 40px;
+        }
+        .logo-watermark img {
+            width: 36px;
+            height: 36px;
+            object-fit: contain;
+            opacity: 0.3;
+        }
+    </style>
+</head>
+<body><div class="slide-container">
+        <div class="header">
+            <div class="title">三角协作体系 The Triangle Collaboration System</div>
+            <div class="divider"></div>
+        </div>
+<div class="tree-container" style="transform: translate(0px, 59.3338px);">
+            <div class="node">
+                <div class="node-role">大脑 The Brain</div>
+                <div class="node-title">产业专家 Experts</div>
+                <div class="node-desc">提供专业的品味、扎实的行业洞察和被验证的业务系统。他们将隐性知识封装为 AI 系统，是“意义”和“标准”的定义者。</div>
+                <div class="connector" aria-hidden="true"></div>
+            </div>
+<div class="node">
+                <div class="node-role">将领 The Generals</div>
+                <div class="node-title">教练合伙人 Coach Partners</div>
+                <div class="node-desc">体系中的核心枢纽。作为与单元利益绑定的“问责伙伴”，将专家的系统拆解为标准动作，带领个体完成真实的商业交付。</div>
+                <div class="connector" aria-hidden="true"></div>
+            </div>
+<div class="node">
+                <div class="node-role">特种兵 Special Forces</div>
+                <div class="node-title">OPC 单元 Units</div>
+                <div class="node-desc">直接在真实订单中操练的数字游民。他们在实战中获得报酬，同时完成自我进化，是创造商业价值的“前线”。</div>
+                <div class="connector" aria-hidden="true"></div>
+            </div>
+        </div>
+<div class="summary-box" style="transform: translate(6.05301px, 88.091px);">
+            <div class="summary-text">
+                <span class="highlight">底层共识机制</span>这三者平时独立，遇需求瞬时集结，交付后瞬间解散，形成了一张高人效、低摩擦的液态交付网络。
+            </div>
+        </div>
+<div class="logo-watermark"><img src="/home/ubuntu/opc_global_presentation/a2a_logo_dark.png" alt="Logo"></div>
+<div style="position: absolute; bottom: 25px; left: 0; right: 0; text-align: center; font-size: 11px; color: rgba(10, 22, 38, 0.3); font-weight: 300; letter-spacing: 2px; font-family: 'Noto Sans SC', sans-serif;">善用智能 终获自由 &nbsp;&nbsp;|&nbsp;&nbsp; OPC Global All Rights Reserved</div>
+    </div>
+</body>
+</html>

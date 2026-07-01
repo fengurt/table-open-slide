@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@800&family=Work+Sans:wght@400;600&family=JetBrains+Mono&display=swap" rel="stylesheet">
+    <style>
+      body { margin: 0; background: #0B0F19; }
+      .slide-container {
+        width: 1280px;
+        height: 720px;
+        min-height: 720px;
+        max-height: 720px;
+        background: #0B0F19;
+        color: #F1F5F9;
+        font-family: 'Work Sans', sans-serif;
+        display: flex;
+        position: relative;
+        overflow: hidden;
+      }
+      .left-panel {
+        width: 50%;
+        flex: 0 0 50%;
+        position: relative;
+        z-index: 2;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-self: stretch;
+        min-height: 0;
+        min-width: 0;
+        overflow: hidden;
+        box-sizing: border-box;
+        padding: 52px 40px 40px 64px;
+        background: rgba(14, 165, 233, 0.03);
+        border-right: 1px solid rgba(56, 189, 248, 0.2);
+      }
+      .right-panel {
+        width: 50%;
+        flex: 0 0 50%;
+        position: relative;
+        z-index: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-self: stretch;
+        min-height: 0;
+        min-width: 0;
+        overflow: hidden;
+        box-sizing: border-box;
+        padding: 44px 48px 36px 32px;
+        background: transparent;
+      }
+      .pillar-number {
+        font-family: 'JetBrains Mono', monospace;
+        color: #0EA5E9;
+        font-size: 32px;
+        margin-bottom: 10px;
+      }
+      .huge-title {
+        font-family: 'Inter', sans-serif;
+        font-weight: 800;
+        font-size: 68px;
+        color: #F1F5F9;
+        line-height: 1.05;
+        letter-spacing: -0.02em;
+        text-transform: uppercase;
+        max-width: 100%;
+        overflow-wrap: break-word;
+      }
+      .accent-line {
+        width: 120px;
+        height: 8px;
+        background: #38BDF8;
+        margin-top: 30px;
+      }
+      .benefit-list {
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+        min-height: 0;
+        max-height: 100%;
+        justify-content: space-between;
+        gap: 22px;
+      }
+      .benefit-item {
+        display: flex;
+        align-items: flex-start;
+        flex: 1 1 0;
+        min-height: 0;
+        max-height: 32%;
+        width: fit-content;
+        max-width: 100%;
+      }
+      .hardware-square {
+        width: 24px;
+        height: 24px;
+        background: #38BDF8;
+        margin-right: 24px;
+        margin-top: 6px;
+        flex-shrink: 0;
+      }
+      .benefit-content {
+        width: max-content;
+        max-width: min(480px, 100%);
+      }
+      .benefit-title {
+        font-family: 'Inter', sans-serif;
+        font-size: 28px;
+        font-weight: 700;
+        color: #38BDF8;
+        margin-bottom: 8px;
+      }
+      .benefit-desc {
+        font-size: 16px;
+        color: #CBD5E1;
+        line-height: 1.48;
+        overflow: hidden;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 4;
+      }
+      .data-tag {
+        font-family: 'JetBrains Mono', monospace;
+        font-size: 14px;
+        color: #0EA5E9;
+        margin-bottom: 4px;
+        display: block;
+      }
+    </style>
+</head>
+<body>
+    <div class="slide-container">
+        <div class="left-panel">
+            <div class="pillar-number">PILLAR // 01</div>
+            <h2 class="huge-title">HARDWARE<br>SOFTWARE<br>INTEGRATION</h2>
+            <div class="accent-line"></div>
+        </div>
+        <div class="right-panel">
+            <div class="benefit-list">
+                <div class="benefit-item">
+                    <div class="hardware-square"></div>
+                    <div class="benefit-content">
+                        <span class="data-tag">TYPE: TANGIBILITY</span>
+                        <div class="benefit-title">Physical Presence</div>
+                        <div class="benefit-desc">Tangible devices signify commitment and premium service, moving beyond the "invisible" nature of SaaS.</div>
+                    </div>
+                </div>
+                <div class="benefit-item">
+                    <div class="hardware-square"></div>
+                    <div class="benefit-content">
+                        <span class="data-tag">TYPE: EFFICIENCY</span>
+                        <div class="benefit-title">Reduced Decision Cycles</div>
+                        <div class="benefit-desc">Hardware presence lowers enterprise decision barriers by providing a clear, physical asset for procurement.</div>
+                    </div>
+                </div>
+                <div class="benefit-item">
+                    <div class="hardware-square"></div>
+                    <div class="benefit-content">
+                        <span class="data-tag">TYPE: EXPERIENCE</span>
+                        <div class="benefit-title">Seamless Interaction</div>
+                        <div class="benefit-desc">Dedicated hardware provides a focused, high-fidelity interaction experience that mobile apps cannot replicate.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

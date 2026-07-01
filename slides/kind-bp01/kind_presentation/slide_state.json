@@ -1,0 +1,221 @@
+{
+  "project_info": {
+    "title": "Title Slide",
+    "created": 1779237759.106,
+    "last_updated": 1779237973.592,
+    "total_slides": 19
+  },
+  "slides": [
+    {
+      "id": "title_slide",
+      "state": "edited",
+      "pageNum": 1
+    },
+    {
+      "id": "mission_vision",
+      "state": "edited",
+      "pageNum": 2
+    },
+    {
+      "id": "problem_gap",
+      "state": "edited",
+      "pageNum": 3
+    },
+    {
+      "id": "solution_pillars",
+      "state": "edited",
+      "pageNum": 4
+    },
+    {
+      "id": "product_clones",
+      "state": "edited",
+      "pageNum": 5
+    },
+    {
+      "id": "pillar_1_hardware",
+      "state": "edited",
+      "pageNum": 6
+    },
+    {
+      "id": "pillar_2_mentorship",
+      "state": "edited",
+      "pageNum": 7
+    },
+    {
+      "id": "pillar_3_results",
+      "state": "edited",
+      "pageNum": 8
+    },
+    {
+      "id": "business_model_network",
+      "state": "edited",
+      "pageNum": 9
+    },
+    {
+      "id": "ecosystem_opc_global",
+      "state": "edited",
+      "pageNum": 10
+    },
+    {
+      "id": "use_cases_scenarios",
+      "state": "edited",
+      "pageNum": 11
+    },
+    {
+      "id": "competitive_moat",
+      "state": "edited",
+      "pageNum": 12
+    },
+    {
+      "id": "roadmap_90_days",
+      "state": "edited",
+      "pageNum": 13
+    },
+    {
+      "id": "long_term_evolution",
+      "state": "edited",
+      "pageNum": 14
+    },
+    {
+      "id": "founding_team",
+      "state": "edited",
+      "pageNum": 15
+    },
+    {
+      "id": "talent_acquisition",
+      "state": "edited",
+      "pageNum": 16
+    },
+    {
+      "id": "financing_plan",
+      "state": "edited",
+      "pageNum": 17
+    },
+    {
+      "id": "risk_management",
+      "state": "edited",
+      "pageNum": 18
+    },
+    {
+      "id": "conclusion_cta",
+      "state": "edited",
+      "pageNum": 19
+    }
+  ],
+  "outline": [
+    {
+      "id": "title_slide",
+      "title": "Title Slide",
+      "summary": "The opening slide featuring the main title, subtitle, and the KiND philosophy: \"Not for few. For all.\"",
+      "image_plan": "Use a suitable image if needed"
+    },
+    {
+      "id": "mission_vision",
+      "title": "Mission & Vision",
+      "summary": "Outlining the vision of making high-end expertise accessible to everyone through the tagline \"KIND FOR ALL.\"",
+      "image_plan": "Use a suitable image if needed"
+    },
+    {
+      "id": "problem_gap",
+      "title": "The Problem: The \"Generic AI\" Gap",
+      "summary": "Analyzing why current AI tools fail to meet enterprise needs due to lack of depth, trust, and execution.",
+      "image_plan": "Use a suitable image if needed"
+    },
+    {
+      "id": "solution_pillars",
+      "title": "The KiND Solution: Three Pillars",
+      "summary": "Introducing the core strategy: Hardware-Software Integration, Expert Deep Mentorship, and Result Delivery.",
+      "image_plan": "Use a suitable image if needed"
+    },
+    {
+      "id": "product_clones",
+      "title": "Core Product: AI Expert Clones",
+      "summary": "Explaining the concept of high-fidelity digital twins of top-tier experts and how they scale.",
+      "image_plan": "Use a suitable image if needed"
+    },
+    {
+      "id": "pillar_1_hardware",
+      "title": "Pillar 1: Hardware-Software Integration",
+      "summary": "Deep dive into why physical hardware lowers decision barriers and improves enterprise adoption.",
+      "image_plan": "Use a suitable image if needed"
+    },
+    {
+      "id": "pillar_2_mentorship",
+      "title": "Pillar 2: Expert Deep Mentorship",
+      "summary": "Explaining the \"accompaniment\" model backed by real expert oversight and the OPC Global network.",
+      "image_plan": "Use a suitable image if needed"
+    },
+    {
+      "id": "pillar_3_results",
+      "title": "Pillar 3: Delivering Results",
+      "summary": "Focusing on business outcomes in marketing, sales, and consulting rather than just tool usage.",
+      "image_plan": "Use a suitable image if needed"
+    },
+    {
+      "id": "business_model_network",
+      "title": "Business Model: The Coaching Partner Network",
+      "summary": "Detailing the distributed growth strategy involving OPC Global coaches and multi-stream monetization.",
+      "image_plan": "Use a suitable image if needed"
+    },
+    {
+      "id": "ecosystem_opc_global",
+      "title": "The Ecosystem: Powered by OPC Global",
+      "summary": "Visualizing the synergy between experts, coaches, and the community to create a self-sustaining loop.",
+      "image_plan": "Use a suitable image if needed"
+    },
+    {
+      "id": "use_cases_scenarios",
+      "title": "Key Use Cases & Scenarios",
+      "summary": "Real-world applications in enterprise marketing, sales empowerment, and executive consulting.",
+      "image_plan": "Use a suitable image if needed"
+    },
+    {
+      "id": "competitive_moat",
+      "title": "Competitive Landscape: Our Moat",
+      "summary": "Why KiND's organizational DNA and exclusive IP contracts create a barrier that big tech cannot easily cross.",
+      "image_plan": "Use a suitable image if needed"
+    },
+    {
+      "id": "roadmap_90_days",
+      "title": "Roadmap: 90-Day Binary Milestones",
+      "summary": "Clear, verifiable goals for the first 90 days across sales, supply, product, and funding.",
+      "image_plan": "Use a suitable image if needed"
+    },
+    {
+      "id": "long_term_evolution",
+      "title": "Long-term Evolution (24 Months)",
+      "summary": "The three-stage growth path from software PoC to a platformized expert IP ecosystem.",
+      "image_plan": "Use a suitable image if needed"
+    },
+    {
+      "id": "founding_team",
+      "title": "The Founding Team",
+      "summary": "Introducing the four co-founders and their respective strengths in industry, operations, marketing, and ecosystem building.",
+      "image_plan": "Use a suitable image if needed"
+    },
+    {
+      "id": "talent_acquisition",
+      "title": "Talent Acquisition: Filling the Gaps",
+      "summary": "Specific hiring goals for CTO, Hardware PM, and Chief Expert Officer with strict deadlines.",
+      "image_plan": "Use a suitable image if needed"
+    },
+    {
+      "id": "financing_plan",
+      "title": "Financing Plan: Angel Round",
+      "summary": "Details of the $2M target, valuation, and strategic allocation of funds for expert IP and hardware R&D.",
+      "image_plan": "Use a suitable image if needed"
+    },
+    {
+      "id": "risk_management",
+      "title": "Risk Management",
+      "summary": "Proactive strategies to address risks in expert supply, hardware costs, and market competition.",
+      "image_plan": "Use a suitable image if needed"
+    },
+    {
+      "id": "conclusion_cta",
+      "title": "Conclusion: KiND for All",
+      "summary": "The final call to action, democratizing expertise for everyone. Not for few. For all.",
+      "image_plan": "Use a suitable image if needed"
+    }
+  ]
+}

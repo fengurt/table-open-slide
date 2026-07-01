@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@700&family=Noto+Sans+SC:wght@400;500&family=Cormorant+Garamond:ital,wght@1,600&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        .slide-container { 
+            width: 1280px; 
+            min-height: 720px; 
+            background: #FFFFFF; 
+            position: relative;
+            font-family: 'Noto Sans SC', sans-serif;
+            overflow: hidden;
+        }
+        .content-wrapper {
+            position: absolute;
+            top: 180px;
+            left: 120px;
+            width: 900px;
+        }
+        .top-meta {
+            font-family: 'Inter', sans-serif;
+            font-size: 14px;
+            color: #A88B52;
+            letter-spacing: 4px;
+            margin-bottom: 40px;
+            text-transform: uppercase;
+        }
+        .main-title {
+            font-family: 'Noto Serif SC', serif;
+            font-size: 96px;
+            color: #0A1626;
+            font-weight: 700;
+            line-height: 1.1;
+            margin-bottom: 30px;
+        }
+        .separator {
+            width: 120px;
+            height: 1px;
+            background-color: #A88B52;
+            margin-bottom: 30px;
+        }
+        .subtitle {
+            font-size: 32px;
+            color: #0A1626;
+            font-weight: 500;
+            margin-bottom: 120px;
+        }
+        .bottom-meta {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            font-size: 16px;
+            color: #6B7280;
+        }
+        .bottom-meta span {
+            display: flex;
+            align-items: center;
+        }
+        .bottom-meta span::before {
+            content: '';
+            display: inline-block;
+            width: 24px;
+            height: 1px;
+            background-color: #A88B52;
+            margin-right: 16px;
+        }
+        .quote {
+            position: absolute;
+            right: 120px;
+            bottom: 80px;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 24px;
+            color: #A88B52;
+            font-style: italic;
+            writing-mode: vertical-rl;
+            text-orientation: mixed;
+            letter-spacing: 2px;
+        }
+        .corner-line-bl {
+            position: absolute;
+            left: 60px;
+            bottom: 60px;
+            width: 1px;
+            height: 120px;
+            background-color: #A88B52;
+            opacity: 0.5;
+        }
+        .corner-line-br {
+            position: absolute;
+            right: 60px;
+            bottom: 60px;
+            width: 120px;
+            height: 1px;
+            background-color: #A88B52;
+            opacity: 0.5;
+        }
+    </style>
+</head>
+<body>
+    <div class="slide-container">
+        <div class="corner-line-bl"></div>
+        <div class="corner-line-br"></div>
+        
+        <div class="content-wrapper">
+            <div class="top-meta">A CLOSED-DOOR BRIEFING · TAIYUAN · MMXXVI</div>
+            <div class="main-title">少数人的视野</div>
+            <div class="separator"></div>
+            <div class="subtitle">AI 时代，太原企业主的决策升级</div>
+            
+            <div class="bottom-meta">
+                <span>闭门场 · 定向邀约</span>
+                <span>2026.05.14</span>
+                <span>郭峰 · 岁知社</span>
+            </div>
+        </div>
+        
+        <div class="quote">"View belongs to the few."</div>
+    </div>
+</body>
+</html>

@@ -1,5 +1,5 @@
-import type { ReactNode } from 'react';
 import type { DesignSystem, Page, SlideMeta } from '@open-slide/core';
+import type { ReactNode } from 'react';
 
 // ─── Panel-tweakable design tokens ────────────────────────────────────────────
 export const design: DesignSystem = {

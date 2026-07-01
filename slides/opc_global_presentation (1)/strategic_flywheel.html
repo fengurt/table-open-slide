@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;500;700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        .slide-container {
+            width: 1280px;
+            min-height: 720px;
+            background-color: #FFFFFF;
+            font-family: 'Noto Sans SC', sans-serif;
+            position: relative;
+            padding-top: 80px;
+        }
+        .header {
+            margin-left: 100px;
+            margin-right: 100px;
+            margin-bottom: 40px;
+        }
+        .title {
+            font-size: 32px;
+            color: #0A1626;
+            font-weight: 700;
+            margin-bottom: 15px;
+            letter-spacing: 2px;
+        }
+        .divider {
+            width: 80px;
+            height: 2px;
+            background-color: #A88B52;
+        }
+.content-layout {
+            display: flex;
+            margin-left: 100px;
+            margin-right: 100px;
+            align-items: center;
+            gap: 80px;
+        }
+.flywheel-wrapper {
+            width: 460px;
+            height: 460px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+.circle {
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: absolute;
+        }
+.foundation {
+            width: 460px;
+            height: 460px;
+            border: 2px solid rgba(10, 22, 38, 0.1);
+            background-color: rgba(10, 22, 38, 0.02);
+        }
+.method {
+            width: 340px;
+            height: 340px;
+            border: 2px dashed #A88B52;
+            background-color: #FFFFFF;
+        }
+.direction {
+            width: 220px;
+            height: 220px;
+            border: 2px solid #0A1626;
+            background-color: rgba(168, 139, 82, 0.05);
+        }
+.engine {
+            width: 100px;
+            height: 100px;
+            background-color: #0A1626;
+            color: #FFFFFF;
+            text-align: center;
+            font-size: 16px;
+            font-weight: 700;
+            line-height: 1.4;
+            box-shadow: 0 0 20px rgba(10, 22, 38, 0.2);
+        }
+.label {
+            position: absolute;
+            font-size: 14px;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+.foundation > .label.top { top: 25px; color: rgba(10, 22, 38, 0.5); }
+        .method > .label.bottom { bottom: 25px; color: #A88B52; }
+        .direction > .label.top { top: 25px; color: #0A1626; }
+/* Reduced vertical spacing to fit within 720px (shrink inner padding/gaps) */
+        .layers-list {
+            display: flex;
+            flex-direction: column;
+            gap: 20px; /* reduced from 35px */
+            flex: 1;
+        }
+.layer-item {
+            display: flex;
+            flex-direction: column;
+        }
+.layer-title {
+            font-size: 22px;
+            color: #0A1626;
+            font-weight: 700;
+            margin-bottom: 8px; /* slightly reduced */
+            display: flex;
+            align-items: center;
+        }
+.layer-title .en {
+            color: #A88B52;
+            font-size: 16px;
+            margin-left: 10px;
+            font-weight: 500;
+            letter-spacing: 1px;
+        }
+.dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            margin-right: 15px;
+        }
+.dot-engine { background-color: #0A1626; }
+        .dot-direction { border: 2px solid #0A1626; background-color: transparent; }
+        .dot-method { background-color: #A88B52; }
+        .dot-foundation { border: 2px solid rgba(10, 22, 38, 0.3); background-color: rgba(10, 22, 38, 0.05); }
+.layer-desc {
+            font-size: 16px;
+            color: rgba(10, 22, 38, 0.8);
+            font-weight: 300;
+            line-height: 1.6;
+            text-align: justify;
+            padding-left: 24px; /* slightly reduced */
+            border-left: 2px solid rgba(168, 139, 82, 0.3);
+            margin-left: 5px;
+        }
+.logo-watermark {
+            position: absolute;
+            bottom: 30px;
+            right: 40px;
+        }
+        .logo-watermark img {
+            width: 36px;
+            height: 36px;
+            object-fit: contain;
+            opacity: 0.3;
+        }
+    </style>
+</head>
+<body><div class="slide-container">
+        <div class="header">
+            <div class="title">四层战略飞轮 The Four-Layer Strategic Flywheel</div>
+            <div class="divider"></div>
+        </div>
+<div class="content-layout">
+            <div class="flywheel-wrapper">
+                <div class="circle foundation">
+                    <span class="label top">根基层 Foundation</span>
+                    <div class="circle method">
+                        <span class="label bottom">方法层 Method</span>
+                        <div class="circle direction">
+                            <span class="label top">方向层 Direction</span>
+                            <div class="circle engine">
+                                引擎层<br>Engine
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+<div class="layers-list" style="transform: translate(0px, -43.125px);">
+                <div class="layer-item">
+                    <div class="layer-title"><span class="dot dot-engine"></span> 引擎层 <span class="en">ENGINE</span></div>
+                    <div class="layer-desc">驱动“专业智慧”的可持续创新与成果转化。专家是生态的源动力，致力于将全球领先的隐性知识显性化、资产化，确保专业智慧转化为可落地的 AI 系统。</div>
+                </div>
+<div class="layer-item">
+                    <div class="layer-title"><span class="dot dot-direction"></span> 方向层 <span class="en">DIRECTION</span></div>
+                    <div class="layer-desc">聚焦人群痛点与专业领域。深深扎根于具体的行业（如跨境电商、数字营销）与具体人群（如面临转型的企业高管），提供一针见血的垂直解决方案。</div>
+                </div>
+<div class="layer-item">
+                    <div class="layer-title"><span class="dot dot-method"></span> 方法层 <span class="en">METHOD</span></div>
+                    <div class="layer-desc">持续优化协作机制和价值创造闭环。通过数据反馈，不断优化“培训→升单→交付”的转化漏斗，降低交易摩擦，提升每一个订单的履约效率和利润率。</div>
+                </div>
+<div class="layer-item">
+                    <div class="layer-title"><span class="dot dot-foundation"></span> 根基层 <span class="en">FOUNDATION</span></div>
+                    <div class="layer-desc">培养教练合伙人、专业人才梯队和热爱者们。投入大量资源培养具备极高“人效比”和同理心的教练合伙人网络，孕育出信仰“自由人联合体”的生态布道者。</div>
+                </div>
+            </div>
+        </div>
+<div class="logo-watermark"><img src="/home/ubuntu/opc_global_presentation/a2a_logo_dark.png" alt="Logo"></div>
+<div style="position: absolute; bottom: 25px; left: 0; right: 0; text-align: center; font-size: 11px; color: rgba(10, 22, 38, 0.3); font-weight: 300; letter-spacing: 2px; font-family: 'Noto Sans SC', sans-serif;">善用智能 终获自由 &nbsp;&nbsp;|&nbsp;&nbsp; OPC Global All Rights Reserved</div>
+    </div>
+</body>
+</html>

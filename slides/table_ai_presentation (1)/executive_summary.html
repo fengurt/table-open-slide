@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;500;700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        .slide-container {
+            width: 1280px;
+            min-height: 720px;
+            background-color: #FFFFFF;
+            font-family: 'Noto Sans SC', sans-serif;
+            position: relative;
+            padding-top: 80px;
+        }
+        .header {
+            margin-left: 100px;
+            margin-right: 100px;
+            margin-bottom: 80px;
+        }
+        .title {
+            font-size: 32px;
+            color: #0A1626;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+        .divider {
+            width: 80px;
+            height: 2px;
+            background-color: #A88B52;
+        }
+        .metrics-container {
+            display: flex;
+            justify-content: space-between;
+            margin-left: 100px;
+            margin-right: 100px;
+            margin-bottom: 80px;
+        }
+        .metric-item {
+            width: 30%;
+            border-top: 2px solid #0A1626;
+            border-bottom: 2px solid #0A1626;
+            padding-top: 30px;
+            text-align: center;
+            min-height: 180px;
+        }
+        .metric-number {
+            font-size: 48px;
+            color: #A88B52;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+        .metric-label {
+            font-size: 20px;
+            color: #0A1626;
+            font-weight: 500;
+        }
+        .summary-container {
+            margin-left: 100px;
+            margin-right: 100px;
+        }
+        .summary-text {
+            font-size: 20px;
+            color: #0A1626;
+            font-weight: 300;
+            line-height: 1.8;
+            letter-spacing: 1px;
+        }
+        .logo-watermark {
+            position: absolute;
+            bottom: 30px;
+            right: 40px;
+        }
+        .logo-watermark img {
+            width: 36px;
+            height: 36px;
+            object-fit: contain;
+            opacity: 0.3;
+        }
+    </style>
+</head>
+<body>
+    <div class="slide-container">
+        <div class="header">
+            <div class="title">执行摘要 Executive Summary</div>
+            <div class="divider"></div>
+        </div>
+        <div class="metrics-container">
+            <div class="metric-item">
+                <div class="metric-number">4大</div>
+                <div class="metric-label">宏观趋势驱动</div>
+            </div>
+            <div class="metric-item">
+                <div class="metric-number">3大</div>
+                <div class="metric-label">核心业务板块</div>
+            </div>
+            <div class="metric-item">
+                <div class="metric-number">8+</div>
+                <div class="metric-label">生态合作伙伴</div>
+            </div>
+        </div>
+        <div class="summary-container">
+            <div class="summary-text">
+                TABLE AI 泰博乐是一家聚焦教育、科技、文化交叉赋能的价值导向型新智库。依托创新的AHA架构（Agent-Human-Assets），致力于打破传统智库局限，推动人类核心智慧的跨界融合、永久传承与普惠应用。
+            </div>
+        </div>
+        <div class="logo-watermark"><img src="/home/ubuntu/table_ai_presentation/a2a_logo_dark.png" alt="Logo" /></div>
+    </div>
+</body>
+</html>

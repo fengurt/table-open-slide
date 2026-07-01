@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@200;300;400&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; background-color: #FFFFFF; color: #2C3E50; }
+        .slide-container {
+            width: 1280px;
+            min-height: 720px;
+            background: #FFFFFF;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+        .branding-top-left {
+            position: absolute;
+            top: 50px;
+            left: 60px;
+            display: flex;
+            align-items: center;
+        }
+        .branding-line {
+            width: 30px;
+            height: 1px;
+            background-color: #A88B52;
+            margin-right: 15px;
+        }
+        .branding-text {
+            font-family: 'Inter', sans-serif;
+            font-weight: 400;
+            font-size: 14px;
+            color: #0A1626;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+        .branding-text span {
+            color: #A88B52;
+        }
+        .decorative-line-top-right {
+            position: absolute;
+            top: 60px;
+            right: 60px;
+            width: 120px;
+            height: 2px;
+            background-color: #A88B52;
+        }
+        .decorative-shape-top-right {
+            position: absolute;
+            top: 40px;
+            right: 180px;
+            width: 20px;
+            height: 20px;
+            border: 2px solid #A88B52;
+            border-radius: 50%;
+        }
+        .strategic-briefing {
+            position: absolute;
+            bottom: 60px;
+            left: 60px;
+            font-family: 'Inter', sans-serif;
+            font-weight: 200;
+            font-size: 14px;
+            letter-spacing: 2px;
+            color: #A88B52;
+            text-transform: uppercase;
+        }
+        .content-wrapper {
+            text-align: center;
+            width: 80%;
+            margin-top: -50px;
+        }
+        .main-title {
+            font-family: 'Playfair Display', serif;
+            font-weight: 900;
+            font-size: 64px;
+            color: #0A1626;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+        .subtitle-en {
+            font-family: 'Inter', sans-serif;
+            font-weight: 300;
+            font-size: 24px;
+            color: #A88B52;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            margin-bottom: 15px;
+        }
+        .subtitle-zh {
+            font-family: 'Inter', sans-serif;
+            font-weight: 300;
+            font-size: 28px;
+            color: #2C3E50;
+            margin-bottom: 80px;
+        }
+        .baseline-card {
+            border-top: 1px solid #A88B52;
+            padding-top: 30px;
+            display: flex;
+            justify-content: space-between;
+            text-align: left;
+            width: 100%;
+        }
+        .baseline-item {
+            flex: 1;
+            padding: 0 20px;
+        }
+        .baseline-item:not(:last-child) {
+            border-right: 1px solid rgba(168, 139, 82, 0.3);
+        }
+        .baseline-label {
+            font-family: 'Inter', sans-serif;
+            font-weight: 400;
+            font-size: 12px;
+            color: #A88B52;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+        }
+        .baseline-text {
+            font-family: 'Inter', sans-serif;
+            font-weight: 200;
+            font-size: 16px;
+            color: #2C3E50;
+            line-height: 1.5;
+        }
+    </style>
+</head>
+<body>
+    <div class="slide-container">
+        <div class="branding-top-left">
+            <div class="branding-line"></div>
+            <div class="branding-text">TABLE AI <span>岁知社出品</span></div>
+        </div>
+        
+        <div class="decorative-line-top-right"></div>
+        <div class="decorative-shape-top-right"></div>
+        <div class="strategic-briefing">A Strategic Briefing · 2026</div>
+        
+        <div class="content-wrapper">
+            <div class="subtitle-en">The Enterprise AI Implementation Atlas</div>
+            <h1 class="main-title">2026 企业级人工智能落地全景报告</h1>
+            <div class="subtitle-zh">跨越试点陷阱，构建可持续的商业价值与竞争壁垒</div>
+            
+            <div class="baseline-card">
+                <div class="baseline-item">
+                    <div class="baseline-label">研究基准 / Baseline</div>
+                    <div class="baseline-text">基于 51 家全球领军企业的真实部署数据</div>
+                </div>
+                <div class="baseline-item">
+                    <div class="baseline-label">数据来源 / Sources</div>
+                    <div class="baseline-text">斯坦福大学数字经济实验室<br>麻省理工学院 NANDA 研究团队</div>
+                </div>
+                <div class="baseline-item">
+                    <div class="baseline-label">适用场景 / Context</div>
+                    <div class="baseline-text">董事会汇报 / 年度战略规划<br>数字化转型动员</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

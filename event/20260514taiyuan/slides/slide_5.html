@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&family=Noto+Serif+SC:wght@400;600&family=Inter:wght@300;400;600&family=Noto+Sans+SC:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        .slide-container { 
+            width: 1280px; 
+            min-height: 720px; 
+            background: #FFFFFF; 
+            position: relative;
+            overflow: hidden;
+            font-family: 'Inter', 'Noto Sans SC', sans-serif;
+            color: #1A2639;
+        }
+        .content-wrapper {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            padding: 80px 100px;
+            display: flex;
+        }
+        .left-column {
+            flex: 7;
+            padding-right: 80px;
+            display: flex;
+            flex-direction: column;
+        }
+        .right-column {
+            flex: 3;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-end;
+            border-left: 1px solid rgba(168, 139, 82, 0.3);
+            padding-left: 80px;
+        }
+        .eyebrow {
+            font-family: 'Inter', sans-serif;
+            font-size: 14px;
+            color: #A88B52;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 24px;
+        }
+        .headline {
+            font-family: 'Cormorant Garamond', 'Noto Serif SC', serif;
+            font-size: 40px;
+            color: #0A1626;
+            font-weight: 600;
+            margin-bottom: 60px;
+            line-height: 1.3;
+        }
+        .body-section {
+            margin-bottom: 40px;
+        }
+        .body-label {
+            font-weight: 600;
+            color: #0A1626;
+            margin-bottom: 8px;
+            font-size: 18px;
+        }
+        .body-text {
+            font-size: 16px;
+            color: #1A2639;
+            line-height: 1.6;
+            opacity: 0.9;
+        }
+        .quote-section {
+            margin-top: auto;
+            padding-top: 40px;
+            border-top: 2px solid #0A1626;
+        }
+        .quote-text {
+            font-family: 'Cormorant Garamond', 'Noto Serif SC', serif;
+            font-size: 24px;
+            color: #A88B52;
+            font-style: italic;
+            line-height: 1.5;
+        }
+        .large-numeral {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 200px;
+            color: #A88B52;
+            line-height: 1;
+            margin-bottom: 24px;
+        }
+        .right-subtitle {
+            font-size: 18px;
+            color: #0A1626;
+            letter-spacing: 2px;
+            text-align: right;
+        }
+    </style>
+</head>
+<body>
+    <div class="slide-container">
+        <div class="content-wrapper">
+            <div class="left-column">
+                <div class="eyebrow">LEVEL III · PROCESS EMBEDDED</div>
+                <h2 class="headline">AI 从"工具"变成"流程的一部分"</h2>
+                
+                <div class="body-section">
+                    <div class="body-label">谁在用：</div>
+                    <div class="body-text">AI 工具嵌入具体业务流程——报价 / 合同 / 客服 / 质检。</div>
+                </div>
+                
+                <div class="body-section">
+                    <div class="body-label">状态：</div>
+                    <div class="body-text">可量化 ROI，形成标准化操作规范（SOP）。</div>
+                </div>
+                
+                <div class="quote-section">
+                    <div class="quote-text">「我们有 AI 使用 SOP，新员工要培训。」</div>
+                </div>
+            </div>
+            
+            <div class="right-column">
+                <div class="large-numeral">III</div>
+                <div class="right-subtitle">Integration<br>流程嵌入</div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

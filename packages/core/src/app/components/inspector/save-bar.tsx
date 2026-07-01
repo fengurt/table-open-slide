@@ -1,6 +1,8 @@
+import { toast } from 'sonner';
 import { useHistory } from '@/components/history-provider';
 import { SaveCard } from '@/components/panel/save-card';
 import { useDesignPanelState } from '@/components/style-panel/design-provider';
+import { canApplyComments, useCollaborationRole } from '@/lib/use-collaboration-role';
 import { format, plural, useLocale } from '@/lib/use-locale';
 import { useInspector } from './inspector-provider';
 
@@ -12,6 +14,7 @@ export function SaveBar() {
   const design = useDesignPanelState();
   const history = useHistory();
   const t = useLocale();
+  const collaborationRole = useCollaborationRole();
 
   const inspectorCount = insp.pendingCount;
   const designCount = design.dirty ? 1 : 0;
@@ -21,6 +24,10 @@ export function SaveBar() {
   const committing = insp.committing || design.committing;
 
   const onSave = async () => {
+    if (inspectorCount > 0 && !canApplyComments(collaborationRole)) {
+      toast.error('Your role cannot apply inspector edits.');
+      return;
+    }
     const tasks: Promise<void>[] = [];
     if (inspectorCount > 0) tasks.push(Promise.resolve(insp.commitEdits()));
     if (designCount > 0) tasks.push(Promise.resolve(design.commit()));

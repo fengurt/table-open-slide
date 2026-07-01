@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@800&family=Work+Sans:wght@400;600&family=JetBrains+Mono&display=swap" rel="stylesheet">
+    <style>
+      body { margin: 0; background: #0B0F19; }
+      .slide-container {
+        width: 1280px;
+        min-height: 720px;
+        background: #0B0F19;
+        color: #F1F5F9;
+        font-family: 'Work Sans', sans-serif;
+        display: flex;
+        position: relative;
+        overflow: hidden;
+      }
+      .left-panel {
+        width: 35%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding-left: 80px;
+        border-right: 1px solid rgba(56, 189, 248, 0.2);
+        z-index: 2;
+      }
+      .right-panel {
+        width: 65%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+      }
+      .huge-title {
+        font-family: 'Inter', sans-serif;
+        font-weight: 800;
+        font-size: 80px;
+        line-height: 1;
+        color: #F1F5F9;
+        text-transform: uppercase;
+      }
+      .accent-box {
+        margin-top: 30px;
+        padding-top: 20px;
+        border-top: 4px solid #0EA5E9;
+        max-width: 300px;
+      }
+      .accent-text {
+        font-size: 18px;
+        color: #CBD5E1;
+        line-height: 1.6;
+      }
+      .node-container {
+        position: relative;
+        width: 600px;
+        height: 600px;
+      }
+      .node {
+        position: absolute;
+        width: 220px;
+        height: 220px;
+        border: 2px solid #38BDF8;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        background: rgba(11, 15, 25, 0.8);
+      }
+      .node-1 { top: 0; left: 190px; border-color: #0EA5E9; }
+      .node-2 { bottom: 50px; left: 0; }
+      .node-3 { bottom: 50px; right: 0; }
+      
+      .node-label {
+        font-family: 'JetBrains Mono', monospace;
+        font-size: 14px;
+        color: #38BDF8;
+        margin-bottom: 10px;
+      }
+      .node-title {
+        font-family: 'Inter', sans-serif;
+        font-weight: 800;
+        font-size: 24px;
+        margin-bottom: 10px;
+      }
+      .node-data {
+        font-family: 'JetBrains Mono', monospace;
+        font-size: 32px;
+        color: #0EA5E9;
+        font-weight: 800;
+      }
+      .node-desc {
+        font-size: 14px;
+        color: #CBD5E1;
+        padding: 0 20px;
+        margin-top: 10px;
+      }
+      .connector-ring {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 450px;
+        height: 450px;
+        border: 1px dashed rgba(56, 189, 248, 0.3);
+        border-radius: 50%;
+        z-index: 0;
+      }
+    </style>
+</head>
+<body>
+    <div class="slide-container">
+        <div class="left-panel">
+            <h2 class="huge-title">THE<br>ECOSYSTEM</h2>
+            <div class="accent-box">
+                <p class="accent-text">A self-sustaining loop of expertise, coaching, and delivery powered by OPC Global.</p>
+            </div>
+        </div>
+        <div class="right-panel">
+            <div class="connector-ring"></div>
+            <div class="node-container">
+                <div class="node node-1">
+                    <span class="node-label">SOURCE</span>
+                    <div class="node-title">EXPERTS</div>
+                    <div class="node-data">1000+</div>
+                    <p class="node-desc">Top-tier industry leaders providing exclusive IP.</p>
+                </div>
+                <div class="node node-2">
+                    <span class="node-label">DELIVERY</span>
+                    <div class="node-title">COACHES</div>
+                    <div class="node-data">500+</div>
+                    <p class="node-desc">Certified partners for deep accompaniment.</p>
+                </div>
+                <div class="node node-3">
+                    <span class="node-label">OUTCOME</span>
+                    <div class="node-title">CLIENTS</div>
+                    <div class="node-data">ROI</div>
+                    <p class="node-desc">Enterprises achieving measurable results.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -8,10 +8,11 @@
     },
     "build": {
       "dependsOn": ["^build"],
-      "outputs": ["dist/**", "template/**"]
+      "outputs": ["dist/**", "template/**", ".next/**", "!.next/cache/**"]
     },
     "typecheck": {
-      "dependsOn": ["^build"]
+      "dependsOn": ["^build"],
+      "outputs": []
     }
   }
 }

@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800&family=Work+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+      *{box-sizing:border-box}
+      body{margin:0}
+      .slide-container {
+        width: 1280px;
+        height: 720px;
+        min-height: 720px;
+        background: radial-gradient(120% 80% at 0% 100%, rgba(14, 165, 233, 0.12), transparent 55%), #0B0F19;
+        color: #F1F5F9;
+        font-family: 'Work Sans', sans-serif;
+        display: flex;
+        position: relative;
+        overflow: hidden;
+      }
+      .left-panel {
+        width: 58%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-right: 1px solid rgba(56, 189, 248, 0.35);
+        position: relative;
+        z-index: 1;
+      }
+      .right-panel {
+        width: 42%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 56px 52px 56px 44px;
+        background: linear-gradient(165deg, rgba(56, 189, 248, 0.08) 0%, rgba(11, 15, 25, 0) 70%);
+      }
+      .big-title {
+        font-family: 'Inter', sans-serif;
+        font-weight: 800;
+        font-size: 220px;
+        color: #0EA5E9;
+        line-height: 0.85;
+        letter-spacing: -8px;
+        margin: 0;
+      }
+      .tagline {
+        font-family: 'Inter', sans-serif;
+        font-size: 13px;
+        font-weight: 700;
+        color: #38BDF8;
+        text-transform: uppercase;
+        letter-spacing: 0.28em;
+        margin: 0 0 20px;
+      }
+      .subtitle {
+        font-family: 'Inter', sans-serif;
+        font-weight: 700;
+        font-size: 34px;
+        color: #F1F5F9;
+        margin: 0 0 28px;
+        line-height: 1.25;
+        max-width: 420px;
+      }
+      .footer-text {
+        font-size: 15px;
+        color: #94A3B8;
+        line-height: 1.65;
+        border-top: 1px solid rgba(56, 189, 248, 0.45);
+        padding-top: 18px;
+        max-width: 400px;
+      }
+      .footer-text strong {
+        display: block;
+        margin-top: 10px;
+        font-size: 17px;
+        color: #38BDF8;
+        font-weight: 700;
+        letter-spacing: 0.04em;
+      }
+      .circle-decoration {
+        position: absolute;
+        width: 300px;
+        height: 300px;
+        border: 36px solid #0EA5E9;
+        border-radius: 50%;
+        bottom: -120px;
+        left: -120px;
+        opacity: 0.14;
+        pointer-events: none;
+      }
+      .kind-zh-typography .big-title {
+        font-size: 108px;
+        letter-spacing: 0.02em;
+        line-height: 1.05;
+      }
+      .kind-zh-typography .subtitle {
+        font-size: 28px;
+        line-height: 1.35;
+        max-width: 100%;
+      }
+      .kind-zh-typography .tagline {
+        letter-spacing: 0.2em;
+        font-size: 12px;
+      }
+      .kind-zh-typography .footer-text {
+        font-size: 14px;
+        line-height: 1.7;
+      }
+    </style>
+</head>
+<body>
+    <div class="slide-container">
+        <div class="circle-decoration"></div>
+        <div class="left-panel">
+            <h1 class="big-title">KiND</h1>
+        </div>
+        <div class="right-panel">
+            <p class="tagline">Redefining Expertise</p>
+            <h2 class="subtitle">KiND: Redefining Expertise in the AI Era</h2>
+            <div class="footer-text">
+                Hardware-Software Integration · Expert Mentorship · Result Delivery
+                <strong>Not for few. For all. KiND FOR ALL.</strong>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

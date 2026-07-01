@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;500;700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        .slide-container {
+            width: 1280px;
+            min-height: 720px;
+            background-color: #FFFFFF;
+            font-family: 'Noto Sans SC', sans-serif;
+            position: relative;
+            padding-top: 80px;
+        }
+        .header {
+            margin-left: 100px;
+            margin-right: 100px;
+            margin-bottom: 80px;
+        }
+        .title {
+            font-size: 32px;
+            color: #0A1626;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+        .divider {
+            width: 80px;
+            height: 2px;
+            background-color: #A88B52;
+        }
+        .timeline-container {
+            margin-left: 100px;
+            margin-right: 100px;
+            position: relative;
+            height: 250px;
+            margin-bottom: 60px;
+        }
+        .timeline-line {
+            position: absolute;
+            top: 40px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: #0A1626;
+        }
+        .timeline-nodes {
+            display: flex;
+            justify-content: space-between;
+            position: relative;
+            width: 100%;
+        }
+        .node-wrapper {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 220px;
+            position: relative;
+        }
+        .node-circle {
+            width: 16px;
+            height: 16px;
+            background-color: #FFFFFF;
+            border: 2px solid #A88B52;
+            border-radius: 50%;
+            margin-top: 33px;
+            margin-bottom: 20px;
+            z-index: 2;
+        }
+        .node-year {
+            font-size: 28px;
+            color: #0A1626;
+            font-weight: 700;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+        .node-content {
+            font-size: 16px;
+            color: #0A1626;
+            font-weight: 300;
+            text-align: center;
+            line-height: 1.6;
+        }
+        .highlight {
+            color: #A88B52;
+            font-weight: 700;
+            font-size: 20px;
+        }
+        .insight-container {
+            margin-left: 100px;
+            margin-right: 100px;
+            background-color: #0A1626;
+            padding: 30px 40px;
+            position: relative;
+        }
+        .insight-container::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 4px;
+            height: 100%;
+            background-color: #A88B52;
+        }
+        .insight-text {
+            font-size: 20px;
+            color: #FFFFFF;
+            font-weight: 500;
+            letter-spacing: 1px;
+        }
+        .sources {
+            position: absolute;
+            bottom: 40px;
+            right: 100px;
+            font-size: 14px;
+            color: rgba(10, 22, 38, 0.5);
+            font-weight: 300;
+        }
+        .logo-watermark {
+            position: absolute;
+            bottom: 30px;
+            right: 40px;
+        }
+        .logo-watermark img {
+            width: 36px;
+            height: 36px;
+            object-fit: contain;
+            opacity: 0.3;
+        }
+    </style>
+</head>
+<body>
+    <div class="slide-container">
+        <div class="header">
+            <div class="title">趋势二：智能体的全面崛起 The Rise of Agentic AI</div>
+            <div class="divider"></div>
+        </div>
+        
+        <div class="timeline-container">
+            <div class="timeline-line"></div>
+            <div class="timeline-nodes">
+                <div class="node-wrapper">
+                    <div class="node-circle"></div>
+                    <div class="node-year">2025</div>
+                    <div class="node-content">企业应用集成AI Agent<br><span class="highlight">< 5%</span></div>
+                </div>
+                <div class="node-wrapper">
+                    <div class="node-circle"></div>
+                    <div class="node-year">2026</div>
+                    <div class="node-content">Gartner预测达<br><span class="highlight">40%</span><br>企业应用集成</div>
+                </div>
+                <div class="node-wrapper">
+                    <div class="node-circle"></div>
+                    <div class="node-year">2030</div>
+                    <div class="node-content">全球活跃AI Agent达<br><span class="highlight">22.16亿</span></div>
+                </div>
+                <div class="node-wrapper">
+                    <div class="node-circle"></div>
+                    <div class="node-year">2035</div>
+                    <div class="node-content">Agentic AI驱动<br><span class="highlight">30%</span> 企业软件收入<br>规模超 <span class="highlight">$4500亿</span></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="insight-container">
+            <div class="insight-text">
+                基于专家经验构建的智能体，将成为未来十年最具爆发力的核心资产。
+            </div>
+        </div>
+
+        <div class="sources">
+            Sources: Gartner (2025); IDC (2026).
+        </div>
+        <div class="logo-watermark"><img src="/home/ubuntu/table_ai_presentation/a2a_logo_dark.png" alt="Logo" /></div>
+    </div>
+</body>
+</html>

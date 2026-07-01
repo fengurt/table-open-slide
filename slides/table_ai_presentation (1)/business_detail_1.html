@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;500;700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        .slide-container {
+            width: 1280px;
+            min-height: 720px;
+            background-color: #FFFFFF;
+            font-family: 'Noto Sans SC', sans-serif;
+            position: relative;
+            padding-top: 80px;
+        }
+        .header {
+            margin-left: 100px;
+            margin-right: 100px;
+            margin-bottom: 60px;
+        }
+        .title {
+            font-size: 32px;
+            color: #0A1626;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+        .divider {
+            width: 80px;
+            height: 2px;
+            background-color: #A88B52;
+        }
+        .matrix-container {
+            margin-left: 100px;
+            margin-right: 100px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: 1fr 1fr;
+            height: 400px;
+            border: 2px solid #0A1626;
+        }
+        .matrix-cell {
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .cell-1 {
+            border-right: 1px solid rgba(10, 22, 38, 0.2);
+            border-bottom: 1px solid rgba(10, 22, 38, 0.2);
+        }
+        .cell-2 {
+            border-bottom: 1px solid rgba(10, 22, 38, 0.2);
+        }
+        .cell-3 {
+            border-right: 1px solid rgba(10, 22, 38, 0.2);
+        }
+        .cell-4 {
+            /* No extra borders needed */
+        }
+        .cell-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        .cell-icon {
+            width: 12px;
+            height: 12px;
+            background-color: #A88B52;
+            margin-right: 15px;
+        }
+        .cell-title {
+            font-size: 24px;
+            color: #0A1626;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+        .cell-desc {
+            font-size: 18px;
+            color: #0A1626;
+            font-weight: 300;
+            line-height: 1.6;
+            letter-spacing: 1px;
+            padding-left: 27px; /* Align with text, skipping icon */
+        }
+        .logo-watermark {
+            position: absolute;
+            bottom: 30px;
+            right: 40px;
+        }
+        .logo-watermark img {
+            width: 36px;
+            height: 36px;
+            object-fit: contain;
+            opacity: 0.3;
+        }
+    </style>
+</head>
+<body><div class="slide-container">
+        <div class="header">
+            <div class="title">智库咨询：赋能组织进化 Think Tank Consulting</div>
+            <div class="divider"></div>
+        </div>
+<div class="matrix-container">
+            <div class="matrix-cell cell-1">
+                <div class="cell-header">
+                    <div class="cell-icon"></div>
+                    <div class="cell-title">企业发展转型</div>
+                </div>
+                <div class="cell-desc">跨界专家团入驻，结合最新科技趋势与文化底蕴，为企业量身定制"第二曲线"转型战略，并提供落地陪跑。</div>
+            </div>
+<div class="matrix-cell cell-2">
+                <div class="cell-header">
+                    <div class="cell-icon"></div>
+                    <div class="cell-title">企二代领导力培养</div>
+                </div>
+                <div class="cell-desc">通过"专家智能体"萃取一代企业家的隐性经验与商业直觉，打造二代的专属"AI 导师"，实现商业智慧平稳过渡。</div>
+            </div>
+<div class="matrix-cell cell-3" style="transform: translate(0px, -16.9844px);">
+                <div class="cell-header">
+                    <div class="cell-icon"></div>
+                    <div class="cell-title">企业隐性知识传承</div>
+                </div>
+                <div class="cell-desc">将组织内"老专家"的绝活与经验数字化沉淀为组织级资产，让新员工随时随地"请教"专家。</div>
+            </div>
+<div class="matrix-cell cell-4" style="transform: translate(0px, -16.9844px);">
+                <div class="cell-header">
+                    <div class="cell-icon"></div>
+                    <div class="cell-title">企业模式创新与落地陪跑</div>
+                </div>
+                <div class="cell-desc">不仅提供顶层设计，更通过 AHA 架构将创新模式固化为业务流程，实现"扶上马，送一程"。</div>
+            </div>
+        </div>
+        <div class="logo-watermark"><img src="/home/ubuntu/table_ai_presentation/a2a_logo_dark.png" alt="Logo"></div>
+    </div>
+</body>
+</html>

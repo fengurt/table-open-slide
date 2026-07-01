@@ -7,6 +7,7 @@ import type { InlineConfig } from 'vite';
 import { commentsPlugin } from './comments-plugin.ts';
 import { designPlugin } from './design-plugin.ts';
 import { filesPlugin } from './files-plugin.ts';
+import { resolveLanding01Root } from './landing01-root.ts';
 import { locTagsPlugin } from './loc-tags-plugin.ts';
 import { loadUserConfig, type OpenSlideConfig, openSlidePlugin } from './open-slide-plugin.ts';
 
@@ -33,6 +34,9 @@ export async function createViteConfig(opts: CreateViteConfigOptions): Promise<I
   const config = opts.config ?? (await loadUserConfig(userCwd));
   const slidesDir = config.slidesDir ?? 'slides';
   const slidesAbs = path.resolve(userCwd, slidesDir);
+  const landing01Abs = resolveLanding01Root(userCwd);
+  const fsAllow = [APP_ROOT, userCwd, slidesAbs];
+  if (landing01Abs) fsAllow.push(landing01Abs);
 
   return {
     root: APP_ROOT,
@@ -82,7 +86,7 @@ export async function createViteConfig(opts: CreateViteConfigOptions): Promise<I
     },
     server: {
       port: config.port ?? 5173,
-      fs: { allow: [APP_ROOT, userCwd, slidesAbs] },
+      fs: { allow: fsAllow },
     },
     build: {
       outDir: path.resolve(userCwd, 'dist'),

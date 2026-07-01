@@ -4,6 +4,24 @@ You are working on the **open-slide framework** — the runtime, CLI, and toolin
 
 (Slide-authoring guidance lives in the `slide-authoring` / `create-slide` skills under `apps/demo/.claude/skills/`. Use those only when editing files inside `apps/demo/slides/`.)
 
+For **`slides/kind-bp01/kind_presentation/`** (kind-viewer deck), use **`apps/kind-viewer/skills/kind-deck-authoring/SKILL.md`**. After bulk MD edits run `pnpm fix:kind-md`.
+
+To **author or improve agent skills**, use **`.cursor/skills/skill-authoring-benchmark/SKILL.md`** ([op7418/guizang-ppt-skill](https://github.com/op7418/guizang-ppt-skill) patterns).
+
+For **native `.pptx` generation** (DrawingML, SVG → PPTX), use **`.cursor/skills/ppt-master/SKILL.md`** → vendored [`modules/tableai-ppt-master/`](modules/tableai-ppt-master/) ([fengurt/tableai-ppt-master](https://github.com/fengurt/tableai-ppt-master)). Sync with `pnpm sync:ppt-master`.
+
+For **editable Word (.docx)** from brand `design.md`, use **`.cursor/skills/docx-master/SKILL.md`** → [`skills/tableai-docx-master/`](skills/tableai-docx-master/). Pipeline: `pnpm docx:build` · GUI: `pnpm dev:html-lab` → `/docx` · MCP: `apps/docx-mcp-server/`.
+
+## Slide agent routing
+
+| Goal | Skill / path |
+| --- | --- |
+| React open-slide deck | `apps/demo/.claude/skills/slide-authoring` (demo slides only) |
+| HTML guizang deck | `skills/tableai-guizang-ppt-skill/SKILL.md` |
+| **Editable PowerPoint (.pptx)** | **`modules/tableai-ppt-master/skills/ppt-master/SKILL.md`** |
+| **Editable Word (.docx)** | **`skills/tableai-docx-master/SKILL.md`** · MCP `docx-master` · GUI `html-lab` `/docx` |
+| Kind markdown deck | `apps/kind-viewer/skills/kind-deck-authoring/SKILL.md` |
+
 ## Layout
 
 pnpm + Turbo monorepo.
@@ -14,6 +32,8 @@ pnpm + Turbo monorepo.
 | `packages/cli` | `@open-slide/cli` | `npx @open-slide/cli init` scaffolder + project template. |
 | `apps/demo` | private | Local consumer of `@open-slide/core` via `workspace:*`. Dogfood target — run `pnpm dev` here to exercise the framework. |
 | `apps/web` | private | Marketing site (Next.js). |
+| `apps/html-lab` | private | **Unified local hub** (`pnpm dev:html-lab` → :3333): HTML Lab, docx-master, deck journeys; indexes Content OS surfaces and agent MCP pipelines. |
+| `modules/tableai-ppt-master` | vendored | Sparse clone of [tableai-ppt-master](https://github.com/fengurt/tableai-ppt-master) — PPTX agent (`pnpm sync:ppt-master`) |
 
 Shared config: `biome.json`, `turbo.json`, `pnpm-workspace.yaml`, `tsconfig` per package.
 

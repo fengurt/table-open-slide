@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@200;300;400;600&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; background-color: #FFFFFF; color: #2C3E50; }
+        .slide-container {
+            width: 1280px;
+            min-height: 720px;
+            background: #FFFFFF;
+            position: relative;
+            padding: 80px 100px 0 100px;
+            display: flex;
+            flex-direction: column;
+        }
+        .chapter-anchor {
+            font-family: 'Playfair Display', serif;
+            font-weight: 900;
+            font-size: 20px;
+            color: #A88B52;
+            letter-spacing: 2px;
+            margin-bottom: 20px;
+        }
+        .chapter-anchor span {
+            font-family: 'Inter', sans-serif;
+            font-weight: 300;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            margin-left: 15px;
+        }
+        .main-title {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            font-size: 36px;
+            color: #0A1626;
+            margin-bottom: 40px;
+        }
+        .content-grid {
+            display: flex;
+            gap: 60px;
+            flex: 1;
+        }
+        .left-col {
+            flex: 0.45;
+            display: flex;
+            flex-direction: column;
+        }
+        .right-col {
+            flex: 0.55;
+            display: flex;
+            flex-direction: column;
+        }
+        .section-title {
+            font-family: 'Inter', sans-serif;
+            font-weight: 600;
+            font-size: 18px;
+            color: #0A1626;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #A88B52;
+        }
+        .agent-block {
+            margin-bottom: 20px;
+        }
+        .agent-highlight {
+            font-family: 'Playfair Display', serif;
+            font-weight: 900;
+            font-size: 48px;
+            color: #0A1626;
+            margin-bottom: 10px;
+            line-height: 1;
+        }
+        .agent-highlight span {
+            font-family: 'Inter', sans-serif;
+            font-weight: 300;
+            font-size: 16px;
+            color: #A88B52;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-left: 10px;
+            vertical-align: middle;
+        }
+        .agent-text {
+            font-family: 'Inter', sans-serif;
+            font-weight: 300;
+            font-size: 15px;
+            color: #2C3E50;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+        .agent-example {
+            background-color: rgba(232, 230, 225, 0.3);
+            padding: 15px;
+            font-family: 'Inter', sans-serif;
+            font-weight: 300;
+            font-size: 13px;
+            color: #2C3E50;
+            line-height: 1.6;
+            border-left: 2px solid #A88B52;
+        }
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+        .data-table th {
+            font-family: 'Inter', sans-serif;
+            font-weight: 600;
+            font-size: 12px;
+            color: #A88B52;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            text-align: left;
+            padding: 12px 0;
+            border-bottom: 1px solid #0A1626;
+        }
+        .data-table td {
+            font-family: 'Inter', sans-serif;
+            font-weight: 300;
+            font-size: 14px;
+            color: #2C3E50;
+            padding: 15px 0;
+            border-bottom: 1px solid rgba(168, 139, 82, 0.2);
+            vertical-align: top;
+        }
+        .data-table td:first-child {
+            font-weight: 600;
+            color: #0A1626;
+            width: 20%;
+        }
+        .data-table td:nth-child(2) {
+            width: 35%;
+            padding-right: 20px;
+        }
+        .data-table td:nth-child(3) {
+            width: 45%;
+            color: #0A1626;
+        }
+        .table-highlight {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            font-size: 18px;
+            color: #0A1626;
+        }
+        .decision-ref {
+            background-color: rgba(168, 139, 82, 0.05);
+            padding: 20px 30px;
+            font-family: 'Inter', sans-serif;
+            font-weight: 300;
+            font-size: 14px;
+            color: #2C3E50;
+            line-height: 1.6;
+            border-left: 2px solid #0A1626;
+            margin-top: 30px;
+            margin-bottom: 40px;
+        }
+        .decision-title {
+            font-weight: 600;
+            color: #0A1626;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+            font-size: 12px;
+            letter-spacing: 1px;
+        }
+    </style>
+</head>
+<body>
+    <div class="slide-container">
+        <div class="chapter-anchor">08 <span>Technology Evolution</span></div>
+        <h1 class="main-title">当系统能稳定运行 15 小时，“长任务”成为新的基本盘</h1>
+        
+        <div class="content-grid">
+            <div class="left-col">
+                <div class="section-title">自主智能体 (Autonomous Agents)</div>
+                <div class="agent-block">
+                    <div class="agent-highlight">15 小时 <span>跨应用复杂任务</span></div>
+                    <div class="agent-text">
+                        最新的评测标准表明，2026年技术的临界点突破体现在模型具备了长时间跨度的任务执行能力。
+                    </div>
+                    <div class="agent-example">
+                        <strong>典型场景：</strong><br>
+                        系统可以在夜间自主进行全面的竞争对手市场调研、抓取财务数据并撰写包含图表的五十页深度分析报告。
+                    </div>
+                </div>
+            </div>
+            
+            <div class="right-col">
+                <div class="section-title">数据资产价值重估</div>
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>维度</th>
+                            <th>传统数据治理</th>
+                            <th>2026 演进路径</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>关注点</td>
+                            <td>结构化与清洁度</td>
+                            <td>直接理解混乱与非结构化</td>
+                        </tr>
+                        <tr>
+                            <td>处理方式</td>
+                            <td>长周期清洗项目</td>
+                            <td>大模型语义激活</td>
+                        </tr>
+                        <tr>
+                            <td>激活率</td>
+                            <td>受限于结构化覆盖</td>
+                            <td><span class="table-highlight">88%</span> 非结构化数据被激活</td>
+                        </tr>
+                        <tr>
+                            <td>边际成本</td>
+                            <td>高且线性增长</td>
+                            <td>趋近于零</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        
+        <div class="decision-ref">
+            <div class="decision-title">决策参考 / Decision Reference</div>
+            停止长周期、高成本的传统数据清洗项目。企业目前的战略重点应转为无差别存储所有内部交互与业务数据。系统处理海量凌乱数据的边际成本正趋近于零，数据孤岛将通过多智能体检索被自然打通。
+        </div>
+    </div>
+</body>
+</html>

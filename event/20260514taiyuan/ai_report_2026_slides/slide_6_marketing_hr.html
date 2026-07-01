@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@200;300;400;600&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; background-color: #FFFFFF; color: #2C3E50; }
+        .slide-container {
+            width: 1280px;
+            min-height: 720px;
+            background: #FFFFFF;
+            position: relative;
+            padding: 80px 100px 80px 100px;
+            display: flex;
+            gap: 80px;
+        }
+        .left-col {
+            flex: 0.4;
+            display: flex;
+            flex-direction: column;
+        }
+        .right-col {
+            flex: 0.6;
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+        }
+        .chapter-anchor {
+            font-family: 'Playfair Display', serif;
+            font-weight: 900;
+            font-size: 20px;
+            color: #A88B52;
+            letter-spacing: 2px;
+            margin-bottom: 20px;
+        }
+        .chapter-anchor span {
+            font-family: 'Inter', sans-serif;
+            font-weight: 300;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            margin-left: 15px;
+        }
+        .main-title {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            font-size: 42px;
+            color: #0A1626;
+            line-height: 1.2;
+            margin-bottom: 50px;
+        }
+        .decision-ref {
+            margin-top: auto;
+            background-color: rgba(168, 139, 82, 0.05);
+            padding: 30px;
+            border-left: 2px solid #0A1626;
+        }
+        .decision-title {
+            font-family: 'Inter', sans-serif;
+            font-weight: 600;
+            color: #A88B52;
+            text-transform: uppercase;
+            font-size: 12px;
+            letter-spacing: 1px;
+            margin-bottom: 15px;
+        }
+        .decision-text {
+            font-family: 'Inter', sans-serif;
+            font-weight: 300;
+            font-size: 15px;
+            color: #2C3E50;
+            line-height: 1.6;
+        }
+        .case-block {
+            display: flex;
+            flex-direction: column;
+            padding-bottom: 30px;
+            border-bottom: 1px solid rgba(168, 139, 82, 0.2);
+        }
+        .case-block:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+        .case-header {
+            display: flex;
+            align-items: baseline;
+            margin-bottom: 15px;
+        }
+        .case-num {
+            font-family: 'Inter', sans-serif;
+            font-weight: 600;
+            font-size: 14px;
+            color: #A88B52;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-right: 15px;
+            width: 70px;
+        }
+        .case-title {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            font-size: 22px;
+            color: #0A1626;
+        }
+        .case-content {
+            display: flex;
+            gap: 30px;
+            padding-left: 85px;
+        }
+        .case-text-col {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        .case-data-col {
+            flex: 0.6;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            border-left: 1px solid #E8E6E1;
+            padding-left: 20px;
+            gap: 15px;
+        }
+        .info-item {
+            position: relative;
+            padding-left: 12px;
+        }
+        .info-item::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 6px;
+            width: 3px;
+            height: 3px;
+            background-color: #A88B52;
+            border-radius: 50%;
+        }
+        .info-label {
+            font-family: 'Inter', sans-serif;
+            font-weight: 600;
+            font-size: 11px;
+            color: #A88B52;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 2px;
+        }
+        .info-text {
+            font-family: 'Inter', sans-serif;
+            font-weight: 300;
+            font-size: 13px;
+            color: #2C3E50;
+            line-height: 1.5;
+        }
+        .data-item {
+            display: flex;
+            flex-direction: column;
+        }
+        .data-value {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            font-size: 20px;
+            color: #0A1626;
+            margin-bottom: 2px;
+        }
+        .data-value span {
+            color: #A88B52;
+            font-weight: 300;
+            font-family: 'Inter', sans-serif;
+            font-size: 16px;
+            margin: 0 4px;
+        }
+        .data-label {
+            font-family: 'Inter', sans-serif;
+            font-weight: 400;
+            font-size: 11px;
+            color: #2C3E50;
+            text-transform: uppercase;
+        }
+    </style>
+</head>
+<body>
+    <div class="slide-container">
+        <div class="left-col">
+            <div class="chapter-anchor">04 <span>Marketing & HR</span></div>
+            <h1 class="main-title">把内容生产变成工程，把招聘变成判断</h1>
+            
+            <div class="decision-ref">
+                <div class="decision-title">决策参考 / Decision Reference</div>
+                <div class="decision-text">
+                    营销部门应转向构建企业专属的品牌资产大模型；人力资源部门的核心价值应聚焦于人才特质评估与企业文化匹配度判断。
+                </div>
+            </div>
+        </div>
+        
+        <div class="right-col">
+            <!-- Case 03 -->
+            <div class="case-block">
+                <div class="case-header">
+                    <div class="case-num">CASE 03</div>
+                    <div class="case-title">跨国快消品 — 营销内容工程化流水线</div>
+                </div>
+                <div class="case-content">
+                    <div class="case-text-col">
+                        <div class="info-item">
+                            <div class="info-label">挑战 / Challenge</div>
+                            <div class="info-text">数十国地方法规与文化禁忌差异大，传统营销物料制作周期极长且成本高昂。</div>
+                        </div>
+                        <div class="info-item">
+                            <div class="info-label">方案 / Solution</div>
+                            <div class="info-text">构建由多个智能体组成的闭环系统，分别负责当地热点追踪、文案生成、视觉渲染与合规审查。</div>
+                        </div>
+                    </div>
+                    <div class="case-data-col">
+                        <div class="data-item">
+                            <div class="data-value">7周 <span>→</span> 6小时</div>
+                            <div class="data-label">新品营销物料上市周期</div>
+                        </div>
+                        <div class="data-item">
+                            <div class="data-value">+200%</div>
+                            <div class="data-label">广告点击率</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Case 04 -->
+            <div class="case-block">
+                <div class="case-header">
+                    <div class="case-num">CASE 04</div>
+                    <div class="case-title">硅谷头部科技公司 — 智能招聘与人才图谱</div>
+                </div>
+                <div class="case-content">
+                    <div class="case-text-col">
+                        <div class="info-item">
+                            <div class="info-label">挑战 / Challenge</div>
+                            <div class="info-text">资深工程师团队耗费大量时间进行初步简历筛选和技术初面，严重影响核心研发进度。</div>
+                        </div>
+                        <div class="info-item">
+                            <div class="info-label">方案 / Solution</div>
+                            <div class="info-text">引入对话式面试系统完成首轮技术摸底；同时利用大模型对历史简历库重新标签化，挖掘遗漏候选人。</div>
+                        </div>
+                    </div>
+                    <div class="case-data-col">
+                        <div class="data-item">
+                            <div class="data-value">3小时 <span>→</span> 3分钟</div>
+                            <div class="data-label">岗位需求分析时间</div>
+                        </div>
+                        <div class="data-item">
+                            <div class="data-value">×4</div>
+                            <div class="data-label">招聘经理有效访谈比例</div>
+                        </div>
+                        <div class="data-item">
+                            <div class="data-value">+83%</div>
+                            <div class="data-label">简历精准匹配度</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

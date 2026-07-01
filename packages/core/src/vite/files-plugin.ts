@@ -12,6 +12,8 @@ const ASSET_FORBIDDEN_RE = /[\x00-\x1F\x7F/\\:*?"<>|]/;
 const ASSET_MAX_BYTES = 25 * 1024 * 1024;
 
 const MIME_BY_EXT: Record<string, string> = {
+  html: 'text/html; charset=utf-8',
+  htm: 'text/html; charset=utf-8',
   png: 'image/png',
   jpg: 'image/jpeg',
   jpeg: 'image/jpeg',

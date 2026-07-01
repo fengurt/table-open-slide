@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@800&family=Work+Sans:wght@400;600&family=JetBrains+Mono&display=swap" rel="stylesheet">
+    <style>
+      body { margin: 0; background: #0B0F19; }
+      .slide-container {
+        width: 1280px;
+        min-height: 720px;
+        background: #0B0F19;
+        color: #F1F5F9;
+        font-family: 'Work Sans', sans-serif;
+        display: flex;
+        position: relative;
+        overflow: hidden;
+      }
+      .left-panel {
+        width: 40%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding-left: 80px;
+        background: rgba(14, 165, 233, 0.03);
+        border-right: 1px solid rgba(14, 165, 233, 0.2);
+      }
+      .right-panel {
+        width: 60%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding-top: 48px;
+        padding-left: 60px;
+        padding-right: 60px;
+      }
+      .label-mono {
+        font-family: 'JetBrains Mono', monospace;
+        color: #38BDF8;
+        font-size: 18px;
+        margin-bottom: 10px;
+      }
+      .huge-title {
+        font-family: 'Inter', sans-serif;
+        font-weight: 800;
+        font-size: 100px;
+        line-height: 0.9;
+        color: #F1F5F9;
+        text-transform: uppercase;
+      }
+      .timeline {
+        display: flex;
+        flex-direction: column;
+        gap: 40px;
+        position: relative;
+      }
+      .timeline-item {
+        display: flex;
+        align-items: flex-start;
+      }
+      .marker-box {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-right: 30px;
+        width: 100px;
+        flex-shrink: 0;
+      }
+      .deadline-tag {
+        font-family: 'JetBrains Mono', monospace;
+        font-size: 16px;
+        color: #0EA5E9;
+        font-weight: 800;
+        margin-bottom: 10px;
+      }
+      .square-marker {
+        width: 24px;
+        height: 24px;
+        background: #38BDF8;
+      }
+      .role-content {
+        border-left: 2px solid rgba(56, 189, 248, 0.3);
+        padding-left: 30px;
+      }
+      .role-title {
+        font-family: 'Inter', sans-serif;
+        font-size: 32px;
+        font-weight: 700;
+        color: #F1F5F9;
+        margin-bottom: 8px;
+      }
+      .persona-label {
+        font-family: 'JetBrains Mono', monospace;
+        font-size: 14px;
+        color: #38BDF8;
+        margin-bottom: 4px;
+        display: block;
+      }
+      .role-desc {
+        font-size: 18px;
+        color: #CBD5E1;
+        line-height: 1.5;
+      }
+      .deco-line {
+        position: absolute;
+        width: 1px;
+        height: 100%;
+        background: rgba(56, 189, 248, 0.1);
+        left: 111px;
+        top: 0;
+        z-index: -1;
+      }
+    </style>
+</head>
+<body>
+    <div class="slide-container">
+        <div class="left-panel">
+            <div class="label-mono">90-DAY // HARD CUTOFF</div>
+            <h2 class="huge-title">TALENT<br>GAPS</h2>
+        </div>
+        <div class="right-panel">
+            <div class="timeline">
+                <div class="deco-line"></div>
+                <div class="timeline-item">
+                    <div class="marker-box">
+                        <div class="deadline-tag">T+30D</div>
+                        <div class="square-marker"></div>
+                    </div>
+                    <div class="role-content">
+                        <div class="role-title">CTO</div>
+                        <span class="persona-label">PERSONA: AI / HARDWARE ARCHITECT</span>
+                        <p class="role-desc">Leading technical vision across large models and edge hardware integration. Directing the "Clone" engine development.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="marker-box">
+                        <div class="deadline-tag">T+60D</div>
+                        <div class="square-marker" style="background: #0EA5E9;"></div>
+                    </div>
+                    <div class="role-content">
+                        <div class="role-title">Hardware PM</div>
+                        <span class="persona-label">PERSONA: SUPPLY CHAIN VETERAN</span>
+                        <p class="role-desc">Managing smart hardware prototyping, BOM optimization, and mass production scaling for Stage 2.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="marker-box">
+                        <div class="deadline-tag">T+90D</div>
+                        <div class="square-marker"></div>
+                    </div>
+                    <div class="role-content">
+                        <div class="role-title">Chief Expert Officer</div>
+                        <span class="persona-label">PERSONA: IP & TALENT STRATEGIST</span>
+                        <p class="role-desc">Scaling the expert acquisition pipeline and managing exclusive IP licensing contracts with top 1% talent.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

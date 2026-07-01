@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;500;700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        .slide-container {
+            width: 1280px;
+            min-height: 720px;
+            background-color: #FFFFFF;
+            font-family: 'Noto Sans SC', sans-serif;
+            position: relative;
+            padding-top: 80px; /* keep title top padding */
+        }
+        .header {
+            margin-left: 100px;
+            margin-right: 100px;
+            margin-bottom: 50px;
+        }
+        .title {
+            font-size: 32px;
+            color: #0A1626;
+            font-weight: 700;
+            margin-bottom: 15px;
+            letter-spacing: 2px;
+        }
+        .divider {
+            width: 80px;
+            height: 2px;
+            background-color: #A88B52;
+        }
+        
+        .content-layout {
+            display: flex;
+            margin-left: 100px;
+            margin-right: 100px;
+            gap: 60px;
+        }
+        
+        .left-col {
+            flex: 0 0 40%;
+        }
+        
+        .origin-text {
+            font-size: 18px;
+            color: rgba(10, 22, 38, 0.85);
+            font-weight: 300;
+            line-height: 1.8;
+            text-align: justify;
+            margin-bottom: 20px;
+        }
+        
+        .origin-highlight {
+            font-size: 20px;
+            color: #0A1626;
+            font-weight: 700;
+            line-height: 1.6;
+            padding-left: 20px;
+            border-left: 4px solid #A88B52;
+            margin-top: 30px;
+        }
+        
+        .right-col {
+            flex: 0 0 55%;
+            display: flex;
+            flex-direction: column;
+            gap: 12px; /* reduced from 30px to save vertical space */
+        }
+        
+        .identity-block {
+            background-color: #0A1626;
+            padding: 16px 24px; /* reduced vertical padding from 25px to 16px */
+            position: relative;
+        }
+        
+        .identity-block::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background-color: #A88B52;
+        }
+        
+        .block-title {
+            font-size: 14px;
+            color: #A88B52;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+        }
+        
+        .block-content {
+            font-size: 18px;
+            color: #FFFFFF;
+            font-weight: 300;
+            line-height: 1.6;
+        }
+        
+        .values-list {
+            display: flex;
+            gap: 20px;
+            margin-top: 4px; /* slightly reduced */
+        }
+        
+        .value-item {
+            font-size: 18px;
+            color: #FFFFFF;
+            font-weight: 500;
+            letter-spacing: 4px;
+        }
+        
+        .logo-watermark {
+            position: absolute;
+            bottom: 30px;
+            right: 40px;
+        }
+        .logo-watermark img {
+            width: 36px;
+            height: 36px;
+            object-fit: contain;
+            opacity: 0.3;
+        }
+    </style>
+</head>
+<body>
+    <div class="slide-container">
+        <div class="header">
+            <div class="title">起源与定位 Origin & Positioning</div>
+            <div class="divider"></div>
+        </div>
+        
+        <div class="content-layout">
+            <div class="left-col">
+                <div class="origin-text">
+                    在通用人工智能（AGI）逼近的历史节点，智力正在经历彻底的“平权”。资金和庞大团队不再是创新的必要门槛，我们正在步入“超级个体的黄金时代”。
+                </div>
+                <div class="origin-text">
+                    然而，随之而来的是能力的迅速商品化、残酷的幂律分布以及系统性社会保障的缺失。
+                </div>
+                <div class="origin-highlight">
+                    OPC Global 诞生于这一时代背景之下。我们是一家以价值创造闭环为核心，链接专家，服务个体的国际非盈利组织。
+                </div>
+            </div>
+            
+            <div class="right-col">
+                <div class="identity-block">
+                    <div class="block-title">使命 MISSION</div>
+                    <div class="block-content">培育 AI 时代新岗位，填平专业智慧与实践成果之间的鸿沟。</div>
+                </div>
+                
+                <div class="identity-block">
+                    <div class="block-title">愿景 VISION</div>
+                    <div class="block-content">成为全球 OPC 个体与社群的“价值与创新闭环加速器”，构建 AI 时代的“自由人联合体”基础设施。</div>
+                </div>
+                
+                <div class="identity-block">
+                    <div class="block-title">价值观 VALUES</div>
+                    <div class="values-list">
+                        <div class="value-item">求真</div>
+                        <div class="value-item">自主</div>
+                        <div class="value-item">利他</div>
+                        <div class="value-item">共生</div>
+                    </div>
+                </div>
+                
+                <div class="identity-block">
+                    <div class="block-title">品牌原型 BRAND ARCHETYPE</div>
+                    <div class="block-content">务实的炼金术士 / 解放者<br><span style="font-size: 14px; color: rgba(255,255,255,0.6);">(The Pragmatic Alchemist / The Liberator)</span></div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="logo-watermark"><img src="/home/ubuntu/opc_global_presentation/a2a_logo_dark.png" alt="Logo" /></div>
+    
+        <div style="position: absolute; bottom: 25px; left: 0; right: 0; text-align: center; font-size: 11px; color: rgba(10, 22, 38, 0.3); font-weight: 300; letter-spacing: 2px; font-family: 'Noto Sans SC', sans-serif;">善用智能 终获自由 &nbsp;&nbsp;|&nbsp;&nbsp; OPC Global All Rights Reserved</div>
+    </div>
+</body>
+</html>

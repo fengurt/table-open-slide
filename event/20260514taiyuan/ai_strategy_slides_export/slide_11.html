@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500&family=Noto+Serif+SC:wght@700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        .slide-container {
+            width: 1280px;
+            min-height: 720px;
+            background: #FFFFFF;
+            position: relative;
+            font-family: 'Noto Sans SC', sans-serif;
+            color: #1A2B4C;
+            overflow: hidden;
+        }
+        .header {
+            position: absolute;
+            top: 80px;
+            left: 120px;
+            display: flex;
+            align-items: center;
+        }
+        .header-line {
+            width: 40px;
+            height: 1px;
+            background: #A88B52;
+            margin-right: 20px;
+        }
+        .header-title {
+            font-family: 'Noto Serif SC', serif;
+            font-size: 32px;
+            color: #0A1626;
+            font-weight: 700;
+            letter-spacing: 2px;
+        }
+        .content-wrapper {
+            position: absolute;
+            top: 200px;
+            left: 120px;
+            width: 1040px;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            column-gap: 50px;
+        }
+        .column {
+            display: flex;
+            flex-direction: column;
+            border-top: 2px solid #0A1626;
+            padding-top: 30px;
+            position: relative;
+        }
+        .col-eyebrow {
+            font-family: 'Noto Serif SC', serif;
+            font-size: 20px;
+            color: #A88B52;
+            margin-bottom: 10px;
+            font-weight: 700;
+            letter-spacing: 2px;
+        }
+        .col-title {
+            font-size: 28px;
+            color: #0A1626;
+            font-weight: 500;
+            margin-bottom: 24px;
+        }
+        .main-question {
+            font-size: 18px;
+            color: #0A1626;
+            line-height: 1.6;
+            font-weight: 500;
+            margin-bottom: 24px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid rgba(168, 139, 82, 0.3);
+        }
+        .detail-list {
+            list-style: none;
+        }
+        .detail-item {
+            font-size: 16px;
+            color: #1A2B4C;
+            line-height: 1.8;
+            font-weight: 300;
+            margin-bottom: 16px;
+            position: relative;
+            padding-left: 16px;
+        }
+        .detail-item::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 10px;
+            width: 4px;
+            height: 4px;
+            background: #A88B52;
+        }
+        .highlight-text {
+            color: #A88B52;
+            font-weight: 500;
+        }
+        .accent-bg {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 600px;
+            height: 300px;
+            background: linear-gradient(to top left, rgba(168, 139, 82, 0.05), transparent);
+            z-index: 0;
+        }
+        .content-wrapper, .header {
+            z-index: 1;
+        }
+    </style>
+</head>
+<body>
+    <div class="slide-container">
+        <div class="accent-bg"></div>
+        
+        <div class="header">
+            <div class="header-line"></div>
+            <div class="header-title">买 AI 之前，先用三个问题逼自己一次</div>
+        </div>
+        
+        <div class="content-wrapper">
+            <div class="column">
+                <div class="col-eyebrow">第一问</div>
+                <div class="col-title">替代性</div>
+                <div class="main-question">它能替代我企业里哪个具体岗位的具体动作？</div>
+                <ul class="detail-list">
+                    <li class="detail-item"><span class="highlight-text">答不出来 → 先不买</span></li>
+                    <li class="detail-item">"AI 提高效率"不算答案</li>
+                    <li class="detail-item">"AI 把合同初审从 2 小时压缩到 20 分钟"才算</li>
+                </ul>
+            </div>
+            
+            <div class="column">
+                <div class="col-eyebrow">第二问</div>
+                <div class="col-title">时间成本</div>
+                <div class="main-question">上手到产出结果需要多少时间成本？</div>
+                <ul class="detail-list">
+                    <li class="detail-item">基础应用（客服/内容生成）：回报周期 12–18 个月</li>
+                    <li class="detail-item">复杂业务（智能决策/预测）：回报周期 24–36 个月</li>
+                    <li class="detail-item"><span class="highlight-text">超过 3 个月没有任何可见效果：及时止损</span></li>
+                </ul>
+            </div>
+            
+            <div class="column">
+                <div class="col-eyebrow">第三问</div>
+                <div class="col-title">数据主权</div>
+                <div class="main-question">如果供应商明天倒闭，我们的数据和流程还在不在？</div>
+                <ul class="detail-list">
+                    <li class="detail-item">数据主权 = 企业最大的隐性风险</li>
+                    <li class="detail-item">警惕"平台锁定"：数据放在别人那，等于把命脉交出去</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

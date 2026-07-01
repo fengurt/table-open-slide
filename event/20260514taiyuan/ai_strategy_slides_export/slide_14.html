@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500&family=Noto+Serif+SC:wght@700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        .slide-container {
+            width: 1280px;
+            min-height: 720px;
+            background: #FFFFFF;
+            position: relative;
+            font-family: 'Noto Sans SC', sans-serif;
+            color: #1A2B4C;
+            overflow: hidden;
+        }
+        .header {
+            position: absolute;
+            top: 80px;
+            left: 120px;
+            width: 1040px;
+        }
+        .header-title {
+            font-family: 'Noto Serif SC', serif;
+            font-size: 36px;
+            color: #0A1626;
+            font-weight: 700;
+            letter-spacing: 1px;
+            margin-bottom: 20px;
+        }
+        .context-bar {
+            display: inline-block;
+            border: 1px solid #A88B52;
+            padding: 10px 20px;
+            font-size: 18px;
+            color: #A88B52;
+            letter-spacing: 2px;
+            margin-bottom: 40px;
+        }
+        .content-wrapper {
+            position: absolute;
+            top: 240px;
+            left: 120px;
+            width: 1040px;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            column-gap: 40px;
+        }
+        .column {
+            display: flex;
+            flex-direction: column;
+            border-top: 2px solid #0A1626;
+            padding-top: 20px;
+        }
+        .col-center {
+            border-top: 2px solid #A88B52;
+        }
+        .col-title {
+            font-family: 'Noto Serif SC', serif;
+            font-size: 24px;
+            color: #0A1626;
+            margin-bottom: 24px;
+            font-weight: 700;
+        }
+        .col-center .col-title {
+            color: #A88B52;
+        }
+        .list-item {
+            margin-bottom: 24px;
+        }
+        .item-title {
+            font-size: 18px;
+            color: #0A1626;
+            font-weight: 500;
+            margin-bottom: 8px;
+        }
+        .item-text {
+            font-size: 16px;
+            color: #1A2B4C;
+            line-height: 1.6;
+            font-weight: 300;
+        }
+        .col-center .item-title {
+            color: #A88B52;
+        }
+        .roi-item {
+            font-size: 18px;
+            color: #1A2B4C;
+            line-height: 1.8;
+            font-weight: 300;
+            margin-bottom: 16px;
+            padding-left: 16px;
+            border-left: 2px solid rgba(10, 22, 38, 0.2);
+        }
+        .roi-highlight {
+            color: #0A1626;
+            font-weight: 500;
+        }
+        .accent-bg {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 300px;
+            height: 100%;
+            background: rgba(168, 139, 82, 0.03);
+            z-index: 0;
+        }
+        .header, .content-wrapper {
+            z-index: 1;
+        }
+    </style>
+</head>
+<body>
+    <div class="slide-container">
+        <div class="accent-bg"></div>
+        
+        <div class="header">
+            <div class="header-title">太原钢材贸易公司 — 一个可复用的 AI 切入样板</div>
+            <div class="context-bar">年营收 3 000 万 · 12 名员工 · 主营钢材采购销售</div>
+        </div>
+        
+        <div class="content-wrapper">
+            <div class="column">
+                <div class="col-title">现实痛点</div>
+                <div class="list-item">
+                    <div class="item-title">报价慢</div>
+                    <div class="item-text">市场价格波动大，人工核价耗时 2–3 小时</div>
+                </div>
+                <div class="list-item">
+                    <div class="item-title">客服压力</div>
+                    <div class="item-text">同一问题重复解答，占用销售时间</div>
+                </div>
+                <div class="list-item">
+                    <div class="item-title">合同风险</div>
+                    <div class="item-text">大量合同靠人工审查，存在漏洞</div>
+                </div>
+            </div>
+            
+            <div class="column col-center">
+                <div class="col-title">AI 切入（低门槛版）</div>
+                <div class="list-item">
+                    <div class="item-title">AI 价格追踪 + 报价辅助</div>
+                    <div class="item-text">核价从 2 小时 → 20 分钟</div>
+                </div>
+                <div class="list-item">
+                    <div class="item-title">AI 客服机器人</div>
+                    <div class="item-text">常见问题自动回复，销售只处理深度需求</div>
+                </div>
+                <div class="list-item">
+                    <div class="item-title">AI 合同审查</div>
+                    <div class="item-text">初审合规风险，律师复核关键条款</div>
+                </div>
+            </div>
+            
+            <div class="column">
+                <div class="col-title">投入 / 回报</div>
+                <div class="roi-item">
+                    1 个内部推动者 +<br>2–3 个订阅工具
+                </div>
+                <div class="roi-item">
+                    约 <span class="roi-highlight">5 000 – 20 000</span> 元 / 月
+                </div>
+                <div class="roi-item">
+                    <span class="roi-highlight">3–6 个月</span>内可见效果
+                </div>
+                <div class="roi-item">
+                    销售人效提升 <span class="roi-highlight">30–50%</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@700&family=Noto+Sans+SC:wght@400;500&family=Cormorant+Garamond:ital,wght@0,600;1,600&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        .slide-container { 
+            width: 1280px; 
+            min-height: 720px; 
+            background: #FFFFFF; 
+            position: relative;
+            font-family: 'Noto Sans SC', sans-serif;
+            display: flex;
+            overflow: hidden;
+        }
+        .left-panel {
+            width: 426px; /* 1/3 of 1280 */
+            height: 720px;
+            background-color: #0A1626;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .roman-numeral {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 240px;
+            color: #A88B52;
+            line-height: 1;
+            margin-bottom: 20px;
+        }
+        .chapter-label {
+            font-family: 'Inter', sans-serif;
+            font-size: 16px;
+            color: #A88B52;
+            letter-spacing: 8px;
+            text-transform: uppercase;
+        }
+        .right-panel {
+            width: 854px; /* 2/3 of 1280 */
+            height: 720px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding-left: 120px;
+            padding-right: 120px;
+        }
+        .chapter-title {
+            font-family: 'Noto Serif SC', serif;
+            font-size: 80px;
+            color: #0A1626;
+            margin-bottom: 40px;
+            line-height: 1.2;
+        }
+        .separator {
+            width: 120px;
+            height: 1px;
+            background-color: #A88B52;
+            margin-bottom: 40px;
+        }
+        .chapter-subtitle {
+            font-size: 28px;
+            color: #0A1626;
+            font-weight: 500;
+            margin-bottom: 60px;
+        }
+        .quote {
+            font-family: 'Noto Serif SC', serif;
+            font-size: 24px;
+            color: #A88B52;
+            font-style: italic;
+        }
+        .footer {
+            position: absolute;
+            right: 40px;
+            bottom: 30px;
+            font-size: 10px;
+            color: #A88B52;
+            font-family: 'Inter', sans-serif;
+        }
+    </style>
+</head>
+<body>
+    <div class="slide-container">
+        <div class="left-panel">
+            <div class="roman-numeral">II</div>
+            <div class="chapter-label">CHAPTER TWO</div>
+        </div>
+        
+        <div class="right-panel">
+            <div class="chapter-title">趋势预判</div>
+            <div class="separator"></div>
+            <div class="chapter-subtitle">企业主必读的三大 AI 机构报告解读</div>
+            <div class="quote">"过滤噪音，找到那 1% 真正有用的信息。"</div>
+        </div>
+        
+        <div class="footer">少数人的视野 — 岁知社闭门分享 · 郭峰 · 2026.05.14</div>
+    </div>
+</body>
+</html>

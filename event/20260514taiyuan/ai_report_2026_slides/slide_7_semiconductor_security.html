@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@200;300;400;600&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; background-color: #FFFFFF; color: #2C3E50; }
+        .slide-container {
+            width: 1280px;
+            min-height: 720px;
+            background: #FFFFFF;
+            position: relative;
+            padding: 80px 80px 0 80px;
+            display: flex;
+            flex-direction: column;
+        }
+        .chapter-anchor {
+            font-family: 'Playfair Display', serif;
+            font-weight: 900;
+            font-size: 20px;
+            color: #A88B52;
+            letter-spacing: 2px;
+            margin-bottom: 16px;
+        }
+        .chapter-anchor span {
+            font-family: 'Inter', sans-serif;
+            font-weight: 300;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            margin-left: 12px;
+        }
+        .main-title {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            font-size: 36px;
+            color: #0A1626;
+            margin-bottom: 28px;
+        }
+        .cases-grid {
+            display: flex;
+            gap: 40px;
+            flex: 1;
+        }
+        .case-col {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        .case-header {
+            margin-bottom: 12px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid rgba(168, 139, 82, 0.3);
+        }
+        .case-num {
+            font-family: 'Inter', sans-serif;
+            font-weight: 600;
+            font-size: 14px;
+            color: #A88B52;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 4px;
+        }
+        .case-title {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            font-size: 22px;
+            color: #0A1626;
+        }
+        .case-content {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        .content-block {
+            display: flex;
+            flex-direction: column;
+        }
+        .block-label {
+            font-family: 'Inter', sans-serif;
+            font-weight: 600;
+            font-size: 12px;
+            color: #A88B52;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 6px;
+        }
+        .block-text {
+            font-family: 'Inter', sans-serif;
+            font-weight: 300;
+            font-size: 14px;
+            color: #2C3E50;
+            line-height: 1.6;
+        }
+        .data-highlight {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            font-size: 18px;
+            color: #0A1626;
+        }
+        .decision-ref {
+            margin-top: 28px;
+            background-color: rgba(168, 139, 82, 0.05);
+            padding: 16px;
+            font-family: 'Inter', sans-serif;
+            font-weight: 300;
+            font-size: 14px;
+            color: #2C3E50;
+            line-height: 1.6;
+            border-left: 2px solid #0A1626;
+            margin-bottom: 24px;
+        }
+        .decision-title {
+            font-weight: 600;
+            color: #0A1626;
+            margin-bottom: 6px;
+            text-transform: uppercase;
+            font-size: 12px;
+            letter-spacing: 1px;
+        }
+    </style>
+</head>
+<body>
+    <div class="slide-container">
+        <div class="chapter-anchor">05 <span>Case Studies — Semiconductor & Security</span></div>
+        <h1 class="main-title">把沉睡的非结构化资产，唤醒为可推理的知识</h1>
+        
+        <div class="cases-grid">
+            <div class="case-col">
+                <div class="case-header">
+                    <div class="case-num">Case 05</div>
+                    <div class="case-title">顶级半导体供应商 — 技术文档数据资产化</div>
+                </div>
+                <div class="case-content">
+                    <div class="content-block">
+                        <div class="block-label">挑战 / Challenge</div>
+                        <div class="block-text">数十年工程手册、设备维护与故障指南散落多处，新员工知识获取困难。</div>
+                    </div>
+                    <div class="content-block">
+                        <div class="block-label">方案 / Solution</div>
+                        <div class="block-text">以检索增强生成（RAG）构建跨语种企业级私有知识图谱，提供自然语言专家问答接口。</div>
+                    </div>
+                    <div class="content-block">
+                        <div class="block-label">核心数据 / Core Data</div>
+                        <div class="block-text">内部技术支持 SLA 响应：<span class="data-highlight">40 小时 → &lt;1 小时</span><br>历史遗留复杂问题解决效率：<span class="data-highlight">×10</span></div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="case-col">
+                <div class="case-header">
+                    <div class="case-num">Case 06</div>
+                    <div class="case-title">大型金融机构 — 安全运营中心（SOC）自动化升级</div>
+                </div>
+                <div class="case-content">
+                    <div class="content-block">
+                        <div class="block-label">挑战 / Challenge</div>
+                        <div class="block-text">每日数万级警报，分析师疲劳，易漏报真实高危威胁。</div>
+                    </div>
+                    <div class="content-block">
+                        <div class="block-label">方案 / Solution</div>
+                        <div class="block-text">部署安全垂直大模型，对底层警报自动聚合、溯源并生成攻击链路图谱，自动阻断低危攻击。</div>
+                    </div>
+                    <div class="content-block">
+                        <div class="block-label">核心数据 / Core Data</div>
+                        <div class="block-text">月度有效警报处理能力：<span class="data-highlight">1,500 → 40,000 件</span><br>核心网络资产威胁覆盖率：<span class="data-highlight">首次达成 100%</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="decision-ref">
+            <div class="decision-title">决策参考 / Decision Reference</div>
+            知识管理应从分类存储转向语义检索与推理生成；安全防护应从增加监控人力转向自动化溯源。
+        </div>
+    </div>
+</body>
+</html>

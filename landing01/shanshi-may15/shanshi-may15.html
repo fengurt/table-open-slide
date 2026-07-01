@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>岁知社·山石系列 第一期 — 2026年5月15日</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@300;400;500;600&family=Noto+Sans+SC:wght@300;400;500&family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --bg:#0B0906;
+  --bg2:#141110;
+  --bg3:#1C1714;
+  --gold:#C49A50;
+  --gold-lt:#E2C07A;
+  --gold-dim:#7A6030;
+  --stone:#DDD4C0;
+  --stone-mid:#928B7E;
+  --stone-dim:#504B46;
+  --serif:'Noto Serif SC',serif;
+  --sans:'Noto Sans SC',sans-serif;
+  --latin:'EB Garamond',serif;
+}
+body{background:var(--bg);color:var(--stone);font-family:var(--sans);font-weight:300;-webkit-font-smoothing:antialiased;max-width:960px;margin:0 auto}
+
+nav{display:flex;justify-content:space-between;align-items:center;padding:16px 40px;border-bottom:1px solid rgba(196,154,80,0.15)}
+.nav-brand{font-family:var(--serif);font-size:15px;letter-spacing:0.2em;color:var(--gold);font-weight:400}
+.nav-series{font-size:11px;letter-spacing:0.28em;color:var(--stone-mid);font-family:var(--latin)}
+
+.hero{padding:40px 40px 28px;position:relative;overflow:hidden;border-bottom:1px solid rgba(196,154,80,0.1)}
+.hero-deco{position:absolute;right:-10px;top:-20px;font-family:var(--serif);font-size:260px;color:rgba(196,154,80,0.035);line-height:1;pointer-events:none;user-select:none}
+.series-label{display:inline-flex;align-items:center;gap:10px;margin-bottom:18px}
+.series-label span{font-size:10px;letter-spacing:0.35em;color:var(--gold);text-transform:uppercase;font-family:var(--latin)}
+.series-label::before,.series-label::after{content:'';display:block;width:18px;height:1px;background:var(--gold-dim)}
+.hero-date{font-family:var(--latin);font-size:13px;letter-spacing:0.15em;color:var(--stone-mid);margin-bottom:14px}
+.hero-title{font-family:var(--serif);font-size:clamp(24px,4vw,40px);font-weight:500;line-height:1.35;color:#F0E8D8;margin-bottom:10px}
+.hero-title em{font-style:normal;color:var(--gold)}
+.hero-sub{font-size:13px;line-height:1.85;color:var(--stone-mid);max-width:580px;margin-bottom:14px}
+.hero-sub-tags{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:24px}
+.tag{font-size:10px;letter-spacing:0.1em;padding:4px 11px;border:1px solid rgba(196,154,80,0.22);color:var(--gold-lt);font-family:var(--sans)}
+.hero-meta-row{display:flex;gap:0;border:1px solid rgba(196,154,80,0.15)}
+.meta-item{flex:1;padding:12px 18px;display:flex;flex-direction:column;gap:3px;border-right:1px solid rgba(196,154,80,0.12)}
+.meta-item:last-child{border-right:none}
+.meta-label{font-size:10px;letter-spacing:0.22em;color:var(--stone-dim);text-transform:uppercase}
+.meta-value{font-size:13px;color:var(--stone);letter-spacing:0.03em}
+
+.audience{padding:18px 40px;border-bottom:1px solid rgba(196,154,80,0.1);background:var(--bg2)}
+.aud-row{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.aud-label{font-size:10px;letter-spacing:0.28em;color:var(--stone-dim);text-transform:uppercase;white-space:nowrap;font-family:var(--latin)}
+.aud-divider{width:1px;height:14px;background:var(--stone-dim);flex-shrink:0}
+.aud-tags{display:flex;gap:18px;flex-wrap:wrap}
+.aud-tag{display:flex;align-items:center;gap:6px;font-size:12px;color:var(--stone);letter-spacing:0.05em}
+.aud-tag::before{content:'';width:3px;height:3px;border-radius:50%;background:var(--gold);display:block;flex-shrink:0}
+
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:0;border-bottom:1px solid rgba(196,154,80,0.1)}
+.col-block{padding:28px 40px}
+.col-block+.col-block{border-left:1px solid rgba(196,154,80,0.1)}
+
+.sec-label{font-size:10px;letter-spacing:0.35em;color:var(--gold);text-transform:uppercase;font-family:var(--latin);margin-bottom:14px;display:block}
+.gold-line{width:28px;height:1px;background:var(--gold-dim);margin-bottom:16px}
+
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:rgba(196,154,80,0.12);margin-top:16px}
+.about-card{padding:16px;background:var(--bg)}
+.about-num{font-family:var(--latin);font-size:26px;color:var(--gold);line-height:1;margin-bottom:5px}
+.about-card-title{font-family:var(--serif);font-size:12px;color:var(--stone);margin-bottom:3px;font-weight:400}
+.about-card-body{font-size:10px;color:var(--stone-mid);line-height:1.65}
+
+.topic-wrap{background:var(--bg2);border:1px solid rgba(196,154,80,0.15);padding:22px 26px;margin-top:16px;position:relative;overflow:hidden}
+.topic-bg-char{position:absolute;right:-8px;bottom:-24px;font-family:var(--serif);font-size:120px;color:rgba(196,154,80,0.04);line-height:1;pointer-events:none}
+.topic-no{font-size:10px;letter-spacing:0.28em;color:var(--gold-dim);margin-bottom:10px;display:block;font-family:var(--latin)}
+.topic-title{font-family:var(--serif);font-size:clamp(15px,2.2vw,19px);color:#EDE3CE;font-weight:500;line-height:1.45;margin-bottom:7px}
+.topic-title em{font-style:normal;color:var(--gold)}
+.topic-subtitle{font-size:11px;color:var(--stone-mid);margin-bottom:16px;line-height:1.75}
+.topic-points{display:flex;flex-direction:column;gap:8px}
+.tp{display:flex;gap:10px;align-items:flex-start}
+.tp-dot{margin-top:6px;width:3px;height:3px;border-radius:50%;background:var(--gold);flex-shrink:0}
+.tp-text{font-size:11px;color:var(--stone-mid);line-height:1.7}
+.tp-text strong{color:var(--stone);font-weight:500}
+
+.schedule{display:flex;flex-direction:column;gap:0}
+.sch-item{display:grid;grid-template-columns:70px 1fr;border-top:1px solid rgba(196,154,80,0.1);padding:13px 0}
+.sch-item:last-child{border-bottom:1px solid rgba(196,154,80,0.1)}
+.sch-time{font-family:var(--latin);font-size:12px;color:var(--gold-dim);padding-top:1px;letter-spacing:0.03em}
+.sch-event{font-size:12px;color:var(--stone);line-height:1.5}
+.sch-event strong{color:#EDE3CE;font-weight:500}
+.sch-note{font-size:10px;color:var(--stone-dim);margin-top:2px}
+.sch-badge{display:inline-block;font-size:9px;letter-spacing:0.15em;padding:1px 7px;border:1px solid var(--gold-dim);color:var(--gold);font-family:var(--latin);margin-left:5px;vertical-align:middle}
+
+.speakers-wrap{padding:28px 40px;border-bottom:1px solid rgba(196,154,80,0.1)}
+.speakers-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(196,154,80,0.12);margin-top:16px}
+.speaker-card{background:var(--bg);padding:20px 18px;position:relative}
+.speaker-avatar{width:40px;height:40px;border-radius:50%;border:1px solid rgba(196,154,80,0.25);display:flex;align-items:center;justify-content:center;margin-bottom:12px;font-family:var(--serif);font-size:15px;color:var(--gold)}
+.speaker-name{font-family:var(--serif);font-size:15px;color:#EDE3CE;font-weight:400;margin-bottom:4px}
+.speaker-role{font-size:10px;color:var(--stone-dim);line-height:1.65;letter-spacing:0.03em}
+.speaker-divider{width:18px;height:1px;background:var(--gold-dim);margin:10px 0}
+.speaker-bio{font-size:10px;color:var(--stone-mid);line-height:1.8}
+.mystery-badge{position:absolute;top:14px;right:14px;font-size:9px;letter-spacing:0.18em;color:var(--gold);border:1px solid var(--gold-dim);padding:2px 6px;font-family:var(--latin);text-transform:uppercase}
+.mystery-avatar{border-style:dashed;color:var(--stone-dim);font-size:16px}
+
+.bottom-row{display:grid;grid-template-columns:1fr 1fr;gap:0}
+.detail-block{padding:28px 40px;border-right:1px solid rgba(196,154,80,0.1)}
+.detail-row{margin-bottom:14px}
+.detail-label{font-size:10px;letter-spacing:0.25em;color:var(--stone-dim);text-transform:uppercase;margin-bottom:3px}
+.detail-value{font-size:12px;color:var(--stone);line-height:1.65}
+.detail-note{font-size:10px;color:var(--stone-dim);margin-top:1px}
+.rsvp-block{padding:28px 40px}
+.rsvp-title{font-family:var(--serif);font-size:15px;color:#EDE3CE;margin-bottom:7px;font-weight:400}
+.rsvp-note{font-size:11px;color:var(--stone-mid);line-height:1.8;margin-bottom:16px}
+.rsvp-btn{display:inline-block;padding:10px 26px;background:var(--gold);color:#0B0906;font-size:12px;letter-spacing:0.15em;font-family:var(--serif);font-weight:500;cursor:pointer}
+.rsvp-limit{font-size:10px;color:var(--stone-dim);margin-top:10px;letter-spacing:0.08em}
+
+footer{padding:16px 40px;border-top:1px solid rgba(196,154,80,0.12);display:flex;justify-content:space-between;align-items:center}
+.footer-brand{font-family:var(--serif);font-size:12px;color:var(--stone-mid);letter-spacing:0.15em}
+.footer-copy{font-size:11px;color:var(--stone-dim);font-family:var(--latin)}
+
+@media(max-width:700px){
+  nav,.hero,.col-block,.audience,.speakers-wrap,.detail-block,.rsvp-block{padding-left:20px;padding-right:20px}
+  .two-col,.bottom-row,.speakers-grid{grid-template-columns:1fr}
+  .col-block+.col-block{border-left:none;border-top:1px solid rgba(196,154,80,0.1)}
+  .detail-block{border-right:none;border-bottom:1px solid rgba(196,154,80,0.1)}
+  .hero-meta-row{flex-direction:column}
+  .meta-item{border-right:none;border-bottom:1px solid rgba(196,154,80,0.1)}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-brand">岁知社</div>
+  <div class="nav-series">Shanshi Series · 山石系列 · 第一期</div>
+</nav>
+
+<div class="hero">
+  <div class="hero-deco">值</div>
+  <div class="series-label"><span>Suizhi Society · Session 01</span></div>
+  <div class="hero-date">2026年5月15日（周五）· 北京·王府井 · 14:30—16:30</div>
+  <h1 class="hero-title">AI 让聪明变廉价——<br>这个时代，<em>什么才值钱？</em></h1>
+  <p class="hero-sub">当技术壁垒消失，真正的竞争力从何而来？信任、判断与关系——<br>重新定义<span style="color:var(--stone);font-weight:400">企业、家庭与个体</span>的价值边界与成长路径。</p>
+  <div class="hero-sub-tags">
+    <span class="tag">企业 · AI 落地与组织竞争力重构</span>
+    <span class="tag">家庭 · 教育资产与代际价值传承</span>
+    <span class="tag">个体 · 信任资产与出海机遇把握</span>
+  </div>
+  <div class="hero-meta-row">
+    <div class="meta-item">
+      <span class="meta-label">日期</span>
+      <span class="meta-value">2026年5月15日</span>
+    </div>
+    <div class="meta-item">
+      <span class="meta-label">时间</span>
+      <span class="meta-value">14:30 — 16:30</span>
+    </div>
+    <div class="meta-item">
+      <span class="meta-label">地点</span>
+      <span class="meta-value">北京·王府井</span>
+    </div>
+    <div class="meta-item">
+      <span class="meta-label">规模</span>
+      <span class="meta-value">限额 30 人</span>
+    </div>
+  </div>
+</div>
+
+<div class="audience">
+  <div class="aud-row">
+    <span class="aud-label">面向人群</span>
+    <div class="aud-divider"></div>
+    <div class="aud-tags">
+      <span class="aud-tag">投资人 · 资产配置者</span>
+      <span class="aud-tag">企业高管 · 决策者</span>
+      <span class="aud-tag">领域专家 · 独立创业者</span>
+      <span class="aud-tag">关注 AI 与出海机遇的高净值人群</span>
+    </div>
+  </div>
+</div>
+
+<div class="two-col">
+  <div class="col-block">
+    <span class="sec-label">关于系列 · About</span>
+    <div class="gold-line"></div>
+    <p style="font-size:11px;color:var(--stone-mid);line-height:1.9">山石系列是岁知社旗下线下交流场域——小而精，每期不超过 30 人，拒绝表演式分享，只谈真实判断与真实机遇。</p>
+    <div class="about-grid">
+      <div class="about-card">
+        <div class="about-num">30</div>
+        <div class="about-card-title">严控人数</div>
+        <div class="about-card-body">邀请制，保证交流质量与圈子密度</div>
+      </div>
+      <div class="about-card">
+        <div class="about-num">2h</div>
+        <div class="about-card-title">深度交流</div>
+        <div class="about-card-body">分享+讨论+问答，不走过场</div>
+      </div>
+      <div class="about-card">
+        <div class="about-num">实</div>
+        <div class="about-card-title">聚焦价值</div>
+        <div class="about-card-body">真实案例与判断，拒绝概念游戏</div>
+      </div>
+      <div class="about-card">
+        <div class="about-num">真</div>
+        <div class="about-card-title">只谈实质</div>
+        <div class="about-card-body">AI、出海、教育、个体成长核心议题</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-block" style="border-left:1px solid rgba(196,154,80,0.1)">
+    <span class="sec-label">本期主题 · Topic</span>
+    <div class="gold-line"></div>
+    <div class="topic-wrap">
+      <div class="topic-bg-char">值</div>
+      <span class="topic-no">Session 01</span>
+      <h2 class="topic-title">AI 让聪明变廉价——<br>这个时代，<em>什么才值钱？</em></h2>
+      <p class="topic-subtitle">技术护城河消失之后，企业、家庭与个体如何重新确立竞争力？</p>
+      <div class="topic-points">
+        <div class="tp"><div class="tp-dot"></div><div class="tp-text"><strong>认知重估：</strong>哪些能力在 AI 时代真正升值</div></div>
+        <div class="tp"><div class="tp-dot"></div><div class="tp-text"><strong>信任资产论：</strong>专业、关系、认知——三层护城河</div></div>
+        <div class="tp"><div class="tp-dot"></div><div class="tp-text"><strong>企业视角：</strong>AI 落地的真实路径与组织变革</div></div>
+        <div class="tp"><div class="tp-dot"></div><div class="tp-text"><strong>家庭视角：</strong>教育资产如何在 AI 时代重新配置</div></div>
+        <div class="tp"><div class="tp-dot"></div><div class="tp-text"><strong>个体视角：</strong>OPC 与出海——一人公司的真实上限</div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="two-col">
+  <div class="col-block">
+    <span class="sec-label">活动日程 · Schedule</span>
+    <div class="gold-line"></div>
+    <div class="schedule">
+      <div class="sch-item">
+        <div class="sch-time">14:00</div>
+        <div>
+          <div class="sch-event">签到入场 · 茶叙暖场</div>
+          <div class="sch-note">自由交流，提前认识在场嘉宾</div>
+        </div>
+      </div>
+      <div class="sch-item">
+        <div class="sch-time">14:30</div>
+        <div>
+          <div class="sch-event"><strong>郭峰 主题分享</strong><span class="sch-badge">45 min</span></div>
+          <div class="sch-note">AI 让聪明变廉价——什么才值钱？</div>
+        </div>
+      </div>
+      <div class="sch-item">
+        <div class="sch-time">15:15</div>
+        <div>
+          <div class="sch-event">自由交流 · 茶歇</div>
+          <div class="sch-note">非正式连接</div>
+        </div>
+      </div>
+      <div class="sch-item">
+        <div class="sch-time">15:30</div>
+        <div>
+          <div class="sch-event"><strong>嘉宾引导式讨论</strong><span class="sch-badge">30 min</span></div>
+          <div class="sch-note">阎志涛 · 神秘嘉宾 · 郭峰 共同主持</div>
+        </div>
+      </div>
+      <div class="sch-item">
+        <div class="sch-time">16:00</div>
+        <div>
+          <div class="sch-event"><strong>开放问答</strong><span class="sch-badge">20 min</span></div>
+          <div class="sch-note">全场互动，不设边界</div>
+        </div>
+      </div>
+      <div class="sch-item">
+        <div class="sch-time">16:20</div>
+        <div>
+          <div class="sch-event">场外延伸交流</div>
+          <div class="sch-note">活动结束后自由连接</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-block" style="border-left:1px solid rgba(196,154,80,0.1)">
+    <span class="sec-label">活动详情 · Details</span>
+    <div class="gold-line"></div>
+    <div class="detail-row">
+      <div class="detail-label">日期与时间</div>
+      <div class="detail-value">2026年5月15日（周五）14:30—16:30</div>
+      <div class="detail-note">14:00 开始签到入场</div>
+    </div>
+    <div class="detail-row">
+      <div class="detail-label">地点</div>
+      <div class="detail-value">北京·王府井</div>
+      <div class="detail-note">具体地址报名后通知</div>
+    </div>
+    <div class="detail-row">
+      <div class="detail-label">形式</div>
+      <div class="detail-value">线下邀请制 · 限额 30 席</div>
+    </div>
+    <div class="detail-row">
+      <div class="detail-label">面向人群</div>
+      <div class="detail-value">投资人 · 企业高管 · 领域专家</div>
+    </div>
+    <div style="margin-top:20px;padding:18px;background:var(--bg2);border:1px solid rgba(196,154,80,0.18)">
+      <div style="font-family:var(--serif);font-size:14px;color:#EDE3CE;margin-bottom:7px">申请参与</div>
+      <div style="font-size:11px;color:var(--stone-mid);line-height:1.75;margin-bottom:14px">山石系列为邀请制，严控规模以保证交流深度。报名截止 5月13日。</div>
+      <div class="rsvp-btn">申请参与 →</div>
+      <div class="rsvp-limit" style="margin-top:10px">本期剩余名额有限</div>
+    </div>
+  </div>
+</div>
+
+<div class="speakers-wrap">
+  <span class="sec-label">嘉宾阵容 · Speakers</span>
+  <div class="gold-line"></div>
+  <div class="speakers-grid">
+    <div class="speaker-card">
+      <div class="speaker-avatar">峰</div>
+      <div class="speaker-name">郭峰</div>
+      <div class="speaker-role">TABLE AI 董事长<br>OPC Global 联合发起人<br>EHL 集团大中华区创始团队成员</div>
+      <div class="speaker-divider"></div>
+      <div class="speaker-bio">连续创业者、教育者与研究者。深度参与全球 QS No.1 酒店管理学院 EHL 在华从 0 到 1，主导 130+ 地标酒店投资咨询项目，长期探索 AI 时代个体与组织的价值重构。</div>
+    </div>
+    <div class="speaker-card">
+      <div class="speaker-avatar">涛</div>
+      <div class="speaker-name">阎志涛</div>
+      <div class="speaker-role">出海 GEO 营销专家<br>QuickCreator 创始人</div>
+      <div class="speaker-divider"></div>
+      <div class="speaker-bio">深耕出海营销与 AI 内容增长领域。QuickCreator 致力于帮助企业通过 AI 原生内容实现全球搜索与 GEO 流量破局，对出海品牌建设与用户获取有丰富实战经验。</div>
+    </div>
+    <div class="speaker-card">
+      <div class="mystery-badge">即将揭晓</div>
+      <div class="speaker-avatar mystery-avatar">?</div>
+      <div class="speaker-name" style="color:var(--stone-mid)">神秘嘉宾</div>
+      <div class="speaker-role" style="color:var(--stone-dim)">身份保密中 · 敬请期待</div>
+      <div class="speaker-divider"></div>
+      <div class="speaker-bio" style="color:var(--stone-dim)">本期特别邀请一位在该议题拥有深度实战经验的嘉宾，活动前一日正式公布身份。</div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-brand">岁知社 · 山石系列 · 第一期</div>
+  <div class="footer-copy">Suizhi Society · Beijing · 2026</div>
+</footer>
+
+</body>
+</html>

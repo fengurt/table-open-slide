@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;500;700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        .slide-container {
+            width: 1280px;
+            min-height: 720px;
+            background-color: #FFFFFF;
+            font-family: 'Noto Sans SC', sans-serif;
+            position: relative;
+            padding-top: 80px;
+        }
+        .header {
+            margin-left: 100px;
+            margin-right: 100px;
+            margin-bottom: 60px;
+        }
+        .title {
+            font-size: 32px;
+            color: #0A1626;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+        .divider {
+            width: 80px;
+            height: 2px;
+            background-color: #A88B52;
+        }
+        .content-container {
+            margin-left: 100px;
+            margin-right: 100px;
+            display: flex;
+            flex-direction: column;
+        }
+        .row {
+            display: flex;
+            align-items: center;
+            border-top: 1px solid rgba(10, 22, 38, 0.2);
+            padding-top: 40px;
+            padding-bottom: 40px;
+        }
+        .row:first-child {
+            border-top: 2px solid #0A1626;
+        }
+        .row:last-child {
+            border-bottom: 2px solid #0A1626;
+        }
+        .row-title-container {
+            width: 280px;
+            flex-shrink: 0;
+            display: flex;
+            flex-direction: column;
+        }
+        .row-title {
+            font-size: 28px;
+            color: #0A1626;
+            font-weight: 700;
+            letter-spacing: 2px;
+            margin-bottom: 5px;
+        }
+        .row-eng {
+            font-size: 16px;
+            color: #A88B52;
+            font-weight: 500;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+        .row-desc {
+            font-size: 22px;
+            color: #0A1626;
+            font-weight: 300;
+            line-height: 1.8;
+            letter-spacing: 1px;
+            flex-grow: 1;
+            padding-left: 40px;
+            border-left: 1px solid rgba(10, 22, 38, 0.1);
+        }
+        .logo-watermark {
+            position: absolute;
+            bottom: 30px;
+            right: 40px;
+        }
+        .logo-watermark img {
+            width: 36px;
+            height: 36px;
+            object-fit: contain;
+            opacity: 0.3;
+        }
+    </style>
+</head>
+<body>
+    <div class="slide-container">
+        <div class="header">
+            <div class="title">品牌核心定位 Brand Core Positioning</div>
+            <div class="divider"></div>
+        </div>
+        <div class="content-container">
+            <div class="row">
+                <div class="row-title-container">
+                    <div class="row-title">品牌定位</div>
+                    <div class="row-eng">Positioning</div>
+                </div>
+                <div class="row-desc">
+                    聚焦教育、科技、文化交叉赋能的价值导向型新智库
+                </div>
+            </div>
+            <div class="row">
+                <div class="row-title-container">
+                    <div class="row-title">品牌愿景</div>
+                    <div class="row-eng">Vision</div>
+                </div>
+                <div class="row-desc">
+                    汇聚跨界智慧，构筑公平、协作、传承的时代圆桌，让教育、科技与文化在交融中共同发展
+                </div>
+            </div>
+            <div class="row">
+                <div class="row-title-container">
+                    <div class="row-title">品牌使命</div>
+                    <div class="row-eng">Mission</div>
+                </div>
+                <div class="row-desc">
+                    依托创新AHA架构，推动专家深度协作与智慧传承，以智炼智，赋能未来
+                </div>
+            </div>
+        </div>
+        <div class="logo-watermark"><img src="/home/ubuntu/table_ai_presentation/a2a_logo_dark.png" alt="Logo" /></div>
+    </div>
+</body>
+</html>

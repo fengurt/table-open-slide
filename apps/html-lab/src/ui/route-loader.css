@@ -1,0 +1,39 @@
+.lab-route-loader {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  min-height: 12rem;
+  padding: 2rem;
+  color: var(--lab-muted, #6b6560);
+}
+
+.lab-route-loader-bar {
+  display: block;
+  width: min(12rem, 40vw);
+  height: 2px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    var(--lab-accent, #8b6914) 50%,
+    transparent 100%
+  );
+  background-size: 200% 100%;
+  animation: lab-route-shimmer 1.2s ease-in-out infinite;
+}
+
+.lab-route-loader-label {
+  font-size: 0.8125rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+@keyframes lab-route-shimmer {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}

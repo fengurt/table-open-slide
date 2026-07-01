@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@700&family=Noto+Sans+SC:wght@400;500;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        .slide-container { 
+            width: 1280px; 
+            min-height: 720px; 
+            background: #FFFFFF; 
+            position: relative;
+            font-family: 'Noto Sans SC', sans-serif;
+            overflow: hidden;
+        }
+        .header {
+            position: absolute;
+            top: 80px;
+            left: 120px;
+            width: 1040px;
+        }
+        .chapter-label {
+            font-family: 'Inter', sans-serif;
+            font-size: 14px;
+            color: #A88B52;
+            letter-spacing: 2px;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+        .main-title {
+            font-family: 'Noto Serif SC', serif;
+            font-size: 48px;
+            color: #0A1626;
+            margin-bottom: 16px;
+        }
+        .content-area {
+            position: absolute;
+            top: 240px;
+            left: 120px;
+            width: 1040px;
+            display: flex;
+        }
+        .column {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        .column-left {
+            padding-right: 60px;
+            border-right: 1px solid rgba(168, 139, 82, 0.5);
+        }
+        .column-right {
+            padding-left: 60px;
+        }
+        .col-header-gold {
+            font-family: 'Inter', sans-serif;
+            font-size: 16px;
+            color: #A88B52;
+            letter-spacing: 2px;
+            margin-bottom: 40px;
+            text-transform: uppercase;
+            font-weight: 500;
+        }
+        .list-container {
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+        }
+        .list-item {
+            font-size: 22px;
+            color: #0A1626;
+            line-height: 1.6;
+        }
+        .list-item strong {
+            font-weight: 700;
+            color: #A88B52;
+        }
+        .conclusion {
+            position: absolute;
+            bottom: 80px;
+            left: 120px;
+            width: 1040px;
+            border-top: 1px solid #A88B52;
+            padding-top: 24px;
+            text-align: center;
+            font-family: 'Noto Serif SC', serif;
+            font-size: 24px;
+            color: #A88B52;
+            font-style: italic;
+        }
+        .footer {
+            position: absolute;
+            right: 40px;
+            bottom: 30px;
+            font-size: 10px;
+            color: #A88B52;
+            font-family: 'Inter', sans-serif;
+        }
+    </style>
+</head>
+<body>
+    <div class="slide-container">
+        <div class="header">
+            <div class="chapter-label">CROSS-CONCLUSIONS · 确定 vs 不确定</div>
+            <div class="main-title">把精力放在确定的事上</div>
+        </div>
+        
+        <div class="content-area">
+            <div class="column column-left">
+                <div class="col-header-gold">确定的事 / CERTAIN</div>
+                <div class="list-container">
+                    <div class="list-item">AI 工具成本<strong>趋近于零</strong></div>
+                    <div class="list-item">竞争优势转向"<strong>会不会用</strong>"</div>
+                    <div class="list-item">中国<strong>开源生态</strong>让中小企业接入顶级 AI 能力</div>
+                </div>
+            </div>
+            
+            <div class="column column-right">
+                <div class="col-header-gold">不确定的事 / UNCERTAIN</div>
+                <div class="list-container">
+                    <div class="list-item">哪个具体工具会<strong>活下来</strong></div>
+                    <div class="list-item">具体哪个行业<strong>最先被颠覆</strong></div>
+                    <div class="list-item"><strong>AGI</strong> 什么时候到来</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="conclusion">
+            "把精力放在确定的事上，别被不确定的事带跑。"
+        </div>
+        
+        <div class="footer">少数人的视野 — 岁知社闭门分享 · 郭峰 · 2026.05.14</div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@700&family=Noto+Sans+SC:wght@400;500;700&family=Cormorant+Garamond:ital,wght@0,600;1,600&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        .slide-container { 
+            width: 1280px; 
+            min-height: 720px; 
+            background: #FFFFFF; 
+            position: relative;
+            font-family: 'Noto Sans SC', sans-serif;
+            overflow: hidden;
+        }
+        .header {
+            position: absolute;
+            top: 80px;
+            left: 120px;
+            width: 1040px;
+        }
+        .chapter-label {
+            font-family: 'Inter', sans-serif;
+            font-size: 14px;
+            color: #A88B52;
+            letter-spacing: 2px;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+        .main-title {
+            font-family: 'Noto Serif SC', serif;
+            font-size: 40px;
+            color: #0A1626;
+            margin-bottom: 16px;
+        }
+        .subtitle {
+            font-size: 20px;
+            color: #6B7280;
+        }
+        .grid-container {
+            position: absolute;
+            top: 260px;
+            left: 120px;
+            width: 1040px;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: repeat(2, auto);
+            column-gap: 60px;
+            row-gap: 60px;
+        }
+        .grid-item {
+            border-top: 2px solid #A88B52;
+            padding-top: 20px;
+        }
+        .item-number {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 32px;
+            color: #A88B52;
+            margin-bottom: 12px;
+            line-height: 1;
+        }
+        .item-title {
+            font-size: 20px;
+            color: #0A1626;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+        .item-desc {
+            font-size: 16px;
+            color: #6B7280;
+            line-height: 1.6;
+        }
+        .conclusion {
+            position: absolute;
+            bottom: 80px;
+            left: 120px;
+            width: 1040px;
+            text-align: center;
+            font-family: 'Noto Serif SC', serif;
+            font-size: 24px;
+            color: #A88B52;
+            font-style: italic;
+        }
+        .footer {
+            position: absolute;
+            right: 40px;
+            bottom: 30px;
+            font-size: 10px;
+            color: #A88B52;
+            font-family: 'Inter', sans-serif;
+        }
+    </style>
+</head>
+<body>
+    <div class="slide-container">
+        <div class="header">
+            <div class="chapter-label">SIX TRUE REASONS · 失败溯因</div>
+            <div class="main-title">失败的 AI 项目，几乎没有一条是因为选错了模型</div>
+            <div class="subtitle">来自亚马逊云科技、MIT 等多方调研</div>
+        </div>
+        
+        <div class="grid-container">
+            <div class="grid-item">
+                <div class="item-number">01</div>
+                <div class="item-title">为做 AI 而做 AI</div>
+                <div class="item-desc">— 没有绑定业务目标</div>
+            </div>
+            <div class="grid-item">
+                <div class="item-number">02</div>
+                <div class="item-title">业务范围与建模评估不足</div>
+                <div class="item-desc">— 场景选错了</div>
+            </div>
+            <div class="grid-item">
+                <div class="item-number">03</div>
+                <div class="item-title">数据准备不充分</div>
+                <div class="item-desc">— 垃圾进，垃圾出</div>
+            </div>
+            <div class="grid-item">
+                <div class="item-number">04</div>
+                <div class="item-title">工程能力缺失</div>
+                <div class="item-desc">— 试验室跑通，生产跑不通</div>
+            </div>
+            <div class="grid-item">
+                <div class="item-number">05</div>
+                <div class="item-title">老板没有参与</div>
+                <div class="item-desc">— 变成 IT 部门的项目，不是公司战略</div>
+            </div>
+            <div class="grid-item">
+                <div class="item-number">06</div>
+                <div class="item-title">成本认知不足</div>
+                <div class="item-desc">— 没有算清楚真实投入</div>
+            </div>
+        </div>
+        
+        <div class="conclusion">
+            "失败的 AI 项目，几乎没有一条是因为选错了模型。"
+        </div>
+        
+        <div class="footer">少数人的视野 — 岁知社闭门分享 · 郭峰 · 2026.05.14</div>
+    </div>
+</body>
+</html>

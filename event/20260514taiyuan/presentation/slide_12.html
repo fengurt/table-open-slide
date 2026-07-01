@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@700&family=Noto+Sans+SC:wght@400;500;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        .slide-container { 
+            width: 1280px; 
+            min-height: 720px; 
+            background: #FFFFFF; 
+            position: relative;
+            font-family: 'Noto Sans SC', sans-serif;
+            overflow: hidden;
+        }
+        .header {
+            position: absolute;
+            top: 80px;
+            left: 120px;
+            width: 1040px;
+        }
+        .chapter-label {
+            font-family: 'Inter', sans-serif;
+            font-size: 14px;
+            color: #A88B52;
+            letter-spacing: 2px;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+        .main-title {
+            font-family: 'Noto Serif SC', serif;
+            font-size: 40px;
+            color: #0A1626;
+            margin-bottom: 16px;
+        }
+        .content-area {
+            position: absolute;
+            top: 240px;
+            left: 120px;
+            width: 1040px;
+            display: flex;
+        }
+        .column-left {
+            width: 45%;
+            padding-right: 60px;
+            border-right: 1px solid rgba(168, 139, 82, 0.5);
+            display: flex;
+            flex-direction: column;
+        }
+        .column-right {
+            width: 55%;
+            padding-left: 60px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 40px;
+        }
+        .col-header-gold {
+            font-family: 'Inter', sans-serif;
+            font-size: 14px;
+            color: #A88B52;
+            letter-spacing: 2px;
+            margin-bottom: 32px;
+            text-transform: uppercase;
+        }
+        .col-header-blue {
+            font-family: 'Inter', sans-serif;
+            font-size: 14px;
+            color: #0A1626;
+            letter-spacing: 2px;
+            margin-bottom: 32px;
+            text-transform: uppercase;
+            font-weight: 700;
+        }
+        .raw-list {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+        .raw-item {
+            display: flex;
+            align-items: flex-start;
+            font-size: 18px;
+            color: #6B7280;
+            line-height: 1.6;
+        }
+        .raw-item::before {
+            content: '';
+            display: inline-block;
+            width: 6px;
+            height: 6px;
+            background-color: #A88B52;
+            margin-top: 10px;
+            margin-right: 16px;
+            flex-shrink: 0;
+        }
+        .raw-item strong {
+            color: #0A1626;
+            font-weight: 700;
+        }
+        .quote-block {
+            font-family: 'Noto Serif SC', serif;
+            font-size: 24px;
+            color: #0A1626;
+            line-height: 1.6;
+            position: relative;
+        }
+        .quote-block strong {
+            color: #A88B52;
+        }
+        .bottom-line {
+            position: absolute;
+            bottom: 80px;
+            left: 120px;
+            width: 1040px;
+            height: 1px;
+            background-color: #A88B52;
+        }
+        .footer {
+            position: absolute;
+            right: 40px;
+            bottom: 30px;
+            font-size: 10px;
+            color: #A88B52;
+            font-family: 'Inter', sans-serif;
+        }
+    </style>
+</head>
+<body>
+    <div class="slide-container">
+        <div class="header">
+            <div class="chapter-label">MCKINSEY · 翻译为太原视角</div>
+            <div class="main-title">滞后≠没机会，意味着竞争还没卷起来</div>
+        </div>
+        
+        <div class="content-area">
+            <div class="column-left">
+                <div class="col-header-gold">原始结论 / RAW</div>
+                <div class="raw-list">
+                    <div class="raw-item">AI 在<strong>金融、科技、医疗</strong>渗透率最高</div>
+                    <div class="raw-item"><strong>制造业、建筑业</strong>应用相对滞后</div>
+                    <div class="raw-item">中国 <strong>2030 年</strong> AI 可实现 <strong>2 万亿美元</strong>经济价值</div>
+                    <div class="raw-item">大企业 AI 落地成功率显著高于中小企业</div>
+                </div>
+            </div>
+            
+            <div class="column-right">
+                <div class="col-header-blue">太原视角 / TAIYUAN</div>
+                <div class="quote-block">
+                    「制造业滞后≠没机会，意味着<strong>竞争还没卷起来</strong>，先进去的人优势更大。」
+                </div>
+                <div class="quote-block">
+                    「麦肯锡说的大企业优势，是因为它们有<strong>体系</strong>——中小企业补的不是规模，是<strong>决策体系</strong>。」
+                </div>
+            </div>
+        </div>
+        
+        <div class="bottom-line"></div>
+        
+        <div class="footer">少数人的视野 — 岁知社闭门分享 · 郭峰 · 2026.05.14</div>
+    </div>
+</body>
+</html>

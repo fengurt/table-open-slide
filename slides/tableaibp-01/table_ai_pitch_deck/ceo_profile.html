@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;800&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        .slide-container {
+            width: 1280px;
+            min-height: 720px;
+            background-color: #FFFFFF;
+            font-family: 'Google Sans', 'Noto Sans SC', sans-serif;
+            position: relative;
+            padding-top: 60px;
+            padding-left: 80px;
+            padding-right: 80px;
+        }
+        .header { margin-bottom: 40px; }
+        .page-title {
+            color: #A88B52; font-size: 16px; font-weight: 400;
+            text-transform: uppercase; letter-spacing: 1px; margin-bottom: 10px;
+        }
+        .title {
+            color: #0A1626; font-size: 32px; font-weight: 800; line-height: 1.3;
+        }
+        
+        .content-wrapper {
+            display: flex;
+            gap: 50px;
+            align-items: flex-start;
+        }
+        
+        .left-col {
+            width: 320px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .profile-img-container {
+            width: 320px;
+            height: 360px; /* shrunk from 400 to save vertical space */
+            background-color: #F7F5F1;
+            margin-bottom: 12px; /* reduced spacing below image */
+            overflow: hidden;
+        }
+        
+        .profile-img-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: top;
+        }
+        
+        .profile-name {
+            color: #0A1626;
+            font-size: 28px;
+            font-weight: 800;
+            margin-bottom: 5px;
+            text-align: center;
+        }
+        
+        .profile-tags {
+            color: #A88B52;
+            font-size: 14px;
+            font-weight: 800;
+            text-align: center;
+            letter-spacing: 1px;
+            line-height: 1.5;
+        }
+        
+        .right-col {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 10px; /* reduced vertical gaps between blocks */
+        }
+        
+        .expertise-block {
+            border-left: 3px solid #0A1626;
+            padding-left: 20px;
+        }
+        
+        .expertise-block.gold {
+            border-left-color: #A88B52;
+        }
+        
+        .expertise-title {
+            color: #0A1626;
+            font-size: 18px;
+            font-weight: 800;
+            margin-bottom: 8px;
+        }
+        
+        .expertise-desc {
+            color: #2C3E50;
+            font-size: 15px;
+            font-weight: 400;
+            line-height: 1.6;
+        }
+        
+        .highlight {
+            color: #A88B52;
+            font-weight: 800;
+        }
+        
+        .vision-match {
+            margin-top: 12px; /* slightly reduced */
+            padding: 12px 20px; /* reduced padding to save height */
+            background-color: #0A1626;
+            color: #FFFFFF;
+        }
+        
+        .vision-match-title {
+            color: #A88B52;
+            font-size: 14px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 8px;
+        }
+        
+        .vision-match-text {
+            font-size: 15px;
+            font-weight: 300;
+            line-height: 1.6;
+        }
+
+        .footer {
+            position: absolute; bottom: 30px; left: 80px; right: 80px;
+            color: #2C3E50; font-size: 14px; font-weight: 300;
+            border-top: 1px solid #A88B52; padding-top: 10px;
+            display: flex; justify-content: space-between;
+        }
+    </style>
+</head>
+<body>
+    <div class="slide-container">
+        <div class="header">
+            <div class="page-title">T1.1 · 创始人背景与业务匹配度</div>
+            <div class="title">跨越学术、教育、商业与复杂资产管理的系统架构师</div>
+        </div>
+
+        <div class="content-wrapper">
+            <div class="left-col">
+                <div class="profile-img-container">
+                    <img src="/home/ubuntu/project/table_ai_pitch_deck/assets/ceo_guofeng.png" alt="Guo Feng CEO" />
+                </div>
+                <div class="profile-name">郭峰 GUO Feng</div>
+                <div class="profile-tags">
+                    Entrepreneur · Researcher<br>Educator · AI Architect
+                </div>
+            </div>
+            
+            <div class="right-col">
+                <div class="expertise-block">
+                    <div class="expertise-title">国际高等教育与学术科研 (教育核心)</div>
+                    <div class="expertise-desc">
+                        <span class="highlight">全球 QS 排名第一瑞士 EHL 集团</span>大中华区创始团队成员。深度参与多地高校筹建与国际学术认证，主导 200 万字课程本地化。2026 年与首都医科大学团队联合发表医学学术论文。
+                    </div>
+                </div>
+                
+                <div class="expertise-block">
+                    <div class="expertise-title">企业大学与高管赋能 (商业实战)</div>
+                    <div class="expertise-desc">
+                        为跨国企业及大型国央企 CXO 级别高管提供 20+ 场定制化教练式培训。创立 OPC+X 国际教练认证课程，重构组织与个体的成长路径。
+                    </div>
+                </div>
+                
+                <div class="expertise-block">
+                    <div class="expertise-title">顶奢资产管理与品牌体验 (复杂系统)</div>
+                    <div class="expertise-desc">
+                        深度参与 130+ 位于瑞士及中国地标性奢华酒店资产的投资测算与管理咨询。为高端医疗、文旅目的地提供品牌开创与客户体验升级，具备极强的复杂资产运营能力。
+                    </div>
+                </div>
+                
+                <div class="expertise-block gold">
+                    <div class="expertise-title">AI 系统架构与第二曲线咨询 (技术落地)</div>
+                    <div class="expertise-desc">
+                        专注人工智能在教育、企业、家庭和个体发展领域的应用。联合各领域实战派为上市公司提供第二曲线咨询，推动 Agent-to-Agent 全球应用与商业价值融合。
+                    </div>
+                </div>
+                
+                <div class="vision-match">
+                    <div class="vision-match-title">Strategic Fit · 与无界学院的高度契合</div>
+                    <div class="vision-match-text">
+                        TABLE AI 构建的无界学院，本质上是一个融合了<b>严谨学术标准、高净值商业交付与复杂数字资产管理</b>的全新生态。郭峰横跨“严肃科研、高管培训、顶奢资产管理与前沿 AI 架构”的罕见复合背景，正是搭建这一跨界生态底层协议不可或缺的核心能力。
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <span>创始人背景</span>
+            <span>TABLE AI · Confidential · 2026</span>
+        </div>
+    </div>
+</body>
+</html>

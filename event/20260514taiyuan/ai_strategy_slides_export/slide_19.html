@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500&family=Noto+Serif+SC:wght@700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        .slide-container {
+            width: 1280px;
+            min-height: 720px;
+            background: #FFFFFF;
+            position: relative;
+            font-family: 'Noto Sans SC', sans-serif;
+            color: #1A2B4C;
+            overflow: hidden;
+        }
+        .header {
+            position: absolute;
+            top: 80px;
+            left: 120px;
+            width: 1040px;
+        }
+        .header-title {
+            font-family: 'Noto Serif SC', serif;
+            font-size: 40px;
+            color: #0A1626;
+            font-weight: 700;
+            letter-spacing: 1px;
+            margin-bottom: 20px;
+        }
+        .header-line {
+            width: 60px;
+            height: 2px;
+            background: #A88B52;
+        }
+        .content-wrapper {
+            position: absolute;
+            top: 200px;
+            left: 120px;
+            width: 1040px;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            column-gap: 40px;
+        }
+        .column {
+            display: flex;
+            flex-direction: column;
+            border-top: 2px solid #0A1626;
+            padding-top: 20px;
+            position: relative;
+        }
+        .col-label {
+            font-family: 'Noto Serif SC', serif;
+            font-size: 20px;
+            color: #A88B52;
+            font-weight: 700;
+            margin-bottom: 10px;
+            letter-spacing: 2px;
+        }
+        .col-title {
+            font-size: 24px;
+            color: #0A1626;
+            font-weight: 500;
+            margin-bottom: 24px;
+            line-height: 1.4;
+        }
+        .list-item {
+            font-size: 16px;
+            color: #1A2B4C;
+            line-height: 1.6;
+            font-weight: 300;
+            margin-bottom: 16px;
+            position: relative;
+            padding-left: 16px;
+        }
+        .list-item::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 10px;
+            width: 4px;
+            height: 4px;
+            background: #A88B52;
+        }
+        .takeaway-box {
+            margin-top: auto;
+            padding-top: 20px;
+            border-top: 1px solid rgba(168, 139, 82, 0.3);
+        }
+        .takeaway-label {
+            font-size: 16px;
+            color: #A88B52;
+            font-weight: 500;
+            margin-bottom: 8px;
+        }
+        .takeaway-text {
+            font-size: 16px;
+            color: #0A1626;
+            line-height: 1.6;
+            font-weight: 500;
+        }
+        .accent-bg {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 400px;
+            height: 300px;
+            background: linear-gradient(to top left, rgba(168, 139, 82, 0.05), transparent);
+            z-index: 0;
+        }
+        .content-wrapper, .header {
+            z-index: 1;
+        }
+    </style>
+</head>
+<body>
+    <div class="slide-container">
+        <div class="accent-bg"></div>
+        
+        <div class="header">
+            <div class="header-title">制造与能源 — 三个已经跑通的样板</div>
+            <div class="header-line"></div>
+        </div>
+        
+        <div class="content-wrapper">
+            <div class="column">
+                <div class="col-label">A</div>
+                <div class="col-title">钢铁企业 AI 质检<br><span style="font-size: 16px; color: #A88B52; font-weight: 400;">(制造类·可借鉴)</span></div>
+                <div class="list-item">视觉 AI 自动识别表面缺陷</div>
+                <div class="list-item">质检效率 +300%，人工成本 −60%</div>
+                <div class="list-item">漏检率：3–5% → 0.3% 以内</div>
+                <div class="list-item">汽车零部件类年节省约 800 万元</div>
+                <div class="takeaway-box">
+                    <div class="takeaway-label">启示</div>
+                    <div class="takeaway-text">先质检，再设备预测性维护，ROI 最清晰</div>
+                </div>
+            </div>
+            
+            <div class="column">
+                <div class="col-label">B</div>
+                <div class="col-title">海尔工业 AI<br><span style="font-size: 16px; color: #A88B52; font-weight: 400;">(制造类·规模化参考)</span></div>
+                <div class="list-item">天智工业大模型：4 700 个行业机理模型</div>
+                <div class="list-item">200 个专家算法，应用于 15 个行业、16 万家企业</div>
+                <div class="takeaway-box" style="margin-top: 80px;">
+                    <div class="takeaway-label">启示</div>
+                    <div class="takeaway-text">借用平台级行业积累，不必从零训练</div>
+                </div>
+            </div>
+            
+            <div class="column">
+                <div class="col-label">C</div>
+                <div class="col-title">煤矿智能化<br><span style="font-size: 16px; color: #A88B52; font-weight: 400;">(能源类·本地参考)</span></div>
+                <div class="list-item">国能 / 中煤 / 伊泰：液压支架自动化、瓦斯与输送带智能巡检</div>
+                <div class="list-item">天地煤机"煤海蛟龙"：效率 +2–3 倍，年产值 +35%</div>
+                <div class="list-item">山西已建成 244 座智能化煤矿、1 594 处智能化采掘工作面（2025）</div>
+                <div class="takeaway-box">
+                    <div class="takeaway-label">启示</div>
+                    <div class="takeaway-text">从"安全管理"切入，合规即驱动力</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

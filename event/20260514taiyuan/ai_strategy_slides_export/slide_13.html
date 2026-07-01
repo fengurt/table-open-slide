@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500&family=Noto+Serif+SC:wght@700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        .slide-container {
+            width: 1280px;
+            min-height: 720px;
+            background: #FFFFFF;
+            position: relative;
+            font-family: 'Noto Sans SC', sans-serif;
+            color: #1A2B4C;
+            overflow: hidden;
+        }
+        .header {
+            position: absolute;
+            top: 80px;
+            left: 120px;
+            width: 1040px;
+        }
+        .header-title {
+            font-family: 'Noto Serif SC', serif;
+            font-size: 40px;
+            color: #0A1626;
+            font-weight: 700;
+            letter-spacing: 1px;
+            margin-bottom: 20px;
+        }
+        .header-line {
+            width: 60px;
+            height: 2px;
+            background: #A88B52;
+        }
+        .content-wrapper {
+            position: absolute;
+            top: 200px;
+            left: 120px;
+            width: 1040px;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+        .stage-item {
+            width: 220px;
+            position: relative;
+        }
+        .stage-item:nth-child(1) { margin-top: 180px; }
+        .stage-item:nth-child(2) { margin-top: 120px; }
+        .stage-item:nth-child(3) { margin-top: 60px; }
+        .stage-item:nth-child(4) { margin-top: 0px; }
+        
+        .stage-num {
+            font-family: 'Noto Serif SC', serif;
+            font-size: 48px;
+            color: #A88B52;
+            font-weight: 700;
+            margin-bottom: 16px;
+            line-height: 1;
+        }
+        .stage-title {
+            font-size: 24px;
+            color: #0A1626;
+            font-weight: 500;
+            margin-bottom: 16px;
+            padding-bottom: 16px;
+            border-bottom: 1px solid rgba(168, 139, 82, 0.3);
+        }
+        .stage-desc {
+            font-size: 16px;
+            color: #1A2B4C;
+            line-height: 1.8;
+            font-weight: 300;
+        }
+        .stage-time {
+            margin-top: 12px;
+            font-size: 14px;
+            color: #A88B52;
+            font-weight: 400;
+            letter-spacing: 1px;
+        }
+        .footer {
+            position: absolute;
+            bottom: 60px;
+            left: 120px;
+            width: 1040px;
+            text-align: center;
+            font-size: 20px;
+            color: #0A1626;
+            letter-spacing: 2px;
+            font-weight: 400;
+            border-top: 1px solid rgba(168, 139, 82, 0.3);
+            padding-top: 20px;
+        }
+        .accent-bg {
+            position: absolute;
+            bottom: -200px;
+            right: -100px;
+            width: 600px;
+            height: 600px;
+            border: 1px solid rgba(168, 139, 82, 0.1);
+            border-radius: 50%;
+            z-index: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="slide-container">
+        <div class="accent-bg"></div>
+        
+        <div class="header">
+            <div class="header-title">四个阶段，把 AI 从概念跑进业务</div>
+            <div class="header-line"></div>
+        </div>
+        
+        <div class="content-wrapper">
+            <div class="stage-item">
+                <div class="stage-num">01</div>
+                <div class="stage-title">诊断</div>
+                <div class="stage-desc">找最痛的点、评估数字化基础</div>
+                <div class="stage-time">2–4 周</div>
+            </div>
+            
+            <div class="stage-item">
+                <div class="stage-num">02</div>
+                <div class="stage-title">试点</div>
+                <div class="stage-desc">最小范围跑通一个场景</div>
+                <div class="stage-time">4–8 周</div>
+            </div>
+            
+            <div class="stage-item">
+                <div class="stage-num">03</div>
+                <div class="stage-title">验证</div>
+                <div class="stage-desc">量化 ROI、决定是否扩大</div>
+                <div class="stage-time">4 周</div>
+            </div>
+            
+            <div class="stage-item">
+                <div class="stage-num">04</div>
+                <div class="stage-title">复制</div>
+                <div class="stage-desc">标准化后向其他环节推广</div>
+                <div class="stage-time">持续进行</div>
+            </div>
+        </div>
+        
+        <div class="footer">用阶段控制风险，用复制放大成果</div>
+    </div>
+</body>
+</html>

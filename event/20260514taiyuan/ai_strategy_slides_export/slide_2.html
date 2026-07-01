@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400&family=Noto+Serif+SC:wght@700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        .slide-container {
+            width: 1280px;
+            min-height: 720px;
+            background: #FFFFFF;
+            position: relative;
+            font-family: 'Noto Sans SC', sans-serif;
+            color: #1A2B4C;
+            overflow: hidden;
+        }
+        .header {
+            position: absolute;
+            top: 80px;
+            left: 120px;
+            display: flex;
+            align-items: center;
+        }
+        .header-line {
+            width: 40px;
+            height: 1px;
+            background: #A88B52;
+            margin-right: 20px;
+        }
+        .header-title {
+            font-family: 'Noto Serif SC', serif;
+            font-size: 32px;
+            color: #0A1626;
+            font-weight: 700;
+            letter-spacing: 2px;
+        }
+        .content-wrapper {
+            position: absolute;
+            top: 180px;
+            left: 120px;
+            width: 1040px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            column-gap: 80px;
+            row-gap: 50px;
+        }
+        .chapter-item {
+            display: flex;
+            align-items: flex-start;
+        }
+        .chapter-num {
+            font-family: 'Noto Serif SC', serif;
+            font-size: 36px;
+            color: #A88B52;
+            margin-right: 30px;
+            line-height: 1;
+            font-weight: 700;
+        }
+        .chapter-text {
+            display: flex;
+            flex-direction: column;
+        }
+        .chapter-title {
+            font-size: 24px;
+            color: #0A1626;
+            font-weight: 400;
+            margin-bottom: 8px;
+            line-height: 1.2;
+        }
+        .chapter-subtitle {
+            font-size: 16px;
+            color: rgba(26, 43, 76, 0.6);
+            font-weight: 300;
+        }
+        .footer {
+            position: absolute;
+            bottom: 60px;
+            left: 120px;
+            color: #A88B52;
+            font-size: 16px;
+            letter-spacing: 4px;
+        }
+        .accent-circle {
+            position: absolute;
+            bottom: -150px;
+            right: -50px;
+            width: 500px;
+            height: 500px;
+            border: 1px solid rgba(168, 139, 82, 0.1);
+            border-radius: 50%;
+            z-index: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="slide-container">
+        <div class="accent-circle"></div>
+        
+        <div class="header">
+            <div class="header-line"></div>
+            <div class="header-title">目录 / Contents</div>
+        </div>
+        
+        <div class="content-wrapper">
+            <div class="chapter-item">
+                <div class="chapter-num">01</div>
+                <div class="chapter-text">
+                    <div class="chapter-title">信息差分层</div>
+                    <div class="chapter-subtitle">时代赢家的演化</div>
+                </div>
+            </div>
+            <div class="chapter-item">
+                <div class="chapter-num">02</div>
+                <div class="chapter-text">
+                    <div class="chapter-title">信息真伪</div>
+                    <div class="chapter-subtitle">三个过滤问题</div>
+                </div>
+            </div>
+            <div class="chapter-item">
+                <div class="chapter-num">03</div>
+                <div class="chapter-text">
+                    <div class="chapter-title">组织最小单元</div>
+                    <div class="chapter-subtitle">超级个体 × AI</div>
+                </div>
+            </div>
+            <div class="chapter-item">
+                <div class="chapter-num">04</div>
+                <div class="chapter-text">
+                    <div class="chapter-title">人才困境</div>
+                    <div class="chapter-subtitle">太原企业的 AI 解法</div>
+                </div>
+            </div>
+            <div class="chapter-item">
+                <div class="chapter-num">05</div>
+                <div class="chapter-text">
+                    <div class="chapter-title">决策三问</div>
+                    <div class="chapter-subtitle">任何 AI 工具值不值得投</div>
+                </div>
+            </div>
+            <div class="chapter-item">
+                <div class="chapter-num">06</div>
+                <div class="chapter-text">
+                    <div class="chapter-title">试错与落地</div>
+                    <div class="chapter-subtitle">最小成本方法论</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer">案例库 · 行动清单 · 决策升级路径</div>
+    </div>
+</body>
+</html>

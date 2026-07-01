@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@700&family=Noto+Sans+SC:wght@400;500;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        .slide-container { 
+            width: 1280px; 
+            min-height: 720px; 
+            background: #FFFFFF; 
+            position: relative;
+            font-family: 'Noto Sans SC', sans-serif;
+            overflow: hidden;
+        }
+        .header {
+            position: absolute;
+            top: 60px;
+            left: 120px;
+            width: 1040px;
+        }
+        .chapter-label {
+            font-family: 'Inter', sans-serif;
+            font-size: 14px;
+            color: #A88B52;
+            letter-spacing: 2px;
+            margin-bottom: 16px;
+            text-transform: uppercase;
+        }
+        .main-title {
+            font-family: 'Noto Serif SC', serif;
+            font-size: 38px;
+            color: #0A1626;
+            margin-bottom: 12px;
+        }
+        .subtitle {
+            font-size: 18px;
+            color: #6B7280;
+        }
+        .content-area {
+            position: absolute;
+            top: 200px;
+            left: 120px;
+            width: 1040px;
+            display: flex;
+        }
+        .column {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        .column-left {
+            padding-right: 60px;
+            border-right: 1px solid rgba(168, 139, 82, 0.5);
+        }
+        .column-right {
+            padding-left: 60px;
+        }
+        .col-title-blue {
+            background-color: #0A1626;
+            color: #FFFFFF;
+            font-family: 'Noto Serif SC', serif;
+            font-size: 22px;
+            padding: 12px 22px;
+            margin-bottom: 12px;
+            display: inline-block;
+            align-self: flex-start;
+        }
+        .col-title-gold {
+            background-color: #A88B52;
+            color: #FFFFFF;
+            font-family: 'Noto Serif SC', serif;
+            font-size: 22px;
+            padding: 12px 22px;
+            margin-bottom: 12px;
+            display: inline-block;
+            align-self: flex-start;
+        }
+        .col-sub {
+            font-size: 15px;
+            color: #6B7280;
+            font-style: italic;
+            margin-bottom: 24px;
+            padding-left: 22px;
+        }
+        .bullet-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            padding-left: 22px;
+        }
+        .bullet-item {
+            position: relative;
+            padding-left: 22px;
+            font-size: 18px;
+            color: #0A1626;
+            line-height: 1.5;
+        }
+        .bullet-item::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 10px;
+            width: 6px;
+            height: 6px;
+            background-color: #A88B52;
+            border-radius: 50%;
+        }
+        .bullet-item strong {
+            font-weight: 700;
+        }
+        .bottom-line {
+            position: absolute;
+            bottom: 56px;
+            left: 120px;
+            width: 1040px;
+            border-top: 1px solid #A88B52;
+            padding-top: 18px;
+            text-align: center;
+            font-family: 'Noto Serif SC', serif;
+            font-size: 20px;
+            color: #A88B52;
+            font-style: italic;
+        }
+        .footer {
+            position: absolute;
+            right: 40px;
+            bottom: 20px;
+            font-size: 10px;
+            color: #A88B52;
+            font-family: 'Inter', sans-serif;
+        }
+    </style>
+</head>
+<body>
+    <div class="slide-container">
+        <div class="header">
+            <div class="chapter-label">DECISION ASYMMETRY · 决策权重不对称</div>
+            <div class="main-title">企业 90% 的命运，由 10% 的决策决定</div>
+            <div class="subtitle">这一刻的决定，影响了后来三年</div>
+        </div>
+        
+        <div class="content-area">
+            <div class="column column-left">
+                <div class="col-title-blue">决策型工作</div>
+                <div class="col-sub">AI 替代不了，但可以辅助</div>
+                <ul class="bullet-list">
+                    <li class="bullet-item">进哪个<strong>行业</strong></li>
+                    <li class="bullet-item">砍哪条<strong>产品线</strong></li>
+                    <li class="bullet-item">用哪个<strong>人</strong></li>
+                    <li class="bullet-item">何时<strong>融资</strong></li>
+                </ul>
+            </div>
+            
+            <div class="column column-right">
+                <div class="col-title-gold">执行型工作</div>
+                <div class="col-sub">AI 已经可以大量替代</div>
+                <ul class="bullet-list">
+                    <li class="bullet-item"><strong>报告</strong>撰写</li>
+                    <li class="bullet-item"><strong>数据</strong>整理</li>
+                    <li class="bullet-item"><strong>客服</strong>响应</li>
+                    <li class="bullet-item"><strong>合同</strong>初审</li>
+                    <li class="bullet-item"><strong>图纸</strong>审查</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="bottom-line">
+            "把时间从执行型工作里赎回来，全部用于决策。"
+        </div>
+        
+        <div class="footer">少数人的视野 — 岁知社闭门分享 · 郭峰 · 2026.05.14</div>
+    </div>
+</body>
+</html>

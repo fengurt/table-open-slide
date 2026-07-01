@@ -1,0 +1,71 @@
+# slides.opcglobal.cn — docx-studio on opc-hom-01 (119.45.123.57, ap-nanjing)
+#
+# This box runs many apps behind HOST nginx (terminates 80/443 + certbot TLS).
+# So we DON'T use the bundled Caddy proxy here — the container binds to
+# 127.0.0.1:3333 and the host nginx vhost (deploy/slides/nginx-slides.opcglobal.cn.conf)
+# reverse-proxies slides.opcglobal.cn → 127.0.0.1:3333.
+#
+# Image is shipped via `docker save | ssh docker load` (see deploy.sh); no build
+# happens on the server.
+#
+#   scp this file + .env to /opt/slides/ on the server, then:
+#   cd /opt/slides && docker compose -f docker-compose.slides.yml up -d
+
+services:
+  slides:
+    image: table-slides01-docx-studio:latest
+    container_name: slides-studio
+    restart: unless-stopped
+    # Loopback only — never expose 3333 publicly; host nginx fronts it with TLS.
+    ports:
+      - "127.0.0.1:${SLIDES_PORT:-3333}:3333"
+    environment:
+      NODE_ENV: production
+      # --- Access control (REQUIRED — this is internet-facing via nginx) ---
+      DOCX_STUDIO_TOKEN: ${DOCX_STUDIO_TOKEN:?set a strong token in .env}
+      DOCX_STUDIO_RATE_LIMIT: ${DOCX_STUDIO_RATE_LIMIT:-120}
+      DOCX_STUDIO_MAX_BODY: ${DOCX_STUDIO_MAX_BODY:-31457280}
+      DOCX_STUDIO_ALLOW_HTML_WRITE: ""
+      # --- Admin panel (/admin): runtime LLM config, persisted on the volume ---
+      DOCX_STUDIO_ADMIN_PASSWORD: ${DOCX_STUDIO_ADMIN_PASSWORD:-}
+      DOCX_STUDIO_ADMIN_TTL_MS: ${DOCX_STUDIO_ADMIN_TTL_MS:-43200000}
+      DOCX_STUDIO_SETTINGS_FILE: /repo/out/.studio/settings.json
+      # --- Render reliability (LibreOffice + poppler) ---
+      DOCX_BUILD_CONCURRENCY: ${DOCX_BUILD_CONCURRENCY:-1}
+      DOCX_SOFFICE_TIMEOUT_MS: ${DOCX_SOFFICE_TIMEOUT_MS:-120000}
+      DOCX_PDFTOPPM_TIMEOUT_MS: ${DOCX_PDFTOPPM_TIMEOUT_MS:-60000}
+      # --- LLM (optional; or configure at runtime via /admin) ---
+      DOCX_MASTER_AI_API_KEY: ${DOCX_MASTER_AI_API_KEY:-}
+      DOCX_MASTER_AI_BASE_URL: ${DOCX_MASTER_AI_BASE_URL:-}
+      DOCX_MASTER_AI_MODEL: ${DOCX_MASTER_AI_MODEL:-}
+      DOCX_MASTER_AI_FALLBACK_API_KEY: ${DOCX_MASTER_AI_FALLBACK_API_KEY:-}
+      DOCX_MASTER_AI_FALLBACK_BASE_URL: ${DOCX_MASTER_AI_FALLBACK_BASE_URL:-}
+      DOCX_MASTER_AI_FALLBACK_MODEL: ${DOCX_MASTER_AI_FALLBACK_MODEL:-}
+    volumes:
+      - slides_out:/repo/out
+      - slides_decks:/repo/slides/projects
+    healthcheck:
+      test: ["CMD", "node", "-e", "fetch('http://127.0.0.1:3333/api/docx/auth-status').then(r=>process.exit(r.ok?0:1)).catch(()=>process.exit(1))"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 20s
+
+  # Retention sweeper — prunes out/documents/* older than DOCX_RETENTION_DAYS.
+  slides-cleanup:
+    image: table-slides01-docx-studio:latest
+    container_name: slides-cleanup
+    restart: unless-stopped
+    environment:
+      DOCX_RETENTION_DAYS: ${DOCX_RETENTION_DAYS:-30}
+      DOCX_CLEANUP_INTERVAL_SECONDS: ${DOCX_CLEANUP_INTERVAL_SECONDS:-86400}
+    entrypoint:
+      - /bin/sh
+      - -c
+      - 'while true; do node scripts/cleanup-out.mjs || true; sleep "${DOCX_CLEANUP_INTERVAL_SECONDS:-86400}"; done'
+    volumes:
+      - slides_out:/repo/out
+
+volumes:
+  slides_out:
+  slides_decks:

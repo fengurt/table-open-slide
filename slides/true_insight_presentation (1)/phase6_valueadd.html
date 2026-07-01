@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;500;700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        .slide-container {
+            width: 1280px;
+            min-height: 720px;
+            background-color: #FFFFFF;
+            font-family: 'Noto Sans SC', sans-serif;
+            position: relative;
+            padding-top: 80px;
+        }
+        .header {
+            margin-left: 100px;
+            margin-right: 100px;
+            margin-bottom: 40px;
+        }
+        .title {
+            font-size: 32px;
+            color: #0A1626;
+            font-weight: 700;
+            margin-bottom: 10px;
+            letter-spacing: 2px;
+        }
+        .subtitle {
+            font-size: 20px;
+            color: #A88B52;
+            font-weight: 500;
+            margin-bottom: 15px;
+            letter-spacing: 1px;
+        }
+        .divider {
+            width: 80px;
+            height: 2px;
+            background-color: #A88B52;
+        }
+        
+        .goal-container {
+            margin-left: 100px;
+            margin-right: 100px;
+            text-align: center;
+            margin-bottom: 60px;
+            padding: 40px;
+            background-color: #0A1626;
+            color: #FFFFFF;
+            position: relative;
+        }
+        .goal-container::after {
+            content: '';
+            position: absolute;
+            bottom: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-left: 20px solid transparent;
+            border-right: 20px solid transparent;
+            border-top: 20px solid #0A1626;
+        }
+        .goal-label {
+            font-size: 16px;
+            color: #A88B52;
+            font-weight: 700;
+            letter-spacing: 4px;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+        .goal-text {
+            font-size: 28px;
+            font-weight: 500;
+            line-height: 1.6;
+            letter-spacing: 2px;
+        }
+        .goal-highlight {
+            color: #A88B52;
+            font-weight: 700;
+        }
+        
+        .loop-container {
+            display: flex;
+            margin-left: 100px;
+            margin-right: 100px;
+            justify-content: space-between;
+            align-items: center;
+            gap: 30px;
+        }
+        .loop-item {
+            flex: 1;
+            border: 2px solid #0A1626;
+            padding: 30px;
+            text-align: center;
+            position: relative;
+            min-height: 180px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .loop-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 6px;
+            background-color: #A88B52;
+        }
+        .loop-title {
+            font-size: 24px;
+            color: #0A1626;
+            font-weight: 700;
+            margin-bottom: 15px;
+            letter-spacing: 2px;
+        }
+        .loop-desc {
+            font-size: 16px;
+            color: rgba(10, 22, 38, 0.8);
+            font-weight: 300;
+            line-height: 1.6;
+        }
+        
+        .logo-watermark {
+            position: absolute;
+            bottom: 30px;
+            right: 40px;
+        }
+        .logo-watermark img {
+            width: 36px;
+            height: 36px;
+            object-fit: contain;
+            opacity: 0.3;
+        }
+    </style>
+</head>
+<body>
+    <div class="slide-container">
+        <div class="header">
+            <div class="title">阶段六：增值服务 Value-Added Services</div>
+            <div class="subtitle">品牌资产的全链路变现 Full-Link Monetization of Brand Assets</div>
+            <div class="divider"></div>
+        </div>
+        
+        <div class="goal-container">
+            <div class="goal-label">战略目标 Strategic Goal</div>
+            <div class="goal-text">
+                让权威报告从<span class="goal-highlight">“结案”</span>变为<span class="goal-highlight">“开局”</span><br>
+                打通流量、声量与销量的闭环，切实提高转化率
+            </div>
+        </div>
+        
+        <div class="loop-container">
+            <div class="loop-item">
+                <div class="loop-title">流量闭环</div>
+                <div class="loop-desc">精准分发与全网搜索卡位，拦截高意向采购线索，实现流量的精准捕获。</div>
+            </div>
+            <div class="loop-item">
+                <div class="loop-title">声量闭环</div>
+                <div class="loop-desc">KOL矩阵化解读与行业峰会植入，构建多维度的权威背书与品牌护城河。</div>
+            </div>
+            <div class="loop-item">
+                <div class="loop-title">销量闭环</div>
+                <div class="loop-desc">深度赋能销售渠道，将报告转化为实战提案与竞品应对指南，加速商业变现。</div>
+            </div>
+        </div>
+        
+        <div class="logo-watermark"><img src="/home/ubuntu/true_insight_presentation/a2a_logo_dark.png" alt="Logo" /></div>
+    </div>
+</body>
+</html>

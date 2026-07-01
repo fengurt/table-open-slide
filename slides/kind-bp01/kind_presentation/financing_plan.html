@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@800&family=Work+Sans:wght@400;600&family=JetBrains+Mono&display=swap" rel="stylesheet">
+    <style>
+      body { margin: 0; background: #0B0F19; }
+      .slide-container {
+        width: 1280px;
+        min-height: 720px;
+        background: #0B0F19;
+        color: #F1F5F9;
+        font-family: 'Work Sans', sans-serif;
+        display: flex;
+        position: relative;
+        overflow: hidden;
+      }
+      .left-panel {
+        width: 40%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding-left: 80px;
+        border-right: 1px solid rgba(56, 189, 248, 0.2);
+      }
+      .right-panel {
+        width: 60%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding-top: 48px;
+        padding-left: 60px;
+        padding-right: 60px;
+      }
+      .label-mono {
+        font-family: 'JetBrains Mono', monospace;
+        color: #38BDF8;
+        font-size: 18px;
+        text-transform: uppercase;
+        margin-bottom: 10px;
+      }
+      .huge-title {
+        font-family: 'Inter', sans-serif;
+        font-weight: 800;
+        font-size: 80px;
+        line-height: 1;
+        color: #F1F5F9;
+        text-transform: uppercase;
+      }
+      .summary-box {
+        display: flex;
+        gap: 40px;
+        margin-bottom: 60px;
+      }
+      .summary-item {
+        flex: 1;
+      }
+      .summary-val {
+        font-family: 'JetBrains Mono', monospace;
+        font-size: 48px;
+        font-weight: 800;
+        color: #0EA5E9;
+      }
+      .summary-label {
+        font-size: 16px;
+        color: #CBD5E1;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+      }
+      .allocation-table {
+        width: 100%;
+        border-collapse: collapse;
+      }
+      .allocation-row {
+        display: flex;
+        justify-content: space-between;
+        padding-top: 15px;
+        border-bottom: 1px solid rgba(241, 245, 249, 0.1);
+      }
+      .alloc-name {
+        font-size: 20px;
+        font-weight: 600;
+        color: #F1F5F9;
+      }
+      .alloc-pct {
+        font-family: 'JetBrains Mono', monospace;
+        font-size: 20px;
+        color: #38BDF8;
+      }
+      .alloc-desc {
+        font-size: 14px;
+        color: #CBD5E1;
+        margin-top: 4px;
+        margin-bottom: 15px;
+      }
+      .deco-square {
+        position: absolute;
+        width: 400px;
+        height: 400px;
+        border: 1px dashed rgba(56, 189, 248, 0.1);
+        bottom: -200px;
+        left: -200px;
+        transform: rotate(15deg);
+      }
+    </style>
+</head>
+<body>
+    <div class="slide-container">
+        <div class="deco-square"></div>
+        <div class="left-panel">
+            <div class="label-mono">CAPITAL // ROUND</div>
+            <h2 class="huge-title">FINANCING<br>PLAN</h2>
+        </div>
+        <div class="right-panel">
+            <div class="summary-box">
+                <div class="summary-item">
+                    <div class="summary-val">$2.0M</div>
+                    <div class="summary-label">Target Raise (USD)</div>
+                </div>
+                <div class="summary-item">
+                    <div class="summary-val">$8M-$12M</div>
+                    <div class="summary-label">Pre-Money Valuation</div>
+                </div>
+            </div>
+            
+            <div class="label-mono">// STRATEGIC ALLOCATION</div>
+            <div class="allocation-table">
+                <div class="allocation-row" style="flex-direction: column; align-items: flex-start;">
+                    <div style="display: flex; justify-content: space-between; width: 100%;">
+                        <div class="alloc-name">Expert IP & Legal</div>
+                        <div class="alloc-pct">40%</div>
+                    </div>
+                    <div class="alloc-desc">Securing exclusive rights for the first 100 top-tier experts.</div>
+                </div>
+                <div class="allocation-row" style="flex-direction: column; align-items: flex-start;">
+                    <div style="display: flex; justify-content: space-between; width: 100%;">
+                        <div class="alloc-name">Hardware R&D & Supply Chain</div>
+                        <div class="alloc-pct">25%</div>
+                    </div>
+                    <div class="alloc-desc">Prototyping and initial production run of KiND devices.</div>
+                </div>
+                <div class="allocation-row" style="flex-direction: column; align-items: flex-start;">
+                    <div style="display: flex; justify-content: space-between; width: 100%;">
+                        <div class="alloc-name">Core Team Expansion</div>
+                        <div class="alloc-pct">20%</div>
+                    </div>
+                    <div class="alloc-desc">Hiring CTO, Hardware PM, and Chief Expert Officer.</div>
+                </div>
+                <div class="allocation-row" style="flex-direction: column; align-items: flex-start; border-bottom: none;">
+                    <div style="display: flex; justify-content: space-between; width: 100%;">
+                        <div class="alloc-name">Operations & Delivery</div>
+                        <div class="alloc-pct">15%</div>
+                    </div>
+                    <div class="alloc-desc">Initial enterprise client delivery and marketing.</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

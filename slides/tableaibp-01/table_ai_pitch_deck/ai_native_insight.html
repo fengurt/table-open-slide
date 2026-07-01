@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;800&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        .slide-container {
+            width: 1280px;
+            min-height: 720px;
+            background-color: #FFFFFF;
+            font-family: 'Google Sans', 'Noto Sans SC', sans-serif;
+            position: relative;
+            padding-top: 60px;
+            padding-left: 80px;
+            padding-right: 80px;
+        }
+        .header {
+            margin-bottom: 60px;
+        }
+        .page-title {
+            color: #A88B52;
+            font-size: 16px;
+            font-weight: 400;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+        }
+        .title {
+            color: #0A1626;
+            font-size: 36px;
+            font-weight: 800;
+            line-height: 1.3;
+            width: 80%;
+        }
+        .grid-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: stretch;
+            gap: 40px;
+        }
+        .col {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        .col-title {
+            font-size: 24px;
+            font-weight: 800;
+            margin-bottom: 30px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #E0E0E0;
+        }
+        .col-title.active {
+            color: #0A1626;
+            border-bottom: 2px solid #0A1626;
+        }
+        .col-title.inactive {
+            color: #7F8C8D;
+        }
+        .data-row {
+            margin-bottom: 30px;
+        }
+        .data-label {
+            font-size: 14px;
+            color: #7F8C8D;
+            margin-bottom: 5px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .data-value {
+            font-size: 20px;
+            font-weight: 400;
+        }
+        .data-value.inactive {
+            color: #7F8C8D;
+        }
+        .data-value.active {
+            color: #0A1626;
+            font-weight: 800;
+        }
+        .data-value.highlight {
+            color: #A88B52;
+            font-weight: 800;
+        }
+        .insight-col {
+            flex: 1.2;
+            background-color: #F8F9FA;
+            padding: 40px;
+            border-left: 4px solid #A88B52;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .insight-label {
+            color: #A88B52;
+            font-size: 16px;
+            font-weight: 800;
+            margin-bottom: 20px;
+            letter-spacing: 1px;
+        }
+        .insight-text {
+            color: #0A1626;
+            font-size: 24px;
+            font-weight: 300;
+            line-height: 1.8;
+        }
+        .footer {
+            position: absolute;
+            bottom: 30px;
+            left: 80px;
+            right: 80px;
+            color: #2C3E50;
+            font-size: 14px;
+            font-weight: 300;
+            border-top: 1px solid #A88B52;
+            padding-top: 10px;
+            display: flex;
+            justify-content: space-between;
+        }
+    </style>
+</head>
+<body>
+    <div class="slide-container">
+        <div class="header">
+            <div class="page-title">I2 · AI 原生洞察</div>
+            <div class="title">LLM 第一次让"判断力"可以被代码化为带产权的资产</div>
+        </div>
+        
+        <div class="grid-container">
+            <!-- Column 1: Pre-LLM -->
+            <div class="col">
+                <div class="col-title inactive">前 LLM 时代</div>
+                <div class="data-row">
+                    <div class="data-label">经验传承机制</div>
+                    <div class="data-value inactive">师徒口传 / 写成书</div>
+                </div>
+                <div class="data-row">
+                    <div class="data-label">边际成本</div>
+                    <div class="data-value inactive">较高</div>
+                </div>
+                <div class="data-row">
+                    <div class="data-label">产权</div>
+                    <div class="data-value inactive">易流失</div>
+                </div>
+            </div>
+
+            <!-- Column 2: LLM Era -->
+            <div class="col">
+                <div class="col-title active">LLM 时代</div>
+                <div class="data-row">
+                    <div class="data-label">经验传承机制</div>
+                    <div class="data-value active">Agent + 零信任分账</div>
+                </div>
+                <div class="data-row">
+                    <div class="data-label">边际成本</div>
+                    <div class="data-value highlight">趋于零</div>
+                </div>
+                <div class="data-row">
+                    <div class="data-label">产权</div>
+                    <div class="data-value highlight">代码确权</div>
+                </div>
+            </div>
+
+            <!-- Column 3: TABLE AI Insight -->
+            <div class="insight-col">
+                <div class="insight-label">TABLE AI 原生洞察</div>
+                <div class="insight-text">
+                    经验不再随肉体消亡。专家的判断力可以被铸造为可调用、可计费、可继承的数字资产 (Agent)，在 A2A 网络中并行复制与协作。
+                </div>
+                <div style="margin-top: 24px; padding-top: 16px; border-top: 1px solid #A8ADAD;">
+                    <div style="color: #0A1626; font-size: 14px; font-style: italic; line-height: 1.5;">"AlphaGo 第 37 手——李世石无法用言语解释的'盘感'，第一次被 AI 通过庞大网络代码化并超越。这是隐性知识资产化的初代神迹。"</div>
+                    <div style="color: #A88B52; font-size: 11px; font-weight: 800; margin-top: 8px; letter-spacing: 0.5px;">— DeepMind, 2016 / Anthropic 2026 实证：AI 让具备判断力的员工生产力翻倍而非淘汰</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <span>I2 · AI 原生洞察</span>
+            <span>TABLE AI · Confidential · 2026</span>
+        </div>
+    </div>
+</body>
+</html>

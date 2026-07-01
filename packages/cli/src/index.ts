@@ -4,7 +4,7 @@ import { fileURLToPath } from 'node:url';
 import chalk from 'chalk';
 import { Command } from 'commander';
 import prompts from 'prompts';
-import { init, isDirNonEmpty, type InitOptions } from './init.ts';
+import { type InitOptions, init, isDirNonEmpty } from './init.ts';
 import { detectPackageManager, type PackageManager } from './package-manager.ts';
 
 async function readVersion(): Promise<string> {

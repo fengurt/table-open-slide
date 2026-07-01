@@ -57,3 +57,11 @@ declare module '*.otf' {
   const src: string;
   export default src;
 }
+
+/** Vite HMR (slides are built with Vite; demo typecheck does not load `vite/client`). */
+interface ImportMeta {
+  readonly hot?: {
+    on(event: string, cb: () => void): void;
+    off(event: string, cb: () => void): void;
+  };
+}

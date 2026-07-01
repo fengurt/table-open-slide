@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;500;700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        .slide-container {
+            width: 1280px;
+            min-height: 720px;
+            background-color: #FFFFFF;
+            font-family: 'Noto Sans SC', sans-serif;
+            position: relative;
+            padding-top: 80px;
+        }
+        .header {
+            margin-left: 100px;
+            margin-right: 100px;
+            margin-bottom: 40px;
+        }
+        .title {
+            font-size: 32px;
+            color: #0A1626;
+            font-weight: 700;
+            margin-bottom: 15px;
+            letter-spacing: 2px;
+        }
+        .divider {
+            width: 80px;
+            height: 2px;
+            background-color: #A88B52;
+        }
+        
+        .goal-box {
+            margin-left: 100px;
+            margin-right: 100px;
+            margin-bottom: 40px; /* reduced from 50px to save vertical space */
+            padding: 25px 30px;
+            border-left: 4px solid #A88B52;
+            background-color: rgba(10, 22, 38, 0.03);
+        }
+        .goal-label {
+            font-size: 16px;
+            color: #A88B52;
+            font-weight: 700;
+            margin-bottom: 10px;
+            letter-spacing: 2px;
+        }
+        .goal-text {
+            font-size: 22px;
+            color: #0A1626;
+            font-weight: 500;
+            line-height: 1.6;
+        }
+        
+        .assets-container {
+            display: flex;
+            margin-left: 100px;
+            margin-right: 100px;
+            gap: 40px;
+        }
+        
+        .core-anchor {
+            flex: 1.2;
+            background-color: #0A1626;
+            padding: 40px;
+            color: #FFFFFF;
+            position: relative;
+        }
+        .core-anchor::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 40px;
+            height: 40px;
+            background-color: #A88B52;
+        }
+        .section-title {
+            font-size: 18px;
+            color: #A88B52;
+            font-weight: 700;
+            margin-bottom: 20px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+        .anchor-title {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            line-height: 1.4;
+        }
+        .anchor-desc {
+            font-size: 16px;
+            font-weight: 300;
+            line-height: 1.8;
+            opacity: 0.9;
+        }
+        
+        .derivative-assets {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+        .asset-item {
+            border: 1px solid rgba(10, 22, 38, 0.2);
+            padding: 30px;
+            position: relative;
+        }
+        .asset-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background-color: #A88B52;
+        }
+        .asset-title {
+            font-size: 20px;
+            color: #0A1626;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+        .asset-desc {
+            font-size: 16px;
+            color: rgba(10, 22, 38, 0.8);
+            font-weight: 300;
+            line-height: 1.6;
+        }
+        
+        .logo-watermark {
+            position: absolute;
+            bottom: 30px;
+            right: 40px;
+        }
+        .logo-watermark img {
+            width: 36px;
+            height: 36px;
+            object-fit: contain;
+            opacity: 0.3;
+        }
+    </style>
+</head>
+<body>
+    <div class="slide-container">
+        <div class="header">
+            <div class="title">阶段五：终稿交付 Final Draft Delivery</div>
+            <div class="divider"></div>
+        </div>
+        
+        <div class="goal-box">
+            <div class="goal-label">战略目标 STRATEGIC GOAL</div>
+            <div class="goal-text">
+                铸造行业标杆资产，输出具有降维打击能力的图文/视频矩阵，形成被行业广泛引用的终极信源。
+            </div>
+        </div>
+        
+        <div class="assets-container">
+            <div class="core-anchor">
+                <div class="section-title">核心锚点 Core Anchor</div>
+                <div class="anchor-title">《年度行业创新应用与体验价值评估白皮书》</div>
+                <div class="anchor-desc">
+                    由专家团联名作序，包含极度详实的数据解析与隐性价值模型。将冰冷的产品参数转化为引发目标客群强烈共鸣的行业标准，确立品牌在品类中的绝对解释权。
+                </div>
+            </div>
+            
+            <div class="derivative-assets">
+                <div class="asset-item">
+                    <div class="asset-title">《探秘极限测试》实录纪录片</div>
+                    <div class="asset-desc">
+                        10-15 分钟的高质量视频资产。通过视觉化呈现，增加测评过程的真实感、紧迫感与工匠精神，引发受众的情感共鸣。
+                    </div>
+                </div>
+                <div class="asset-item">
+                    <div class="asset-title">高管精炼版 (Executive Cheat Sheet)</div>
+                    <div class="asset-desc">
+                        “一页纸读懂品牌核心壁垒”。专为时间紧迫的决策者设计，提炼最核心的 ROI 数据与风险规避价值，加速商业决策流程。
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="logo-watermark"><img src="/home/ubuntu/true_insight_presentation/a2a_logo_dark.png" alt="Logo" /></div>
+    </div>
+</body>
+</html>

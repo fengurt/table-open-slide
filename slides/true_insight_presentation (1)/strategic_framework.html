@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;500;700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        .slide-container {
+            width: 1280px;
+            min-height: 720px;
+            background-color: #FFFFFF;
+            font-family: 'Noto Sans SC', sans-serif;
+            position: relative;
+            padding-top: 80px;
+        }
+        .header {
+            margin-left: 100px;
+            margin-right: 100px;
+            margin-bottom: 60px;
+        }
+        .title {
+            font-size: 32px;
+            color: #0A1626;
+            font-weight: 700;
+            margin-bottom: 15px;
+            letter-spacing: 2px;
+        }
+        .divider {
+            width: 80px;
+            height: 2px;
+            background-color: #A88B52;
+        }
+        .framework-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+            margin-left: 100px;
+            margin-right: 100px;
+            position: relative;
+        }
+        .step-card {
+            background-color: #FFFFFF;
+            border: 1px solid rgba(10, 22, 38, 0.2);
+            padding: 30px;
+            position: relative;
+            min-height: 200px;
+        }
+        .step-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background-color: #0A1626;
+            transition: background-color 0.3s;
+        }
+        .step-card:hover::before {
+            background-color: #A88B52;
+        }
+        .step-number {
+            font-size: 48px;
+            color: #A88B52;
+            font-weight: 700;
+            opacity: 0.3;
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            line-height: 1;
+        }
+        .step-title {
+            font-size: 22px;
+            color: #0A1626;
+            font-weight: 700;
+            margin-bottom: 10px;
+            margin-top: 10px;
+        }
+        .step-eng {
+            font-size: 14px;
+            color: #A88B52;
+            font-weight: 500;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .step-desc {
+            font-size: 16px;
+            color: rgba(10, 22, 38, 0.8);
+            font-weight: 300;
+            line-height: 1.6;
+        }
+        .logo-watermark {
+            position: absolute;
+            bottom: 30px;
+            right: 40px;
+        }
+        .logo-watermark img {
+            width: 36px;
+            height: 36px;
+            object-fit: contain;
+            opacity: 0.3;
+        }
+    </style>
+</head>
+<body>
+    <div class="slide-container">
+        <div class="header">
+            <div class="title">六阶段战略框架 Six-Phase Strategic Framework</div>
+            <div class="divider"></div>
+        </div>
+        
+        <div class="framework-grid">
+            <div class="step-card">
+                <div class="step-number">01</div>
+                <div class="step-title">产品评估</div>
+                <div class="step-eng">Product Evaluation</div>
+                <div class="step-desc">挖掘真实护城河，跳出“常规指标陷阱”，寻找品牌的“非对称优势”。</div>
+            </div>
+            <div class="step-card">
+                <div class="step-number">02</div>
+                <div class="step-title">专家访谈</div>
+                <div class="step-eng">Expert Interviews</div>
+                <div class="step-desc">确立行业公信力，构建“产学研用”信任域，让行业泰斗替品牌发声。</div>
+            </div>
+            <div class="step-card">
+                <div class="step-number">03</div>
+                <div class="step-title">方案拟定</div>
+                <div class="step-eng">Scheme Formulation</div>
+                <div class="step-desc">设计场景化实战矩阵，将专家痛点与产品优势转化为独家评价体系。</div>
+            </div>
+            <div class="step-card">
+                <div class="step-number">04</div>
+                <div class="step-title">初稿汇报</div>
+                <div class="step-eng">First Draft Presentation</div>
+                <div class="step-desc">平衡商业目标与客观性，对齐叙事颗粒度，确保内容客观权威且商业正确。</div>
+            </div>
+            <div class="step-card">
+                <div class="step-number">05</div>
+                <div class="step-title">终稿交付</div>
+                <div class="step-eng">Final Draft Delivery</div>
+                <div class="step-desc">铸造行业标杆资产，输出具有降维打击能力的图文与视频矩阵。</div>
+            </div>
+            <div class="step-card">
+                <div class="step-number">06</div>
+                <div class="step-title">增值服务</div>
+                <div class="step-eng">Value-Added Services</div>
+                <div class="step-desc">品牌资产全链路变现，打通流量、声量与销量的闭环，切实提高转化率。</div>
+            </div>
+        </div>
+        
+        <div class="logo-watermark"><img src="/home/ubuntu/true_insight_presentation/a2a_logo_dark.png" alt="Logo" /></div>
+    </div>
+</body>
+</html>

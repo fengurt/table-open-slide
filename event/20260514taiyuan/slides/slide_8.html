@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&family=Noto+Serif+SC:wght@400;600&family=Inter:wght@300;400;600&family=Noto+Sans+SC:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        .slide-container { 
+            width: 1280px; 
+            min-height: 720px; 
+            background: #FFFFFF; 
+            position: relative;
+            overflow: hidden;
+            font-family: 'Inter', 'Noto Sans SC', sans-serif;
+            color: #1A2639;
+        }
+        .content-wrapper {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            padding: 80px 100px;
+            display: flex;
+            flex-direction: column;
+        }
+        .eyebrow {
+            font-family: 'Inter', sans-serif;
+            font-size: 14px;
+            color: #A88B52;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 16px;
+        }
+        .headline {
+            font-family: 'Cormorant Garamond', 'Noto Serif SC', serif;
+            font-size: 40px;
+            color: #0A1626;
+            font-weight: 600;
+            margin-bottom: 16px;
+        }
+        .sub-lede {
+            font-size: 18px;
+            color: #1A2639;
+            opacity: 0.8;
+            margin-bottom: 60px;
+        }
+        .columns-container {
+            display: flex;
+            flex: 1;
+            border-top: 2px solid #0A1626;
+            padding-top: 40px;
+        }
+        .column {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            padding: 0 40px;
+        }
+        .column:first-child {
+            padding-left: 0;
+        }
+        .column:last-child {
+            padding-right: 0;
+        }
+        .column:not(:last-child) {
+            border-right: 1px solid rgba(168, 139, 82, 0.4);
+        }
+        .col-title {
+            font-family: 'Cormorant Garamond', 'Noto Serif SC', serif;
+            font-size: 28px;
+            color: #0A1626;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+        .col-subtitle {
+            font-family: 'Inter', sans-serif;
+            font-size: 14px;
+            color: #A88B52;
+            letter-spacing: 1px;
+            margin-bottom: 32px;
+            text-transform: uppercase;
+        }
+        .task-list {
+            list-style: none;
+        }
+        .task-item {
+            position: relative;
+            padding-left: 20px;
+            margin-bottom: 24px;
+            font-size: 16px;
+            line-height: 1.6;
+            color: #1A2639;
+        }
+        .task-item::before {
+            content: "·";
+            position: absolute;
+            left: 0;
+            top: 0;
+            color: #A88B52;
+            font-weight: bold;
+            font-size: 20px;
+        }
+        .highlight-text {
+            font-family: 'Cormorant Garamond', 'Noto Serif SC', serif;
+            color: #A88B52;
+            font-style: italic;
+            font-size: 18px;
+            margin-top: auto;
+            padding-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="slide-container">
+        <div class="content-wrapper">
+            <div class="eyebrow">SLIDE 44 · ACTION PLAN</div>
+            <h2 class="headline">三个时间窗，三次跃迁</h2>
+            <div class="sub-lede">把抽象的"成熟度"变成今晚、本周、本月的具体动作。</div>
+            
+            <div class="columns-container">
+                <div class="column">
+                    <div class="col-title">今晚 · Tonight</div>
+                    <div class="col-subtitle">Level 0 → Level 1</div>
+                    <ul class="task-list">
+                        <li class="task-item">用 AI 对你最近一份内部报告做摘要</li>
+                        <li class="task-item">比较 AI 总结与你自己读的差距</li>
+                    </ul>
+                    <div class="highlight-text">成本 0 元 · 时间 15 分钟</div>
+                </div>
+                
+                <div class="column">
+                    <div class="col-title">本周 · This Week</div>
+                    <div class="col-subtitle">Level 1 → Level 2</div>
+                    <ul class="task-list">
+                        <li class="task-item">找公司里重复性最高的一个岗位</li>
+                        <li class="task-item">列出这个岗位每天的具体任务清单</li>
+                        <li class="task-item">找一个 AI 工具，试着替代其中一项</li>
+                    </ul>
+                </div>
+                
+                <div class="column">
+                    <div class="col-title">本月 · This Month</div>
+                    <div class="col-subtitle">Level 2 → Level 3</div>
+                    <ul class="task-list">
+                        <li class="task-item">指定 1 个内部 AI 负责人（不必是技术背景）</li>
+                        <li class="task-item">给他 30 天，跑通一个可量化的 AI 使用场景</li>
+                        <li class="task-item">设定验收标准：时间 / 成本 / 质量皆可量化</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

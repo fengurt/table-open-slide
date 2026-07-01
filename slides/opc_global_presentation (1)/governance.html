@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;500;700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        .slide-container {
+            width: 1280px;
+            min-height: 720px;
+            background-color: #FFFFFF;
+            font-family: 'Noto Sans SC', sans-serif;
+            position: relative;
+            padding-top: 80px;
+        }
+        .header {
+            margin-left: 100px;
+            margin-right: 100px;
+            margin-bottom: 40px;
+        }
+        .title {
+            font-size: 32px;
+            color: #0A1626;
+            font-weight: 700;
+            margin-bottom: 15px;
+            letter-spacing: 2px;
+        }
+        .divider {
+            width: 80px;
+            height: 2px;
+            background-color: #A88B52;
+        }
+        
+        .intro-text {
+            margin-left: 100px;
+            margin-right: 100px;
+            font-size: 20px;
+            color: #0A1626;
+            font-weight: 500;
+            line-height: 1.6;
+            margin-bottom: 60px;
+            padding: 20px 30px;
+            background-color: rgba(10, 22, 38, 0.03);
+            border-left: 4px solid #0A1626;
+        }
+        
+        .columns-container {
+            display: flex;
+            margin-left: 100px;
+            margin-right: 100px;
+            gap: 60px;
+            position: relative;
+        }
+        
+        .vertical-divider {
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 1px;
+            background-color: rgba(168, 139, 82, 0.3);
+            transform: translateX(-50%);
+        }
+        
+        .column {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .col-header {
+            display: flex;
+            align-items: baseline;
+            margin-bottom: 25px;
+            border-bottom: 2px solid #0A1626;
+            padding-bottom: 15px;
+        }
+        
+        .col-title {
+            font-size: 28px;
+            color: #0A1626;
+            font-weight: 700;
+            margin-right: 15px;
+        }
+        
+        .col-en {
+            font-size: 16px;
+            color: #A88B52;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+        
+        .col-content {
+            font-size: 18px;
+            color: rgba(10, 22, 38, 0.8);
+            font-weight: 300;
+            line-height: 1.8;
+            text-align: justify;
+        }
+        
+        .highlight-box {
+            margin-top: 30px;
+            padding: 20px;
+            background-color: #0A1626;
+            color: #FFFFFF;
+        }
+        
+        .highlight-title {
+            font-size: 14px;
+            color: #A88B52;
+            font-weight: 700;
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+        }
+        
+        .highlight-text {
+            font-size: 16px;
+            font-weight: 300;
+            line-height: 1.6;
+        }
+        
+        .logo-watermark {
+            position: absolute;
+            bottom: 30px;
+            right: 40px;
+        }
+        .logo-watermark img {
+            width: 36px;
+            height: 36px;
+            object-fit: contain;
+            opacity: 0.3;
+        }
+    </style>
+</head>
+<body>
+    <div class="slide-container">
+        <div class="header">
+            <div class="title">全球理事会与轮值会长制 Global Council & Rotating Presidency</div>
+            <div class="divider"></div>
+        </div>
+        
+        <div class="intro-text">
+            为了确保生态的去中心化、开放性与持续进化，OPC Global 摒弃了传统的科层制管理，实行全球理事会轮值会长制。
+        </div>
+        
+        <div class="columns-container">
+            <div class="vertical-divider"></div>
+            
+            <div class="column">
+                <div class="col-header">
+                    <div class="col-title">全球理事会</div>
+                    <div class="col-en">Global Council</div>
+                </div>
+                <div class="col-content">
+                    作为 OPC Global 的核心决策与共识机构，理事会负责制定生态的底层法则、仲裁重大争议，并决定核心资源的分配。
+                </div>
+                <div class="highlight-box">
+                    <div class="highlight-title">核心成员构成</div>
+                    <div class="highlight-text">
+                        由全球资深的产业专家、L3级泰坦教练、核心生态合伙人及战略投资方共同组成，确保决策的专业性与多维视角。
+                    </div>
+                </div>
+            </div>
+            
+            <div class="column">
+                <div class="col-header">
+                    <div class="col-title">轮值会长制</div>
+                    <div class="col-en">Rotating Presidency</div>
+                </div>
+                <div class="col-content">
+                    为避免权力固化，理事会实行轮值会长制度。确保 OPC Global 始终保持敏锐的商业嗅觉与多元的领导力。
+                </div>
+                <div class="highlight-box" style="background-color: rgba(168, 139, 82, 0.1); color: #0A1626; border: 1px solid #A88B52;">
+                    <div class="highlight-title" style="color: #0A1626;">任期核心使命</div>
+                    <div class="highlight-text" style="font-weight: 500;">
+                        每一任轮值会长在任期内，将负责推动特定阶段的战略目标（如区域拓展、特定行业攻坚或技术底层升级）。
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="logo-watermark"><img src="/home/ubuntu/opc_global_presentation/a2a_logo_dark.png" alt="Logo" /></div>
+    
+        <div style="position: absolute; bottom: 25px; left: 0; right: 0; text-align: center; font-size: 11px; color: rgba(10, 22, 38, 0.3); font-weight: 300; letter-spacing: 2px; font-family: 'Noto Sans SC', sans-serif;">善用智能 终获自由 &nbsp;&nbsp;|&nbsp;&nbsp; OPC Global All Rights Reserved</div>
+    </div>
+</body>
+</html>

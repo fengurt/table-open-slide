@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@800&family=Work+Sans:wght@400;600&family=JetBrains+Mono&display=swap" rel="stylesheet">
+    <style>
+      body { margin: 0; background: #0B0F19; }
+      .slide-container {
+        width: 1280px;
+        min-height: 720px;
+        background: #0B0F19;
+        color: #F1F5F9;
+        font-family: 'Work Sans', sans-serif;
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        overflow: hidden;
+      }
+      .header-section {
+        padding-top: 48px;
+        padding-left: 80px;
+        width: 100%;
+      }
+      .title-label {
+        color: #38BDF8;
+        font-family: 'JetBrains Mono', monospace;
+        font-size: 18px;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        margin-bottom: 10px;
+      }
+      .main-title {
+        font-family: 'Inter', sans-serif;
+        font-weight: 800;
+        font-size: 56px;
+        line-height: 1.1;
+      }
+      .team-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr 1fr;
+        padding-top: 40px;
+        padding-left: 80px;
+        padding-right: 80px;
+        gap: 30px;
+      }
+      .member-card {
+        display: flex;
+        align-items: flex-start;
+        border-top: 2px solid #38BDF8;
+        padding-top: 20px;
+      }
+      .member-square {
+        width: 80px;
+        height: 80px;
+        background: #0EA5E9;
+        margin-right: 24px;
+        flex-shrink: 0;
+      }
+      .member-info {
+        flex: 1;
+      }
+      .member-role {
+        font-family: 'JetBrains Mono', monospace;
+        font-size: 14px;
+        color: #38BDF8;
+        margin-bottom: 4px;
+        text-transform: uppercase;
+      }
+      .member-name {
+        font-family: 'Inter', sans-serif;
+        font-size: 28px;
+        font-weight: 700;
+        margin-bottom: 10px;
+      }
+      .member-strengths {
+        font-size: 16px;
+        color: #CBD5E1;
+        line-height: 1.4;
+      }
+      .strength-tag {
+        font-family: 'JetBrains Mono', monospace;
+        font-size: 12px;
+        color: #0EA5E9;
+        margin-top: 8px;
+        display: block;
+      }
+      .deco-line {
+        position: absolute;
+        width: 100%;
+        height: 1px;
+        background: rgba(56, 189, 248, 0.1);
+        top: 360px;
+        left: 0;
+      }
+    </style>
+</head>
+<body>
+    <div class="slide-container">
+        <div class="deco-line"></div>
+        <div class="header-section">
+            <div class="title-label">Core Leadership</div>
+            <h1 class="main-title">The Founding Team</h1>
+        </div>
+        <div class="team-grid">
+            <div class="member-card">
+                <div class="member-square"></div>
+                <div class="member-info">
+                    <div class="member-role">CEO // Industry Veteran</div>
+                    <div class="member-name">Chief Executive Officer</div>
+                    <div class="member-strengths">Deep B2B network and enterprise-level delivery experience from industry-leading firms.</div>
+                    <span class="strength-tag">STRATEGY | NETWORK | B2B</span>
+                </div>
+            </div>
+            <div class="member-card">
+                <div class="member-square" style="background: #38BDF8;"></div>
+                <div class="member-info">
+                    <div class="member-role">COO // Operations Expert</div>
+                    <div class="member-name">Chief Operating Officer</div>
+                    <div class="member-strengths">Specialist in operational efficiency and scaling enterprise-grade service delivery models.</div>
+                    <span class="strength-tag">OPERATIONS | SCALING | EFFICIENCY</span>
+                </div>
+            </div>
+            <div class="member-card">
+                <div class="member-square" style="background: #38BDF8;"></div>
+                <div class="member-info">
+                    <div class="member-role">CMO // Brand Architect</div>
+                    <div class="member-name">Ramones ZHANG</div>
+                    <div class="member-strengths">Brand marketing expert with a track record of building powerful narratives and high-impact campaigns.</div>
+                    <span class="strength-tag">BRAND | NARRATIVE | MARKETING</span>
+                </div>
+            </div>
+            <div class="member-card">
+                <div class="member-square"></div>
+                <div class="member-info">
+                    <div class="member-role">Ecosystem // Tech & Education</div>
+                    <div class="member-name">Feng GUO</div>
+                    <div class="member-strengths">Founder of architect education ecosystem, bringing deep technical expert resources and coach networks.</div>
+                    <span class="strength-tag">ECOSYSTEM | TECH | EDUCATION</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

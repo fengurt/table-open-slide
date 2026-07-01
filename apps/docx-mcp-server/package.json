@@ -1,0 +1,19 @@
+{
+  "name": "docx-mcp-server",
+  "version": "0.0.1",
+  "private": true,
+  "type": "module",
+  "bin": {
+    "docx-mcp-server": "./dist/index.js"
+  },
+  "scripts": {
+    "build": "node ./scripts/bundle.mjs",
+    "dev": "node --watch src/index.js",
+    "start": "node dist/index.js",
+    "typecheck": "node --check src/index.js"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.29.0",
+    "zod": "^3.24.2"
+  }
+}

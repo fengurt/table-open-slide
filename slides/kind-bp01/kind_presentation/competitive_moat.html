@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@800&family=Work+Sans:wght@400;600&family=JetBrains+Mono&display=swap" rel="stylesheet">
+    <style>
+      body { margin: 0; background: #0B0F19; }
+      .slide-container {
+        width: 1280px;
+        min-height: 720px;
+        background: #0B0F19;
+        color: #F1F5F9;
+        font-family: 'Work Sans', sans-serif;
+        display: flex;
+        position: relative;
+        overflow: hidden;
+      }
+      .left-panel {
+        width: 40%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding-left: 80px;
+        background: rgba(56, 189, 248, 0.03);
+        border-right: 1px solid rgba(56, 189, 248, 0.2);
+      }
+      .right-panel {
+        width: 60%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding-top: 48px;
+        padding-left: 60px;
+        padding-right: 60px;
+      }
+      .label-mono {
+        font-family: 'JetBrains Mono', monospace;
+        color: #38BDF8;
+        font-size: 18px;
+        margin-bottom: 10px;
+      }
+      .huge-title {
+        font-family: 'Inter', sans-serif;
+        font-weight: 800;
+        font-size: 120px;
+        line-height: 0.9;
+        color: #F1F5F9;
+        text-transform: uppercase;
+      }
+      .moat-grid {
+        display: flex;
+        flex-direction: column;
+        gap: 40px;
+      }
+      .moat-item {
+        display: flex;
+        align-items: flex-start;
+      }
+      .moat-square {
+        width: 20px;
+        height: 20px;
+        background: #0EA5E9;
+        margin-right: 24px;
+        margin-top: 8px;
+        flex-shrink: 0;
+      }
+      .moat-content {
+        max-width: 550px;
+      }
+      .moat-title {
+        font-family: 'Inter', sans-serif;
+        font-size: 28px;
+        font-weight: 700;
+        color: #F1F5F9;
+        margin-bottom: 8px;
+      }
+      .moat-desc {
+        font-size: 18px;
+        color: #CBD5E1;
+        line-height: 1.5;
+      }
+      .tag-mono {
+        font-family: 'JetBrains Mono', monospace;
+        font-size: 14px;
+        color: #0EA5E9;
+        margin-bottom: 4px;
+        display: block;
+      }
+      .deco-square {
+        position: absolute;
+        width: 300px;
+        height: 300px;
+        border: 1px solid rgba(14, 165, 233, 0.1);
+        top: -150px;
+        right: -150px;
+        transform: rotate(45deg);
+      }
+    </style>
+</head>
+<body>
+    <div class="slide-container">
+        <div class="deco-square"></div>
+        <div class="left-panel">
+            <div class="label-mono">STRATEGIC // MOAT</div>
+            <h2 class="huge-title">OUR<br>MOAT</h2>
+        </div>
+        <div class="right-panel">
+            <div class="moat-grid">
+                <div class="moat-item">
+                    <div class="moat-square"></div>
+                    <div class="moat-content">
+                        <span class="tag-mono">DNA: ORGANIZATIONAL</span>
+                        <div class="moat-title">Expert Relationships vs. Tools</div>
+                        <div class="moat-desc">Big Tech builds standardized tools; KiND builds deep, personalized expert relationships that cannot be automated.</div>
+                    </div>
+                </div>
+                <div class="moat-item">
+                    <div class="moat-square"></div>
+                    <div class="moat-content">
+                        <span class="tag-mono">ASSET: EXCLUSIVITY</span>
+                        <div class="moat-title">Exclusive IP Contracts</div>
+                        <div class="moat-desc">Securing exclusive digital twin rights with the top 1% of industry experts, creating a supply-side monopoly.</div>
+                    </div>
+                </div>
+                <div class="moat-item">
+                    <div class="moat-square"></div>
+                    <div class="moat-content">
+                        <span class="tag-mono">BARRIER: ECOSYSTEM</span>
+                        <div class="moat-title">The Triple Threat</div>
+                        <div class="moat-desc">The combination of proprietary hardware, exclusive expert IP, and the OPC Global coach network is impossible to replicate.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

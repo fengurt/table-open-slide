@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;500;700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        .slide-container {
+            width: 1280px;
+            min-height: 720px;
+            background-color: #FFFFFF;
+            font-family: 'Noto Sans SC', sans-serif;
+            position: relative;
+            padding-top: 80px;
+        }
+        .header {
+            margin-left: 100px;
+            margin-right: 100px;
+            margin-bottom: 40px;
+        }
+        .title {
+            font-size: 32px;
+            color: #0A1626;
+            font-weight: 700;
+            margin-bottom: 15px;
+            letter-spacing: 2px;
+        }
+        .divider {
+            width: 80px;
+            height: 2px;
+            background-color: #A88B52;
+        }
+        
+        .goal-banner {
+            margin-left: 100px;
+            margin-right: 100px;
+            background-color: #0A1626;
+            padding: 30px 40px;
+            margin-bottom: 60px;
+            display: flex;
+            align-items: center;
+            border-left: 6px solid #A88B52;
+        }
+        .goal-label {
+            font-size: 20px;
+            color: #A88B52;
+            font-weight: 700;
+            margin-right: 30px;
+            white-space: nowrap;
+            letter-spacing: 2px;
+        }
+        .goal-text {
+            font-size: 22px;
+            color: #FFFFFF;
+            font-weight: 300;
+            line-height: 1.5;
+            letter-spacing: 1px;
+        }
+        
+        .columns-container {
+            display: flex;
+            margin-left: 100px;
+            margin-right: 100px;
+            gap: 40px;
+        }
+        .column {
+            flex: 1;
+            border-top: 2px solid #A88B52;
+            padding-top: 25px;
+        }
+        .col-title {
+            font-size: 24px;
+            color: #0A1626;
+            font-weight: 700;
+            margin-bottom: 10px;
+            letter-spacing: 1px;
+        }
+        .col-subtitle {
+            font-size: 16px;
+            color: #A88B52;
+            font-weight: 500;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .col-text {
+            font-size: 16px;
+            color: rgba(10, 22, 38, 0.8);
+            font-weight: 300;
+            line-height: 1.8;
+            text-align: justify;
+        }
+        
+        .logo-watermark {
+            position: absolute;
+            bottom: 30px;
+            right: 40px;
+        }
+        .logo-watermark img {
+            width: 36px;
+            height: 36px;
+            object-fit: contain;
+            opacity: 0.3;
+        }
+    </style>
+</head>
+<body>
+    <div class="slide-container">
+        <div class="header">
+            <div class="title">阶段四：初稿汇报 First Draft Presentation</div>
+            <div class="divider"></div>
+        </div>
+        
+        <div class="goal-banner">
+            <div class="goal-label">战略目标</div>
+            <div class="goal-text">与品牌方对齐叙事颗粒度，确保内容“既客观权威，又商业正确”。</div>
+        </div>
+        
+        <div class="columns-container">
+            <div class="column">
+                <div class="col-title">数据可视化与故事板</div>
+                <div class="col-subtitle">Storyboarding</div>
+                <div class="col-text">
+                    展示初期评估数据，不罗列枯燥的图表，而是通过“商业价值转化图谱”直观呈现。将复杂的技术参数转化为决策者易于理解的商业语言。
+                </div>
+            </div>
+            
+            <div class="column">
+                <div class="col-title">“欲扬先抑”策略研讨</div>
+                <div class="col-subtitle">Strategic Compromise</div>
+                <div class="col-text">
+                    与客户探讨妥协的艺术。主动在报告中指认 1-2 个无关痛痒或非核心受众关注的劣势，以换取在“核心痛点与稳定性”维度的绝对统治力，彻底打消受众对“软文”的防备心。
+                </div>
+            </div>
+            
+            <div class="column">
+                <div class="col-title">风险排查与合规审查</div>
+                <div class="col-subtitle">Risk Management</div>
+                <div class="col-text">
+                    严格的法务与合规审查，确保对比数据与文案描述符合行业监管、广告法及正当商业竞争规范。在保持攻击力的同时，构建坚固的合规护城河。
+                </div>
+            </div>
+        </div>
+        
+        <div class="logo-watermark"><img src="/home/ubuntu/true_insight_presentation/a2a_logo_dark.png" alt="Logo" /></div>
+    </div>
+</body>
+</html>

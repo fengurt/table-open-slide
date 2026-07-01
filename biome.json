@@ -9,6 +9,8 @@
     "includes": [
       "**",
       "!**/dist",
+      "!**/.next",
+      "!**/next-env.d.ts",
       "!**/node_modules",
       "!**/*.tsbuildinfo",
       "!packages/core/src/app/components/ui"
@@ -27,6 +29,15 @@
     }
   },
   "overrides": [
+    {
+      "includes": [
+        "apps/cms/src/payload-types.ts",
+        "apps/cms/src/app/(payload)/admin/importMap.js"
+      ],
+      "linter": { "enabled": false },
+      "formatter": { "enabled": false },
+      "assist": { "enabled": false }
+    },
     {
       "includes": ["**/slides/**", "apps/web/components/landing/**"],
       "linter": {

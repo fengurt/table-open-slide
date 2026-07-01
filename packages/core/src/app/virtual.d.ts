@@ -5,7 +5,7 @@ declare module 'virtual:open-slide/slides' {
 }
 
 declare module 'virtual:open-slide/config' {
-  import type { Locale } from '../locale/types';
+  import type { CollaborationRole, Locale, SlideContentConfig } from '../config';
 
   const config: {
     slidesDir?: string;
@@ -16,6 +16,8 @@ declare module 'virtual:open-slide/config' {
       showSlideUi: boolean;
       allowHtmlDownload: boolean;
     };
+    content?: SlideContentConfig;
+    collaborationRole?: CollaborationRole;
   };
   export default config;
 }

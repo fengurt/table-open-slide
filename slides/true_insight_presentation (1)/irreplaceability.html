@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;500;700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        .slide-container {
+            width: 1280px;
+            min-height: 720px;
+            background-color: #FFFFFF;
+            font-family: 'Noto Sans SC', sans-serif;
+            position: relative;
+            padding-top: 80px;
+        }
+        .header {
+            margin-left: 100px;
+            margin-right: 100px;
+            margin-bottom: 60px;
+        }
+        .title {
+            font-size: 32px;
+            color: #0A1626;
+            font-weight: 700;
+            margin-bottom: 15px;
+            letter-spacing: 2px;
+        }
+        .divider {
+            width: 80px;
+            height: 2px;
+            background-color: #A88B52;
+        }
+        
+        .equation-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-left: 100px;
+            margin-right: 100px;
+            margin-bottom: 60px;
+        }
+        
+        .equation-part {
+            flex: 1;
+            text-align: center;
+            padding: 40px 20px;
+            border: 1px solid rgba(10, 22, 38, 0.1);
+            min-height: 180px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        
+        .highlight-part {
+            background-color: #0A1626;
+            border: none;
+            flex: 1.2;
+        }
+        
+        .part-title {
+            font-size: 20px;
+            color: rgba(10, 22, 38, 0.8);
+            font-weight: 500;
+            margin-bottom: 15px;
+            letter-spacing: 1px;
+        }
+        
+        .part-desc {
+            font-size: 28px;
+            color: #0A1626;
+            font-weight: 700;
+            letter-spacing: 2px;
+        }
+        
+        .highlight-part .part-title {
+            color: rgba(255, 255, 255, 0.8);
+        }
+        
+        .highlight-part .part-desc {
+            color: #A88B52;
+            font-size: 26px;
+            line-height: 1.4;
+        }
+        
+        .operator {
+            font-size: 48px;
+            color: #A88B52;
+            font-weight: 300;
+            margin: 0 20px;
+        }
+        
+        .conclusion-box {
+            margin-left: 100px;
+            margin-right: 100px;
+            padding: 40px;
+            border-left: 6px solid #A88B52;
+            background-color: rgba(10, 22, 38, 0.03);
+            font-size: 24px;
+            color: #0A1626;
+            font-weight: 500;
+            line-height: 1.8;
+            letter-spacing: 1px;
+        }
+        
+        .highlight-text {
+            color: #A88B52;
+            font-weight: 700;
+        }
+        
+        .logo-watermark {
+            position: absolute;
+            bottom: 30px;
+            right: 40px;
+        }
+        .logo-watermark img {
+            width: 36px;
+            height: 36px;
+            object-fit: contain;
+            opacity: 0.3;
+        }
+    </style>
+</head>
+<body>
+    <div class="slide-container">
+        <div class="header">
+            <div class="title">我们的不可替代性 Our Irreplaceability</div>
+            <div class="divider"></div>
+        </div>
+        
+        <div class="equation-container">
+            <div class="equation-part">
+                <div class="part-title">常规的参数对比</div>
+                <div class="part-desc">只是工具</div>
+            </div>
+            <div class="operator">+</div>
+            <div class="equation-part">
+                <div class="part-title">专家共识</div>
+                <div class="part-desc">是催化剂</div>
+            </div>
+            <div class="operator">=</div>
+            <div class="equation-part highlight-part">
+                <div class="part-title">我们提供的是一整套</div>
+                <div class="part-desc">优势发现与诠释的<br>战略工程系统</div>
+            </div>
+        </div>
+        
+        <div class="conclusion-box">
+            我们不仅能帮助企业在同质化内卷的时代<span class="highlight-text">打赢认知战</span>，<br>
+            更能将无形的“专业口碑”转化为实实在在的<span class="highlight-text">“商业销售壁垒”</span>。
+        </div>
+        
+        <div class="logo-watermark"><img src="/home/ubuntu/true_insight_presentation/a2a_logo_dark.png" alt="Logo" /></div>
+    </div>
+</body>
+</html>

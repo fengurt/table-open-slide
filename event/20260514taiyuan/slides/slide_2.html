@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&family=Noto+Serif+SC:wght@400;600&family=Inter:wght@300;400;600&family=Noto+Sans+SC:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        .slide-container { 
+            width: 1280px; 
+            min-height: 720px; 
+            background: #FFFFFF; 
+            position: relative;
+            overflow: hidden;
+            font-family: 'Inter', 'Noto Sans SC', sans-serif;
+            color: #1A2639;
+        }
+        .content-wrapper {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            padding: 80px 100px 0 100px;
+            display: flex;
+            flex-direction: column;
+        }
+        .eyebrow {
+            font-family: 'Inter', sans-serif;
+            font-size: 14px;
+            color: #A88B52;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 16px;
+        }
+        .headline {
+            font-family: 'Cormorant Garamond', 'Noto Serif SC', serif;
+            font-size: 32px;
+            color: #0A1626;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+        .lede {
+            font-size: 16px;
+            color: #1A2639;
+            opacity: 0.8;
+            margin-bottom: 60px;
+        }
+        .matrix-container {
+            display: flex;
+            justify-content: space-between;
+            gap: 40px;
+            flex: 1;
+        }
+        .matrix-column {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            border-top: 2px solid #0A1626;
+            padding-top: 24px;
+        }
+        .level-numeral {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 48px;
+            color: #A88B52;
+            margin-bottom: 16px;
+            line-height: 1;
+        }
+        .level-title {
+            font-family: 'Cormorant Garamond', 'Noto Serif SC', serif;
+            font-size: 24px;
+            color: #0A1626;
+            font-weight: 600;
+            margin-bottom: 24px;
+            min-height: 60px;
+        }
+        .level-feature {
+            font-size: 14px;
+            color: #1A2639;
+            line-height: 1.6;
+            margin-bottom: 40px;
+            flex-grow: 1;
+        }
+        .level-quote {
+            font-family: 'Cormorant Garamond', 'Noto Serif SC', serif;
+            font-size: 16px;
+            color: #0A1626;
+            font-style: italic;
+            border-left: 2px solid #A88B52;
+            padding-left: 16px;
+            line-height: 1.5;
+        }
+        .footer {
+            margin-top: auto;
+            padding-top: 40px;
+            padding-bottom: 40px;
+            font-family: 'Cormorant Garamond', 'Noto Serif SC', serif;
+            font-size: 16px;
+            color: #A88B52;
+            font-style: italic;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="slide-container">
+        <div class="content-wrapper">
+            <div class="eyebrow">SLIDE 42 · MATURITY MODEL</div>
+            <h2 class="headline">四个层级，决定你与 AI 的距离</h2>
+            <div class="lede">大多数太原企业现在停留在 Level 0–1 之间。今天的目标，是把你推到 Level 2–3。</div>
+            
+            <div class="matrix-container">
+                <div class="matrix-column">
+                    <div class="level-numeral">I</div>
+                    <div class="level-title">个人工具阶段</div>
+                    <div class="level-feature">老板自己用，但未系统化</div>
+                    <div class="level-quote">"我有时候会问 AI 一些问题"</div>
+                </div>
+                <div class="matrix-column">
+                    <div class="level-numeral">II</div>
+                    <div class="level-title">团队效率阶段</div>
+                    <div class="level-feature">1–2 个核心员工开始用 AI 辅助</div>
+                    <div class="level-quote">"我们市场部开始用 AI 写文案了"</div>
+                </div>
+                <div class="matrix-column">
+                    <div class="level-numeral">III</div>
+                    <div class="level-title">流程嵌入阶段</div>
+                    <div class="level-feature">AI 嵌入业务流程，可量化 ROI</div>
+                    <div class="level-quote">"我们有 AI 使用 SOP，新员工要培训"</div>
+                </div>
+                <div class="matrix-column">
+                    <div class="level-numeral">IV</div>
+                    <div class="level-title">决策辅助阶段</div>
+                    <div class="level-feature">AI 成为经营决策的基础工具</div>
+                    <div class="level-quote">"我每周用 AI 做一次行业情报综合"</div>
+                </div>
+            </div>
+            
+            <div class="footer">大多数太原企业现在在 Level 0–1 之间。今天目标：搞清楚怎么到 Level 2–3。</div>
+        </div>
+    </div>
+</body>
+</html>

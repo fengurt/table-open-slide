@@ -1,0 +1,27 @@
+# Caddy reverse proxy for the docx studio.
+#
+# Set the site address via env in docker-compose:
+#   DOCX_STUDIO_DOMAIN=docx.example.com   → automatic Let's Encrypt HTTPS
+#   DOCX_STUDIO_DOMAIN=:80                 → plain HTTP (behind another LB)
+#   (unset)                               → localhost with Caddy's internal CA
+#
+# Caddy terminates TLS and forwards the original client IP so the app's
+# in-memory rate limiter keys on the real visitor (X-Forwarded-For).
+
+{
+	email {$DOCX_STUDIO_TLS_EMAIL:admin@example.com}
+}
+
+{$DOCX_STUDIO_DOMAIN:localhost} {
+	encode zstd gzip
+
+	# Cap request bodies at the proxy edge too (uploads + pastes).
+	request_body {
+		max_size {$DOCX_STUDIO_MAX_BODY_HUMAN:30MB}
+	}
+
+	reverse_proxy docx-studio:3333 {
+		header_up X-Forwarded-For {remote_host}
+		header_up X-Forwarded-Proto {scheme}
+	}
+}

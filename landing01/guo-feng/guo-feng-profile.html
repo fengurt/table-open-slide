@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>郭峰 Profile</title>
+  <style>
+    :root {
+      --hl-header-py: 28px;
+      --hl-header-px: 40px;
+      --hl-main-py: 22px;
+      --hl-main-px: 40px;
+      --hl-main-gap: 18px;
+      --hl-intro-size: 13px;
+      --hl-body-size: 11.5px;
+      --hl-col-pad: 16px;
+      --hl-slide-max: 1280px;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC",
+        "Microsoft YaHei", "Noto Sans SC", sans-serif;
+      -webkit-font-smoothing: antialiased;
+      background: #e8e8e8;
+      min-height: 100vh;
+      margin: 0;
+      padding: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .slide-wrap {
+      width: 100%;
+      max-width: var(--hl-slide-max);
+      display: flex;
+      justify-content: center;
+    }
+
+    .slide {
+      width: 100%;
+      max-width: var(--hl-slide-max);
+      aspect-ratio: 16 / 9;
+      background: #fff;
+      border: 1px solid #d1d5db;
+      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.12);
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+
+    .header {
+      background: #b12137;
+      color: #fff;
+      padding: var(--hl-header-py) var(--hl-header-px) calc(var(--hl-header-py) * 0.78);
+      flex-shrink: 0;
+      border-bottom: 3px solid #8f1a2b;
+    }
+
+    .header-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      gap: 24px;
+      margin-bottom: 16px;
+    }
+
+    .header h1 {
+      font-size: clamp(28px, 3.2vw, 42px);
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      margin-bottom: 6px;
+    }
+
+    .header h1 span {
+      font-weight: 400;
+      font-size: 0.82em;
+      letter-spacing: 0.12em;
+      margin-left: 12px;
+    }
+
+    .header .role {
+      font-size: clamp(14px, 1.4vw, 20px);
+      font-weight: 300;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    .logo {
+      font-size: clamp(22px, 2.4vw, 36px);
+      font-weight: 300;
+      letter-spacing: 0.22em;
+      white-space: nowrap;
+    }
+
+    .tags {
+      border-top: 1px solid rgba(255, 255, 255, 0.35);
+      padding-top: 12px;
+      font-size: 12px;
+      font-weight: 300;
+      line-height: 1.6;
+      letter-spacing: 0.02em;
+      opacity: 0.95;
+    }
+
+    .main {
+      flex: 1;
+      min-height: 0;
+      padding: var(--hl-main-py) var(--hl-main-px) calc(var(--hl-main-py) * 1.27);
+      display: flex;
+      flex-direction: column;
+      gap: var(--hl-main-gap);
+      overflow: hidden;
+    }
+
+    .intro {
+      flex-shrink: 0;
+      font-size: var(--hl-intro-size);
+      line-height: 1.72;
+      color: #374151;
+      text-align: justify;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      padding-bottom: 14px;
+      border-bottom: 1px solid #e5e7eb;
+    }
+
+    .intro strong {
+      color: #b12137;
+      font-weight: 600;
+    }
+
+    .columns {
+      flex: 1;
+      min-height: 0;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+      border: 1px solid #e5e7eb;
+      border-radius: 4px;
+      overflow: hidden;
+    }
+
+    .col {
+      padding: var(--hl-col-pad) calc(var(--hl-col-pad) * 1.25) calc(var(--hl-col-pad) * 1.12);
+      overflow-y: auto;
+      min-height: 0;
+    }
+
+    .col:first-child {
+      border-right: 1px solid #e5e7eb;
+      background: #fafafa;
+    }
+
+    .col h3 {
+      font-size: calc(var(--hl-body-size) + 5.5px);
+      font-weight: 700;
+      color: #111;
+      margin-bottom: 12px;
+      padding-bottom: 8px;
+      border-bottom: 2px solid #b12137;
+      letter-spacing: 0.06em;
+    }
+
+    .col p {
+      font-size: var(--hl-body-size);
+      line-height: 1.65;
+      color: #374151;
+      text-align: justify;
+      margin-bottom: 10px;
+    }
+
+    .col p:last-child { margin-bottom: 0; }
+
+    .block { margin-bottom: 12px; }
+    .block:last-child { margin-bottom: 0; }
+
+    .block h4 {
+      font-size: calc(var(--hl-body-size) + 0.5px);
+      font-weight: 600;
+      color: #b12137;
+      margin-bottom: 4px;
+    }
+
+    .block ul {
+      list-style: none;
+      font-size: var(--hl-body-size);
+      line-height: 1.6;
+      color: #374151;
+    }
+
+    .block li {
+      display: flex;
+      gap: 6px;
+      margin-bottom: 4px;
+    }
+
+    .block li::before {
+      content: "–";
+      flex-shrink: 0;
+      color: #b12137;
+    }
+
+    @media (max-width: 900px) {
+      body { padding: 12px; align-items: flex-start; }
+      .slide { aspect-ratio: auto; min-height: auto; max-height: none; }
+      .columns { grid-template-columns: 1fr; }
+      .col:first-child { border-right: none; border-bottom: 1px solid #e5e7eb; }
+      .header-top { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="slide-wrap">
+  <article class="slide">
+    <header class="header">
+      <div class="header-top">
+        <div>
+          <h1>郭峰 <span>GUO Feng</span></h1>
+          <p class="role">CEO, 联合创始人</p>
+        </div>
+        <div class="logo">VΛNΛHOM</div>
+      </div>
+      <div class="tags" data-hl-module="tags">
+        酒店投资与IP增长教练 &nbsp;|&nbsp; 品牌 × 教育 × 战略 三栖专家 &nbsp;|&nbsp; 知识资产变现操盘手 &nbsp;|&nbsp; EHL认证引导式学习教练 &nbsp;|&nbsp; 岁知社 主理人
+      </div>
+    </header>
+
+    <main class="main">
+      <section class="intro">
+        <p data-hl-module="intro">
+          郭峰拥有覆盖<strong>品牌、教育与战略三大维度</strong>的实践经验，在任职<strong>全球排名第一的瑞士EHL集团</strong>中国区核心成员期间，推动集团学术认证、咨询、培训和职业教育等业务在中国区从0到1落地，赋能60余个高端国际品牌项目的落地和发展。他构建出「专业即产品、知识即资产」的理论体系，提出并落地「专业型IP三角模型」与「知识资产化方法论」，擅长将隐性经验转化为可变现的系统能力。
+        </p>
+        <p data-hl-module="intro">
+          在VΛNΛHOM，他以<strong>AI原生逻辑领导并重塑传统服务业的内容驱动路径</strong>，融合品牌、教育与可复制的知识资产体系，打造「内容即增长、知识即结构」的智能化运营模型，为项目构建具备认知壁垒与长期增长力的品牌核心，推动实现AI时代的酒店资产高品质发展和业绩增长。
+        </p>
+      </section>
+
+      <section class="columns">
+        <div class="col">
+          <h3>专业背景</h3>
+          <p data-hl-module="bg">郭峰专注于品牌建设、教育创新与知识商业化路径探索，拥有品牌、教育与投资三位一体的复合型专业背景，擅长战略落地与价值创造。</p>
+          <p data-hl-module="bg">曾在全球专业排名第一的瑞士教育集团任职十年，深度参与中国市场的品牌落地与本地化发展，累计为60+国际领先品牌与大型综合项目提供战略咨询与执行服务。</p>
+          <p data-hl-module="bg">他提出并实践「专业型IP三角模型」与「知识资产化方法论」，系统构建从隐性知识到内容产品化、再到商业变现的完整路径。</p>
+          <p data-hl-module="bg">作为国际认证的引导式学习教练（QLF/FST），郭峰主导多所高校的人才培养体系设计与教学创新实践。</p>
+        </div>
+
+        <div class="col">
+          <h3>主要项目经验</h3>
+          <div class="block">
+            <h4>品牌与投资战略咨询</h4>
+            <ul>
+              <li data-hl-module="exp">主导/参与上海机场集团、虹夕诺雅、贵州旅游集团、莫干山六善度假村、青岛缦合缦、腾讯总部等国际品牌项目的投资可行性研究、投资估算与品牌发展战略制定</li>
+              <li data-hl-module="exp">支持泉州市政府、天门山景区等政府项目，提供资产评估、招商赋能与客户体验升级方案</li>
+            </ul>
+          </div>
+          <div class="block">
+            <h4>教育与人才发展</h4>
+            <ul>
+              <li data-hl-module="exp">主导多所高校（三亚、上海、贵州等）的专业设计、规划与教师培训体系建设</li>
+              <li data-hl-module="exp">承担EHL引导式学习教练（QLF/FST认证）课程主讲，推动产教融合与教育创新</li>
+            </ul>
+          </div>
+          <div class="block">
+            <h4>企业赋能与组织发展</h4>
+            <ul>
+              <li data-hl-module="exp">为首旅集团、奔驰、保乐力加等国际品牌提供高管培训与企业大学建设支持</li>
+              <li data-hl-module="exp">协助海淀区某国企、圣贝拉、青岛海控集团等进行品牌体验优化与客户体验设计</li>
+            </ul>
+          </div>
+          <div class="block">
+            <h4>AI应用与高管培训</h4>
+            <ul>
+              <li data-hl-module="exp">2023年南京软博会AIGC教育板块特邀嘉宾，2024年Nibiru香港元宇宙决赛评委</li>
+              <li data-hl-module="exp">主讲EHL引导式学习教练、沙盘领导力、品牌体验塑造与落地等教练式培训项目</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+    </main>
+  </article>
+  </div>
+
+</body>
+</html>

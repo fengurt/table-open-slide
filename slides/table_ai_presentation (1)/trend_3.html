@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;500;700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        .slide-container {
+            width: 1280px;
+            min-height: 720px;
+            background-color: #FFFFFF;
+            font-family: 'Noto Sans SC', sans-serif;
+            position: relative;
+            padding-top: 80px;
+        }
+        .header {
+            margin-left: 100px;
+            margin-right: 100px;
+            margin-bottom: 10px; /* reduced from 40 */
+        }
+        .title {
+            font-size: 32px;
+            color: #0A1626;
+            font-weight: 500;
+            margin-bottom: 10px;
+        }
+        .subtitle {
+            font-size: 20px;
+            color: rgba(10, 22, 38, 0.6);
+            font-weight: 300;
+            margin-bottom: 15px;
+            letter-spacing: 1px;
+        }
+        .divider {
+            width: 80px;
+            height: 2px;
+            background-color: #A88B52;
+        }
+        .content-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-left: 100px;
+            margin-right: 100px;
+        }
+        .diagram-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 10px; /* reduced from 40 */
+            width: 100%;
+        }
+        .box {
+            width: 600px;
+            text-align: center;
+            padding: 10px 0; /* reduced from 20 */
+            border-top: 1px solid rgba(10, 22, 38, 0.1);
+            border-bottom: 1px solid rgba(10, 22, 38, 0.1);
+            position: relative;
+        }
+        .box::before, .box::after {
+            content: '';
+            position: absolute;
+            width: 60px;
+            height: 2px;
+            background-color: #0A1626;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        .box::before { top: -1px; }
+        .box::after { bottom: -1px; }
+        
+        .box-title {
+            font-size: 28px;
+            font-weight: 500;
+            color: #0A1626;
+            margin-bottom: 5px;
+            letter-spacing: 2px;
+        }
+        .box-subtitle {
+            font-size: 16px;
+            font-weight: 300;
+            color: rgba(10, 22, 38, 0.6);
+            letter-spacing: 1px;
+        }
+        .flow-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .flow-line {
+            width: 2px;
+            height: 30px;
+            background-color: #A88B52;
+        }
+        .flow-label-circle {
+            width: 140px;
+            height: 140px;
+            border: 2px solid #A88B52;
+            border-radius: 50%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background-color: #FFFFFF;
+        }
+        .circle-text {
+            font-size: 18px;
+            color: #A88B52;
+            font-weight: 500;
+            line-height: 1.4;
+        }
+        .circle-subtext {
+            font-size: 12px;
+            color: rgba(168, 139, 82, 0.8);
+            font-weight: 300;
+            margin-top: 4px;
+            line-height: 1.2;
+        }
+        .insight-container {
+            width: 800px;
+            text-align: center;
+        }
+        .insight-text {
+            font-size: 20px;
+            color: #0A1626;
+            font-weight: 300;
+            line-height: 1.8;
+            margin-bottom: 10px; /* slight reduction */
+        }
+        .sources {
+            font-size: 14px;
+            color: rgba(10, 22, 38, 0.5);
+            font-weight: 300;
+        }
+        .logo-watermark {
+            position: absolute;
+            bottom: 30px;
+            right: 40px;
+        }
+        .logo-watermark img {
+            width: 36px;
+            height: 36px;
+            object-fit: contain;
+            opacity: 0.3;
+        }
+    </style>
+</head>
+<body>
+    <div class="slide-container">
+        <div class="header">
+            <div class="title">趋势三：智力平权与AI民主化</div>
+            <div class="subtitle">Intelligence Equity & AI Democratization</div>
+            <div class="divider"></div>
+        </div>
+        <div class="content-container">
+            <div class="diagram-container">
+                <div class="box">
+                    <div class="box-title">少数特权阶层的专属智慧</div>
+                    <div class="box-subtitle">Exclusive Elite Knowledge</div>
+                </div>
+                <div class="flow-container">
+                    <div class="flow-line"></div>
+                    <div class="flow-label-circle">
+                        <div class="circle-text">AI智能体</div>
+                        <div class="circle-text">复制与分发</div>
+                        <div class="circle-subtext">Replication &<br>Distribution</div>
+                    </div>
+                    <div class="flow-line"></div>
+                </div>
+                <div class="box">
+                    <div class="box-title">全社会普惠资源</div>
+                    <div class="box-subtitle">Universal Access for All</div>
+                </div>
+            </div>
+            <div class="insight-container">
+                <div class="insight-text">
+                    世界银行与UNESCO均强调利用AI弥合数字与知识鸿沟的重要性。TABLE AI让顶尖专家智慧可被无限复制、分发并赋能全社会。
+                </div>
+                <div class="sources">
+                    Sources: World Bank (2025); UNESCO (2025).
+                </div>
+            </div>
+        </div>
+        <div class="logo-watermark"><img src="/home/ubuntu/table_ai_presentation/a2a_logo_dark.png" alt="Logo" /></div>
+    </div>
+</body>
+</html>

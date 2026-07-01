@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;800&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        .slide-container {
+            width: 1280px;
+            min-height: 720px;
+            background-color: #FFFFFF;
+            font-family: 'Google Sans', 'Noto Sans SC', sans-serif;
+            position: relative;
+            padding-top: 60px;
+            padding-left: 80px;
+            padding-right: 80px;
+        }
+        .header {
+            margin-bottom: 60px;
+        }
+        .page-title {
+            color: #A88B52;
+            font-size: 16px;
+            font-weight: 400;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+        }
+        .title {
+            color: #0A1626;
+            font-size: 36px;
+            font-weight: 800;
+            line-height: 1.3;
+            margin-bottom: 15px;
+        }
+        .core-argument {
+            color: #2C3E50;
+            font-size: 18px;
+            font-weight: 300;
+            width: 80%;
+        }
+        .metrics-container {
+            display: flex;
+            justify-content: space-between;
+            gap: 30px;
+        }
+        .metric-box {
+            flex: 1;
+            border-top: 3px solid #0A1626;
+            padding-top: 20px;
+        }
+        .metric-box.highlight {
+            border-top: 3px solid #A88B52;
+        }
+        .metric-title {
+            color: #2C3E50;
+            font-size: 18px;
+            font-weight: 400;
+            margin-bottom: 15px;
+        }
+        .metric-value {
+            color: #0A1626;
+            font-size: 42px;
+            font-weight: 800;
+            margin-bottom: 20px;
+            line-height: 1;
+        }
+        .metric-value.highlight {
+            color: #A88B52;
+        }
+        .metric-desc {
+            color: #2C3E50;
+            font-size: 14px;
+            font-weight: 300;
+            line-height: 1.6;
+        }
+        .bottom-quote {
+            position: absolute;
+            bottom: 80px;
+            left: 80px;
+            right: 80px;
+            background-color: #F8F9FA;
+            padding: 20px 30px;
+            border-left: 4px solid #A88B52;
+            color: #0A1626;
+            font-size: 18px;
+            font-weight: 400;
+            font-style: italic;
+        }
+        .footer {
+            position: absolute;
+            bottom: 30px;
+            left: 80px;
+            right: 80px;
+            color: #2C3E50;
+            font-size: 14px;
+            font-weight: 300;
+            border-top: 1px solid #A88B52;
+            padding-top: 10px;
+            display: flex;
+            justify-content: space-between;
+        }
+    </style>
+</head>
+<body>
+    <div class="slide-container">
+        <div class="header">
+            <div class="page-title">S1 · 单位经济</div>
+            <div class="title">精简架构带来极佳的单位经济</div>
+            <div class="core-argument">单层积分与分账系统，去除了所有中间环节的摩擦成本，实现了 AI 成本结构下的高杠杆。</div>
+        </div>
+        
+        <div class="metrics-container">
+            <div class="metric-box">
+                <div class="metric-title">获客成本 (CAC)</div>
+                <div class="metric-value">极低</div>
+                <div class="metric-desc">供给侧 PLG 裂变与需求侧合伙人自带渠道，无需昂贵的市场投放。</div>
+            </div>
+            <div class="metric-box">
+                <div class="metric-title">生命周期价值 (LTV)</div>
+                <div class="metric-value">极高</div>
+                <div class="metric-desc">订阅 + 交付 + 认证 + 生态消费，四维变现拉长用户生命周期。</div>
+            </div>
+            <div class="metric-box highlight">
+                <div class="metric-title">LTV / CAC</div>
+                <div class="metric-value highlight">44x</div>
+                <div class="metric-desc">远超优秀 SaaS 企业 3-5x 的标准，体现了网络效应的巨大威力。</div>
+            </div>
+            <div class="metric-box">
+                <div class="metric-title">综合毛利率</div>
+                <div class="metric-value">55-65%</div>
+                <div class="metric-desc">A2A 架构让边际交付成本趋零，随着 Agent 资产增加，毛利持续攀升。</div>
+            </div>
+            <div class="metric-box">
+                <div class="metric-title">回收周期</div>
+                <div class="metric-value">&lt; 6 个月</div>
+                <div class="metric-desc">极短的现金流回收周期，确保在宏观不确定性下的较强生存力。</div>
+            </div>
+        </div>
+
+        <div class="bottom-quote">
+            "在 AI 时代，单位经济的本质是：用代码的边际成本，赚取人类判断力的溢价。"
+        </div>
+
+        <div class="footer">
+            <span>S1 · 单位经济</span>
+            <span>TABLE AI · Confidential · 2026</span>
+        </div>
+    </div>
+</body>
+</html>

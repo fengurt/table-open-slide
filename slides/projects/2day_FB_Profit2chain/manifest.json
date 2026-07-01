@@ -1,0 +1,313 @@
+{
+  "id": "2day-fb-profit2chain",
+  "title": "餐饮单店盈利实战",
+  "subtitle": "从活下去到可复制",
+  "description": "guizang-ppt-skill Atelier 主题 · 600 页中文互动旅程",
+  "slideCount": 600,
+  "deckPath": "slides/projects/2day_FB_Profit2chain/deck/index.html",
+  "pagesDir": "slides/projects/2day_FB_Profit2chain/pages",
+  "skillTemplate": "skills/tableai-guizang-ppt-skill/assets/template-atelier.html",
+  "theme": "atelier",
+  "modules": [
+    {
+      "id": "m1",
+      "act": "Day 1 · AM",
+      "title": "模块一 · 三重死亡时钟",
+      "start": 1,
+      "end": 13
+    },
+    {
+      "id": "m2",
+      "act": "Day 1 · AM",
+      "title": "模块二 · 营收公式",
+      "start": 14,
+      "end": 30
+    },
+    {
+      "id": "m3",
+      "act": "Day 1 · AM",
+      "title": "模块三 · 夹层困境",
+      "start": 31,
+      "end": 41
+    },
+    {
+      "id": "m4",
+      "act": "Day 1 · AM",
+      "title": "模块四 · 单店生死线",
+      "start": 42,
+      "end": 53
+    },
+    {
+      "id": "m5",
+      "act": "Day 1 · PM",
+      "title": "模块五 · 三种模型",
+      "start": 54,
+      "end": 65
+    },
+    {
+      "id": "m6",
+      "act": "Day 1 · PM",
+      "title": "模块六 · 产品结构翻译器",
+      "start": 66,
+      "end": 76
+    },
+    {
+      "id": "m7",
+      "act": "Day 1 · PM",
+      "title": "模块七 · 产品诊断实战",
+      "start": 77,
+      "end": 90
+    },
+    {
+      "id": "m8",
+      "act": "Day 2 · AM",
+      "title": "模块八 · 主辅佐引",
+      "start": 91,
+      "end": 103
+    },
+    {
+      "id": "m9",
+      "act": "Day 2 · AM",
+      "title": "模块九 · 价格带策略",
+      "start": 104,
+      "end": 112
+    },
+    {
+      "id": "m10",
+      "act": "Day 2 · PM",
+      "title": "模块十 · 双菜单战略",
+      "start": 113,
+      "end": 118
+    },
+    {
+      "id": "m11",
+      "act": "Day 2 · PM",
+      "title": "模块十一 · 九宫格菜单",
+      "start": 119,
+      "end": 125
+    },
+    {
+      "id": "m12",
+      "act": "Day 2 · PM",
+      "title": "模块十二 · 连锁种子",
+      "start": 126,
+      "end": 133
+    },
+    {
+      "id": "m13",
+      "act": "Day 2 · Close",
+      "title": "模块十三 · 结营与承诺",
+      "start": 134,
+      "end": 138
+    },
+    {
+      "id": "v-case",
+      "act": "Visual",
+      "title": "案例视觉流",
+      "start": 139,
+      "end": 558
+    },
+    {
+      "id": "v-close",
+      "act": "Close",
+      "title": "结营回顾",
+      "start": 559,
+      "end": 600
+    }
+  ],
+  "visualStreams": [
+    {
+      "start": 139,
+      "end": 168,
+      "brand": "南城香",
+      "tag": "转化率工程",
+      "module": "m2",
+      "beats": [
+        "清晨七点的客流洪峰",
+        "三元早餐与自助小菜",
+        "早餐→正餐转化数据链"
+      ]
+    },
+    {
+      "start": 169,
+      "end": 198,
+      "brand": "海底捞",
+      "tag": "甜品引流",
+      "module": "m2",
+      "beats": [
+        "外卖平台甜品标价",
+        "社交媒体晒单穿透",
+        "新客→会员→堂食链路"
+      ]
+    },
+    {
+      "start": 199,
+      "end": 228,
+      "brand": "袁记云饺",
+      "tag": "场景侵占",
+      "module": "m3",
+      "beats": [
+        "社区生鲜外带窗口",
+        "堂食白领快食线",
+        "周边竞品冷清反差"
+      ]
+    },
+    {
+      "start": 229,
+      "end": 258,
+      "brand": "锅圈食汇",
+      "tag": "跨界截流",
+      "module": "m3",
+      "beats": [
+        "标准化冷柜阵列",
+        "周末居家火锅场景",
+        "传统火锅上座率下滑"
+      ]
+    },
+    {
+      "start": 259,
+      "end": 288,
+      "brand": "辣可可",
+      "tag": "极限模型",
+      "module": "m4",
+      "beats": [
+        "核心商圈成本拆解",
+        "翻台率时段热力",
+        "扩张资金池压测"
+      ]
+    },
+    {
+      "start": 289,
+      "end": 318,
+      "brand": "超意兴",
+      "tag": "成本压榨",
+      "module": "m4",
+      "beats": [
+        "十元套餐视觉冲击",
+        "中央厨房流水线",
+        "七毛净利×恐怖出餐量"
+      ]
+    },
+    {
+      "start": 319,
+      "end": 348,
+      "brand": "麻小六",
+      "tag": "降维模型",
+      "module": "m5",
+      "beats": [
+        "正餐店 vs 轻量店",
+        "八十元→三十五元路径",
+        "次级商圈快速铺网"
+      ]
+    },
+    {
+      "start": 349,
+      "end": 378,
+      "brand": "大米先生",
+      "tag": "降本改良",
+      "module": "m6",
+      "beats": [
+        "改造前 SKU 密集墙",
+        "供应链源头集采",
+        "降价10%毛利反升5%"
+      ]
+    },
+    {
+      "start": 379,
+      "end": 408,
+      "brand": "辣可可",
+      "tag": "产品诊断",
+      "module": "m7",
+      "beats": [
+        "藕汤流量黑洞曲线",
+        "花龙隐藏宝藏毛利",
+        "水蒸蛋占位废弃率"
+      ]
+    },
+    {
+      "start": 409,
+      "end": 438,
+      "brand": "南城香",
+      "tag": "主辅佐引",
+      "module": "m8",
+      "beats": [
+        "米饭主食定场景",
+        "十五元辅菜利润区",
+        "季节引流弹性阵型"
+      ]
+    },
+    {
+      "start": 439,
+      "end": 468,
+      "brand": "价格带",
+      "tag": "双峰重塑",
+      "module": "m9",
+      "beats": [
+        "定价混乱菜单",
+        "缺乏低价锚点",
+        "南城香双峰曲线"
+      ]
+    },
+    {
+      "start": 469,
+      "end": 498,
+      "brand": "外卖热力图",
+      "tag": "选址核武",
+      "module": "m10",
+      "beats": [
+        "城市订单热力",
+        "街道地图叠加",
+        "二店首月盈利战报"
+      ]
+    },
+    {
+      "start": 499,
+      "end": 528,
+      "brand": "九宫格货架",
+      "tag": "视觉动线",
+      "module": "m11",
+      "beats": [
+        "劣质菜单红叉",
+        "眼动热力覆盖",
+        "Z型黄金排版范本"
+      ]
+    },
+    {
+      "start": 529,
+      "end": 558,
+      "brand": "区域品牌",
+      "tag": "跨区溃败",
+      "module": "m12",
+      "beats": [
+        "大本营门庭若市",
+        "新店客流断崖",
+        "同菜不同色 SOP 崩塌"
+      ]
+    },
+    {
+      "start": 559,
+      "end": 588,
+      "brand": "孟子三问",
+      "tag": "结营回顾",
+      "module": "m13",
+      "beats": [
+        "流量之问",
+        "现场手术讨论",
+        "承诺墙全景"
+      ]
+    },
+    {
+      "start": 589,
+      "end": 600,
+      "brand": "六十天契约",
+      "tag": "行动闭环",
+      "module": "m13",
+      "beats": [
+        "周级里程碑铁律",
+        "倒计时 60",
+        "顶峰相见"
+      ]
+    }
+  ],
+  "generatedAt": "2026-06-04T13:30:15.838Z"
+}

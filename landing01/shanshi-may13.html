@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>岁知社·山石研讨会 — 2026年5月13日</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@300;400;500;600&family=Noto+Sans+SC:wght@300;400;500&family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --bg:#090806;
+  --bg2:#111009;
+  --bg3:#1A1812;
+  --gold:#C49A50;
+  --gold-lt:#E2C07A;
+  --gold-dim:#7A6030;
+  --red:#8B2E18;
+  --stone:#DDD4C0;
+  --stone-mid:#928B7E;
+  --stone-dim:#504B46;
+  --serif:'Noto Serif SC',serif;
+  --sans:'Noto Sans SC',sans-serif;
+  --latin:'EB Garamond',serif;
+}
+body{background:var(--bg);color:var(--stone);font-family:var(--sans);font-weight:300;-webkit-font-smoothing:antialiased;max-width:960px;margin:0 auto}
+
+/* NAV */
+nav{display:flex;justify-content:space-between;align-items:center;padding:15px 40px;border-bottom:1px solid rgba(196,154,80,0.15)}
+.nav-brand{font-family:var(--serif);font-size:14px;letter-spacing:0.22em;color:var(--gold)}
+.nav-tag{font-size:10px;letter-spacing:0.3em;color:var(--stone-mid);font-family:var(--latin);border:1px solid rgba(196,154,80,0.2);padding:3px 10px}
+
+/* HERO */
+.hero{padding:36px 40px 28px;border-bottom:1px solid rgba(196,154,80,0.1);position:relative;overflow:hidden}
+.hero-bg{position:absolute;right:-20px;top:-10px;font-family:var(--serif);font-size:240px;color:rgba(196,154,80,0.03);line-height:1;pointer-events:none;user-select:none}
+.hero-eyebrow{display:flex;align-items:center;gap:10px;margin-bottom:16px}
+.eyebrow-line{width:16px;height:1px;background:var(--gold-dim)}
+.eyebrow-text{font-size:10px;letter-spacing:0.35em;color:var(--gold);text-transform:uppercase;font-family:var(--latin)}
+.hero-kicker{font-size:12px;color:var(--stone-mid);letter-spacing:0.12em;margin-bottom:12px;font-family:var(--latin)}
+.hero-title{font-family:var(--serif);font-size:clamp(22px,3.8vw,38px);font-weight:500;line-height:1.38;color:#F0E8D8;margin-bottom:10px}
+.hero-title em{font-style:normal;color:var(--gold)}
+.hero-sub{font-size:13px;color:var(--stone-mid);line-height:1.85;max-width:560px;margin-bottom:22px}
+.hero-tags{display:flex;gap:7px;flex-wrap:wrap;margin-bottom:24px}
+.htag{font-size:10px;padding:3px 10px;border:1px solid rgba(196,154,80,0.2);color:var(--gold-lt);letter-spacing:0.08em}
+.meta-strip{display:flex;gap:0;border:1px solid rgba(196,154,80,0.15)}
+.mi{flex:1;padding:11px 16px;display:flex;flex-direction:column;gap:3px;border-right:1px solid rgba(196,154,80,0.1)}
+.mi:last-child{border-right:none}
+.ml{font-size:9px;letter-spacing:0.22em;color:var(--stone-dim);text-transform:uppercase}
+.mv{font-size:12px;color:var(--stone);letter-spacing:0.03em}
+
+/* AUDIENCE STRIP */
+.aud-strip{padding:15px 40px;background:var(--bg2);border-bottom:1px solid rgba(196,154,80,0.1);display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.al{font-size:9px;letter-spacing:0.3em;color:var(--stone-dim);text-transform:uppercase;font-family:var(--latin);white-space:nowrap}
+.adiv{width:1px;height:12px;background:var(--stone-dim);flex-shrink:0}
+.atags{display:flex;gap:16px;flex-wrap:wrap}
+.atag{font-size:11px;color:var(--stone);display:flex;align-items:center;gap:5px}
+.atag::before{content:'';width:3px;height:3px;border-radius:50%;background:var(--gold);flex-shrink:0}
+
+/* SECTION LABEL */
+.slabel{font-size:9px;letter-spacing:0.38em;color:var(--gold);text-transform:uppercase;font-family:var(--latin);display:block;margin-bottom:12px}
+.gline{width:24px;height:1px;background:var(--gold-dim);margin-bottom:14px}
+
+/* TWO COL */
+.twocol{display:grid;grid-template-columns:1fr 1fr;border-bottom:1px solid rgba(196,154,80,0.1)}
+.cb{padding:26px 40px}
+.cb+.cb{border-left:1px solid rgba(196,154,80,0.1)}
+
+/* TOPICS */
+.topics{display:flex;flex-direction:column;gap:1px;background:rgba(196,154,80,0.1);margin-top:14px}
+.topic-item{background:var(--bg);padding:16px 18px;display:flex;gap:14px;align-items:flex-start}
+.topic-num{font-family:var(--latin);font-size:22px;color:var(--gold-dim);line-height:1;flex-shrink:0;width:24px}
+.topic-body{}
+.topic-title{font-family:var(--serif);font-size:13px;color:#EDE3CE;font-weight:400;margin-bottom:4px}
+.topic-desc{font-size:11px;color:var(--stone-mid);line-height:1.7}
+.topic-speaker{font-size:10px;color:var(--gold-dim);margin-top:5px;letter-spacing:0.08em}
+
+/* SCHEDULE */
+.schedule{display:flex;flex-direction:column}
+.si{display:grid;grid-template-columns:64px 1fr;border-top:1px solid rgba(196,154,80,0.1);padding:12px 0;gap:0}
+.si:last-child{border-bottom:1px solid rgba(196,154,80,0.1)}
+.st{font-family:var(--latin);font-size:12px;color:var(--gold-dim);padding-top:1px}
+.sc{}
+.se{font-size:12px;color:var(--stone);line-height:1.45}
+.se strong{color:#EDE3CE;font-weight:500}
+.sn{font-size:10px;color:var(--stone-dim);margin-top:2px}
+.sbadge{display:inline-block;font-size:9px;letter-spacing:0.14em;padding:1px 6px;border:1px solid var(--gold-dim);color:var(--gold);font-family:var(--latin);margin-left:5px;vertical-align:middle}
+
+/* HIGHLIGHT ROW */
+.si.highlight{background:rgba(196,154,80,0.04)}
+.si.highlight .se{color:#EDE3CE}
+
+/* SPEAKERS */
+.spk-wrap{padding:26px 40px;border-bottom:1px solid rgba(196,154,80,0.1)}
+.spk-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:1px;background:rgba(196,154,80,0.1);margin-top:14px}
+.spk{background:var(--bg);padding:18px 14px;position:relative}
+.spk-av{width:36px;height:36px;border-radius:50%;border:1px solid rgba(196,154,80,0.25);display:flex;align-items:center;justify-content:center;margin-bottom:10px;font-family:var(--serif);font-size:14px;color:var(--gold)}
+.spk-name{font-family:var(--serif);font-size:14px;color:#EDE3CE;font-weight:400;margin-bottom:3px}
+.spk-role{font-size:10px;color:var(--stone-dim);line-height:1.6}
+.spk-div{width:16px;height:1px;background:var(--gold-dim);margin:8px 0}
+.spk-tag{font-size:9px;letter-spacing:0.12em;padding:2px 7px;border:1px solid rgba(196,154,80,0.2);color:var(--gold);display:inline-block;font-family:var(--latin)}
+.host-badge{position:absolute;top:12px;right:12px;font-size:8px;letter-spacing:0.18em;color:var(--gold);border:1px solid var(--gold-dim);padding:1px 6px;font-family:var(--latin);text-transform:uppercase}
+
+/* BOTTOM ROW */
+.btmrow{display:grid;grid-template-columns:1fr 1fr}
+.db{padding:26px 40px}
+.db+.db{border-left:1px solid rgba(196,154,80,0.1)}
+.drow{margin-bottom:13px}
+.dlabel{font-size:9px;letter-spacing:0.25em;color:var(--stone-dim);text-transform:uppercase;margin-bottom:3px}
+.dval{font-size:12px;color:var(--stone);line-height:1.6}
+.dnote{font-size:10px;color:var(--stone-dim);margin-top:1px}
+.rsvp-box{background:var(--bg2);border:1px solid rgba(196,154,80,0.18);padding:16px;margin-top:16px}
+.rsvp-t{font-family:var(--serif);font-size:14px;color:#EDE3CE;margin-bottom:6px;font-weight:400}
+.rsvp-n{font-size:11px;color:var(--stone-mid);line-height:1.75;margin-bottom:14px}
+.rsvp-btn{display:inline-block;padding:9px 22px;background:var(--gold);color:#09080A;font-size:11px;letter-spacing:0.15em;font-family:var(--serif);font-weight:500;cursor:pointer}
+.rsvp-lim{font-size:10px;color:var(--stone-dim);margin-top:9px}
+
+/* DIVIDER */
+.sec-div{border:none;border-top:1px solid rgba(196,154,80,0.1)}
+
+/* FOOTER */
+footer{padding:14px 40px;border-top:1px solid rgba(196,154,80,0.12);display:flex;justify-content:space-between;align-items:center}
+.fb{font-family:var(--serif);font-size:11px;color:var(--stone-mid);letter-spacing:0.15em}
+.fc{font-size:10px;color:var(--stone-dim);font-family:var(--latin)}
+
+@media(max-width:700px){
+  nav,.hero,.aud-strip,.cb,.spk-wrap,.db{padding-left:20px;padding-right:20px}
+  .twocol,.btmrow{grid-template-columns:1fr}
+  .cb+.cb{border-left:none;border-top:1px solid rgba(196,154,80,0.1)}
+  .db+.db{border-left:none;border-top:1px solid rgba(196,154,80,0.1)}
+  .spk-grid{grid-template-columns:repeat(2,1fr)}
+  .meta-strip{flex-direction:column}
+  .mi{border-right:none;border-bottom:1px solid rgba(196,154,80,0.1)}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-brand">岁知社</div>
+  <div class="nav-tag">山石研讨会 · 2026.05.13</div>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-bg">利</div>
+  <div class="hero-eyebrow">
+    <div class="eyebrow-line"></div>
+    <span class="eyebrow-text">Suizhi Society · Shanshi Seminar</span>
+    <div class="eyebrow-line"></div>
+  </div>
+  <div class="hero-kicker">2026年5月13日（周三）· 北京 · 14:00—16:30</div>
+  <h1 class="hero-title">一道菜的净利润——<br><em>AI 时代，餐饮老板的新算盘</em></h1>
+  <p class="hero-sub">菜品定价拍脑袋、备货凭经验、差评靠运气——这些地方每年漏掉多少钱？<br>今天我们不聊 AI 概念，只聊一件事：怎么让你的店多赚钱、少跑冒滴漏。</p>
+  <div class="hero-tags">
+    <span class="htag">智能体落地</span>
+    <span class="htag">无人公司实践</span>
+    <span class="htag">餐饮净利润实战</span>
+    <span class="htag">老板圆桌</span>
+  </div>
+  <div class="meta-strip">
+    <div class="mi"><span class="ml">日期</span><span class="mv">2026年5月13日</span></div>
+    <div class="mi"><span class="ml">时间</span><span class="mv">14:00 — 16:30</span></div>
+    <div class="mi"><span class="ml">地点</span><span class="mv">北京（报名后通知）</span></div>
+    <div class="mi"><span class="ml">规模</span><span class="mv">限额 20 人</span></div>
+    <div class="mi"><span class="ml">形式</span><span class="mv">研讨会 · 邀请制</span></div>
+  </div>
+</div>
+
+<!-- AUDIENCE -->
+<div class="aud-strip">
+  <span class="al">面向人群</span>
+  <div class="adiv"></div>
+  <div class="atags">
+    <span class="atag">餐饮老板 · 连锁创始人</span>
+    <span class="atag">酒店经营者</span>
+    <span class="atag">企业决策者</span>
+    <span class="atag">关注 AI 落地与增利的管理者</span>
+  </div>
+</div>
+
+<!-- TOPICS + SCHEDULE -->
+<div class="twocol">
+
+  <!-- LEFT: 三大议题 -->
+  <div class="cb">
+    <span class="slabel">三大研讨议题 · Agenda Topics</span>
+    <div class="gline"></div>
+    <div class="topics">
+      <div class="topic-item">
+        <div class="topic-num">01</div>
+        <div class="topic-body">
+          <div class="topic-title">智能体的企业级落地</div>
+          <div class="topic-desc">Agent 不只是聊天机器人——它如何真正嵌入企业运营流程，替代重复性人工，创造可量化的效率收益？</div>
+          <div class="topic-speaker">主讲：周健</div>
+        </div>
+      </div>
+      <div class="topic-item">
+        <div class="topic-num">02</div>
+        <div class="topic-body">
+          <div class="topic-title">无人公司·未来已来</div>
+          <div class="topic-desc">一人或极少数人运营一家公司的模式正在成真。对餐饮和酒店行业意味着什么？哪些岗位先变，哪些留下来？</div>
+          <div class="topic-speaker">主讲：李智勇</div>
+        </div>
+      </div>
+      <div class="topic-item">
+        <div class="topic-num">03</div>
+        <div class="topic-body">
+          <div class="topic-title">餐饮实战圆桌：从盘点到净利润</div>
+          <div class="topic-desc">定价、备货、排班、口碑——逐一拆解利润损耗的真实场景，结合在场老板的真实数据，现场给出可执行的改进点。</div>
+          <div class="topic-speaker">主持：郭峰 · 圆桌嘉宾：吴松德 · 边江 · 在场餐饮老板</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- RIGHT: 日程 -->
+  <div class="cb" style="border-left:1px solid rgba(196,154,80,0.1)">
+    <span class="slabel">活动日程 · Schedule</span>
+    <div class="gline"></div>
+    <div class="schedule">
+      <div class="si">
+        <div class="st">14:00</div>
+        <div class="sc">
+          <div class="se">签到入场 · 茶歇暖场</div>
+          <div class="sn">自由交流，认识在场嘉宾</div>
+        </div>
+      </div>
+      <div class="si highlight">
+        <div class="st">14:10</div>
+        <div class="sc">
+          <div class="se"><strong>郭峰 开场分享</strong><span class="sbadge">30 min</span></div>
+          <div class="sn">AI 浪潮下的餐饮机遇——趋势、案例与今日议程</div>
+        </div>
+      </div>
+      <div class="si highlight">
+        <div class="st">14:40</div>
+        <div class="sc">
+          <div class="se"><strong>研讨一：智能体的企业级落地</strong><span class="sbadge">25 min</span></div>
+          <div class="sn">主讲：周健 · 含 5 分钟问答</div>
+        </div>
+      </div>
+      <div class="si highlight">
+        <div class="st">15:05</div>
+        <div class="sc">
+          <div class="se"><strong>研讨二：无人公司·未来已来</strong><span class="sbadge">25 min</span></div>
+          <div class="sn">主讲：李智勇 · 含 5 分钟问答</div>
+        </div>
+      </div>
+      <div class="si highlight">
+        <div class="st">15:30</div>
+        <div class="sc">
+          <div class="se"><strong>研讨三：餐饮实战圆桌</strong><span class="sbadge">35 min</span></div>
+          <div class="sn">从盘点到净利润 · 主持：郭峰 · 嘉宾：吴松德 · 边江</div>
+        </div>
+      </div>
+      <div class="si">
+        <div class="st">16:05</div>
+        <div class="sc">
+          <div class="se">自由交流</div>
+          <div class="sn">非正式连接，延伸对话</div>
+        </div>
+      </div>
+      <div class="si">
+        <div class="st">16:30</div>
+        <div class="sc">
+          <div class="se">活动结束</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SPEAKERS -->
+<div class="spk-wrap">
+  <span class="slabel">嘉宾阵容 · Speakers</span>
+  <div class="gline"></div>
+  <div class="spk-grid">
+
+    <div class="spk">
+      <div class="host-badge">主持 · 主讲</div>
+      <div class="spk-av">峰</div>
+      <div class="spk-name">郭峰</div>
+      <div class="spk-role">TABLE AI 董事长<br>OPC Global 创始人 / 秘书长<br>微软 &amp; Nibiru 合伙人</div>
+      <div class="spk-div"></div>
+      <span class="spk-tag">AI 落地 · 组织重构</span>
+    </div>
+
+    <div class="spk">
+      <div class="spk-av">健</div>
+      <div class="spk-name">周健</div>
+      <div class="spk-role">智能体企业应用专家</div>
+      <div class="spk-div"></div>
+      <span class="spk-tag">企业级 Agent</span>
+    </div>
+
+    <div class="spk">
+      <div class="spk-av">松</div>
+      <div class="spk-name">吴松德</div>
+      <div class="spk-role">餐饮行业实战嘉宾</div>
+      <div class="spk-div"></div>
+      <span class="spk-tag">餐饮运营</span>
+    </div>
+
+    <div class="spk">
+      <div class="spk-av">勇</div>
+      <div class="spk-name">李智勇</div>
+      <div class="spk-role">无人公司实践者<br>OPC 领域探索者</div>
+      <div class="spk-div"></div>
+      <span class="spk-tag">无人公司 · OPC</span>
+    </div>
+
+    <div class="spk">
+      <div class="spk-av">江</div>
+      <div class="spk-name">边江</div>
+      <div class="spk-role">餐饮创业者<br>圆桌嘉宾</div>
+      <div class="spk-div"></div>
+      <span class="spk-tag">餐饮实战</span>
+    </div>
+
+  </div>
+</div>
+
+<!-- DETAILS + RSVP -->
+<div class="btmrow">
+  <div class="db">
+    <span class="slabel">活动详情 · Details</span>
+    <div class="gline"></div>
+    <div class="drow">
+      <div class="dlabel">日期与时间</div>
+      <div class="dval">2026年5月13日（周三）14:00—16:30</div>
+      <div class="dnote">14:00 开始签到，14:10 正式开始</div>
+    </div>
+    <div class="drow">
+      <div class="dlabel">地点</div>
+      <div class="dval">北京</div>
+      <div class="dnote">具体地点报名后通知</div>
+    </div>
+    <div class="drow">
+      <div class="dlabel">形式</div>
+      <div class="dval">邀请制研讨会 · 限额 20 席</div>
+    </div>
+    <div class="drow">
+      <div class="dlabel">携带</div>
+      <div class="dval">笔记本或平板电脑（实操环节使用）</div>
+    </div>
+    <div class="drow">
+      <div class="dlabel">主办</div>
+      <div class="dval">岁知社 · 山石系列</div>
+    </div>
+  </div>
+
+  <div class="db" style="border-left:1px solid rgba(196,154,80,0.1)">
+    <span class="slabel">申请参与 · RSVP</span>
+    <div class="gline"></div>
+    <div class="rsvp-box">
+      <div class="rsvp-t">这场对话，只给真正在干的人</div>
+      <div class="rsvp-n">山石研讨会为邀请制，每期严格控制人数，确保每一位在场的人都值得交谈。如您在餐饮、酒店或相关行业经营，欢迎申请参与。报名截止 5月11日。</div>
+      <div class="rsvp-btn">申请参与 →</div>
+      <div class="rsvp-lim">本期剩余名额有限 · 额满即止</div>
+    </div>
+    <div style="margin-top:16px;padding:14px;background:rgba(196,154,80,0.04);border:1px solid rgba(196,154,80,0.12)">
+      <div style="font-size:10px;color:var(--stone-dim);letter-spacing:0.1em;margin-bottom:6px">活动后福利</div>
+      <div style="font-size:11px;color:var(--stone-mid);line-height:1.75">参与者加入岁知社专属行业群，每周获取餐饮 AI 工具最新动态与实用提示，持续保持认知更新。</div>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="fb">岁知社 · 山石研讨会 · 2026.05.13</div>
+  <div class="fc">Suizhi Society · Beijing · 2026</div>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@700&family=Noto+Sans+SC:wght@400;500;700&family=Cormorant+Garamond:wght@600&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        .slide-container { 
+            width: 1280px; 
+            min-height: 720px; 
+            background: #FFFFFF; 
+            position: relative;
+            font-family: 'Noto Sans SC', sans-serif;
+            overflow: hidden;
+        }
+        .header {
+            position: absolute;
+            top: 80px;
+            left: 120px;
+            width: 1040px;
+        }
+        .chapter-label {
+            font-family: 'Inter', sans-serif;
+            font-size: 14px;
+            color: #A88B52;
+            letter-spacing: 2px;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+        .main-title {
+            font-family: 'Noto Serif SC', serif;
+            font-size: 48px;
+            color: #0A1626;
+            margin-bottom: 16px;
+        }
+        .subtitle {
+            font-size: 20px;
+            color: #6B7280;
+        }
+        .content-area {
+            position: absolute;
+            top: 280px;
+            left: 120px;
+            width: 1040px;
+            display: flex;
+            gap: 60px;
+        }
+        .column {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        .roman-numeral {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 64px;
+            color: #A88B52;
+            line-height: 1;
+            margin-bottom: 16px;
+        }
+        .separator {
+            width: 100%;
+            height: 1px;
+            background-color: #A88B52;
+            margin-bottom: 24px;
+            opacity: 0.5;
+        }
+        .col-title {
+            font-family: 'Noto Serif SC', serif;
+            font-size: 24px;
+            color: #0A1626;
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+        .col-desc {
+            font-size: 18px;
+            color: #6B7280;
+            line-height: 1.8;
+        }
+        .col-desc strong {
+            color: #0A1626;
+            font-weight: 700;
+        }
+        .conclusion {
+            position: absolute;
+            bottom: 80px;
+            left: 120px;
+            width: 1040px;
+            border-top: 1px solid #A88B52;
+            padding-top: 24px;
+            font-size: 16px;
+            color: #0A1626;
+        }
+        .footer {
+            position: absolute;
+            right: 40px;
+            bottom: 30px;
+            font-size: 10px;
+            color: #A88B52;
+            font-family: 'Inter', sans-serif;
+        }
+    </style>
+</head>
+<body>
+    <div class="slide-container">
+        <div class="header">
+            <div class="chapter-label">THE 40% · 成功的共性</div>
+            <div class="main-title">走到生产的 40%，都做对了三件事</div>
+            <div class="subtitle">来自亚马逊云科技调研</div>
+        </div>
+        
+        <div class="content-area">
+            <div class="column">
+                <div class="roman-numeral">I.</div>
+                <div class="separator"></div>
+                <div class="col-title">场景评估优先</div>
+                <div class="col-desc">在 ROI、预算、时间三个维度做<strong>全面评估</strong>，<br>不只看模型效果。</div>
+            </div>
+            <div class="column">
+                <div class="roman-numeral">II.</div>
+                <div class="separator"></div>
+                <div class="col-title">技术选型务实</div>
+                <div class="col-desc">选<strong>合适的合作伙伴</strong>——<br>不追最新、不追最贵。</div>
+            </div>
+            <div class="column">
+                <div class="roman-numeral">III.</div>
+                <div class="separator"></div>
+                <div class="col-title">系统化思维</div>
+                <div class="col-desc">量化<strong>生产化后的成本与收益</strong>，<br>不只关注技术本身。</div>
+            </div>
+        </div>
+        
+        <div class="conclusion">
+            "模型只是入口，路径选择才是分水岭。"
+        </div>
+        
+        <div class="footer">少数人的视野 — 岁知社闭门分享 · 郭峰 · 2026.05.14</div>
+    </div>
+</body>
+</html>

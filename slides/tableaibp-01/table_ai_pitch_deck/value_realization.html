@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;800&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        .slide-container {
+            width: 1280px;
+            min-height: 720px;
+            background-color: #FFFFFF;
+            font-family: 'Google Sans', 'Noto Sans SC', sans-serif;
+            position: relative;
+            padding-top: 60px;
+            padding-left: 80px;
+            padding-right: 80px;
+        }
+        .header { margin-bottom: 30px; }
+        .page-title {
+            color: #A88B52; font-size: 16px; font-weight: 400;
+            text-transform: uppercase; letter-spacing: 1px; margin-bottom: 10px;
+        }
+        .title {
+            color: #0A1626; font-size: 36px; font-weight: 800; line-height: 1.3;
+        }
+        .section-label {
+            color: #A88B52; font-size: 14px; font-weight: 800;
+            text-transform: uppercase; letter-spacing: 2px;
+            margin-top: 20px; margin-bottom: 12px;
+        }
+        .three-col { display: flex; gap: 30px; }
+        .deliv {
+            flex: 1; border-top: 2px solid #0A1626; padding-top: 14px;
+        }
+        .deliv-num {
+            color: #A88B52; font-size: 24px; font-weight: 800; margin-bottom: 6px;
+        }
+        .deliv-title {
+            color: #0A1626; font-size: 18px; font-weight: 800; margin-bottom: 6px;
+        }
+        .deliv-desc {
+            color: #2C3E50; font-size: 15px; font-weight: 300; line-height: 1.55;
+        }
+        .chain-row {
+            display: flex; align-items: stretch;
+            margin-top: 18px;
+        }
+        .chain-side {
+            flex: 1; padding: 18px; padding-bottom: 0;
+            background-color: #F8F9FA;
+            border-top: 1px solid #A8ADAD;
+            border-bottom: 1px solid #A8ADAD;
+        }
+        .chain-mid {
+            flex: 1.4; padding: 18px;
+            background-color: #FDFBF7;
+            border-top: 2px solid #A88B52;
+            border-bottom: 2px solid #A88B52;
+            text-align: center;
+        }
+        .arrow {
+            display: flex; align-items: center; justify-content: center;
+            color: #A88B52; font-size: 28px; font-weight: 800; padding: 0 8px;
+        }
+        .chain-label {
+            color: #A88B52; font-size: 13px; font-weight: 800;
+            text-transform: uppercase; letter-spacing: 1px; margin-bottom: 6px;
+        }
+        .chain-name {
+            color: #0A1626; font-size: 18px; font-weight: 800; margin-bottom: 4px;
+        }
+        .chain-desc {
+            color: #2C3E50; font-size: 14px; font-weight: 300; line-height: 1.5;
+        }
+        .chain-mid .chain-name { font-size: 22px; }
+        .footer {
+            position: absolute; bottom: 30px; left: 80px; right: 80px;
+            color: #2C3E50; font-size: 14px; font-weight: 300;
+            border-top: 1px solid #A88B52; padding-top: 10px;
+            display: flex; justify-content: space-between;
+        }
+    </style>
+</head>
+<body>
+    <div class="slide-container">
+        <div class="header">
+            <div class="page-title">R · 价值实现与生态位</div>
+            <div class="title">我们交付的是结果 (RaaS)，占据的是清算层</div>
+        </div>
+
+        <div class="section-label">我们交付什么 · Three RaaS Deliverables</div>
+        <div class="three-col">
+            <div class="deliv">
+                <div class="deliv-num">A</div>
+                <div class="deliv-title">专家 Agent 资产</div>
+                <div class="deliv-desc">顶级专家的判断力被代码化、确权，按调用次数 / Token 收费。</div>
+            </div>
+            <div class="deliv">
+                <div class="deliv-num">B</div>
+                <div class="deliv-title">真实商业成果</div>
+                <div class="deliv-desc">第二曲线咨询、政企数字化、跨境出海大单——按 PoC 与项目收费。</div>
+            </div>
+            <div class="deliv">
+                <div class="deliv-num">C</div>
+                <div class="deliv-title">跨界学分与认证</div>
+                <div class="deliv-desc">OPC Global 跨场景学分 + PTS 积分，按学员订阅 / 增值服务收费。</div>
+            </div>
+        </div>
+
+        <div class="section-label">我们在产业链中的位置 · 教育部 + 央行</div>
+        <div class="chain-row">
+            <div class="chain-side">
+                <div class="chain-label">上游 · 供给</div>
+                <div class="chain-name">全球顶尖专家</div>
+                <div class="chain-desc">大学教授 / 上市公司高管 / 行业实战派 / 跨界艺术家</div>
+            </div>
+            <div class="arrow">→</div>
+            <div class="chain-mid">
+                <div class="chain-label">TABLE AI · 中间层清算协议</div>
+                <div class="chain-name">确权 · 学分 · 分账</div>
+                <div class="chain-desc">零信任分账基座 + 跨场景学分认证 + 真实订单分发，<br>不抽成专家协作利润，只收基础协议订阅费。</div>
+            </div>
+            <div class="arrow">→</div>
+            <div class="chain-side">
+                <div class="chain-label">下游 · 需求</div>
+                <div class="chain-name">学生 · 企业 · 政企</div>
+                <div class="chain-desc">高校学子 / 上市公司 / 出海企业 / 政府数字化项目</div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <span>R · 价值实现与生态位</span>
+            <span>TABLE AI · Confidential · 2026</span>
+        </div>
+    </div>
+</body>
+</html>

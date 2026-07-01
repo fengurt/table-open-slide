@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        .slide-container {
+            width: 1280px;
+            min-height: 720px;
+            background-color: #0A1626; /* Deep Blue background */
+            font-family: 'Noto Sans SC', sans-serif;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .content-wrapper {
+            width: 1080px;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            gap: 80px;
+            margin-top: -20px;
+        }
+/* Left Column Styles */
+        .left-col {
+            flex: 1;
+            text-align: left;
+            display: flex;
+            flex-direction: column;
+        }
+        .quote-icon {
+            font-size: 80px;
+            color: rgba(168, 139, 82, 0.3);
+            line-height: 1;
+            margin-bottom: -20px;
+            font-family: Georgia, serif;
+        }
+        .quote-cn {
+            font-size: 34px;
+            color: #FFFFFF;
+            font-weight: 500;
+            letter-spacing: 4px;
+            margin-bottom: 15px;
+            line-height: 1.4;
+        }
+        .quote-en {
+            font-size: 16px;
+            color: rgba(255, 255, 255, 0.5);
+            font-weight: 300;
+            font-style: italic;
+            letter-spacing: 1px;
+            margin-bottom: 20px;
+            font-family: Georgia, serif;
+        }
+        .quote-author {
+            font-size: 16px;
+            color: #A88B52;
+            font-weight: 400;
+            letter-spacing: 2px;
+            margin-bottom: 40px;
+        }
+        .divider {
+            width: 60px;
+            height: 2px;
+            background-color: rgba(168, 139, 82, 0.5);
+            margin-bottom: 30px;
+        }
+        .narrative-context {
+            font-size: 18px;
+            color: rgba(255, 255, 255, 0.8);
+            font-weight: 300;
+            line-height: 1.8;
+        }
+/* Right Column Styles */
+        .right-col {
+            flex: 1.1;
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+        .choice-card {
+            background: rgba(255, 255, 255, 0.02);
+            border-left: 3px solid #A88B52;
+            padding: 30px 35px;
+            text-align: left;
+        }
+        .choice-title-en {
+            font-size: 14px;
+            color: #A88B52;
+            font-weight: 500;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            margin-bottom: 15px;
+        }
+        .choice-options {
+            font-size: 20px;
+            color: rgba(255, 255, 255, 0.9);
+            font-weight: 300;
+            line-height: 1.8;
+        }
+        .highlight {
+            color: #A88B52;
+            font-weight: 500;
+        }
+        .cta-box {
+            border: 1px solid rgba(168, 139, 82, 0.4);
+            padding: 25px 35px;
+            background-color: rgba(168, 139, 82, 0.05);
+            text-align: left;
+        }
+        .cta-text-cn {
+            font-size: 22px;
+            color: #A88B52;
+            font-weight: 700;
+            letter-spacing: 3px;
+            margin-bottom: 8px;
+        }
+        .cta-text-en {
+            font-size: 12px;
+            color: rgba(168, 139, 82, 0.8);
+            font-weight: 400;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+/* Contact Section Styles */
+        .contact-section {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+            padding-top: 10px;
+            padding-left: 5px;
+        }
+        .qr-placeholder {
+            width: 80px;
+            height: 80px;
+            border: 1px dashed rgba(168, 139, 82, 0.6);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background-color: rgba(255, 255, 255, 0.02);
+        }
+        .qr-placeholder span {
+            font-size: 10px;
+            color: rgba(168, 139, 82, 0.8);
+            letter-spacing: 1px;
+            margin-top: 4px;
+        }
+        .qr-placeholder .icon {
+            font-size: 20px;
+            color: rgba(168, 139, 82, 0.5);
+        }
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            text-align: left;
+        }
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        .contact-label {
+            font-size: 11px;
+            color: #A88B52;
+            font-weight: 500;
+            letter-spacing: 2px;
+            width: 40px;
+        }
+        .contact-value {
+            font-size: 16px;
+            color: rgba(255, 255, 255, 0.9);
+            font-weight: 300;
+            letter-spacing: 1px;
+            font-family: 'Noto Sans SC', sans-serif;
+        }
+/* Global Elements */
+        .logo-watermark {
+            position: absolute;
+            bottom: 40px;
+            right: 40px;
+        }
+        .logo-watermark img {
+            width: 48px;
+            height: 48px;
+            object-fit: contain;
+            opacity: 0.5;
+        }
+        .global-footer {
+            position: absolute;
+            bottom: 25px;
+            left: 0;
+            right: 0;
+            text-align: center;
+            font-size: 11px;
+            color: rgba(255, 255, 255, 0.35);
+            font-weight: 300;
+            letter-spacing: 2px;
+        }
+    </style>
+</head>
+<body><div class="slide-container">
+        <div class="content-wrapper">
+<!-- Left Column: Philosophical Premise -->
+            <div class="left-col">
+                <div class="quote-icon">"</div>
+                <div class="quote-cn">人生而自由，<br>却无往不在枷锁之中。</div>
+                <div class="quote-en">Man is born free, and everywhere he is in chains.</div>
+                <div class="quote-author">— 卢梭 (Jean-Jacques Rousseau)</div>
+<div class="divider"></div>
+<div class="narrative-context">
+                    在 AGI 深刻重塑社会的时代，<br>这道枷锁化作了无形的算法茧房。<br>我们每天都在面对，并不得不做出抉择：
+                </div>
+            </div>
+<!-- Right Column: Action & Contact -->
+            <div class="right-col">
+                <div class="choice-card">
+                    <div class="choice-title-en">A Civilizational Choice</div>
+                    <div class="choice-options" style="width: 480.16px; min-width: 480.16px; max-width: 480.16px; transform: translate(0px, 0px);">
+                        是交出灵魂的主权，在数字的喂养中<span class="highlight">消耗沉沦</span>；<br>
+                        还是以专业与热爱为锚，开启驾驭算法的<span class="highlight">自由人生</span>？
+                    </div>
+                </div>
+<div class="cta-box">
+                    <div class="cta-text-cn">加入我们，成为这场变革的共创者。</div>
+                    <div class="cta-text-en">Join us as a co-creator of this Great Awakening.</div>
+                </div>
+<div class="contact-section">
+                    <div class="qr-placeholder">
+                        <div class="icon">⊞</div>
+                        <span>企业微信</span>
+                    </div>
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <span class="contact-label">TEL</span>
+                            <span class="contact-value">4001076988</span>
+                        </div>
+                        <div class="contact-item">
+                            <span class="contact-label">MAIL</span>
+                            <span class="contact-value">hi@opcglobal.ai</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+</div>
+<div class="logo-watermark">
+            <img src="/home/ubuntu/opc_global_presentation/a2a_logo_white.png" alt="Logo">
+        </div>
+        <div class="global-footer">善用智能 终获自由 &nbsp;&nbsp;|&nbsp;&nbsp; OPC Global All Rights Reserved</div>
+    </div>
+</body>
+</html>

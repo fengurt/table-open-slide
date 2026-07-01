@@ -1,0 +1,13 @@
+{
+  "sections": [
+    { "file": "boss-new-abacus-01-top-nav.png", "union": [".top-rule", "nav"] },
+    { "file": "boss-new-abacus-02-hero.png", "selector": ".hero" },
+    { "file": "boss-new-abacus-03-story.png", "selector": ".story" },
+    { "file": "boss-new-abacus-04-focus-intro.png", "union": [".sec-head", ".sec-intro"] },
+    { "file": "boss-new-abacus-05-three-topics.png", "selector": ".grid3" },
+    { "file": "boss-new-abacus-06-speakers.png", "selector": ".spk-sec" },
+    { "file": "boss-new-abacus-07-format.png", "selector": ".format" },
+    { "file": "boss-new-abacus-08-rsvp.png", "selector": ".cta" },
+    { "file": "boss-new-abacus-09-footer.png", "union": [".disclaimer", "footer"] }
+  ]
+}

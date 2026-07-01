@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&family=Noto+Serif+SC:wght@400;600&family=Inter:wght@300;400;600&family=Noto+Sans+SC:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        .slide-container { 
+            width: 1280px; 
+            min-height: 720px; 
+            background: #FFFFFF; 
+            position: relative;
+            overflow: hidden;
+            font-family: 'Inter', 'Noto Sans SC', sans-serif;
+            color: #1A2639;
+        }
+        .content-wrapper {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            padding: 80px 100px;
+            display: flex;
+            flex-direction: column;
+        }
+        .eyebrow {
+            font-family: 'Inter', sans-serif;
+            font-size: 14px;
+            color: #A88B52;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 16px;
+        }
+        .headline {
+            font-family: 'Cormorant Garamond', 'Noto Serif SC', serif;
+            font-size: 40px;
+            color: #0A1626;
+            font-weight: 600;
+            margin-bottom: 16px;
+        }
+        .sub-lede {
+            font-size: 18px;
+            color: #1A2639;
+            opacity: 0.8;
+            margin-bottom: 60px;
+        }
+        .table-container {
+            width: 100%;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th {
+            font-family: 'Inter', 'Noto Sans SC', sans-serif;
+            font-size: 18px;
+            color: #0A1626;
+            font-weight: 600;
+            text-align: center;
+            padding-bottom: 20px;
+            border-bottom: 2px solid #0A1626;
+        }
+        th:first-child {
+            text-align: left;
+        }
+        td {
+            padding: 20px 0;
+            border-bottom: 1px solid rgba(10, 22, 38, 0.1);
+            text-align: center;
+            font-size: 18px;
+        }
+        td:first-child {
+            text-align: left;
+            font-family: 'Inter', 'Noto Sans SC', sans-serif;
+            color: #1A2639;
+            font-weight: 400;
+        }
+        .check-mark {
+            color: #A88B52;
+            font-weight: bold;
+            font-size: 20px;
+        }
+        .dash-mark {
+            color: #A8ADAD;
+            font-weight: 300;
+        }
+    </style>
+</head>
+<body>
+    <div class="slide-container">
+        <div class="content-wrapper">
+            <div class="eyebrow">SLIDE 47 · MEMBERSHIP</div>
+            <h2 class="headline">普通参会 vs 察级别成员</h2>
+            <div class="sub-lede">同一张桌子，两种深度。</div>
+            
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>项目</th>
+                            <th>普通参会</th>
+                            <th>察级别成员</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>今天的判断框架</td>
+                            <td class="check-mark">✓</td>
+                            <td class="check-mark">✓</td>
+                        </tr>
+                        <tr>
+                            <td>线上加餐（太原专场）</td>
+                            <td class="dash-mark">—</td>
+                            <td class="check-mark">✓</td>
+                        </tr>
+                        <tr>
+                            <td>一对一企业 AI 诊断</td>
+                            <td class="dash-mark">—</td>
+                            <td class="check-mark">✓</td>
+                        </tr>
+                        <tr>
+                            <td>OPC Global 全球生态对接</td>
+                            <td class="dash-mark">—</td>
+                            <td class="check-mark">✓</td>
+                        </tr>
+                        <tr>
+                            <td>岁知社太原本地社群</td>
+                            <td class="dash-mark">—</td>
+                            <td class="check-mark">✓</td>
+                        </tr>
+                        <tr>
+                            <td>斯坦福案例完整库</td>
+                            <td class="dash-mark">—</td>
+                            <td class="check-mark">✓</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

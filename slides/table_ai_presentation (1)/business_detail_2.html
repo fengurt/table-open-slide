@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;500;700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        .slide-container {
+            width: 1280px;
+            min-height: 720px;
+            background-color: #FFFFFF;
+            font-family: 'Noto Sans SC', sans-serif;
+            position: relative;
+            padding-top: 80px;
+        }
+        .header {
+            margin-left: 100px;
+            margin-right: 100px;
+            margin-bottom: 60px;
+        }
+        .title {
+            font-size: 32px;
+            color: #0A1626;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+        .divider {
+            width: 80px;
+            height: 2px;
+            background-color: #A88B52;
+        }
+        .content-container {
+            margin-left: 100px;
+            margin-right: 100px;
+            display: flex;
+            flex-direction: column;
+        }
+        .row {
+            display: flex;
+            align-items: center;
+            padding: 45px 0;
+            border-top: 1px solid rgba(10, 22, 38, 0.2);
+        }
+        .row:first-child {
+            border-top: 2px solid #0A1626;
+        }
+        .row:last-child {
+            border-bottom: 2px solid #0A1626;
+        }
+        .row-number {
+            font-size: 32px;
+            color: #A88B52;
+            font-weight: 700;
+            width: 80px;
+            flex-shrink: 0;
+            letter-spacing: 2px;
+        }
+        .row-title {
+            font-size: 26px;
+            color: #0A1626;
+            font-weight: 700;
+            width: 320px;
+            flex-shrink: 0;
+            letter-spacing: 1px;
+        }
+        .row-desc {
+            font-size: 20px;
+            color: #0A1626;
+            font-weight: 300;
+            line-height: 1.6;
+            letter-spacing: 1px;
+            flex-grow: 1;
+            padding-left: 40px;
+            border-left: 1px solid rgba(10, 22, 38, 0.1);
+        }
+        .logo-watermark {
+            position: absolute;
+            bottom: 30px;
+            right: 40px;
+        }
+        .logo-watermark img {
+            width: 36px;
+            height: 36px;
+            object-fit: contain;
+            opacity: 0.3;
+        }
+    </style>
+</head>
+<body>
+    <div class="slide-container">
+        <div class="header">
+            <div class="title">教育培训：跨界融合与人才共创 Education & Training</div>
+            <div class="divider"></div>
+        </div>
+        <div class="content-container">
+            <div class="row">
+                <div class="row-number">01</div>
+                <div class="row-title">专业合作与创业辅导</div>
+                <div class="row-desc">
+                    跨界导师辅导，补齐商业与技术短板，助力科技与人文IP走向市场
+                </div>
+            </div>
+            <div class="row">
+                <div class="row-number">02</div>
+                <div class="row-title">企业大学筹建</div>
+                <div class="row-desc">
+                    基于"以智炼智"理念构建下一代企业大学，建立专家智能体库
+                </div>
+            </div>
+            <div class="row">
+                <div class="row-number">03</div>
+                <div class="row-title">专家价值共创</div>
+                <div class="row-desc">
+                    行业泰斗思想体系转化为数字资产，实现跨界分身与价值变现
+                </div>
+            </div>
+        </div>
+        <div class="logo-watermark"><img src="/home/ubuntu/table_ai_presentation/a2a_logo_dark.png" alt="Logo" /></div>
+    </div>
+</body>
+</html>

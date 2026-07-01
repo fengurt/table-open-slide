@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;500;700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        .slide-container {
+            width: 1280px;
+            min-height: 720px;
+            background-color: #FFFFFF;
+            font-family: 'Noto Sans SC', sans-serif;
+            position: relative;
+            padding-top: 80px; /* keep upper padding */
+        }
+        .header {
+            margin-left: 100px;
+            margin-right: 100px;
+            margin-bottom: 20px; /* shrunk from 60px to reduce overall height */
+        }
+        .title {
+            font-size: 32px;
+            color: #0A1626;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+        .divider {
+            width: 80px;
+            height: 2px;
+            background-color: #A88B52;
+        }
+        .flow-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-left: 100px;
+            margin-right: 100px;
+        }
+        .tier-block {
+            width: 900px;
+            background-color: #0A1626;
+            display: flex;
+            align-items: center;
+            padding: 20px 30px; /* reduced vertical padding */
+            border-left: 4px solid #A88B52;
+        }
+        .tier-title-container {
+            width: 280px;
+            flex-shrink: 0;
+            border-right: 1px solid rgba(255, 255, 255, 0.2);
+            padding-right: 30px;
+        }
+        .tier-title {
+            font-size: 24px;
+            color: #A88B52;
+            font-weight: 700;
+            letter-spacing: 1px;
+            line-height: 1.4;
+        }
+        .tier-desc {
+            font-size: 18px;
+            color: #FFFFFF;
+            font-weight: 300;
+            line-height: 1.6;
+            letter-spacing: 1px;
+            padding-left: 40px;
+        }
+        .arrow-container {
+            height: 36px; /* reduced from 50px */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        .arrow-line {
+            width: 2px;
+            height: 22px; /* reduced from 40px */
+            background-color: #A88B52;
+        }
+        .arrow-head {
+            width: 0;
+            height: 0;
+            border-left: 6px solid transparent;
+            border-right: 6px solid transparent;
+            border-top: 6px solid #A88B52; /* slightly smaller */
+        }
+        .logo-watermark {
+            position: absolute;
+            bottom: 30px;
+            right: 40px;
+        }
+        .logo-watermark img {
+            width: 36px;
+            height: 36px;
+            object-fit: contain;
+            opacity: 0.3;
+        }
+    </style>
+</head>
+<body><div class="slide-container">
+        <div class="header">
+            <div class="title">科技应用：让智慧落地生根 Technology Application</div>
+            <div class="divider"></div>
+        </div>
+<div class="flow-container" style="transform: translate(0px, 43.5594px);">
+            <div class="tier-block">
+                <div class="tier-title-container">
+                    <div class="tier-title">科研督导与<br>课题研究</div>
+                </div>
+                <div class="tier-desc">
+                    利用 AHA 架构为课题组提供智能化的协同与督导平台，让不同领域的学者在同一张"数字圆桌"上无缝对接数据与研究进展。
+                </div>
+            </div>
+<div class="arrow-container">
+                <div class="arrow-line"></div>
+                <div class="arrow-head"></div>
+            </div>
+<div class="tier-block">
+                <div class="tier-title-container">
+                    <div class="tier-title">研究成果转化</div>
+                </div>
+                <div class="tier-desc">
+                    跨界智库提供商业与文化视角的评估，利用技术平台进行场景模拟与验证，加速科研成果跨越"死亡之谷" (Valley of Death)。
+                </div>
+            </div>
+<div class="arrow-container">
+                <div class="arrow-line"></div>
+                <div class="arrow-head"></div>
+            </div>
+<div class="tier-block">
+                <div class="tier-title-container">
+                    <div class="tier-title">软硬件一站式<br>解决方案</div>
+                </div>
+                <div class="tier-desc">
+                    提供"文化专家策划+科技专家开发"的端到端服务，交付包含智能体交互、数字人及硬件部署的一站式方案。
+                </div>
+            </div>
+        </div>
+        <div class="logo-watermark"><img src="/home/ubuntu/table_ai_presentation/a2a_logo_dark.png" alt="Logo"></div>
+    </div>
+</body>
+</html>

@@ -1,7 +1,7 @@
-import type { ReactNode } from 'react';
 import type { DesignSystem, Page, SlideMeta } from '@open-slide/core';
-import vercelMark from './assets/vercel.svg';
+import type { ReactNode } from 'react';
 import nextMark from './assets/next-js.svg';
+import vercelMark from './assets/vercel.svg';
 
 export const design: DesignSystem = {
   palette: { bg: '#ffffff', text: '#000000', accent: '#ff0080' },

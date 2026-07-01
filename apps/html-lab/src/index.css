@@ -1,0 +1,89 @@
+:root {
+  --hl-deep: #0a1626;
+  --hl-deep-mid: #0f2038;
+  --hl-deep-soft: #132a45;
+  --hl-panel: #0d1c30;
+  --hl-surface: #111f33;
+  --hl-gold: #a88b52;
+  --hl-gold-light: #c4a574;
+  --hl-gold-muted: rgba(168, 139, 82, 0.22);
+  --hl-gold-glow: rgba(168, 139, 82, 0.12);
+  --hl-white: #ffffff;
+  --hl-cream: #f4f1ea;
+  --hl-text: rgba(255, 255, 255, 0.92);
+  --hl-muted: rgba(255, 255, 255, 0.48);
+  --hl-border: rgba(168, 139, 82, 0.18);
+  --hl-border-strong: rgba(168, 139, 82, 0.38);
+  --hl-canvas: #eceae4;
+  --hl-error: #e8a090;
+  --hl-warn: #d4b06a;
+  --hl-ok: #7ec4a0;
+
+  --font-display: "Cormorant Garamond", "Times New Roman", serif;
+  --font-ui: "Outfit", system-ui, -apple-system, sans-serif;
+
+  font-family: var(--font-ui);
+  font-weight: 400;
+  color: var(--hl-text);
+  background: var(--hl-deep);
+  line-height: 1.5;
+  font-feature-settings:
+    "kern" 1,
+    "liga" 1;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background:
+    radial-gradient(ellipse 80% 60% at 100% 0%, rgba(168, 139, 82, 0.07), transparent 55%),
+    radial-gradient(ellipse 60% 50% at 0% 100%, rgba(168, 139, 82, 0.05), transparent 50%),
+    var(--hl-deep);
+}
+
+#root {
+  height: 100vh;
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+  color: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+::selection {
+  background: var(--hl-gold-muted);
+  color: var(--hl-white);
+}
+
+@keyframes hl-fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes hl-shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}

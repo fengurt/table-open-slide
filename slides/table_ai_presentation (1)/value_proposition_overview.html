@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;500;700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        .slide-container {
+            width: 1280px;
+            min-height: 720px;
+            background-color: #FFFFFF;
+            font-family: 'Noto Sans SC', sans-serif;
+            position: relative;
+            padding-top: 80px;
+        }
+        .header {
+            margin-left: 100px;
+            margin-right: 100px;
+            margin-bottom: 60px;
+        }
+        .title {
+            font-size: 32px;
+            color: #0A1626;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+        .divider {
+            width: 80px;
+            height: 2px;
+            background-color: #A88B52;
+        }
+        .columns-container {
+            display: flex;
+            justify-content: space-between;
+            margin-left: 100px;
+            margin-right: 100px;
+            align-items: stretch;
+        }
+        .column {
+            width: 30%;
+            border-top: 2px solid #A88B52;
+            padding-top: 30px;
+            display: flex;
+            flex-direction: column;
+        }
+        .col-number {
+            font-size: 48px;
+            color: #A88B52;
+            font-weight: 700;
+            margin-bottom: 20px;
+            line-height: 1;
+        }
+        .col-title {
+            font-size: 24px;
+            color: #0A1626;
+            font-weight: 700;
+            margin-bottom: 5px;
+            letter-spacing: 1px;
+        }
+        .col-subtitle {
+            font-size: 16px;
+            color: rgba(10, 22, 38, 0.6);
+            font-weight: 300;
+            margin-bottom: 30px;
+            letter-spacing: 1px;
+            display: block;
+        }
+        .col-list {
+            list-style: none;
+            flex-grow: 1;
+        }
+        .col-list li {
+            font-size: 18px;
+            color: #0A1626;
+            font-weight: 300;
+            margin-bottom: 20px;
+            line-height: 1.6;
+            position: relative;
+            padding-left: 20px;
+            letter-spacing: 1px;
+        }
+        .col-list li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 10px;
+            width: 6px;
+            height: 6px;
+            background-color: #A88B52;
+        }
+        .logo-watermark {
+            position: absolute;
+            bottom: 30px;
+            right: 40px;
+        }
+        .logo-watermark img {
+            width: 36px;
+            height: 36px;
+            object-fit: contain;
+            opacity: 0.3;
+        }
+    </style>
+</head>
+<body>
+    <div class="slide-container">
+        <div class="header">
+            <div class="title">核心价值主张 Value Proposition</div>
+            <div class="divider"></div>
+        </div>
+        
+        <div class="columns-container">
+            <div class="column">
+                <div class="col-number">01</div>
+                <div class="col-title">跨界协作</div>
+                <span class="col-subtitle">Cross-Domain Synergy</span>
+                <ul class="col-list">
+                    <li>科技需要教育来普及</li>
+                    <li>教育需要文化来扎根</li>
+                    <li>文化需要科技来焕新</li>
+                </ul>
+            </div>
+            
+            <div class="column">
+                <div class="col-number">02</div>
+                <div class="col-title">智慧传承</div>
+                <span class="col-subtitle">Wisdom Legacy</span>
+                <ul class="col-list">
+                    <li>隐性经验数字化萃取</li>
+                    <li>转化为可计算数字资产</li>
+                    <li>实现永久保留与传承</li>
+                </ul>
+            </div>
+            
+            <div class="column">
+                <div class="col-number">03</div>
+                <div class="col-title">以智炼智</div>
+                <span class="col-subtitle">Intelligence Forging</span>
+                <ul class="col-list">
+                    <li>专家智能体淬炼新人才</li>
+                    <li>实战场景即时反馈</li>
+                    <li>大幅缩短培养周期</li>
+                </ul>
+            </div>
+        </div>
+        <div class="logo-watermark"><img src="/home/ubuntu/table_ai_presentation/a2a_logo_dark.png" alt="Logo" /></div>
+    </div>
+</body>
+</html>

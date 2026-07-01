@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;500;700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        .slide-container {
+            width: 1280px;
+            min-height: 720px;
+            background-color: #FFFFFF;
+            font-family: 'Noto Sans SC', sans-serif;
+            position: relative;
+            padding-top: 80px;
+        }
+        .header {
+            margin-left: 100px;
+            margin-right: 100px;
+            margin-bottom: 40px;
+        }
+        .title {
+            font-size: 32px;
+            color: #0A1626;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+        .divider {
+            width: 80px;
+            height: 2px;
+            background-color: #A88B52;
+        }
+        .diagram-container {
+            width: 1080px;
+            height: 420px;
+            position: relative;
+            margin: 0 auto;
+        }
+        .node-block {
+            position: absolute;
+            width: 300px;
+            text-align: center;
+        }
+        .node-title {
+            font-size: 24px;
+            font-weight: 500;
+            color: #0A1626;
+            margin-bottom: 8px;
+            letter-spacing: 1px;
+        }
+        .node-desc {
+            font-size: 16px;
+            font-weight: 300;
+            color: #0A1626;
+            letter-spacing: 1px;
+        }
+        .circle-node {
+            position: absolute;
+            left: 460px;
+            top: 130px;
+            width: 160px;
+            height: 160px;
+            border-radius: 50%;
+            border: 2px solid #0A1626;
+            background-color: #FFFFFF;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 2;
+        }
+        .circle-text {
+            font-size: 20px;
+            font-weight: 500;
+            color: #0A1626;
+            line-height: 1.4;
+            text-align: center;
+            letter-spacing: 1px;
+        }
+        .line-v {
+            position: absolute;
+            width: 2px;
+            background-color: #A88B52;
+            z-index: 1;
+        }
+        .line-h {
+            position: absolute;
+            height: 2px;
+            background-color: #A88B52;
+            z-index: 1;
+        }
+        .dot {
+            position: absolute;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background-color: #A88B52;
+            z-index: 3;
+        }
+        .insight-container {
+            margin-left: 100px;
+            margin-right: 100px;
+            margin-top: 10px;
+            border-left: 2px solid #A88B52;
+            padding-left: 20px;
+        }
+        .insight-text {
+            font-size: 18px;
+            color: #0A1626;
+            font-weight: 300;
+            line-height: 1.6;
+            letter-spacing: 1px;
+        }
+        .logo-watermark {
+            position: absolute;
+            bottom: 30px;
+            right: 40px;
+        }
+        .logo-watermark img {
+            width: 36px;
+            height: 36px;
+            object-fit: contain;
+            opacity: 0.3;
+        }
+    </style>
+</head>
+<body><div class="slide-container">
+        <div class="header">
+            <div class="title">趋势四：教育·科技·人才一体化战略 Edu-Tech-Talent Integration Strategy</div>
+            <div class="divider"></div>
+        </div>
+<div class="diagram-container" style="transform: translate(0px, -40px);">
+            <!-- Nodes -->
+            <div class="node-block" style="left: 390px; top: 20px;">
+                <div class="node-title">教育 Education</div>
+                <div class="node-desc">知识传递与人才培养</div>
+            </div>
+<div class="circle-node">
+                <div class="circle-text">TABLE AI<br>新型智库</div>
+            </div>
+<div class="node-block" style="left: 40px; top: 340px;">
+                <div class="node-title">科技 Technology</div>
+                <div class="node-desc">创新驱动与工具赋能</div>
+            </div>
+<div class="node-block" style="left: 740px; top: 340px;">
+                <div class="node-title">人才 Talent</div>
+                <div class="node-desc">核心竞争力与价值创造</div>
+            </div>
+<!-- Lines -->
+            <!-- Top to Circle -->
+            <div class="line-v" style="left: 539px; top: 80px; height: 50px;"></div>
+<!-- Circle to Left -->
+            <div class="line-h" style="left: 190px; top: 209px; width: 270px;"></div>
+            <div class="line-v" style="left: 189px; top: 210px; height: 130px;"></div>
+<!-- Circle to Right -->
+            <div class="line-h" style="left: 620px; top: 209px; width: 270px;"></div>
+            <div class="line-v" style="left: 889px; top: 210px; height: 130px;"></div>
+<!-- Dots -->
+            <!-- Top to Circle -->
+            <div class="dot" style="left: 536px; top: 76px;"></div>
+            <div class="dot" style="left: 536px; top: 126px;"></div>
+<!-- Circle to Left -->
+            <div class="dot" style="left: 456px; top: 206px;"></div>
+            <div class="dot" style="left: 186px; top: 206px;"></div>
+            <div class="dot" style="left: 186px; top: 336px;"></div>
+<!-- Circle to Right -->
+            <div class="dot" style="left: 616px; top: 206px;"></div>
+            <div class="dot" style="left: 886px; top: 206px;"></div>
+            <div class="dot" style="left: 886px; top: 336px;"></div>
+        </div>
+<div class="insight-container" style="transform: translate(0px, -38.2969px);">
+            <div class="insight-text">中国正大力推进“教育、科技、人才一体化”国家战略。TABLE AI 作为新型智库，提供有效的跨界协作机制与技术落地手段，打破传统智库模式的困境，真正将舞台交还给“人”。</div>
+        </div>
+        <div class="logo-watermark"><img src="/home/ubuntu/table_ai_presentation/a2a_logo_dark.png" alt="Logo"></div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>岁知社·山石研讨会 — 餐饮与酒店企业专场（企业级智能体）</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@300;400;500;600&family=Noto+Sans+SC:wght@300;400;500&family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --bg:#090806;
+  --bg2:#111009;
+  --bg3:#1A1812;
+  --gold:#C49A50;
+  --gold-lt:#E2C07A;
+  --gold-dim:#7A6030;
+  --red:#8B2E18;
+  --stone:#DDD4C0;
+  --stone-mid:#928B7E;
+  --stone-dim:#504B46;
+  --serif:'Noto Serif SC',serif;
+  --sans:'Noto Sans SC',sans-serif;
+  --latin:'EB Garamond',serif;
+}
+body{background:var(--bg);color:var(--stone);font-family:var(--sans);font-weight:300;-webkit-font-smoothing:antialiased;max-width:960px;margin:0 auto}
+
+/* NAV */
+nav{display:flex;justify-content:space-between;align-items:center;padding:15px 40px;border-bottom:1px solid rgba(196,154,80,0.15)}
+.nav-brand{font-family:var(--serif);font-size:14px;letter-spacing:0.22em;color:var(--gold)}
+.nav-tag{font-size:10px;letter-spacing:0.3em;color:var(--stone-mid);font-family:var(--latin);border:1px solid rgba(196,154,80,0.2);padding:3px 10px}
+
+/* HERO */
+.hero{padding:36px 40px 28px;border-bottom:1px solid rgba(196,154,80,0.1);position:relative;overflow:hidden}
+.hero-bg{position:absolute;right:-20px;top:-10px;font-family:var(--serif);font-size:240px;color:rgba(196,154,80,0.03);line-height:1;pointer-events:none;user-select:none}
+.hero-eyebrow{display:flex;align-items:center;gap:10px;margin-bottom:16px}
+.eyebrow-line{width:16px;height:1px;background:var(--gold-dim)}
+.eyebrow-text{font-size:10px;letter-spacing:0.35em;color:var(--gold);text-transform:uppercase;font-family:var(--latin)}
+.hero-kicker{font-size:12px;color:var(--stone-mid);letter-spacing:0.12em;margin-bottom:12px;font-family:var(--latin)}
+.hero-title{font-family:var(--serif);font-size:clamp(22px,3.8vw,38px);font-weight:500;line-height:1.38;color:#F0E8D8;margin-bottom:10px}
+.hero-title em{font-style:normal;color:var(--gold)}
+.hero-sub{font-size:13px;color:var(--stone-mid);line-height:1.85;max-width:560px;margin-bottom:22px}
+.hero-tags{display:flex;gap:7px;flex-wrap:wrap;margin-bottom:24px}
+.htag{font-size:10px;padding:3px 10px;border:1px solid rgba(196,154,80,0.2);color:var(--gold-lt);letter-spacing:0.08em}
+.meta-strip{display:flex;gap:0;border:1px solid rgba(196,154,80,0.15)}
+.mi{flex:1;padding:11px 16px;display:flex;flex-direction:column;gap:3px;border-right:1px solid rgba(196,154,80,0.1)}
+.mi:last-child{border-right:none}
+.ml{font-size:9px;letter-spacing:0.22em;color:var(--stone-dim);text-transform:uppercase}
+.mv{font-size:12px;color:var(--stone);letter-spacing:0.03em}
+
+/* AUDIENCE STRIP */
+.aud-strip{padding:15px 40px;background:var(--bg2);border-bottom:1px solid rgba(196,154,80,0.1);display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.al{font-size:9px;letter-spacing:0.3em;color:var(--stone-dim);text-transform:uppercase;font-family:var(--latin);white-space:nowrap}
+.adiv{width:1px;height:12px;background:var(--stone-dim);flex-shrink:0}
+.atags{display:flex;gap:16px;flex-wrap:wrap}
+.atag{font-size:11px;color:var(--stone);display:flex;align-items:center;gap:5px}
+.atag::before{content:'';width:3px;height:3px;border-radius:50%;background:var(--gold);flex-shrink:0}
+
+/* SECTION LABEL */
+.slabel{font-size:9px;letter-spacing:0.38em;color:var(--gold);text-transform:uppercase;font-family:var(--latin);display:block;margin-bottom:12px}
+.gline{width:24px;height:1px;background:var(--gold-dim);margin-bottom:14px}
+
+/* TWO COL */
+.twocol{display:grid;grid-template-columns:1fr 1fr;border-bottom:1px solid rgba(196,154,80,0.1)}
+.cb{padding:26px 40px}
+.cb+.cb{border-left:1px solid rgba(196,154,80,0.1)}
+
+/* TOPICS */
+.topics{display:flex;flex-direction:column;gap:1px;background:rgba(196,154,80,0.1);margin-top:14px}
+.topic-item{background:var(--bg);padding:16px 18px;display:flex;gap:14px;align-items:flex-start}
+.topic-num{font-family:var(--latin);font-size:22px;color:var(--gold-dim);line-height:1;flex-shrink:0;width:24px}
+.topic-body{}
+.topic-title{font-family:var(--serif);font-size:13px;color:#EDE3CE;font-weight:400;margin-bottom:4px}
+.topic-desc{font-size:11px;color:var(--stone-mid);line-height:1.7}
+.topic-speaker{font-size:10px;color:var(--gold-dim);margin-top:5px;letter-spacing:0.08em}
+
+/* SCHEDULE */
+.schedule{display:flex;flex-direction:column}
+.si{display:grid;grid-template-columns:64px 1fr;border-top:1px solid rgba(196,154,80,0.1);padding:12px 0;gap:0}
+.si:last-child{border-bottom:1px solid rgba(196,154,80,0.1)}
+.st{font-family:var(--latin);font-size:12px;color:var(--gold-dim);padding-top:1px}
+.sc{}
+.se{font-size:12px;color:var(--stone);line-height:1.45}
+.se strong{color:#EDE3CE;font-weight:500}
+.sn{font-size:10px;color:var(--stone-dim);margin-top:2px}
+.sbadge{display:inline-block;font-size:9px;letter-spacing:0.14em;padding:1px 6px;border:1px solid var(--gold-dim);color:var(--gold);font-family:var(--latin);margin-left:5px;vertical-align:middle}
+
+/* HIGHLIGHT ROW */
+.si.highlight{background:rgba(196,154,80,0.04)}
+.si.highlight .se{color:#EDE3CE}
+
+/* SPEAKERS */
+.spk-wrap{padding:26px 40px;border-bottom:1px solid rgba(196,154,80,0.1)}
+.spk-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:1px;background:rgba(196,154,80,0.1);margin-top:14px}
+.spk{background:var(--bg);padding:18px 14px;position:relative}
+.spk-av{width:36px;height:36px;border-radius:50%;border:1px solid rgba(196,154,80,0.25);display:flex;align-items:center;justify-content:center;margin-bottom:10px;font-family:var(--serif);font-size:14px;color:var(--gold)}
+.spk-name{font-family:var(--serif);font-size:14px;color:#EDE3CE;font-weight:400;margin-bottom:3px}
+.spk-role{font-size:10px;color:var(--stone-dim);line-height:1.6}
+.spk-div{width:16px;height:1px;background:var(--gold-dim);margin:8px 0}
+.spk-tag{font-size:9px;letter-spacing:0.12em;padding:2px 7px;border:1px solid rgba(196,154,80,0.2);color:var(--gold);display:inline-block;font-family:var(--latin)}
+.host-badge{position:absolute;top:12px;right:12px;font-size:8px;letter-spacing:0.18em;color:var(--gold);border:1px solid var(--gold-dim);padding:1px 6px;font-family:var(--latin);text-transform:uppercase}
+
+/* BOTTOM ROW */
+.btmrow{display:grid;grid-template-columns:1fr 1fr}
+.db{padding:26px 40px}
+.db+.db{border-left:1px solid rgba(196,154,80,0.1)}
+.drow{margin-bottom:13px}
+.dlabel{font-size:9px;letter-spacing:0.25em;color:var(--stone-dim);text-transform:uppercase;margin-bottom:3px}
+.dval{font-size:12px;color:var(--stone);line-height:1.6}
+.dnote{font-size:10px;color:var(--stone-dim);margin-top:1px}
+.rsvp-box{background:var(--bg2);border:1px solid rgba(196,154,80,0.18);padding:16px;margin-top:16px}
+.rsvp-t{font-family:var(--serif);font-size:14px;color:#EDE3CE;margin-bottom:6px;font-weight:400}
+.rsvp-n{font-size:11px;color:var(--stone-mid);line-height:1.75;margin-bottom:14px}
+.rsvp-btn{display:inline-block;padding:9px 22px;background:var(--gold);color:#09080A;font-size:11px;letter-spacing:0.15em;font-family:var(--serif);font-weight:500;cursor:pointer}
+.rsvp-lim{font-size:10px;color:var(--stone-dim);margin-top:9px}
+
+/* DIVIDER */
+.sec-div{border:none;border-top:1px solid rgba(196,154,80,0.1)}
+
+/* FOOTER */
+footer{padding:14px 40px;border-top:1px solid rgba(196,154,80,0.12);display:flex;justify-content:space-between;align-items:center}
+.fb{font-family:var(--serif);font-size:11px;color:var(--stone-mid);letter-spacing:0.15em}
+.fc{font-size:10px;color:var(--stone-dim);font-family:var(--latin)}
+
+@media(max-width:700px){
+  nav,.hero,.aud-strip,.cb,.spk-wrap,.db{padding-left:20px;padding-right:20px}
+  .twocol,.btmrow{grid-template-columns:1fr}
+  .cb+.cb{border-left:none;border-top:1px solid rgba(196,154,80,0.1)}
+  .db+.db{border-left:none;border-top:1px solid rgba(196,154,80,0.1)}
+  .spk-grid{grid-template-columns:repeat(2,1fr)}
+  .meta-strip{flex-direction:column}
+  .mi{border-right:none;border-bottom:1px solid rgba(196,154,80,0.1)}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-brand">岁知社</div>
+  <div class="nav-tag">山石研讨会 · 餐饮与酒店企业专场</div>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-bg">企</div>
+  <div class="hero-eyebrow">
+    <div class="eyebrow-line"></div>
+    <span class="eyebrow-text">Enterprise F&amp;B &amp; Hospitality · AI Agents</span>
+    <div class="eyebrow-line"></div>
+  </div>
+  <div class="hero-kicker">定向邀约 · 一线城市 · 半天闭门研讨（日程以确认函为准）</div>
+  <h1 class="hero-title">从单店经验到集团韧性——<br><em>AI 时代餐饮与酒店企业的「总部大脑」</em></h1>
+  <p class="hero-sub">多品牌、多区域、多业态并行时，定价、排班、采购、食安与口碑往往靠「人盯人」——总部政策落不下去、一线数据回不来。<br>本场面向<strong>企业总部与区域管理团队</strong>：不谈概念演示，只拆解<strong>企业级智能体（Corporate Agent）</strong>如何嵌入审批、稽核、培训与经营分析，把可复用的流程资产沉淀在组织里。</p>
+  <div class="hero-tags">
+    <span class="htag">集团标准与稽核</span>
+    <span class="htag">多店损益与人效</span>
+    <span class="htag">企业级智能体</span>
+    <span class="htag">酒店 RevPAR · 餐饮同店</span>
+  </div>
+  <div class="meta-strip">
+    <div class="mi"><span class="ml">形式</span><span class="mv">闭门研讨会 · 邀请制</span></div>
+    <div class="mi"><span class="ml">时长</span><span class="mv">约 2.5 小时</span></div>
+    <div class="mi"><span class="ml">地点</span><span class="mv">报名审核后通知</span></div>
+    <div class="mi"><span class="ml">规模</span><span class="mv">限额 20 席</span></div>
+    <div class="mi"><span class="ml">行业</span><span class="mv">餐饮集团 · 酒店及综合体</span></div>
+  </div>
+</div>
+
+<!-- AUDIENCE -->
+<div class="aud-strip">
+  <span class="al">面向人群</span>
+  <div class="adiv"></div>
+  <div class="atags">
+    <span class="atag">餐饮与酒店集团总部（战略 / 运营 / 数字化）</span>
+    <span class="atag">事业部、区域公司与品牌负责人</span>
+    <span class="atag">业主公司、资管与投后管理相关岗位</span>
+    <span class="atag">关注 AI 治理、合规与一线落地的企业决策者</span>
+  </div>
+</div>
+
+<!-- TOPICS + SCHEDULE -->
+<div class="twocol">
+
+  <!-- LEFT: 三大议题 -->
+  <div class="cb">
+    <span class="slabel">三大研讨议题 · Agenda Topics</span>
+    <div class="gline"></div>
+    <div class="topics">
+      <div class="topic-item">
+        <div class="topic-num">01</div>
+        <div class="topic-body">
+          <div class="topic-title">企业级智能体：从「问答」到「可审计的流程执行」</div>
+          <div class="topic-desc">总部政策、SOP、食安与财务稽核如何变成可编排的任务？Agent 在多法人、多币种、多 ERP 并存的环境下，怎样做到<strong>权限清晰、留痕可审计、与人类审批协同</strong>——适用于餐饮供应链与酒店房务、工程等场景。</div>
+          <div class="topic-speaker">主讲：周健 · 企业级 Agent 与流程自动化</div>
+        </div>
+      </div>
+      <div class="topic-item">
+        <div class="topic-num">02</div>
+        <div class="topic-body">
+          <div class="topic-title">「轻总部 + AI」：餐饮与酒店的人效与组织边界</div>
+          <div class="topic-desc">中央厨房、共享服务中心、区域运营中心如何重新分工？哪些岗位由智能体承接例行研判，哪些必须保留「人对客」的温度？对<strong>排班、能耗、客房周转、宴会翻台</strong>等关键指标意味着什么。</div>
+          <div class="topic-speaker">主讲：李智勇 · 组织敏捷与 OPC 实践视角</div>
+        </div>
+      </div>
+      <div class="topic-item">
+        <div class="topic-num">03</div>
+        <div class="topic-body">
+          <div class="topic-title">企业圆桌：从同店销售到全渠道口碑——总部可动的杠杆</div>
+          <div class="topic-desc">围绕<strong>菜单工程、动态定价、库存与报损、OTA 与点评闭环、会员私域</strong>等跨部门议题，结合在场企业真实约束（加盟管控、业主 KPI、资本化开支），梳理可带回总部的行动清单。</div>
+          <div class="topic-speaker">主持：郭峰 · 圆桌嘉宾：吴松德 · 边江 · 在场企业代表</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- RIGHT: 日程 -->
+  <div class="cb" style="border-left:1px solid rgba(196,154,80,0.1)">
+    <span class="slabel">活动日程 · Schedule</span>
+    <div class="gline"></div>
+    <div class="schedule">
+      <div class="si">
+        <div class="st">14:00</div>
+        <div class="sc">
+          <div class="se">签到入场 · 茶歇暖场</div>
+          <div class="sn">同业交流，确认本场研讨边界与 Chatham House 约定</div>
+        </div>
+      </div>
+      <div class="si highlight">
+        <div class="st">14:10</div>
+        <div class="sc">
+          <div class="se"><strong>郭峰 开场分享</strong><span class="sbadge">30 min</span></div>
+          <div class="sn">餐饮与酒店企业的 AI 采用曲线——总部视角下的机会、风险与治理要点</div>
+        </div>
+      </div>
+      <div class="si highlight">
+        <div class="st">14:40</div>
+        <div class="sc">
+          <div class="se"><strong>研讨一：企业级智能体与可审计流程</strong><span class="sbadge">25 min</span></div>
+          <div class="sn">主讲：周健 · 含 5 分钟问答</div>
+        </div>
+      </div>
+      <div class="si highlight">
+        <div class="st">15:05</div>
+        <div class="sc">
+          <div class="se"><strong>研讨二：轻总部、人效与组织边界</strong><span class="sbadge">25 min</span></div>
+          <div class="sn">主讲：李智勇 · 含 5 分钟问答</div>
+        </div>
+      </div>
+      <div class="si highlight">
+        <div class="st">15:30</div>
+        <div class="sc">
+          <div class="se"><strong>研讨三：企业圆桌 — 总部杠杆与同店增长</strong><span class="sbadge">35 min</span></div>
+          <div class="sn">主持：郭峰 · 嘉宾：吴松德 · 边江 · 在场企业代表</div>
+        </div>
+      </div>
+      <div class="si">
+        <div class="st">16:05</div>
+        <div class="sc">
+          <div class="se">自由交流</div>
+          <div class="sn">非正式对接，延展至数字化与资管合作线索</div>
+        </div>
+      </div>
+      <div class="si">
+        <div class="st">16:30</div>
+        <div class="sc">
+          <div class="se">活动结束</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SPEAKERS -->
+<div class="spk-wrap">
+  <span class="slabel">嘉宾阵容 · Speakers</span>
+  <div class="gline"></div>
+  <div class="spk-grid">
+
+    <div class="spk">
+      <div class="host-badge">主持 · 主讲</div>
+      <div class="spk-av">峰</div>
+      <div class="spk-name">郭峰</div>
+      <div class="spk-role">香港 TABLE AI 董事长<br>OPC Global 创始人 / 理事会秘书长<br>AI 系统架构 · 上市公司第二曲线咨询</div>
+      <div class="spk-div"></div>
+      <span class="spk-tag">企业 AI 治理 · 组织重构</span>
+    </div>
+
+    <div class="spk">
+      <div class="spk-av">健</div>
+      <div class="spk-name">周健</div>
+      <div class="spk-role">企业级智能体与<br>流程自动化顾问</div>
+      <div class="spk-div"></div>
+      <span class="spk-tag">Corporate Agent</span>
+    </div>
+
+    <div class="spk">
+      <div class="spk-av">松</div>
+      <div class="spk-name">吴松德</div>
+      <div class="spk-role">餐饮多店运营与<br>损益管理实战嘉宾</div>
+      <div class="spk-div"></div>
+      <span class="spk-tag">F&amp;B 运营</span>
+    </div>
+
+    <div class="spk">
+      <div class="spk-av">勇</div>
+      <div class="spk-name">李智勇</div>
+      <div class="spk-role">轻总部与组织敏捷<br>OPC 领域实践者</div>
+      <div class="spk-div"></div>
+      <span class="spk-tag">组织 · 人效</span>
+    </div>
+
+    <div class="spk">
+      <div class="spk-av">江</div>
+      <div class="spk-name">边江</div>
+      <div class="spk-role">酒店及综合体<br>业主方特邀圆桌嘉宾</div>
+      <div class="spk-div"></div>
+      <span class="spk-tag">Hospitality</span>
+    </div>
+
+  </div>
+</div>
+
+<!-- DETAILS + RSVP -->
+<div class="btmrow">
+  <div class="db">
+    <span class="slabel">活动详情 · Details</span>
+    <div class="gline"></div>
+    <div class="drow">
+      <div class="dlabel">日期与时间</div>
+      <div class="dval">以邀请函为准（参考半日 14:00—16:30）</div>
+      <div class="dnote">开场前签到，准时闭门研讨</div>
+    </div>
+    <div class="drow">
+      <div class="dlabel">地点</div>
+      <div class="dval">一线城市核心商务区（审核后通知）</div>
+      <div class="dnote">便于集团总部与区域同事同日往返</div>
+    </div>
+    <div class="drow">
+      <div class="dlabel">形式</div>
+      <div class="dval">邀请制闭门研讨 · 限额 20 席 · 企业代表优先</div>
+    </div>
+    <div class="drow">
+      <div class="dlabel">携带</div>
+      <div class="dval">笔记本电脑（便于记录本企业可落地的流程清单）</div>
+    </div>
+    <div class="drow">
+      <div class="dlabel">主办</div>
+      <div class="dval">岁知社 · 山石系列 · 餐饮与酒店企业专场</div>
+    </div>
+  </div>
+
+  <div class="db" style="border-left:1px solid rgba(196,154,80,0.1)">
+    <span class="slabel">申请参与 · RSVP</span>
+    <div class="gline"></div>
+    <div class="rsvp-box">
+      <div class="rsvp-t">这场对话，优先开放给「能拍板的人」</div>
+      <div class="rsvp-n">本场为餐饮、酒店及综合体相关企业总部与区域管理定向邀约。为确保讨论深度，席位有限；请在申请中注明<strong>公司名称、品牌矩阵、职级与希望解决的 1–2 个总部议题</strong>。审核通过后发出正式邀请。</div>
+      <div class="rsvp-btn">申请参与 →</div>
+      <div class="rsvp-lim">本期名额有限 · 额满即止</div>
+    </div>
+    <div style="margin-top:16px;padding:14px;background:rgba(196,154,80,0.04);border:1px solid rgba(196,154,80,0.12)">
+      <div style="font-size:10px;color:var(--stone-dim);letter-spacing:0.1em;margin-bottom:6px">活动后福利</div>
+      <div style="font-size:11px;color:var(--stone-mid);line-height:1.75">审核通过者可加入岁知社<strong>餐饮与酒店企业</strong>专题交流群，获取企业级智能体落地案例摘要、政策与合规要点速览（非投资建议）。</div>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="fb">岁知社 · 山石研讨会 · 餐饮与酒店企业专场</div>
+  <div class="fc">Suizhi Society · Enterprise F&amp;B &amp; Hospitality · 2026</div>
+</footer>
+
+</body>
+</html>

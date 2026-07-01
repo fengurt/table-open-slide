@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;500;700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        .slide-container {
+            width: 1280px;
+            min-height: 720px;
+            background-color: #FFFFFF;
+            font-family: 'Noto Sans SC', sans-serif;
+            position: relative;
+            padding-top: 80px;
+        }
+        .header {
+            margin-left: 100px;
+            margin-right: 100px;
+            margin-bottom: 80px;
+        }
+        .title {
+            font-size: 32px;
+            color: #0A1626;
+            font-weight: 700;
+            margin-bottom: 15px;
+            letter-spacing: 2px;
+        }
+        .divider {
+            width: 80px;
+            height: 2px;
+            background-color: #A88B52;
+        }
+        
+        .chain-container {
+            display: flex;
+            justify-content: space-between;
+            margin-left: 100px;
+            margin-right: 100px;
+            position: relative;
+        }
+        .chain-line {
+            position: absolute;
+            top: 40px;
+            left: 40px;
+            right: 40px;
+            height: 2px;
+            background-color: #A88B52;
+            z-index: 1;
+        }
+        .chain-step {
+            width: 150px;
+            position: relative;
+            z-index: 2;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .step-box {
+            width: 80px;
+            height: 80px;
+            background-color: #0A1626;
+            border: 2px solid #A88B52;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #A88B52;
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 40px;
+            transform: rotate(45deg);
+        }
+        .step-box span {
+            transform: rotate(-45deg);
+        }
+        .step-title {
+            font-size: 20px;
+            color: #0A1626;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 15px;
+            letter-spacing: 1px;
+        }
+        .step-desc {
+            font-size: 14px;
+            color: rgba(10, 22, 38, 0.8);
+            text-align: center;
+            line-height: 1.6;
+        }
+        
+        .summary-box {
+            margin-top: 80px;
+            margin-left: 100px;
+            margin-right: 100px;
+            background-color: rgba(10, 22, 38, 0.03);
+            border-left: 4px solid #0A1626;
+            padding: 30px 40px;
+        }
+        .summary-title {
+            font-size: 20px;
+            color: #0A1626;
+            font-weight: 700;
+            margin-bottom: 10px;
+            letter-spacing: 1px;
+        }
+        .summary-text {
+            font-size: 16px;
+            color: rgba(10, 22, 38, 0.8);
+            font-weight: 300;
+            line-height: 1.8;
+        }
+        
+        .logo-watermark {
+            position: absolute;
+            bottom: 30px;
+            right: 40px;
+        }
+        .logo-watermark img {
+            width: 36px;
+            height: 36px;
+            object-fit: contain;
+            opacity: 0.3;
+        }
+    </style>
+</head>
+<body>
+    <div class="slide-container">
+        <div class="header">
+            <div class="title">全链路价值转化闭环 Full Value Chain Conversion Loop</div>
+            <div class="divider"></div>
+        </div>
+        
+        <div class="chain-container">
+            <div class="chain-line"></div>
+            
+            <div class="chain-step">
+                <div class="step-box"><span>01</span></div>
+                <div class="step-title">权威报告</div>
+                <div class="step-desc">打造核心信源<br>确立行业标准</div>
+            </div>
+            
+            <div class="chain-step">
+                <div class="step-box"><span>02</span></div>
+                <div class="step-title">KOL 分发</div>
+                <div class="step-desc">多维声量放大<br>建立信任背书</div>
+            </div>
+            
+            <div class="chain-step">
+                <div class="step-box"><span>03</span></div>
+                <div class="step-title">销售赋能</div>
+                <div class="step-desc">武装一线渠道<br>加速商业转化</div>
+            </div>
+            
+            <div class="chain-step">
+                <div class="step-box"><span>04</span></div>
+                <div class="step-title">搜索卡位</div>
+                <div class="step-desc">拦截痛点检索<br>精准捕获流量</div>
+            </div>
+            
+            <div class="chain-step">
+                <div class="step-box"><span>05</span></div>
+                <div class="step-title">行业事件</div>
+                <div class="step-desc">峰会主旨演讲<br>实现官方定调</div>
+            </div>
+            
+            <div class="chain-step">
+                <div class="step-box"><span>06</span></div>
+                <div class="step-title">资产沉淀</div>
+                <div class="step-desc">占领客群心智<br>构筑竞争壁垒</div>
+            </div>
+        </div>
+        
+        <div class="summary-box">
+            <div class="summary-title">从“优势发现”到“商业变现”的战略工程系统</div>
+            <div class="summary-text">
+                我们不仅帮助企业在同质化内卷的时代打赢认知战，更能将无形的“专业口碑”转化为实实在在的“商业销售壁垒”。通过六大标准流程，实现品牌资产的全链路闭环变现。
+            </div>
+        </div>
+        
+        <div class="logo-watermark"><img src="/home/ubuntu/true_insight_presentation/a2a_logo_dark.png" alt="Logo" /></div>
+    </div>
+</body>
+</html>

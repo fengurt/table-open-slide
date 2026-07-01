@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500&family=Noto+Serif+SC:wght@700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        .slide-container {
+            width: 1280px;
+            min-height: 720px;
+            background: #FFFFFF;
+            position: relative;
+            font-family: 'Noto Sans SC', sans-serif;
+            color: #1A2B4C;
+            overflow: hidden;
+        }
+        .header {
+            position: absolute;
+            top: 60px;
+            left: 120px;
+            width: 1040px;
+        }
+        .eyebrow {
+            font-size: 16px;
+            color: #A88B52;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            margin-bottom: 16px;
+            font-weight: 400;
+        }
+        .header-title {
+            font-family: 'Noto Serif SC', serif;
+            font-size: 48px;
+            color: #0A1626;
+            font-weight: 700;
+            letter-spacing: 2px;
+            margin-bottom: 20px;
+        }
+        .header-line {
+            width: 80px;
+            height: 2px;
+            background: #A88B52;
+        }
+        .content-wrapper {
+            position: absolute;
+            top: 220px;
+            left: 120px;
+            width: 1040px;
+            display: flex;
+            justify-content: space-between;
+        }
+        .column {
+            width: 480px;
+            border-top: 1px solid rgba(10, 22, 38, 0.2);
+            padding-top: 20px;
+        }
+        .col-right {
+            border-top: 1px solid #A88B52;
+        }
+        .col-title {
+            font-family: 'Noto Serif SC', serif;
+            font-size: 24px;
+            margin-bottom: 8px;
+            font-weight: 700;
+        }
+        .col-left .col-title {
+            color: #0A1626;
+        }
+        .col-right .col-title {
+            color: #A88B52;
+        }
+        .col-subtitle {
+            font-size: 16px;
+            color: rgba(26, 43, 76, 0.6);
+            margin-bottom: 24px;
+            font-weight: 300;
+        }
+        .list-item {
+            font-size: 18px;
+            line-height: 1.8;
+            color: #1A2B4C;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            font-weight: 300;
+        }
+        .list-item::before {
+            content: "";
+            display: inline-block;
+            width: 6px;
+            height: 6px;
+            background: #A88B52;
+            margin-right: 16px;
+        }
+        .quote-wrapper {
+            position: absolute;
+            top: 500px;
+            left: 120px;
+            width: 1040px;
+            text-align: center;
+        }
+        .quote-mark {
+            font-family: 'Noto Serif SC', serif;
+            font-size: 80px;
+            color: rgba(168, 139, 82, 0.2);
+            line-height: 0;
+            margin-bottom: 30px;
+        }
+        .quote-text {
+            font-family: 'Noto Serif SC', serif;
+            font-size: 28px;
+            color: #0A1626;
+            font-weight: 700;
+            letter-spacing: 2px;
+            line-height: 1.6;
+        }
+        .footer {
+            position: absolute;
+            bottom: 40px;
+            left: 120px;
+            width: 1040px;
+            text-align: center;
+            font-size: 14px;
+            color: #A88B52;
+            letter-spacing: 6px;
+            font-weight: 300;
+        }
+        .accent-circle {
+            position: absolute;
+            bottom: -200px;
+            right: -200px;
+            width: 600px;
+            height: 600px;
+            border: 1px solid rgba(168, 139, 82, 0.15);
+            border-radius: 50%;
+            z-index: 0;
+        }
+        .header, .content-wrapper, .quote-wrapper, .footer {
+            z-index: 1;
+        }
+    </style>
+</head>
+<body>
+    <div class="slide-container">
+        <div class="accent-circle"></div>
+        
+        <div class="header">
+            <div class="eyebrow">CHAPTER SIX · 行动框架</div>
+            <div class="header-title">把最贵的时间，留给决策型工作</div>
+            <div class="header-line"></div>
+        </div>
+        
+        <div class="content-wrapper">
+            <div class="column col-left">
+                <div class="col-title">执行型工作</div>
+                <div class="col-subtitle">AI 替代速度快</div>
+                <div class="list-item">信息收集与整理</div>
+                <div class="list-item">标准化文档生成</div>
+                <div class="list-item">数据录入与核对</div>
+                <div class="list-item">常规客户沟通</div>
+                <div class="list-item">基础财务报表</div>
+            </div>
+            
+            <div class="column col-right">
+                <div class="col-title">决策型工作</div>
+                <div class="col-subtitle">AI 辅助而非替代</div>
+                <div class="list-item">战略方向判断</div>
+                <div class="list-item">关键人才决策</div>
+                <div class="list-item">客户关系深度维护</div>
+                <div class="list-item">危机处理与风险判断</div>
+                <div class="list-item">创新方向选择</div>
+            </div>
+        </div>
+        
+        <div class="quote-wrapper">
+            <div class="quote-mark">"</div>
+            <div class="quote-text">把你最贵的时间，留给决策型工作。<br>用 AI 解放你的执行型工作，释放你和团队的高阶精力。</div>
+        </div>
+        
+        <div class="footer">太原 · AI 决策升级路径 · 从今天开始</div>
+    </div>
+</body>
+</html>

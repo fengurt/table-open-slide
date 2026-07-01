@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@800&family=Work+Sans:wght@400;600&family=JetBrains+Mono&display=swap" rel="stylesheet">
+    <style>
+      body { margin: 0; background: #0B0F19; }
+      .slide-container {
+        width: 1280px;
+        min-height: 720px;
+        background: #0B0F19;
+        color: #F1F5F9;
+        font-family: 'Work Sans', sans-serif;
+        display: flex;
+        position: relative;
+        overflow: hidden;
+      }
+      .left-panel {
+        width: 40%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding-left: 80px;
+        background: rgba(14, 165, 233, 0.03);
+        border-right: 1px solid rgba(14, 165, 233, 0.2);
+      }
+      .right-panel {
+        width: 60%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding-top: 48px;
+        padding-left: 60px;
+        padding-right: 60px;
+      }
+      .label-mono {
+        font-family: 'JetBrains Mono', monospace;
+        color: #38BDF8;
+        font-size: 18px;
+        margin-bottom: 10px;
+      }
+      .huge-title {
+        font-family: 'Inter', sans-serif;
+        font-weight: 800;
+        font-size: 100px;
+        line-height: 0.9;
+        color: #F1F5F9;
+        text-transform: uppercase;
+      }
+      .risk-grid {
+        display: flex;
+        flex-direction: column;
+        gap: 32px;
+      }
+      .risk-item {
+        display: flex;
+        flex-direction: column;
+        border-left: 4px solid #0EA5E9;
+        padding-left: 24px;
+      }
+      .risk-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 8px;
+      }
+      .risk-title {
+        font-family: 'Inter', sans-serif;
+        font-size: 24px;
+        font-weight: 700;
+        color: #F1F5F9;
+      }
+      .risk-tag {
+        font-family: 'JetBrains Mono', monospace;
+        font-size: 14px;
+        color: #0EA5E9;
+        text-transform: uppercase;
+      }
+      .mitigation-box {
+        background: rgba(56, 189, 248, 0.05);
+        padding-top: 12px;
+        padding-left: 16px;
+        padding-right: 16px;
+        border: 1px solid rgba(56, 189, 248, 0.1);
+      }
+      .mitigation-label {
+        font-family: 'JetBrains Mono', monospace;
+        font-size: 12px;
+        color: #38BDF8;
+        margin-bottom: 4px;
+        display: block;
+      }
+      .mitigation-text {
+        font-size: 16px;
+        color: #CBD5E1;
+        line-height: 1.5;
+        padding-bottom: 12px;
+      }
+      .deco-square {
+        position: absolute;
+        width: 300px;
+        height: 300px;
+        border: 1px solid rgba(56, 189, 248, 0.1);
+        top: -150px;
+        right: -150px;
+        transform: rotate(45deg);
+      }
+    </style>
+</head>
+<body>
+    <div class="slide-container">
+        <div class="deco-square"></div>
+        <div class="left-panel">
+            <div class="label-mono">STRATEGIC // DEFENSE</div>
+            <h2 class="huge-title">RISK<br>MGMT</h2>
+        </div>
+        <div class="right-panel">
+            <div class="risk-grid">
+                <div class="risk-item">
+                    <div class="risk-header">
+                        <div class="risk-title">Expert Supply Gaps</div>
+                        <span class="risk-tag">[ HIGH IMPACT ]</span>
+                    </div>
+                    <div class="mitigation-box">
+                        <span class="mitigation-label">// MITIGATION STRATEGY</span>
+                        <p class="mitigation-text">Leveraging the distributed OPC Global network to ensure a continuous pipeline of 1000+ experts, reducing dependency on any single individual.</p>
+                    </div>
+                </div>
+                <div class="risk-item">
+                    <div class="risk-header">
+                        <div class="risk-title">Hardware Cost Overruns</div>
+                        <span class="risk-tag">[ MEDIUM IMPACT ]</span>
+                    </div>
+                    <div class="mitigation-box">
+                        <span class="mitigation-label">// MITIGATION STRATEGY</span>
+                        <p class="mitigation-text">Strict 90-day prototype validation before mass production. BOM optimization and supply chain veteran hiring to manage manufacturing risks.</p>
+                    </div>
+                </div>
+                <div class="risk-item">
+                    <div class="risk-header">
+                        <div class="risk-title">Big Tech Competition</div>
+                        <span class="risk-tag">[ STRATEGIC RISK ]</span>
+                    </div>
+                    <div class="mitigation-box">
+                        <span class="mitigation-label">// MITIGATION STRATEGY</span>
+                        <p class="mitigation-text">Focusing on exclusive IP contracts and "Result Delivery" rather than generic tools. Our moat is the expert relationship, not just the model.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

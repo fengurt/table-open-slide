@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang='zh-CN'>
+<head>
+<meta charset='UTF-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0'>
+<title>TABLE AI × OPC Global 规模型企业 AI 破局与组织重构高管闭门沙盘 · 北京 2026.05.13</title>
+<link rel='preconnect' href='https://fonts.googleapis.com'>
+<link rel='preconnect' href='https://fonts.gstatic.com' crossorigin>
+<link href='https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Noto+Sans+SC:wght@300;400;500&family=Noto+Serif+SC:wght@300;400;500;600&display=swap' rel='stylesheet'>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --white:#FAFAF8;
+  --cream:#F1EFE8;
+  --navy:#0A1626;
+  --navy-mid:#152a42;
+  --gold:#A88B52;
+  --gold-soft:rgba(168,139,82,0.35);
+  --text:#0A1626;
+  --text-soft:rgba(10,22,38,0.76);
+  --text-muted:rgba(10,22,38,0.52);
+  --serif:'Noto Serif SC','Noto Serif',serif;
+  --sans:'Noto Sans SC',sans-serif;
+  --latin:'Cormorant Garamond',serif;
+}
+html{scroll-behavior:smooth}
+body{
+  background:var(--white);
+  color:var(--text);
+  font-family:var(--sans);
+  font-weight:300;
+  -webkit-font-smoothing:antialiased;
+  line-height:1.65;
+}
+body::before{
+  content:'';
+  position:fixed;
+  inset:0;
+  pointer-events:none;
+  z-index:0;
+  opacity:0.35;
+  background-image:url('data:image/svg+xml,%3Csvg viewBox=\'0 0 256 256\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cfilter id=\'n\'%3E%3CfeTurbulence type=\'fractalNoise\' baseFrequency=\'0.85\' numOctaves=\'3\' stitchTiles=\'stitch\'/%3E%3C/filter%3E%3Crect width=\'100%25\' height=\'100%25\' filter=\'url(%23n)\'/%3E%3C/svg%3E');
+  background-size:200px 200px;
+}
+.wrap{position:relative;z-index:1;max-width:860px;margin:0 auto}
+.top-rule{
+  height:3px;
+  background:linear-gradient(90deg,transparent,var(--gold) 18%,var(--gold) 82%,transparent);
+}
+nav{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:18px 36px;
+  border-bottom:1px solid rgba(10,22,38,0.08);
+  background:rgba(250,250,248,0.95);
+  backdrop-filter:blur(8px);
+}
+.nav-mark{font-family:var(--serif);font-size:12px;letter-spacing:0.38em;color:var(--navy);font-weight:500}
+.nav-pill{
+  font-family:var(--latin);
+  font-size:10px;
+  letter-spacing:0.18em;
+  color:var(--gold);
+  border:1px solid var(--gold-soft);
+  padding:5px 14px;
+  text-transform:uppercase;
+}
+.hero{
+  padding:44px 36px 38px;
+  background:linear-gradient(168deg,var(--navy) 0%,#0c1a2e 42%,var(--navy-mid) 100%);
+  color:var(--white);
+  position:relative;
+  overflow:hidden;
+}
+.hero::before{
+  content:'';
+  position:absolute;
+  left:-30%;
+  bottom:-40%;
+  width:70%;
+  height:90%;
+  border:1px solid rgba(168,139,82,0.07);
+  border-radius:50%;
+  pointer-events:none;
+}
+.hero-inner{position:relative;z-index:1}
+.hero-eyebrow{display:flex;align-items:center;gap:12px;margin-bottom:18px}
+.hero-eyebrow span{
+  font-family:var(--latin);
+  font-size:10px;
+  letter-spacing:0.4em;
+  text-transform:uppercase;
+  color:rgba(168,139,82,0.95);
+}
+.hero-eyebrow i{flex:1;height:1px;background:linear-gradient(90deg,var(--gold-soft),transparent);max-width:100px}
+.hero h1{
+  font-family:var(--serif);
+  font-size:clamp(22px,4.6vw,34px);
+  font-weight:500;
+  line-height:1.38;
+  letter-spacing:0.03em;
+  margin-bottom:12px;
+  max-width:680px;
+}
+.hero h1 em{font-style:normal;color:var(--gold);font-size:clamp(18px,3.8vw,26px);display:block;margin-top:8px}
+.hero-kicker{
+  font-size:13px;
+  color:rgba(250,250,248,0.72);
+  letter-spacing:0.08em;
+  margin-bottom:16px;
+}
+.eligibility{
+  padding:28px 36px 32px;
+  background:var(--cream);
+  border-bottom:1px solid rgba(10,22,38,0.06);
+}
+.eligibility-inner{
+  border-left:3px solid var(--gold);
+  padding-left:18px;
+  max-width:640px;
+}
+.eligibility h2{
+  font-family:var(--serif);
+  font-size:13px;
+  letter-spacing:0.28em;
+  color:var(--gold);
+  font-weight:600;
+  margin-bottom:10px;
+}
+.eligibility p{font-size:13px;color:var(--text-soft);line-height:1.85}
+.meta-strip{
+  display:flex;
+  flex-wrap:wrap;
+  border-bottom:1px solid rgba(10,22,38,0.08);
+  border-top:1px solid rgba(10,22,38,0.06);
+}
+.mi{
+  flex:1;
+  min-width:140px;
+  padding:14px 18px;
+  display:flex;
+  flex-direction:column;
+  gap:4px;
+  border-right:1px solid rgba(10,22,38,0.06);
+  background:var(--white);
+}
+.mi:last-child{border-right:none}
+.ml{font-size:9px;letter-spacing:0.22em;color:var(--text-muted);text-transform:uppercase;font-family:var(--latin)}
+.mv{font-size:13px;color:var(--text);letter-spacing:0.02em;line-height:1.45}
+.sec-head{padding:30px 36px 6px}
+.slabel{
+  font-family:var(--latin);
+  font-size:10px;
+  letter-spacing:0.36em;
+  color:var(--gold);
+  text-transform:uppercase;
+  display:block;
+  margin-bottom:8px;
+}
+.stitle{
+  font-family:var(--serif);
+  font-size:19px;
+  font-weight:500;
+  color:var(--navy);
+  letter-spacing:0.05em;
+}
+.sec-intro{padding:10px 36px 22px;font-size:13px;color:var(--text-muted);max-width:640px}
+.benefit-list{margin:0 36px 36px;border:1px solid rgba(168,139,82,0.22);background:var(--white)}
+.benefit-item{
+  display:grid;
+  grid-template-columns:44px 1fr;
+  gap:0;
+  border-bottom:1px solid rgba(10,22,38,0.06);
+  align-items:stretch;
+}
+.benefit-item:last-child{border-bottom:none}
+.bi-num{
+  font-family:var(--latin);
+  font-size:22px;
+  color:var(--gold);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:rgba(168,139,82,0.06);
+  border-right:1px solid rgba(168,139,82,0.15);
+}
+.bi-body{padding:18px 20px}
+.bi-body h3{font-family:var(--serif);font-size:14px;font-weight:600;color:var(--navy);margin-bottom:6px;line-height:1.45}
+.bi-body p{font-size:12.5px;color:var(--text-soft);line-height:1.75}
+.grid3{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:1px;
+  background:rgba(168,139,82,0.22);
+  margin:0 36px 28px;
+  border:1px solid rgba(168,139,82,0.2);
+}
+.card{background:var(--white);padding:16px 18px;min-height:0}
+.card-num{font-family:var(--latin);font-size:24px;color:var(--gold);line-height:1;margin-bottom:6px}
+.card h3{font-family:var(--serif);font-size:14px;font-weight:600;color:var(--navy);margin:0 0 4px;line-height:1.35}
+.card p{font-size:12px;color:var(--text-soft);line-height:1.62;margin:0}
+.schedule-wrap{margin:0 36px 40px;overflow-x:auto;border:1px solid rgba(10,22,38,0.1)}
+.schedule-wrap table{width:100%;border-collapse:collapse;font-size:12.5px;background:var(--white)}
+.schedule-wrap th{
+  text-align:left;
+  padding:12px 14px;
+  background:var(--navy);
+  color:rgba(250,250,248,0.95);
+  font-family:var(--serif);
+  font-weight:500;
+  letter-spacing:0.06em;
+  font-size:11px;
+  border-bottom:2px solid var(--gold);
+}
+.schedule-wrap td{
+  padding:14px 14px;
+  vertical-align:top;
+  border-bottom:1px solid rgba(10,22,38,0.07);
+  color:var(--text-soft);
+  line-height:1.65;
+}
+.schedule-wrap td:first-child{
+  font-family:var(--latin);
+  font-size:13px;
+  color:var(--gold);
+  white-space:nowrap;
+  width:1%;
+  background:rgba(168,139,82,0.04);
+}
+.schedule-wrap td:nth-child(2){font-weight:500;color:var(--navy);font-family:var(--serif);font-size:13px}
+.schedule-wrap tr:last-child td{border-bottom:none}
+.spk-sec{padding:38px 36px 44px;background:var(--navy);color:var(--white)}
+.spk-sec .slabel{color:rgba(168,139,82,0.92)}
+.spk-sec .stitle{color:var(--white);margin-bottom:8px}
+.spk-sub{font-size:12px;color:rgba(250,250,248,0.55);margin-bottom:24px;max-width:640px}
+.spk-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:12px;
+}
+.spk-card{
+  position:relative;
+  border:1px solid rgba(168,139,82,0.25);
+  background:rgba(255,255,255,0.04);
+  padding:22px 16px 20px;
+  min-height:0;
+}
+.spk-badge-live{
+  position:absolute;top:12px;right:12px;
+  font-size:8px;letter-spacing:0.16em;color:var(--gold);
+  border:1px solid var(--gold-soft);padding:2px 7px;
+  font-family:var(--latin);text-transform:uppercase;
+}
+.spk-badge-remote{
+  position:absolute;top:12px;right:12px;
+  font-size:8px;letter-spacing:0.18em;color:var(--gold);
+  border:1px solid var(--gold-soft);padding:2px 7px;
+  font-family:var(--latin);text-transform:uppercase;
+}
+.spk-av{
+  width:52px;height:52px;border-radius:50%;
+  border:1px solid rgba(168,139,82,0.45);
+  display:flex;align-items:center;justify-content:center;
+  font-family:var(--serif);font-size:18px;color:var(--gold);
+  margin-bottom:14px;background:rgba(168,139,82,0.08);
+}
+.spk-name{font-family:var(--serif);font-size:19px;font-weight:600;letter-spacing:0.14em;margin-bottom:6px}
+.spk-role{font-size:11px;color:rgba(168,139,82,0.88);letter-spacing:0.1em;margin-bottom:14px}
+.spk-bio{font-size:11.5px;color:rgba(250,250,248,0.72);line-height:1.78}
+.format{padding:32px 36px;border-top:1px solid rgba(10,22,38,0.07)}
+.pills{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px}
+.pill{
+  font-size:11px;padding:8px 16px;border:1px solid rgba(10,22,38,0.12);
+  color:var(--text-soft);letter-spacing:0.04em;border-radius:100px;
+}
+.pill::before{
+  content:'';display:inline-block;width:5px;height:5px;border-radius:50%;
+  background:var(--gold);margin-right:8px;vertical-align:middle;
+}
+.cta{
+  padding:40px 36px 46px;
+  text-align:center;
+  background:var(--cream);
+  border-top:1px solid rgba(168,139,82,0.18);
+}
+.cta-line{font-family:var(--latin);font-size:11px;letter-spacing:0.3em;color:var(--gold);text-transform:uppercase;margin-bottom:8px}
+.cta h2{font-family:var(--serif);font-size:21px;color:var(--navy);font-weight:500;margin-bottom:16px;letter-spacing:0.06em}
+.cta-note{font-size:12px;color:var(--text-muted);max-width:460px;margin:0 auto 22px;line-height:1.85}
+.form-wrap{
+  max-width:500px;margin:0 auto;text-align:left;
+  background:var(--white);border:1px solid rgba(168,139,82,0.35);
+  padding:26px 28px 22px;
+}
+.form-row{margin-bottom:13px}
+.form-row label{display:block;font-size:10px;letter-spacing:0.18em;color:var(--gold);margin-bottom:6px}
+.form-row input,.form-row select,.form-row textarea{
+  width:100%;padding:10px 12px;font-size:13px;font-family:var(--sans);
+  border:1px solid rgba(10,22,38,0.14);background:var(--cream);color:var(--text);outline:none;
+}
+.form-row input:focus,.form-row textarea:focus{border-color:var(--gold)}
+.form-row textarea{height:76px;resize:none}
+.form-two{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.cta-btn{
+  width:100%;margin-top:4px;padding:14px;background:var(--navy);color:var(--white);
+  font-family:var(--serif);font-size:13px;letter-spacing:0.32em;border:1px solid var(--navy);
+  cursor:pointer;transition:background 0.2s;
+}
+.cta-btn:hover{background:var(--navy-mid)}
+.success-msg{display:none;text-align:center;padding:18px 8px 6px}
+.success-msg .mark{font-family:var(--serif);font-size:26px;color:var(--gold);margin-bottom:10px}
+.success-msg p{font-size:13px;color:var(--text-soft);line-height:1.85}
+.disclaimer{padding:0 36px 18px;font-size:10px;color:var(--text-muted);line-height:1.8;text-align:center}
+footer{
+  padding:20px 36px 28px;display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:10px;
+  border-top:1px solid rgba(10,22,38,0.08);font-size:10px;color:var(--text-muted);letter-spacing:0.1em;
+}
+footer .fb{font-family:var(--serif);color:var(--navy);opacity:0.72}
+footer .fc{font-family:var(--latin);letter-spacing:0.14em}
+@media(max-width:720px){
+  nav,.hero,.eligibility,.sec-head,.sec-intro,.benefit-list,.grid3,.schedule-wrap,.spk-sec,.format,.cta,footer{padding-left:20px;padding-right:20px}
+  .benefit-list,.grid3,.schedule-wrap{margin-left:20px;margin-right:20px}
+  .grid3{grid-template-columns:1fr}
+  .grid3 .card{padding:12px 14px}
+  .grid3 .card-num{font-size:20px;margin-bottom:4px}
+  .grid3 .card h3{font-size:13px}
+  .grid3 .card p{font-size:11.5px;line-height:1.58}
+  .meta-strip{flex-direction:column}
+  .mi{border-right:none;border-bottom:1px solid rgba(10,22,38,0.06)}
+  .benefit-item{grid-template-columns:40px 1fr}
+  .schedule-wrap td:first-child{white-space:normal}
+  .spk-grid{grid-template-columns:1fr}
+}
+@media(max-width:520px){.form-two{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<div class='top-rule'></div>
+<div class='wrap'>
+
+<nav>
+  <div class='nav-mark'>TABLE AI × OPC Global</div>
+  <div class='nav-pill'>Invitation · Beijing · May 13, 2026</div>
+</nav>
+
+<section class='hero'>
+  <div class='hero-inner'>
+    <div class='hero-eyebrow'>
+      <span>Strategic Blueprint</span>
+      <i></i>
+    </div>
+    <p class='hero-kicker'>2026年5月13日（周三）下午 · 北京 · 闭门定向邀约</p>
+    <h1>规模型企业 AI 破局与组织重构<br><em>寻找大象转身的第二曲线 —— 聚焦酒店餐饮行业数字店长转型之道</em></h1>
+  </div>
+</section>
+
+<section class='eligibility'>
+  <div class='eligibility-inner'>
+    <h2>参会资格</h2>
+    <p>限<strong>餐饮酒店行业一把手、决策层、投资者</strong>及<strong>领域专家</strong>参加。</p>
+  </div>
+</section>
+
+<div class='meta-strip'>
+  <div class='mi'><span class='ml'>时间</span><span class='mv'>2026年5月13日（周三）<br>14:00 — 17:30</span></div>
+  <div class='mi'><span class='ml'>地点</span><span class='mv'>北京 · 北大博雅国际酒店</span></div>
+  <div class='mi'><span class='ml'>形式</span><span class='mv'>高管闭门沙盘 · 下午场<br>资料与茶歇环节含在内</span></div>
+</div>
+
+<div class='sec-head'>
+  <span class='slabel'>Outcomes · 课程预期收益</span>
+  <h2 class='stitle'>四重收获</h2>
+</div>
+<p class='sec-intro'>每场闭门会均围绕核心产业判断设计，以下为本次预期收益摘要。</p>
+
+<div class='benefit-list'>
+  <div class='benefit-item'>
+    <div class='bi-num'>1</div>
+    <div class='bi-body'>
+      <h3>建立酒店餐饮业 AI 转型全局认知</h3>
+      <p>了解最新 AI 产品与工具在服务业的应用边界，明确未来三年真正改变行业的核心技术。</p>
+    </div>
+  </div>
+  <div class='benefit-item'>
+    <div class='bi-num'>2</div>
+    <div class='bi-body'>
+      <h3>拆解企业级智能体实战案例</h3>
+      <p>分享央企与上市公司的智能体转型历程，揭秘落地的关键成功要素与实施路径。</p>
+    </div>
+  </div>
+  <div class='benefit-item'>
+    <div class='bi-num'>3</div>
+    <div class='bi-body'>
+      <h3>探索数字店长商业模式</h3>
+      <p>理解无人公司趋势，探讨一人公司模式在餐饮门店的具体落地形态与效能释放。</p>
+    </div>
+  </div>
+  <div class='benefit-item'>
+    <div class='bi-num'>4</div>
+    <div class='bi-body'>
+      <h3>融入顶级生态与行业圈层</h3>
+      <p>与 TABLE AI 和 OPC Global 专家及同行深度对话，探讨数字店长创造利润的核心逻辑。</p>
+    </div>
+  </div>
+</div>
+
+<div class='sec-head'>
+  <span class='slabel'>Framework · 课程设计理论</span>
+  <h2 class='stitle'>三条底层理论</h2>
+</div>
+<p class='sec-intro'>议程由以下三条理论串联，帮助您在复杂信息中稳定决策重点。</p>
+
+<div class='grid3'>
+  <div class='card'>
+    <div class='card-num'>I</div>
+    <h3>决策权重决定发展</h3>
+    <p>企业关键发展由核心决策驱动。管理者无需精通代码，只需掌握清晰的判断标准与战略方向。</p>
+  </div>
+  <div class='card'>
+    <div class='card-num'>II</div>
+    <h3>高价值信息筛选</h3>
+    <p>当前决策的核心在于筛选高价值信息。剔除行业噪音，把握 AI 时代的真实商业机会，成为管理者的必修课。</p>
+  </div>
+  <div class='card'>
+    <div class='card-num'>III</div>
+    <h3>组织最小单元重构</h3>
+    <p>未来的竞争优势在于超级个体配合 AI 协同与进化。探索组织形态从传统人工向智能敏捷团队的升级。</p>
+  </div>
+</div>
+
+<div class='sec-head'>
+  <span class='slabel'>Agenda · 日程</span>
+  <h2 class='stitle'>半日研讨会 · 时间轴</h2>
+</div>
+<p class='sec-intro'>以下为拟定流程，现场可能因互动深度微调；以签到时发放的议程卡为准。</p>
+
+<div class='schedule-wrap'>
+  <table>
+    <thead>
+      <tr>
+        <th>时间</th>
+        <th>环节</th>
+        <th>核心价值</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>14:00–14:15</td>
+        <td>签到入场</td>
+        <td>领取专属资料包与定制胸牌；提前与同行业企业家自由交流。</td>
+      </tr>
+      <tr>
+        <td>14:15–14:30</td>
+        <td>开篇：全球餐饮酒店企业的 AI 转型故事赏</td>
+        <td>重看 AI 无用论与 AI 万能论；快速建立行业 AI 转型的全局认知；梳理企业一把手的 AI 时代能力矩阵。</td>
+      </tr>
+      <tr>
+        <td>14:30–15:00</td>
+        <td>抛砖引玉：斯坦福及全球智库的企业智能转型趋势</td>
+        <td>独家解读斯坦福 2026 年 AI 与服务业报告；拆解麦肯锡、红杉资本对酒店餐饮行业的 AI 预测；明确未来 3 年真正会改变行业的 3 项核心技术。（主讲：郭峰）</td>
+      </tr>
+      <tr>
+        <td>15:00–15:35</td>
+        <td>大象起舞：上市公司企业级智能体转型之道</td>
+        <td>分享央企和上市公司的智能体转型实战历程；揭秘企业级智能体落地的 5 个关键成功要素。（主讲：周健）</td>
+      </tr>
+      <tr>
+        <td>15:35–16:10</td>
+        <td>未来已来：无人公司的案例和落地方法论</td>
+        <td>分享无人公司的趋势和未来；讲解一人公司模式在餐饮门店的可能的 3 种落地形态。（主讲：李智勇）</td>
+      </tr>
+      <tr>
+        <td>16:10–16:25</td>
+        <td>茶歇交流</td>
+        <td>北大博雅国际酒店专属茶点服务；与专家及同行进行一对一深度交流。</td>
+      </tr>
+      <tr>
+        <td>16:25–17:15</td>
+        <td>闭门圆桌：餐饮老板、投资人与专家对话</td>
+        <td>嘉宾包含周健、李智勇、神秘行业投资人及标杆企业创始人。围绕数字店长如何真正创造利润展开深度讨论；每位参会者可提出企业最迫切的问题，获得专家团集体解答。（主持：郭峰）</td>
+      </tr>
+      <tr>
+        <td>17:15–17:30</td>
+        <td>自由交流与合影留念</td>
+        <td>交换联系方式，建立长期合作关系；全体参会者与专家团合影留念。</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<section class='spk-sec'>
+  <span class='slabel'>Faculty · 课程教练</span>
+  <h2 class='stitle'>现场与远程 · 教练团</h2>
+  <p class='spk-sub'>郭峰担任现场课程教练；李智勇、周健以远程教练身份参与案例与智能体能力相关模块（具体连线以确认函为准）。</p>
+  <div class='spk-grid'>
+    <article class='spk-card'>
+      <div class='spk-badge-live'>Live</div>
+      <div class='spk-av'>峰</div>
+      <div class='spk-name'>郭 峰</div>
+      <div class='spk-role'>现场课程教练 · 香港 TABLE AI 董事长 · OPC Global 创始人／理事会秘书长</div>
+      <p class='spk-bio'>QS 排名第一的瑞士 EHL 集团中国区创始团队成员，AI 系统架构师。他专注联合各领域专业人士和实战派，为上市公司提供第二曲线咨询服务，与生态伙伴探索人工智能在教育、企业、家庭和个体发展领域的探索和应用，致力于重构个体与组织的成长和协作模式，为 OPC Global 帮助每一位朋友实现善用 AI、终获自由的愿景而努力。</p>
+    </article>
+    <article class='spk-card'>
+      <div class='spk-badge-remote'>Remote</div>
+      <div class='spk-av'>勇</div>
+      <div class='spk-name'>李智勇</div>
+      <div class='spk-role'>远程教练 · 智能跳越（北京）科技有限公司创始人兼 CEO</div>
+      <p class='spk-bio'>新型多智能体系统（MAS）架构师。他是人工智能企业家与畅销书《无人公司》作者，曾主导小米小爱同学、百度小度在家以及北京冬奥会后台等关键系统架构设计，个人拥有超过 100 项已授权的发明专利。他兼具深厚技术理论与商业实战经验，曾作为核心高管主导 2 亿元以上融资并辅助实现同等规模的年盈利收入。他深刻洞察人工智能对组织形态的变革，致力于推动人工智能从效率工具向自主商业体进化，并全面实践无人公司理念。</p>
+    </article>
+    <article class='spk-card'>
+      <div class='spk-badge-remote'>Remote</div>
+      <div class='spk-av'>健</div>
+      <div class='spk-name'>周 健</div>
+      <div class='spk-role'>远程教练 · 澜码科技创始人兼 CEO · OPC 数字员工技术主理人</div>
+      <p class='spk-bio'>2002 年亚洲首个 ACM-ICPC 世界冠军获得者，前谷歌核心工程师，也是极少数获得 PageRank 核心算法代码访问权限的中国工程师之一。作为依图科技早期核心研发负责人与弘玑 RPA 前 CTO，他完整经历了人工智能技术从底层研发到企业服务落地的全过程。他目前专注于研发企业级 AI Agent 平台，致力于降低人工智能应用门槛，实现人人都能设计可用的 AI Agent 的行业愿景。</p>
+    </article>
+  </div>
+</section>
+
+<section class='format'>
+  <span class='slabel'>Venue · 场地与物料</span>
+  <h2 class='stitle'>北大博雅国际酒店</h2>
+  <div class='pills'>
+    <span class='pill'>北京市</span>
+    <span class='pill'>闭门 · 定向邀约</span>
+    <span class='pill'>专属资料包</span>
+    <span class='pill'>茶歇 · 合影</span>
+  </div>
+</section>
+
+<section class='cta'>
+  <p class='cta-line'>RSVP</p>
+  <h2>申请席位 · 资格审核后通知</h2>
+  <p class='cta-note'>请如实填写身份与机构信息，便于组委会进行资格匹配。通过审核者将收到确认函与行前须知。</p>
+  <div class='form-wrap'>
+    <div id='form-area'>
+      <div class='form-two'>
+        <div class='form-row'>
+          <label>姓 名 *</label>
+          <input type='text' id='f-name' placeholder='与身份证件一致' autocomplete='name'>
+        </div>
+        <div class='form-row'>
+          <label>联系电话 *</label>
+          <input type='tel' id='f-phone' placeholder='手机号码' autocomplete='tel'>
+        </div>
+      </div>
+      <div class='form-row'>
+        <label>企业 / 机构全称 *</label>
+        <input type='text' id='f-company' placeholder='须与工商登记或可核验主体一致' autocomplete='organization'>
+      </div>
+      <div class='form-row'>
+        <label>您的身份 *</label>
+        <select id='f-role'>
+          <option value=''>请选择</option>
+          <option>企业一把手</option>
+          <option>决策层</option>
+          <option>投资者</option>
+          <option>行业资深学者</option>
+          <option>其他（请在备注说明）</option>
+        </select>
+      </div>
+      <div class='form-row'>
+        <label>您希望现场探讨的一个核心问题</label>
+        <textarea id='f-note' placeholder='选填；有助于教练团与嘉宾提前准备讨论角度...'></textarea>
+      </div>
+      <button type='button' class='cta-btn' onclick='submitRsvp()'>提 交 审 核 申 请</button>
+    </div>
+    <div class='success-msg' id='success-msg'>
+      <div class='mark'>◇</div>
+      <p>申请已收到<br>组委会将在审核后与您联络<br><span style='font-size:11px;color:var(--text-muted)'>感谢关注 TABLE AI × OPC Global</span></p>
+    </div>
+  </div>
+</section>
+
+<p class='disclaimer'>※ 议程与嘉宾可能因不可抗力微调，以确认函为准 · 最终解释权归主办方所有</p>
+
+<footer>
+  <div class='fb'>TABLE AI × OPC Global · 北京 2026.05.13</div>
+  <div class='fc'>Strategic Blueprint Session</div>
+</footer>
+
+</div>
+<script>
+function submitRsvp(){
+  var name = document.getElementById('f-name').value.trim();
+  var phone = document.getElementById('f-phone').value.trim();
+  var company = document.getElementById('f-company').value.trim();
+  var role = document.getElementById('f-role').value;
+  var inName = document.getElementById('f-name');
+  var inPhone = document.getElementById('f-phone');
+  var inCo = document.getElementById('f-company');
+  var inRole = document.getElementById('f-role');
+  inName.style.borderColor = '';
+  inPhone.style.borderColor = '';
+  inCo.style.borderColor = '';
+  inRole.style.borderColor = '';
+  if(!name) inName.style.borderColor = 'rgba(180,60,40,0.5)';
+  if(!phone) inPhone.style.borderColor = 'rgba(180,60,40,0.5)';
+  if(!company) inCo.style.borderColor = 'rgba(180,60,40,0.5)';
+  if(!role) inRole.style.borderColor = 'rgba(180,60,40,0.5)';
+  if(!name || !phone || !company || !role) return;
+  document.getElementById('form-area').style.display='none';
+  document.getElementById('success-msg').style.display='block';
+}
+</script>
+</body>
+</html>

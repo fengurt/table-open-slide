@@ -1,0 +1,48 @@
+---
+description: How to format documents with the "Table AI" brand. Apply whenever the user says "use Table AI", "Table AI 排版/格式", "format with Table AI", or asks to brand a doc/deck/contract as Table AI.
+globs:
+alwaysApply: false
+---
+
+# "Use Table AI to format" → canonical instruction
+
+When the user asks to format anything with the **Table AI** brand, use the
+vendored brand tokens below via the `docx-master` pipeline. Do not re-derive
+colors/fonts from scratch — they are already mapped from the source design.
+
+## Brand source of truth
+
+- **Brand module (use this):** `modules/tableai-brand/design.md`
+- **Authoritative design source:** `/Users/af/cpro01/prioritized01/00tableai3/000tableai_designaha001/TABLEAI/TableAI_DESIGN.md`
+- **Upstream repo:** https://github.com/fengurt/tableai_designaha/tree/main/TABLEAI
+- **Tokens:** 寰宇深蓝 (Universe Deep Blue) `#0A1626` (primary ink/structure) ·
+  日晷暗金 (Sundial Dark Gold) `#A88B52` (accent: key data, CTAs, heading rules only) ·
+  白底 `#FFFFFF` · Manrope (Latin) / Noto Sans SC (CJK) · investor-grade minimal, generous whitespace.
+- **Voice / 4AATE:** Altruistic, Authentic, Artistic, Elegant.
+
+## Default build (Word / .docx)
+
+```bash
+pnpm docx:from-md:build -- \
+  --md out/<slug>.md \
+  --brand modules/tableai-brand/design.md \
+  --slug <slug> --client "<client>" --tag "<tags>"
+```
+
+- Save the source content verbatim to `out/<slug>.md` first — **never drop content**.
+- Output lands in `out/documents/<slug>/` (docx + pdf + preview PNGs + meta.json),
+  which surfaces in the html-lab Documents library (`pnpm dev:html-lab`).
+- Verify by reading the preview PNGs before reporting done.
+
+## Future online deployment
+
+The brand is self-contained in `modules/tableai-brand/design.md` (tokens baked in,
+no external fetch needed at build time), so it is safe to bundle for hosted/online
+docx generation. If the upstream `TableAI_DESIGN.md` changes, re-map tokens into the
+brand module and keep the `source:` pointer in its frontmatter up to date.
+
+## Other surfaces
+
+For HTML / PPTX / web UI branded as Table AI, apply the same tokens (deep blue
+structure, gold accent only on key data & CTAs, white background, 8px spacing grid,
+2–4px or square corners).

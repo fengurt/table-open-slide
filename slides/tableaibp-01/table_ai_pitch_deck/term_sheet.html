@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;800&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        .slide-container {
+            width: 1280px;
+            min-height: 720px;
+            background-color: #FFFFFF;
+            font-family: 'Google Sans', 'Noto Sans SC', sans-serif;
+            position: relative;
+            padding-top: 60px;
+            padding-left: 80px;
+            padding-right: 80px;
+        }
+        .header { margin-bottom: 18px; }
+        .page-title {
+            color: #A88B52; font-size: 16px; font-weight: 400;
+            text-transform: uppercase; letter-spacing: 1px; margin-bottom: 10px;
+        }
+        .title {
+            color: #0A1626; font-size: 32px; font-weight: 800; line-height: 1.3;
+        }
+        .terms-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 16px 25px;
+            margin-top: 16px;
+        }
+        .term {
+            border-top: 2px solid #0A1626; padding-top: 8px;
+        }
+        .term.gold { border-top-color: #A88B52; }
+        .term-label {
+            color: #A88B52; font-size: 11px; font-weight: 800;
+            text-transform: uppercase; letter-spacing: 1px;
+        }
+        .term-value {
+            color: #0A1626; font-size: 17px; font-weight: 800;
+            margin-top: 4px; margin-bottom: 4px;
+        }
+        .term-desc {
+            color: #2C3E50; font-size: 12px; font-weight: 300; line-height: 1.45;
+        }
+        .uop-section {
+            margin-top: 22px;
+            border-top: 1px solid #A8ADAD;
+            padding-top: 12px;
+        }
+        .uop-label {
+            color: #A88B52; font-size: 13px; font-weight: 800;
+            text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 10px;
+        }
+        .uop-bar {
+            display: flex; width: 100%; height: 50px; margin-bottom: 8px;
+        }
+        .uop-seg {
+            display: flex; align-items: center; justify-content: center;
+            color: #FFFFFF; font-size: 16px; font-weight: 800;
+        }
+        .uop-seg.s1 { background-color: #0A1626; flex: 35; }
+        .uop-seg.s2 { background-color: #1F3354; flex: 25; }
+        .uop-seg.s3 { background-color: #A88B52; flex: 20; }
+        .uop-seg.s4 { background-color: #C9AC74; flex: 10; }
+        .uop-seg.s5 { background-color: #E0CFA2; color: #0A1626; flex: 10; }
+        .uop-legend { display: flex; gap: 10px; }
+        .leg {
+            flex: none; font-size: 11px; color: #2C3E50; font-weight: 300; line-height: 1.4;
+        }
+        .leg b { color: #0A1626; font-weight: 800; }
+        .leg.s1 { flex: 35; }
+        .leg.s2 { flex: 25; }
+        .leg.s3 { flex: 20; }
+        .leg.s4 { flex: 10; }
+        .leg.s5 { flex: 10; }
+        .footer {
+            position: absolute; bottom: 30px; left: 80px; right: 80px;
+            color: #2C3E50; font-size: 14px; font-weight: 300;
+            border-top: 1px solid #A88B52; padding-top: 10px;
+            display: flex; justify-content: space-between;
+        }
+    </style>
+</head>
+<body>
+    <div class="slide-container">
+        <div class="header">
+            <div class="page-title">Term Sheet + Use of Proceeds</div>
+            <div class="title">$3M · 股权 + PTS 双资产 · 复利投入</div>
+        </div>
+
+        <div class="terms-grid">
+            <div class="term gold">
+                <div class="term-label">本轮融资</div>
+                <div class="term-value">$3,000,000</div>
+                <div class="term-desc">分两期交割 (Tranche 1 & 2)，里程碑触发，保护下行。</div>
+            </div>
+            <div class="term gold">
+                <div class="term-label">估值预期</div>
+                <div class="term-value">Pre-money $9-12M</div>
+                <div class="term-desc">释放 20-25%，基于 Network Value 模型而非 SaaS 倍数。</div>
+            </div>
+            <div class="term gold">
+                <div class="term-label">资产组合</div>
+                <div class="term-value">优先股 + PTS 额度</div>
+                <div class="term-desc">投资人同时获得股权与初始 PTS，享受双重流动性。</div>
+            </div>
+            <div class="term">
+                <div class="term-label">回购权</div>
+                <div class="term-value">无个人无限连带</div>
+                <div class="term-desc">坚决不签创始人个人无限连带责任的对赌回购。</div>
+            </div>
+            <div class="term">
+                <div class="term-label">董事会</div>
+                <div class="term-value">投资人 1 席</div>
+                <div class="term-desc">领投 1 席；生态长期建设事项无一票否决权。</div>
+            </div>
+            <div class="term">
+                <div class="term-label">交割条件</div>
+                <div class="term-value">尽调 + 价值观对齐</div>
+                <div class="term-desc">财法尽调 + 长期主义资本与无界学院愿景共识。</div>
+            </div>
+        </div>
+
+        <div class="uop-section">
+            <div class="uop-label">Use of Proceeds · 每一分钱用于复利资产</div>
+            <div class="uop-bar">
+                <div class="uop-seg s1">35%</div>
+                <div class="uop-seg s2">25%</div>
+                <div class="uop-seg s3">20%</div>
+                <div class="uop-seg s4">10%</div>
+                <div class="uop-seg s5">10%</div>
+            </div>
+            <div class="uop-legend">
+                <div class="leg s1"><b>技术研发与基座</b><br>A2A · 零信任分账 · Agent 库</div>
+                <div class="leg s2"><b>合伙人 Onboarding</b><br>首批 100 位教练合伙人</div>
+                <div class="leg s3"><b>标杆项目交付</b><br>中信 / 政企首批战略大单</div>
+                <div class="leg s4"><b>全球合规护航</b><br>跨国法务 + PTS 安全审计</div>
+                <div class="leg s5"><b>战略品牌生态</b><br>ACM 学术 + 校友网络</div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <span>Term Sheet + Use of Proceeds</span>
+            <span>TABLE AI · Confidential · 2026</span>
+        </div>
+    </div>
+</body>
+</html>

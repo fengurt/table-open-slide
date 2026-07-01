@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;800&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        .slide-container {
+            width: 1280px;
+            min-height: 720px;
+            background-color: #FFFFFF;
+            font-family: 'Google Sans', 'Noto Sans SC', sans-serif;
+            position: relative;
+            padding-top: 60px;
+            padding-left: 80px;
+            padding-right: 80px;
+        }
+        .header { margin-bottom: 30px; }
+        .page-title {
+            color: #A88B52; font-size: 16px; font-weight: 400;
+            text-transform: uppercase; letter-spacing: 1px; margin-bottom: 10px;
+        }
+        .title {
+            color: #0A1626; font-size: 36px; font-weight: 800; line-height: 1.3;
+        }
+        .subtitle {
+            color: #2C3E50; font-size: 18px; font-weight: 300; margin-top: 10px;
+        }
+        .risk-table { margin-top: 20px; }
+        .risk-row {
+            display: flex; border-bottom: 1px solid #E0E0E0;
+            padding-top: 12px;
+        }
+        .risk-row:first-child { border-top: 2px solid #0A1626; }
+        .risk-col-tag {
+            width: 200px; flex-shrink: 0;
+            color: #0A1626; font-size: 17px; font-weight: 800;
+            padding-right: 10px;
+        }
+        .risk-col-mit {
+            flex: 1;
+            color: #2C3E50; font-size: 16px; font-weight: 300; line-height: 1.55;
+        }
+        .risk-col-mit b { color: #A88B52; font-weight: 800; }
+        .gold-bar {
+            margin-top: 28px;
+            background-color: #FDFBF7;
+            border-top: 2px solid #A88B52;
+            border-bottom: 2px solid #A88B52;
+            padding-top: 16px;
+            padding-left: 25px;
+            padding-right: 25px;
+        }
+        .bar-label {
+            color: #A88B52; font-size: 13px; font-weight: 800;
+            text-transform: uppercase; letter-spacing: 2px; margin-bottom: 8px;
+        }
+        .bar-grid { display: flex; gap: 30px; }
+        .bar-item { flex: 1; }
+        .bar-title {
+            color: #0A1626; font-size: 16px; font-weight: 800; margin-bottom: 4px;
+        }
+        .bar-desc {
+            color: #2C3E50; font-size: 14px; font-weight: 300; line-height: 1.5;
+        }
+        .footer {
+            position: absolute; bottom: 30px; left: 80px; right: 80px;
+            color: #2C3E50; font-size: 14px; font-weight: 300;
+            border-top: 1px solid #A88B52; padding-top: 10px;
+            display: flex; justify-content: space-between;
+        }
+    </style>
+</head>
+<body>
+    <div class="slide-container">
+        <div class="header">
+            <div class="page-title">S · 风险图谱与流动性路径</div>
+            <div class="title">四类风险 · 已具备对冲机制 · 双资产流动性</div>
+            <div class="subtitle">投资人关心的不是"有没有风险"，而是"风险是否被结构性地处理过"。</div>
+        </div>
+
+        <div class="risk-table">
+            <div class="risk-row">
+                <div class="risk-col-tag">基础模型依赖</div>
+                <div class="risk-col-mit"><b>对冲：</b>多模型抽象层 (OpenAI / Anthropic / 国产) + 自有<b>专家 Agent 资产</b>不依赖单一基模。</div>
+            </div>
+            <div class="risk-row">
+                <div class="risk-col-tag">监管不确定性</div>
+                <div class="risk-col-mit"><b>对冲：</b>香港主体 + 全球合规架构；PTS 仅作生态内激励，<b>不发币、不流通至公链</b>。</div>
+            </div>
+            <div class="risk-row">
+                <div class="risk-col-tag">客户集中度</div>
+                <div class="risk-col-mit"><b>对冲：</b>四大场景平行（高校 / 政企 / 出海 / 家庭）+ <b>多国客户分散</b>，无单一客户超过 15%。</div>
+            </div>
+            <div class="risk-row">
+                <div class="risk-col-tag">创始人 / 团队</div>
+                <div class="risk-col-mit"><b>对冲：</b>单层教练合伙人组织 + <b>顶级学术与商业冗余</b>（俞勇 / 周健 / EHL / 海尔体系）。</div>
+            </div>
+        </div>
+
+        <div class="gold-bar">
+            <div class="bar-label">流动性路径 · Dual-Asset Liquidity</div>
+            <div class="bar-grid">
+                <div class="bar-item">
+                    <div class="bar-title">股权资产 (Equity)</div>
+                    <div class="bar-desc">战略并购 (科技巨头 / 教育集团) · IPO (港股或美股双重上市) · 二级老股转让</div>
+                </div>
+                <div class="bar-item">
+                    <div class="bar-title">PTS 资产 (Points)</div>
+                    <div class="bar-desc">生态内：私董会 / 高端商旅 / Agent 调用消费 · 生态外：被资本市场识别为"网络价值"溢价</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <span>S · 风险图谱与流动性路径</span>
+            <span>TABLE AI · Confidential · 2026</span>
+        </div>
+    </div>
+</body>
+</html>

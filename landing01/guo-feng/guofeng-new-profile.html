@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>郭峰 Profile · V04</title>
+  <style>
+    :root {
+      --hl-header-py: 12px;
+      --hl-header-px: 30px;
+      --hl-main-py: 8px;
+      --hl-main-px: 26px;
+      --hl-main-gap: 5px;
+      --hl-intro-size: 9.5px;
+      --hl-body-size: 8.75px;
+      --hl-col-pad: 7px;
+      --hl-slide-max: 1280px;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC",
+        "Microsoft YaHei", "Noto Sans SC", sans-serif;
+      -webkit-font-smoothing: antialiased;
+      background: #e8e8e8;
+      min-height: 100vh;
+      margin: 0;
+      padding: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .slide-wrap {
+      width: 100%;
+      max-width: var(--hl-slide-max);
+      display: flex;
+      justify-content: center;
+    }
+
+    .slide {
+      width: 100%;
+      max-width: var(--hl-slide-max);
+      aspect-ratio: 16 / 9;
+      background: #fff;
+      border: 1px solid #d1d5db;
+      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.12);
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+
+    .header {
+      background: #b12137;
+      color: #fff;
+      padding: var(--hl-header-py) var(--hl-header-px) calc(var(--hl-header-py) * 0.75);
+      flex-shrink: 0;
+      border-bottom: 3px solid #8f1a2b;
+    }
+
+    .header-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      gap: 12px;
+      margin-bottom: 8px;
+    }
+
+    .header h1 {
+      font-size: clamp(22px, 2.6vw, 34px);
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      margin-bottom: 3px;
+    }
+
+    .header h1 span {
+      font-weight: 400;
+      font-size: 0.82em;
+      letter-spacing: 0.12em;
+      margin-left: 10px;
+    }
+
+    .header .role {
+      font-size: clamp(10px, 1vw, 13px);
+      font-weight: 300;
+      letter-spacing: 0.06em;
+      line-height: 1.4;
+      opacity: 0.95;
+    }
+
+    .header-right {
+      text-align: right;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 4px;
+    }
+
+    .logo {
+      font-size: clamp(18px, 2vw, 28px);
+      font-weight: 300;
+      letter-spacing: 0.22em;
+      white-space: nowrap;
+    }
+
+    .version {
+      font-size: 9px;
+      letter-spacing: 0.08em;
+      opacity: 0.85;
+      border: 1px solid rgba(255, 255, 255, 0.35);
+      padding: 2px 6px;
+      border-radius: 3px;
+    }
+
+    .tags {
+      border-top: 1px solid rgba(255, 255, 255, 0.35);
+      padding-top: 7px;
+      font-size: 8.75px;
+      font-weight: 300;
+      line-height: 1.42;
+      letter-spacing: 0.01em;
+      opacity: 0.95;
+    }
+
+    .main {
+      flex: 1;
+      min-height: 0;
+      padding: var(--hl-main-py) var(--hl-main-px) calc(var(--hl-main-py) * 1.1);
+      display: flex;
+      flex-direction: column;
+      gap: var(--hl-main-gap);
+      overflow: hidden;
+    }
+
+    .intro {
+      flex-shrink: 0;
+      font-size: var(--hl-intro-size);
+      line-height: 1.48;
+      color: #374151;
+      text-align: justify;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      padding-bottom: 6px;
+      border-bottom: 1px solid #e5e7eb;
+    }
+
+    .intro strong {
+      color: #b12137;
+      font-weight: 600;
+    }
+
+    .columns {
+      flex: 1;
+      min-height: 0;
+      display: grid;
+      grid-template-columns: 0.92fr 1.08fr;
+      gap: 0;
+      border: 1px solid #e5e7eb;
+      border-radius: 4px;
+      overflow: hidden;
+    }
+
+    .col {
+      padding: var(--hl-col-pad) calc(var(--hl-col-pad) * 1.15) calc(var(--hl-col-pad) * 0.95);
+      min-height: 0;
+      overflow: hidden;
+    }
+
+    .col:first-child {
+      border-right: 1px solid #e5e7eb;
+      background: #fafafa;
+    }
+
+    .col h3 {
+      font-size: calc(var(--hl-body-size) + 3.5px);
+      font-weight: 700;
+      color: #111;
+      margin-bottom: 5px;
+      padding-bottom: 4px;
+      border-bottom: 2px solid #b12137;
+      letter-spacing: 0.05em;
+    }
+
+    .col p {
+      font-size: var(--hl-body-size);
+      line-height: 1.46;
+      color: #374151;
+      text-align: justify;
+      margin-bottom: 5px;
+    }
+
+    .block { margin-bottom: 5px; }
+    .block:last-child { margin-bottom: 0; }
+
+    .block h4 {
+      font-size: calc(var(--hl-body-size) + 0.35px);
+      font-weight: 600;
+      color: #b12137;
+      margin-bottom: 2px;
+      line-height: 1.35;
+    }
+
+    .block ul {
+      list-style: none;
+      font-size: var(--hl-body-size);
+      line-height: 1.42;
+      color: #374151;
+    }
+
+    .block li {
+      display: flex;
+      gap: 4px;
+      margin-bottom: 2px;
+    }
+
+    .block li::before {
+      content: "–";
+      flex-shrink: 0;
+      color: #b12137;
+    }
+
+    .timeline {
+      margin-top: 5px;
+      padding-top: 5px;
+      border-top: 1px dashed #e5e7eb;
+    }
+
+    .timeline li::before { content: "▸"; }
+
+    .footer-strip {
+      flex-shrink: 0;
+      font-size: 8px;
+      line-height: 1.35;
+      color: #6b7280;
+      text-align: center;
+      padding-top: 4px;
+      border-top: 1px solid #f0f0f0;
+      letter-spacing: 0.02em;
+    }
+
+    .footer-strip strong { color: #b12137; font-weight: 600; }
+
+    @media (max-width: 900px) {
+      body { padding: 12px; align-items: flex-start; }
+      .slide { aspect-ratio: auto; min-height: auto; max-height: none; }
+      .columns { grid-template-columns: 1fr; }
+      .col:first-child { border-right: none; border-bottom: 1px solid #e5e7eb; }
+      .header-top { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="slide-wrap">
+  <article class="slide">
+    <header class="header">
+      <div class="header-top">
+        <div>
+          <h1>郭峰 <span>GUO Feng</span></h1>
+          <p class="role">Entrepreneur 创业者 · Researcher 研究者 · Educator 分享者</p>
+        </div>
+        <div class="header-right">
+          <div class="logo">VΛNΛHOM</div>
+          <span class="version">V04T2512</span>
+        </div>
+      </div>
+      <div class="tags" data-hl-module="tags">
+        TABLE AI 董事长 &nbsp;|&nbsp; OPC Global 创始人/秘书长 &nbsp;|&nbsp; 瑞士 EHL 大中华区创始成员 &nbsp;|&nbsp; 中智游合伙人 &nbsp;|&nbsp; Nibiru/微软 AI 合伙人 &nbsp;|&nbsp; 岁知社联合发起人 &nbsp;|&nbsp; VΛNΛHOM 联合创始人
+      </div>
+    </header>
+
+    <main class="main">
+      <section class="intro">
+        <p data-hl-module="intro">
+          郭峰，香港 <strong>TABLE AI 泰博乐科技</strong> 董事长、<strong>OPC Global</strong>（一人公司全球联盟）创始人/理事会秘书长，QS 排名第一的瑞士 EHL 集团中国区创始团队成员与 AI 系统架构师。专注联合各领域实战派，为上市公司提供第二曲线咨询，探索 AI 在教育、企业、家庭与个体发展中的应用，重构个体与组织成长协作模式，践行「善用 AI、终获自由」愿景。
+        </p>
+        <p data-hl-module="intro">
+          深耕高等教育与高管培训，参与三亚、上海、贵州、新疆等地高校筹建与国际学术认证，主导约 <strong>200 万字</strong>课程本地化；QLF 引导式学习教练主讲师，创立 <strong>L.I.D.</strong> 体系与 OPC+X 国际教练认证。2026 年与北京朝阳医院团队联合发表论文。企业赋能覆盖 CXO 教练培训 20+ 场；投资咨询参与 <strong>130+</strong> 地标项目，贯通学术、教育、商业与 AI 应用壁垒。
+        </p>
+      </section>
+
+      <section class="columns">
+        <div class="col">
+          <h3>主要任职 · 行业角色</h3>
+          <div class="block">
+            <h4>主要任职</h4>
+            <ul>
+              <li data-hl-module="bg">香港泰博乐科技 TABLE AI 董事长 | OPC Global 一人公司全球联盟 创始人/理事会秘书长</li>
+              <li data-hl-module="bg">VΛNΛHOM 凡纳弘途 联合创始人</li>
+            </ul>
+          </div>
+          <div class="block">
+            <h4>行业与社会角色</h4>
+            <ul>
+              <li data-hl-module="bg">全球 QS 第一瑞士 EHL 集团大中华区创始成员/合作顾问/讲师</li>
+              <li data-hl-module="bg">中智游集团 酒店·教育培训·AI 应用合伙人 | 国家旅游战略研究中心 执行主任</li>
+              <li data-hl-module="bg">Nibiru / 微软 出海与 AI 业务发展合伙人</li>
+              <li data-hl-module="bg">岁知社 联合发起人</li>
+            </ul>
+          </div>
+          <div class="block timeline">
+            <h4>职业时间线</h4>
+            <ul>
+              <li data-hl-module="exp"><strong>2025–至今</strong> TABLE AI 董事长 — Agent-to-Agent 全球应用与商业价值融合</li>
+              <li data-hl-module="exp"><strong>2025–至今</strong> OPC Global 联合创始人/委员会主席 — 超级个体全球化与资源链接</li>
+              <li data-hl-module="exp"><strong>2015–2025</strong> 瑞士 EHL 创始成员/顾问/QLF 教练/讲师 — 中国区 0→1 业务体系搭建</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="col">
+          <h3>主要履历 · 核心能力</h3>
+          <div class="block">
+            <h4>全球 No.1 瑞士 EHL 集团在华落地</h4>
+            <ul>
+              <li data-hl-module="exp">创始团队成员，参与 EHL 中国 0→1 业务体系；负责品牌建设、增长策略、人才培养落地</li>
+              <li data-hl-module="exp">参与欧洲、中东、非洲全球区域咨询与教育项目</li>
+            </ul>
+          </div>
+          <div class="block">
+            <h4>高校筹建 · 学术认证 · 教师培训</h4>
+            <ul>
+              <li data-hl-module="exp">三亚、上海、贵州、新疆等地高校考察、国际认证、师资培训、QLF 授课与学术审查</li>
+              <li data-hl-module="exp">瑞士职业教育与产教融合体系落地中国，约 200 万字课程本地化与迭代</li>
+            </ul>
+          </div>
+          <div class="block">
+            <h4>品牌升级 · 教练式高管培训 · 企业大学</h4>
+            <ul>
+              <li data-hl-module="exp">为汽车、文旅、医疗、非营利等跨国及国央企提供 CXO 教练与企业大学设计（20+ 场）</li>
+              <li data-hl-module="exp">公立医院、高端医疗、景区目的地品牌开创、品牌全书与客户体验升级</li>
+            </ul>
+          </div>
+          <div class="block">
+            <h4>奢华酒店投资 · 资产管理 · Ksamint's Play</h4>
+            <ul>
+              <li data-hl-module="exp">130+ 洛桑、上海、深圳、青岛、成都、莫干山等地标项目投资测算与管理咨询</li>
+              <li data-hl-module="exp">投资测算→品牌构建→运营→REITs/RWA 全生命周期；方法论：iTRUST · L.I.D. · MEAT · ECHO · AHA Strategy</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <p class="footer-strip" data-hl-module="tags">
+        <strong>Ksamint's Play</strong> — 个人·组织·文明演化器 &nbsp;·&nbsp; Agent · Human · Asset &nbsp;·&nbsp; 建造你的分身 · Insight · 觉知·定义·涌现
+      </p>
+    </main>
+  </article>
+  </div>
+
+</body>
+</html>

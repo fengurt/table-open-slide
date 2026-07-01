@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@700&family=Noto+Sans+SC:wght@400;500;700&family=Cormorant+Garamond:wght@600&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        .slide-container { 
+            width: 1280px; 
+            min-height: 720px; 
+            background: #FFFFFF; 
+            position: relative;
+            font-family: 'Noto Sans SC', sans-serif;
+            overflow: hidden;
+        }
+        .header {
+            position: absolute;
+            top: 80px;
+            left: 120px;
+            width: 1040px;
+        }
+        .chapter-label {
+            font-family: 'Inter', sans-serif;
+            font-size: 14px;
+            color: #A88B52;
+            letter-spacing: 2px;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+        .main-title {
+            font-family: 'Noto Serif SC', serif;
+            font-size: 48px;
+            color: #0A1626;
+            margin-bottom: 16px;
+        }
+        .subtitle {
+            font-size: 20px;
+            color: #6B7280;
+        }
+        .content-area {
+            position: absolute;
+            top: 280px;
+            left: 120px;
+            width: 1040px;
+            display: flex;
+            gap: 60px;
+        }
+        .column {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        .col-line {
+            width: 40px;
+            height: 2px;
+            background-color: #A88B52;
+            margin-bottom: 24px;
+        }
+        .number {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 56px;
+            color: #A88B52;
+            margin-bottom: 24px;
+            line-height: 1;
+        }
+        .question {
+            font-size: 24px;
+            color: #0A1626;
+            line-height: 1.6;
+        }
+        .question strong {
+            font-weight: 700;
+        }
+        .conclusion {
+            position: absolute;
+            bottom: 80px;
+            left: 120px;
+            width: 1040px;
+            border-top: 1px solid #A88B52;
+            padding-top: 24px;
+            font-size: 18px;
+            color: #0A1626;
+            text-align: center;
+        }
+        .footer {
+            position: absolute;
+            right: 40px;
+            bottom: 30px;
+            font-size: 10px;
+            color: #A88B52;
+            font-family: 'Inter', sans-serif;
+        }
+    </style>
+</head>
+<body>
+    <div class="slide-container">
+        <div class="header">
+            <div class="chapter-label">A LIVE QUESTION · 互动</div>
+            <div class="main-title">先问自己三个问题</div>
+            <div class="subtitle">现场默答 · 不举手 · 只对自己诚实</div>
+        </div>
+        
+        <div class="content-area">
+            <div class="column">
+                <div class="col-line"></div>
+                <div class="number">01.</div>
+                <div class="question">今年你的企业为 AI <strong>投过钱</strong>吗？</div>
+            </div>
+            <div class="column">
+                <div class="col-line"></div>
+                <div class="number">02.</div>
+                <div class="question">如果投了，是基于<strong>判断</strong>还是<strong>跟风</strong>？</div>
+            </div>
+            <div class="column">
+                <div class="col-line"></div>
+                <div class="number">03.</div>
+                <div class="question">如果没投，你<strong>想清楚</strong>为什么不投了吗？</div>
+            </div>
+        </div>
+        
+        <div class="conclusion">
+            "接下来 60 分钟，帮你建立回答这三个问题的能力。"
+        </div>
+        
+        <div class="footer">少数人的视野 — 岁知社闭门分享 · 郭峰 · 2026.05.14</div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,22 @@
+services:
+  kind-viewer:
+    build:
+      context: .
+      dockerfile: apps/kind-viewer/Dockerfile
+      platforms:
+        - linux/amd64
+    platform: linux/amd64
+    restart: unless-stopped
+    ports:
+      - "5190:5190"
+    environment:
+      PORT: "5190"
+      KIND_ADMIN_SECRET: "${KIND_ADMIN_SECRET:-kindguy}"
+      KIND_DB_PATH: /app/data/kind-viewer.sqlite
+      KIND_DECK_ROOT: /app/deck
+      KIND_COMMENTS_PATH: /app/data/kind-comments.json
+    volumes:
+      - kind_viewer_comments:/app/data
+
+volumes:
+  kind_viewer_comments:

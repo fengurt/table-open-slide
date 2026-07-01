@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;500;700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        .slide-container {
+            width: 1280px;
+            min-height: 720px;
+            background-color: #0A1626;
+            font-family: 'Noto Sans SC', sans-serif;
+            position: relative;
+            padding-top: 80px;
+        }
+        .header {
+            margin-left: 100px;
+            margin-right: 100px;
+            margin-bottom: 40px;
+        }
+        .title {
+            font-size: 32px;
+            color: #FFFFFF;
+            font-weight: 700;
+            margin-bottom: 15px;
+            letter-spacing: 2px;
+        }
+        .subtitle {
+            font-size: 20px;
+            color: #A88B52;
+            font-weight: 300;
+            letter-spacing: 1px;
+        }
+        .divider {
+            width: 80px;
+            height: 2px;
+            background-color: #A88B52;
+            margin-top: 20px;
+        }
+.diagram-container {
+            position: absolute;
+            top: 200px;
+            left: 0;
+            width: 1280px;
+            height: 520px;
+        }
+/* Central Circle */
+        .center-circle {
+            position: absolute;
+            left: 540px;
+            top: 120px;
+            width: 200px;
+            height: 200px;
+            border: 2px solid #A88B52;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .center-text {
+            font-size: 28px;
+            color: #A88B52;
+            font-weight: 700;
+            letter-spacing: 4px;
+        }
+/* Connecting Lines */
+        .line-top {
+            position: absolute;
+            left: 639px;
+            top: 60px;
+            width: 2px;
+            height: 60px;
+            background-color: #A88B52;
+        }
+        .line-left {
+            position: absolute;
+            left: 480px;
+            top: 219px;
+            width: 60px;
+            height: 2px;
+            background-color: #A88B52;
+        }
+        .line-right {
+            position: absolute;
+            left: 740px;
+            top: 219px;
+            width: 60px;
+            height: 2px;
+            background-color: #A88B52;
+        }
+/* Text Blocks */
+        .text-block {
+            position: absolute;
+        }
+        .block-top {
+            left: 440px;
+            top: -20px;
+            width: 400px;
+            text-align: center;
+        }
+        .block-left {
+            left: 80px;
+            top: 190px;
+            width: 380px;
+            text-align: right;
+        }
+        .block-right {
+            left: 820px;
+            top: 190px;
+            width: 380px;
+            text-align: left;
+        }
+.block-title {
+            font-size: 24px;
+            color: #FFFFFF;
+            font-weight: 700;
+            margin-bottom: 10px;
+            letter-spacing: 2px;
+        }
+        .block-desc {
+            font-size: 18px;
+            color: rgba(255, 255, 255, 0.7);
+            font-weight: 300;
+            line-height: 1.6;
+            letter-spacing: 1px;
+        }
+        .logo-watermark {
+            position: absolute;
+            bottom: 30px;
+            right: 40px;
+        }
+        .logo-watermark img {
+            width: 36px;
+            height: 36px;
+            object-fit: contain;
+            opacity: 0.3;
+        }
+    </style>
+</head>
+<body><div class="slide-container">
+        <div class="header">
+            <div class="title">品牌隐喻 Brand Metaphor</div>
+            <div class="subtitle">TABLE — 人类文明中最古老、最温暖的交流隐喻</div>
+            <div class="divider"></div>
+        </div>
+<div class="diagram-container" style="transform: translate(0px, 68.6436px);">
+            <!-- Center Circle -->
+            <div class="center-circle">
+                <div class="center-text">TABLE</div>
+            </div>
+<!-- Lines -->
+            <div class="line-top"></div>
+            <div class="line-left"></div>
+            <div class="line-right"></div>
+<!-- Text Blocks -->
+            <div class="text-block block-top">
+                <div class="block-title">公平 Fairness</div>
+                <div class="block-desc">打破学术权威与技术资本壁垒</div>
+            </div>
+<div class="text-block block-left">
+                <div class="block-title">协作 Collaboration</div>
+                <div class="block-desc">跨越领域鸿沟，思想碰撞交融</div>
+            </div>
+<div class="text-block block-right">
+                <div class="block-title">传承 Legacy</div>
+                <div class="block-desc">对抗时间遗忘，智慧生生不息</div>
+            </div>
+        </div>
+        <div class="logo-watermark"><img src="/home/ubuntu/table_ai_presentation/a2a_logo_white.png" alt="Logo"></div>
+    </div>
+</body>
+</html>

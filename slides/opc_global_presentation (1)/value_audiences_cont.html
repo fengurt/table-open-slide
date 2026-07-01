@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;500;700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        .slide-container {
+            width: 1280px;
+            min-height: 720px;
+            background-color: #FFFFFF;
+            font-family: 'Noto Sans SC', sans-serif;
+            position: relative;
+            padding-top: 80px;
+        }
+        .header {
+            margin-left: 100px;
+            margin-right: 100px;
+            margin-bottom: 60px;
+        }
+        .title {
+            font-size: 32px;
+            color: #0A1626;
+            font-weight: 700;
+            margin-bottom: 15px;
+            letter-spacing: 2px;
+        }
+        .subtitle {
+            font-size: 18px;
+            color: #A88B52;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 15px;
+        }
+        .divider {
+            width: 80px;
+            height: 2px;
+            background-color: #A88B52;
+        }
+        
+        .flex-layout {
+            display: flex;
+            justify-content: space-between;
+            margin-left: 100px;
+            margin-right: 100px;
+            gap: 40px;
+        }
+        
+        .value-card {
+            flex: 1;
+            background-color: #0A1626;
+            border-top: 4px solid #A88B52;
+            padding: 40px 30px;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            min-height: 380px;
+        }
+        
+        .card-icon-wrapper {
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .card-number {
+            font-size: 48px;
+            font-weight: 700;
+            color: rgba(168, 139, 82, 0.2);
+            font-family: serif;
+            margin-right: 15px;
+            line-height: 1;
+        }
+        
+        .card-header {
+            font-size: 24px;
+            color: #FFFFFF;
+            font-weight: 700;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .card-header span {
+            font-size: 14px;
+            color: #A88B52;
+            font-weight: 500;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-top: 5px;
+        }
+        
+        .card-desc {
+            font-size: 16px;
+            color: rgba(255, 255, 255, 0.85);
+            font-weight: 300;
+            line-height: 1.8;
+            text-align: justify;
+            margin-top: 15px;
+        }
+        
+        .card-desc strong {
+            color: #A88B52;
+            font-weight: 700;
+            display: block;
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+        
+        .logo-watermark {
+            position: absolute;
+            bottom: 30px;
+            right: 40px;
+        }
+        .logo-watermark img {
+            width: 36px;
+            height: 36px;
+            object-fit: contain;
+            opacity: 0.3;
+        }
+    </style>
+</head>
+<body>
+    <div class="slide-container">
+        <div class="header">
+            <div class="subtitle">内部生态 Internal Ecosystem</div>
+            <div class="title">我们可以为您做什么 What We Can Do For You</div>
+            <div class="divider"></div>
+        </div>
+        
+        <div class="flex-layout">
+            <div class="value-card">
+                <div class="card-icon-wrapper">
+                    <div class="card-number">01</div>
+                    <div class="card-header">行业专家 <span>Experts</span></div>
+                </div>
+                <div class="card-desc">
+                    <strong>知识资产化与规模交付</strong>
+                    协助专家将行业经验与隐性知识转化为结构化的 AI 辅助系统。依托全球教练网络进行标准化交付，实现知识产权的规模化收益。
+                </div>
+            </div>
+            
+            <div class="value-card">
+                <div class="card-icon-wrapper">
+                    <div class="card-number">02</div>
+                    <div class="card-header">教练合伙人 <span>Coach Partners</span></div>
+                </div>
+                <div class="card-desc">
+                    <strong>体系化赋能与商业转化</strong>
+                    提供标准化的 AI 交付系统与真实的商业订单网络。通过平台背书与工具赋能，提升个人服务产能，实现从单点服务向规模化运营的升级。
+                </div>
+            </div>
+            
+            <div class="value-card">
+                <div class="card-icon-wrapper">
+                    <div class="card-number">03</div>
+                    <div class="card-header">个体单元 <span>Units</span></div>
+                </div>
+                <div class="card-desc">
+                    <strong>技能重构与商业实践</strong>
+                    在专业教练指导下，应用 AI 工具参与真实商业项目的交付。通过标准化的实战训练，提升数字时代的职业技能与商业变现能力。
+                </div>
+            </div>
+        </div>
+        
+        <div class="logo-watermark"><img src="/home/ubuntu/opc_global_presentation/a2a_logo_dark.png" alt="Logo" /></div>
+        <div style="position: absolute; bottom: 25px; left: 0; right: 0; text-align: center; font-size: 11px; color: rgba(10, 22, 38, 0.3); font-weight: 300; letter-spacing: 2px; font-family: 'Noto Sans SC', sans-serif;">善用智能 终获自由 &nbsp;&nbsp;|&nbsp;&nbsp; OPC Global All Rights Reserved</div>
+    </div>
+</body>
+</html>

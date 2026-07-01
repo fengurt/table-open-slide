@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@700&family=Noto+Sans+SC:wght@400;500;700&family=Cormorant+Garamond:wght@600&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        .slide-container { 
+            width: 1280px; 
+            min-height: 720px; 
+            background: #FFFFFF; 
+            position: relative;
+            font-family: 'Noto Sans SC', sans-serif;
+            overflow: hidden;
+        }
+        .header {
+            position: absolute;
+            top: 70px;
+            left: 120px;
+            width: 1040px;
+        }
+        .chapter-label {
+            font-family: 'Inter', sans-serif;
+            font-size: 14px;
+            color: #A88B52;
+            letter-spacing: 2px;
+            margin-bottom: 18px;
+            text-transform: uppercase;
+        }
+        .main-title {
+            font-family: 'Noto Serif SC', serif;
+            font-size: 44px;
+            color: #0A1626;
+        }
+        .content-area {
+            position: absolute;
+            top: 200px;
+            left: 120px;
+            width: 1040px;
+            display: flex;
+            flex-direction: column;
+        }
+        .data-row {
+            display: flex;
+            align-items: center;
+            padding: 22px 0;
+            border-bottom: 1px solid rgba(168, 139, 82, 0.2);
+        }
+        .data-row:last-child {
+            border-bottom: none;
+        }
+        .row-numeral {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 56px;
+            color: #A88B52;
+            width: 110px;
+            line-height: 1;
+        }
+        .row-title {
+            font-family: 'Noto Serif SC', serif;
+            font-size: 22px;
+            color: #0A1626;
+            font-weight: 700;
+            width: 300px;
+            padding-right: 30px;
+            line-height: 1.4;
+        }
+        .row-quote {
+            flex: 1;
+            font-size: 17px;
+            color: #6B7280;
+            line-height: 1.6;
+            padding-left: 30px;
+            border-left: 2px solid #A88B52;
+        }
+        .row-quote strong {
+            color: #0A1626;
+            font-weight: 700;
+        }
+        .quote-source {
+            display: block;
+            font-size: 13px;
+            color: #A88B52;
+            margin-top: 6px;
+        }
+        .conclusion {
+            position: absolute;
+            bottom: 70px;
+            left: 120px;
+            width: 1040px;
+            border-top: 1px solid #A88B52;
+            padding-top: 18px;
+            font-size: 17px;
+            color: #0A1626;
+            text-align: center;
+        }
+        .footer {
+            position: absolute;
+            right: 40px;
+            bottom: 24px;
+            font-size: 10px;
+            color: #A88B52;
+            font-family: 'Inter', sans-serif;
+        }
+    </style>
+</head>
+<body>
+    <div class="slide-container">
+        <div class="header">
+            <div class="chapter-label">CROSS-INDUSTRY PATTERNS · 51 CASES</div>
+            <div class="main-title">51 个案例，三条跨行业规律</div>
+        </div>
+        
+        <div class="content-area">
+            <div class="data-row">
+                <div class="row-numeral">I.</div>
+                <div class="row-title">重复性是回报的起点</div>
+                <div class="row-quote">
+                    「AI 最先产生回报的，永远是<strong>重复性最高</strong>的环节——无论哪个行业。」
+                </div>
+            </div>
+            
+            <div class="data-row">
+                <div class="row-numeral">II.</div>
+                <div class="row-title">规模就是体系</div>
+                <div class="row-quote">
+                    「年收入 <strong>50 亿以上</strong>企业，<strong>近半</strong>已进入规模化；不足 <strong>1 亿</strong>的中小企业，只有 <strong>29%</strong> 做到。」
+                    <span class="quote-source">— 麦肯锡 2025</span>
+                </div>
+            </div>
+            
+            <div class="data-row">
+                <div class="row-numeral">III.</div>
+                <div class="row-title">老板不是学会用，<br>而是培养出推动者</div>
+                <div class="row-quote">
+                    「成功的老板，不是自己学会了用 AI，而是<strong>培养了一个懂 AI 的内部推动者</strong>。」
+                </div>
+            </div>
+        </div>
+        
+        <div class="conclusion">
+            "行业不同，规律相同——这才是真正可迁移的判断。"
+        </div>
+        
+        <div class="footer">少数人的视野 — 岁知社闭门分享 · 郭峰 · 2026.05.14</div>
+    </div>
+</body>
+</html>

@@ -1,6 +1,7 @@
-import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
+import { type MutableRefObject, useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { useWheelPageNavigation } from '@/lib/use-wheel-page-navigation';
 import { cn } from '@/lib/utils';
+import { useSlideContentContext } from '../../content/content-context.tsx';
 import type { DesignSystem } from '../lib/design';
 import type { Page } from '../lib/sdk';
 import { PresentBlackoutOverlay } from './present/blackout-overlay';
@@ -55,7 +56,7 @@ export function Player({
   controls = false,
   slideId,
 }: Props) {
-  const rootRef = useRef<HTMLDivElement>(null);
+  const rootRef = useRef<HTMLDivElement | null>(null) as MutableRefObject<HTMLDivElement | null>;
   // Mirrored as state so children that need to portal *into* the player
   // (tooltips, popovers — the body is outside the fullscreen subtree and
   // therefore invisible) can subscribe and re-render once the node mounts.
@@ -71,6 +72,7 @@ export function Player({
   const [blackout, setBlackout] = useState<'black' | 'white' | null>(null);
   const [laser, setLaser] = useState(false);
   const [startedAt] = useState(() => Date.now());
+  const slideContent = useSlideContentContext();
 
   const goPrev = useCallback(() => {
     if (index > 0) onIndexChange(index - 1);
@@ -140,9 +142,11 @@ export function Player({
         setBlackout((cur) => (cur === msg.mode ? null : msg.mode));
       } else if (msg.type === 'request-state') {
         send({ type: 'state', state: presenterStateRef.current });
+      } else if (msg.type === 'set-content-locale') {
+        slideContent?.setLocale(msg.locale);
       }
     },
-    [goNext, goPrev, onIndexChange, pages.length],
+    [goNext, goPrev, onIndexChange, pages.length, slideContent],
   );
 
   const channel = usePresenterChannel(slideId ?? '__none__', (msg) => {
