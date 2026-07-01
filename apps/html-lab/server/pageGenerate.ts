@@ -21,6 +21,8 @@ const routerUrl = pathToFileURL(
 
 const MAX_BODY_BYTES = 96 * 1024;
 const MAX_CONTENT_CHARS = 12_000;
+const GENERATE_TIMEOUT_MS =
+  Number(process.env.DOCX_STUDIO_PAGE_GENERATE_TIMEOUT_MS ?? 75_000) || 75_000;
 
 const THEMES = {
   atelier: {
@@ -54,8 +56,28 @@ type RouterModule = {
   }) => Promise<Record<string, unknown>>;
 };
 
+class TimeoutError extends Error {}
+
 async function loadRouter(): Promise<RouterModule> {
   return import(/* @vite-ignore */ routerUrl) as Promise<RouterModule>;
+}
+
+async function withTimeout<T>(promise: Promise<T>, ms: number): Promise<T> {
+  let timer: ReturnType<typeof setTimeout> | undefined;
+  try {
+    return await Promise.race([
+      promise,
+      new Promise<T>((_, reject) => {
+        timer = setTimeout(
+          () =>
+            reject(new TimeoutError(`page generation timed out after ${Math.round(ms / 1000)}s`)),
+          ms,
+        );
+      }),
+    ]);
+  } finally {
+    if (timer) clearTimeout(timer);
+  }
 }
 
 async function readJsonBody(req: Connect.IncomingMessage): Promise<Record<string, unknown>> {
@@ -147,17 +169,20 @@ export function attachPageGenerateApi(middlewares: Connect.Server): void {
       }
 
       const { chatCompletionsWithFallback } = await loadRouter();
-      const result = await chatCompletionsWithFallback({
-        temperature: 0.45,
-        messages: [
-          {
-            role: 'system',
-            content:
-              'You are a senior product designer and frontend engineer. Produce production-quality standalone HTML pages.',
-          },
-          { role: 'user', content: buildPrompt(theme, title, content) },
-        ],
-      });
+      const result = await withTimeout(
+        chatCompletionsWithFallback({
+          temperature: 0.45,
+          messages: [
+            {
+              role: 'system',
+              content:
+                'You are a senior product designer and frontend engineer. Produce production-quality standalone HTML pages.',
+            },
+            { role: 'user', content: buildPrompt(theme, title, content) },
+          ],
+        }),
+        GENERATE_TIMEOUT_MS,
+      );
 
       if (!result.ok || typeof result.content !== 'string') {
         send(res, 502, { ok: false, error: result.error ?? 'page generation failed' });
@@ -183,7 +208,10 @@ export function attachPageGenerateApi(middlewares: Connect.Server): void {
         theme,
       });
     } catch (e) {
-      send(res, 400, { ok: false, error: String(e instanceof Error ? e.message : e) });
+      send(res, e instanceof TimeoutError ? 504 : 400, {
+        ok: false,
+        error: String(e instanceof Error ? e.message : e),
+      });
     }
   });
 }
