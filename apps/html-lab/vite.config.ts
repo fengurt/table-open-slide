@@ -13,6 +13,7 @@ import { captureHtmlPng, type ExportVariant } from './server/exportPng.js';
 import { attachDocxIngestApi } from './server/ingest.js';
 import { attachLabHealthApi } from './server/labHealth.js';
 import { attachPageGenerateApi } from './server/pageGenerate.js';
+import { attachSiteGate } from './server/siteGate.js';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const repoRoot = path.resolve(__dirname, '../..');
@@ -200,6 +201,7 @@ function htmlLabApiPlugin(): Plugin {
   return {
     name: 'html-lab-api',
     configureServer(server: ViteDevServer) {
+      attachSiteGate(server.middlewares);
       attachAdminApi(server.middlewares);
       attachAuthGate(server.middlewares);
       attachHtmlLabApi(server.middlewares);
@@ -210,6 +212,7 @@ function htmlLabApiPlugin(): Plugin {
       attachLabHealthApi(server.middlewares);
     },
     configurePreviewServer(server: PreviewServer) {
+      attachSiteGate(server.middlewares);
       attachAdminApi(server.middlewares);
       attachAuthGate(server.middlewares);
       attachHtmlLabApi(server.middlewares);
