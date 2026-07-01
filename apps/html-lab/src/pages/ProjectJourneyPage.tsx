@@ -86,22 +86,28 @@ export function ProjectJourneyPage() {
   }
 
   const progress = slideTotal > 0 ? ((slideIndex + 1) / slideTotal) * 100 : 0;
+  const activeModuleData = modules.find((mod) => mod.id === activeModule);
 
   return (
     <div className="project-root">
       <header className="project-header">
         <div className="project-brand">
           <span className="project-mark">Atelier</span>
-          <span className="project-title">{project.title}</span>
-          <span className="project-sub">{project.subtitle}</span>
+          <div className="project-title-block">
+            <span className="project-title">{project.title}</span>
+            <span className="project-sub">{project.description}</span>
+          </div>
+        </div>
+        <div className="project-current" aria-live="polite">
+          <span>{activeModuleData?.title ?? project.subtitle}</span>
+          <strong>
+            {slideIndex + 1} / {slideTotal}
+          </strong>
         </div>
         <div className="project-progress">
           <div className="project-progress-track">
             <div className="project-progress-fill" style={{ width: `${progress}%` }} />
           </div>
-          <span className="project-progress-label">
-            {slideIndex + 1} / {slideTotal}
-          </span>
         </div>
         <form
           className="project-jump"
@@ -126,13 +132,14 @@ export function ProjectJourneyPage() {
       </header>
 
       <div className="project-body">
-        <aside className="project-modules">
+        <aside className="project-modules" aria-label="Project chapters">
           <p className="project-modules-label">{slideTotal} 页 · 模块</p>
           {modules.map((mod) => (
             <button
               key={mod.id}
               type="button"
               className={`project-module${activeModule === mod.id ? ' is-active' : ''}`}
+              aria-current={activeModule === mod.id ? 'step' : undefined}
               onClick={() => goSlide(mod.start - 1)}
             >
               <span className="project-module-title">{mod.title}</span>
@@ -144,7 +151,9 @@ export function ProjectJourneyPage() {
         </aside>
 
         <main className="project-stage">
-          <iframe ref={iframeRef} title={project.title} src={deckSrc} allow="fullscreen" />
+          <div className="project-frame-shell">
+            <iframe ref={iframeRef} title={project.title} src={deckSrc} allow="fullscreen" />
+          </div>
         </main>
       </div>
 
