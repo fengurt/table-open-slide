@@ -326,13 +326,17 @@ export function DocxLabPage() {
                 <input
                   className="dl-input"
                   type="password"
+                  name="docx-studio-token"
                   value={tokenInput}
                   onChange={(e) => setTokenInput(e.target.value)}
-                  placeholder="shared studio token"
+                  placeholder="Shared studio token…"
+                  aria-label="Shared studio token"
+                  autoComplete="off"
+                  spellCheck={false}
                   style={{ flex: 1, minWidth: 120 }}
                 />
                 <button type="button" className="dl-btn-secondary" onClick={saveToken}>
-                  Save
+                  Save Token
                 </button>
               </div>
             </div>
@@ -342,8 +346,10 @@ export function DocxLabPage() {
             <span className="dl-label">Brand pack</span>
             <select
               className="dl-select"
+              name="brand-pack"
               value={brandPath}
               onChange={(e) => setBrandPath(e.target.value)}
+              aria-label="Brand pack"
             >
               {brands.length === 0 ? (
                 <option value={brandPath}>
@@ -363,9 +369,12 @@ export function DocxLabPage() {
             <span className="dl-label">Format hint (optional)</span>
             <input
               className="dl-input"
+              name="format-hint"
               value={hint}
               onChange={(e) => setHint(e.target.value)}
               placeholder="board memo, investor deck…"
+              aria-label="Format hint"
+              autoComplete="off"
             />
           </div>
 
@@ -458,9 +467,12 @@ export function DocxLabPage() {
                 <input
                   className="dl-input dl-import-url"
                   type="url"
+                  name="source-url"
                   value={url}
                   onChange={(e) => setUrl(e.target.value)}
-                  placeholder="https://example.com/article — import a link"
+                  placeholder="https://example.com/article — import a link…"
+                  aria-label="Source URL"
+                  autoComplete="url"
                   spellCheck={false}
                 />
                 <button
@@ -475,8 +487,10 @@ export function DocxLabPage() {
                   {fileName ? `↑ ${fileName}` : 'Upload PDF / DOCX / MD'}
                   <input
                     type="file"
+                    name="source-file"
                     className="dl-upload-input"
                     accept=".pdf,.docx,.md,.markdown,.txt"
+                    aria-label="Upload PDF, DOCX, Markdown, or text file"
                     onChange={(e) => {
                       void ingestUpload(e.target.files?.[0] ?? null);
                       e.target.value = '';
@@ -486,9 +500,11 @@ export function DocxLabPage() {
               </div>
               <textarea
                 className="dl-editor"
+                name="raw-source"
                 value={raw}
                 onChange={(e) => setRaw(e.target.value)}
                 placeholder="Paste unformatted content here…"
+                aria-label="Raw source text"
                 spellCheck={false}
               />
             </div>
@@ -510,9 +526,11 @@ export function DocxLabPage() {
                 </div>
                 <textarea
                   className="dl-editor"
+                  name="formatted-markdown"
                   value={markdown}
                   onChange={(e) => setMarkdown(e.target.value)}
                   placeholder="Formatted Markdown appears here…"
+                  aria-label="Formatted Markdown"
                   spellCheck={false}
                 />
               </div>

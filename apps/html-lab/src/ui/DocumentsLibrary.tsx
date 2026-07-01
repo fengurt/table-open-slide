@@ -143,14 +143,17 @@ export function DocumentsLibrary() {
       <div className="doc-library-toolbar">
         <input
           type="search"
+          name="document-search"
           className="doc-library-search"
           placeholder="Search title, client, tags…"
           value={query}
           onChange={(e) => setQuery(e.target.value)}
           aria-label="Search documents"
+          autoComplete="off"
         />
         <select
           className="doc-library-filter"
+          name="brand-filter"
           value={brandFilter}
           onChange={(e) => setBrandFilter(e.target.value)}
           aria-label="Filter by brand"

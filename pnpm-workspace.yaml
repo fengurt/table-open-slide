@@ -1,3 +1,31 @@
 packages:
   - "apps/*"
   - "packages/*"
+
+overrides:
+  "@types/react": "18.3.12"
+  "@types/react-dom": "18.3.1"
+  dompurify: ">=3.4.0"
+  valibot: "^1.2.0"
+  diff: ">=8.0.3"
+  postcss: ">=8.5.10"
+  uuid: ">=14.0.0"
+
+onlyBuiltDependencies:
+  - better-sqlite3
+  - core-js
+  - sharp
+  - esbuild
+  - msw
+  - protobufjs
+  - rolldown
+  - unrs-resolver
+
+allowBuilds:
+  better-sqlite3: true
+  core-js: true
+  esbuild: true
+  msw: true
+  protobufjs: true
+  rolldown: true
+  sharp: true

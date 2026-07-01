@@ -8,6 +8,13 @@
   overflow: hidden;
   background: var(--hl-deep);
   color: var(--hl-cream);
+  color-scheme: dark;
+}
+
+.lab-root :where(button, a, input, textarea, select):focus-visible {
+  outline: 2px solid var(--hl-gold-light);
+  outline-offset: 2px;
+  box-shadow: 0 0 0 4px rgba(168, 139, 82, 0.18);
 }
 
 .lab-topbar {
@@ -61,10 +68,6 @@
   min-width: 0;
   text-decoration: none;
   color: inherit;
-}
-
-.lab-topbar-brand:hover .lab-topbar-title {
-  color: var(--hl-gold-light);
 }
 
 .lab-topbar-eyebrow {
@@ -228,8 +231,12 @@
 }
 
 .studio-lock-input:focus {
-  outline: none;
   border-color: var(--hl-gold);
+}
+
+.studio-lock-input:focus:not(:focus-visible) {
+  outline: none;
+  box-shadow: none;
 }
 
 .studio-lock-pop-actions {
@@ -476,7 +483,7 @@
 }
 
 .lab-sidebar-link-external .lab-sidebar-link-label::after {
-  content: ' ↗';
+  content: " ↗";
   font-size: 0.75em;
   color: var(--hl-gold-light);
 }
@@ -578,4 +585,8 @@
     cursor: pointer;
     animation: lab-scrim-in 0.15s ease;
   }
+}
+
+.lab-topbar-brand:hover .lab-topbar-title {
+  color: var(--hl-gold-light);
 }

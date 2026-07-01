@@ -28,7 +28,7 @@ export function ProjectJourneyPage() {
     iframe?.addEventListener('load', enableLowPower);
     enableLowPower();
     return () => iframe?.removeEventListener('load', enableLowPower);
-  }, [project, deckSrc]);
+  }, [project]);
 
   useEffect(() => {
     if (!project) return;
@@ -115,8 +115,10 @@ export function ProjectJourneyPage() {
           <input
             id="slide-jump"
             type="number"
+            name="slide-jump"
             min={1}
             max={slideTotal}
+            inputMode="numeric"
             value={jumpValue}
             onChange={(e) => setJumpValue(e.target.value)}
           />

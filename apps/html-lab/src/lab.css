@@ -5,6 +5,15 @@
   min-height: 0;
   width: 100%;
   overflow: hidden;
+  color-scheme: dark;
+}
+
+.hl-shell :where(button, a, input, textarea, select):focus-visible,
+.hl-md-overlay :where(button, a, input, textarea, select):focus-visible,
+.hl-search-overlay :where(button, a, input, textarea, select):focus-visible {
+  outline: 2px solid var(--hl-gold-light);
+  outline-offset: 2px;
+  box-shadow: 0 0 0 4px rgba(168, 139, 82, 0.18);
 }
 
 /* ─── Sidebar ─── */
@@ -106,8 +115,12 @@
 }
 
 .hl-filter-input:focus {
-  outline: none;
   border-color: var(--hl-gold);
+}
+
+.hl-filter-input:focus:not(:focus-visible) {
+  outline: none;
+  box-shadow: none;
 }
 
 .hl-roots-label {
@@ -166,6 +179,7 @@
   flex-direction: column;
   gap: 2px;
   min-width: 0;
+  flex: 1 1 220px;
 }
 
 .hl-toolbar-label {
@@ -193,6 +207,7 @@
 .hl-status {
   font-size: 11px;
   letter-spacing: 0.04em;
+  font-variant-numeric: tabular-nums;
 }
 
 .hl-status--loading {
@@ -293,6 +308,10 @@
   font-size: 13px;
   letter-spacing: 0.04em;
   background: var(--hl-canvas);
+}
+
+.hl-preview-loading[aria-live] {
+  text-wrap: balance;
 }
 
 .hl-loader {
@@ -420,6 +439,7 @@
   display: inline-flex;
   align-items: center;
   gap: 6px;
+  touch-action: manipulation;
   transition:
     background 0.2s,
     border-color 0.2s;
@@ -448,6 +468,7 @@
   font-size: 14px;
   line-height: 1;
   color: var(--hl-gold);
+  touch-action: manipulation;
 }
 
 .hl-icon-btn--ghost {
@@ -497,9 +518,22 @@
   -webkit-backdrop-filter: blur(8px);
   animation: hl-fade-in 0.2s ease;
   cursor: default;
+  overscroll-behavior: contain;
+  touch-action: manipulation;
+}
+
+.hl-search-backdrop {
+  position: absolute;
+  inset: 0;
+  border: none;
+  padding: 0;
+  background: transparent;
+  cursor: default;
 }
 
 .hl-search-panel {
+  position: relative;
+  z-index: 1;
   width: min(640px, 100%);
   border-radius: 12px;
   border: 1px solid var(--hl-border-strong);
@@ -539,6 +573,15 @@
 
 .hl-search-input:focus {
   outline: none;
+}
+
+.hl-search-input:focus-visible {
+  outline: none;
+}
+
+.hl-search-input-wrap:focus-within {
+  border-bottom-color: var(--hl-gold);
+  box-shadow: inset 0 -1px 0 var(--hl-gold);
 }
 
 .hl-search-input::placeholder {
@@ -615,10 +658,12 @@
   cursor: pointer;
   transition: background 0.15s;
   color: inherit;
+  touch-action: manipulation;
 }
 
 .hl-search-item:hover,
-.hl-search-item.is-active {
+.hl-search-item.is-active,
+.hl-search-item:focus-visible {
   background: var(--hl-gold-glow);
 }
 
@@ -718,6 +763,7 @@
   border-radius: 4px;
   background: transparent;
   font-size: 12px;
+  color: var(--hl-text);
 }
 
 .hl-ctx-menu button:hover {
@@ -736,6 +782,7 @@
   background: rgba(10, 22, 38, 0.58);
   backdrop-filter: blur(6px);
   -webkit-backdrop-filter: blur(6px);
+  overscroll-behavior: contain;
 }
 
 .hl-tune-float {
@@ -972,6 +1019,7 @@ body.hl-md-open {
   justify-content: flex-end;
   pointer-events: none;
   animation: hl-fade-in 0.18s ease;
+  overscroll-behavior: contain;
 }
 
 .hl-md-backdrop {
@@ -1002,6 +1050,7 @@ body.hl-md-open {
   -webkit-backdrop-filter: blur(18px) saturate(1.1);
   box-shadow: -16px 0 48px rgba(0, 0, 0, 0.28);
   overflow: hidden;
+  overscroll-behavior: contain;
 }
 
 .hl-md-head {
@@ -1038,6 +1087,14 @@ body.hl-md-open {
   gap: 8px;
   align-items: center;
   flex-shrink: 0;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+.hl-md-live {
+  min-height: 16px;
+  display: inline-flex;
+  align-items: center;
 }
 
 .hl-md-split-panel {
@@ -1077,6 +1134,15 @@ body.hl-md-open {
   font-size: 12px;
   line-height: 1.55;
   contain: strict;
+}
+
+.hl-md-editor:focus {
+  outline: none;
+}
+
+.hl-md-editor:focus-visible {
+  outline: 2px solid var(--hl-gold-light);
+  outline-offset: -2px;
 }
 
 .hl-md-preview-wrap {
@@ -1215,6 +1281,7 @@ body.hl-md-open {
   border: 1px solid var(--hl-border-strong);
   background: var(--hl-deep-mid);
   box-shadow: 0 16px 40px rgba(0, 0, 0, 0.45);
+  overscroll-behavior: contain;
 }
 
 .hl-export-item {
@@ -1229,6 +1296,8 @@ body.hl-md-open {
   background: transparent;
   text-align: left;
   cursor: pointer;
+  color: inherit;
+  touch-action: manipulation;
 }
 
 .hl-export-item:hover:not(:disabled) {
@@ -1265,5 +1334,24 @@ body.hl-md-open {
 
   .hl-md-backdrop {
     background: rgba(10, 22, 38, 0.45);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hl-loader,
+  .hl-search-overlay,
+  .hl-md-overlay,
+  .hl-tune-overlay {
+    animation: none;
+  }
+
+  .hl-btn,
+  .hl-tab,
+  .hl-file-btn,
+  .hl-search-trigger,
+  .hl-search-item,
+  .hl-export-item,
+  .hl-splitter {
+    transition: none;
   }
 }

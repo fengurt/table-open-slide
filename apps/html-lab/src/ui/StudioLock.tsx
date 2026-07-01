@@ -80,9 +80,10 @@ export function StudioLock() {
             ref={inputRef}
             id={fieldId}
             type="password"
+            name="studio-access-token"
             className="studio-lock-input"
             value={value}
-            placeholder="DOCX_STUDIO_TOKEN"
+            placeholder="DOCX_STUDIO_TOKEN…"
             autoComplete="off"
             spellCheck={false}
             onChange={(e) => setValue(e.target.value)}

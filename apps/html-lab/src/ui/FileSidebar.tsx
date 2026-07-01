@@ -55,14 +55,19 @@ export function FileSidebar({ lab }: { lab: HtmlLabController }) {
           </button>
         </header>
 
-        <button type="button" className="hl-search-trigger" onClick={() => lab.setSearchOpen(true)}>
+        <button
+          type="button"
+          className="hl-search-trigger"
+          onClick={() => lab.setSearchOpen(true)}
+          aria-label="Search HTML files"
+        >
           <span className="hl-search-trigger-label">Search files…</span>
           <kbd className="hl-kbd">⌘K</kbd>
         </button>
 
         <div className="hl-sidebar-actions">
           <button type="button" className="hl-btn hl-btn--gold" onClick={() => void refreshList()}>
-            Refresh
+            Refresh Files
           </button>
           {listMeta && (
             <span className="hl-hint hl-hint--inline">
@@ -74,10 +79,12 @@ export function FileSidebar({ lab }: { lab: HtmlLabController }) {
 
         <input
           className="hl-filter-input"
+          name="sidebar-file-filter"
           value={filter}
           onChange={(e) => setFilter(e.target.value)}
           placeholder="Filter in sidebar…"
           aria-label="Filter file list"
+          autoComplete="off"
         />
 
         <p className="hl-roots-label">

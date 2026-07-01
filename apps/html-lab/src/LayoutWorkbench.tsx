@@ -144,17 +144,22 @@ function ParamRow({
       <div className="hl-param-controls">
         <input
           type="range"
+          name={`${def.key}-range`}
           min={def.min}
           max={def.max}
           step={def.step}
+          aria-label={`${def.label} slider`}
           value={value}
           onChange={(e) => onChange(def.key, Number(e.target.value))}
         />
         <input
           type="number"
+          name={`${def.key}-value`}
           min={def.min}
           max={def.max}
           step={def.step}
+          inputMode="decimal"
+          aria-label={`${def.label} value`}
           value={value}
           className="hl-param-num"
           onChange={(e) => {

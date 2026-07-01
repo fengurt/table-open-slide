@@ -25,8 +25,8 @@ export function PreviewToolbar({ lab }: { lab: HtmlLabController }) {
         <span className="hl-toolbar-value">{selected ?? 'Select a file'}</span>
       </div>
 
-      <div className="hl-toolbar-status">
-        {busy && <span className="hl-status hl-status--loading">Loading</span>}
+      <div className="hl-toolbar-status" aria-live="polite">
+        {busy && <span className="hl-status hl-status--loading">Loading…</span>}
         {autoLayoutBusy && <span className="hl-status hl-status--loading">Auto-fit…</span>}
         {autoLayoutNote && <span className="hl-status hl-status--ok">{autoLayoutNote}</span>}
         {mdError && <span className="hl-status hl-status--error">{mdError}</span>}
@@ -36,7 +36,12 @@ export function PreviewToolbar({ lab }: { lab: HtmlLabController }) {
       {template && <span className="hl-tune-hint">Hover boundaries · click to tune</span>}
 
       <div className="hl-toolbar-actions">
-        <button type="button" className="hl-btn" onClick={() => lab.setSearchOpen(true)}>
+        <button
+          type="button"
+          className="hl-btn"
+          onClick={() => lab.setSearchOpen(true)}
+          aria-label="Search HTML files"
+        >
           Search
           <kbd className="hl-kbd hl-kbd--sm">⌘K</kbd>
         </button>
@@ -48,14 +53,14 @@ export function PreviewToolbar({ lab }: { lab: HtmlLabController }) {
               disabled={autoLayoutBusy}
               onClick={() => void runAutoLayout()}
             >
-              Auto-fit layout
+              {autoLayoutBusy ? 'Auto-fitting…' : 'Auto-Fit Layout'}
             </button>
             <button
               type="button"
               className="hl-btn"
               onClick={() => (ui.tuneOpen ? closeTune() : openTuneAll())}
             >
-              {ui.tuneOpen ? 'Close tune' : 'Layout tune'}
+              {ui.tuneOpen ? 'Close Tune' : 'Tune Layout'}
             </button>
           </>
         )}
@@ -66,7 +71,7 @@ export function PreviewToolbar({ lab }: { lab: HtmlLabController }) {
             </button>
             <ExportMenu lab={lab} />
             <button type="button" className="hl-btn" onClick={() => void copyPreviewLink(selected)}>
-              Copy link
+              Copy Link
             </button>
           </>
         )}

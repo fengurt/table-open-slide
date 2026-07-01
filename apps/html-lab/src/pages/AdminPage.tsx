@@ -181,12 +181,12 @@ export function AdminPage() {
           <p className="admin-sub">Enter the admin password to manage studio settings.</p>
           <input
             type="password"
+            name="admin-password"
             className="admin-input"
             placeholder="Admin password"
+            autoComplete="current-password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
-            // biome-ignore lint/a11y/noAutofocus: dedicated single-field login form
-            autoFocus
           />
           {loginError ? <p className="admin-error">{loginError}</p> : null}
           <button type="submit" className="admin-btn admin-btn-primary" disabled={busy !== 'idle'}>
@@ -236,8 +236,10 @@ export function AdminPage() {
                   <label htmlFor={`id-${p.uid}`}>Name</label>
                   <input
                     id={`id-${p.uid}`}
+                    name={`provider-name-${p.uid}`}
                     className="admin-input"
                     value={p.id}
+                    autoComplete="off"
                     onChange={(e) => updateProvider(p.uid, { id: e.target.value })}
                   />
                 </div>
@@ -245,9 +247,13 @@ export function AdminPage() {
                   <label htmlFor={`base-${p.uid}`}>Base URL</label>
                   <input
                     id={`base-${p.uid}`}
+                    name={`provider-base-url-${p.uid}`}
                     className="admin-input"
+                    type="url"
                     value={p.baseUrl}
                     placeholder="https://api.deepseek.com/v1"
+                    autoComplete="url"
+                    spellCheck={false}
                     onChange={(e) => updateProvider(p.uid, { baseUrl: e.target.value })}
                   />
                 </div>
@@ -255,9 +261,12 @@ export function AdminPage() {
                   <label htmlFor={`model-${p.uid}`}>Model</label>
                   <input
                     id={`model-${p.uid}`}
+                    name={`provider-model-${p.uid}`}
                     className="admin-input"
                     value={p.model}
                     placeholder="deepseek-chat"
+                    autoComplete="off"
+                    spellCheck={false}
                     onChange={(e) => updateProvider(p.uid, { model: e.target.value })}
                   />
                 </div>
@@ -267,10 +276,13 @@ export function AdminPage() {
                   </label>
                   <input
                     id={`key-${p.uid}`}
+                    name={`provider-api-key-${p.uid}`}
                     className="admin-input"
                     type="password"
                     value={p.apiKey}
                     placeholder={keyHints[p.id] ? 'leave blank to keep' : 'sk-…'}
+                    autoComplete="off"
+                    spellCheck={false}
                     onChange={(e) => updateProvider(p.uid, { apiKey: e.target.value })}
                   />
                 </div>
@@ -334,8 +346,12 @@ export function AdminPage() {
           <input
             className="admin-input"
             type="password"
+            name="user-access-token"
             value={userToken}
-            placeholder="DOCX_STUDIO_TOKEN"
+            placeholder="DOCX_STUDIO_TOKEN…"
+            aria-label="User access token"
+            autoComplete="off"
+            spellCheck={false}
             onChange={(e) => setUserToken(e.target.value)}
           />
           <button type="button" className="admin-btn" onClick={saveUserToken}>

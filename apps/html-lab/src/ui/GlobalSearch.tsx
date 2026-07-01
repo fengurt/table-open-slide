@@ -84,7 +84,13 @@ export function GlobalSearch({
     : `${results.length} quick picks`;
 
   return (
-    <div className="hl-search-overlay" onClick={onClose} onKeyDown={(e) => e.stopPropagation()}>
+    <div className="hl-search-overlay">
+      <button
+        type="button"
+        className="hl-search-backdrop"
+        aria-label="Close search"
+        onClick={onClose}
+      />
       <div
         className="hl-search-panel"
         role="dialog"
@@ -100,6 +106,7 @@ export function GlobalSearch({
           <input
             ref={inputRef}
             className="hl-search-input"
+            name="html-lab-global-search"
             value={query}
             onChange={(e) => {
               setQuery(e.target.value);
@@ -107,6 +114,7 @@ export function GlobalSearch({
             }}
             onKeyDown={onInputKeyDown}
             placeholder="Search landing01 / slides…"
+            aria-label="Search HTML files"
             spellCheck={false}
             autoComplete="off"
           />
@@ -129,7 +137,9 @@ export function GlobalSearch({
 
         <div className="hl-search-section-row">
           <p className="hl-search-section-label">{showRecentsHeader ? 'Recent' : 'Files'}</p>
-          <p className="hl-search-count">{resultLabel}</p>
+          <p className="hl-search-count" aria-live="polite">
+            {resultLabel}
+          </p>
         </div>
 
         <div className="hl-search-results" ref={listRef}>

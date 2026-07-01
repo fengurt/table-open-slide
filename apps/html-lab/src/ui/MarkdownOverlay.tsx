@@ -91,9 +91,11 @@ export function MarkdownOverlay({
             )}
           </div>
           <div className="hl-md-actions">
-            {pending && <span className="hl-status hl-status--loading">Updating…</span>}
-            {syncError && <span className="hl-status hl-status--error">{syncError}</span>}
-            {saveNote && <span className="hl-status hl-status--ok">{saveNote}</span>}
+            <span className="hl-md-live" aria-live="polite">
+              {pending && <span className="hl-status hl-status--loading">Updating…</span>}
+              {syncError && <span className="hl-status hl-status--error">{syncError}</span>}
+              {saveNote && <span className="hl-status hl-status--ok">{saveNote}</span>}
+            </span>
             <button type="button" className="hl-btn" onClick={onRegenerate}>
               From HTML
             </button>
@@ -102,7 +104,13 @@ export function MarkdownOverlay({
                 Save HTML
               </button>
             ) : null}
-            <button type="button" className="hl-btn hl-btn--ghost" onClick={onClose} title="Esc">
+            <button
+              type="button"
+              className="hl-btn hl-btn--ghost"
+              onClick={onClose}
+              title="Esc"
+              aria-label="Close markdown editor"
+            >
               ✕
             </button>
           </div>
@@ -112,6 +120,7 @@ export function MarkdownOverlay({
             <span className="hl-md-pane-label">Source · edits sync to left preview</span>
             <textarea
               className="hl-md-editor"
+              name="markdown-source"
               value={md}
               onChange={(e) => onChange(e.target.value)}
               spellCheck={false}

@@ -135,8 +135,13 @@
 }
 
 .dl-input:focus {
-  outline: none;
   border-color: var(--hl-gold);
+  box-shadow: 0 0 0 3px var(--hl-gold-glow);
+}
+
+.dl-input:focus:not(:focus-visible) {
+  outline: none;
+  box-shadow: none;
 }
 
 .dl-btn-secondary {
@@ -298,8 +303,13 @@
 }
 
 .dl-select:focus {
-  outline: none;
   border-color: var(--hl-gold);
+  box-shadow: 0 0 0 3px var(--hl-gold-glow);
+}
+
+.dl-select:focus:not(:focus-visible) {
+  outline: none;
+  box-shadow: none;
 }
 
 .dl-brand-card {
