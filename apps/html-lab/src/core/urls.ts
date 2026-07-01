@@ -16,6 +16,14 @@ export function previewPageUrl(path: string, base?: string): string {
   return `${origin}?path=${encodeURIComponent(path)}`;
 }
 
+export function apiPreviewUrl(path: string): string {
+  return `/api/preview?path=${encodeURIComponent(path)}`;
+}
+
+export function isProjectSlideFragmentPath(path: string | null | undefined): boolean {
+  return /^slides\/projects\/[^/]+\/pages\/slide-\d+\.html$/.test(path ?? '');
+}
+
 export function isPreviewOnlyMode(): boolean {
   const params = new URLSearchParams(window.location.search);
   return params.get('view') === 'preview' || params.get('embed') === '1';

@@ -76,6 +76,8 @@ COPY --from=build /repo/apps/docx-mcp-server ./apps/docx-mcp-server
 COPY --from=build /repo/skills/tableai-docx-master ./skills/tableai-docx-master
 COPY skills/tableai-guizang-ppt-skill/demo/atelier-showcase ./skills/tableai-guizang-ppt-skill/demo/atelier-showcase
 COPY --from=build /repo/modules ./modules
+COPY --from=build /repo/slides ./slides
+COPY --from=build /repo/landing01 ./landing01
 
 # Retention sweeper (node-builtins only) — used by the docx-cleanup service.
 COPY scripts/cleanup-out.mjs ./scripts/cleanup-out.mjs
@@ -83,8 +85,8 @@ COPY scripts/cleanup-out.mjs ./scripts/cleanup-out.mjs
 # `vite preview` bundles vite.config.ts into a sibling `.timestamp-*.mjs` temp
 # file in the app dir, so `node` must own it (not just /repo/out) or it crashes
 # with EACCES on startup.
-RUN mkdir -p /repo/out /repo/slides/projects \
-  && chown -R node:node /repo/out /repo/apps/html-lab /repo/slides
+RUN mkdir -p /repo/out /repo/slides/projects /repo/landing01 \
+  && chown -R node:node /repo/out /repo/apps/html-lab /repo/slides /repo/landing01
 
 USER node
 

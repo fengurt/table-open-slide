@@ -23,7 +23,13 @@ import { autoOptimizeLayout } from './autoLayout';
 import { saveRawHtml } from './saveHtml';
 import { pushRecentPath } from './search';
 import type { HtmlItem, HtmlLabOptions, SelectedComponent } from './types';
-import { previewPageUrl, readDeepLinkPath, syncUrlPath } from './urls';
+import {
+  apiPreviewUrl,
+  isProjectSlideFragmentPath,
+  previewPageUrl,
+  readDeepLinkPath,
+  syncUrlPath,
+} from './urls';
 import { useDebouncedValue } from './useDebouncedValue';
 
 export const SIDEBAR_MIN = 220;
@@ -236,10 +242,16 @@ export function useHtmlLab(options: HtmlLabOptions = {}) {
 
   const previewSrcDoc = useMemo(() => {
     if (!rawHtml) return '';
+    if (isProjectSlideFragmentPath(selected)) return '';
     if (!template) return rawHtml;
     const css = buildTuneCss(template, tuneParamsRef.current);
     return injectLabPreview(rawHtml, css, template.components);
-  }, [rawHtml, template]);
+  }, [rawHtml, selected, template]);
+
+  const previewFrameSrc = useMemo(
+    () => (isProjectSlideFragmentPath(selected) ? apiPreviewUrl(selected ?? '') : undefined),
+    [selected],
+  );
 
   const syncPreviewTune = useCallback(() => {
     const doc = previewIframeRef.current?.contentDocument;
@@ -481,6 +493,7 @@ export function useHtmlLab(options: HtmlLabOptions = {}) {
     template,
     previewIframeRef,
     previewSrcDoc,
+    previewFrameSrc,
     htmlRevision,
     moduleStats,
     focusedParamDefs,

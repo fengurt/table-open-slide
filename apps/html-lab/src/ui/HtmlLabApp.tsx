@@ -10,7 +10,7 @@ import { PreviewWorkspace } from './PreviewWorkspace';
 
 function PreviewOnlyShell({ lab }: { lab: ReturnType<typeof useHtmlLab> }) {
   const deepLinkPath = readDeepLinkPath();
-  const { previewSrcDoc } = lab;
+  const { previewFrameSrc, previewSrcDoc } = lab;
 
   return (
     <div className="hl-embed">
@@ -20,7 +20,12 @@ function PreviewOnlyShell({ lab }: { lab: ReturnType<typeof useHtmlLab> }) {
           Open in Atelier
         </a>
       </header>
-      <iframe title="html-preview" srcDoc={previewSrcDoc} className="hl-preview-frame" />
+      <iframe
+        title="html-preview"
+        src={previewFrameSrc}
+        srcDoc={previewFrameSrc ? undefined : previewSrcDoc}
+        className="hl-preview-frame"
+      />
     </div>
   );
 }

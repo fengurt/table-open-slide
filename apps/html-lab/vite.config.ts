@@ -46,6 +46,63 @@ function safeRepoJsonPath(raw: string): string {
   return abs;
 }
 
+async function wrapProjectSlideFragment(relPath: string, html: string): Promise<string> {
+  if (/<html[\s>]/i.test(html)) return html;
+
+  const match = relPath.match(/^(slides\/projects\/[^/]+)\/pages\/slide-\d+\.html$/);
+  if (!match) return html;
+
+  const deckPath = path.join(repoRoot, match[1], 'deck/index.html');
+  let deckHtml = '';
+  try {
+    deckHtml = await fs.readFile(deckPath, 'utf8');
+  } catch {
+    return html;
+  }
+
+  const head = deckHtml.match(/<head[\s\S]*?<\/head>/i)?.[0];
+  if (!head) return html;
+
+  const previewCss = `
+<style>
+  #deck {
+    display: block !important;
+    height: 100vh !important;
+    inset: 0 !important;
+    position: fixed !important;
+    transform: none !important;
+    transition: none !important;
+    width: 100vw !important;
+  }
+  #deck > .slide {
+    content-visibility: visible !important;
+    flex: none !important;
+    height: 100vh !important;
+    width: 100vw !important;
+  }
+  #hint,
+  #nav,
+  canvas.bg {
+    display: none !important;
+  }
+</style>`;
+  const patchedHead = head.replace(/<\/head>/i, `${previewCss}\n</head>`);
+
+  return `<!DOCTYPE html>
+<html lang="zh-CN">
+${patchedHead}
+<body class="deck-large low-power">
+<div id="deck">
+${html}
+</div>
+<script>
+  const slide = document.querySelector('.slide');
+  document.body.classList.toggle('light-bg', slide?.classList.contains('light'));
+</script>
+</body>
+</html>`;
+}
+
 function attachHtmlLabApi(middlewares: Connect.Server) {
   middlewares.use(async (req, res, next) => {
     const url = req.url ?? '';
@@ -126,7 +183,10 @@ function attachHtmlLabApi(middlewares: Connect.Server) {
           res.end('file too large');
           return;
         }
-        const body = await fs.readFile(abs, 'utf8');
+        let body = await fs.readFile(abs, 'utf8');
+        if (url.startsWith('/api/preview')) {
+          body = await wrapProjectSlideFragment(p, body);
+        }
         res.setHeader('Content-Type', 'text/html; charset=utf-8');
         res.setHeader('X-Content-Type-Options', 'nosniff');
         res.end(body);
