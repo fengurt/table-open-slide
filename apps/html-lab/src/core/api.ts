@@ -13,6 +13,38 @@ export async function fetchRawHtml(path: string): Promise<string> {
   return r.text();
 }
 
+export type PageTheme = 'atelier' | 'swiss' | 'magazine' | 'industrial';
+
+export type GeneratePageResult = {
+  ok: true;
+  path: string;
+  previewUrl: string;
+  html: string;
+  provider: string | null;
+  model: string | null;
+  theme: PageTheme;
+};
+
+export async function generatePage(input: {
+  title?: string;
+  theme: PageTheme;
+  content: string;
+}): Promise<GeneratePageResult> {
+  const r = await fetch('/api/page/generate', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(input),
+  });
+  const data = (await r.json().catch(() => null)) as
+    | GeneratePageResult
+    | { ok: false; error?: string }
+    | null;
+  if (!r.ok || !data?.ok) {
+    throw new Error((data && 'error' in data && data.error) || `generate failed: ${r.status}`);
+  }
+  return data;
+}
+
 export function basename(path: string): string {
   const parts = path.split(/[/\\]/);
   return parts[parts.length - 1] ?? path;

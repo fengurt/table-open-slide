@@ -13,6 +13,9 @@ const DocxLabPage = lazy(() =>
 const ProjectJourneyPage = lazy(() =>
   import('./pages/ProjectJourneyPage').then((m) => ({ default: m.ProjectJourneyPage })),
 );
+const ProjectsPage = lazy(() =>
+  import('./pages/ProjectsPage').then((m) => ({ default: m.ProjectsPage })),
+);
 const AdminPage = lazy(() => import('./pages/AdminPage').then((m) => ({ default: m.AdminPage })));
 
 function LazyRoute({ children, label }: { children: React.ReactNode; label: string }) {
@@ -45,6 +48,14 @@ export function AppRouter() {
           element={
             <LazyRoute label="Loading docx-master…">
               <DocxLabPage />
+            </LazyRoute>
+          }
+        />
+        <Route
+          path="/projects"
+          element={
+            <LazyRoute label="Loading projects…">
+              <ProjectsPage />
             </LazyRoute>
           }
         />

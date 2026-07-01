@@ -50,6 +50,16 @@ export const HUB_STUDIO: HubSection = {
       meta: '/docx · MCP',
       link: { kind: 'route', to: '/docx' },
     },
+    {
+      id: 'page-generator',
+      tag: 'AI',
+      title: 'AI Page Generator',
+      subtitle: 'Theme · prompt · HTML',
+      description:
+        'Choose a visual theme, paste content, and generate a standalone HTML page through the configured Tongyi/Qwen-compatible LLM.',
+      meta: '/projects',
+      link: { kind: 'route', to: '/projects' },
+    },
   ],
 };
 
@@ -264,9 +274,14 @@ export const HUB_AGENTS: HubSection = {
       tag: 'CLI',
       title: 'docx CLI',
       subtitle: 'Markdown file → Word',
-      description: 'Headless build, validate, preview without GUI. Uses modules/*/design.md brand tokens.',
+      description:
+        'Headless build, validate, preview without GUI. Uses modules/*/design.md brand tokens.',
       meta: 'pnpm docx:from-md:build',
-      link: { kind: 'command', command: 'pnpm docx:from-md:build', doc: 'skills/tableai-docx-master/SKILL.md' },
+      link: {
+        kind: 'command',
+        command: 'pnpm docx:from-md:build',
+        doc: 'skills/tableai-docx-master/SKILL.md',
+      },
     },
     {
       id: 'kind-deck-authoring',
@@ -287,19 +302,15 @@ export const HUB_AGENTS: HubSection = {
       tag: 'CLI',
       title: 'open-slide init',
       subtitle: 'Scaffold new deck workspace',
-      description: 'Ships agent skills for /create-slide and /slide-authoring. Published @open-slide/cli + @open-slide/core.',
+      description:
+        'Ships agent skills for /create-slide and /slide-authoring. Published @open-slide/cli + @open-slide/core.',
       meta: 'npx @open-slide/cli init',
       link: { kind: 'command', command: 'npx @open-slide/cli init my-deck', doc: 'packages/cli/' },
     },
   ],
 };
 
-export const HUB_SECTIONS: HubSection[] = [
-  HUB_STUDIO,
-  HUB_RUNTIMES,
-  HUB_CONTENT_OS,
-  HUB_AGENTS,
-];
+export const HUB_SECTIONS: HubSection[] = [HUB_STUDIO, HUB_RUNTIMES, HUB_CONTENT_OS, HUB_AGENTS];
 
 /** Deck journeys: in-hub previews plus external viewers. */
 export const HUB_DECK_JOURNEYS: HubEntry[] = [

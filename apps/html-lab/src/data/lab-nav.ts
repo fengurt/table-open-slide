@@ -26,6 +26,7 @@ const SIDEBAR_ICONS: Record<string, string> = {
   hub: '⌂',
   'html-lab': '◇',
   'docx-master': 'W',
+  'page-generator': 'AI',
   'guizang-atelier-demo': 'G',
   '2day-fb-profit2chain': '餐',
   'kind-bp01': 'K',
@@ -109,6 +110,7 @@ export function labRouteTitle(pathname: string): string {
   if (pathname === '/') return 'Hub';
   if (pathname === '/lab') return 'HTML Lab';
   if (pathname === '/docx') return 'docx-master';
+  if (pathname === '/projects') return 'AI Page Generator';
   if (pathname === '/admin') return 'Studio admin';
   if (pathname.startsWith('/project/')) {
     const id = pathname.slice('/project/'.length);
@@ -125,4 +127,4 @@ export function isSidebarItemActive(link: HubLink, pathname: string): boolean {
 }
 
 /** Studio routes for top-bar quick switcher. */
-export const LAB_STUDIO_ROUTES = ['/', '/lab', '/docx'] as const;
+export const LAB_STUDIO_ROUTES = ['/', '/projects', '/lab', '/docx'] as const;

@@ -12,6 +12,7 @@ import { attachDocxFormatApi } from './server/docxFormat.js';
 import { captureHtmlPng, type ExportVariant } from './server/exportPng.js';
 import { attachDocxIngestApi } from './server/ingest.js';
 import { attachLabHealthApi } from './server/labHealth.js';
+import { attachPageGenerateApi } from './server/pageGenerate.js';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const repoRoot = path.resolve(__dirname, '../..');
@@ -202,6 +203,7 @@ function htmlLabApiPlugin(): Plugin {
       attachAdminApi(server.middlewares);
       attachAuthGate(server.middlewares);
       attachHtmlLabApi(server.middlewares);
+      attachPageGenerateApi(server.middlewares);
       attachDocxFormatApi(server.middlewares);
       attachDocxIngestApi(server.middlewares);
       attachDocxApi(server.middlewares);
@@ -211,6 +213,7 @@ function htmlLabApiPlugin(): Plugin {
       attachAdminApi(server.middlewares);
       attachAuthGate(server.middlewares);
       attachHtmlLabApi(server.middlewares);
+      attachPageGenerateApi(server.middlewares);
       attachDocxFormatApi(server.middlewares);
       attachDocxIngestApi(server.middlewares);
       attachDocxApi(server.middlewares);
