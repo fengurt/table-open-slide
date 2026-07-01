@@ -11,32 +11,70 @@ const PAGE_THEMES: Array<{
   name: string;
   hint: string;
   swatches: string[];
+  visual: string;
 }> = [
   {
     id: 'atelier',
     name: 'Atelier 深空金',
     hint: '企业介绍、发布页、项目简报',
     swatches: ['#0a1626', '#a88b52', '#f7f4ed'],
+    visual: 'luxury corporate editorial, deep navy, warm white, champagne gold, refined grid',
   },
   {
     id: 'swiss',
     name: 'Swiss 国际主义',
     hint: '产品说明、数据页、工具页',
     swatches: ['#f7f7f2', '#111827', '#245bff'],
+    visual: 'Swiss international style, strict grid, white space, black typography, blue accent',
   },
   {
     id: 'magazine',
     name: '电子杂志',
     hint: '文章长页、观点页、活动故事',
     swatches: ['#efe4d1', '#281d18', '#c24f2f'],
+    visual: 'premium digital magazine, warm paper texture, dramatic headline, editorial rhythm',
   },
   {
     id: 'industrial',
     name: '工业蓝图',
     hint: '制造业、工程能力、技术方案',
     swatches: ['#07111f', '#2b6f9f', '#d4a74f'],
+    visual:
+      'industrial blueprint dashboard, technical grids, steel blue, graphite, capability matrix',
   },
 ];
+
+function compactContent(input: string): string {
+  return input.replace(/\s+/g, ' ').trim().slice(0, 900);
+}
+
+function buildNanoBananaPrompt(theme: PageTheme, title: string, content: string): string {
+  const selected = PAGE_THEMES.find((item) => item.id === theme) ?? PAGE_THEMES[0];
+  const pageTitle = title.trim() || '根据内容提炼一个中文页面标题';
+  const summary = compactContent(content);
+  return [
+    'Create a single high-end website landing page visual mockup as one image.',
+    '',
+    `Aspect ratio: 16:9 desktop screenshot, 1440px wide composition, no browser chrome.`,
+    `Visual direction: ${selected.visual}.`,
+    'Audience: business decision makers. Tone: premium, credible, polished, not generic.',
+    '',
+    'Content constraints:',
+    `- Main headline must be in Simplified Chinese: "${pageTitle}".`,
+    '- Use only 5 to 8 short Chinese text labels total; avoid long paragraphs.',
+    '- Make all visible text large, sharp, and readable.',
+    '- Convert dense content into visual sections: hero, metric cards, process/timeline, capability matrix, closing CTA.',
+    '- Use realistic UI layout details: navigation, section bands, cards, charts, icons, subtle texture.',
+    '- Do not create a poster; make it look like a real scrollable web page captured at the first viewport.',
+    '- Do not use fake brand logos unless provided; use abstract marks and geometric symbols.',
+    '',
+    'Source material to interpret visually:',
+    summary || '[paste content here]',
+    '',
+    'Quality bar:',
+    'award-winning web design, production-grade art direction, precise spacing, strong hierarchy, restrained effects, no clutter, no stock-photo look, no unreadable microtext.',
+  ].join('\n');
+}
 
 function PageGenerator() {
   const { showToast } = useLabShell();
@@ -45,6 +83,7 @@ function PageGenerator() {
   const [content, setContent] = useState('');
   const [busy, setBusy] = useState(false);
   const [result, setResult] = useState<GeneratePageResult | null>(null);
+  const [nanoPrompt, setNanoPrompt] = useState('');
 
   const onGenerate = useCallback(async () => {
     setBusy(true);
@@ -60,15 +99,32 @@ function PageGenerator() {
   }, [content, theme, title, showToast]);
 
   const canGenerate = content.trim().length >= 12 && !busy;
+  const canBuildPrompt = content.trim().length >= 12;
+
+  const onBuildNanoPrompt = useCallback(() => {
+    const prompt = buildNanoBananaPrompt(theme, title, content);
+    setNanoPrompt(prompt);
+    showToast('Nano Banana visual prompt ready');
+  }, [content, theme, title, showToast]);
+
+  const onCopyNanoPrompt = useCallback(async () => {
+    if (!nanoPrompt) return;
+    try {
+      await navigator.clipboard.writeText(nanoPrompt);
+      showToast('Nano prompt copied');
+    } catch {
+      showToast('Copy failed');
+    }
+  }, [nanoPrompt, showToast]);
 
   return (
     <section className="page-generator" aria-label="AI page generator">
       <div className="page-generator-copy">
-        <span className="sub">Tongyi page generator</span>
-        <h2>选择主题，输入内容，直接生成单页 HTML</h2>
+        <span className="sub">Tongyi + Nano Banana</span>
+        <h2>先出图片式视觉稿，再生成可编辑页面</h2>
         <p>
-          使用 Admin 中配置的 OpenAI-compatible LLM。通义 / Qwen 配好以后，这里会直接生成可预览、
-          可进入 HTML Lab 编辑的页面。
+          通义/Qwen 负责生成单文件 HTML；Nano Banana
+          更适合先生成高质量页面图片稿。这里会根据主题和内容产出可复制的视觉稿 prompt。
         </p>
       </div>
 
@@ -121,6 +177,14 @@ function PageGenerator() {
           >
             {busy ? 'Generating…' : 'Generate page'}
           </button>
+          <button
+            type="button"
+            className="btn-ghost"
+            disabled={!canBuildPrompt}
+            onClick={onBuildNanoPrompt}
+          >
+            Nano visual prompt
+          </button>
           {result ? (
             <>
               <Link className="btn-ghost" to={`/lab?path=${encodeURIComponent(result.path)}`}>
@@ -132,6 +196,22 @@ function PageGenerator() {
             </>
           ) : null}
         </div>
+
+        {nanoPrompt ? (
+          <div className="nano-prompt-card">
+            <div className="nano-prompt-head">
+              <span>Nano Banana image prompt</span>
+              <button type="button" className="btn-ghost" onClick={onCopyNanoPrompt}>
+                Copy prompt
+              </button>
+            </div>
+            <textarea
+              value={nanoPrompt}
+              aria-label="Nano Banana prompt"
+              onChange={(e) => setNanoPrompt(e.target.value)}
+            />
+          </div>
+        ) : null}
 
         {result ? (
           <div className="generated-preview">

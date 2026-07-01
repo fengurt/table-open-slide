@@ -359,6 +359,52 @@
   opacity: 0.45;
 }
 
+.nano-prompt-card {
+  border: 1px solid var(--hl-border);
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.045), transparent), rgba(4, 10, 18, 0.46);
+}
+
+.nano-prompt-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding: 0.65rem 0.75rem;
+  border-bottom: 1px solid var(--hl-border);
+}
+
+.nano-prompt-head span {
+  color: var(--hl-gold-light);
+  font-size: 0.74rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.nano-prompt-head .btn-ghost {
+  padding: 0.35rem 0.7rem;
+  font-size: 0.78rem;
+}
+
+.nano-prompt-card textarea {
+  display: block;
+  width: 100%;
+  min-height: 16rem;
+  border: 0;
+  background: transparent;
+  color: var(--hl-white);
+  padding: 0.85rem;
+  font:
+    0.82rem / 1.6 ui-monospace,
+    SFMono-Regular,
+    Menlo,
+    Monaco,
+    Consolas,
+    monospace;
+  resize: vertical;
+  outline: none;
+}
+
 .generated-preview {
   border: 1px solid var(--hl-border);
   background: rgba(4, 10, 18, 0.5);
