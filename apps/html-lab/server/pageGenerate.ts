@@ -193,7 +193,7 @@ export function attachPageGenerateApi(middlewares: Connect.Server): void {
 
       const html = cleanHtml(result.content);
       const stamp = new Date().toISOString().replace(/[-:]/g, '').slice(0, 12);
-      const dir = path.join(repoRoot, 'landing01/generated');
+      const dir = path.join(repoRoot, 'slides/projects/generated-pages');
       const filename = `${stamp}-${slugify(title || content.slice(0, 48))}.html`;
       const abs = path.join(dir, filename);
       await fs.mkdir(dir, { recursive: true });
