@@ -127,6 +127,12 @@ export function ProjectJourneyPage() {
             inputMode="numeric"
             value={jumpValue}
             onChange={(e) => setJumpValue(e.target.value)}
+            onKeyDown={(e) => {
+              if (e.key !== 'Enter') return;
+              e.preventDefault();
+              const n = Number.parseInt(e.currentTarget.value, 10);
+              if (Number.isFinite(n)) goSlide(n - 1);
+            }}
           />
         </form>
       </header>

@@ -31,13 +31,12 @@ export const ATELIER_PROJECTS: AtelierProject[] = [
   {
     id: 'jindou-corporate',
     title: '金豆投资控股集团 · 企业形象',
-    subtitle: 'Style C · Atelier · Tongyi qwen3.7-max',
-    description:
-      '通义 qwen3.7-max 从 PPT 设计任务书生成 — 12 页深蓝藏青 + 香槟金 guizang deck',
-    slideCount: 12,
+    subtitle: 'Corporate Profile · 24-page executive deck',
+    description: '基于金豆投资控股集团 PPT 设计任务书重制 — 24 页深蓝藏青 + 香槟金企业形象 deck',
+    slideCount: 24,
     manifestPath: 'slides/projects/jindou-corporate/manifest.json',
     deckPath: 'slides/projects/jindou-corporate/deck/index.html',
-    tags: ['金豆', 'tongyi', '12p', 'Atelier'],
+    tags: ['金豆', 'corporate', '24p', 'Atelier'],
   },
   {
     id: 'tongyi-online-test',
