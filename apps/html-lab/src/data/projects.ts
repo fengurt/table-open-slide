@@ -51,7 +51,7 @@ export const ATELIER_PROJECTS: AtelierProject[] = [
     id: 'hosted-players-viper-report',
     title: '娱乐高端 VIP 客户业绩季度洞察报告',
     subtitle: 'VIP Sales · Casino Portfolio · Quarterly Insight',
-    description: '从 VIP sales casino perspective 解析高端客户组合、业绩结构、风险与下一步行动',
+    description: '高端 VIP 客户业绩、风险与增长机会季度洞察',
     slideCount: 12,
     manifestPath: 'slides/projects/hosted-players-viper-report/manifest.json',
     deckPath: 'slides/projects/hosted-players-viper-report/deck/index.html',
