@@ -22,6 +22,8 @@ services:
     environment:
       NODE_ENV: production
       # --- Access control (REQUIRED — this is internet-facing via nginx) ---
+      DOCX_STUDIO_SITE_USER: ${DOCX_STUDIO_SITE_USER:-studio}
+      DOCX_STUDIO_SITE_PIN: ${DOCX_STUDIO_SITE_PIN:-}
       DOCX_STUDIO_TOKEN: ${DOCX_STUDIO_TOKEN:?set a strong token in .env}
       DOCX_STUDIO_RATE_LIMIT: ${DOCX_STUDIO_RATE_LIMIT:-120}
       DOCX_STUDIO_MAX_BODY: ${DOCX_STUDIO_MAX_BODY:-31457280}
