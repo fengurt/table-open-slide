@@ -587,13 +587,35 @@
   /* Flash · 全幅案例镜 */
   .flash-stage{position:relative;flex:1;min-height:0;border-radius:2px;overflow:hidden;border:1px solid rgba(var(--gold-rgb),.1)}
   .flash-stage::before{
-    content:"";position:absolute;inset:0;
+    content:"";position:absolute;inset:0;z-index:0;
     background:linear-gradient(125deg,rgba(var(--ink-tint),.95) 0%,rgba(var(--gold-rgb),.15) 50%,rgba(var(--ink-rgb),.9) 100%)
   }
   .flash-stage[data-v="1"]::before{background:linear-gradient(160deg,#132a45,rgba(var(--gold-rgb),.2))}
   .flash-stage[data-v="2"]::before{background:linear-gradient(200deg,rgba(var(--gold-rgb),.25),#0A1626)}
   .flash-stage[data-v="3"]::before{background:linear-gradient(140deg,#0A1626 30%,rgba(var(--gold-rgb),.3))}
-  .flash-stage .vis-grain{opacity:.06}
+  .flash-stage .vis-grain{opacity:.06;z-index:1}
+  .flash-photo{
+    position:absolute;
+    inset:0;
+    z-index:1;
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    object-position:center center;
+    opacity:.78;
+    filter:saturate(1.04) contrast(1.06);
+    transform:scale(1.01);
+  }
+  .flash-stage::after{
+    content:"";
+    position:absolute;
+    inset:0;
+    z-index:1;
+    pointer-events:none;
+    background:
+      linear-gradient(90deg,rgba(var(--ink-rgb),.56) 0%,rgba(var(--ink-rgb),.24) 42%,rgba(var(--ink-rgb),.06) 100%),
+      radial-gradient(circle at 78% 18%,rgba(var(--gold-rgb),.24),transparent 42%);
+  }
   .flash-overlay{
     position:absolute;inset:0;z-index:2;display:flex;flex-direction:column;justify-content:flex-end;
     padding:6vh 5vw;background:linear-gradient(180deg,transparent 40%,rgba(var(--ink-rgb),.72) 100%)
@@ -8953,6 +8975,43 @@ addEventListener('ppt-low-power-change', e=>{e.detail.on ? stopGL() : startGL();
 
 // =============== 导航（翻页 / 圆点 / 键盘 / 滚轮 / 触屏） ===============
 const deck=document.getElementById('deck');
+const CASE_VISUALS={
+  '南城香':'nanchengxiang',
+  '海底捞':'haidilao',
+  '袁记云饺':'yuanji',
+  '锅圈食汇':'guoquan',
+  '辣可可':'lakoko',
+  '超意兴':'chaoyixing',
+  '麻小六':'maxiaoliu',
+  '大米先生':'damixiansheng',
+  '价格带':'price-band',
+  '外卖热力图':'delivery-heatmap',
+  '九宫格货架':'shelf-grid',
+  '区域品牌':'regional-brand',
+  '孟子三问':'mengzi',
+  '六十天契约':'contract-60'
+};
+const CASE_VISUAL_BASE='slides/projects/2day_FB_Profit2chain/assets/visuals/';
+function assetUrl(file){
+  return `/api/asset?path=${encodeURIComponent(CASE_VISUAL_BASE + file)}`;
+}
+function hydrateCaseVisuals(root){
+  root.querySelectorAll('.flash-stage').forEach(stage=>{
+    if(stage.querySelector('.flash-photo'))return;
+    const section=stage.closest('.slide');
+    const brand=stage.querySelector('.flash-brand')?.textContent?.trim() || '';
+    const slug=CASE_VISUALS[brand] || 'default-case';
+    const img=document.createElement('img');
+    img.className='flash-photo';
+    img.src=assetUrl(`${slug}.svg`);
+    img.alt=`${brand || '案例'} 对标门店视觉`;
+    img.loading='eager';
+    img.decoding='async';
+    stage.prepend(img);
+    if(section)section.dataset.caseVisual=slug;
+  });
+}
+hydrateCaseVisuals(deck);
 const slides=deck.querySelectorAll('.slide');
 const nav=document.getElementById('nav');
 let idx=0,total=slides.length,lock=false;
