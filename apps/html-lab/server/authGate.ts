@@ -35,6 +35,7 @@ const PUBLIC_PATHS = new Set(['/api/docx/auth-status', '/api/lab/health', '/api/
 
 const PUBLIC_GET_PATHS = new Set([
   '/api/preview',
+  '/api/projects',
   '/api/project-manifest',
   '/api/asset',
   '/api/export-pdf',
