@@ -110,6 +110,11 @@
   color: var(--hl-white);
 }
 
+.project-action:disabled {
+  opacity: 0.62;
+  cursor: wait;
+}
+
 .project-action--case {
   border-color: rgba(86, 174, 191, 0.3);
   background: rgba(86, 174, 191, 0.1);
@@ -131,6 +136,13 @@
   border-color: rgba(122, 197, 147, 0.75);
   background: rgba(122, 197, 147, 0.2);
   color: var(--hl-white);
+}
+
+.project-export-error {
+  max-width: 12rem;
+  color: #ffb4a8;
+  font-size: 0.68rem;
+  line-height: 1.2;
 }
 
 .project-progress {

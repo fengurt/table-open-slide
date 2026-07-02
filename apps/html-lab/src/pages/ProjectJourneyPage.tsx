@@ -32,6 +32,8 @@ export function ProjectJourneyPage() {
   const [activeModule, setActiveModule] = useState<string | null>(null);
   const [jumpValue, setJumpValue] = useState(String(requestedSlide));
   const [isAutoPlaying, setIsAutoPlaying] = useState(requestedAutoplay);
+  const [exportingPdf, setExportingPdf] = useState<'slide' | 'deck' | null>(null);
+  const [exportError, setExportError] = useState<string | null>(null);
   const deckSrc = project ? previewDeckUrl(project.deckPath, requestedSlide) : '';
 
   useEffect(() => {
@@ -139,6 +141,36 @@ export function ProjectJourneyPage() {
 
   const progress = slideTotal > 0 ? ((slideIndex + 1) / slideTotal) * 100 : 0;
   const activeModuleData = modules.find((mod) => mod.id === activeModule);
+  const downloadPdf = async (kind: 'slide' | 'deck') => {
+    if (!project || exportingPdf) return;
+    setExportingPdf(kind);
+    setExportError(null);
+    const url =
+      kind === 'slide'
+        ? exportPdfUrl(project.deckPath, slideIndex + 1)
+        : exportDeckPdfUrl(project.deckPath);
+    const filename =
+      kind === 'slide'
+        ? `${project.id}-slide-${String(slideIndex + 1).padStart(3, '0')}.pdf`
+        : `${project.id}-full.pdf`;
+    try {
+      const res = await fetch(url, { credentials: 'same-origin' });
+      if (!res.ok) throw new Error(`PDF export failed: ${res.status}`);
+      const blob = await res.blob();
+      const objectUrl = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = objectUrl;
+      a.download = filename;
+      document.body.append(a);
+      a.click();
+      a.remove();
+      window.setTimeout(() => URL.revokeObjectURL(objectUrl), 10_000);
+    } catch (error) {
+      setExportError(error instanceof Error ? error.message : 'PDF export failed');
+    } finally {
+      setExportingPdf(null);
+    }
+  };
 
   return (
     <div className="project-root">
@@ -165,28 +197,29 @@ export function ProjectJourneyPage() {
           >
             {isAutoPlaying ? '暂停自动播放' : '自动播放'}
           </button>
-          <a
+          <button
             className="project-action"
-            href={project ? exportPdfUrl(project.deckPath, slideIndex + 1) : '#'}
-            target="_blank"
-            rel="noreferrer"
+            type="button"
+            disabled={exportingPdf !== null}
+            onClick={() => void downloadPdf('slide')}
           >
-            导出当前页 PDF
-          </a>
-          <a
+            {exportingPdf === 'slide' ? '当前页导出中…' : '导出当前页 PDF'}
+          </button>
+          <button
             className="project-action project-action--deck"
-            href={project ? exportDeckPdfUrl(project.deckPath) : '#'}
-            target="_blank"
-            rel="noreferrer"
+            type="button"
+            disabled={exportingPdf !== null}
+            onClick={() => void downloadPdf('deck')}
           >
-            导出整套 PDF
-          </a>
+            {exportingPdf === 'deck' ? '整套导出中…' : '导出整套 PDF'}
+          </button>
           <Link
             className="project-action project-action--case"
             to="/project/2day-fb-profit2chain?slide=139"
           >
             餐饮案例
           </Link>
+          {exportError ? <span className="project-export-error">{exportError}</span> : null}
         </div>
         <div className="project-progress">
           <div className="project-progress-track">
