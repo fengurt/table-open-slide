@@ -50,13 +50,13 @@ export const ATELIER_PROJECTS: AtelierProject[] = [
   {
     id: 'hosted-players-viper-report',
     title: 'Hosted Players 客户资产全景分析',
-    subtitle: 'V.I.P.E.R. Method · 15-page executive report',
+    subtitle: 'V.I.P.E.R. Method · 16-page executive report',
     description:
       '基于 hosted_players_fixed.csv 与完整 Markdown 报告重制的高净值客户资产战情室 slides',
-    slideCount: 15,
+    slideCount: 16,
     manifestPath: 'slides/projects/hosted-players-viper-report/manifest.json',
     deckPath: 'slides/projects/hosted-players-viper-report/deck/index.html',
-    tags: ['VIPER', 'CRM', '15p', 'Report'],
+    tags: ['VIPER', 'CRM', '16p', 'Report'],
   },
   {
     id: 'tongyi-online-test',

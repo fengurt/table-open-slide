@@ -3,7 +3,7 @@
   "title": "Hosted Players 客户资产全景分析",
   "subtitle": "V.I.P.E.R. Method · Customer Asset War Room",
   "description": "基于 hosted_players_fixed.csv 与 hosted_players_full_report_v2.md 重制的高净值客户资产分析 slides",
-  "slideCount": 15,
+  "slideCount": 16,
   "deckPath": "slides/projects/hosted-players-viper-report/deck/index.html",
   "source": {
     "csv": "slides/projects/hosted-players-viper-report/source/hosted_players_fixed.csv",
@@ -22,14 +22,14 @@
       "id": "diagnosis",
       "title": "七维诊断",
       "start": 5,
-      "end": 11,
+      "end": 12,
       "act": "Diagnosis"
     },
     {
       "id": "execution",
       "title": "行动与治理",
-      "start": 12,
-      "end": 15,
+      "start": 13,
+      "end": 16,
       "act": "Execution"
     }
   ],
