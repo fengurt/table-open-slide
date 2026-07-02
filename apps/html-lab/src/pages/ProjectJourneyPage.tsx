@@ -2,6 +2,7 @@ import { useCallback, useEffect, useRef, useState } from 'react';
 import { Link, useParams, useSearchParams } from 'react-router-dom';
 import {
   exportPdfUrl,
+  fetchProject,
   fetchProjectManifest,
   getProject,
   type ProjectModule,
@@ -13,7 +14,8 @@ import './project.css';
 export function ProjectJourneyPage() {
   const { projectId = '' } = useParams();
   const [searchParams] = useSearchParams();
-  const project = getProject(projectId);
+  const staticProject = getProject(projectId);
+  const [project, setProject] = useState(staticProject);
   const iframeRef = useRef<HTMLIFrameElement>(null);
   const requestedSlide = Math.max(1, Number.parseInt(searchParams.get('slide') ?? '1', 10) || 1);
   const [modules, setModules] = useState<ProjectModule[]>([]);
@@ -23,6 +25,20 @@ export function ProjectJourneyPage() {
   const [activeModule, setActiveModule] = useState<string | null>(null);
   const [jumpValue, setJumpValue] = useState(String(requestedSlide));
   const deckSrc = project ? previewDeckUrl(project.deckPath, requestedSlide) : '';
+
+  useEffect(() => {
+    setProject(staticProject);
+    if (staticProject || !projectId) return;
+    let alive = true;
+    fetchProject(projectId)
+      .then((next) => {
+        if (alive) setProject(next);
+      })
+      .catch(() => {});
+    return () => {
+      alive = false;
+    };
+  }, [projectId, staticProject]);
 
   useEffect(() => {
     setSlideIndex(requestedSlide - 1);

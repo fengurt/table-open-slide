@@ -1,6 +1,8 @@
+import { useEffect, useMemo, useState } from 'react';
 import { NavLink, useLocation } from 'react-router-dom';
-import { LAB_SIDEBAR_SECTIONS, isSidebarItemActive } from '../data/lab-nav';
 import type { HubLink } from '../data/hub-catalog';
+import { deckSidebarItems, isSidebarItemActive, LAB_SIDEBAR_SECTIONS } from '../data/lab-nav';
+import { fetchAtelierProjects } from '../data/projects';
 import { useLabHealth } from '../lab/LabHealthProvider';
 import { useLabShell } from './useLabShell';
 
@@ -49,7 +51,8 @@ function SidebarLink({
   }
 
   if (link.kind === 'external') {
-    const statusTip = online === undefined ? tip ?? label : `${label} · ${online ? 'online' : 'offline'}`;
+    const statusTip =
+      online === undefined ? (tip ?? label) : `${label} · ${online ? 'online' : 'offline'}`;
     return (
       <a
         href={link.href}
@@ -107,6 +110,29 @@ function SidebarLink({
 export function LabGlobalSidebar() {
   const { sidebarCollapsed, sectionsOpen, toggleSection } = useLabShell();
   const { online } = useLabHealth();
+  const [deckItems, setDeckItems] = useState(
+    LAB_SIDEBAR_SECTIONS.find((s) => s.id === 'decks')?.items,
+  );
+
+  useEffect(() => {
+    let alive = true;
+    fetchAtelierProjects()
+      .then((projects) => {
+        if (alive) setDeckItems(deckSidebarItems(projects));
+      })
+      .catch(() => {});
+    return () => {
+      alive = false;
+    };
+  }, []);
+
+  const sections = useMemo(
+    () =>
+      LAB_SIDEBAR_SECTIONS.map((section) =>
+        section.id === 'decks' && deckItems ? { ...section, items: deckItems } : section,
+      ),
+    [deckItems],
+  );
 
   return (
     <aside
@@ -115,7 +141,7 @@ export function LabGlobalSidebar() {
       aria-label="Lab navigation"
     >
       <div className="lab-global-sidebar-inner">
-        {LAB_SIDEBAR_SECTIONS.map((section) => {
+        {sections.map((section) => {
           const open = sidebarCollapsed ? true : (sectionsOpen[section.id] ?? true);
           return (
             <div key={section.id} className={`lab-sidebar-section${open ? ' is-open' : ''}`}>

@@ -1,7 +1,7 @@
-import { useCallback, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { type GeneratePageResult, generatePage, type PageTheme } from '../core/api';
-import { ATELIER_PROJECTS } from '../data/projects';
+import { ATELIER_PROJECTS, fetchAtelierProjects } from '../data/projects';
 import { useLabShell } from '../ui/useLabShell';
 import { SiteNav } from './HomePage';
 import './home.css';
@@ -228,6 +228,20 @@ function PageGenerator() {
 }
 
 export function ProjectsPage() {
+  const [projects, setProjects] = useState(ATELIER_PROJECTS);
+
+  useEffect(() => {
+    let alive = true;
+    fetchAtelierProjects()
+      .then((items) => {
+        if (alive) setProjects(items);
+      })
+      .catch(() => {});
+    return () => {
+      alive = false;
+    };
+  }, []);
+
   return (
     <div className="home">
       <SiteNav />
@@ -237,7 +251,7 @@ export function ProjectsPage() {
       </div>
       <PageGenerator />
       <div className="projects-grid">
-        {ATELIER_PROJECTS.map((project) => (
+        {projects.map((project) => (
           <Link key={project.id} to={`/project/${project.id}`} className="project-card">
             <span className="sub">{project.subtitle}</span>
             <h2>{project.title}</h2>

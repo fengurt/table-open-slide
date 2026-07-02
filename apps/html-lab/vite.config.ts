@@ -69,6 +69,64 @@ function safeRepoAssetPath(raw: string): string {
   return abs;
 }
 
+type ProjectManifestSummary = {
+  id?: unknown;
+  title?: unknown;
+  subtitle?: unknown;
+  description?: unknown;
+  slideCount?: unknown;
+  deckPath?: unknown;
+  tags?: unknown;
+  theme?: unknown;
+};
+
+function stringValue(value: unknown, fallback = ''): string {
+  return typeof value === 'string' && value.trim() ? value.trim() : fallback;
+}
+
+function projectIdFromManifestPath(rel: string): string {
+  const parts = rel.split('/');
+  return parts.length >= 3 ? parts[2] : path.basename(path.dirname(rel));
+}
+
+async function discoverSlideProjects() {
+  const manifests = await fg(['slides/**/manifest.json'], {
+    cwd: repoRoot,
+    onlyFiles: true,
+    ignore: ['**/node_modules/**', '**/dist/**', '**/.next/**', '**/coverage/**'],
+    followSymbolicLinks: false,
+  });
+  const projects = await Promise.all(
+    manifests.sort().map(async (manifestPath) => {
+      const abs = path.join(repoRoot, manifestPath);
+      const raw = await fs.readFile(abs, 'utf8');
+      const manifest = JSON.parse(raw) as ProjectManifestSummary;
+      const folderId = projectIdFromManifestPath(manifestPath);
+      const id = stringValue(manifest.id, folderId);
+      const deckPath = stringValue(
+        manifest.deckPath,
+        path.posix.join(path.posix.dirname(manifestPath), 'deck/index.html'),
+      );
+      const tags = Array.isArray(manifest.tags)
+        ? manifest.tags.filter((tag): tag is string => typeof tag === 'string')
+        : [stringValue(manifest.theme, 'deck'), `${Number(manifest.slideCount) || 0}p`].filter(
+            Boolean,
+          );
+      return {
+        id,
+        title: stringValue(manifest.title, id),
+        subtitle: stringValue(manifest.subtitle, 'HTML deck'),
+        description: stringValue(manifest.description, `Discovered from ${manifestPath}`),
+        slideCount: Number(manifest.slideCount) || 0,
+        manifestPath,
+        deckPath,
+        tags,
+      };
+    }),
+  );
+  return projects;
+}
+
 async function wrapProjectSlideFragment(relPath: string, html: string): Promise<string> {
   if (/<html[\s>]/i.test(html)) return html;
 
@@ -184,6 +242,12 @@ function attachHtmlLabApi(middlewares: Connect.Server) {
         const body = await fs.readFile(abs, 'utf8');
         res.setHeader('Content-Type', 'application/json; charset=utf-8');
         res.end(body);
+        return;
+      }
+      if (req.method === 'GET' && url.startsWith('/api/projects')) {
+        const projects = await discoverSlideProjects();
+        res.setHeader('Content-Type', 'application/json; charset=utf-8');
+        res.end(JSON.stringify({ projects }));
         return;
       }
       if (req.method === 'GET' && url.startsWith('/api/asset')) {

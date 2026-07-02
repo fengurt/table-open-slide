@@ -1,6 +1,13 @@
-import { HUB_DECK_JOURNEYS, HUB_SECTIONS } from '../data/hub-catalog';
-import { HubAccordionSection, HubCard } from '../ui/HubCard';
+import { useEffect, useState } from 'react';
+import {
+  HUB_DECK_JOURNEYS,
+  HUB_SECTIONS,
+  projectToHubEntry,
+  STATIC_EXTERNAL_DECK_JOURNEYS,
+} from '../data/hub-catalog';
+import { fetchAtelierProjects } from '../data/projects';
 import { DocumentsLibrary } from '../ui/DocumentsLibrary';
+import { HubAccordionSection, HubCard } from '../ui/HubCard';
 import { LabStatusDashboard } from '../ui/LabStatusDashboard';
 import './hub.css';
 import '../ui/document-library.css';
@@ -13,14 +20,29 @@ const SECTION_DEFAULT_OPEN: Record<string, boolean> = {
 };
 
 export function SkillHubPage() {
+  const [deckJourneys, setDeckJourneys] = useState(HUB_DECK_JOURNEYS);
+
+  useEffect(() => {
+    let alive = true;
+    fetchAtelierProjects()
+      .then((projects) => {
+        if (alive)
+          setDeckJourneys([...projects.map(projectToHubEntry), ...STATIC_EXTERNAL_DECK_JOURNEYS]);
+      })
+      .catch(() => {});
+    return () => {
+      alive = false;
+    };
+  }, []);
+
   return (
     <div className="hub-content">
       <header className="hub-header">
         <p className="hub-eyebrow">open-slide · table-slides01</p>
         <h1 className="hub-title">Content studio</h1>
         <p className="hub-lead">
-          Award-grade content studio — one shell for HTML, Word, decks, and agent pipelines.
-          Sidebar collapses with <kbd>[</kbd>; shortcuts via <kbd>?</kbd>.
+          Award-grade content studio — one shell for HTML, Word, decks, and agent pipelines. Sidebar
+          collapses with <kbd>[</kbd>; shortcuts via <kbd>?</kbd>.
         </p>
       </header>
 
@@ -48,21 +70,19 @@ export function SkillHubPage() {
         hint="本 hub 内互动预览，或打开独立 viewer"
         defaultOpen
       >
-        {HUB_DECK_JOURNEYS.map((entry) => (
+        {deckJourneys.map((entry) => (
           <HubCard key={entry.id} entry={entry} />
         ))}
       </HubAccordionSection>
 
       <footer className="hub-foot">
         <p>
-          <strong>Quick start:</strong>{' '}
-          <code>pnpm dev:html-lab</code> · <code>pnpm dev:up</code> ·{' '}
+          <strong>Quick start:</strong> <code>pnpm dev:html-lab</code> · <code>pnpm dev:up</code> ·{' '}
           <code>pnpm docx:mcp:build</code>
         </p>
         <p>
           Skills: <code>skills/tableai-guizang-ppt-skill/</code> ·{' '}
-          <code>skills/tableai-docx-master/</code> ·{' '}
-          <code>modules/tableai-ppt-master/</code> ·{' '}
+          <code>skills/tableai-docx-master/</code> · <code>modules/tableai-ppt-master/</code> ·{' '}
           <code>apps/kind-viewer/skills/kind-deck-authoring/</code>
         </p>
       </footer>

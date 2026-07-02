@@ -6,7 +6,10 @@ import {
   HUB_STUDIO,
   type HubEntry,
   type HubLink,
+  projectToHubEntry,
+  STATIC_EXTERNAL_DECK_JOURNEYS,
 } from './hub-catalog';
+import type { AtelierProject } from './projects';
 
 export type LabSidebarItem = {
   id: string;
@@ -58,7 +61,7 @@ function iconFor(id: string, fallbackTag?: string): string {
   return '·';
 }
 
-function toSidebarItem(entry: HubEntry): LabSidebarItem {
+export function toSidebarItem(entry: HubEntry): LabSidebarItem {
   return {
     id: entry.id,
     label: entry.title,
@@ -66,6 +69,13 @@ function toSidebarItem(entry: HubEntry): LabSidebarItem {
     meta: entry.meta,
     link: entry.link,
   };
+}
+
+export function deckSidebarItems(projects: AtelierProject[]): LabSidebarItem[] {
+  return [
+    ...projects.map((project) => toSidebarItem(projectToHubEntry(project))),
+    ...STATIC_EXTERNAL_DECK_JOURNEYS.map(toSidebarItem),
+  ];
 }
 
 /** Global left sidebar — same on every in-app route. */

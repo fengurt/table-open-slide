@@ -81,6 +81,27 @@ export const ATELIER_PROJECTS: AtelierProject[] = [
   },
 ];
 
+export function mergeProjects(
+  base: AtelierProject[],
+  discovered: AtelierProject[],
+): AtelierProject[] {
+  const byId = new Map<string, AtelierProject>();
+  for (const project of base) byId.set(project.id, project);
+  for (const project of discovered) byId.set(project.id, project);
+  return [...byId.values()];
+}
+
+export async function fetchAtelierProjects(): Promise<AtelierProject[]> {
+  const res = await fetch('/api/projects');
+  if (!res.ok) throw new Error(`projects ${res.status}`);
+  const body = (await res.json()) as { projects?: AtelierProject[] };
+  return mergeProjects(ATELIER_PROJECTS, body.projects ?? []);
+}
+
+export async function fetchProject(id: string): Promise<AtelierProject | undefined> {
+  return (await fetchAtelierProjects()).find((p) => p.id === id);
+}
+
 export function getProject(id: string): AtelierProject | undefined {
   return ATELIER_PROJECTS.find((p) => p.id === id);
 }

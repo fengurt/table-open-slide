@@ -1,4 +1,4 @@
-import { ATELIER_PROJECTS } from './projects';
+import { ATELIER_PROJECTS, type AtelierProject } from './projects';
 
 /** Single registry for the Lab homepage — every major repo capability in one place. */
 
@@ -313,18 +313,19 @@ export const HUB_AGENTS: HubSection = {
 export const HUB_SECTIONS: HubSection[] = [HUB_STUDIO, HUB_RUNTIMES, HUB_CONTENT_OS, HUB_AGENTS];
 
 /** Deck journeys: in-hub previews plus external viewers. */
-export const HUB_DECK_JOURNEYS: HubEntry[] = [
-  ...ATELIER_PROJECTS.map(
-    (p): HubEntry => ({
-      id: p.id,
-      tag: p.tags[0] ?? 'deck',
-      title: p.title,
-      subtitle: p.subtitle,
-      description: p.description,
-      meta: `${p.slideCount} slides · /project/`,
-      link: { kind: 'route', to: `/project/${p.id}` },
-    }),
-  ),
+export function projectToHubEntry(p: AtelierProject): HubEntry {
+  return {
+    id: p.id,
+    tag: p.tags[0] ?? 'deck',
+    title: p.title,
+    subtitle: p.subtitle,
+    description: p.description,
+    meta: `${p.slideCount} slides · /project/`,
+    link: { kind: 'route', to: `/project/${p.id}` },
+  };
+}
+
+export const STATIC_EXTERNAL_DECK_JOURNEYS: HubEntry[] = [
   {
     id: 'kind-bp01',
     tag: 'KiND',
@@ -335,4 +336,9 @@ export const HUB_DECK_JOURNEYS: HubEntry[] = [
     meta: '19 slides · :5190',
     link: { kind: 'external', href: 'http://localhost:5190/' },
   },
+];
+
+export const HUB_DECK_JOURNEYS: HubEntry[] = [
+  ...ATELIER_PROJECTS.map(projectToHubEntry),
+  ...STATIC_EXTERNAL_DECK_JOURNEYS,
 ];
