@@ -5,895 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>企业级 AI 助手与 AI Worker 交付参考</title>
     <style>
-      :root {
-        color-scheme: light;
-        --ink: #090b0f;
-        --paper: #f6f4ed;
-        --white: #fffdf7;
-        --bone: #ebe5d8;
-        --graphite: #1b2028;
-        --muted: #69717d;
-        --line: #d8d2c5;
-        --gold: #b88a3b;
-        --gold-2: #e0bd75;
-        --cyan: #59b6d4;
-        --red: #b43a2f;
-        --blue: #185c8f;
-        --green: #18715f;
-        --violet: #6554b8;
-        --shadow: 0 28px 70px rgba(9, 11, 15, 0.18);
-        font-family:
-          "Aptos",
-          "PingFang SC",
-          "Microsoft YaHei",
-          system-ui,
-          sans-serif;
-      }
-
-      * {
-        box-sizing: border-box;
-      }
-
-      html,
-      body {
-        margin: 0;
-        width: 100%;
-        height: 100%;
-        overflow: hidden;
-        background: #05070a;
-        color: var(--ink);
-      }
-
-      button {
-        font: inherit;
-      }
-
-      .deck {
-        display: grid;
-        place-items: center;
-        width: 100vw;
-        height: 100vh;
-      }
-
-      .slide {
-        position: relative;
-        display: none;
-        width: min(100vw, 177.7778vh);
-        height: min(56.25vw, 100vh);
-        overflow: hidden;
-        background:
-          linear-gradient(90deg, rgba(9, 11, 15, 0.045) 1px, transparent 1px),
-          linear-gradient(180deg, rgba(9, 11, 15, 0.045) 1px, transparent 1px),
-          var(--paper);
-        background-size: 40px 40px;
-      }
-
-      .slide.active {
-        display: block;
-      }
-
-      .slide::before {
-        content: "";
-        position: absolute;
-        inset: 0;
-        pointer-events: none;
-        background:
-          linear-gradient(90deg, rgba(9, 11, 15, 0.05) 0 9%, transparent 9%),
-          radial-gradient(circle at 9% 4%, rgba(184, 138, 59, 0.22), transparent 28%),
-          linear-gradient(135deg, transparent 0 66%, rgba(184, 138, 59, 0.14) 66% 66.25%, transparent 66.25%);
-      }
-
-      .slide::after {
-        content: "";
-        position: absolute;
-        top: 0;
-        bottom: 0;
-        left: 0;
-        width: 12px;
-        background: linear-gradient(180deg, var(--ink), var(--gold), var(--ink));
-      }
-
-      .page {
-        position: relative;
-        z-index: 1;
-        display: grid;
-        grid-template-rows: auto 1fr auto;
-        gap: 12px;
-        width: 100%;
-        height: 100%;
-        padding: 26px 42px 22px 56px;
-      }
-
-      header,
-      footer {
-        display: grid;
-        grid-template-columns: 1fr auto;
-        gap: 22px;
-        align-items: center;
-      }
-
-      header {
-        border-bottom: 1px solid rgba(9, 11, 15, 0.82);
-        padding-bottom: 8px;
-      }
-
-      footer {
-        border-top: 1px solid rgba(9, 11, 15, 0.16);
-        padding-top: 9px;
-        color: var(--muted);
-        font-size: 12px;
-        font-weight: 800;
-        letter-spacing: 0.12em;
-        text-transform: uppercase;
-      }
-
-      .brand {
-        display: flex;
-        gap: 12px;
-        align-items: center;
-        color: var(--ink);
-        font-weight: 950;
-        letter-spacing: 0.11em;
-      }
-
-      .brand-mark {
-        display: grid;
-        place-items: center;
-        width: 34px;
-        height: 34px;
-        border: 2px solid var(--ink);
-        background: var(--ink);
-        color: var(--gold-2);
-        font-family: Georgia, serif;
-        font-size: 16px;
-        font-weight: 900;
-        box-shadow: 7px 7px 0 rgba(184, 138, 59, 0.22);
-      }
-
-      .case-no {
-        color: var(--ink);
-        font-family: Georgia, "Noto Serif SC", serif;
-        font-size: 18px;
-        font-weight: 900;
-        white-space: nowrap;
-      }
-
-      .case-no span {
-        color: var(--gold);
-      }
-
-      .case-kicker {
-        margin: 0 0 7px;
-        color: var(--gold);
-        font-size: 12px;
-        font-weight: 900;
-        letter-spacing: 0.2em;
-        line-height: 1;
-        text-transform: uppercase;
-      }
-
-      h1,
-      h2,
-      h3,
-      p {
-        margin: 0;
-      }
-
-      h1,
-      h2 {
-        color: var(--ink);
-        font-family: Georgia, "Noto Serif SC", "Songti SC", serif;
-        letter-spacing: 0;
-      }
-
-      h1 {
-        max-width: 1010px;
-        font-size: clamp(39px, 4.35vw, 66px);
-        line-height: 1.05;
-      }
-
-      h2 {
-        max-width: 1040px;
-        font-size: clamp(28px, 2.85vw, 43px);
-        line-height: 1.03;
-      }
-
-      .lead {
-        max-width: 1030px;
-        color: var(--graphite);
-        font-size: clamp(15px, 1.22vw, 19px);
-        font-weight: 760;
-        line-height: 1.3;
-      }
-
-      .content {
-        display: grid;
-        grid-template-columns: 0.7fr 1.3fr;
-        gap: 18px;
-        min-height: 0;
-        align-items: stretch;
-      }
-
-      .case-card {
-        position: relative;
-        display: grid;
-        grid-template-rows: auto auto 1fr;
-        gap: 9px;
-        align-content: start;
-        border: 1px solid rgba(9, 11, 15, 0.16);
-        border-radius: 8px;
-        padding: 15px 16px 14px;
-        background:
-          linear-gradient(180deg, rgba(255, 253, 247, 0.96), rgba(235, 229, 216, 0.96)),
-          var(--white);
-        box-shadow: 12px 12px 0 rgba(9, 11, 15, 0.075), 0 18px 42px rgba(9, 11, 15, 0.13);
-        overflow: hidden;
-      }
-
-      .case-card::before {
-        content: attr(data-case);
-        position: absolute;
-        right: -12px;
-        top: -30px;
-        color: rgba(9, 11, 15, 0.055);
-        font-family: Georgia, serif;
-        font-size: 104px;
-        font-weight: 900;
-        line-height: 1;
-      }
-
-      .case-card p,
-      li,
-      td {
-        color: var(--graphite);
-        font-size: clamp(12px, 0.86vw, 14px);
-        line-height: 1.28;
-      }
-
-      .label {
-        display: inline-flex;
-        width: max-content;
-        border: 1px solid rgba(9, 11, 15, 0.16);
-        padding: 6px 10px;
-        background: var(--ink);
-        color: var(--gold-2);
-        font-size: 12px;
-        font-weight: 900;
-        letter-spacing: 0.12em;
-        text-transform: uppercase;
-      }
-
-      .visual {
-        position: relative;
-        display: grid;
-        grid-template-rows: auto minmax(128px, 1fr) auto auto;
-        gap: 8px;
-        min-height: 0;
-        border: 1px solid rgba(9, 11, 15, 0.95);
-        border-radius: 8px;
-        padding: 14px;
-        background:
-          radial-gradient(circle at 78% 20%, rgba(184, 138, 59, 0.24), transparent 30%),
-          linear-gradient(135deg, rgba(9, 11, 15, 0.98), rgba(20, 27, 36, 0.96)),
-          var(--ink);
-        color: var(--white);
-        overflow: hidden;
-        box-shadow: inset 0 0 0 1px rgba(255, 253, 247, 0.06);
-      }
-
-      .visual::before {
-        content: "";
-        position: absolute;
-        inset: 0;
-        background:
-          linear-gradient(90deg, rgba(255, 255, 255, 0.06) 1px, transparent 1px),
-          linear-gradient(180deg, rgba(255, 255, 255, 0.06) 1px, transparent 1px),
-          linear-gradient(145deg, transparent 0 62%, rgba(224, 189, 117, 0.14) 62% 62.4%, transparent 62.4%);
-        background-size: 34px 34px, 34px 34px, auto;
-        pointer-events: none;
-      }
-
-      .visual > * {
-        position: relative;
-        z-index: 1;
-      }
-
-      .visual-head {
-        display: grid;
-        grid-template-columns: 1fr auto;
-        gap: 14px;
-        align-items: start;
-        border-bottom: 1px solid rgba(255, 253, 247, 0.16);
-        padding-bottom: 8px;
-      }
-
-      .visual-title {
-        color: var(--white);
-        font-family: Georgia, "Noto Serif SC", serif;
-        font-size: clamp(18px, 1.45vw, 23px);
-        font-weight: 800;
-        line-height: 1.12;
-      }
-
-      .chip {
-        border: 1px solid rgba(224, 189, 117, 0.42);
-        padding: 6px 9px;
-        color: var(--gold-2);
-        font-size: 11px;
-        font-weight: 900;
-        letter-spacing: 0.13em;
-        white-space: nowrap;
-        text-transform: uppercase;
-      }
-
-      .metric-row {
-        display: grid;
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-        gap: 8px;
-      }
-
-      .metric {
-        min-height: 52px;
-        border: 1px solid rgba(255, 255, 255, 0.16);
-        border-radius: 6px;
-        padding: 8px 9px;
-        background: linear-gradient(180deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.035));
-      }
-
-      .metric b {
-        display: block;
-        color: var(--gold-2);
-        font-size: clamp(15px, 1.18vw, 19px);
-        line-height: 1.08;
-      }
-
-      .metric span {
-        display: block;
-        margin-top: 4px;
-        color: rgba(255, 253, 247, 0.74);
-        font-size: clamp(10px, 0.74vw, 12px);
-        font-weight: 700;
-        line-height: 1.25;
-      }
-
-      .workflow {
-        display: grid;
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 7px 10px;
-        align-content: start;
-      }
-
-      .step {
-        position: relative;
-        display: grid;
-        grid-template-columns: 30px 1fr;
-        gap: 8px;
-        align-items: start;
-        border-top: 1px solid rgba(255, 255, 255, 0.14);
-        padding-top: 6px;
-      }
-
-      .step b {
-        color: var(--gold-2);
-        font-family: Georgia, serif;
-        font-size: 16px;
-      }
-
-      .step span {
-        color: rgba(255, 253, 247, 0.86);
-        font-size: clamp(11px, 0.78vw, 13px);
-        font-weight: 720;
-        line-height: 1.22;
-      }
-
-      .proof-bar {
-        display: grid;
-        grid-template-columns: 1fr auto;
-        gap: 12px;
-        align-items: center;
-        border-top: 1px solid rgba(255, 253, 247, 0.14);
-        padding-top: 8px;
-        color: rgba(255, 253, 247, 0.62);
-        font-size: 11px;
-        font-weight: 850;
-        letter-spacing: 0.08em;
-        text-transform: uppercase;
-      }
-
-      .proof-line {
-        height: 3px;
-        background:
-          linear-gradient(90deg, var(--gold-2), rgba(89, 182, 212, 0.85), rgba(255, 253, 247, 0.2));
-      }
-
-      .ref-art {
-        position: relative;
-        min-height: 128px;
-        border: 1px solid rgba(255, 253, 247, 0.14);
-        border-radius: 8px;
-        overflow: hidden;
-        background:
-          radial-gradient(circle at 82% 28%, rgba(89, 182, 212, 0.18), transparent 26%),
-          linear-gradient(135deg, rgba(255, 253, 247, 0.08), rgba(255, 253, 247, 0.025));
-      }
-
-      .prototype-img,
-      .ref-img {
-        position: absolute;
-        inset: 0;
-        z-index: 1;
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        object-position: center;
-        display: block;
-      }
-
-      .ref-art::before {
-        content: "";
-        position: absolute;
-        inset: 0;
-        background:
-          linear-gradient(90deg, rgba(255, 253, 247, 0.055) 1px, transparent 1px),
-          linear-gradient(180deg, rgba(255, 253, 247, 0.055) 1px, transparent 1px);
-        background-size: 24px 24px;
-      }
-
-      .art-window {
-        position: absolute;
-        inset: 16px;
-        display: grid;
-        grid-template-columns: 92px 1fr 132px;
-        gap: 12px;
-        border: 1px solid rgba(255, 253, 247, 0.16);
-        border-radius: 8px;
-        padding: 12px;
-        background: rgba(4, 7, 12, 0.58);
-        box-shadow: 0 18px 40px rgba(0, 0, 0, 0.26);
-      }
-
-      .art-nav,
-      .art-panel,
-      .art-chat {
-        position: relative;
-        z-index: 1;
-        border: 1px solid rgba(255, 253, 247, 0.12);
-        border-radius: 7px;
-        background: rgba(255, 253, 247, 0.055);
-      }
-
-      .art-nav {
-        display: grid;
-        gap: 8px;
-        align-content: start;
-        padding: 10px;
-      }
-
-      .art-dot,
-      .art-row,
-      .art-pill,
-      .art-line {
-        border-radius: 999px;
-        background: rgba(255, 253, 247, 0.18);
-      }
-
-      .art-dot {
-        width: 28px;
-        height: 28px;
-        background: var(--gold-2);
-      }
-
-      .art-row {
-        height: 8px;
-      }
-
-      .art-row.short {
-        width: 62%;
-      }
-
-      .art-panel {
-        display: grid;
-        grid-template-rows: auto 1fr;
-        gap: 10px;
-        padding: 10px;
-      }
-
-      .art-panel-head {
-        display: grid;
-        grid-template-columns: 1fr auto;
-        gap: 8px;
-        align-items: center;
-      }
-
-      .art-pill {
-        height: 18px;
-        width: 72px;
-        background: rgba(224, 189, 117, 0.8);
-      }
-
-      .art-cards {
-        display: grid;
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-        gap: 8px;
-      }
-
-      .art-card {
-        border: 1px solid rgba(255, 253, 247, 0.1);
-        border-radius: 7px;
-        background: rgba(255, 253, 247, 0.08);
-        padding: 9px;
-      }
-
-      .art-line {
-        height: 8px;
-        margin-bottom: 7px;
-      }
-
-      .art-line.gold {
-        width: 54%;
-        background: var(--gold-2);
-      }
-
-      .art-line.cyan {
-        width: 72%;
-        background: var(--cyan);
-      }
-
-      .art-chat {
-        display: grid;
-        gap: 8px;
-        align-content: end;
-        padding: 10px;
-      }
-
-      .art-bubble {
-        min-height: 24px;
-        border-radius: 12px 12px 12px 4px;
-        background: rgba(255, 253, 247, 0.14);
-      }
-
-      .art-bubble.ai {
-        border-radius: 12px 12px 4px 12px;
-        background: rgba(184, 138, 59, 0.44);
-      }
-
-      .ref-caption {
-        position: absolute;
-        left: 18px;
-        bottom: 12px;
-        z-index: 3;
-        color: rgba(255, 253, 247, 0.7);
-        font-size: 10px;
-        font-weight: 900;
-        letter-spacing: 0.12em;
-        text-transform: uppercase;
-      }
-
-      .demo-content {
-        display: grid;
-        grid-template-columns: 0.76fr 1.24fr;
-        gap: 20px;
-        min-height: 0;
-        align-items: stretch;
-      }
-
-      .demo-brief {
-        position: relative;
-        display: grid;
-        gap: 13px;
-        align-content: start;
-        border: 1px solid rgba(9, 11, 15, 0.16);
-        border-radius: 8px;
-        padding: 20px;
-        background:
-          linear-gradient(180deg, rgba(255, 253, 247, 0.97), rgba(235, 229, 216, 0.96)),
-          var(--white);
-        box-shadow: 16px 16px 0 rgba(9, 11, 15, 0.08), var(--shadow);
-        overflow: hidden;
-      }
-
-      .demo-brief::before {
-        content: attr(data-demo);
-        position: absolute;
-        right: -10px;
-        top: -22px;
-        color: rgba(9, 11, 15, 0.055);
-        font-family: Georgia, serif;
-        font-size: 118px;
-        font-weight: 900;
-        line-height: 1;
-      }
-
-      .demo-list {
-        display: grid;
-        gap: 9px;
-        margin: 0;
-        padding: 0;
-        list-style: none;
-      }
-
-      .demo-list li {
-        display: grid;
-        grid-template-columns: 28px 1fr;
-        gap: 9px;
-        color: var(--graphite);
-        font-size: clamp(13px, 0.96vw, 15px);
-        font-weight: 720;
-        line-height: 1.34;
-      }
-
-      .demo-list li::before {
-        content: attr(data-i);
-        color: var(--gold);
-        font-family: Georgia, serif;
-        font-weight: 900;
-      }
-
-      .prototype {
-        position: relative;
-        display: grid;
-        grid-template-rows: auto 1fr;
-        min-height: 0;
-        border: 1px solid rgba(9, 11, 15, 0.92);
-        border-radius: 10px;
-        background: #0a0d12;
-        box-shadow: inset 0 0 0 1px rgba(255, 253, 247, 0.06), var(--shadow);
-        overflow: hidden;
-      }
-
-      .prototype.is-image {
-        grid-template-rows: auto 1fr;
-      }
-
-      .prototype-frame {
-        position: relative;
-        min-height: 0;
-        overflow: hidden;
-      }
-
-      .proto-top {
-        display: grid;
-        grid-template-columns: 1fr auto;
-        gap: 16px;
-        align-items: center;
-        border-bottom: 1px solid rgba(255, 253, 247, 0.12);
-        padding: 13px 16px;
-        background: linear-gradient(90deg, rgba(255, 253, 247, 0.06), rgba(184, 138, 59, 0.12));
-      }
-
-      .proto-title {
-        color: var(--white);
-        font-size: 14px;
-        font-weight: 900;
-        letter-spacing: 0.08em;
-        text-transform: uppercase;
-      }
-
-      .proto-status {
-        border: 1px solid rgba(224, 189, 117, 0.45);
-        border-radius: 999px;
-        padding: 6px 10px;
-        color: var(--gold-2);
-        font-size: 11px;
-        font-weight: 900;
-        letter-spacing: 0.08em;
-      }
-
-      .proto-body {
-        display: grid;
-        grid-template-columns: 132px 1fr;
-        gap: 14px;
-        min-height: 0;
-        padding: 14px;
-      }
-
-      .proto-side {
-        display: grid;
-        gap: 9px;
-        align-content: start;
-        border-right: 1px solid rgba(255, 253, 247, 0.1);
-        padding-right: 12px;
-      }
-
-      .proto-tab {
-        border: 1px solid rgba(255, 253, 247, 0.1);
-        border-radius: 6px;
-        padding: 9px 10px;
-        color: rgba(255, 253, 247, 0.68);
-        font-size: 12px;
-        font-weight: 780;
-      }
-
-      .proto-tab.is-active {
-        border-color: rgba(224, 189, 117, 0.44);
-        background: rgba(184, 138, 59, 0.14);
-        color: var(--gold-2);
-      }
-
-      .proto-main {
-        display: grid;
-        grid-template-rows: auto 1fr;
-        gap: 12px;
-        min-height: 0;
-      }
-
-      .proto-grid {
-        display: grid;
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-        gap: 10px;
-      }
-
-      .proto-card {
-        min-height: 70px;
-        border: 1px solid rgba(255, 253, 247, 0.12);
-        border-radius: 7px;
-        padding: 10px;
-        background: rgba(255, 253, 247, 0.06);
-      }
-
-      .proto-card b {
-        display: block;
-        color: var(--white);
-        font-size: 17px;
-        line-height: 1;
-      }
-
-      .proto-card span {
-        display: block;
-        margin-top: 7px;
-        color: rgba(255, 253, 247, 0.58);
-        font-size: 11px;
-        font-weight: 760;
-        line-height: 1.24;
-      }
-
-      .proto-workspace {
-        display: grid;
-        grid-template-columns: 1fr 0.86fr;
-        gap: 10px;
-        min-height: 0;
-      }
-
-      .proto-panel {
-        display: grid;
-        gap: 9px;
-        align-content: start;
-        border: 1px solid rgba(255, 253, 247, 0.12);
-        border-radius: 8px;
-        padding: 12px;
-        background: rgba(255, 253, 247, 0.045);
-      }
-
-      .proto-panel h3 {
-        color: var(--gold-2);
-        font-size: 13px;
-        font-weight: 900;
-        letter-spacing: 0.1em;
-        text-transform: uppercase;
-      }
-
-      .proto-line {
-        height: 9px;
-        border-radius: 999px;
-        background: rgba(255, 253, 247, 0.16);
-      }
-
-      .proto-line.wide {
-        width: 92%;
-      }
-
-      .proto-line.mid {
-        width: 68%;
-      }
-
-      .proto-line.short {
-        width: 44%;
-      }
-
-      .proto-action {
-        display: grid;
-        grid-template-columns: auto 1fr;
-        gap: 9px;
-        align-items: start;
-        color: rgba(255, 253, 247, 0.82);
-        font-size: 12px;
-        font-weight: 760;
-        line-height: 1.28;
-      }
-
-      .proto-action i {
-        display: grid;
-        place-items: center;
-        width: 22px;
-        height: 22px;
-        border-radius: 50%;
-        background: rgba(224, 189, 117, 0.16);
-        color: var(--gold-2);
-        font-style: normal;
-        font-size: 11px;
-        font-weight: 900;
-      }
-
-      table {
-        width: 100%;
-        border-collapse: collapse;
-      }
-
-      th,
-      td {
-        border-bottom: 1px solid var(--line);
-        padding: 8px 0;
-        text-align: left;
-        vertical-align: top;
-      }
-
-      th {
-        color: var(--muted);
-        font-size: 12px;
-        font-weight: 900;
-        letter-spacing: 0.12em;
-        text-transform: uppercase;
-        width: 72px;
-      }
-
-      tr:last-child td {
-        border-bottom: 0;
-      }
-
-      .nav {
-        position: absolute;
-        right: 28px;
-        bottom: 22px;
-        z-index: 5;
-        display: flex;
-        gap: 8px;
-        align-items: center;
-        border: 1px solid rgba(9, 11, 15, 0.12);
-        border-radius: 8px;
-        padding: 8px;
-        background: rgba(255, 253, 247, 0.9);
-        box-shadow: 0 12px 30px rgba(9, 11, 15, 0.16);
-      }
-
-      .nav button {
-        width: 40px;
-        height: 36px;
-        border: 1px solid var(--line);
-        border-radius: 6px;
-        background: var(--white);
-        color: var(--ink);
-        cursor: pointer;
-        font-size: 19px;
-      }
-
-      .nav span {
-        min-width: 58px;
-        color: var(--ink);
-        text-align: center;
-        font-size: 14px;
-        font-weight: 900;
-      }
-
-      @media print {
-        html,
-        body,
-        .deck {
-          width: 100%;
-          height: auto;
-          background: #fff;
-        }
-
-        .slide {
-          display: block;
-          width: 100vw;
-          height: 56.25vw;
-          page-break-after: always;
-        }
-
-        .nav {
-          display: none;
-        }
-      }
+      :root { color-scheme: light; --ink:#07090d; --charcoal:#111720; --paper:#f4f0e7; --card:#fffaf0; --line:#d8cdb9; --muted:#6d716f; --gold:#bb8a35; --gold-2:#e1bd73; --cyan:#67c0d8; --shadow:0 26px 70px rgba(7,9,13,.18); font-family:"Aptos","PingFang SC","Microsoft YaHei",system-ui,sans-serif; }
+      *{box-sizing:border-box} html,body{margin:0;width:100%;height:100%;overflow:hidden;background:#05070a;color:var(--ink)} button{font:inherit}
+      .deck{display:grid;place-items:center;width:100vw;height:100vh}.slide{position:relative;display:none;width:min(100vw,177.7778vh);height:min(56.25vw,100vh);overflow:hidden;background:linear-gradient(90deg,rgba(7,9,13,.045) 1px,transparent 1px),linear-gradient(180deg,rgba(7,9,13,.045) 1px,transparent 1px),radial-gradient(circle at 96% 6%,rgba(187,138,53,.18),transparent 30%),var(--paper);background-size:38px 38px,38px 38px,auto,auto}.slide.active{display:block}
+      .page{display:grid;grid-template-columns:92px 1fr;width:100%;height:100%}.rail{position:relative;display:grid;grid-template-rows:auto 1fr auto;gap:18px;padding:28px 18px 24px;background:var(--ink);color:var(--paper)}.rail::after{content:"";position:absolute;right:0;top:0;bottom:0;width:5px;background:linear-gradient(180deg,var(--gold),var(--cyan),var(--gold))}.mark{display:grid;place-items:center;width:42px;height:42px;border:1px solid rgba(255,255,255,.22);background:var(--gold);color:#07090d;font-family:Georgia,serif;font-size:21px;font-weight:900}.rail-word{writing-mode:vertical-rl;transform:rotate(180deg);align-self:center;justify-self:center;color:rgba(244,240,231,.72);font-size:12px;font-weight:900;letter-spacing:.2em;text-transform:uppercase}.rail-no{display:grid;gap:5px;color:rgba(244,240,231,.82);font-family:Georgia,serif;font-size:13px;font-weight:900}.rail-no b{color:var(--gold-2);font-size:24px;line-height:1}
+      .stage{display:grid;grid-template-rows:auto 1fr auto;gap:18px;min-width:0;padding:30px 40px 24px 34px}.topbar,.foot{display:grid;grid-template-columns:1fr auto;gap:18px;align-items:center}.topbar{border-bottom:1px solid rgba(7,9,13,.22);padding-bottom:10px}.brand{color:var(--ink);font-size:12px;font-weight:950;letter-spacing:.14em;text-transform:uppercase}.kind{color:var(--gold);font-size:12px;font-weight:950;letter-spacing:.14em;text-transform:uppercase}.layout{display:grid;grid-template-columns:minmax(310px,.72fr) minmax(0,1.28fr);gap:26px;min-height:0;align-items:stretch}
+      .copy{display:grid;grid-template-rows:auto auto auto 1fr auto;gap:13px;min-height:0}.kicker{margin:0;color:var(--gold);font-size:12px;font-weight:950;letter-spacing:.18em;text-transform:uppercase}h1{margin:0;color:var(--ink);font-family:Georgia,"Noto Serif SC","Songti SC",serif;font-size:clamp(31px,3.05vw,48px);line-height:1.03;letter-spacing:0}.summary{margin:0;color:#252a31;font-size:clamp(15px,1.16vw,18px);line-height:1.36;font-weight:760}.brief{display:grid;gap:9px;min-height:0}.brief-row{display:grid;grid-template-columns:76px 1fr;gap:11px;border-top:1px solid rgba(7,9,13,.14);padding-top:9px}.brief-row b{color:var(--muted);font-size:11px;font-weight:950;letter-spacing:.08em;text-transform:uppercase}.brief-row span{color:#252a31;font-size:clamp(12px,.86vw,14px);line-height:1.28;font-weight:680}.metrics{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}.metric{border:1px solid rgba(7,9,13,.14);border-radius:7px;padding:9px;background:rgba(255,250,240,.76)}.metric b{display:block;color:var(--ink);font-family:Georgia,serif;font-size:clamp(16px,1.28vw,22px);line-height:1}.metric span{display:block;margin-top:5px;color:var(--muted);font-size:10px;font-weight:850;line-height:1.18}
+      .shot{position:relative;min-height:0;margin:0;border:1px solid rgba(7,9,13,.88);border-radius:14px;background:var(--charcoal);box-shadow:var(--shadow);overflow:hidden}.shot::before{content:"";position:absolute;inset:0;z-index:2;pointer-events:none;box-shadow:inset 0 0 0 1px rgba(255,255,255,.08)}.shot img{display:block;width:100%;height:100%;object-fit:cover;object-position:center}.shot-caption{position:absolute;left:18px;right:18px;bottom:15px;z-index:3;display:flex;justify-content:space-between;gap:14px;color:rgba(255,250,240,.82);font-size:11px;font-weight:950;letter-spacing:.1em;text-transform:uppercase}.shot-caption span:first-child{color:var(--gold-2)}.foot{border-top:1px solid rgba(7,9,13,.14);padding-top:10px;color:var(--muted);font-size:11px;font-weight:900;letter-spacing:.12em;text-transform:uppercase}
+      .nav{position:absolute;right:26px;bottom:20px;z-index:10;display:flex;gap:8px;align-items:center;border:1px solid rgba(7,9,13,.13);border-radius:8px;padding:7px;background:rgba(255,250,240,.92);box-shadow:0 12px 28px rgba(7,9,13,.16)}.nav button{width:38px;height:34px;border:1px solid var(--line);border-radius:6px;background:var(--card);color:var(--ink);cursor:pointer;font-size:18px}.nav span{min-width:58px;color:var(--ink);text-align:center;font-size:13px;font-weight:900}
+      @media print{html,body,.deck{width:100%;height:auto;background:#fff}.slide{display:block;width:100vw;height:56.25vw;page-break-after:always}.nav{display:none}}
     </style>
   </head>
   <body>
@@ -901,252 +21,748 @@
     <script>
       const cases = [
         {
-          title: "员工服务 AI 助手",
-          tag: "Employee Service",
-          scene: "企业内部 IT、HR、财务、行政咨询分散，员工反复找群、找人、找制度。",
-          action: "统一入口回答制度问题，自动补齐表单信息，必要时创建工单并路由到责任团队。",
-          data: "制度文档、FAQ、服务目录、工单系统、组织架构、权限角色。",
-          output: "首轮解决率、转人工率、平均响应时间、未解答问题闭环。",
-          metrics: [["5类", "共享服务入口"], ["24h", "在线响应"], ["4周", "首批上线"]],
-          steps: ["识别员工身份与问题类型", "检索有权限的制度依据", "生成答案或创建工单", "沉淀未解决问题"]
+                "title": "员工服务 AI 助手",
+                "tag": "Employee Service",
+                "scene": "企业内部 IT、HR、财务、行政咨询分散，员工反复找群、找人、找制度。",
+                "action": "统一入口回答制度问题，自动补齐表单信息，必要时创建工单并路由到责任团队。",
+                "data": "制度文档、FAQ、服务目录、工单系统、组织架构、权限角色。",
+                "output": "首轮解决率、转人工率、平均响应时间、未解答问题闭环。",
+                "metrics": [
+                        [
+                                "5类",
+                                "共享服务入口"
+                        ],
+                        [
+                                "24h",
+                                "在线响应"
+                        ],
+                        [
+                                "4周",
+                                "首批上线"
+                        ]
+                ],
+                "steps": [
+                        "识别员工身份与问题类型",
+                        "检索有权限的制度依据",
+                        "生成答案或创建工单",
+                        "沉淀未解决问题"
+                ]
         },
         {
-          title: "IT Helpdesk AI Worker",
-          tag: "IT Operations",
-          scene: "密码、VPN、权限、设备、软件安装类问题占用大量一线 IT 时间。",
-          action: "按故障类型生成排查步骤，自动收集环境信息，低风险请求直接发起审批或工单。",
-          data: "IT 知识库、CMDB、账号系统、设备台账、历史工单。",
-          output: "自助解决率、重复工单下降、SLA 达成率、故障分类准确率。",
-          metrics: [["L1", "问题自动处理"], ["CMDB", "资产联动"], ["SLA", "自动追踪"]],
-          steps: ["判断故障类别", "引导用户完成自检", "生成工单并带上证据", "持续更新排障知识"]
+                "title": "IT Helpdesk AI Worker",
+                "tag": "IT Operations",
+                "scene": "密码、VPN、权限、设备、软件安装类问题占用大量一线 IT 时间。",
+                "action": "按故障类型生成排查步骤，自动收集环境信息，低风险请求直接发起审批或工单。",
+                "data": "IT 知识库、CMDB、账号系统、设备台账、历史工单。",
+                "output": "自助解决率、重复工单下降、SLA 达成率、故障分类准确率。",
+                "metrics": [
+                        [
+                                "L1",
+                                "问题自动处理"
+                        ],
+                        [
+                                "CMDB",
+                                "资产联动"
+                        ],
+                        [
+                                "SLA",
+                                "自动追踪"
+                        ]
+                ],
+                "steps": [
+                        "判断故障类别",
+                        "引导用户完成自检",
+                        "生成工单并带上证据",
+                        "持续更新排障知识"
+                ]
         },
         {
-          title: "HR 政策与入转调离助手",
-          tag: "HR Shared Service",
-          scene: "员工对假勤、福利、入职、转岗、离职政策理解不一致，HR 被重复咨询淹没。",
-          action: "按员工地区、合同类型、岗位权限回答政策，并生成对应流程清单。",
-          data: "员工手册、地区政策、福利制度、审批流程、人员主数据。",
-          output: "政策引用可追溯、流程遗漏下降、HR 咨询负载下降。",
-          metrics: [["多地区", "政策适配"], ["可追溯", "条款引用"], ["清单化", "流程执行"]],
-          steps: ["识别员工适用规则", "引用原文条款", "输出办理清单", "提醒关键节点"]
+                "title": "HR 政策与入转调离助手",
+                "tag": "HR Shared Service",
+                "scene": "员工对假勤、福利、入职、转岗、离职政策理解不一致，HR 被重复咨询淹没。",
+                "action": "按员工地区、合同类型、岗位权限回答政策，并生成对应流程清单。",
+                "data": "员工手册、地区政策、福利制度、审批流程、人员主数据。",
+                "output": "政策引用可追溯、流程遗漏下降、HR 咨询负载下降。",
+                "metrics": [
+                        [
+                                "多地区",
+                                "政策适配"
+                        ],
+                        [
+                                "可追溯",
+                                "条款引用"
+                        ],
+                        [
+                                "清单化",
+                                "流程执行"
+                        ]
+                ],
+                "steps": [
+                        "识别员工适用规则",
+                        "引用原文条款",
+                        "输出办理清单",
+                        "提醒关键节点"
+                ]
         },
         {
-          title: "财务报销与采购问答助手",
-          tag: "Finance & Procurement",
-          scene: "报销标准、发票要求、采购额度、供应商准入规则常常反复解释。",
-          action: "根据费用类型判断规则，提示缺失材料，生成报销或采购申请草稿。",
-          data: "财务制度、费用标准、采购目录、供应商库、审批矩阵。",
-          output: "退单率下降、材料一次通过率提升、审批前置校验。",
-          metrics: [["退单", "前置拦截"], ["票据", "材料校验"], ["审批", "路径建议"]],
-          steps: ["识别费用/采购类型", "校验额度与材料", "生成申请草稿", "进入审批流"]
+                "title": "财务报销与采购问答助手",
+                "tag": "Finance & Procurement",
+                "scene": "报销标准、发票要求、采购额度、供应商准入规则常常反复解释。",
+                "action": "根据费用类型判断规则，提示缺失材料，生成报销或采购申请草稿。",
+                "data": "财务制度、费用标准、采购目录、供应商库、审批矩阵。",
+                "output": "退单率下降、材料一次通过率提升、审批前置校验。",
+                "metrics": [
+                        [
+                                "退单",
+                                "前置拦截"
+                        ],
+                        [
+                                "票据",
+                                "材料校验"
+                        ],
+                        [
+                                "审批",
+                                "路径建议"
+                        ]
+                ],
+                "steps": [
+                        "识别费用/采购类型",
+                        "校验额度与材料",
+                        "生成申请草稿",
+                        "进入审批流"
+                ]
         },
         {
-          title: "销售拜访准备 Copilot",
-          tag: "Sales Enablement",
-          scene: "销售拜访前需要查客户背景、历史互动、痛点假设、产品资料，准备成本高。",
-          action: "自动生成拜访 brief、问题清单、异议处理话术和会后跟进邮件。",
-          data: "CRM、客户档案、产品库、历史纪要、行业案例。",
-          output: "拜访准备时间下降、客户问题覆盖率提升、跟进动作标准化。",
-          metrics: [["15min", "生成拜访 brief"], ["CRM", "自动回写"], ["话术", "按行业适配"]],
-          steps: ["抓取客户与机会信息", "匹配行业案例", "生成拜访问题", "输出跟进动作"]
+                "title": "销售拜访准备 Copilot",
+                "tag": "Sales Enablement",
+                "scene": "销售拜访前需要查客户背景、历史互动、痛点假设、产品资料，准备成本高。",
+                "action": "自动生成拜访 brief、问题清单、异议处理话术和会后跟进邮件。",
+                "data": "CRM、客户档案、产品库、历史纪要、行业案例。",
+                "output": "拜访准备时间下降、客户问题覆盖率提升、跟进动作标准化。",
+                "metrics": [
+                        [
+                                "15min",
+                                "生成拜访 brief"
+                        ],
+                        [
+                                "CRM",
+                                "自动回写"
+                        ],
+                        [
+                                "话术",
+                                "按行业适配"
+                        ]
+                ],
+                "steps": [
+                        "抓取客户与机会信息",
+                        "匹配行业案例",
+                        "生成拜访问题",
+                        "输出跟进动作"
+                ]
         },
         {
-          title: "渠道伙伴知识助手",
-          tag: "Partner Enablement",
-          scene: "生态伙伴对产品、交付范围、报价边界理解不一致，导致售前承诺失控。",
-          action: "向伙伴开放受控知识库，生成标准话术、配置建议和不可承诺边界提示。",
-          data: "产品手册、报价规则、交付边界、伙伴等级、授权范围。",
-          output: "伙伴答复一致性、违规承诺拦截、培训材料复用率。",
-          metrics: [["伙伴", "分级权限"], ["边界", "自动提示"], ["话术", "统一生成"]],
-          steps: ["识别伙伴身份", "限制可见知识", "生成客户答复", "记录高频问题"]
+                "title": "渠道伙伴知识助手",
+                "tag": "Partner Enablement",
+                "scene": "生态伙伴对产品、交付范围、报价边界理解不一致，导致售前承诺失控。",
+                "action": "向伙伴开放受控知识库，生成标准话术、配置建议和不可承诺边界提示。",
+                "data": "产品手册、报价规则、交付边界、伙伴等级、授权范围。",
+                "output": "伙伴答复一致性、违规承诺拦截、培训材料复用率。",
+                "metrics": [
+                        [
+                                "伙伴",
+                                "分级权限"
+                        ],
+                        [
+                                "边界",
+                                "自动提示"
+                        ],
+                        [
+                                "话术",
+                                "统一生成"
+                        ]
+                ],
+                "steps": [
+                        "识别伙伴身份",
+                        "限制可见知识",
+                        "生成客户答复",
+                        "记录高频问题"
+                ]
         },
         {
-          title: "售前方案生成 Worker",
-          tag: "Pre-sales Proposal",
-          scene: "售前方案常从空白文档开始，结构不统一，案例与报价边界容易遗漏。",
-          action: "根据客户行业、需求、预算与时间线生成方案大纲、范围表、实施计划和风险清单。",
-          data: "案例库、方案模板、能力清单、报价模型、实施工期库。",
-          output: "方案初稿生成时间下降、范围遗漏减少、版本口径统一。",
-          metrics: [["1h", "方案初稿"], ["范围", "自动拆解"], ["风险", "前置列出"]],
-          steps: ["解析客户需求", "匹配案例与模块", "生成交付范围", "输出风险与报价依据"]
+                "title": "售前方案生成 Worker",
+                "tag": "Pre-sales Proposal",
+                "scene": "售前方案常从空白文档开始，结构不统一，案例与报价边界容易遗漏。",
+                "action": "根据客户行业、需求、预算与时间线生成方案大纲、范围表、实施计划和风险清单。",
+                "data": "案例库、方案模板、能力清单、报价模型、实施工期库。",
+                "output": "方案初稿生成时间下降、范围遗漏减少、版本口径统一。",
+                "metrics": [
+                        [
+                                "1h",
+                                "方案初稿"
+                        ],
+                        [
+                                "范围",
+                                "自动拆解"
+                        ],
+                        [
+                                "风险",
+                                "前置列出"
+                        ]
+                ],
+                "steps": [
+                        "解析客户需求",
+                        "匹配案例与模块",
+                        "生成交付范围",
+                        "输出风险与报价依据"
+                ]
         },
         {
-          title: "B2B 报价推荐助手",
-          tag: "Pricing Copilot",
-          scene: "客户需求模糊，销售靠经验报价，折扣、交付范围和审批边界不透明。",
-          action: "把需求转成产品组合与服务包，解释价格构成，异常折扣进入审批。",
-          data: "产品目录、价格表、折扣权限、库存/产能、历史成交。",
-          output: "报价解释一致、审批效率提升、异常折扣可审计。",
-          metrics: [["组合", "自动推荐"], ["折扣", "权限校验"], ["审批", "异常触发"]],
-          steps: ["澄清需求参数", "匹配产品服务包", "校验折扣权限", "生成报价说明"]
+                "title": "B2B 报价推荐助手",
+                "tag": "Pricing Copilot",
+                "scene": "客户需求模糊，销售靠经验报价，折扣、交付范围和审批边界不透明。",
+                "action": "把需求转成产品组合与服务包，解释价格构成，异常折扣进入审批。",
+                "data": "产品目录、价格表、折扣权限、库存/产能、历史成交。",
+                "output": "报价解释一致、审批效率提升、异常折扣可审计。",
+                "metrics": [
+                        [
+                                "组合",
+                                "自动推荐"
+                        ],
+                        [
+                                "折扣",
+                                "权限校验"
+                        ],
+                        [
+                                "审批",
+                                "异常触发"
+                        ]
+                ],
+                "steps": [
+                        "澄清需求参数",
+                        "匹配产品服务包",
+                        "校验折扣权限",
+                        "生成报价说明"
+                ]
         },
         {
-          title: "供应商资质审核 Worker",
-          tag: "Supplier Audit",
-          scene: "供应商材料多、格式杂，专家审核耗时，风险点难沉淀为规则。",
-          action: "识别材料类型，抽取关键字段，提示缺失文件，输出风险等级与证据链接。",
-          data: "证照、合同、审计报告、供应商档案、专家规则。",
-          output: "审核周期缩短、风险字段可追溯、专家经验数字化。",
-          metrics: [["21类", "材料清单"], ["字段", "自动抽取"], ["风险", "证据链"]],
-          steps: ["识别文件与缺口", "抽取主体和有效期", "按规则判风险", "交专家复核"]
+                "title": "供应商资质审核 Worker",
+                "tag": "Supplier Audit",
+                "scene": "供应商材料多、格式杂，专家审核耗时，风险点难沉淀为规则。",
+                "action": "识别材料类型，抽取关键字段，提示缺失文件，输出风险等级与证据链接。",
+                "data": "证照、合同、审计报告、供应商档案、专家规则。",
+                "output": "审核周期缩短、风险字段可追溯、专家经验数字化。",
+                "metrics": [
+                        [
+                                "21类",
+                                "材料清单"
+                        ],
+                        [
+                                "字段",
+                                "自动抽取"
+                        ],
+                        [
+                                "风险",
+                                "证据链"
+                        ]
+                ],
+                "steps": [
+                        "识别文件与缺口",
+                        "抽取主体和有效期",
+                        "按规则判风险",
+                        "交专家复核"
+                ]
         },
         {
-          title: "合同条款审阅 Worker",
-          tag: "Legal Review",
-          scene: "合同初审依赖法务逐条阅读，常见风险、偏离条款和缺失附件重复出现。",
-          action: "比对模板条款，标注偏离点，生成风险摘要和谈判建议。",
-          data: "合同模板、条款库、审批规则、历史红线、附件清单。",
-          output: "初审时间下降、红线条款漏检下降、审阅意见结构化。",
-          metrics: [["红线", "自动标注"], ["偏离", "逐条比对"], ["意见", "一键生成"]],
-          steps: ["识别合同类型", "匹配标准模板", "标注风险条款", "输出审阅意见"]
+                "title": "合同条款审阅 Worker",
+                "tag": "Legal Review",
+                "scene": "合同初审依赖法务逐条阅读，常见风险、偏离条款和缺失附件重复出现。",
+                "action": "比对模板条款，标注偏离点，生成风险摘要和谈判建议。",
+                "data": "合同模板、条款库、审批规则、历史红线、附件清单。",
+                "output": "初审时间下降、红线条款漏检下降、审阅意见结构化。",
+                "metrics": [
+                        [
+                                "红线",
+                                "自动标注"
+                        ],
+                        [
+                                "偏离",
+                                "逐条比对"
+                        ],
+                        [
+                                "意见",
+                                "一键生成"
+                        ]
+                ],
+                "steps": [
+                        "识别合同类型",
+                        "匹配标准模板",
+                        "标注风险条款",
+                        "输出审阅意见"
+                ]
         },
         {
-          title: "客服知识与质检助手",
-          tag: "Customer Service",
-          scene: "客服回答口径不一致，质检依赖抽样，客户投诉原因沉淀慢。",
-          action: "实时推荐标准答案，通话后自动总结，按规则质检并归因投诉。",
-          data: "客服知识库、通话文本、工单记录、质检规则、投诉标签。",
-          output: "回答一致性提升、质检覆盖率提升、投诉根因可复盘。",
-          metrics: [["实时", "答案推荐"], ["100%", "规则质检"], ["标签", "自动归因"]],
-          steps: ["识别客户意图", "推荐标准答复", "生成通话摘要", "输出质检结果"]
+                "title": "客服知识与质检助手",
+                "tag": "Customer Service",
+                "scene": "客服回答口径不一致，质检依赖抽样，客户投诉原因沉淀慢。",
+                "action": "实时推荐标准答案，通话后自动总结，按规则质检并归因投诉。",
+                "data": "客服知识库、通话文本、工单记录、质检规则、投诉标签。",
+                "output": "回答一致性提升、质检覆盖率提升、投诉根因可复盘。",
+                "metrics": [
+                        [
+                                "实时",
+                                "答案推荐"
+                        ],
+                        [
+                                "100%",
+                                "规则质检"
+                        ],
+                        [
+                                "标签",
+                                "自动归因"
+                        ]
+                ],
+                "steps": [
+                        "识别客户意图",
+                        "推荐标准答复",
+                        "生成通话摘要",
+                        "输出质检结果"
+                ]
         },
         {
-          title: "门店营运 SOP 助手",
-          tag: "Retail Operations",
-          scene: "门店员工流动快，开闭店、陈列、巡检、异常处理 SOP 执行不稳定。",
-          action: "按门店角色推送任务清单，拍照/表单回传，异常自动生成整改工单。",
-          data: "SOP 手册、巡检表、门店档案、照片记录、整改闭环。",
-          output: "巡检完成率、异常闭环率、SOP 执行一致性。",
-          metrics: [["SOP", "任务化"], ["照片", "证据回传"], ["整改", "闭环追踪"]],
-          steps: ["按角色生成清单", "收集照片与表单", "识别异常项", "追踪整改结果"]
+                "title": "门店营运 SOP 助手",
+                "tag": "Retail Operations",
+                "scene": "门店员工流动快，开闭店、陈列、巡检、异常处理 SOP 执行不稳定。",
+                "action": "按门店角色推送任务清单，拍照/表单回传，异常自动生成整改工单。",
+                "data": "SOP 手册、巡检表、门店档案、照片记录、整改闭环。",
+                "output": "巡检完成率、异常闭环率、SOP 执行一致性。",
+                "metrics": [
+                        [
+                                "SOP",
+                                "任务化"
+                        ],
+                        [
+                                "照片",
+                                "证据回传"
+                        ],
+                        [
+                                "整改",
+                                "闭环追踪"
+                        ]
+                ],
+                "steps": [
+                        "按角色生成清单",
+                        "收集照片与表单",
+                        "识别异常项",
+                        "追踪整改结果"
+                ]
         },
         {
-          title: "培训内容生成助手",
-          tag: "Training Studio",
-          scene: "培训材料更新慢，新人学习路径不清楚，专家经验无法规模复制。",
-          action: "把制度、案例、产品资料转成课程脚本、测验题、角色演练和学习路径。",
-          data: "培训资料、岗位能力模型、案例库、考试题库、学习记录。",
-          output: "课程生产速度提升、岗位学习路径标准化、考试结果可追踪。",
-          metrics: [["脚本", "自动生成"], ["测验", "题库扩展"], ["路径", "按岗位配置"]],
-          steps: ["抽取知识点", "生成课程结构", "创建测验与演练", "追踪学习效果"]
+                "title": "培训内容生成助手",
+                "tag": "Training Studio",
+                "scene": "培训材料更新慢，新人学习路径不清楚，专家经验无法规模复制。",
+                "action": "把制度、案例、产品资料转成课程脚本、测验题、角色演练和学习路径。",
+                "data": "培训资料、岗位能力模型、案例库、考试题库、学习记录。",
+                "output": "课程生产速度提升、岗位学习路径标准化、考试结果可追踪。",
+                "metrics": [
+                        [
+                                "脚本",
+                                "自动生成"
+                        ],
+                        [
+                                "测验",
+                                "题库扩展"
+                        ],
+                        [
+                                "路径",
+                                "按岗位配置"
+                        ]
+                ],
+                "steps": [
+                        "抽取知识点",
+                        "生成课程结构",
+                        "创建测验与演练",
+                        "追踪学习效果"
+                ]
         },
         {
-          title: "经营数据解读助手",
-          tag: "Business Insight",
-          scene: "管理层看报表要等分析师解释，异常指标和原因拆解不及时。",
-          action: "自动解释 KPI 波动，关联维度找原因，生成会议纪要和行动建议。",
-          data: "BI 报表、经营指标、门店/区域/产品维度、历史同比环比。",
-          output: "异常解释速度提升、会议准备时间下降、行动项可追踪。",
-          metrics: [["KPI", "自动解释"], ["异常", "归因拆解"], ["行动", "追踪闭环"]],
-          steps: ["读取指标波动", "拆解相关维度", "生成原因假设", "输出行动清单"]
+                "title": "经营数据解读助手",
+                "tag": "Business Insight",
+                "scene": "管理层看报表要等分析师解释，异常指标和原因拆解不及时。",
+                "action": "自动解释 KPI 波动，关联维度找原因，生成会议纪要和行动建议。",
+                "data": "BI 报表、经营指标、门店/区域/产品维度、历史同比环比。",
+                "output": "异常解释速度提升、会议准备时间下降、行动项可追踪。",
+                "metrics": [
+                        [
+                                "KPI",
+                                "自动解释"
+                        ],
+                        [
+                                "异常",
+                                "归因拆解"
+                        ],
+                        [
+                                "行动",
+                                "追踪闭环"
+                        ]
+                ],
+                "steps": [
+                        "读取指标波动",
+                        "拆解相关维度",
+                        "生成原因假设",
+                        "输出行动清单"
+                ]
         },
         {
-          title: "项目管理 PMO 助手",
-          tag: "PMO Worker",
-          scene: "项目周报、风险、纪要、待办分散在不同工具里，管理者难以及时掌握。",
-          action: "汇总会议纪要、任务状态、风险阻塞，自动生成周报和升级提醒。",
-          data: "项目计划、会议纪要、任务系统、风险清单、交付物目录。",
-          output: "周报自动化、风险升级及时、待办责任明确。",
-          metrics: [["周报", "自动生成"], ["风险", "升级提醒"], ["责任", "到人到期"]],
-          steps: ["汇总项目证据", "识别延期与阻塞", "生成周报", "推送升级提醒"]
+                "title": "项目管理 PMO 助手",
+                "tag": "PMO Worker",
+                "scene": "项目周报、风险、纪要、待办分散在不同工具里，管理者难以及时掌握。",
+                "action": "汇总会议纪要、任务状态、风险阻塞，自动生成周报和升级提醒。",
+                "data": "项目计划、会议纪要、任务系统、风险清单、交付物目录。",
+                "output": "周报自动化、风险升级及时、待办责任明确。",
+                "metrics": [
+                        [
+                                "周报",
+                                "自动生成"
+                        ],
+                        [
+                                "风险",
+                                "升级提醒"
+                        ],
+                        [
+                                "责任",
+                                "到人到期"
+                        ]
+                ],
+                "steps": [
+                        "汇总项目证据",
+                        "识别延期与阻塞",
+                        "生成周报",
+                        "推送升级提醒"
+                ]
         },
         {
-          title: "知识库运营中台",
-          tag: "Knowledge Ops",
-          scene: "知识库上线后无人运营，过期内容、冲突口径和未解答问题持续累积。",
-          action: "监控命中率、未回答、低满意答案，自动生成知识更新任务和责任人。",
-          data: "知识条目、问答日志、满意度、引用来源、内容责任人。",
-          output: "知识命中率提升、过期内容下降、问题闭环可追踪。",
-          metrics: [["命中率", "持续优化"], ["未解答", "自动建单"], ["责任人", "内容治理"]],
-          steps: ["分析问答日志", "识别知识缺口", "派发更新任务", "复测答案质量"]
+                "title": "知识库运营中台",
+                "tag": "Knowledge Ops",
+                "scene": "知识库上线后无人运营，过期内容、冲突口径和未解答问题持续累积。",
+                "action": "监控命中率、未回答、低满意答案，自动生成知识更新任务和责任人。",
+                "data": "知识条目、问答日志、满意度、引用来源、内容责任人。",
+                "output": "知识命中率提升、过期内容下降、问题闭环可追踪。",
+                "metrics": [
+                        [
+                                "命中率",
+                                "持续优化"
+                        ],
+                        [
+                                "未解答",
+                                "自动建单"
+                        ],
+                        [
+                                "责任人",
+                                "内容治理"
+                        ]
+                ],
+                "steps": [
+                        "分析问答日志",
+                        "识别知识缺口",
+                        "派发更新任务",
+                        "复测答案质量"
+                ]
         },
         {
-          title: "合规风险预警助手",
-          tag: "Compliance Monitor",
-          scene: "销售、采购、客服、合同流程中存在敏感承诺、违规条款和高风险表达。",
-          action: "监控文本与流程动作，识别风险表达，提示替代表述并触发复核。",
-          data: "合规规则、敏感词库、合同/聊天/邮件、审批记录。",
-          output: "风险拦截率、复核闭环、违规表达下降。",
-          metrics: [["实时", "风险识别"], ["替代", "合规话术"], ["复核", "自动触发"]],
-          steps: ["扫描业务文本", "匹配风险规则", "生成修改建议", "触发人工复核"]
+                "title": "合规风险预警助手",
+                "tag": "Compliance Monitor",
+                "scene": "销售、采购、客服、合同流程中存在敏感承诺、违规条款和高风险表达。",
+                "action": "监控文本与流程动作，识别风险表达，提示替代表述并触发复核。",
+                "data": "合规规则、敏感词库、合同/聊天/邮件、审批记录。",
+                "output": "风险拦截率、复核闭环、违规表达下降。",
+                "metrics": [
+                        [
+                                "实时",
+                                "风险识别"
+                        ],
+                        [
+                                "替代",
+                                "合规话术"
+                        ],
+                        [
+                                "复核",
+                                "自动触发"
+                        ]
+                ],
+                "steps": [
+                        "扫描业务文本",
+                        "匹配风险规则",
+                        "生成修改建议",
+                        "触发人工复核"
+                ]
         },
         {
-          title: "AI 交付运营看板",
-          tag: "Delivery Control Tower",
-          scene: "AI 项目上线后难证明价值，客户只看到演示，看不到真实使用、节省和风险。",
-          action: "统一展示使用量、解决率、任务完成率、人工兜底、知识沉淀和 ROI。",
-          data: "问答日志、任务执行、工单、人工转接、成本与工时基线。",
-          output: "验收证据、月度复盘、二期扩展路线图。",
-          metrics: [["ROI", "持续呈现"], ["验收", "证据化"], ["路线图", "自动建议"]],
-          steps: ["汇总使用数据", "计算效率收益", "识别扩展场景", "生成复盘报告"]
+                "title": "AI 交付运营看板",
+                "tag": "Delivery Control Tower",
+                "scene": "AI 项目上线后难证明价值，客户只看到演示，看不到真实使用、节省和风险。",
+                "action": "统一展示使用量、解决率、任务完成率、人工兜底、知识沉淀和 ROI。",
+                "data": "问答日志、任务执行、工单、人工转接、成本与工时基线。",
+                "output": "验收证据、月度复盘、二期扩展路线图。",
+                "metrics": [
+                        [
+                                "ROI",
+                                "持续呈现"
+                        ],
+                        [
+                                "验收",
+                                "证据化"
+                        ],
+                        [
+                                "路线图",
+                                "自动建议"
+                        ]
+                ],
+                "steps": [
+                        "汇总使用数据",
+                        "计算效率收益",
+                        "识别扩展场景",
+                        "生成复盘报告"
+                ]
         }
-      ];
-
+];
       const demos = [
         {
-          title: "员工服务统一入口 Demo",
-          tag: "Demo Prototype · Employee Portal",
-          brief: "把制度问答、表单补齐、工单创建和人工转接放在同一个员工入口里，适合做第一批上线样板。",
-          points: ["首页展示常用服务和待办", "右侧 AI 对话保留引用依据", "复杂问题一键转工单并带上上下文"],
-          tabs: ["员工首页", "知识问答", "工单路由", "运营看板"],
-          cards: [["87%", "首轮解决率"], ["3.2min", "平均响应"], ["42", "待治理问题"]],
-          panelTitle: "Employee Request",
-          actions: ["识别员工身份与服务类型", "引用制度原文并显示来源", "生成工单草稿并推送责任团队"]
+                "title": "员工服务统一入口 Demo",
+                "tag": "Demo Prototype · Employee Portal",
+                "brief": "把制度问答、表单补齐、工单创建和人工转接放在同一个员工入口里，适合做第一批上线样板。",
+                "points": [
+                        "首页展示常用服务和待办",
+                        "右侧 AI 对话保留引用依据",
+                        "复杂问题一键转工单并带上上下文"
+                ],
+                "tabs": [
+                        "员工首页",
+                        "知识问答",
+                        "工单路由",
+                        "运营看板"
+                ],
+                "cards": [
+                        [
+                                "87%",
+                                "首轮解决率"
+                        ],
+                        [
+                                "3.2min",
+                                "平均响应"
+                        ],
+                        [
+                                "42",
+                                "待治理问题"
+                        ]
+                ],
+                "panelTitle": "Employee Request",
+                "actions": [
+                        "识别员工身份与服务类型",
+                        "引用制度原文并显示来源",
+                        "生成工单草稿并推送责任团队"
+                ]
         },
         {
-          title: "销售拜访 Copilot Demo",
-          tag: "Demo Prototype · Sales Brief",
-          brief: "销售输入客户名称后，系统自动生成拜访 brief、痛点假设、问题清单和会后 follow-up。",
-          points: ["CRM 机会卡片自动拉取", "行业案例与产品卖点联动", "会后纪要回写 CRM"],
-          tabs: ["客户概览", "拜访问题", "方案素材", "跟进动作"],
-          cards: [["15min", "准备周期"], ["4组", "痛点假设"], ["6条", "跟进动作"]],
-          panelTitle: "Visit Brief",
-          actions: ["汇总客户背景和历史互动", "生成拜访问句与异议处理", "输出邮件和下一步任务"]
+                "title": "销售拜访 Copilot Demo",
+                "tag": "Demo Prototype · Sales Brief",
+                "brief": "销售输入客户名称后，系统自动生成拜访 brief、痛点假设、问题清单和会后 follow-up。",
+                "points": [
+                        "CRM 机会卡片自动拉取",
+                        "行业案例与产品卖点联动",
+                        "会后纪要回写 CRM"
+                ],
+                "tabs": [
+                        "客户概览",
+                        "拜访问题",
+                        "方案素材",
+                        "跟进动作"
+                ],
+                "cards": [
+                        [
+                                "15min",
+                                "准备周期"
+                        ],
+                        [
+                                "4组",
+                                "痛点假设"
+                        ],
+                        [
+                                "6条",
+                                "跟进动作"
+                        ]
+                ],
+                "panelTitle": "Visit Brief",
+                "actions": [
+                        "汇总客户背景和历史互动",
+                        "生成拜访问句与异议处理",
+                        "输出邮件和下一步任务"
+                ]
         },
         {
-          title: "供应商审核工作台 Demo",
-          tag: "Demo Prototype · Supplier Audit",
-          brief: "把材料清单、字段抽取、风险标注和专家复核做成一个任务工作台，适合展示 AI Worker 的强执行价值。",
-          points: ["材料缺口实时高亮", "风险字段可追溯到原文", "专家修正反哺规则库"],
-          tabs: ["材料清单", "字段抽取", "风险等级", "专家复核"],
-          cards: [["21类", "材料模板"], ["96%", "字段识别"], ["8项", "风险提示"]],
-          panelTitle: "Audit Evidence",
-          actions: ["识别证照和附件类型", "抽取主体、有效期、资质范围", "生成风险等级和证据链接"]
+                "title": "供应商审核工作台 Demo",
+                "tag": "Demo Prototype · Supplier Audit",
+                "brief": "把材料清单、字段抽取、风险标注和专家复核做成一个任务工作台，适合展示 AI Worker 的强执行价值。",
+                "points": [
+                        "材料缺口实时高亮",
+                        "风险字段可追溯到原文",
+                        "专家修正反哺规则库"
+                ],
+                "tabs": [
+                        "材料清单",
+                        "字段抽取",
+                        "风险等级",
+                        "专家复核"
+                ],
+                "cards": [
+                        [
+                                "21类",
+                                "材料模板"
+                        ],
+                        [
+                                "96%",
+                                "字段识别"
+                        ],
+                        [
+                                "8项",
+                                "风险提示"
+                        ]
+                ],
+                "panelTitle": "Audit Evidence",
+                "actions": [
+                        "识别证照和附件类型",
+                        "抽取主体、有效期、资质范围",
+                        "生成风险等级和证据链接"
+                ]
         },
         {
-          title: "B2B 报价推荐 Demo",
-          tag: "Demo Prototype · Pricing Desk",
-          brief: "把模糊需求转成产品组合、实施范围和价格解释，异常折扣自动进入审批。",
-          points: ["需求澄清表单自动生成", "服务包与价格带联动", "折扣权限和审批路径前置校验"],
-          tabs: ["需求澄清", "组合推荐", "价格解释", "审批路径"],
-          cards: [["3套", "推荐组合"], ["2项", "边界提醒"], ["1键", "审批提交"]],
-          panelTitle: "Quote Builder",
-          actions: ["解析客户规模、周期和预算", "匹配产品与服务包", "生成报价解释和审批原因"]
+                "title": "B2B 报价推荐 Demo",
+                "tag": "Demo Prototype · Pricing Desk",
+                "brief": "把模糊需求转成产品组合、实施范围和价格解释，异常折扣自动进入审批。",
+                "points": [
+                        "需求澄清表单自动生成",
+                        "服务包与价格带联动",
+                        "折扣权限和审批路径前置校验"
+                ],
+                "tabs": [
+                        "需求澄清",
+                        "组合推荐",
+                        "价格解释",
+                        "审批路径"
+                ],
+                "cards": [
+                        [
+                                "3套",
+                                "推荐组合"
+                        ],
+                        [
+                                "2项",
+                                "边界提醒"
+                        ],
+                        [
+                                "1键",
+                                "审批提交"
+                        ]
+                ],
+                "panelTitle": "Quote Builder",
+                "actions": [
+                        "解析客户规模、周期和预算",
+                        "匹配产品与服务包",
+                        "生成报价解释和审批原因"
+                ]
         },
         {
-          title: "知识运营中台 Demo",
-          tag: "Demo Prototype · Knowledge Ops",
-          brief: "用于说明 AI 项目不是一次性交付，而是持续运营：命中率、未解答、低满意答案都要进入治理队列。",
-          points: ["知识命中率按主题拆解", "未解答问题自动派单", "低满意答案进入复测"],
-          tabs: ["命中率", "未解答", "内容责任人", "复测记录"],
-          cards: [["91%", "知识命中"], ["37", "新增问题"], ["12", "更新任务"]],
-          panelTitle: "Knowledge Queue",
-          actions: ["分析问答日志和满意度", "识别内容缺口与冲突口径", "派发知识更新并复测答案"]
+                "title": "知识运营中台 Demo",
+                "tag": "Demo Prototype · Knowledge Ops",
+                "brief": "用于说明 AI 项目不是一次性交付，而是持续运营：命中率、未解答、低满意答案都要进入治理队列。",
+                "points": [
+                        "知识命中率按主题拆解",
+                        "未解答问题自动派单",
+                        "低满意答案进入复测"
+                ],
+                "tabs": [
+                        "命中率",
+                        "未解答",
+                        "内容责任人",
+                        "复测记录"
+                ],
+                "cards": [
+                        [
+                                "91%",
+                                "知识命中"
+                        ],
+                        [
+                                "37",
+                                "新增问题"
+                        ],
+                        [
+                                "12",
+                                "更新任务"
+                        ]
+                ],
+                "panelTitle": "Knowledge Queue",
+                "actions": [
+                        "分析问答日志和满意度",
+                        "识别内容缺口与冲突口径",
+                        "派发知识更新并复测答案"
+                ]
         },
         {
-          title: "AI 交付运营看板 Demo",
-          tag: "Demo Prototype · Delivery Control Tower",
-          brief: "面向客户复盘和乙方项目管理，统一呈现使用、效率、质量、风险和 ROI。",
-          points: ["按场景展示任务完成率", "人工兜底和风险拦截透明化", "自动生成月度复盘和扩展建议"],
-          tabs: ["价值指标", "场景用量", "风险闭环", "二期路线图"],
-          cards: [["18", "上线场景"], ["64h", "节省工时"], ["5项", "二期建议"]],
-          panelTitle: "Executive Review",
-          actions: ["汇总使用与任务执行数据", "计算效率收益和质量风险", "输出复盘报告和路线图"]
+                "title": "AI 交付运营看板 Demo",
+                "tag": "Demo Prototype · Delivery Control Tower",
+                "brief": "面向客户复盘和乙方项目管理，统一呈现使用、效率、质量、风险和 ROI。",
+                "points": [
+                        "按场景展示任务完成率",
+                        "人工兜底和风险拦截透明化",
+                        "自动生成月度复盘和扩展建议"
+                ],
+                "tabs": [
+                        "价值指标",
+                        "场景用量",
+                        "风险闭环",
+                        "二期路线图"
+                ],
+                "cards": [
+                        [
+                                "18",
+                                "上线场景"
+                        ],
+                        [
+                                "64h",
+                                "节省工时"
+                        ],
+                        [
+                                "5项",
+                                "二期建议"
+                        ]
+                ],
+                "panelTitle": "Executive Review",
+                "actions": [
+                        "汇总使用与任务执行数据",
+                        "计算效率收益和质量风险",
+                        "输出复盘报告和路线图"
+                ]
         }
+];
+      const slides = [
+        ...cases.map((item, index) => {
+          const no = String(index + 1).padStart(2, "0");
+          return { ...item, type: "case", file: `case-${no}.svg`, code: `C${no}` };
+        }),
+        ...demos.map((item, index) => {
+          const no = String(index + 1).padStart(2, "0");
+          return {
+            ...item,
+            type: "demo",
+            file: `demo-${no}.svg`,
+            code: `D${no}`,
+            scene: item.brief,
+            action: item.points.join("；"),
+            data: item.tabs.join(" / "),
+            output: item.actions.join("；"),
+          };
+        }),
       ];
-
-      const total = cases.length + demos.length;
-
+      const total = slides.length;
       function escapeHtml(value) {
         return String(value)
           .replaceAll("&", "&amp;")
@@ -1154,117 +770,32 @@
           .replaceAll(">", "&gt;")
           .replaceAll('"', "&quot;");
       }
-
-      function prototypeAssetSrc(file) {
+      function prototypeSrc(file) {
         const rel = `slides/projects/enterprise-ai-delivery-reference/assets/prototypes/${file}`;
         if (location.protocol === "file:") return `../assets/prototypes/${file}`;
         return `/api/asset?path=${encodeURIComponent(rel)}`;
       }
-
-      function renderReferenceArt(item, caseCode) {
-        const file = `${caseCode.toLowerCase().replace("c", "case-")}.svg`;
-        return `<div class="ref-art" aria-label="${escapeHtml(item.title)} 参考图">
-          <img class="ref-img" src="${prototypeAssetSrc(file)}" alt="${escapeHtml(item.title)} demo prototype reference" />
-          <div class="ref-caption">${caseCode} · Inserted demo prototype image</div>
-        </div>`;
+      function metricHtml(item) {
+        return (item.metrics || item.cards || [])
+          .map(
+            (metric) =>
+              `<div class="metric"><b>${escapeHtml(metric[0])}</b><span>${escapeHtml(metric[1])}</span></div>`,
+          )
+          .join("");
       }
-
       function renderSlide(item, index) {
         const no = `${String(index + 1).padStart(2, "0")} / ${String(total).padStart(2, "0")}`;
-        const caseCode = `C${String(index + 1).padStart(2, "0")}`;
-        return `<section class="slide" data-index="${index + 1}" aria-label="${escapeHtml(item.title)}">
-          <div class="page">
-            <header>
-              <div class="brand"><span class="brand-mark">T</span><span>TABLE AI · DELIVERY CASEBOOK</span></div>
-              <div class="case-no"><span>${caseCode}</span> · ${no}</div>
-            </header>
-            <div>
-              <p class="case-kicker">${escapeHtml(item.tag)}</p>
-              <h2>${escapeHtml(item.title)}</h2>
-            </div>
-            <div class="content">
-              <section class="case-card" data-case="${caseCode}">
-                <span class="label">Direct Case · 可交付</span>
-                <p class="lead">${escapeHtml(item.scene)}</p>
-                <table>
-                  <tbody>
-                    <tr><th>AI Worker</th><td>${escapeHtml(item.action)}</td></tr>
-                    <tr><th>接入资料</th><td>${escapeHtml(item.data)}</td></tr>
-                    <tr><th>验收结果</th><td>${escapeHtml(item.output)}</td></tr>
-                  </tbody>
-                </table>
-              </section>
-              <section class="visual">
-                <div class="visual-head">
-                  <div class="visual-title">${escapeHtml(item.title)} · 参考图与交付路径</div>
-                  <div class="chip">AI Worker</div>
-                </div>
-                ${renderReferenceArt(item, caseCode)}
-                <div class="metric-row">
-                  ${item.metrics
-                    .map(([value, label]) => `<div class="metric"><b>${escapeHtml(value)}</b><span>${escapeHtml(label)}</span></div>`)
-                    .join("")}
-                </div>
-                <div class="workflow">
-                  ${item.steps
-                    .map((step, i) => `<div class="step"><b>${String(i + 1).padStart(2, "0")}</b><span>${escapeHtml(step)}</span></div>`)
-                    .join("")}
-                </div>
-                <div class="proof-bar"><span>Evidence-backed delivery path</span><div class="proof-line"></div></div>
-              </section>
-            </div>
-            <footer><span>TABLE AI BRAND SYSTEM</span><span>ANONYMIZED PARTY-B DELIVERY REFERENCE</span></footer>
-          </div>
-        </section>`;
+        const kind = item.type === "demo" ? "Demo Prototype" : "AI Worker Case";
+        const result = item.output || (item.actions ? item.actions.join("；") : "客户演示与方案澄清原型参考。");
+        return `<section class="slide" data-index="${index + 1}" aria-label="${escapeHtml(item.title)}"><div class="page"><aside class="rail"><div class="mark">T</div><div class="rail-word">TABLE AI CASEBOOK</div><div class="rail-no"><b>${escapeHtml(item.code)}</b><span>${no}</span></div></aside><main class="stage"><header class="topbar"><div class="brand">Table AI · Enterprise Prototype Portfolio</div><div class="kind">${escapeHtml(kind)}</div></header><div class="layout"><section class="copy"><p class="kicker">${escapeHtml(item.tag)}</p><h1>${escapeHtml(item.title)}</h1><p class="summary">${escapeHtml(item.scene || item.brief)}</p><div class="brief"><div class="brief-row"><b>Worker</b><span>${escapeHtml(item.action)}</span></div><div class="brief-row"><b>Data</b><span>${escapeHtml(item.data)}</span></div><div class="brief-row"><b>Result</b><span>${escapeHtml(result)}</span></div></div><div class="metrics">${metricHtml(item)}</div></section><figure class="shot"><img src="${prototypeSrc(item.file)}" alt="${escapeHtml(item.title)} prototype screenshot" /><figcaption class="shot-caption"><span>${escapeHtml(item.code)} · inserted prototype</span><span>${escapeHtml(kind)}</span></figcaption></figure></div><footer class="foot"><span>Client-facing demo reference</span><span>All visuals are local prototype assets</span></footer></main></div></section>`;
       }
-
-      function renderDemoSlide(item, demoIndex) {
-        const index = cases.length + demoIndex;
-        const no = `${String(index + 1).padStart(2, "0")} / ${String(total).padStart(2, "0")}`;
-        const demoCode = `D${String(demoIndex + 1).padStart(2, "0")}`;
-        return `<section class="slide" data-index="${index + 1}" aria-label="${escapeHtml(item.title)}">
-          <div class="page">
-            <header>
-              <div class="brand"><span class="brand-mark">T</span><span>TABLE AI · DEMO PROTOTYPES</span></div>
-              <div class="case-no"><span>${demoCode}</span> · ${no}</div>
-            </header>
-            <div>
-              <p class="case-kicker">${escapeHtml(item.tag)}</p>
-              <h2>${escapeHtml(item.title)}</h2>
-            </div>
-            <div class="demo-content">
-              <section class="demo-brief" data-demo="${demoCode}">
-                <span class="label">Reference Prototype · 配图支持</span>
-                <p class="lead">${escapeHtml(item.brief)}</p>
-                <ul class="demo-list">
-                  ${item.points.map((point, i) => `<li data-i="${String(i + 1).padStart(2, "0")}">${escapeHtml(point)}</li>`).join("")}
-                </ul>
-              </section>
-              <section class="prototype is-image">
-                <div class="proto-top">
-                  <div class="proto-title">${escapeHtml(item.title)}</div>
-                  <div class="proto-status">Live Demo</div>
-                </div>
-                <div class="prototype-frame">
-                  <img class="prototype-img" src="${prototypeAssetSrc(`demo-${String(demoIndex + 1).padStart(2, "0")}.svg`)}" alt="${escapeHtml(item.title)} prototype screen" />
-                </div>
-              </section>
-            </div>
-            <footer><span>TABLE AI PROTOTYPE REFERENCE</span><span>DEMO PAGES FOR CLIENT DISCUSSION</span></footer>
-          </div>
-        </section>`;
-      }
-
       const deck = document.getElementById("deck");
-      deck.innerHTML = cases.map(renderSlide).join("") + demos.map(renderDemoSlide).join("");
-
+      deck.innerHTML = slides.map(renderSlide).join("");
       const nav = document.createElement("div");
       nav.className = "nav";
       nav.innerHTML = `<button type="button" aria-label="上一页" data-dir="-1">&#8249;</button><span id="navCount">1 / ${total}</span><button type="button" aria-label="下一页" data-dir="1">&#8250;</button>`;
       deck.appendChild(nav);
-
       let current = 1;
-
       function show(index, updateHash = true) {
         current = Math.max(1, Math.min(total, index));
         document.querySelectorAll(".slide").forEach((slide) => {
@@ -1273,25 +804,21 @@
         document.getElementById("navCount").textContent = `${current} / ${total}`;
         if (updateHash) history.replaceState(null, "", `#${current}`);
       }
-
       nav.addEventListener("click", (event) => {
         const button = event.target.closest("button[data-dir]");
         if (!button) return;
         show(current + Number(button.dataset.dir));
       });
-
       window.addEventListener("keydown", (event) => {
         if (["ArrowRight", "PageDown", " "].includes(event.key)) show(current + 1);
         if (["ArrowLeft", "PageUp", "Backspace"].includes(event.key)) show(current - 1);
         if (event.key === "Home") show(1);
         if (event.key === "End") show(total);
       });
-
       window.addEventListener("hashchange", () => {
         const requested = Number(location.hash.replace("#", ""));
         if (requested) show(requested, false);
       });
-
       show(Number(location.hash.replace("#", "")) || 1, false);
     </script>
   </body>
