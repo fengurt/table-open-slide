@@ -105,22 +105,22 @@
       h1 {
         color: var(--navy);
         font-family: Georgia, "Noto Serif SC", serif;
-        font-size: clamp(38px, 4.5vw, 76px);
-        line-height: 0.98;
+        font-size: clamp(34px, 4vw, 64px);
+        line-height: 1.02;
         letter-spacing: 0;
       }
 
       h2 {
         color: var(--navy);
         font-family: Georgia, "Noto Serif SC", serif;
-        font-size: clamp(30px, 3.1vw, 50px);
-        line-height: 1.06;
+        font-size: clamp(28px, 2.7vw, 44px);
+        line-height: 1.08;
         letter-spacing: 0;
       }
 
       h3 {
         color: var(--navy);
-        font-size: clamp(18px, 1.4vw, 24px);
+        font-size: clamp(17px, 1.25vw, 22px);
         line-height: 1.2;
       }
 
@@ -181,7 +181,7 @@
         margin-bottom: 6px;
         color: var(--navy);
         font-family: Georgia, "Noto Serif SC", serif;
-        font-size: clamp(32px, 3vw, 48px);
+        font-size: clamp(28px, 2.5vw, 42px);
         line-height: 1;
       }
 
@@ -190,8 +190,8 @@
       .step p,
       li {
         color: #273447;
-        font-size: clamp(16px, 1.18vw, 21px);
-        line-height: 1.48;
+        font-size: clamp(15px, 1.05vw, 18px);
+        line-height: 1.42;
       }
 
       .metric small,
@@ -205,8 +205,8 @@
       .lead {
         max-width: 980px;
         color: #263348;
-        font-size: clamp(20px, 1.8vw, 31px);
-        line-height: 1.35;
+        font-size: clamp(18px, 1.55vw, 25px);
+        line-height: 1.36;
       }
 
       .big-number {
@@ -259,14 +259,14 @@
       th {
         color: #fff;
         background: var(--navy);
-        font-size: 14px;
+        font-size: 12px;
         letter-spacing: 0.06em;
         text-transform: uppercase;
       }
 
       td {
         color: #273447;
-        font-size: clamp(15px, 1.08vw, 19px);
+        font-size: clamp(13px, 0.95vw, 16px);
         line-height: 1.42;
       }
 
@@ -351,8 +351,33 @@
       .quote p {
         color: #fff;
         font-family: Georgia, "Noto Serif SC", serif;
-        font-size: clamp(28px, 3vw, 54px);
+        font-size: clamp(26px, 2.6vw, 44px);
         line-height: 1.08;
+      }
+
+      .split-table {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px;
+      }
+
+      .table-compact {
+        table-layout: fixed;
+        box-shadow: 0 10px 28px rgba(17, 21, 28, 0.1);
+      }
+
+      .table-compact th,
+      .table-compact td {
+        padding: 6px 8px;
+        font-size: clamp(10px, 0.78vw, 13px);
+        line-height: 1.18;
+      }
+
+      .table-compact th,
+      .table-compact td {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
       }
 
       .quote small {
@@ -448,17 +473,17 @@
 
       @media (max-height: 720px) and (min-width: 641px) {
         .slide {
-          padding: 18px 28px;
+          padding: 10px 16px;
         }
 
         .page {
-          gap: 12px;
+          gap: 7px;
           max-width: 1220px;
         }
 
         header {
           gap: 14px;
-          padding-bottom: 8px;
+          padding-bottom: 5px;
         }
 
         .eyebrow {
@@ -467,11 +492,11 @@
         }
 
         h1 {
-          font-size: clamp(30px, 4vw, 52px);
+          font-size: clamp(28px, 3.8vw, 46px);
         }
 
         h2 {
-          font-size: clamp(24px, 2.6vw, 34px);
+          font-size: clamp(21px, 2.4vw, 30px);
         }
 
         h3 {
@@ -548,6 +573,17 @@
         td {
           font-size: 12px;
           line-height: 1.28;
+        }
+
+        .split-table {
+          gap: 8px;
+        }
+
+        .table-compact th,
+        .table-compact td {
+          padding: 2px 3px;
+          font-size: 7px;
+          line-height: 1.02;
         }
 
         ul {
@@ -656,7 +692,7 @@
               <p class="eyebrow">VIP Sales · Casino Portfolio</p>
               <h1>娱乐高端 VIP 客户业绩季度洞察报告</h1>
             </div>
-            <div class="page-no">01 / 12</div>
+            <div class="page-no">01 / 13</div>
           </header>
           <div class="content verdict">
             <div>
@@ -700,7 +736,7 @@
               <p class="eyebrow">Methodology</p>
               <h2>方法论：V.I.P.E.R. 五步法</h2>
             </div>
-            <div class="page-no">02 / 12</div>
+            <div class="page-no">02 / 13</div>
           </header>
           <div class="content">
             <div class="process">
@@ -740,9 +776,9 @@
           <header>
             <div>
               <p class="eyebrow">Data Boundary</p>
-              <h2>数据说明：能用，但必须带着边界用</h2>
+              <h2>数据说明：样本口径与缺失说明</h2>
             </div>
-            <div class="page-no">03 / 12</div>
+            <div class="page-no">03 / 13</div>
           </header>
           <div class="content grid cols-2">
             <div class="card">
@@ -755,16 +791,17 @@
               </ul>
             </div>
             <div class="card">
-              <h3>数据质量红线</h3>
+              <h3>数据完整性说明</h3>
               <ul class="dense-list">
                 <li><strong class="good">0</strong> 个 Player ID 重复；<strong class="good">0</strong> 个 R6M &lt; R3M 违例。</li>
-                <li><strong class="danger">867 / 881</strong> 行有修复或标记项，但已留痕。</li>
-                <li><strong class="danger">Days To Lapsed</strong> 原字段基准日混乱，861 行不可信，改用 Days Since Seen。</li>
-                <li><strong class="danger">Unknown 省份</strong>承载约 ¥3.3M R6M，地域判断存在盲区。</li>
+                <li>原始资料来自截图 / OCR 与手工整理，少量字段存在缺失或置信度不足。</li>
+                <li>保留原始字段并新增修复字段，所有修正写入 Fix Log。</li>
+                <li>Days To Lapsed 原口径不一致，统一使用 Days Since Seen 作为近因口径。</li>
+                <li>Unknown 省份约承载 ¥3.3M R6M，需后续回源补录。</li>
               </ul>
             </div>
           </div>
-          <footer><span>Trust rule: 使用修复字段，废弃原 Days To Lapsed</span><span>CSV + MD 均保留在 source/</span></footer>
+          <footer><span>说明：截图 / OCR 来源存在少量缺失；分析以修复字段为准</span><span>CSV + MD 均保留在 source/</span></footer>
         </div>
       </section>
 
@@ -775,7 +812,7 @@
               <p class="eyebrow">Analysis Workflow</p>
               <h2>分析过程：从数据表到行动名单</h2>
             </div>
-            <div class="page-no">04 / 12</div>
+            <div class="page-no">04 / 13</div>
           </header>
           <div class="content">
             <table>
@@ -832,7 +869,7 @@
               <p class="eyebrow">Process 1</p>
               <h2>价值集中度：这不是平均客户生意</h2>
             </div>
-            <div class="page-no">05 / 12</div>
+            <div class="page-no">05 / 13</div>
           </header>
           <div class="content grid cols-2">
             <div class="quote">
@@ -862,7 +899,7 @@
               <p class="eyebrow">Process 2</p>
               <h2>价值 × 风险矩阵：先处理 9 个红标客户</h2>
             </div>
-            <div class="page-no">06 / 12</div>
+            <div class="page-no">06 / 13</div>
           </header>
           <div class="content matrix">
             <div class="grid cols-2">
@@ -909,13 +946,13 @@
               <p class="eyebrow">Process 3</p>
               <h2>动能诊断：繁荣下面有 ¥3.37M 在失速</h2>
             </div>
-            <div class="page-no">07 / 12</div>
+            <div class="page-no">07 / 13</div>
           </header>
           <div class="content grid cols-3">
             <div class="metric">
               <strong>¥1.67M</strong>
               <span>Falling 客户承载价值</span>
-              <small>27 人，需要逐个问原因</small>
+              <small>Momentum 0.2–0.8，下一页列出名单</small>
             </div>
             <div class="metric">
               <strong>¥1.70M</strong>
@@ -944,6 +981,79 @@
         </div>
       </section>
 
+      <section class="slide" data-title="Falling名单">
+        <div class="page">
+          <header>
+            <div>
+              <p class="eyebrow">Falling List</p>
+              <h2>Falling 客户名单：逐一诊断原因</h2>
+            </div>
+            <div class="page-no">08 / 13</div>
+          </header>
+          <div class="content split-table">
+            <table class="table-compact">
+              <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>Name</th>
+                  <th>Tier</th>
+                  <th>R3M</th>
+                  <th>Jun</th>
+                  <th>M</th>
+                  <th>Unseen</th>
+                  <th>Risk</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td>16192758</td><td>RAO, HAIJUN</td><td>SUPREME</td><td>¥450K</td><td>¥64K</td><td>0.43</td><td>15d</td><td>Active</td></tr>
+                <tr><td>16655793</td><td>PENG, HUA</td><td>SUPREME 88</td><td>¥153K</td><td>¥18K</td><td>0.35</td><td>24d</td><td>Active</td></tr>
+                <tr><td>16182385</td><td>BING, JINING</td><td>SUPREME</td><td>¥144K</td><td>¥33K</td><td>0.68</td><td>5d</td><td>Active</td></tr>
+                <tr><td>11832680</td><td>LIU, YANYAN</td><td>PLATINUM</td><td>¥125K</td><td>¥24K</td><td>0.58</td><td>28d</td><td>Active</td></tr>
+                <tr><td>15838051</td><td>SONG, ZENGWEI</td><td>PLATINUM</td><td>¥123K</td><td>¥21K</td><td>0.51</td><td>23d</td><td>Active</td></tr>
+                <tr><td>15360301</td><td>TONG, FEI</td><td>PLATINUM</td><td>¥84K</td><td>¥11K</td><td>0.40</td><td>5d</td><td>Active</td></tr>
+                <tr><td>16502122</td><td>GONG, YIDONG</td><td>PLATINUM</td><td>¥82K</td><td>¥20K</td><td>0.73</td><td>14d</td><td>Active</td></tr>
+                <tr><td>12613525</td><td>XIE, YUEJIN</td><td>PLATINUM</td><td>¥60K</td><td>¥5K</td><td>0.24</td><td>19d</td><td>Active</td></tr>
+                <tr><td>16071678</td><td>CAO, YONG</td><td>ELITE</td><td>¥57K</td><td>¥5K</td><td>0.28</td><td>4d</td><td>Active</td></tr>
+                <tr><td>13058209</td><td>ZHU, LIN</td><td>PLATINUM</td><td>¥48K</td><td>¥5K</td><td>0.29</td><td>26d</td><td>Active</td></tr>
+                <tr><td>15385723</td><td>LIU, GUANGHUI</td><td>ELITE</td><td>¥44K</td><td>¥7K</td><td>0.49</td><td>16d</td><td>Active</td></tr>
+                <tr><td>15203950</td><td>FU, ZIHAO</td><td>SUPREME</td><td>¥39K</td><td>¥6K</td><td>0.43</td><td>14d</td><td>Active</td></tr>
+                <tr><td>16601398</td><td>HUANG, MENG</td><td>SUPREME</td><td>¥31K</td><td>¥7K</td><td>0.64</td><td>22d</td><td>Active</td></tr>
+              </tbody>
+            </table>
+            <table class="table-compact">
+              <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>Name</th>
+                  <th>Tier</th>
+                  <th>R3M</th>
+                  <th>Jun</th>
+                  <th>M</th>
+                  <th>Unseen</th>
+                  <th>Risk</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td>16978918</td><td>ZHAO, HONGSONG</td><td>ELITE</td><td>¥30K</td><td>¥2K</td><td>0.22</td><td>31d</td><td>Cooling</td></tr>
+                <tr><td>16380262</td><td>LIN, FENGLING</td><td>ELITE</td><td>¥26K</td><td>¥5K</td><td>0.59</td><td>29d</td><td>Active</td></tr>
+                <tr><td>11271563</td><td>HE, XIGEBAYAER</td><td>ELITE</td><td>¥24K</td><td>¥3K</td><td>0.34</td><td>23d</td><td>Active</td></tr>
+                <tr><td>11889818</td><td>LI, CONG</td><td>ELITE</td><td>¥22K</td><td>¥4K</td><td>0.52</td><td>8d</td><td>Active</td></tr>
+                <tr><td>15665895</td><td>LI, FAN</td><td>ELITE</td><td>¥21K</td><td>¥3K</td><td>0.40</td><td>30d</td><td>Active</td></tr>
+                <tr><td>12820981</td><td>YAN, LEI</td><td>ELITE</td><td>¥18K</td><td>¥3K</td><td>0.52</td><td>17d</td><td>Active</td></tr>
+                <tr><td>16110788</td><td>XU, WEI</td><td>GOLD</td><td>¥12K</td><td>¥1K</td><td>0.33</td><td>31d</td><td>Cooling</td></tr>
+                <tr><td>16658053</td><td>WANG, JIAN</td><td>GOLD</td><td>¥9K</td><td>¥1K</td><td>0.32</td><td>20d</td><td>Active</td></tr>
+                <tr><td>16358282</td><td>FANG, WEI</td><td>ELITE</td><td>¥5K</td><td>¥1K</td><td>0.39</td><td>16d</td><td>Active</td></tr>
+                <tr><td>15670229</td><td>LI, LINGJUN</td><td>GOLD</td><td>¥4K</td><td>¥0K</td><td>0.32</td><td>15d</td><td>Active</td></tr>
+                <tr><td>16580632</td><td>XU, XIAOMEI</td><td>GOLD</td><td>¥2K</td><td>¥1K</td><td>0.73</td><td>3d</td><td>Active</td></tr>
+                <tr><td>10867755</td><td>LI, LIMING</td><td>GOLD</td><td>¥1K</td><td>¥0K</td><td>0.32</td><td>13d</td><td>Active</td></tr>
+                <tr><td>15765626</td><td>JIANG, LANGXIN</td><td>GOLD</td><td>¥1K</td><td>¥0K</td><td>0.41</td><td>27d</td><td>Active</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <footer><span>口径：Hosted 且 R3M &gt; 0，Momentum 0.2–0.8</span><span>截图 / OCR 来源存在少量缺失；名单以修复 CSV 可识别记录为准</span></footer>
+        </div>
+      </section>
+
       <section class="slide" data-title="RI效率">
         <div class="page">
           <header>
@@ -951,7 +1061,7 @@
               <p class="eyebrow">Process 4</p>
               <h2>RI 效率：预算结构倒挂，尾部太贵</h2>
             </div>
-            <div class="page-no">08 / 12</div>
+            <div class="page-no">09 / 13</div>
           </header>
           <div class="content grid cols-2">
             <div class="card">
@@ -977,7 +1087,7 @@
               <p class="eyebrow">Process 5</p>
               <h2>休眠 / 无主资产：¥6.70M 正贴近 180 天断崖</h2>
             </div>
-            <div class="page-no">09 / 12</div>
+            <div class="page-no">10 / 13</div>
           </header>
           <div class="content grid cols-2">
             <div class="card">
@@ -1011,7 +1121,7 @@
               <p class="eyebrow">Core Conclusions</p>
               <h2>核心结论：五件事必须马上承认</h2>
             </div>
-            <div class="page-no">10 / 12</div>
+            <div class="page-no">11 / 13</div>
           </header>
           <div class="content">
             <table>
@@ -1062,7 +1172,7 @@
               <p class="eyebrow">Next Actions</p>
               <h2>下一步怎么做：30 / 60 / 90 天作战表</h2>
             </div>
-            <div class="page-no">11 / 12</div>
+            <div class="page-no">12 / 13</div>
           </header>
           <div class="content">
             <table>
@@ -1083,7 +1193,7 @@
                 </tr>
                 <tr>
                   <td>Day 8–30</td>
-                  <td>诊断 32 名高价值下坠客户；C 段 RI 封顶 30%；P1/P2 唤醒旅程上线</td>
+                  <td>诊断 27 名 Falling 客户；C 段 RI 封顶 30%；P1/P2 唤醒旅程上线</td>
                   <td>Sales + CRM Ops</td>
                   <td>C 段新规上线；Falling 原因归类；唤醒漏斗开始计数</td>
                 </tr>
@@ -1113,14 +1223,14 @@
               <p class="eyebrow">Governance</p>
               <h2>KPI 与治理节奏：每周看风险，每月复跑模型</h2>
             </div>
-            <div class="page-no">12 / 12</div>
+            <div class="page-no">13 / 13</div>
           </header>
           <div class="content grid cols-2">
             <div class="kpi">
               <div class="head">指标</div><div class="head">当前</div><div class="head">30 天</div><div class="head">90 天</div>
               <div>月度 Theo Base</div><div>¥7.2M</div><div>≥¥7.0M</div><div>≥¥7.5M</div>
               <div>高价值无主数</div><div>25</div><div>0</div><div>0 常态化</div>
-              <div>High-value Falling</div><div>32</div><div>≤24</div><div>≤15</div>
+              <div>Falling 客户</div><div>27</div><div>≤20</div><div>≤12</div>
               <div>P0–P2 唤醒率</div><div>0%</div><div>≥8%</div><div>≥15%</div>
               <div>C 段 RI%</div><div>144.6%</div><div>≤60%</div><div>≤35%</div>
               <div>省份缺失率</div><div>16.2%</div><div>回源中</div><div>&lt;5%</div>
@@ -1143,7 +1253,7 @@
 
     <nav class="deck-nav" aria-label="Slide navigation">
       <button id="prevSlide" type="button" aria-label="上一页">‹</button>
-      <span id="slideLabel">1 / 12</span>
+      <span id="slideLabel">1 / 13</span>
       <button id="nextSlide" type="button" aria-label="下一页">›</button>
     </nav>
 
