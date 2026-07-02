@@ -1,8 +1,11 @@
 import fs from 'node:fs/promises';
+import os from 'node:os';
 import path from 'node:path';
 import { pathToFileURL } from 'node:url';
 
 const SLIDE_RE = /<section\b[\s\S]*?<\/section>/gi;
+const DECK_OPEN_RE =
+  /<(?<tag>div|main)\b(?<attrs>[^>]*(?:id=(["'])deck\3|class=(["'])[^"']*\bdeck\b[^"']*\4)[^>]*)>/i;
 
 function repoFileUrl(repoRoot: string, encodedPath: string): string {
   const decoded = decodeURIComponent(encodedPath);
@@ -32,9 +35,7 @@ function selectSlides(html: string, slide?: number): string {
   if (!selected) {
     throw new Error(`slide ${slide} not found`);
   }
-  return html
-    .replace(SLIDE_RE, () => '')
-    .replace(/<div id="deck">\s*/i, `<div id="deck">\n${selected}\n`);
+  return html.replace(SLIDE_RE, () => '').replace(DECK_OPEN_RE, (open) => `${open}\n${selected}\n`);
 }
 
 function injectPdfCss(html: string): string {
@@ -43,7 +44,8 @@ function injectPdfCss(html: string): string {
   @page { size: 16in 9in; margin: 0; }
   html, body { width: 100%; height: 100%; margin: 0; background: #050b13; }
   body { overflow: visible !important; }
-  #deck {
+  #deck,
+  .deck {
     position: static !important;
     inset: auto !important;
     display: block !important;
@@ -52,7 +54,8 @@ function injectPdfCss(html: string): string {
     transform: none !important;
     transition: none !important;
   }
-  #deck > .slide {
+  #deck > .slide,
+  .deck > .slide {
     position: relative !important;
     display: flex !important;
     flex: none !important;
@@ -62,11 +65,12 @@ function injectPdfCss(html: string): string {
     page-break-after: always;
     content-visibility: visible !important;
   }
-  #deck > .slide:last-child {
+  #deck > .slide:last-child,
+  .deck > .slide:last-child {
     break-after: auto;
     page-break-after: auto;
   }
-  #nav, #hint, #overview, canvas.bg { display: none !important; }
+  #nav, #hint, #overview, .deck-nav, canvas.bg { display: none !important; }
 </style>`;
   return html.replace(/<\/head>/i, `${css}\n</head>`);
 }
@@ -81,7 +85,7 @@ export async function captureHtmlPdf(
   html = inlineRepoAssets(html, repoRoot);
   html = injectPdfCss(html);
 
-  const tmpDir = path.join(path.dirname(absHtmlPath), '.atelier-export-tmp');
+  const tmpDir = path.join(os.tmpdir(), 'atelier-export-pdf');
   await fs.mkdir(tmpDir, { recursive: true });
   const tmpHtml = path.join(tmpDir, `export-pdf-${Date.now()}.html`);
   await fs.writeFile(tmpHtml, html, 'utf8');

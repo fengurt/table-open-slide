@@ -52,10 +52,10 @@ export const ATELIER_PROJECTS: AtelierProject[] = [
     title: '娱乐高端 VIP 客户业绩季度洞察报告',
     subtitle: 'VIP Sales · Casino Portfolio · Quarterly Insight',
     description: '高端 VIP 客户业绩、风险与增长机会季度洞察',
-    slideCount: 37,
+    slideCount: 53,
     manifestPath: 'slides/projects/hosted-players-viper-report/manifest.json',
     deckPath: 'slides/projects/hosted-players-viper-report/deck/index.html',
-    tags: ['VIPER', 'CRM', '37p', 'Action'],
+    tags: ['VIPER', 'CRM', '53p', 'Action'],
   },
   {
     id: 'tongyi-online-test',

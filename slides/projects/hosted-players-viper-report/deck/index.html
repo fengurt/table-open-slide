@@ -368,9 +368,9 @@
 
       .table-compact th,
       .table-compact td {
-        padding: 6px 8px;
-        font-size: clamp(10px, 0.78vw, 13px);
-        line-height: 1.18;
+        padding: 8px 10px;
+        font-size: clamp(12px, 0.86vw, 15px);
+        line-height: 1.24;
       }
 
       .table-compact th,
@@ -384,19 +384,19 @@
       .trace-block {
         display: grid;
         grid-template-rows: auto auto 1fr;
-        gap: 8px;
+        gap: 10px;
         min-width: 0;
       }
 
       .trace-summary,
       .trace-action {
         color: #273447;
-        font-size: clamp(12px, 0.9vw, 15px);
-        line-height: 1.25;
+        font-size: clamp(14px, 1vw, 17px);
+        line-height: 1.3;
       }
 
       .trace-action {
-        padding: 7px 10px;
+        padding: 9px 12px;
         border-left: 3px solid var(--gold);
         background: rgba(255, 248, 234, 0.84);
         font-weight: 700;
@@ -409,18 +409,24 @@
 
       .trace-table th,
       .trace-table td {
-        padding: 4px 5px;
+        padding: 6px 7px;
         overflow: hidden;
         text-overflow: ellipsis;
         white-space: nowrap;
-        font-size: clamp(8px, 0.68vw, 11px);
-        line-height: 1.12;
+        font-size: clamp(11px, 0.86vw, 14px);
+        line-height: 1.22;
       }
 
+      .trace-table th:nth-child(1),
+      .trace-table td:nth-child(1) { width: 7%; }
       .trace-table th:nth-child(2),
-      .trace-table td:nth-child(2) { width: 12%; }
+      .trace-table td:nth-child(2) { width: 15%; }
       .trace-table th:nth-child(6),
-      .trace-table td:nth-child(6) { width: 10%; }
+      .trace-table td:nth-child(6) { width: 9%; }
+      .trace-table th:nth-child(10),
+      .trace-table td:nth-child(10),
+      .trace-table th:nth-child(11),
+      .trace-table td:nth-child(11) { width: 7%; }
       .trace-table th:nth-child(15),
       .trace-table td:nth-child(15) { width: 5%; }
 
@@ -515,19 +521,19 @@
         text-align: center;
       }
 
-      @media (max-height: 720px) and (min-width: 641px) {
+      @media (max-height: 720px) and (min-width: 480px) {
         .slide {
-          padding: 10px 16px;
+          padding: 6px 12px;
         }
 
         .page {
-          gap: 7px;
+          gap: 5px;
           max-width: 1220px;
         }
 
         header {
-          gap: 14px;
-          padding-bottom: 5px;
+          gap: 10px;
+          padding-bottom: 4px;
         }
 
         .eyebrow {
@@ -536,15 +542,15 @@
         }
 
         h1 {
-          font-size: clamp(28px, 3.8vw, 46px);
+          font-size: clamp(24px, 3.4vw, 38px);
         }
 
         h2 {
-          font-size: clamp(21px, 2.4vw, 30px);
+          font-size: clamp(18px, 2.1vw, 26px);
         }
 
         h3 {
-          font-size: 16px;
+          font-size: 14px;
         }
 
         .page-no {
@@ -560,17 +566,17 @@
 
         .card,
         .step {
-          padding: 12px;
+          padding: 10px;
         }
 
         .metric {
-          min-height: 86px;
-          padding: 12px;
+          min-height: 76px;
+          padding: 10px;
         }
 
         .metric strong {
           margin-bottom: 3px;
-          font-size: clamp(26px, 2.5vw, 34px);
+          font-size: clamp(22px, 2.3vw, 30px);
         }
 
         .metric span,
@@ -588,7 +594,7 @@
         }
 
         .lead {
-          font-size: clamp(15px, 1.5vw, 20px);
+          font-size: clamp(13px, 1.3vw, 18px);
           line-height: 1.28;
         }
 
@@ -607,7 +613,7 @@
 
         th,
         td {
-          padding: 8px 10px;
+          padding: 6px 8px;
         }
 
         th {
@@ -615,8 +621,8 @@
         }
 
         td {
-          font-size: 12px;
-          line-height: 1.28;
+          font-size: 11px;
+          line-height: 1.22;
         }
 
         .split-table {
@@ -625,32 +631,32 @@
 
         .table-compact th,
         .table-compact td {
-          padding: 2px 3px;
-          font-size: 7px;
-          line-height: 1.02;
+          padding: 4px 5px;
+          font-size: 9px;
+          line-height: 1.14;
         }
 
 
         .trace-block {
-          gap: 4px;
+          gap: 5px;
         }
 
         .trace-summary,
         .trace-action {
-          font-size: 8px;
-          line-height: 1.08;
+          font-size: 9px;
+          line-height: 1.16;
         }
 
         .trace-action {
-          padding: 3px 5px;
+          padding: 4px 6px;
           border-left-width: 2px;
         }
 
         .trace-table th,
         .trace-table td {
-          padding: 2px 2px;
-          font-size: 5.6px;
-          line-height: 1;
+          padding: 3px 4px;
+          font-size: 8px;
+          line-height: 1.12;
         }
 
         ul {
@@ -662,11 +668,11 @@
         }
 
         .quote {
-          padding: 16px;
+          padding: 12px;
         }
 
         .quote p {
-          font-size: clamp(22px, 2.5vw, 34px);
+          font-size: clamp(19px, 2.2vw, 30px);
         }
 
         .quote small {
@@ -699,9 +705,7 @@
         }
 
         .deck-nav {
-          right: 12px;
-          bottom: 10px;
-          padding: 5px;
+          display: none;
         }
 
         .deck-nav button {
@@ -715,7 +719,7 @@
         }
       }
 
-      @media (max-width: 640px) {
+      @media (max-width: 479px) {
         body {
           overflow: auto;
         }
@@ -751,15 +755,14 @@
     </style>
   </head>
   <body>
-    <main class="deck" aria-label="娱乐高端 VIP 客户业绩季度洞察报告">
-      <section class="slide active" data-title="季度洞察">
+    <main class="deck" aria-label="娱乐高端 VIP 客户业绩季度洞察报告"><section class="slide active" data-title="季度洞察">
         <div class="page">
           <header>
             <div>
               <p class="eyebrow">VIP Sales · Casino Portfolio</p>
               <h1>娱乐高端 VIP 客户业绩季度洞察报告</h1>
             </div>
-            <div class="page-no">01 / 37</div>
+            <div class="page-no">01 / 53</div>
           </header>
           <div class="content verdict">
             <div>
@@ -796,14 +799,14 @@
         </div>
       </section>
 
-      <section class="slide" data-title="方法论">
+<section class="slide" data-title="方法论">
         <div class="page">
           <header>
             <div>
               <p class="eyebrow">Methodology</p>
               <h2>方法论：V.I.P.E.R. 五步法</h2>
             </div>
-            <div class="page-no">02 / 37</div>
+            <div class="page-no">02 / 53</div>
           </header>
           <div class="content">
             <div class="process">
@@ -838,14 +841,14 @@
         </div>
       </section>
 
-      <section class="slide" data-title="数据说明">
+<section class="slide" data-title="数据说明">
         <div class="page">
           <header>
             <div>
               <p class="eyebrow">Data Boundary</p>
               <h2>数据说明：样本口径与缺失说明</h2>
             </div>
-            <div class="page-no">03 / 37</div>
+            <div class="page-no">03 / 53</div>
           </header>
           <div class="content grid cols-2">
             <div class="card">
@@ -872,14 +875,14 @@
         </div>
       </section>
 
-      <section class="slide" data-title="分析过程">
+<section class="slide" data-title="分析过程">
         <div class="page">
           <header>
             <div>
               <p class="eyebrow">Analysis Workflow</p>
               <h2>分析过程：从数据表到行动名单</h2>
             </div>
-            <div class="page-no">04 / 37</div>
+            <div class="page-no">04 / 53</div>
           </header>
           <div class="content">
             <table>
@@ -929,14 +932,14 @@
         </div>
       </section>
 
-      <section class="slide" data-title="价值集中度">
+<section class="slide" data-title="价值集中度">
         <div class="page">
           <header>
             <div>
               <p class="eyebrow">Process 1</p>
               <h2>价值集中度：这不是平均客户生意</h2>
             </div>
-            <div class="page-no">05 / 37</div>
+            <div class="page-no">05 / 53</div>
           </header>
           <div class="content grid cols-2">
             <div class="quote">
@@ -958,33 +961,51 @@
           <footer><span>Decision: 先保护资产头部</span><span>Owner: Sales Director + Host</span></footer>
         </div>
       </section>
+
       <section class="slide" data-title="Top 12 客户原始数据追溯">
         <div class="page">
           <header>
             <div>
               <p class="eyebrow">Trace · Top Customers</p>
-              <h2>Top 12 客户原始数据追溯</h2>
+              <h2>Top 12 客户原始数据追溯（1/2）</h2>
             </div>
-            <div class="page-no">06 / 37</div>
+            <div class="page-no">06 / 53</div>
           </header>
           <div class="content trace-block">
             <p class="trace-summary">12 人 · R3M ¥6.48M · R6M ¥10.70M · Dormant ¥4.22M</p>
             <p class="trace-action">Top 12 决定约半数 R3M 价值；每人必须有主 Host、备份负责人、下一次到访计划、RI 使用边界。</p>
-            <table class="trace-table"><thead><tr><th>ID</th><th>Name</th><th>Tier</th><th>Seg</th><th>Risk</th><th>Host</th><th>Province</th><th>Last</th><th>Days</th><th>R3M</th><th>R6M</th><th>Jun</th><th>RI</th><th>M</th><th>SrcRow</th></tr></thead><tbody><tr><td>16677567</td><td>SUN, FAN</td><td>SUPREME 88</td><td>S</td><td>Active</td><td>Isaac Su</td><td>Anhui</td><td>2026-06-20</td><td>12d</td><td>¥1.85M</td><td>¥2.78M</td><td>¥877K</td><td>36%</td><td>1.42</td><td>69</td></tr><tr><td>15635026</td><td>LI, JIANPING</td><td>SUPREME 88</td><td>S</td><td>Active</td><td>Isaac Su</td><td>Jiangsu</td><td>2026-06-25</td><td>7d</td><td>¥936K</td><td>¥1.07M</td><td>¥808K</td><td>28%</td><td>2.59</td><td>45</td></tr><tr><td>15789078</td><td>YAN, PENGFEI</td><td>SUPREME</td><td>S</td><td>Active</td><td>Isaac Su</td><td>Henan</td><td>2026-06-25</td><td>7d</td><td>¥793K</td><td>¥793K</td><td>¥668K</td><td>30%</td><td>2.53</td><td>47</td></tr><tr><td>16383697</td><td>LOU, XIUMIN</td><td>SUPREME 88</td><td>S</td><td>Active</td><td>Isaac Su</td><td>Jiangsu</td><td>2026-06-14</td><td>18d</td><td>¥559K</td><td>¥830K</td><td>¥406K</td><td>36%</td><td>2.18</td><td>113</td></tr><tr><td>16192758</td><td>RAO, HAIJUN</td><td>SUPREME</td><td>S</td><td>Active</td><td>Isaac Su</td><td>Hebei</td><td>2026-06-17</td><td>15d</td><td>¥450K</td><td>¥463K</td><td>¥64K</td><td>25%</td><td>0.43</td><td>92</td></tr><tr><td>12659559</td><td>JIN, FENGXIAO</td><td>SUPREME 88</td><td>S</td><td>Active</td><td>Isaac Su</td><td>Jilin</td><td>2026-06-07</td><td>25d</td><td>¥348K</td><td>¥2.73M</td><td>¥348K</td><td>65%</td><td>3.00</td><td>164</td></tr><tr><td>16979136</td><td>YANG, SHUAI</td><td>PLATINUM</td><td>S</td><td>Active</td><td>Isaac Su</td><td>Hebei</td><td>2026-06-09</td><td>23d</td><td>¥339K</td><td>¥339K</td><td>¥18K</td><td>19%</td><td>0.16</td><td>153</td></tr><tr><td>16631586</td><td>GANG, JIANCHAO</td><td>PLATINUM</td><td>S</td><td>Active</td><td>Isaac Su</td><td>Hebei</td><td>2026-06-15</td><td>17d</td><td>¥268K</td><td>¥268K</td><td>¥253K</td><td>15%</td><td>2.83</td><td>108</td></tr><tr><td>12502191</td><td>ZHANG,JIANBO</td><td>SUPREME</td><td>S</td><td>Cooling</td><td>Isaac Su</td><td>Unknown</td><td>2026-04-12</td><td>81d</td><td>¥258K</td><td>¥352K</td><td>¥0</td><td>35%</td><td>0.00</td><td>18</td></tr><tr><td>16706500</td><td>ZHANG, JINYU</td><td>SUPREME</td><td>S</td><td>Active</td><td>Isaac Su</td><td>Zhejiang</td><td>2026-06-20</td><td>12d</td><td>¥248K</td><td>¥341K</td><td>¥102K</td><td>32%</td><td>1.24</td><td>72</td></tr><tr><td>16276735</td><td>WANG, LEI</td><td>SUPREME</td><td>S</td><td>Active</td><td>Isaac Su</td><td>Shanghai</td><td>2026-06-05</td><td>27d</td><td>¥239K</td><td>¥432K</td><td>¥15K</td><td>39%</td><td>0.19</td><td>172</td></tr><tr><td>12655329</td><td>LIAO, MINRUI</td><td>SUPREME</td><td>S</td><td>Active</td><td>Isaac Su</td><td>Unknown</td><td>2026-06-20</td><td>12d</td><td>¥194K</td><td>¥294K</td><td>¥151K</td><td>33%</td><td>2.34</td><td>68</td></tr></tbody></table>
+            <table class="trace-table"><thead><tr><th>ID</th><th>Name</th><th>Tier</th><th>Seg</th><th>Risk</th><th>Host</th><th>Province</th><th>Last</th><th>Days</th><th>R3M</th><th>R6M</th><th>Jun</th><th>RI</th><th>M</th><th>SrcRow</th></tr></thead><tbody><tr><td>16677567</td><td>SUN, FAN</td><td>SUPREME 88</td><td>S</td><td>Active</td><td>Isaac Su</td><td>Anhui</td><td>2026-06-20</td><td>12d</td><td>¥1.85M</td><td>¥2.78M</td><td>¥877K</td><td>36%</td><td>1.42</td><td>69</td></tr><tr><td>15635026</td><td>LI, JIANPING</td><td>SUPREME 88</td><td>S</td><td>Active</td><td>Isaac Su</td><td>Jiangsu</td><td>2026-06-25</td><td>7d</td><td>¥936K</td><td>¥1.07M</td><td>¥808K</td><td>28%</td><td>2.59</td><td>45</td></tr><tr><td>15789078</td><td>YAN, PENGFEI</td><td>SUPREME</td><td>S</td><td>Active</td><td>Isaac Su</td><td>Henan</td><td>2026-06-25</td><td>7d</td><td>¥793K</td><td>¥793K</td><td>¥668K</td><td>30%</td><td>2.53</td><td>47</td></tr><tr><td>16383697</td><td>LOU, XIUMIN</td><td>SUPREME 88</td><td>S</td><td>Active</td><td>Isaac Su</td><td>Jiangsu</td><td>2026-06-14</td><td>18d</td><td>¥559K</td><td>¥830K</td><td>¥406K</td><td>36%</td><td>2.18</td><td>113</td></tr><tr><td>16192758</td><td>RAO, HAIJUN</td><td>SUPREME</td><td>S</td><td>Active</td><td>Isaac Su</td><td>Hebei</td><td>2026-06-17</td><td>15d</td><td>¥450K</td><td>¥463K</td><td>¥64K</td><td>25%</td><td>0.43</td><td>92</td></tr><tr><td>12659559</td><td>JIN, FENGXIAO</td><td>SUPREME 88</td><td>S</td><td>Active</td><td>Isaac Su</td><td>Jilin</td><td>2026-06-07</td><td>25d</td><td>¥348K</td><td>¥2.73M</td><td>¥348K</td><td>65%</td><td>3.00</td><td>164</td></tr><tr><td>16979136</td><td>YANG, SHUAI</td><td>PLATINUM</td><td>S</td><td>Active</td><td>Isaac Su</td><td>Hebei</td><td>2026-06-09</td><td>23d</td><td>¥339K</td><td>¥339K</td><td>¥18K</td><td>19%</td><td>0.16</td><td>153</td></tr><tr><td>16631586</td><td>GANG, JIANCHAO</td><td>PLATINUM</td><td>S</td><td>Active</td><td>Isaac Su</td><td>Hebei</td><td>2026-06-15</td><td>17d</td><td>¥268K</td><td>¥268K</td><td>¥253K</td><td>15%</td><td>2.83</td><td>108</td></tr></tbody></table>
           </div>
           <footer><span>口径：按 R3M Theo 降序取前 12；Source Row 对应 hosted_players_fixed.csv</span><span>动作：Top 12 双人覆盖，周一逐个过状态</span></footer>
         </div>
       </section>
 
+      <section class="slide" data-title="Top 12 客户原始数据追溯">
+        <div class="page">
+          <header>
+            <div>
+              <p class="eyebrow">Trace · Top Customers</p>
+              <h2>Top 12 客户原始数据追溯（2/2）</h2>
+            </div>
+            <div class="page-no">07 / 53</div>
+          </header>
+          <div class="content trace-block">
+            <p class="trace-summary">12 人 · R3M ¥6.48M · R6M ¥10.70M · Dormant ¥4.22M</p>
 
-      <section class="slide" data-title="价值风险矩阵">
+            <table class="trace-table"><thead><tr><th>ID</th><th>Name</th><th>Tier</th><th>Seg</th><th>Risk</th><th>Host</th><th>Province</th><th>Last</th><th>Days</th><th>R3M</th><th>R6M</th><th>Jun</th><th>RI</th><th>M</th><th>SrcRow</th></tr></thead><tbody><tr><td>12502191</td><td>ZHANG,JIANBO</td><td>SUPREME</td><td>S</td><td>Cooling</td><td>Isaac Su</td><td>Unknown</td><td>2026-04-12</td><td>81d</td><td>¥258K</td><td>¥352K</td><td>¥0</td><td>35%</td><td>0.00</td><td>18</td></tr><tr><td>16706500</td><td>ZHANG, JINYU</td><td>SUPREME</td><td>S</td><td>Active</td><td>Isaac Su</td><td>Zhejiang</td><td>2026-06-20</td><td>12d</td><td>¥248K</td><td>¥341K</td><td>¥102K</td><td>32%</td><td>1.24</td><td>72</td></tr><tr><td>16276735</td><td>WANG, LEI</td><td>SUPREME</td><td>S</td><td>Active</td><td>Isaac Su</td><td>Shanghai</td><td>2026-06-05</td><td>27d</td><td>¥239K</td><td>¥432K</td><td>¥15K</td><td>39%</td><td>0.19</td><td>172</td></tr><tr><td>12655329</td><td>LIAO, MINRUI</td><td>SUPREME</td><td>S</td><td>Active</td><td>Isaac Su</td><td>Unknown</td><td>2026-06-20</td><td>12d</td><td>¥194K</td><td>¥294K</td><td>¥151K</td><td>33%</td><td>2.34</td><td>68</td></tr></tbody></table>
+          </div>
+          <footer><span>口径：按 R3M Theo 降序取前 12；Source Row 对应 hosted_players_fixed.csv</span><span>动作：Top 12 双人覆盖，周一逐个过状态</span></footer>
+        </div>
+      </section>
+
+<section class="slide" data-title="价值风险矩阵">
         <div class="page">
           <header>
             <div>
               <p class="eyebrow">Process 2</p>
               <h2>价值 × 风险矩阵：先处理 9 个红标客户</h2>
             </div>
-            <div class="page-no">07 / 37</div>
+            <div class="page-no">08 / 53</div>
           </header>
           <div class="content matrix">
             <div class="grid cols-2">
@@ -1023,33 +1044,51 @@
           <footer><span>Decision: 人工资源只投向高价值和高风险交叉点</span><span>SLA: 48h</span></footer>
         </div>
       </section>
+
       <section class="slide" data-title="S/A Cooling 红标客户追溯">
         <div class="page">
           <header>
             <div>
               <p class="eyebrow">Trace · 48h Save List</p>
-              <h2>S/A Cooling 红标客户追溯</h2>
+              <h2>S/A Cooling 红标客户追溯（1/2）</h2>
             </div>
-            <div class="page-no">08 / 37</div>
+            <div class="page-no">09 / 53</div>
           </header>
           <div class="content trace-block">
             <p class="trace-summary">9 人 · R3M ¥735K · R6M ¥1.32M · Dormant ¥587K</p>
             <p class="trace-action">这 9 人是最优先止血清单：先问未到访原因，再给回归方案，销售总监逐人验收。</p>
-            <table class="trace-table"><thead><tr><th>ID</th><th>Name</th><th>Tier</th><th>Seg</th><th>Risk</th><th>Host</th><th>Province</th><th>Last</th><th>Days</th><th>R3M</th><th>R6M</th><th>Jun</th><th>RI</th><th>M</th><th>SrcRow</th></tr></thead><tbody><tr><td>12502191</td><td>ZHANG,JIANBO</td><td>SUPREME</td><td>S</td><td>Cooling</td><td>Isaac Su</td><td>Unknown</td><td>2026-04-12</td><td>81d</td><td>¥258K</td><td>¥352K</td><td>¥0</td><td>35%</td><td>0.00</td><td>18</td></tr><tr><td>10183100</td><td>TSE,KWAN HUNG</td><td>SUPREME</td><td>S</td><td>Cooling</td><td>Isaac Su</td><td>Unknown</td><td>2026-04-16</td><td>77d</td><td>¥189K</td><td>¥189K</td><td>¥0</td><td>18%</td><td>0.00</td><td>1</td></tr><tr><td>15823818</td><td>YANG,FUKAI</td><td>SUPREME 88</td><td>A</td><td>Cooling</td><td>Isaac Su</td><td>Henan</td><td>2026-04-10</td><td>83d</td><td>¥61K</td><td>¥253K</td><td>¥0</td><td>50%</td><td>0.00</td><td>27</td></tr><tr><td>13801363</td><td>ZHU, HAIXU</td><td>PLATINUM</td><td>A</td><td>Cooling</td><td>Isaac Su</td><td>Unknown</td><td>2026-06-01</td><td>31d</td><td>¥57K</td><td>¥57K</td><td>¥15K</td><td>31%</td><td>0.80</td><td>195</td></tr><tr><td>10768903</td><td>BAO,JINHAI</td><td>SUPREME</td><td>A</td><td>Cooling</td><td>Isaac Su</td><td>Zhejiang</td><td>2026-04-13</td><td>80d</td><td>¥49K</td><td>¥350K</td><td>¥0</td><td>53%</td><td>0.00</td><td>17</td></tr><tr><td>15701679</td><td>DENG,</td><td>PLATINUM</td><td>A</td><td>Cooling</td><td>Isaac Su</td><td>Hunan</td><td>2026-04-04</td><td>89d</td><td>¥40K</td><td>¥40K</td><td>¥0</td><td>29%</td><td>0.00</td><td>9</td></tr><tr><td>13812618</td><td>XU,LUJUN</td><td>SUPREME</td><td>A</td><td>Cooling</td><td>Isaac Su</td><td>Hebei</td><td>2026-04-04</td><td>89d</td><td>¥31K</td><td>¥31K</td><td>¥0</td><td>5%</td><td>0.00</td><td>6</td></tr><tr><td>16978918</td><td>ZHAO, HONGSONG</td><td>ELITE</td><td>A</td><td>Cooling</td><td>Isaac Su</td><td>Beijing</td><td>2026-06-01</td><td>31d</td><td>¥30K</td><td>¥30K</td><td>¥2K</td><td>18%</td><td>0.22</td><td>197</td></tr><tr><td>16692019</td><td>HAN,MINGFENG</td><td>ELITE</td><td>A</td><td>Cooling</td><td>Isaac Su</td><td>Shandong</td><td>2026-04-08</td><td>85d</td><td>¥21K</td><td>¥21K</td><td>¥0</td><td>91%</td><td>0.00</td><td>37</td></tr></tbody></table>
+            <table class="trace-table"><thead><tr><th>ID</th><th>Name</th><th>Tier</th><th>Seg</th><th>Risk</th><th>Host</th><th>Province</th><th>Last</th><th>Days</th><th>R3M</th><th>R6M</th><th>Jun</th><th>RI</th><th>M</th><th>SrcRow</th></tr></thead><tbody><tr><td>12502191</td><td>ZHANG,JIANBO</td><td>SUPREME</td><td>S</td><td>Cooling</td><td>Isaac Su</td><td>Unknown</td><td>2026-04-12</td><td>81d</td><td>¥258K</td><td>¥352K</td><td>¥0</td><td>35%</td><td>0.00</td><td>18</td></tr><tr><td>10183100</td><td>TSE,KWAN HUNG</td><td>SUPREME</td><td>S</td><td>Cooling</td><td>Isaac Su</td><td>Unknown</td><td>2026-04-16</td><td>77d</td><td>¥189K</td><td>¥189K</td><td>¥0</td><td>18%</td><td>0.00</td><td>1</td></tr><tr><td>15823818</td><td>YANG,FUKAI</td><td>SUPREME 88</td><td>A</td><td>Cooling</td><td>Isaac Su</td><td>Henan</td><td>2026-04-10</td><td>83d</td><td>¥61K</td><td>¥253K</td><td>¥0</td><td>50%</td><td>0.00</td><td>27</td></tr><tr><td>13801363</td><td>ZHU, HAIXU</td><td>PLATINUM</td><td>A</td><td>Cooling</td><td>Isaac Su</td><td>Unknown</td><td>2026-06-01</td><td>31d</td><td>¥57K</td><td>¥57K</td><td>¥15K</td><td>31%</td><td>0.80</td><td>195</td></tr><tr><td>10768903</td><td>BAO,JINHAI</td><td>SUPREME</td><td>A</td><td>Cooling</td><td>Isaac Su</td><td>Zhejiang</td><td>2026-04-13</td><td>80d</td><td>¥49K</td><td>¥350K</td><td>¥0</td><td>53%</td><td>0.00</td><td>17</td></tr><tr><td>15701679</td><td>DENG,</td><td>PLATINUM</td><td>A</td><td>Cooling</td><td>Isaac Su</td><td>Hunan</td><td>2026-04-04</td><td>89d</td><td>¥40K</td><td>¥40K</td><td>¥0</td><td>29%</td><td>0.00</td><td>9</td></tr><tr><td>13812618</td><td>XU,LUJUN</td><td>SUPREME</td><td>A</td><td>Cooling</td><td>Isaac Su</td><td>Hebei</td><td>2026-04-04</td><td>89d</td><td>¥31K</td><td>¥31K</td><td>¥0</td><td>5%</td><td>0.00</td><td>6</td></tr><tr><td>16978918</td><td>ZHAO, HONGSONG</td><td>ELITE</td><td>A</td><td>Cooling</td><td>Isaac Su</td><td>Beijing</td><td>2026-06-01</td><td>31d</td><td>¥30K</td><td>¥30K</td><td>¥2K</td><td>18%</td><td>0.22</td><td>197</td></tr></tbody></table>
           </div>
           <footer><span>口径：Hosted + S/A 价值段 + Cooling 31–90d</span><span>动作：48 小时内一对一外呼并记录原因</span></footer>
         </div>
       </section>
 
+      <section class="slide" data-title="S/A Cooling 红标客户追溯">
+        <div class="page">
+          <header>
+            <div>
+              <p class="eyebrow">Trace · 48h Save List</p>
+              <h2>S/A Cooling 红标客户追溯（2/2）</h2>
+            </div>
+            <div class="page-no">10 / 53</div>
+          </header>
+          <div class="content trace-block">
+            <p class="trace-summary">9 人 · R3M ¥735K · R6M ¥1.32M · Dormant ¥587K</p>
 
-      <section class="slide" data-title="动能诊断">
+            <table class="trace-table"><thead><tr><th>ID</th><th>Name</th><th>Tier</th><th>Seg</th><th>Risk</th><th>Host</th><th>Province</th><th>Last</th><th>Days</th><th>R3M</th><th>R6M</th><th>Jun</th><th>RI</th><th>M</th><th>SrcRow</th></tr></thead><tbody><tr><td>16692019</td><td>HAN,MINGFENG</td><td>ELITE</td><td>A</td><td>Cooling</td><td>Isaac Su</td><td>Shandong</td><td>2026-04-08</td><td>85d</td><td>¥21K</td><td>¥21K</td><td>¥0</td><td>91%</td><td>0.00</td><td>37</td></tr></tbody></table>
+          </div>
+          <footer><span>口径：Hosted + S/A 价值段 + Cooling 31–90d</span><span>动作：48 小时内一对一外呼并记录原因</span></footer>
+        </div>
+      </section>
+
+<section class="slide" data-title="动能诊断">
         <div class="page">
           <header>
             <div>
               <p class="eyebrow">Process 3</p>
               <h2>动能诊断：繁荣下面有 ¥3.37M 在失速</h2>
             </div>
-            <div class="page-no">09 / 37</div>
+            <div class="page-no">11 / 53</div>
           </header>
           <div class="content grid cols-3">
             <div class="metric">
@@ -1083,19 +1122,20 @@
           <footer><span>Decision: Momentum Index 进入月度预警</span><span>不要等 R6M 才发现客户已经走了</span></footer>
         </div>
       </section>
+
       <section class="slide" data-title="Falling 客户原始数据追溯">
         <div class="page">
           <header>
             <div>
               <p class="eyebrow">Trace · Falling Momentum</p>
-              <h2>Falling 客户原始数据追溯（1/2）</h2>
+              <h2>Falling 客户原始数据追溯（1/4）</h2>
             </div>
-            <div class="page-no">10 / 37</div>
+            <div class="page-no">12 / 53</div>
           </header>
           <div class="content trace-block">
             <p class="trace-summary">26 人 · R3M ¥1.61M · R6M ¥2.69M · Dormant ¥1.08M</p>
             <p class="trace-action">Falling 是黄金干预窗口，不做群发；每人记录一个主因、一个下一步动作、一个截止日期。</p>
-            <table class="trace-table"><thead><tr><th>ID</th><th>Name</th><th>Tier</th><th>Seg</th><th>Risk</th><th>Host</th><th>Province</th><th>Last</th><th>Days</th><th>R3M</th><th>R6M</th><th>Jun</th><th>RI</th><th>M</th><th>SrcRow</th></tr></thead><tbody><tr><td>16192758</td><td>RAO, HAIJUN</td><td>SUPREME</td><td>S</td><td>Active</td><td>Isaac Su</td><td>Hebei</td><td>2026-06-17</td><td>15d</td><td>¥450K</td><td>¥463K</td><td>¥64K</td><td>25%</td><td>0.43</td><td>92</td></tr><tr><td>16655793</td><td>PENG, HUA</td><td>SUPREME 88</td><td>S</td><td>Active</td><td>Isaac Su</td><td>Zhejiang</td><td>2026-06-08</td><td>24d</td><td>¥153K</td><td>¥529K</td><td>¥18K</td><td>43%</td><td>0.35</td><td>156</td></tr><tr><td>16182385</td><td>BING, JINING</td><td>SUPREME</td><td>S</td><td>Active</td><td>Isaac Su</td><td>Liaoning</td><td>2026-06-27</td><td>5d</td><td>¥144K</td><td>¥144K</td><td>¥33K</td><td>30%</td><td>0.68</td><td>20</td></tr><tr><td>11832680</td><td>LIU, YANYAN</td><td>PLATINUM</td><td>S</td><td>Active</td><td>Isaac Su</td><td>Jiangxi</td><td>2026-06-04</td><td>28d</td><td>¥125K</td><td>¥179K</td><td>¥24K</td><td>26%</td><td>0.58</td><td>180</td></tr><tr><td>15838051</td><td>SONG, ZENGWEI</td><td>PLATINUM</td><td>S</td><td>Active</td><td>Isaac Su</td><td>Shandong</td><td>2026-06-09</td><td>23d</td><td>¥123K</td><td>¥123K</td><td>¥21K</td><td>16%</td><td>0.51</td><td>154</td></tr><tr><td>15360301</td><td>TONG, FEI</td><td>PLATINUM</td><td>A</td><td>Active</td><td>Isaac Su</td><td>Inner</td><td>2026-06-27</td><td>5d</td><td>¥84K</td><td>¥186K</td><td>¥11K</td><td>43%</td><td>0.40</td><td>28</td></tr><tr><td>16502122</td><td>GONG, YIDONG</td><td>PLATINUM</td><td>A</td><td>Active</td><td>Isaac Su</td><td>Unknown</td><td>2026-06-18</td><td>14d</td><td>¥82K</td><td>¥140K</td><td>¥20K</td><td>67%</td><td>0.73</td><td>87</td></tr><tr><td>12613525</td><td>XIE, YUEJIN</td><td>PLATINUM</td><td>A</td><td>Active</td><td>Isaac Su</td><td>Yunnan</td><td>2026-06-13</td><td>19d</td><td>¥60K</td><td>¥113K</td><td>¥5K</td><td>23%</td><td>0.24</td><td>121</td></tr><tr><td>16071678</td><td>CAO, YONG</td><td>ELITE</td><td>A</td><td>Active</td><td>Isaac Su</td><td>Jiangsu</td><td>2026-06-28</td><td>4d</td><td>¥57K</td><td>¥106K</td><td>¥5K</td><td>35%</td><td>0.28</td><td>8</td></tr><tr><td>13058209</td><td>ZHU, LIN</td><td>PLATINUM</td><td>A</td><td>Active</td><td>Isaac Su</td><td>Unknown</td><td>2026-06-06</td><td>26d</td><td>¥48K</td><td>¥136K</td><td>¥5K</td><td>19%</td><td>0.29</td><td>171</td></tr><tr><td>15385723</td><td>LIU, GUANGHUI</td><td>ELITE</td><td>A</td><td>Active</td><td>Isaac Su</td><td>Hunan</td><td>2026-06-16</td><td>16d</td><td>¥44K</td><td>¥78K</td><td>¥7K</td><td>38%</td><td>0.49</td><td>104</td></tr><tr><td>15203950</td><td>FU, ZIHAO</td><td>SUPREME</td><td>A</td><td>Active</td><td>Isaac Su</td><td>Hunan</td><td>2026-06-18</td><td>14d</td><td>¥39K</td><td>¥40K</td><td>¥6K</td><td>31%</td><td>0.43</td><td>89</td></tr><tr><td>16601398</td><td>HUANG, MENG</td><td>SUPREME</td><td>A</td><td>Active</td><td>Isaac Su</td><td>Shaanxi</td><td>2026-06-10</td><td>22d</td><td>¥31K</td><td>¥195K</td><td>¥7K</td><td>74%</td><td>0.64</td><td>145</td></tr><tr><td>16978918</td><td>ZHAO, HONGSONG</td><td>ELITE</td><td>A</td><td>Cooling</td><td>Isaac Su</td><td>Beijing</td><td>2026-06-01</td><td>31d</td><td>¥30K</td><td>¥30K</td><td>¥2K</td><td>18%</td><td>0.22</td><td>197</td></tr></tbody></table>
+            <table class="trace-table"><thead><tr><th>ID</th><th>Name</th><th>Tier</th><th>Seg</th><th>Risk</th><th>Host</th><th>Province</th><th>Last</th><th>Days</th><th>R3M</th><th>R6M</th><th>Jun</th><th>RI</th><th>M</th><th>SrcRow</th></tr></thead><tbody><tr><td>16192758</td><td>RAO, HAIJUN</td><td>SUPREME</td><td>S</td><td>Active</td><td>Isaac Su</td><td>Hebei</td><td>2026-06-17</td><td>15d</td><td>¥450K</td><td>¥463K</td><td>¥64K</td><td>25%</td><td>0.43</td><td>92</td></tr><tr><td>16655793</td><td>PENG, HUA</td><td>SUPREME 88</td><td>S</td><td>Active</td><td>Isaac Su</td><td>Zhejiang</td><td>2026-06-08</td><td>24d</td><td>¥153K</td><td>¥529K</td><td>¥18K</td><td>43%</td><td>0.35</td><td>156</td></tr><tr><td>16182385</td><td>BING, JINING</td><td>SUPREME</td><td>S</td><td>Active</td><td>Isaac Su</td><td>Liaoning</td><td>2026-06-27</td><td>5d</td><td>¥144K</td><td>¥144K</td><td>¥33K</td><td>30%</td><td>0.68</td><td>20</td></tr><tr><td>11832680</td><td>LIU, YANYAN</td><td>PLATINUM</td><td>S</td><td>Active</td><td>Isaac Su</td><td>Jiangxi</td><td>2026-06-04</td><td>28d</td><td>¥125K</td><td>¥179K</td><td>¥24K</td><td>26%</td><td>0.58</td><td>180</td></tr><tr><td>15838051</td><td>SONG, ZENGWEI</td><td>PLATINUM</td><td>S</td><td>Active</td><td>Isaac Su</td><td>Shandong</td><td>2026-06-09</td><td>23d</td><td>¥123K</td><td>¥123K</td><td>¥21K</td><td>16%</td><td>0.51</td><td>154</td></tr><tr><td>15360301</td><td>TONG, FEI</td><td>PLATINUM</td><td>A</td><td>Active</td><td>Isaac Su</td><td>Inner</td><td>2026-06-27</td><td>5d</td><td>¥84K</td><td>¥186K</td><td>¥11K</td><td>43%</td><td>0.40</td><td>28</td></tr><tr><td>16502122</td><td>GONG, YIDONG</td><td>PLATINUM</td><td>A</td><td>Active</td><td>Isaac Su</td><td>Unknown</td><td>2026-06-18</td><td>14d</td><td>¥82K</td><td>¥140K</td><td>¥20K</td><td>67%</td><td>0.73</td><td>87</td></tr><tr><td>12613525</td><td>XIE, YUEJIN</td><td>PLATINUM</td><td>A</td><td>Active</td><td>Isaac Su</td><td>Yunnan</td><td>2026-06-13</td><td>19d</td><td>¥60K</td><td>¥113K</td><td>¥5K</td><td>23%</td><td>0.24</td><td>121</td></tr></tbody></table>
           </div>
           <footer><span>口径：Hosted 且 R3M&gt;0，Momentum 0.2–0.8；CSV 可识别 26 条</span><span>动作：逐个问原因，分类为行程/预算/关系/竞品/资料问题</span></footer>
         </div>
@@ -1106,14 +1146,50 @@
           <header>
             <div>
               <p class="eyebrow">Trace · Falling Momentum</p>
-              <h2>Falling 客户原始数据追溯（2/2）</h2>
+              <h2>Falling 客户原始数据追溯（2/4）</h2>
             </div>
-            <div class="page-no">11 / 37</div>
+            <div class="page-no">13 / 53</div>
           </header>
           <div class="content trace-block">
             <p class="trace-summary">26 人 · R3M ¥1.61M · R6M ¥2.69M · Dormant ¥1.08M</p>
 
-            <table class="trace-table"><thead><tr><th>ID</th><th>Name</th><th>Tier</th><th>Seg</th><th>Risk</th><th>Host</th><th>Province</th><th>Last</th><th>Days</th><th>R3M</th><th>R6M</th><th>Jun</th><th>RI</th><th>M</th><th>SrcRow</th></tr></thead><tbody><tr><td>16380262</td><td>LIN, FENGLING</td><td>ELITE</td><td>A</td><td>Active</td><td>Isaac Su</td><td>Unknown</td><td>2026-06-03</td><td>29d</td><td>¥26K</td><td>¥26K</td><td>¥5K</td><td>34%</td><td>0.59</td><td>184</td></tr><tr><td>11271563</td><td>HE, XIGEBAYAER</td><td>ELITE</td><td>A</td><td>Active</td><td>Isaac Su</td><td>Inner</td><td>2026-06-09</td><td>23d</td><td>¥24K</td><td>¥24K</td><td>¥3K</td><td>24%</td><td>0.34</td><td>148</td></tr><tr><td>11889818</td><td>LI, CONG</td><td>ELITE</td><td>A</td><td>Active</td><td>Isaac Su</td><td>Shanxi</td><td>2026-06-24</td><td>8d</td><td>¥22K</td><td>¥53K</td><td>¥4K</td><td>14%</td><td>0.52</td><td>50</td></tr><tr><td>15665895</td><td>LI, FAN</td><td>ELITE</td><td>A</td><td>Active</td><td>Isaac Su</td><td>Beijing</td><td>2026-06-02</td><td>30d</td><td>¥21K</td><td>¥44K</td><td>¥3K</td><td>37%</td><td>0.40</td><td>190</td></tr><tr><td>12820981</td><td>YAN, LEI</td><td>ELITE</td><td>B</td><td>Active</td><td>Isaac Su</td><td>Guangxi</td><td>2026-06-15</td><td>17d</td><td>¥18K</td><td>¥18K</td><td>¥3K</td><td>60%</td><td>0.52</td><td>107</td></tr><tr><td>16110788</td><td>XU, WEI</td><td>GOLD</td><td>B</td><td>Cooling</td><td>Isaac Su</td><td>Jiangsu</td><td>2026-06-01</td><td>31d</td><td>¥12K</td><td>¥12K</td><td>¥1K</td><td>40%</td><td>0.33</td><td>194</td></tr><tr><td>16658053</td><td>WANG, JIAN</td><td>GOLD</td><td>B</td><td>Active</td><td>Isaac Su</td><td>Henan</td><td>2026-06-12</td><td>20d</td><td>¥9K</td><td>¥10K</td><td>¥984</td><td>8%</td><td>0.32</td><td>129</td></tr><tr><td>16358282</td><td>FANG, WEI</td><td>ELITE</td><td>B</td><td>Active</td><td>Isaac Su</td><td>Hubei</td><td>2026-06-16</td><td>16d</td><td>¥5K</td><td>¥25K</td><td>¥704</td><td>32%</td><td>0.39</td><td>101</td></tr><tr><td>15670229</td><td>LI, LINGJUN</td><td>GOLD</td><td>C</td><td>Active</td><td>Isaac Su</td><td>Shanxi</td><td>2026-06-17</td><td>15d</td><td>¥4K</td><td>¥4K</td><td>¥440</td><td>55%</td><td>0.32</td><td>97</td></tr><tr><td>16580632</td><td>XU, XIAOMEI</td><td>GOLD</td><td>C</td><td>Active</td><td>Isaac Su</td><td>Guangxi</td><td>2026-06-29</td><td>3d</td><td>¥2K</td><td>¥2K</td><td>¥538</td><td>16%</td><td>0.73</td><td>3</td></tr><tr><td>10867755</td><td>LI, LIMING</td><td>GOLD</td><td>C</td><td>Active</td><td>Isaac Su</td><td>Fujian</td><td>2026-06-19</td><td>13d</td><td>¥975</td><td>¥6K</td><td>¥104</td><td>3%</td><td>0.32</td><td>78</td></tr><tr><td>15765626</td><td>JIANG, LANGXIN</td><td>GOLD</td><td>C</td><td>Active</td><td>Isaac Su</td><td>Unknown</td><td>2026-06-05</td><td>27d</td><td>¥748</td><td>¥1K</td><td>¥102</td><td>5%</td><td>0.41</td><td>177</td></tr></tbody></table>
+            <table class="trace-table"><thead><tr><th>ID</th><th>Name</th><th>Tier</th><th>Seg</th><th>Risk</th><th>Host</th><th>Province</th><th>Last</th><th>Days</th><th>R3M</th><th>R6M</th><th>Jun</th><th>RI</th><th>M</th><th>SrcRow</th></tr></thead><tbody><tr><td>16071678</td><td>CAO, YONG</td><td>ELITE</td><td>A</td><td>Active</td><td>Isaac Su</td><td>Jiangsu</td><td>2026-06-28</td><td>4d</td><td>¥57K</td><td>¥106K</td><td>¥5K</td><td>35%</td><td>0.28</td><td>8</td></tr><tr><td>13058209</td><td>ZHU, LIN</td><td>PLATINUM</td><td>A</td><td>Active</td><td>Isaac Su</td><td>Unknown</td><td>2026-06-06</td><td>26d</td><td>¥48K</td><td>¥136K</td><td>¥5K</td><td>19%</td><td>0.29</td><td>171</td></tr><tr><td>15385723</td><td>LIU, GUANGHUI</td><td>ELITE</td><td>A</td><td>Active</td><td>Isaac Su</td><td>Hunan</td><td>2026-06-16</td><td>16d</td><td>¥44K</td><td>¥78K</td><td>¥7K</td><td>38%</td><td>0.49</td><td>104</td></tr><tr><td>15203950</td><td>FU, ZIHAO</td><td>SUPREME</td><td>A</td><td>Active</td><td>Isaac Su</td><td>Hunan</td><td>2026-06-18</td><td>14d</td><td>¥39K</td><td>¥40K</td><td>¥6K</td><td>31%</td><td>0.43</td><td>89</td></tr><tr><td>16601398</td><td>HUANG, MENG</td><td>SUPREME</td><td>A</td><td>Active</td><td>Isaac Su</td><td>Shaanxi</td><td>2026-06-10</td><td>22d</td><td>¥31K</td><td>¥195K</td><td>¥7K</td><td>74%</td><td>0.64</td><td>145</td></tr><tr><td>16978918</td><td>ZHAO, HONGSONG</td><td>ELITE</td><td>A</td><td>Cooling</td><td>Isaac Su</td><td>Beijing</td><td>2026-06-01</td><td>31d</td><td>¥30K</td><td>¥30K</td><td>¥2K</td><td>18%</td><td>0.22</td><td>197</td></tr><tr><td>16380262</td><td>LIN, FENGLING</td><td>ELITE</td><td>A</td><td>Active</td><td>Isaac Su</td><td>Unknown</td><td>2026-06-03</td><td>29d</td><td>¥26K</td><td>¥26K</td><td>¥5K</td><td>34%</td><td>0.59</td><td>184</td></tr><tr><td>11271563</td><td>HE, XIGEBAYAER</td><td>ELITE</td><td>A</td><td>Active</td><td>Isaac Su</td><td>Inner</td><td>2026-06-09</td><td>23d</td><td>¥24K</td><td>¥24K</td><td>¥3K</td><td>24%</td><td>0.34</td><td>148</td></tr></tbody></table>
+          </div>
+          <footer><span>口径：Hosted 且 R3M&gt;0，Momentum 0.2–0.8；CSV 可识别 26 条</span><span>动作：逐个问原因，分类为行程/预算/关系/竞品/资料问题</span></footer>
+        </div>
+      </section>
+
+      <section class="slide" data-title="Falling 客户原始数据追溯">
+        <div class="page">
+          <header>
+            <div>
+              <p class="eyebrow">Trace · Falling Momentum</p>
+              <h2>Falling 客户原始数据追溯（3/4）</h2>
+            </div>
+            <div class="page-no">14 / 53</div>
+          </header>
+          <div class="content trace-block">
+            <p class="trace-summary">26 人 · R3M ¥1.61M · R6M ¥2.69M · Dormant ¥1.08M</p>
+
+            <table class="trace-table"><thead><tr><th>ID</th><th>Name</th><th>Tier</th><th>Seg</th><th>Risk</th><th>Host</th><th>Province</th><th>Last</th><th>Days</th><th>R3M</th><th>R6M</th><th>Jun</th><th>RI</th><th>M</th><th>SrcRow</th></tr></thead><tbody><tr><td>11889818</td><td>LI, CONG</td><td>ELITE</td><td>A</td><td>Active</td><td>Isaac Su</td><td>Shanxi</td><td>2026-06-24</td><td>8d</td><td>¥22K</td><td>¥53K</td><td>¥4K</td><td>14%</td><td>0.52</td><td>50</td></tr><tr><td>15665895</td><td>LI, FAN</td><td>ELITE</td><td>A</td><td>Active</td><td>Isaac Su</td><td>Beijing</td><td>2026-06-02</td><td>30d</td><td>¥21K</td><td>¥44K</td><td>¥3K</td><td>37%</td><td>0.40</td><td>190</td></tr><tr><td>12820981</td><td>YAN, LEI</td><td>ELITE</td><td>B</td><td>Active</td><td>Isaac Su</td><td>Guangxi</td><td>2026-06-15</td><td>17d</td><td>¥18K</td><td>¥18K</td><td>¥3K</td><td>60%</td><td>0.52</td><td>107</td></tr><tr><td>16110788</td><td>XU, WEI</td><td>GOLD</td><td>B</td><td>Cooling</td><td>Isaac Su</td><td>Jiangsu</td><td>2026-06-01</td><td>31d</td><td>¥12K</td><td>¥12K</td><td>¥1K</td><td>40%</td><td>0.33</td><td>194</td></tr><tr><td>16658053</td><td>WANG, JIAN</td><td>GOLD</td><td>B</td><td>Active</td><td>Isaac Su</td><td>Henan</td><td>2026-06-12</td><td>20d</td><td>¥9K</td><td>¥10K</td><td>¥984</td><td>8%</td><td>0.32</td><td>129</td></tr><tr><td>16358282</td><td>FANG, WEI</td><td>ELITE</td><td>B</td><td>Active</td><td>Isaac Su</td><td>Hubei</td><td>2026-06-16</td><td>16d</td><td>¥5K</td><td>¥25K</td><td>¥704</td><td>32%</td><td>0.39</td><td>101</td></tr><tr><td>15670229</td><td>LI, LINGJUN</td><td>GOLD</td><td>C</td><td>Active</td><td>Isaac Su</td><td>Shanxi</td><td>2026-06-17</td><td>15d</td><td>¥4K</td><td>¥4K</td><td>¥440</td><td>55%</td><td>0.32</td><td>97</td></tr><tr><td>16580632</td><td>XU, XIAOMEI</td><td>GOLD</td><td>C</td><td>Active</td><td>Isaac Su</td><td>Guangxi</td><td>2026-06-29</td><td>3d</td><td>¥2K</td><td>¥2K</td><td>¥538</td><td>16%</td><td>0.73</td><td>3</td></tr></tbody></table>
+          </div>
+          <footer><span>口径：Hosted 且 R3M&gt;0，Momentum 0.2–0.8；CSV 可识别 26 条</span><span>动作：逐个问原因，分类为行程/预算/关系/竞品/资料问题</span></footer>
+        </div>
+      </section>
+
+      <section class="slide" data-title="Falling 客户原始数据追溯">
+        <div class="page">
+          <header>
+            <div>
+              <p class="eyebrow">Trace · Falling Momentum</p>
+              <h2>Falling 客户原始数据追溯（4/4）</h2>
+            </div>
+            <div class="page-no">15 / 53</div>
+          </header>
+          <div class="content trace-block">
+            <p class="trace-summary">26 人 · R3M ¥1.61M · R6M ¥2.69M · Dormant ¥1.08M</p>
+
+            <table class="trace-table"><thead><tr><th>ID</th><th>Name</th><th>Tier</th><th>Seg</th><th>Risk</th><th>Host</th><th>Province</th><th>Last</th><th>Days</th><th>R3M</th><th>R6M</th><th>Jun</th><th>RI</th><th>M</th><th>SrcRow</th></tr></thead><tbody><tr><td>10867755</td><td>LI, LIMING</td><td>GOLD</td><td>C</td><td>Active</td><td>Isaac Su</td><td>Fujian</td><td>2026-06-19</td><td>13d</td><td>¥975</td><td>¥6K</td><td>¥104</td><td>3%</td><td>0.32</td><td>78</td></tr><tr><td>15765626</td><td>JIANG, LANGXIN</td><td>GOLD</td><td>C</td><td>Active</td><td>Isaac Su</td><td>Unknown</td><td>2026-06-05</td><td>27d</td><td>¥748</td><td>¥1K</td><td>¥102</td><td>5%</td><td>0.41</td><td>177</td></tr></tbody></table>
           </div>
           <footer><span>口径：Hosted 且 R3M&gt;0，Momentum 0.2–0.8；CSV 可识别 26 条</span><span>动作：逐个问原因，分类为行程/预算/关系/竞品/资料问题</span></footer>
         </div>
@@ -1124,14 +1200,14 @@
           <header>
             <div>
               <p class="eyebrow">Trace · Stalled Momentum</p>
-              <h2>Stalled 熄火客户原始数据追溯（1/6）</h2>
+              <h2>Stalled 熄火客户原始数据追溯（1/10）</h2>
             </div>
-            <div class="page-no">12 / 37</div>
+            <div class="page-no">16 / 53</div>
           </header>
           <div class="content trace-block">
             <p class="trace-summary">75 人 · R3M ¥1.70M · R6M ¥3.95M · Dormant ¥2.25M</p>
             <p class="trace-action">Stalled 先分两类：高价值可救客户走人工，低价值或长期未见客户转自动化，避免占用 Host。</p>
-            <table class="trace-table"><thead><tr><th>ID</th><th>Name</th><th>Tier</th><th>Seg</th><th>Risk</th><th>Host</th><th>Province</th><th>Last</th><th>Days</th><th>R3M</th><th>R6M</th><th>Jun</th><th>RI</th><th>M</th><th>SrcRow</th></tr></thead><tbody><tr><td>16979136</td><td>YANG, SHUAI</td><td>PLATINUM</td><td>S</td><td>Active</td><td>Isaac Su</td><td>Hebei</td><td>2026-06-09</td><td>23d</td><td>¥339K</td><td>¥339K</td><td>¥18K</td><td>19%</td><td>0.16</td><td>153</td></tr><tr><td>12502191</td><td>ZHANG,JIANBO</td><td>SUPREME</td><td>S</td><td>Cooling</td><td>Isaac Su</td><td>Unknown</td><td>2026-04-12</td><td>81d</td><td>¥258K</td><td>¥352K</td><td>¥0</td><td>35%</td><td>0.00</td><td>18</td></tr><tr><td>16276735</td><td>WANG, LEI</td><td>SUPREME</td><td>S</td><td>Active</td><td>Isaac Su</td><td>Shanghai</td><td>2026-06-05</td><td>27d</td><td>¥239K</td><td>¥432K</td><td>¥15K</td><td>39%</td><td>0.19</td><td>172</td></tr><tr><td>10183100</td><td>TSE,KWAN HUNG</td><td>SUPREME</td><td>S</td><td>Cooling</td><td>Isaac Su</td><td>Unknown</td><td>2026-04-16</td><td>77d</td><td>¥189K</td><td>¥189K</td><td>¥0</td><td>18%</td><td>0.00</td><td>1</td></tr><tr><td>16615738</td><td>RONG, YINGBO</td><td>SUPREME 88</td><td>A</td><td>Active</td><td>Isaac Su</td><td>Tianjin</td><td>2026-06-12</td><td>20d</td><td>¥81K</td><td>¥639K</td><td>¥616</td><td>63%</td><td>0.02</td><td>128</td></tr><tr><td>16621176</td><td>ZHONG, JUAN</td><td>PLATINUM</td><td>A</td><td>Active</td><td>Isaac Su</td><td>Yunnan</td><td>2026-06-18</td><td>14d</td><td>¥68K</td><td>¥197K</td><td>¥3K</td><td>19%</td><td>0.13</td><td>88</td></tr><tr><td>15823818</td><td>YANG,FUKAI</td><td>SUPREME 88</td><td>A</td><td>Cooling</td><td>Isaac Su</td><td>Henan</td><td>2026-04-10</td><td>83d</td><td>¥61K</td><td>¥253K</td><td>¥0</td><td>50%</td><td>0.00</td><td>27</td></tr><tr><td>10768903</td><td>BAO,JINHAI</td><td>SUPREME</td><td>A</td><td>Cooling</td><td>Isaac Su</td><td>Zhejiang</td><td>2026-04-13</td><td>80d</td><td>¥49K</td><td>¥350K</td><td>¥0</td><td>53%</td><td>0.00</td><td>17</td></tr><tr><td>15701679</td><td>DENG,</td><td>PLATINUM</td><td>A</td><td>Cooling</td><td>Isaac Su</td><td>Hunan</td><td>2026-04-04</td><td>89d</td><td>¥40K</td><td>¥40K</td><td>¥0</td><td>29%</td><td>0.00</td><td>9</td></tr><tr><td>13812618</td><td>XU,LUJUN</td><td>SUPREME</td><td>A</td><td>Cooling</td><td>Isaac Su</td><td>Hebei</td><td>2026-04-04</td><td>89d</td><td>¥31K</td><td>¥31K</td><td>¥0</td><td>5%</td><td>0.00</td><td>6</td></tr><tr><td>16861085</td><td>HUANG, SHILIANG</td><td>PLATINUM</td><td>A</td><td>At-Risk</td><td>Isaac Su</td><td>Hubei</td><td>2026-04-01</td><td>92d</td><td>¥28K</td><td>¥45K</td><td>¥0</td><td>11%</td><td>0.00</td><td>18</td></tr><tr><td>10958918</td><td>LU, HELING</td><td>ELITE</td><td>A</td><td>Active</td><td>Isaac Su</td><td>Unknown</td><td>2026-06-02</td><td>30d</td><td>¥27K</td><td>¥27K</td><td>¥2K</td><td>30%</td><td>0.19</td><td>188</td></tr><tr><td>16692019</td><td>HAN,MINGFENG</td><td>ELITE</td><td>A</td><td>Cooling</td><td>Isaac Su</td><td>Shandong</td><td>2026-04-08</td><td>85d</td><td>¥21K</td><td>¥21K</td><td>¥0</td><td>91%</td><td>0.00</td><td>37</td></tr><tr><td>13391286</td><td>YAN, JYI</td><td>PLATINUM</td><td>B</td><td>Cooling</td><td>Isaac Su</td><td>Hebei</td><td>2026-04-06</td><td>87d</td><td>¥18K</td><td>¥52K</td><td>¥0</td><td>63%</td><td>0.00</td><td>42</td></tr></tbody></table>
+            <table class="trace-table"><thead><tr><th>ID</th><th>Name</th><th>Tier</th><th>Seg</th><th>Risk</th><th>Host</th><th>Province</th><th>Last</th><th>Days</th><th>R3M</th><th>R6M</th><th>Jun</th><th>RI</th><th>M</th><th>SrcRow</th></tr></thead><tbody><tr><td>16979136</td><td>YANG, SHUAI</td><td>PLATINUM</td><td>S</td><td>Active</td><td>Isaac Su</td><td>Hebei</td><td>2026-06-09</td><td>23d</td><td>¥339K</td><td>¥339K</td><td>¥18K</td><td>19%</td><td>0.16</td><td>153</td></tr><tr><td>12502191</td><td>ZHANG,JIANBO</td><td>SUPREME</td><td>S</td><td>Cooling</td><td>Isaac Su</td><td>Unknown</td><td>2026-04-12</td><td>81d</td><td>¥258K</td><td>¥352K</td><td>¥0</td><td>35%</td><td>0.00</td><td>18</td></tr><tr><td>16276735</td><td>WANG, LEI</td><td>SUPREME</td><td>S</td><td>Active</td><td>Isaac Su</td><td>Shanghai</td><td>2026-06-05</td><td>27d</td><td>¥239K</td><td>¥432K</td><td>¥15K</td><td>39%</td><td>0.19</td><td>172</td></tr><tr><td>10183100</td><td>TSE,KWAN HUNG</td><td>SUPREME</td><td>S</td><td>Cooling</td><td>Isaac Su</td><td>Unknown</td><td>2026-04-16</td><td>77d</td><td>¥189K</td><td>¥189K</td><td>¥0</td><td>18%</td><td>0.00</td><td>1</td></tr><tr><td>16615738</td><td>RONG, YINGBO</td><td>SUPREME 88</td><td>A</td><td>Active</td><td>Isaac Su</td><td>Tianjin</td><td>2026-06-12</td><td>20d</td><td>¥81K</td><td>¥639K</td><td>¥616</td><td>63%</td><td>0.02</td><td>128</td></tr><tr><td>16621176</td><td>ZHONG, JUAN</td><td>PLATINUM</td><td>A</td><td>Active</td><td>Isaac Su</td><td>Yunnan</td><td>2026-06-18</td><td>14d</td><td>¥68K</td><td>¥197K</td><td>¥3K</td><td>19%</td><td>0.13</td><td>88</td></tr><tr><td>15823818</td><td>YANG,FUKAI</td><td>SUPREME 88</td><td>A</td><td>Cooling</td><td>Isaac Su</td><td>Henan</td><td>2026-04-10</td><td>83d</td><td>¥61K</td><td>¥253K</td><td>¥0</td><td>50%</td><td>0.00</td><td>27</td></tr><tr><td>10768903</td><td>BAO,JINHAI</td><td>SUPREME</td><td>A</td><td>Cooling</td><td>Isaac Su</td><td>Zhejiang</td><td>2026-04-13</td><td>80d</td><td>¥49K</td><td>¥350K</td><td>¥0</td><td>53%</td><td>0.00</td><td>17</td></tr></tbody></table>
           </div>
           <footer><span>口径：Hosted 且 R3M&gt;0，Momentum &lt;0.2</span><span>动作：判断是否仍可挽回，不能挽回则退出人工覆盖</span></footer>
         </div>
@@ -1142,14 +1218,14 @@
           <header>
             <div>
               <p class="eyebrow">Trace · Stalled Momentum</p>
-              <h2>Stalled 熄火客户原始数据追溯（2/6）</h2>
+              <h2>Stalled 熄火客户原始数据追溯（2/10）</h2>
             </div>
-            <div class="page-no">13 / 37</div>
+            <div class="page-no">17 / 53</div>
           </header>
           <div class="content trace-block">
             <p class="trace-summary">75 人 · R3M ¥1.70M · R6M ¥3.95M · Dormant ¥2.25M</p>
 
-            <table class="trace-table"><thead><tr><th>ID</th><th>Name</th><th>Tier</th><th>Seg</th><th>Risk</th><th>Host</th><th>Province</th><th>Last</th><th>Days</th><th>R3M</th><th>R6M</th><th>Jun</th><th>RI</th><th>M</th><th>SrcRow</th></tr></thead><tbody><tr><td>16652825</td><td>ZHOUFENG</td><td>SUPREME</td><td>B</td><td>Cooling</td><td>Isaac Su</td><td>Unknown</td><td>2026-04-05</td><td>88d</td><td>¥15K</td><td>¥85K</td><td>¥0</td><td>119%</td><td>0.00</td><td>5</td></tr><tr><td>16329738</td><td>ZHANG,WEI</td><td>GOLD</td><td>B</td><td>Cooling</td><td>Isaac Su</td><td>Sichuan</td><td>2026-04-11</td><td>82d</td><td>¥11K</td><td>¥11K</td><td>¥0</td><td>47%</td><td>0.00</td><td>22</td></tr><tr><td>11380199</td><td>WU, JIE CHUN</td><td>GOLD</td><td>B</td><td>Cooling</td><td>Isaac Su</td><td>Unknown</td><td>2026-04-14</td><td>79d</td><td>¥11K</td><td>¥11K</td><td>¥0</td><td>57%</td><td>0.00</td><td>13</td></tr><tr><td>16599757</td><td>TAN,XIAOLONG</td><td>ELITE</td><td>B</td><td>At-Risk</td><td>Isaac Su</td><td>Hebei</td><td>2026-03-31</td><td>93d</td><td>¥10K</td><td>¥71K</td><td>¥0</td><td>52%</td><td>0.00</td><td>21</td></tr><tr><td>15353562</td><td>LIU,XIAOQUN</td><td>PLATINUM</td><td>B</td><td>Cooling</td><td>Isaac Su</td><td>Sichuan</td><td>2026-04-04</td><td>89d</td><td>¥10K</td><td>¥176K</td><td>¥0</td><td>25%</td><td>0.00</td><td>7</td></tr><tr><td>16852797</td><td>SIQINBILIGE,</td><td>ELITE</td><td>B</td><td>Cooling</td><td>Isaac Su</td><td>Inner</td><td>2026-04-16</td><td>77d</td><td>¥10K</td><td>¥29K</td><td>¥0</td><td>2%</td><td>0.00</td><td>5</td></tr><tr><td>15985071</td><td>WU, YIBIN</td><td>GOLD</td><td>B</td><td>Active</td><td>Isaac Su</td><td>Tianjin</td><td>2026-06-09</td><td>23d</td><td>¥10K</td><td>¥10K</td><td>¥352</td><td>92%</td><td>0.11</td><td>155</td></tr><tr><td>16330102</td><td>LIANG,ZHIGANG</td><td>SUPREME</td><td>B</td><td>Cooling</td><td>Isaac Su</td><td>Shanxi</td><td>2026-04-15</td><td>78d</td><td>¥10K</td><td>¥10K</td><td>¥0</td><td>22%</td><td>0.00</td><td>9</td></tr><tr><td>10635258</td><td>MAO, ZHIQIU</td><td>GOLD</td><td>B</td><td>Cooling</td><td>Isaac Su</td><td>Hunan</td><td>2026-04-08</td><td>85d</td><td>¥9K</td><td>¥9K</td><td>¥0</td><td>8%</td><td>0.00</td><td>33</td></tr><tr><td>16329509</td><td>ZHANG, HONGYU</td><td>ELITE</td><td>B</td><td>Cooling</td><td>Isaac Su</td><td>Sichuan</td><td>2026-04-11</td><td>82d</td><td>¥9K</td><td>¥37K</td><td>¥0</td><td>53%</td><td>0.00</td><td>21</td></tr><tr><td>12996515</td><td>TAO, YUNFEI</td><td>GOLD</td><td>B</td><td>Cooling</td><td>Isaac Su</td><td>Zhejiang</td><td>2026-04-09</td><td>84d</td><td>¥9K</td><td>¥9K</td><td>¥0</td><td>15%</td><td>0.00</td><td>32</td></tr><tr><td>10778917</td><td>GUO,ZHAO</td><td>ELITE</td><td>B</td><td>Cooling</td><td>Isaac Su</td><td>Unknown</td><td>2026-04-09</td><td>84d</td><td>¥7K</td><td>¥22K</td><td>¥0</td><td>38%</td><td>0.00</td><td>28</td></tr><tr><td>15885862</td><td>FANG, XIAOLAN</td><td>ELITE</td><td>B</td><td>Cooling</td><td>Isaac Su</td><td>Zhejiang</td><td>2026-04-12</td><td>81d</td><td>¥7K</td><td>¥21K</td><td>¥0</td><td>31%</td><td>0.00</td><td>20</td></tr><tr><td>16760821</td><td>ZHAO, JIAN</td><td>PLATINUM</td><td>B</td><td>Cooling</td><td>Isaac Su</td><td>Xinjiang</td><td>2026-04-10</td><td>83d</td><td>¥7K</td><td>¥14K</td><td>¥0</td><td>153%</td><td>0.00</td><td>26</td></tr></tbody></table>
+            <table class="trace-table"><thead><tr><th>ID</th><th>Name</th><th>Tier</th><th>Seg</th><th>Risk</th><th>Host</th><th>Province</th><th>Last</th><th>Days</th><th>R3M</th><th>R6M</th><th>Jun</th><th>RI</th><th>M</th><th>SrcRow</th></tr></thead><tbody><tr><td>15701679</td><td>DENG,</td><td>PLATINUM</td><td>A</td><td>Cooling</td><td>Isaac Su</td><td>Hunan</td><td>2026-04-04</td><td>89d</td><td>¥40K</td><td>¥40K</td><td>¥0</td><td>29%</td><td>0.00</td><td>9</td></tr><tr><td>13812618</td><td>XU,LUJUN</td><td>SUPREME</td><td>A</td><td>Cooling</td><td>Isaac Su</td><td>Hebei</td><td>2026-04-04</td><td>89d</td><td>¥31K</td><td>¥31K</td><td>¥0</td><td>5%</td><td>0.00</td><td>6</td></tr><tr><td>16861085</td><td>HUANG, SHILIANG</td><td>PLATINUM</td><td>A</td><td>At-Risk</td><td>Isaac Su</td><td>Hubei</td><td>2026-04-01</td><td>92d</td><td>¥28K</td><td>¥45K</td><td>¥0</td><td>11%</td><td>0.00</td><td>18</td></tr><tr><td>10958918</td><td>LU, HELING</td><td>ELITE</td><td>A</td><td>Active</td><td>Isaac Su</td><td>Unknown</td><td>2026-06-02</td><td>30d</td><td>¥27K</td><td>¥27K</td><td>¥2K</td><td>30%</td><td>0.19</td><td>188</td></tr><tr><td>16692019</td><td>HAN,MINGFENG</td><td>ELITE</td><td>A</td><td>Cooling</td><td>Isaac Su</td><td>Shandong</td><td>2026-04-08</td><td>85d</td><td>¥21K</td><td>¥21K</td><td>¥0</td><td>91%</td><td>0.00</td><td>37</td></tr><tr><td>13391286</td><td>YAN, JYI</td><td>PLATINUM</td><td>B</td><td>Cooling</td><td>Isaac Su</td><td>Hebei</td><td>2026-04-06</td><td>87d</td><td>¥18K</td><td>¥52K</td><td>¥0</td><td>63%</td><td>0.00</td><td>42</td></tr><tr><td>16652825</td><td>ZHOUFENG</td><td>SUPREME</td><td>B</td><td>Cooling</td><td>Isaac Su</td><td>Unknown</td><td>2026-04-05</td><td>88d</td><td>¥15K</td><td>¥85K</td><td>¥0</td><td>119%</td><td>0.00</td><td>5</td></tr><tr><td>16329738</td><td>ZHANG,WEI</td><td>GOLD</td><td>B</td><td>Cooling</td><td>Isaac Su</td><td>Sichuan</td><td>2026-04-11</td><td>82d</td><td>¥11K</td><td>¥11K</td><td>¥0</td><td>47%</td><td>0.00</td><td>22</td></tr></tbody></table>
           </div>
           <footer><span>口径：Hosted 且 R3M&gt;0，Momentum &lt;0.2</span><span>动作：判断是否仍可挽回，不能挽回则退出人工覆盖</span></footer>
         </div>
@@ -1160,14 +1236,14 @@
           <header>
             <div>
               <p class="eyebrow">Trace · Stalled Momentum</p>
-              <h2>Stalled 熄火客户原始数据追溯（3/6）</h2>
+              <h2>Stalled 熄火客户原始数据追溯（3/10）</h2>
             </div>
-            <div class="page-no">14 / 37</div>
+            <div class="page-no">18 / 53</div>
           </header>
           <div class="content trace-block">
             <p class="trace-summary">75 人 · R3M ¥1.70M · R6M ¥3.95M · Dormant ¥2.25M</p>
 
-            <table class="trace-table"><thead><tr><th>ID</th><th>Name</th><th>Tier</th><th>Seg</th><th>Risk</th><th>Host</th><th>Province</th><th>Last</th><th>Days</th><th>R3M</th><th>R6M</th><th>Jun</th><th>RI</th><th>M</th><th>SrcRow</th></tr></thead><tbody><tr><td>16836035</td><td>HOU,JINFENG</td><td>ELITE</td><td>B</td><td>Cooling</td><td>Isaac Su</td><td>Unknown</td><td>2026-04-04</td><td>89d</td><td>¥7K</td><td>¥39K</td><td>¥0</td><td>43%</td><td>0.00</td><td>11</td></tr><tr><td>15252789</td><td>DENG, XIAOCHAO</td><td>SUPREME</td><td>B</td><td>Cooling</td><td>Isaac Su</td><td>Hebei</td><td>2026-04-14</td><td>79d</td><td>¥6K</td><td>¥6K</td><td>¥0</td><td>353%</td><td>0.00</td><td>16</td></tr><tr><td>13629069</td><td>WANG,NAXIN</td><td>GOLD</td><td>B</td><td>At-Risk</td><td>Isaac Su</td><td>Beijing</td><td>2026-04-01</td><td>92d</td><td>¥6K</td><td>¥7K</td><td>¥0</td><td>47%</td><td>0.00</td><td>17</td></tr><tr><td>16179279</td><td>ZHANG, TIANCI</td><td>ELITE</td><td>B</td><td>Active</td><td>Isaac Su</td><td>Hubei</td><td>2026-06-10</td><td>22d</td><td>¥6K</td><td>¥9K</td><td>¥195</td><td>21%</td><td>0.09</td><td>144</td></tr><tr><td>10999863</td><td>ZHANG, MEIZHONG</td><td>GOLD</td><td>B</td><td>Cooling</td><td>Isaac Su</td><td>Hebei</td><td>2026-04-07</td><td>86d</td><td>¥6K</td><td>¥6K</td><td>¥0</td><td>52%</td><td>0.00</td><td>38</td></tr><tr><td>12737331</td><td>ZHANG,</td><td>ELITE</td><td>B</td><td>Cooling</td><td>Isaac Su</td><td>Unknown</td><td>2026-04-05</td><td>88d</td><td>¥5K</td><td>¥43K</td><td>¥0</td><td>47%</td><td>0.00</td><td>3</td></tr><tr><td>10737510</td><td>LAM, PEK IOK</td><td>ELITE</td><td>B</td><td>Cooling</td><td>Isaac Su</td><td>Unknown</td><td>2026-04-15</td><td>78d</td><td>¥5K</td><td>¥5K</td><td>¥0</td><td>37%</td><td>0.00</td><td>8</td></tr><tr><td>15035963</td><td>GUAN, CHENGYUAN</td><td>ELITE</td><td>C</td><td>Active</td><td>Isaac Su</td><td>Hubei</td><td>2026-06-16</td><td>16d</td><td>¥5K</td><td>¥68K</td><td>¥136</td><td>14%</td><td>0.09</td><td>103</td></tr><tr><td>11369563</td><td>XIE, MINGZE</td><td>SUPREME</td><td>C</td><td>Cooling</td><td>Isaac Su</td><td>Unknown</td><td>2026-04-08</td><td>85d</td><td>¥5K</td><td>¥31K</td><td>¥0</td><td>4%</td><td>0.00</td><td>36</td></tr><tr><td>16700061</td><td>XIE, HAIYAN</td><td>GOLD</td><td>C</td><td>Cooling</td><td>Isaac Su</td><td>Hebei</td><td>2026-04-14</td><td>79d</td><td>¥5K</td><td>¥5K</td><td>¥0</td><td>13%</td><td>0.00</td><td>15</td></tr><tr><td>16861231</td><td>SUN,HONGXU</td><td>PLATINUM</td><td>C</td><td>Cooling</td><td>Isaac Su</td><td>Jilin</td><td>2026-04-16</td><td>77d</td><td>¥4K</td><td>¥47K</td><td>¥0</td><td>40%</td><td>0.00</td><td>7</td></tr><tr><td>15759883</td><td>ZHANG,JINGBANG</td><td>GOLD</td><td>C</td><td>Cooling</td><td>Isaac Su</td><td>Hebei</td><td>2026-04-07</td><td>86d</td><td>¥4K</td><td>¥4K</td><td>¥0</td><td>4%</td><td>0.00</td><td>39</td></tr><tr><td>15508590</td><td>WANG,PU</td><td>GOLD</td><td>C</td><td>Cooling</td><td>Isaac Su</td><td>Shanxi</td><td>2026-04-04</td><td>89d</td><td>¥4K</td><td>¥4K</td><td>¥0</td><td>36%</td><td>0.00</td><td>8</td></tr><tr><td>16152650</td><td>SU,QIANG</td><td>GOLD</td><td>C</td><td>At-Risk</td><td>Isaac Su</td><td>Hubei</td><td>2026-04-01</td><td>92d</td><td>¥4K</td><td>¥8K</td><td>¥0</td><td>37%</td><td>0.00</td><td>15</td></tr></tbody></table>
+            <table class="trace-table"><thead><tr><th>ID</th><th>Name</th><th>Tier</th><th>Seg</th><th>Risk</th><th>Host</th><th>Province</th><th>Last</th><th>Days</th><th>R3M</th><th>R6M</th><th>Jun</th><th>RI</th><th>M</th><th>SrcRow</th></tr></thead><tbody><tr><td>11380199</td><td>WU, JIE CHUN</td><td>GOLD</td><td>B</td><td>Cooling</td><td>Isaac Su</td><td>Unknown</td><td>2026-04-14</td><td>79d</td><td>¥11K</td><td>¥11K</td><td>¥0</td><td>57%</td><td>0.00</td><td>13</td></tr><tr><td>16599757</td><td>TAN,XIAOLONG</td><td>ELITE</td><td>B</td><td>At-Risk</td><td>Isaac Su</td><td>Hebei</td><td>2026-03-31</td><td>93d</td><td>¥10K</td><td>¥71K</td><td>¥0</td><td>52%</td><td>0.00</td><td>21</td></tr><tr><td>15353562</td><td>LIU,XIAOQUN</td><td>PLATINUM</td><td>B</td><td>Cooling</td><td>Isaac Su</td><td>Sichuan</td><td>2026-04-04</td><td>89d</td><td>¥10K</td><td>¥176K</td><td>¥0</td><td>25%</td><td>0.00</td><td>7</td></tr><tr><td>16852797</td><td>SIQINBILIGE,</td><td>ELITE</td><td>B</td><td>Cooling</td><td>Isaac Su</td><td>Inner</td><td>2026-04-16</td><td>77d</td><td>¥10K</td><td>¥29K</td><td>¥0</td><td>2%</td><td>0.00</td><td>5</td></tr><tr><td>15985071</td><td>WU, YIBIN</td><td>GOLD</td><td>B</td><td>Active</td><td>Isaac Su</td><td>Tianjin</td><td>2026-06-09</td><td>23d</td><td>¥10K</td><td>¥10K</td><td>¥352</td><td>92%</td><td>0.11</td><td>155</td></tr><tr><td>16330102</td><td>LIANG,ZHIGANG</td><td>SUPREME</td><td>B</td><td>Cooling</td><td>Isaac Su</td><td>Shanxi</td><td>2026-04-15</td><td>78d</td><td>¥10K</td><td>¥10K</td><td>¥0</td><td>22%</td><td>0.00</td><td>9</td></tr><tr><td>10635258</td><td>MAO, ZHIQIU</td><td>GOLD</td><td>B</td><td>Cooling</td><td>Isaac Su</td><td>Hunan</td><td>2026-04-08</td><td>85d</td><td>¥9K</td><td>¥9K</td><td>¥0</td><td>8%</td><td>0.00</td><td>33</td></tr><tr><td>16329509</td><td>ZHANG, HONGYU</td><td>ELITE</td><td>B</td><td>Cooling</td><td>Isaac Su</td><td>Sichuan</td><td>2026-04-11</td><td>82d</td><td>¥9K</td><td>¥37K</td><td>¥0</td><td>53%</td><td>0.00</td><td>21</td></tr></tbody></table>
           </div>
           <footer><span>口径：Hosted 且 R3M&gt;0，Momentum &lt;0.2</span><span>动作：判断是否仍可挽回，不能挽回则退出人工覆盖</span></footer>
         </div>
@@ -1178,14 +1254,14 @@
           <header>
             <div>
               <p class="eyebrow">Trace · Stalled Momentum</p>
-              <h2>Stalled 熄火客户原始数据追溯（4/6）</h2>
+              <h2>Stalled 熄火客户原始数据追溯（4/10）</h2>
             </div>
-            <div class="page-no">15 / 37</div>
+            <div class="page-no">19 / 53</div>
           </header>
           <div class="content trace-block">
             <p class="trace-summary">75 人 · R3M ¥1.70M · R6M ¥3.95M · Dormant ¥2.25M</p>
 
-            <table class="trace-table"><thead><tr><th>ID</th><th>Name</th><th>Tier</th><th>Seg</th><th>Risk</th><th>Host</th><th>Province</th><th>Last</th><th>Days</th><th>R3M</th><th>R6M</th><th>Jun</th><th>RI</th><th>M</th><th>SrcRow</th></tr></thead><tbody><tr><td>16587072</td><td>WANG,XIAOHU</td><td>GOLD</td><td>C</td><td>At-Risk</td><td>Isaac Su</td><td>Jiangxi</td><td>2026-04-01</td><td>92d</td><td>¥3K</td><td>¥3K</td><td>¥0</td><td>4%</td><td>0.00</td><td>16</td></tr><tr><td>15577502</td><td>ZHAO,ZHI</td><td>ELITE</td><td>C</td><td>Cooling</td><td>Isaac Su</td><td>Inner</td><td>2026-04-10</td><td>83d</td><td>¥3K</td><td>¥3K</td><td>¥0</td><td>45%</td><td>0.00</td><td>25</td></tr><tr><td>13593338</td><td>HUANG,WEIZHOU</td><td>ELITE</td><td>C</td><td>Cooling</td><td>Isaac Su</td><td>Henan</td><td>2026-04-16</td><td>77d</td><td>¥3K</td><td>¥7K</td><td>¥0</td><td>9%</td><td>0.00</td><td>3</td></tr><tr><td>16097560</td><td>WANG,BO</td><td>PLATINUM</td><td>C</td><td>At-Risk</td><td>Isaac Su</td><td>Anhui</td><td>2026-03-30</td><td>94d</td><td>¥3K</td><td>¥79K</td><td>¥0</td><td>190%</td><td>0.00</td><td>22</td></tr><tr><td>15736287</td><td>WANG, JINJIE</td><td>GOLD</td><td>C</td><td>Cooling</td><td>Isaac Su</td><td>Shanxi</td><td>2026-04-15</td><td>78d</td><td>¥3K</td><td>¥3K</td><td>¥0</td><td>17%</td><td>0.00</td><td>12</td></tr><tr><td>11567626</td><td>YANG, XIANG</td><td>GOLD</td><td>C</td><td>Cooling</td><td>Isaac Su</td><td>Sichuan</td><td>2026-04-09</td><td>84d</td><td>¥3K</td><td>¥3K</td><td>¥0</td><td>55%</td><td>0.00</td><td>30</td></tr><tr><td>16826582</td><td>XU,ZHUOBO</td><td>ELITE</td><td>C</td><td>Cooling</td><td>Isaac Su</td><td>Unknown</td><td>2026-04-04</td><td>89d</td><td>¥3K</td><td>¥3K</td><td>¥0</td><td>235%</td><td>0.00</td><td>10</td></tr><tr><td>16527052</td><td>ZHAO,JIANBO</td><td>GOLD</td><td>C</td><td>Cooling</td><td>Isaac Su</td><td>Zhejiang</td><td>2026-04-06</td><td>87d</td><td>¥2K</td><td>¥2K</td><td>¥0</td><td>23%</td><td>0.00</td><td>41</td></tr><tr><td>16965957</td><td>ZHU, QIAOPING</td><td>GOLD</td><td>C</td><td>Cooling</td><td>Isaac Su</td><td>Hunan</td><td>2026-04-07</td><td>86d</td><td>¥2K</td><td>¥2K</td><td>¥0</td><td>32%</td><td>0.00</td><td>40</td></tr><tr><td>11620097</td><td>YAO, HONGWEI</td><td>GOLD</td><td>C</td><td>Active</td><td>Isaac Su</td><td>Inner</td><td>2026-06-12</td><td>20d</td><td>¥2K</td><td>¥5K</td><td>¥105</td><td>4%</td><td>0.18</td><td>126</td></tr><tr><td>16200900</td><td>GAO, WANLI</td><td>GOLD</td><td>C</td><td>Cooling</td><td>Isaac Su</td><td>Jiangsu</td><td>2026-05-31</td><td>32d</td><td>¥2K</td><td>¥2K</td><td>¥0</td><td>70%</td><td>0.00</td><td>200</td></tr><tr><td>16966705</td><td>XUE,JINGSHAN</td><td>GOLD</td><td>C</td><td>Cooling</td><td>Isaac Su</td><td>Jilin</td><td>2026-04-12</td><td>81d</td><td>¥2K</td><td>¥2K</td><td>¥0</td><td>38%</td><td>0.00</td><td>19</td></tr><tr><td>15633956</td><td>LI, JINLONG</td><td>SUPREME</td><td>C</td><td>Cooling</td><td>Isaac Su</td><td>Unknown</td><td>2026-04-11</td><td>82d</td><td>¥2K</td><td>¥6K</td><td>¥0</td><td>219%</td><td>0.00</td><td>23</td></tr><tr><td>16613036</td><td>LI,TIANBAO</td><td>GOLD</td><td>C</td><td>Cooling</td><td>Isaac Su</td><td>Hebei</td><td>2026-04-05</td><td>88d</td><td>¥1K</td><td>¥1K</td><td>¥0</td><td>74%</td><td>0.00</td><td>4</td></tr></tbody></table>
+            <table class="trace-table"><thead><tr><th>ID</th><th>Name</th><th>Tier</th><th>Seg</th><th>Risk</th><th>Host</th><th>Province</th><th>Last</th><th>Days</th><th>R3M</th><th>R6M</th><th>Jun</th><th>RI</th><th>M</th><th>SrcRow</th></tr></thead><tbody><tr><td>12996515</td><td>TAO, YUNFEI</td><td>GOLD</td><td>B</td><td>Cooling</td><td>Isaac Su</td><td>Zhejiang</td><td>2026-04-09</td><td>84d</td><td>¥9K</td><td>¥9K</td><td>¥0</td><td>15%</td><td>0.00</td><td>32</td></tr><tr><td>10778917</td><td>GUO,ZHAO</td><td>ELITE</td><td>B</td><td>Cooling</td><td>Isaac Su</td><td>Unknown</td><td>2026-04-09</td><td>84d</td><td>¥7K</td><td>¥22K</td><td>¥0</td><td>38%</td><td>0.00</td><td>28</td></tr><tr><td>15885862</td><td>FANG, XIAOLAN</td><td>ELITE</td><td>B</td><td>Cooling</td><td>Isaac Su</td><td>Zhejiang</td><td>2026-04-12</td><td>81d</td><td>¥7K</td><td>¥21K</td><td>¥0</td><td>31%</td><td>0.00</td><td>20</td></tr><tr><td>16760821</td><td>ZHAO, JIAN</td><td>PLATINUM</td><td>B</td><td>Cooling</td><td>Isaac Su</td><td>Xinjiang</td><td>2026-04-10</td><td>83d</td><td>¥7K</td><td>¥14K</td><td>¥0</td><td>153%</td><td>0.00</td><td>26</td></tr><tr><td>16836035</td><td>HOU,JINFENG</td><td>ELITE</td><td>B</td><td>Cooling</td><td>Isaac Su</td><td>Unknown</td><td>2026-04-04</td><td>89d</td><td>¥7K</td><td>¥39K</td><td>¥0</td><td>43%</td><td>0.00</td><td>11</td></tr><tr><td>15252789</td><td>DENG, XIAOCHAO</td><td>SUPREME</td><td>B</td><td>Cooling</td><td>Isaac Su</td><td>Hebei</td><td>2026-04-14</td><td>79d</td><td>¥6K</td><td>¥6K</td><td>¥0</td><td>353%</td><td>0.00</td><td>16</td></tr><tr><td>13629069</td><td>WANG,NAXIN</td><td>GOLD</td><td>B</td><td>At-Risk</td><td>Isaac Su</td><td>Beijing</td><td>2026-04-01</td><td>92d</td><td>¥6K</td><td>¥7K</td><td>¥0</td><td>47%</td><td>0.00</td><td>17</td></tr><tr><td>16179279</td><td>ZHANG, TIANCI</td><td>ELITE</td><td>B</td><td>Active</td><td>Isaac Su</td><td>Hubei</td><td>2026-06-10</td><td>22d</td><td>¥6K</td><td>¥9K</td><td>¥195</td><td>21%</td><td>0.09</td><td>144</td></tr></tbody></table>
           </div>
           <footer><span>口径：Hosted 且 R3M&gt;0，Momentum &lt;0.2</span><span>动作：判断是否仍可挽回，不能挽回则退出人工覆盖</span></footer>
         </div>
@@ -1196,14 +1272,14 @@
           <header>
             <div>
               <p class="eyebrow">Trace · Stalled Momentum</p>
-              <h2>Stalled 熄火客户原始数据追溯（5/6）</h2>
+              <h2>Stalled 熄火客户原始数据追溯（5/10）</h2>
             </div>
-            <div class="page-no">16 / 37</div>
+            <div class="page-no">20 / 53</div>
           </header>
           <div class="content trace-block">
             <p class="trace-summary">75 人 · R3M ¥1.70M · R6M ¥3.95M · Dormant ¥2.25M</p>
 
-            <table class="trace-table"><thead><tr><th>ID</th><th>Name</th><th>Tier</th><th>Seg</th><th>Risk</th><th>Host</th><th>Province</th><th>Last</th><th>Days</th><th>R3M</th><th>R6M</th><th>Jun</th><th>RI</th><th>M</th><th>SrcRow</th></tr></thead><tbody><tr><td>11058968</td><td>LYU, JIANPING</td><td>GOLD</td><td>C</td><td>Cooling</td><td>Isaac Su</td><td>Shaanxi</td><td>2026-04-16</td><td>77d</td><td>¥1K</td><td>¥2K</td><td>¥0</td><td>4%</td><td>0.00</td><td>2</td></tr><tr><td>17018268</td><td>ZHU, JINHAO</td><td>GOLD</td><td>C</td><td>Active</td><td>Isaac Su</td><td>Hubei</td><td>2026-06-03</td><td>29d</td><td>¥978</td><td>¥978</td><td>¥61</td><td>115%</td><td>0.19</td><td>186</td></tr><tr><td>13391897</td><td>GAO,JIEFENG</td><td>GOLD</td><td>C</td><td>Cooling</td><td>Isaac Su</td><td>Shanxi</td><td>2026-04-14</td><td>79d</td><td>¥945</td><td>¥945</td><td>¥0</td><td>63%</td><td>0.00</td><td>14</td></tr><tr><td>16960575</td><td>LI, WENCHENG</td><td>GOLD</td><td>C</td><td>Cooling</td><td>Isaac Su</td><td>Shandong</td><td>2026-04-03</td><td>90d</td><td>¥928</td><td>¥928</td><td>¥0</td><td>3%</td><td>0.00</td><td>13</td></tr><tr><td>16861576</td><td>WU.DI</td><td>GOLD</td><td>C</td><td>Cooling</td><td>Isaac Su</td><td>Unknown</td><td>2026-04-04</td><td>89d</td><td>¥835</td><td>¥835</td><td>¥0</td><td>190%</td><td>0.00</td><td>12</td></tr><tr><td>13711107</td><td>HUANG YUQING,</td><td>GOLD</td><td>C</td><td>At-Risk</td><td>Isaac Su</td><td>Unknown</td><td>2026-04-02</td><td>91d</td><td>¥774</td><td>¥1K</td><td>¥0</td><td>9%</td><td>0.00</td><td>14</td></tr><tr><td>16861137</td><td>XUE,BENGEN</td><td>ELITE</td><td>C</td><td>Cooling</td><td>Isaac Su</td><td>Hubei</td><td>2026-04-11</td><td>82d</td><td>¥600</td><td>¥1K</td><td>¥0</td><td>143%</td><td>0.00</td><td>24</td></tr><tr><td>15695222</td><td>ZHAI, LIANFA</td><td>GOLD</td><td>C</td><td>Cooling</td><td>Isaac Su</td><td>Hunan</td><td>2026-04-16</td><td>77d</td><td>¥565</td><td>¥565</td><td>¥0</td><td>19%</td><td>0.00</td><td>4</td></tr><tr><td>11723063</td><td>GONG,JIAN</td><td>GOLD</td><td>C</td><td>At-Risk</td><td>Isaac Su</td><td>Unknown</td><td>2026-03-31</td><td>93d</td><td>¥468</td><td>¥957</td><td>¥0</td><td>3%</td><td>0.00</td><td>20</td></tr><tr><td>16325785</td><td>HUANG,GUOCAI</td><td>GOLD</td><td>C</td><td>Cooling</td><td>Isaac Su</td><td>Unknown</td><td>2026-04-08</td><td>85d</td><td>¥449</td><td>¥601</td><td>¥0</td><td>4%</td><td>0.00</td><td>35</td></tr><tr><td>16662510</td><td>DELIGERIFU,</td><td>GOLD</td><td>C</td><td>Cooling</td><td>Isaac Su</td><td>Inner</td><td>2026-04-09</td><td>84d</td><td>¥391</td><td>¥3K</td><td>¥0</td><td>3%</td><td>0.00</td><td>31</td></tr><tr><td>16621020</td><td>ZHAO, QIANG</td><td>PLATINUM</td><td>C</td><td>Cooling</td><td>Isaac Su</td><td>Shanxi</td><td>2026-04-15</td><td>78d</td><td>¥270</td><td>¥44K</td><td>¥0</td><td>4%</td><td>0.00</td><td>10</td></tr><tr><td>13630320</td><td>LI, YONGBIN</td><td>GOLD</td><td>C</td><td>Cooling</td><td>Isaac Su</td><td>Shandong</td><td>2026-04-15</td><td>78d</td><td>¥251</td><td>¥251</td><td>¥0</td><td>4%</td><td>0.00</td><td>11</td></tr><tr><td>16857970</td><td>ZENG, YU</td><td>ELITE</td><td>C</td><td>Cooling</td><td>Isaac Su</td><td>Hunan</td><td>2026-04-16</td><td>77d</td><td>¥241</td><td>¥282</td><td>¥0</td><td>4%</td><td>0.00</td><td>6</td></tr></tbody></table>
+            <table class="trace-table"><thead><tr><th>ID</th><th>Name</th><th>Tier</th><th>Seg</th><th>Risk</th><th>Host</th><th>Province</th><th>Last</th><th>Days</th><th>R3M</th><th>R6M</th><th>Jun</th><th>RI</th><th>M</th><th>SrcRow</th></tr></thead><tbody><tr><td>10999863</td><td>ZHANG, MEIZHONG</td><td>GOLD</td><td>B</td><td>Cooling</td><td>Isaac Su</td><td>Hebei</td><td>2026-04-07</td><td>86d</td><td>¥6K</td><td>¥6K</td><td>¥0</td><td>52%</td><td>0.00</td><td>38</td></tr><tr><td>12737331</td><td>ZHANG,</td><td>ELITE</td><td>B</td><td>Cooling</td><td>Isaac Su</td><td>Unknown</td><td>2026-04-05</td><td>88d</td><td>¥5K</td><td>¥43K</td><td>¥0</td><td>47%</td><td>0.00</td><td>3</td></tr><tr><td>10737510</td><td>LAM, PEK IOK</td><td>ELITE</td><td>B</td><td>Cooling</td><td>Isaac Su</td><td>Unknown</td><td>2026-04-15</td><td>78d</td><td>¥5K</td><td>¥5K</td><td>¥0</td><td>37%</td><td>0.00</td><td>8</td></tr><tr><td>15035963</td><td>GUAN, CHENGYUAN</td><td>ELITE</td><td>C</td><td>Active</td><td>Isaac Su</td><td>Hubei</td><td>2026-06-16</td><td>16d</td><td>¥5K</td><td>¥68K</td><td>¥136</td><td>14%</td><td>0.09</td><td>103</td></tr><tr><td>11369563</td><td>XIE, MINGZE</td><td>SUPREME</td><td>C</td><td>Cooling</td><td>Isaac Su</td><td>Unknown</td><td>2026-04-08</td><td>85d</td><td>¥5K</td><td>¥31K</td><td>¥0</td><td>4%</td><td>0.00</td><td>36</td></tr><tr><td>16700061</td><td>XIE, HAIYAN</td><td>GOLD</td><td>C</td><td>Cooling</td><td>Isaac Su</td><td>Hebei</td><td>2026-04-14</td><td>79d</td><td>¥5K</td><td>¥5K</td><td>¥0</td><td>13%</td><td>0.00</td><td>15</td></tr><tr><td>16861231</td><td>SUN,HONGXU</td><td>PLATINUM</td><td>C</td><td>Cooling</td><td>Isaac Su</td><td>Jilin</td><td>2026-04-16</td><td>77d</td><td>¥4K</td><td>¥47K</td><td>¥0</td><td>40%</td><td>0.00</td><td>7</td></tr><tr><td>15759883</td><td>ZHANG,JINGBANG</td><td>GOLD</td><td>C</td><td>Cooling</td><td>Isaac Su</td><td>Hebei</td><td>2026-04-07</td><td>86d</td><td>¥4K</td><td>¥4K</td><td>¥0</td><td>4%</td><td>0.00</td><td>39</td></tr></tbody></table>
           </div>
           <footer><span>口径：Hosted 且 R3M&gt;0，Momentum &lt;0.2</span><span>动作：判断是否仍可挽回，不能挽回则退出人工覆盖</span></footer>
         </div>
@@ -1214,14 +1290,86 @@
           <header>
             <div>
               <p class="eyebrow">Trace · Stalled Momentum</p>
-              <h2>Stalled 熄火客户原始数据追溯（6/6）</h2>
+              <h2>Stalled 熄火客户原始数据追溯（6/10）</h2>
             </div>
-            <div class="page-no">17 / 37</div>
+            <div class="page-no">21 / 53</div>
           </header>
           <div class="content trace-block">
             <p class="trace-summary">75 人 · R3M ¥1.70M · R6M ¥3.95M · Dormant ¥2.25M</p>
 
-            <table class="trace-table"><thead><tr><th>ID</th><th>Name</th><th>Tier</th><th>Seg</th><th>Risk</th><th>Host</th><th>Province</th><th>Last</th><th>Days</th><th>R3M</th><th>R6M</th><th>Jun</th><th>RI</th><th>M</th><th>SrcRow</th></tr></thead><tbody><tr><td>13922206</td><td>LIN,CHING-TE</td><td>GOLD</td><td>C</td><td>Cooling</td><td>Isaac Su</td><td>Unknown</td><td>2026-04-06</td><td>87d</td><td>¥108</td><td>¥108</td><td>¥0</td><td>4%</td><td>0.00</td><td>2</td></tr><tr><td>10750910</td><td>ZHOU,MINFANG</td><td>GOLD</td><td>C</td><td>At-Risk</td><td>Isaac Su</td><td>Unknown</td><td>2026-03-31</td><td>93d</td><td>¥73</td><td>¥73</td><td>¥0</td><td>3%</td><td>0.00</td><td>19</td></tr><tr><td>10992817</td><td>WANG,QINGYONG</td><td>GOLD</td><td>C</td><td>Cooling</td><td>Isaac Su</td><td>Hainan</td><td>2026-04-08</td><td>85d</td><td>¥60</td><td>¥506</td><td>¥0</td><td>3%</td><td>0.00</td><td>34</td></tr><tr><td>15932903</td><td>XIONG,GUOCAI</td><td>GOLD</td><td>C</td><td>At-Risk</td><td>Isaac Su</td><td>Jiangxi</td><td>2026-03-30</td><td>94d</td><td>¥41</td><td>¥41</td><td>¥0</td><td>2%</td><td>0.00</td><td>23</td></tr><tr><td>11009810</td><td>XU,KE</td><td>GOLD</td><td>C</td><td>Cooling</td><td>Isaac Su</td><td>Shanxi</td><td>2026-04-09</td><td>84d</td><td>¥36</td><td>¥6K</td><td>¥0</td><td>3%</td><td>0.00</td><td>29</td></tr></tbody></table>
+            <table class="trace-table"><thead><tr><th>ID</th><th>Name</th><th>Tier</th><th>Seg</th><th>Risk</th><th>Host</th><th>Province</th><th>Last</th><th>Days</th><th>R3M</th><th>R6M</th><th>Jun</th><th>RI</th><th>M</th><th>SrcRow</th></tr></thead><tbody><tr><td>15508590</td><td>WANG,PU</td><td>GOLD</td><td>C</td><td>Cooling</td><td>Isaac Su</td><td>Shanxi</td><td>2026-04-04</td><td>89d</td><td>¥4K</td><td>¥4K</td><td>¥0</td><td>36%</td><td>0.00</td><td>8</td></tr><tr><td>16152650</td><td>SU,QIANG</td><td>GOLD</td><td>C</td><td>At-Risk</td><td>Isaac Su</td><td>Hubei</td><td>2026-04-01</td><td>92d</td><td>¥4K</td><td>¥8K</td><td>¥0</td><td>37%</td><td>0.00</td><td>15</td></tr><tr><td>16587072</td><td>WANG,XIAOHU</td><td>GOLD</td><td>C</td><td>At-Risk</td><td>Isaac Su</td><td>Jiangxi</td><td>2026-04-01</td><td>92d</td><td>¥3K</td><td>¥3K</td><td>¥0</td><td>4%</td><td>0.00</td><td>16</td></tr><tr><td>15577502</td><td>ZHAO,ZHI</td><td>ELITE</td><td>C</td><td>Cooling</td><td>Isaac Su</td><td>Inner</td><td>2026-04-10</td><td>83d</td><td>¥3K</td><td>¥3K</td><td>¥0</td><td>45%</td><td>0.00</td><td>25</td></tr><tr><td>13593338</td><td>HUANG,WEIZHOU</td><td>ELITE</td><td>C</td><td>Cooling</td><td>Isaac Su</td><td>Henan</td><td>2026-04-16</td><td>77d</td><td>¥3K</td><td>¥7K</td><td>¥0</td><td>9%</td><td>0.00</td><td>3</td></tr><tr><td>16097560</td><td>WANG,BO</td><td>PLATINUM</td><td>C</td><td>At-Risk</td><td>Isaac Su</td><td>Anhui</td><td>2026-03-30</td><td>94d</td><td>¥3K</td><td>¥79K</td><td>¥0</td><td>190%</td><td>0.00</td><td>22</td></tr><tr><td>15736287</td><td>WANG, JINJIE</td><td>GOLD</td><td>C</td><td>Cooling</td><td>Isaac Su</td><td>Shanxi</td><td>2026-04-15</td><td>78d</td><td>¥3K</td><td>¥3K</td><td>¥0</td><td>17%</td><td>0.00</td><td>12</td></tr><tr><td>11567626</td><td>YANG, XIANG</td><td>GOLD</td><td>C</td><td>Cooling</td><td>Isaac Su</td><td>Sichuan</td><td>2026-04-09</td><td>84d</td><td>¥3K</td><td>¥3K</td><td>¥0</td><td>55%</td><td>0.00</td><td>30</td></tr></tbody></table>
+          </div>
+          <footer><span>口径：Hosted 且 R3M&gt;0，Momentum &lt;0.2</span><span>动作：判断是否仍可挽回，不能挽回则退出人工覆盖</span></footer>
+        </div>
+      </section>
+
+      <section class="slide" data-title="Stalled 熄火客户原始数据追溯">
+        <div class="page">
+          <header>
+            <div>
+              <p class="eyebrow">Trace · Stalled Momentum</p>
+              <h2>Stalled 熄火客户原始数据追溯（7/10）</h2>
+            </div>
+            <div class="page-no">22 / 53</div>
+          </header>
+          <div class="content trace-block">
+            <p class="trace-summary">75 人 · R3M ¥1.70M · R6M ¥3.95M · Dormant ¥2.25M</p>
+
+            <table class="trace-table"><thead><tr><th>ID</th><th>Name</th><th>Tier</th><th>Seg</th><th>Risk</th><th>Host</th><th>Province</th><th>Last</th><th>Days</th><th>R3M</th><th>R6M</th><th>Jun</th><th>RI</th><th>M</th><th>SrcRow</th></tr></thead><tbody><tr><td>16826582</td><td>XU,ZHUOBO</td><td>ELITE</td><td>C</td><td>Cooling</td><td>Isaac Su</td><td>Unknown</td><td>2026-04-04</td><td>89d</td><td>¥3K</td><td>¥3K</td><td>¥0</td><td>235%</td><td>0.00</td><td>10</td></tr><tr><td>16527052</td><td>ZHAO,JIANBO</td><td>GOLD</td><td>C</td><td>Cooling</td><td>Isaac Su</td><td>Zhejiang</td><td>2026-04-06</td><td>87d</td><td>¥2K</td><td>¥2K</td><td>¥0</td><td>23%</td><td>0.00</td><td>41</td></tr><tr><td>16965957</td><td>ZHU, QIAOPING</td><td>GOLD</td><td>C</td><td>Cooling</td><td>Isaac Su</td><td>Hunan</td><td>2026-04-07</td><td>86d</td><td>¥2K</td><td>¥2K</td><td>¥0</td><td>32%</td><td>0.00</td><td>40</td></tr><tr><td>11620097</td><td>YAO, HONGWEI</td><td>GOLD</td><td>C</td><td>Active</td><td>Isaac Su</td><td>Inner</td><td>2026-06-12</td><td>20d</td><td>¥2K</td><td>¥5K</td><td>¥105</td><td>4%</td><td>0.18</td><td>126</td></tr><tr><td>16200900</td><td>GAO, WANLI</td><td>GOLD</td><td>C</td><td>Cooling</td><td>Isaac Su</td><td>Jiangsu</td><td>2026-05-31</td><td>32d</td><td>¥2K</td><td>¥2K</td><td>¥0</td><td>70%</td><td>0.00</td><td>200</td></tr><tr><td>16966705</td><td>XUE,JINGSHAN</td><td>GOLD</td><td>C</td><td>Cooling</td><td>Isaac Su</td><td>Jilin</td><td>2026-04-12</td><td>81d</td><td>¥2K</td><td>¥2K</td><td>¥0</td><td>38%</td><td>0.00</td><td>19</td></tr><tr><td>15633956</td><td>LI, JINLONG</td><td>SUPREME</td><td>C</td><td>Cooling</td><td>Isaac Su</td><td>Unknown</td><td>2026-04-11</td><td>82d</td><td>¥2K</td><td>¥6K</td><td>¥0</td><td>219%</td><td>0.00</td><td>23</td></tr><tr><td>16613036</td><td>LI,TIANBAO</td><td>GOLD</td><td>C</td><td>Cooling</td><td>Isaac Su</td><td>Hebei</td><td>2026-04-05</td><td>88d</td><td>¥1K</td><td>¥1K</td><td>¥0</td><td>74%</td><td>0.00</td><td>4</td></tr></tbody></table>
+          </div>
+          <footer><span>口径：Hosted 且 R3M&gt;0，Momentum &lt;0.2</span><span>动作：判断是否仍可挽回，不能挽回则退出人工覆盖</span></footer>
+        </div>
+      </section>
+
+      <section class="slide" data-title="Stalled 熄火客户原始数据追溯">
+        <div class="page">
+          <header>
+            <div>
+              <p class="eyebrow">Trace · Stalled Momentum</p>
+              <h2>Stalled 熄火客户原始数据追溯（8/10）</h2>
+            </div>
+            <div class="page-no">23 / 53</div>
+          </header>
+          <div class="content trace-block">
+            <p class="trace-summary">75 人 · R3M ¥1.70M · R6M ¥3.95M · Dormant ¥2.25M</p>
+
+            <table class="trace-table"><thead><tr><th>ID</th><th>Name</th><th>Tier</th><th>Seg</th><th>Risk</th><th>Host</th><th>Province</th><th>Last</th><th>Days</th><th>R3M</th><th>R6M</th><th>Jun</th><th>RI</th><th>M</th><th>SrcRow</th></tr></thead><tbody><tr><td>11058968</td><td>LYU, JIANPING</td><td>GOLD</td><td>C</td><td>Cooling</td><td>Isaac Su</td><td>Shaanxi</td><td>2026-04-16</td><td>77d</td><td>¥1K</td><td>¥2K</td><td>¥0</td><td>4%</td><td>0.00</td><td>2</td></tr><tr><td>17018268</td><td>ZHU, JINHAO</td><td>GOLD</td><td>C</td><td>Active</td><td>Isaac Su</td><td>Hubei</td><td>2026-06-03</td><td>29d</td><td>¥978</td><td>¥978</td><td>¥61</td><td>115%</td><td>0.19</td><td>186</td></tr><tr><td>13391897</td><td>GAO,JIEFENG</td><td>GOLD</td><td>C</td><td>Cooling</td><td>Isaac Su</td><td>Shanxi</td><td>2026-04-14</td><td>79d</td><td>¥945</td><td>¥945</td><td>¥0</td><td>63%</td><td>0.00</td><td>14</td></tr><tr><td>16960575</td><td>LI, WENCHENG</td><td>GOLD</td><td>C</td><td>Cooling</td><td>Isaac Su</td><td>Shandong</td><td>2026-04-03</td><td>90d</td><td>¥928</td><td>¥928</td><td>¥0</td><td>3%</td><td>0.00</td><td>13</td></tr><tr><td>16861576</td><td>WU.DI</td><td>GOLD</td><td>C</td><td>Cooling</td><td>Isaac Su</td><td>Unknown</td><td>2026-04-04</td><td>89d</td><td>¥835</td><td>¥835</td><td>¥0</td><td>190%</td><td>0.00</td><td>12</td></tr><tr><td>13711107</td><td>HUANG YUQING,</td><td>GOLD</td><td>C</td><td>At-Risk</td><td>Isaac Su</td><td>Unknown</td><td>2026-04-02</td><td>91d</td><td>¥774</td><td>¥1K</td><td>¥0</td><td>9%</td><td>0.00</td><td>14</td></tr><tr><td>16861137</td><td>XUE,BENGEN</td><td>ELITE</td><td>C</td><td>Cooling</td><td>Isaac Su</td><td>Hubei</td><td>2026-04-11</td><td>82d</td><td>¥600</td><td>¥1K</td><td>¥0</td><td>143%</td><td>0.00</td><td>24</td></tr><tr><td>15695222</td><td>ZHAI, LIANFA</td><td>GOLD</td><td>C</td><td>Cooling</td><td>Isaac Su</td><td>Hunan</td><td>2026-04-16</td><td>77d</td><td>¥565</td><td>¥565</td><td>¥0</td><td>19%</td><td>0.00</td><td>4</td></tr></tbody></table>
+          </div>
+          <footer><span>口径：Hosted 且 R3M&gt;0，Momentum &lt;0.2</span><span>动作：判断是否仍可挽回，不能挽回则退出人工覆盖</span></footer>
+        </div>
+      </section>
+
+      <section class="slide" data-title="Stalled 熄火客户原始数据追溯">
+        <div class="page">
+          <header>
+            <div>
+              <p class="eyebrow">Trace · Stalled Momentum</p>
+              <h2>Stalled 熄火客户原始数据追溯（9/10）</h2>
+            </div>
+            <div class="page-no">24 / 53</div>
+          </header>
+          <div class="content trace-block">
+            <p class="trace-summary">75 人 · R3M ¥1.70M · R6M ¥3.95M · Dormant ¥2.25M</p>
+
+            <table class="trace-table"><thead><tr><th>ID</th><th>Name</th><th>Tier</th><th>Seg</th><th>Risk</th><th>Host</th><th>Province</th><th>Last</th><th>Days</th><th>R3M</th><th>R6M</th><th>Jun</th><th>RI</th><th>M</th><th>SrcRow</th></tr></thead><tbody><tr><td>11723063</td><td>GONG,JIAN</td><td>GOLD</td><td>C</td><td>At-Risk</td><td>Isaac Su</td><td>Unknown</td><td>2026-03-31</td><td>93d</td><td>¥468</td><td>¥957</td><td>¥0</td><td>3%</td><td>0.00</td><td>20</td></tr><tr><td>16325785</td><td>HUANG,GUOCAI</td><td>GOLD</td><td>C</td><td>Cooling</td><td>Isaac Su</td><td>Unknown</td><td>2026-04-08</td><td>85d</td><td>¥449</td><td>¥601</td><td>¥0</td><td>4%</td><td>0.00</td><td>35</td></tr><tr><td>16662510</td><td>DELIGERIFU,</td><td>GOLD</td><td>C</td><td>Cooling</td><td>Isaac Su</td><td>Inner</td><td>2026-04-09</td><td>84d</td><td>¥391</td><td>¥3K</td><td>¥0</td><td>3%</td><td>0.00</td><td>31</td></tr><tr><td>16621020</td><td>ZHAO, QIANG</td><td>PLATINUM</td><td>C</td><td>Cooling</td><td>Isaac Su</td><td>Shanxi</td><td>2026-04-15</td><td>78d</td><td>¥270</td><td>¥44K</td><td>¥0</td><td>4%</td><td>0.00</td><td>10</td></tr><tr><td>13630320</td><td>LI, YONGBIN</td><td>GOLD</td><td>C</td><td>Cooling</td><td>Isaac Su</td><td>Shandong</td><td>2026-04-15</td><td>78d</td><td>¥251</td><td>¥251</td><td>¥0</td><td>4%</td><td>0.00</td><td>11</td></tr><tr><td>16857970</td><td>ZENG, YU</td><td>ELITE</td><td>C</td><td>Cooling</td><td>Isaac Su</td><td>Hunan</td><td>2026-04-16</td><td>77d</td><td>¥241</td><td>¥282</td><td>¥0</td><td>4%</td><td>0.00</td><td>6</td></tr><tr><td>13922206</td><td>LIN,CHING-TE</td><td>GOLD</td><td>C</td><td>Cooling</td><td>Isaac Su</td><td>Unknown</td><td>2026-04-06</td><td>87d</td><td>¥108</td><td>¥108</td><td>¥0</td><td>4%</td><td>0.00</td><td>2</td></tr><tr><td>10750910</td><td>ZHOU,MINFANG</td><td>GOLD</td><td>C</td><td>At-Risk</td><td>Isaac Su</td><td>Unknown</td><td>2026-03-31</td><td>93d</td><td>¥73</td><td>¥73</td><td>¥0</td><td>3%</td><td>0.00</td><td>19</td></tr></tbody></table>
+          </div>
+          <footer><span>口径：Hosted 且 R3M&gt;0，Momentum &lt;0.2</span><span>动作：判断是否仍可挽回，不能挽回则退出人工覆盖</span></footer>
+        </div>
+      </section>
+
+      <section class="slide" data-title="Stalled 熄火客户原始数据追溯">
+        <div class="page">
+          <header>
+            <div>
+              <p class="eyebrow">Trace · Stalled Momentum</p>
+              <h2>Stalled 熄火客户原始数据追溯（10/10）</h2>
+            </div>
+            <div class="page-no">25 / 53</div>
+          </header>
+          <div class="content trace-block">
+            <p class="trace-summary">75 人 · R3M ¥1.70M · R6M ¥3.95M · Dormant ¥2.25M</p>
+
+            <table class="trace-table"><thead><tr><th>ID</th><th>Name</th><th>Tier</th><th>Seg</th><th>Risk</th><th>Host</th><th>Province</th><th>Last</th><th>Days</th><th>R3M</th><th>R6M</th><th>Jun</th><th>RI</th><th>M</th><th>SrcRow</th></tr></thead><tbody><tr><td>10992817</td><td>WANG,QINGYONG</td><td>GOLD</td><td>C</td><td>Cooling</td><td>Isaac Su</td><td>Hainan</td><td>2026-04-08</td><td>85d</td><td>¥60</td><td>¥506</td><td>¥0</td><td>3%</td><td>0.00</td><td>34</td></tr><tr><td>15932903</td><td>XIONG,GUOCAI</td><td>GOLD</td><td>C</td><td>At-Risk</td><td>Isaac Su</td><td>Jiangxi</td><td>2026-03-30</td><td>94d</td><td>¥41</td><td>¥41</td><td>¥0</td><td>2%</td><td>0.00</td><td>23</td></tr><tr><td>11009810</td><td>XU,KE</td><td>GOLD</td><td>C</td><td>Cooling</td><td>Isaac Su</td><td>Shanxi</td><td>2026-04-09</td><td>84d</td><td>¥36</td><td>¥6K</td><td>¥0</td><td>3%</td><td>0.00</td><td>29</td></tr></tbody></table>
           </div>
           <footer><span>口径：Hosted 且 R3M&gt;0，Momentum &lt;0.2</span><span>动作：判断是否仍可挽回，不能挽回则退出人工覆盖</span></footer>
         </div>
@@ -1234,7 +1382,7 @@
               <p class="eyebrow">Process 4</p>
               <h2>RI 效率：预算结构倒挂，尾部太贵</h2>
             </div>
-            <div class="page-no">18 / 37</div>
+            <div class="page-no">26 / 53</div>
           </header>
           <div class="content grid cols-2">
             <div class="card">
@@ -1252,19 +1400,20 @@
           <footer><span>Decision: Offer 跟着 Theo 走，不跟着人头走</span><span>Owner: CRM Ops + Marketing</span></footer>
         </div>
       </section>
+
       <section class="slide" data-title="C 段 RI&gt;100% 客户追溯">
         <div class="page">
           <header>
             <div>
               <p class="eyebrow">Trace · RI Leakage</p>
-              <h2>C 段 RI&gt;100% 客户追溯（1/2）</h2>
+              <h2>C 段 RI&gt;100% 客户追溯（1/3）</h2>
             </div>
-            <div class="page-no">19 / 37</div>
+            <div class="page-no">27 / 53</div>
           </header>
           <div class="content trace-block">
             <p class="trace-summary">22 人 · R3M ¥33K · R6M ¥228K · Dormant ¥195K</p>
             <p class="trace-action">这些客户属于确定性预算漏损，先停模板优惠，再复核是否有错误兑换或异常补偿。</p>
-            <table class="trace-table"><thead><tr><th>ID</th><th>Name</th><th>Tier</th><th>Seg</th><th>Risk</th><th>Host</th><th>Province</th><th>Last</th><th>Days</th><th>R3M</th><th>R6M</th><th>Jun</th><th>RI</th><th>M</th><th>SrcRow</th></tr></thead><tbody><tr><td>17083681</td><td>ZHANG, SHAOHUA</td><td>GOLD</td><td>C</td><td>Active</td><td>Isaac Su</td><td>Yunnan</td><td>2026-06-12</td><td>20d</td><td>¥25</td><td>¥25</td><td>¥25</td><td>5600%</td><td>3.00</td><td>138</td></tr><tr><td>16107258</td><td>HE, SANGANG</td><td>GOLD</td><td>C</td><td>Active</td><td>Isaac Su</td><td>Shaanxi</td><td>2026-06-11</td><td>21d</td><td>¥840</td><td>¥840</td><td>¥840</td><td>1525%</td><td>3.00</td><td>139</td></tr><tr><td>15196839</td><td>LI, LEI</td><td>GOLD</td><td>C</td><td>Active</td><td>Isaac Su</td><td>Beijing</td><td>2026-06-14</td><td>18d</td><td>¥3K</td><td>¥3K</td><td>¥3K</td><td>506%</td><td>3.00</td><td>115</td></tr><tr><td>12187166</td><td>HE, FAXING</td><td>GOLD</td><td>C</td><td>Active</td><td>Isaac Su</td><td>Gansu</td><td>2026-06-20</td><td>12d</td><td>¥391</td><td>¥9K</td><td>¥391</td><td>492%</td><td>3.00</td><td>65</td></tr><tr><td>16986086</td><td>LIU, YING</td><td>GOLD</td><td>C</td><td>Active</td><td>Isaac Su</td><td>Hubei</td><td>2026-06-13</td><td>19d</td><td>¥508</td><td>¥508</td><td>¥508</td><td>422%</td><td>3.00</td><td>124</td></tr><tr><td>16699633</td><td>LING, XIA</td><td>GOLD</td><td>C</td><td>Active</td><td>Isaac Su</td><td>Jiangsu</td><td>2026-06-11</td><td>21d</td><td>¥1K</td><td>¥1K</td><td>¥1K</td><td>338%</td><td>3.00</td><td>143</td></tr><tr><td>11305916</td><td>LI, MING</td><td>GOLD</td><td>C</td><td>Active</td><td>Isaac Su</td><td>Hubei</td><td>2026-06-19</td><td>13d</td><td>¥555</td><td>¥555</td><td>¥555</td><td>305%</td><td>3.00</td><td>79</td></tr><tr><td>16151093</td><td>DING, BO</td><td>GOLD</td><td>C</td><td>Active</td><td>Isaac Su</td><td>Beijing</td><td>2026-06-07</td><td>25d</td><td>¥745</td><td>¥745</td><td>¥745</td><td>260%</td><td>3.00</td><td>162</td></tr><tr><td>15788050</td><td>JIANG, YUSHENG</td><td>GOLD</td><td>C</td><td>Active</td><td>Isaac Su</td><td>Unknown</td><td>2026-06-19</td><td>13d</td><td>¥734</td><td>¥1K</td><td>¥734</td><td>242%</td><td>3.00</td><td>84</td></tr><tr><td>16826582</td><td>XU,ZHUOBO</td><td>ELITE</td><td>C</td><td>Cooling</td><td>Isaac Su</td><td>Unknown</td><td>2026-04-04</td><td>89d</td><td>¥3K</td><td>¥3K</td><td>¥0</td><td>235%</td><td>0.00</td><td>10</td></tr><tr><td>17031321</td><td>HUANG, CAIQIANG</td><td>GOLD</td><td>C</td><td>Active</td><td>Isaac Su</td><td>Gansu</td><td>2026-06-02</td><td>30d</td><td>¥339</td><td>¥339</td><td>¥339</td><td>227%</td><td>3.00</td><td>193</td></tr><tr><td>15709968</td><td>CUI, BO</td><td>PLATINUM</td><td>C</td><td>Active</td><td>Isaac Su</td><td>Shaanxi</td><td>2026-06-12</td><td>20d</td><td>¥2K</td><td>¥44K</td><td>¥2K</td><td>221%</td><td>3.00</td><td>135</td></tr></tbody></table>
+            <table class="trace-table"><thead><tr><th>ID</th><th>Name</th><th>Tier</th><th>Seg</th><th>Risk</th><th>Host</th><th>Province</th><th>Last</th><th>Days</th><th>R3M</th><th>R6M</th><th>Jun</th><th>RI</th><th>M</th><th>SrcRow</th></tr></thead><tbody><tr><td>17083681</td><td>ZHANG, SHAOHUA</td><td>GOLD</td><td>C</td><td>Active</td><td>Isaac Su</td><td>Yunnan</td><td>2026-06-12</td><td>20d</td><td>¥25</td><td>¥25</td><td>¥25</td><td>5600%</td><td>3.00</td><td>138</td></tr><tr><td>16107258</td><td>HE, SANGANG</td><td>GOLD</td><td>C</td><td>Active</td><td>Isaac Su</td><td>Shaanxi</td><td>2026-06-11</td><td>21d</td><td>¥840</td><td>¥840</td><td>¥840</td><td>1525%</td><td>3.00</td><td>139</td></tr><tr><td>15196839</td><td>LI, LEI</td><td>GOLD</td><td>C</td><td>Active</td><td>Isaac Su</td><td>Beijing</td><td>2026-06-14</td><td>18d</td><td>¥3K</td><td>¥3K</td><td>¥3K</td><td>506%</td><td>3.00</td><td>115</td></tr><tr><td>12187166</td><td>HE, FAXING</td><td>GOLD</td><td>C</td><td>Active</td><td>Isaac Su</td><td>Gansu</td><td>2026-06-20</td><td>12d</td><td>¥391</td><td>¥9K</td><td>¥391</td><td>492%</td><td>3.00</td><td>65</td></tr><tr><td>16986086</td><td>LIU, YING</td><td>GOLD</td><td>C</td><td>Active</td><td>Isaac Su</td><td>Hubei</td><td>2026-06-13</td><td>19d</td><td>¥508</td><td>¥508</td><td>¥508</td><td>422%</td><td>3.00</td><td>124</td></tr><tr><td>16699633</td><td>LING, XIA</td><td>GOLD</td><td>C</td><td>Active</td><td>Isaac Su</td><td>Jiangsu</td><td>2026-06-11</td><td>21d</td><td>¥1K</td><td>¥1K</td><td>¥1K</td><td>338%</td><td>3.00</td><td>143</td></tr><tr><td>11305916</td><td>LI, MING</td><td>GOLD</td><td>C</td><td>Active</td><td>Isaac Su</td><td>Hubei</td><td>2026-06-19</td><td>13d</td><td>¥555</td><td>¥555</td><td>¥555</td><td>305%</td><td>3.00</td><td>79</td></tr><tr><td>16151093</td><td>DING, BO</td><td>GOLD</td><td>C</td><td>Active</td><td>Isaac Su</td><td>Beijing</td><td>2026-06-07</td><td>25d</td><td>¥745</td><td>¥745</td><td>¥745</td><td>260%</td><td>3.00</td><td>162</td></tr></tbody></table>
           </div>
           <footer><span>口径：Hosted + C-Low + R3M RI% &gt;100</span><span>动作：立即封顶 30%，例外需销售总监审批</span></footer>
         </div>
@@ -1275,28 +1424,45 @@
           <header>
             <div>
               <p class="eyebrow">Trace · RI Leakage</p>
-              <h2>C 段 RI&gt;100% 客户追溯（2/2）</h2>
+              <h2>C 段 RI&gt;100% 客户追溯（2/3）</h2>
             </div>
-            <div class="page-no">20 / 37</div>
+            <div class="page-no">28 / 53</div>
           </header>
           <div class="content trace-block">
             <p class="trace-summary">22 人 · R3M ¥33K · R6M ¥228K · Dormant ¥195K</p>
 
-            <table class="trace-table"><thead><tr><th>ID</th><th>Name</th><th>Tier</th><th>Seg</th><th>Risk</th><th>Host</th><th>Province</th><th>Last</th><th>Days</th><th>R3M</th><th>R6M</th><th>Jun</th><th>RI</th><th>M</th><th>SrcRow</th></tr></thead><tbody><tr><td>15633956</td><td>LI, JINLONG</td><td>SUPREME</td><td>C</td><td>Cooling</td><td>Isaac Su</td><td>Unknown</td><td>2026-04-11</td><td>82d</td><td>¥2K</td><td>¥6K</td><td>¥0</td><td>219%</td><td>0.00</td><td>23</td></tr><tr><td>17102126</td><td>HUANG, PEI</td><td>GOLD</td><td>C</td><td>Active</td><td>Isaac Su</td><td>Jiangxi</td><td>2026-06-23</td><td>9d</td><td>¥375</td><td>¥375</td><td>¥375</td><td>206%</td><td>3.00</td><td>55</td></tr><tr><td>16861576</td><td>WU.DI</td><td>GOLD</td><td>C</td><td>Cooling</td><td>Isaac Su</td><td>Unknown</td><td>2026-04-04</td><td>89d</td><td>¥835</td><td>¥835</td><td>¥0</td><td>190%</td><td>0.00</td><td>12</td></tr><tr><td>16097560</td><td>WANG,BO</td><td>PLATINUM</td><td>C</td><td>At-Risk</td><td>Isaac Su</td><td>Anhui</td><td>2026-03-30</td><td>94d</td><td>¥3K</td><td>¥79K</td><td>¥0</td><td>190%</td><td>0.00</td><td>22</td></tr><tr><td>13862577</td><td>LI, HUAWEI</td><td>ELITE</td><td>C</td><td>Active</td><td>Isaac Su</td><td>Unknown</td><td>2026-06-09</td><td>23d</td><td>¥4K</td><td>¥67K</td><td>¥4K</td><td>188%</td><td>3.00</td><td>150</td></tr><tr><td>16323316</td><td>LI, YONGJIN</td><td>GOLD</td><td>C</td><td>Active</td><td>Isaac Su</td><td>Shanxi</td><td>2026-06-29</td><td>3d</td><td>¥2K</td><td>¥2K</td><td>¥2K</td><td>182%</td><td>3.00</td><td>1</td></tr><tr><td>16861137</td><td>XUE,BENGEN</td><td>ELITE</td><td>C</td><td>Cooling</td><td>Isaac Su</td><td>Hubei</td><td>2026-04-11</td><td>82d</td><td>¥600</td><td>¥1K</td><td>¥0</td><td>143%</td><td>0.00</td><td>24</td></tr><tr><td>16666790</td><td>GUO, TIANYAO</td><td>GOLD</td><td>C</td><td>Active</td><td>Isaac Su</td><td>Jiangsu</td><td>2026-06-19</td><td>13d</td><td>¥3K</td><td>¥3K</td><td>¥3K</td><td>119%</td><td>3.00</td><td>82</td></tr><tr><td>17018268</td><td>ZHU, JINHAO</td><td>GOLD</td><td>C</td><td>Active</td><td>Isaac Su</td><td>Hubei</td><td>2026-06-03</td><td>29d</td><td>¥978</td><td>¥978</td><td>¥61</td><td>115%</td><td>0.19</td><td>186</td></tr><tr><td>10538285</td><td>CHEN, PINGXIA</td><td>GOLD</td><td>C</td><td>Active</td><td>Isaac Su</td><td>Fujian</td><td>2026-06-26</td><td>6d</td><td>¥3K</td><td>¥3K</td><td>¥3K</td><td>100%</td><td>3.00</td><td>32</td></tr></tbody></table>
+            <table class="trace-table"><thead><tr><th>ID</th><th>Name</th><th>Tier</th><th>Seg</th><th>Risk</th><th>Host</th><th>Province</th><th>Last</th><th>Days</th><th>R3M</th><th>R6M</th><th>Jun</th><th>RI</th><th>M</th><th>SrcRow</th></tr></thead><tbody><tr><td>15788050</td><td>JIANG, YUSHENG</td><td>GOLD</td><td>C</td><td>Active</td><td>Isaac Su</td><td>Unknown</td><td>2026-06-19</td><td>13d</td><td>¥734</td><td>¥1K</td><td>¥734</td><td>242%</td><td>3.00</td><td>84</td></tr><tr><td>16826582</td><td>XU,ZHUOBO</td><td>ELITE</td><td>C</td><td>Cooling</td><td>Isaac Su</td><td>Unknown</td><td>2026-04-04</td><td>89d</td><td>¥3K</td><td>¥3K</td><td>¥0</td><td>235%</td><td>0.00</td><td>10</td></tr><tr><td>17031321</td><td>HUANG, CAIQIANG</td><td>GOLD</td><td>C</td><td>Active</td><td>Isaac Su</td><td>Gansu</td><td>2026-06-02</td><td>30d</td><td>¥339</td><td>¥339</td><td>¥339</td><td>227%</td><td>3.00</td><td>193</td></tr><tr><td>15709968</td><td>CUI, BO</td><td>PLATINUM</td><td>C</td><td>Active</td><td>Isaac Su</td><td>Shaanxi</td><td>2026-06-12</td><td>20d</td><td>¥2K</td><td>¥44K</td><td>¥2K</td><td>221%</td><td>3.00</td><td>135</td></tr><tr><td>15633956</td><td>LI, JINLONG</td><td>SUPREME</td><td>C</td><td>Cooling</td><td>Isaac Su</td><td>Unknown</td><td>2026-04-11</td><td>82d</td><td>¥2K</td><td>¥6K</td><td>¥0</td><td>219%</td><td>0.00</td><td>23</td></tr><tr><td>17102126</td><td>HUANG, PEI</td><td>GOLD</td><td>C</td><td>Active</td><td>Isaac Su</td><td>Jiangxi</td><td>2026-06-23</td><td>9d</td><td>¥375</td><td>¥375</td><td>¥375</td><td>206%</td><td>3.00</td><td>55</td></tr><tr><td>16861576</td><td>WU.DI</td><td>GOLD</td><td>C</td><td>Cooling</td><td>Isaac Su</td><td>Unknown</td><td>2026-04-04</td><td>89d</td><td>¥835</td><td>¥835</td><td>¥0</td><td>190%</td><td>0.00</td><td>12</td></tr><tr><td>16097560</td><td>WANG,BO</td><td>PLATINUM</td><td>C</td><td>At-Risk</td><td>Isaac Su</td><td>Anhui</td><td>2026-03-30</td><td>94d</td><td>¥3K</td><td>¥79K</td><td>¥0</td><td>190%</td><td>0.00</td><td>22</td></tr></tbody></table>
           </div>
           <footer><span>口径：Hosted + C-Low + R3M RI% &gt;100</span><span>动作：立即封顶 30%，例外需销售总监审批</span></footer>
         </div>
       </section>
 
+      <section class="slide" data-title="C 段 RI&gt;100% 客户追溯">
+        <div class="page">
+          <header>
+            <div>
+              <p class="eyebrow">Trace · RI Leakage</p>
+              <h2>C 段 RI&gt;100% 客户追溯（3/3）</h2>
+            </div>
+            <div class="page-no">29 / 53</div>
+          </header>
+          <div class="content trace-block">
+            <p class="trace-summary">22 人 · R3M ¥33K · R6M ¥228K · Dormant ¥195K</p>
 
-      <section class="slide" data-title="休眠无主资产">
+            <table class="trace-table"><thead><tr><th>ID</th><th>Name</th><th>Tier</th><th>Seg</th><th>Risk</th><th>Host</th><th>Province</th><th>Last</th><th>Days</th><th>R3M</th><th>R6M</th><th>Jun</th><th>RI</th><th>M</th><th>SrcRow</th></tr></thead><tbody><tr><td>13862577</td><td>LI, HUAWEI</td><td>ELITE</td><td>C</td><td>Active</td><td>Isaac Su</td><td>Unknown</td><td>2026-06-09</td><td>23d</td><td>¥4K</td><td>¥67K</td><td>¥4K</td><td>188%</td><td>3.00</td><td>150</td></tr><tr><td>16323316</td><td>LI, YONGJIN</td><td>GOLD</td><td>C</td><td>Active</td><td>Isaac Su</td><td>Shanxi</td><td>2026-06-29</td><td>3d</td><td>¥2K</td><td>¥2K</td><td>¥2K</td><td>182%</td><td>3.00</td><td>1</td></tr><tr><td>16861137</td><td>XUE,BENGEN</td><td>ELITE</td><td>C</td><td>Cooling</td><td>Isaac Su</td><td>Hubei</td><td>2026-04-11</td><td>82d</td><td>¥600</td><td>¥1K</td><td>¥0</td><td>143%</td><td>0.00</td><td>24</td></tr><tr><td>16666790</td><td>GUO, TIANYAO</td><td>GOLD</td><td>C</td><td>Active</td><td>Isaac Su</td><td>Jiangsu</td><td>2026-06-19</td><td>13d</td><td>¥3K</td><td>¥3K</td><td>¥3K</td><td>119%</td><td>3.00</td><td>82</td></tr><tr><td>17018268</td><td>ZHU, JINHAO</td><td>GOLD</td><td>C</td><td>Active</td><td>Isaac Su</td><td>Hubei</td><td>2026-06-03</td><td>29d</td><td>¥978</td><td>¥978</td><td>¥61</td><td>115%</td><td>0.19</td><td>186</td></tr><tr><td>10538285</td><td>CHEN, PINGXIA</td><td>GOLD</td><td>C</td><td>Active</td><td>Isaac Su</td><td>Fujian</td><td>2026-06-26</td><td>6d</td><td>¥3K</td><td>¥3K</td><td>¥3K</td><td>100%</td><td>3.00</td><td>32</td></tr></tbody></table>
+          </div>
+          <footer><span>口径：Hosted + C-Low + R3M RI% &gt;100</span><span>动作：立即封顶 30%，例外需销售总监审批</span></footer>
+        </div>
+      </section>
+
+<section class="slide" data-title="休眠无主资产">
         <div class="page">
           <header>
             <div>
               <p class="eyebrow">Process 5</p>
               <h2>休眠 / 无主资产：¥6.70M 正贴近 180 天断崖</h2>
             </div>
-            <div class="page-no">21 / 37</div>
+            <div class="page-no">30 / 53</div>
           </header>
           <div class="content grid cols-2">
             <div class="card">
@@ -1322,19 +1488,20 @@
           <footer><span>Decision: 先抢 P0，再跑 P1/P2 漏斗</span><span>Owner: Sales Director</span></footer>
         </div>
       </section>
+
       <section class="slide" data-title="P0/P1/P2 无主唤醒名单追溯">
         <div class="page">
           <header>
             <div>
               <p class="eyebrow">Trace · Unassigned Reactivation</p>
-              <h2>P0/P1/P2 无主唤醒名单追溯（1/6）</h2>
+              <h2>P0/P1/P2 无主唤醒名单追溯（1/10）</h2>
             </div>
-            <div class="page-no">22 / 37</div>
+            <div class="page-no">31 / 53</div>
           </header>
           <div class="content trace-block">
             <p class="trace-summary">74 人 · R3M ¥0 · R6M ¥6.88M · Dormant ¥6.88M</p>
             <p class="trace-action">无主名单不是营销池，是待分配资产；先处理 R6M 高且静默接近 180 天的人。</p>
-            <table class="trace-table"><thead><tr><th>ID</th><th>Name</th><th>Tier</th><th>Seg</th><th>Risk</th><th>Host</th><th>Province</th><th>Last</th><th>Days</th><th>R3M</th><th>R6M</th><th>Jun</th><th>RI</th><th>M</th><th>SrcRow</th></tr></thead><tbody><tr><td>13880718</td><td>SUN, QIZHI</td><td>SUPREME 88</td><td>D</td><td>At-Risk</td><td>Unassigned</td><td>Jilin</td><td>2026-02-01</td><td>151d</td><td>¥0</td><td>¥849K</td><td>¥0</td><td>0%</td><td>0.00</td><td>38</td></tr><tr><td>13878016</td><td>LIU SANCHEZ,</td><td>SUPREME 88</td><td>D</td><td>At-Risk</td><td>Unassigned</td><td>Unknown</td><td>2026-02-28</td><td>124d</td><td>¥0</td><td>¥528K</td><td>¥0</td><td>0%</td><td>0.00</td><td>32</td></tr><tr><td>15127771</td><td>GU, XINHAI</td><td>SUPREME</td><td>D</td><td>At-Risk</td><td>Unassigned</td><td>Zhejiang</td><td>2026-02-05</td><td>147d</td><td>¥0</td><td>¥517K</td><td>¥0</td><td>0%</td><td>0.00</td><td>22</td></tr><tr><td>10981375</td><td>UUEI</td><td>SUPREME</td><td>D</td><td>At-Risk</td><td>Unassigned</td><td>Guangxi</td><td>2026-02-26</td><td>126d</td><td>¥0</td><td>¥494K</td><td>¥0</td><td>0%</td><td>0.00</td><td>40</td></tr><tr><td>12318660</td><td>JIANG,YIHONG</td><td>SUPREME</td><td>D</td><td>At-Risk</td><td>Unassigned</td><td>Zhejiang</td><td>2026-01-15</td><td>168d</td><td>¥0</td><td>¥460K</td><td>¥0</td><td>0%</td><td>0.00</td><td>16</td></tr><tr><td>10967563</td><td>LI,WENLI</td><td>SUPREME 88</td><td>D</td><td>At-Risk</td><td>Unassigned</td><td>Shanxi</td><td>2026-01-18</td><td>165d</td><td>¥0</td><td>¥368K</td><td>¥0</td><td>0%</td><td>0.00</td><td>7</td></tr><tr><td>16639039</td><td>FAN,LONGSHENG</td><td>SUPREME 88</td><td>D</td><td>At-Risk</td><td>Unassigned</td><td>Xinjiang</td><td>2026-01-21</td><td>162d</td><td>¥0</td><td>¥266K</td><td>¥0</td><td>0%</td><td>0.00</td><td>41</td></tr><tr><td>15758393</td><td>LING,YUNHUA</td><td>SUPREME</td><td>D</td><td>At-Risk</td><td>Unassigned</td><td>Hunan</td><td>2026-01-29</td><td>154d</td><td>¥0</td><td>¥236K</td><td>¥0</td><td>0%</td><td>0.00</td><td>9</td></tr><tr><td>16515517</td><td>DU, GENPING</td><td>SUPREME</td><td>D</td><td>At-Risk</td><td>Unassigned</td><td>Shaanxi</td><td>2026-03-03</td><td>121d</td><td>¥0</td><td>¥223K</td><td>¥0</td><td>0%</td><td>0.00</td><td>21</td></tr><tr><td>16852619</td><td>GAO,DONGCHEN</td><td>SUPREME</td><td>D</td><td>At-Risk</td><td>Unassigned</td><td>Jiangsu</td><td>2026-03-04</td><td>120d</td><td>¥0</td><td>¥215K</td><td>¥0</td><td>0%</td><td>0.00</td><td>19</td></tr><tr><td>10586809</td><td>HUANG, XUEHAI</td><td>SUPREME 88</td><td>D</td><td>At-Risk</td><td>Unassigned</td><td>Jiangsu</td><td>2026-03-05</td><td>119d</td><td>¥0</td><td>¥201K</td><td>¥0</td><td>0%</td><td>0.00</td><td>13</td></tr><tr><td>11905601</td><td>SU, CHENWEI</td><td>SUPREME</td><td>D</td><td>At-Risk</td><td>Unassigned</td><td>Hebei</td><td>2026-02-04</td><td>148d</td><td>¥0</td><td>¥164K</td><td>¥0</td><td>0%</td><td>0.00</td><td>27</td></tr><tr><td>16570705</td><td>LIU,ZYANG</td><td>SUPREME</td><td>D</td><td>At-Risk</td><td>Unassigned</td><td>Bejjing</td><td>2026-01-23</td><td>160d</td><td>¥0</td><td>¥146K</td><td>¥0</td><td>0%</td><td>0.00</td><td>35</td></tr><tr><td>10716106</td><td>WANG,LILI</td><td>ELITE</td><td>D</td><td>At-Risk</td><td>Unassigned</td><td>Guizhou</td><td>2026-02-26</td><td>126d</td><td>¥0</td><td>¥111K</td><td>¥0</td><td>0%</td><td>0.00</td><td>39</td></tr></tbody></table>
+            <table class="trace-table"><thead><tr><th>ID</th><th>Name</th><th>Tier</th><th>Seg</th><th>Risk</th><th>Host</th><th>Province</th><th>Last</th><th>Days</th><th>R3M</th><th>R6M</th><th>Jun</th><th>RI</th><th>M</th><th>SrcRow</th></tr></thead><tbody><tr><td>13880718</td><td>SUN, QIZHI</td><td>SUPREME 88</td><td>D</td><td>At-Risk</td><td>Unassigned</td><td>Jilin</td><td>2026-02-01</td><td>151d</td><td>¥0</td><td>¥849K</td><td>¥0</td><td>0%</td><td>0.00</td><td>38</td></tr><tr><td>13878016</td><td>LIU SANCHEZ,</td><td>SUPREME 88</td><td>D</td><td>At-Risk</td><td>Unassigned</td><td>Unknown</td><td>2026-02-28</td><td>124d</td><td>¥0</td><td>¥528K</td><td>¥0</td><td>0%</td><td>0.00</td><td>32</td></tr><tr><td>15127771</td><td>GU, XINHAI</td><td>SUPREME</td><td>D</td><td>At-Risk</td><td>Unassigned</td><td>Zhejiang</td><td>2026-02-05</td><td>147d</td><td>¥0</td><td>¥517K</td><td>¥0</td><td>0%</td><td>0.00</td><td>22</td></tr><tr><td>10981375</td><td>UUEI</td><td>SUPREME</td><td>D</td><td>At-Risk</td><td>Unassigned</td><td>Guangxi</td><td>2026-02-26</td><td>126d</td><td>¥0</td><td>¥494K</td><td>¥0</td><td>0%</td><td>0.00</td><td>40</td></tr><tr><td>12318660</td><td>JIANG,YIHONG</td><td>SUPREME</td><td>D</td><td>At-Risk</td><td>Unassigned</td><td>Zhejiang</td><td>2026-01-15</td><td>168d</td><td>¥0</td><td>¥460K</td><td>¥0</td><td>0%</td><td>0.00</td><td>16</td></tr><tr><td>10967563</td><td>LI,WENLI</td><td>SUPREME 88</td><td>D</td><td>At-Risk</td><td>Unassigned</td><td>Shanxi</td><td>2026-01-18</td><td>165d</td><td>¥0</td><td>¥368K</td><td>¥0</td><td>0%</td><td>0.00</td><td>7</td></tr><tr><td>16639039</td><td>FAN,LONGSHENG</td><td>SUPREME 88</td><td>D</td><td>At-Risk</td><td>Unassigned</td><td>Xinjiang</td><td>2026-01-21</td><td>162d</td><td>¥0</td><td>¥266K</td><td>¥0</td><td>0%</td><td>0.00</td><td>41</td></tr><tr><td>15758393</td><td>LING,YUNHUA</td><td>SUPREME</td><td>D</td><td>At-Risk</td><td>Unassigned</td><td>Hunan</td><td>2026-01-29</td><td>154d</td><td>¥0</td><td>¥236K</td><td>¥0</td><td>0%</td><td>0.00</td><td>9</td></tr></tbody></table>
           </div>
           <footer><span>口径：Unassigned 且 Dormant Value ≥ ¥10K，按 Dormant Value 降序</span><span>动作：P0 本周分配 Host，P1 两周触达，P2 自动化旅程</span></footer>
         </div>
@@ -1345,14 +1512,14 @@
           <header>
             <div>
               <p class="eyebrow">Trace · Unassigned Reactivation</p>
-              <h2>P0/P1/P2 无主唤醒名单追溯（2/6）</h2>
+              <h2>P0/P1/P2 无主唤醒名单追溯（2/10）</h2>
             </div>
-            <div class="page-no">23 / 37</div>
+            <div class="page-no">32 / 53</div>
           </header>
           <div class="content trace-block">
             <p class="trace-summary">74 人 · R3M ¥0 · R6M ¥6.88M · Dormant ¥6.88M</p>
 
-            <table class="trace-table"><thead><tr><th>ID</th><th>Name</th><th>Tier</th><th>Seg</th><th>Risk</th><th>Host</th><th>Province</th><th>Last</th><th>Days</th><th>R3M</th><th>R6M</th><th>Jun</th><th>RI</th><th>M</th><th>SrcRow</th></tr></thead><tbody><tr><td>16579120</td><td>LI, XIAOYOU</td><td>ELITE</td><td>D</td><td>At-Risk</td><td>Unassigned</td><td>Hunan</td><td>2026-02-24</td><td>128d</td><td>¥0</td><td>¥99K</td><td>¥0</td><td>0%</td><td>0.00</td><td>5</td></tr><tr><td>15922273</td><td>ZHANG,CHENG</td><td>SUPREME</td><td>D</td><td>At-Risk</td><td>Unassigned</td><td>Jilin</td><td>2026-03-03</td><td>121d</td><td>¥0</td><td>¥92K</td><td>¥0</td><td>0%</td><td>0.00</td><td>23</td></tr><tr><td>11611505</td><td>IHZ&#x27;N</td><td>ELITE</td><td>D</td><td>At-Risk</td><td>Unassigned</td><td>Hunan</td><td>2026-02-12</td><td>140d</td><td>¥0</td><td>¥90K</td><td>¥0</td><td>0%</td><td>0.00</td><td>35</td></tr><tr><td>16660976</td><td>LI, SHUANG</td><td>PLATINUM</td><td>D</td><td>At-Risk</td><td>Unassigned</td><td>Jilin</td><td>2026-02-02</td><td>150d</td><td>¥0</td><td>¥86K</td><td>¥0</td><td>0%</td><td>0.00</td><td>35</td></tr><tr><td>16522393</td><td>ZHAO,ZHICHONG</td><td>SUPREME</td><td>D</td><td>At-Risk</td><td>Unassigned</td><td>Shanghai</td><td>2026-01-04</td><td>179d</td><td>¥0</td><td>¥85K</td><td>¥0</td><td>0%</td><td>0.00</td><td>11</td></tr><tr><td>16858039</td><td>HUANG,LIANG</td><td>SUPREME</td><td>D</td><td>At-Risk</td><td>Unassigned</td><td>Jiangsu</td><td>2026-01-26</td><td>157d</td><td>¥0</td><td>¥79K</td><td>¥0</td><td>0%</td><td>0.00</td><td>27</td></tr><tr><td>16708722</td><td>YU,JIALONG</td><td>ELITE</td><td>D</td><td>At-Risk</td><td>Unassigned</td><td>Hebei</td><td>2026-02-25</td><td>127d</td><td>¥0</td><td>¥71K</td><td>¥0</td><td>0%</td><td>0.00</td><td>2</td></tr><tr><td>16857696</td><td>QIAO,LIANBO</td><td>PLATINUM</td><td>D</td><td>At-Risk</td><td>Unassigned</td><td>Liaoning</td><td>2026-01-28</td><td>155d</td><td>¥0</td><td>¥65K</td><td>¥0</td><td>0%</td><td>0.00</td><td>15</td></tr><tr><td>16866979</td><td>XIAO,BING</td><td>PLATINUM</td><td>D</td><td>At-Risk</td><td>Unassigned</td><td>Unknown</td><td>2026-02-19</td><td>133d</td><td>¥0</td><td>¥64K</td><td>¥0</td><td>0%</td><td>0.00</td><td>19</td></tr><tr><td>11689826</td><td>WANG, YABING</td><td>ELITE</td><td>D</td><td>At-Risk</td><td>Unassigned</td><td>Henan</td><td>2026-02-25</td><td>127d</td><td>¥0</td><td>¥63K</td><td>¥0</td><td>0%</td><td>0.00</td><td>42</td></tr><tr><td>16129799</td><td>MA, XIANG</td><td>ELITE</td><td>D</td><td>At-Risk</td><td>Unassigned</td><td>Shaanxi</td><td>2026-02-18</td><td>134d</td><td>¥0</td><td>¥51K</td><td>¥0</td><td>0%</td><td>0.00</td><td>20</td></tr><tr><td>16132593</td><td>LYU, QI</td><td>ELITE</td><td>D</td><td>Dormant</td><td>Unassigned</td><td>Zhejiang</td><td>2025-12-31</td><td>183d</td><td>¥0</td><td>¥50K</td><td>¥0</td><td>0%</td><td>0.00</td><td>24</td></tr><tr><td>10920718</td><td>LEI, LIHUIMEI</td><td>PLATINUM</td><td>D</td><td>At-Risk</td><td>Unassigned</td><td>Unknown</td><td>2026-01-15</td><td>168d</td><td>¥0</td><td>¥49K</td><td>¥0</td><td>0%</td><td>0.00</td><td>14</td></tr><tr><td>16862832</td><td>CHEN, BIN</td><td>PLATINUM</td><td>D</td><td>At-Risk</td><td>Unassigned</td><td>Zhejiang</td><td>2026-02-05</td><td>147d</td><td>¥0</td><td>¥49K</td><td>¥0</td><td>0%</td><td>0.00</td><td>25</td></tr></tbody></table>
+            <table class="trace-table"><thead><tr><th>ID</th><th>Name</th><th>Tier</th><th>Seg</th><th>Risk</th><th>Host</th><th>Province</th><th>Last</th><th>Days</th><th>R3M</th><th>R6M</th><th>Jun</th><th>RI</th><th>M</th><th>SrcRow</th></tr></thead><tbody><tr><td>16515517</td><td>DU, GENPING</td><td>SUPREME</td><td>D</td><td>At-Risk</td><td>Unassigned</td><td>Shaanxi</td><td>2026-03-03</td><td>121d</td><td>¥0</td><td>¥223K</td><td>¥0</td><td>0%</td><td>0.00</td><td>21</td></tr><tr><td>16852619</td><td>GAO,DONGCHEN</td><td>SUPREME</td><td>D</td><td>At-Risk</td><td>Unassigned</td><td>Jiangsu</td><td>2026-03-04</td><td>120d</td><td>¥0</td><td>¥215K</td><td>¥0</td><td>0%</td><td>0.00</td><td>19</td></tr><tr><td>10586809</td><td>HUANG, XUEHAI</td><td>SUPREME 88</td><td>D</td><td>At-Risk</td><td>Unassigned</td><td>Jiangsu</td><td>2026-03-05</td><td>119d</td><td>¥0</td><td>¥201K</td><td>¥0</td><td>0%</td><td>0.00</td><td>13</td></tr><tr><td>11905601</td><td>SU, CHENWEI</td><td>SUPREME</td><td>D</td><td>At-Risk</td><td>Unassigned</td><td>Hebei</td><td>2026-02-04</td><td>148d</td><td>¥0</td><td>¥164K</td><td>¥0</td><td>0%</td><td>0.00</td><td>27</td></tr><tr><td>16570705</td><td>LIU,ZYANG</td><td>SUPREME</td><td>D</td><td>At-Risk</td><td>Unassigned</td><td>Bejjing</td><td>2026-01-23</td><td>160d</td><td>¥0</td><td>¥146K</td><td>¥0</td><td>0%</td><td>0.00</td><td>35</td></tr><tr><td>10716106</td><td>WANG,LILI</td><td>ELITE</td><td>D</td><td>At-Risk</td><td>Unassigned</td><td>Guizhou</td><td>2026-02-26</td><td>126d</td><td>¥0</td><td>¥111K</td><td>¥0</td><td>0%</td><td>0.00</td><td>39</td></tr><tr><td>16579120</td><td>LI, XIAOYOU</td><td>ELITE</td><td>D</td><td>At-Risk</td><td>Unassigned</td><td>Hunan</td><td>2026-02-24</td><td>128d</td><td>¥0</td><td>¥99K</td><td>¥0</td><td>0%</td><td>0.00</td><td>5</td></tr><tr><td>15922273</td><td>ZHANG,CHENG</td><td>SUPREME</td><td>D</td><td>At-Risk</td><td>Unassigned</td><td>Jilin</td><td>2026-03-03</td><td>121d</td><td>¥0</td><td>¥92K</td><td>¥0</td><td>0%</td><td>0.00</td><td>23</td></tr></tbody></table>
           </div>
           <footer><span>口径：Unassigned 且 Dormant Value ≥ ¥10K，按 Dormant Value 降序</span><span>动作：P0 本周分配 Host，P1 两周触达，P2 自动化旅程</span></footer>
         </div>
@@ -1363,14 +1530,14 @@
           <header>
             <div>
               <p class="eyebrow">Trace · Unassigned Reactivation</p>
-              <h2>P0/P1/P2 无主唤醒名单追溯（3/6）</h2>
+              <h2>P0/P1/P2 无主唤醒名单追溯（3/10）</h2>
             </div>
-            <div class="page-no">24 / 37</div>
+            <div class="page-no">33 / 53</div>
           </header>
           <div class="content trace-block">
             <p class="trace-summary">74 人 · R3M ¥0 · R6M ¥6.88M · Dormant ¥6.88M</p>
 
-            <table class="trace-table"><thead><tr><th>ID</th><th>Name</th><th>Tier</th><th>Seg</th><th>Risk</th><th>Host</th><th>Province</th><th>Last</th><th>Days</th><th>R3M</th><th>R6M</th><th>Jun</th><th>RI</th><th>M</th><th>SrcRow</th></tr></thead><tbody><tr><td>16031173</td><td>JIAO,RUI</td><td>SUPREME</td><td>D</td><td>At-Risk</td><td>Unassigned</td><td>Shanxi</td><td>2026-03-10</td><td>114d</td><td>¥0</td><td>¥47K</td><td>¥0</td><td>0%</td><td>0.00</td><td>3</td></tr><tr><td>15637380</td><td>REN,SHUAISHUAI</td><td>PLATINUM</td><td>D</td><td>At-Risk</td><td>Unassigned</td><td>Jiangsu</td><td>2026-01-23</td><td>160d</td><td>¥0</td><td>¥46K</td><td>¥0</td><td>0%</td><td>0.00</td><td>38</td></tr><tr><td>16510779</td><td>ZHONG,KAI</td><td>PLATINUM</td><td>D</td><td>At-Risk</td><td>Unassigned</td><td>Jiangsu</td><td>2026-02-27</td><td>125d</td><td>¥0</td><td>¥45K</td><td>¥0</td><td>0%</td><td>0.00</td><td>36</td></tr><tr><td>16812090</td><td>ZHAO,SHENGLIN</td><td>ELITE</td><td>D</td><td>At-Risk</td><td>Unassigned</td><td>Liaoning</td><td>2026-02-05</td><td>147d</td><td>¥0</td><td>¥41K</td><td>¥0</td><td>0%</td><td>0.00</td><td>23</td></tr><tr><td>15019088</td><td>GUO,YONGPING</td><td>PLATINUM</td><td>D</td><td>At-Risk</td><td>Unassigned</td><td>Zhejiang</td><td>2026-02-22</td><td>130d</td><td>¥0</td><td>¥41K</td><td>¥0</td><td>0%</td><td>0.00</td><td>8</td></tr><tr><td>16033627</td><td>DONG,XINYU</td><td>ELITE</td><td>D</td><td>At-Risk</td><td>Unassigned</td><td>Guangxi</td><td>2026-03-03</td><td>121d</td><td>¥0</td><td>¥39K</td><td>¥0</td><td>0%</td><td>0.00</td><td>20</td></tr><tr><td>16739307</td><td>PAN,RISUO</td><td>PLATINUM</td><td>D</td><td>At-Risk</td><td>Unassigned</td><td>Liaoning</td><td>2026-01-10</td><td>173d</td><td>¥0</td><td>¥37K</td><td>¥0</td><td>0%</td><td>0.00</td><td>31</td></tr><tr><td>11015036</td><td>TIAN,YUGUI</td><td>SUPREME</td><td>D</td><td>At-Risk</td><td>Unassigned</td><td>Shanxi</td><td>2026-01-18</td><td>165d</td><td>¥0</td><td>¥36K</td><td>¥0</td><td>0%</td><td>0.00</td><td>8</td></tr><tr><td>16033321</td><td>ZHANG,</td><td>PLATINUM</td><td>D</td><td>At-Risk</td><td>Unassigned</td><td>Jiangsu</td><td>2026-01-21</td><td>162d</td><td>¥0</td><td>¥36K</td><td>¥0</td><td>0%</td><td>0.00</td><td>39</td></tr><tr><td>11236505</td><td>YING, SHANXI</td><td>ELITE</td><td>D</td><td>At-Risk</td><td>Unassigned</td><td>Zhejiang</td><td>2026-02-18</td><td>134d</td><td>¥0</td><td>¥35K</td><td>¥0</td><td>0%</td><td>0.00</td><td>21</td></tr><tr><td>16736132</td><td>LEI QINGZHU</td><td>PLATINUM</td><td>D</td><td>At-Risk</td><td>Unassigned</td><td>Unknown</td><td>2026-01-03</td><td>180d</td><td>¥0</td><td>¥34K</td><td>¥0</td><td>0%</td><td>0.00</td><td>15</td></tr><tr><td>15705630</td><td>LONG,JIAWEI</td><td>PLATINUM</td><td>D</td><td>At-Risk</td><td>Unassigned</td><td>Zhejiang</td><td>2026-02-14</td><td>138d</td><td>¥0</td><td>¥33K</td><td>¥0</td><td>0%</td><td>0.00</td><td>31</td></tr><tr><td>16693825</td><td>ZHENG, LIN</td><td>PLATINUM</td><td>D</td><td>At-Risk</td><td>Unassigned</td><td>Anhui</td><td>2026-02-10</td><td>142d</td><td>¥0</td><td>¥31K</td><td>¥0</td><td>0%</td><td>0.00</td><td>42</td></tr><tr><td>13878097</td><td>MIAO,YAGEN</td><td>ELITE</td><td>D</td><td>At-Risk</td><td>Unassigned</td><td>Unknown</td><td>2026-02-28</td><td>124d</td><td>¥0</td><td>¥30K</td><td>¥0</td><td>0%</td><td>0.00</td><td>33</td></tr></tbody></table>
+            <table class="trace-table"><thead><tr><th>ID</th><th>Name</th><th>Tier</th><th>Seg</th><th>Risk</th><th>Host</th><th>Province</th><th>Last</th><th>Days</th><th>R3M</th><th>R6M</th><th>Jun</th><th>RI</th><th>M</th><th>SrcRow</th></tr></thead><tbody><tr><td>11611505</td><td>IHZ&#x27;N</td><td>ELITE</td><td>D</td><td>At-Risk</td><td>Unassigned</td><td>Hunan</td><td>2026-02-12</td><td>140d</td><td>¥0</td><td>¥90K</td><td>¥0</td><td>0%</td><td>0.00</td><td>35</td></tr><tr><td>16660976</td><td>LI, SHUANG</td><td>PLATINUM</td><td>D</td><td>At-Risk</td><td>Unassigned</td><td>Jilin</td><td>2026-02-02</td><td>150d</td><td>¥0</td><td>¥86K</td><td>¥0</td><td>0%</td><td>0.00</td><td>35</td></tr><tr><td>16522393</td><td>ZHAO,ZHICHONG</td><td>SUPREME</td><td>D</td><td>At-Risk</td><td>Unassigned</td><td>Shanghai</td><td>2026-01-04</td><td>179d</td><td>¥0</td><td>¥85K</td><td>¥0</td><td>0%</td><td>0.00</td><td>11</td></tr><tr><td>16858039</td><td>HUANG,LIANG</td><td>SUPREME</td><td>D</td><td>At-Risk</td><td>Unassigned</td><td>Jiangsu</td><td>2026-01-26</td><td>157d</td><td>¥0</td><td>¥79K</td><td>¥0</td><td>0%</td><td>0.00</td><td>27</td></tr><tr><td>16708722</td><td>YU,JIALONG</td><td>ELITE</td><td>D</td><td>At-Risk</td><td>Unassigned</td><td>Hebei</td><td>2026-02-25</td><td>127d</td><td>¥0</td><td>¥71K</td><td>¥0</td><td>0%</td><td>0.00</td><td>2</td></tr><tr><td>16857696</td><td>QIAO,LIANBO</td><td>PLATINUM</td><td>D</td><td>At-Risk</td><td>Unassigned</td><td>Liaoning</td><td>2026-01-28</td><td>155d</td><td>¥0</td><td>¥65K</td><td>¥0</td><td>0%</td><td>0.00</td><td>15</td></tr><tr><td>16866979</td><td>XIAO,BING</td><td>PLATINUM</td><td>D</td><td>At-Risk</td><td>Unassigned</td><td>Unknown</td><td>2026-02-19</td><td>133d</td><td>¥0</td><td>¥64K</td><td>¥0</td><td>0%</td><td>0.00</td><td>19</td></tr><tr><td>11689826</td><td>WANG, YABING</td><td>ELITE</td><td>D</td><td>At-Risk</td><td>Unassigned</td><td>Henan</td><td>2026-02-25</td><td>127d</td><td>¥0</td><td>¥63K</td><td>¥0</td><td>0%</td><td>0.00</td><td>42</td></tr></tbody></table>
           </div>
           <footer><span>口径：Unassigned 且 Dormant Value ≥ ¥10K，按 Dormant Value 降序</span><span>动作：P0 本周分配 Host，P1 两周触达，P2 自动化旅程</span></footer>
         </div>
@@ -1381,14 +1548,14 @@
           <header>
             <div>
               <p class="eyebrow">Trace · Unassigned Reactivation</p>
-              <h2>P0/P1/P2 无主唤醒名单追溯（4/6）</h2>
+              <h2>P0/P1/P2 无主唤醒名单追溯（4/10）</h2>
             </div>
-            <div class="page-no">25 / 37</div>
+            <div class="page-no">34 / 53</div>
           </header>
           <div class="content trace-block">
             <p class="trace-summary">74 人 · R3M ¥0 · R6M ¥6.88M · Dormant ¥6.88M</p>
 
-            <table class="trace-table"><thead><tr><th>ID</th><th>Name</th><th>Tier</th><th>Seg</th><th>Risk</th><th>Host</th><th>Province</th><th>Last</th><th>Days</th><th>R3M</th><th>R6M</th><th>Jun</th><th>RI</th><th>M</th><th>SrcRow</th></tr></thead><tbody><tr><td>10575368</td><td>WU.ZHENZHONG</td><td>PLATINUM</td><td>D</td><td>At-Risk</td><td>Unassigned</td><td>Unknown</td><td>2026-02-19</td><td>133d</td><td>¥0</td><td>¥29K</td><td>¥0</td><td>0%</td><td>0.00</td><td>15</td></tr><tr><td>10983898</td><td>TIAN,GUOWEI</td><td>ELITE</td><td>D</td><td>At-Risk</td><td>Unassigned</td><td>Bejing</td><td>2026-01-21</td><td>162d</td><td>¥0</td><td>¥29K</td><td>¥0</td><td>0%</td><td>0.00</td><td>40</td></tr><tr><td>15518788</td><td>LU, CHOUYU</td><td>ELITE</td><td>D</td><td>At-Risk</td><td>Unassigned</td><td>Shanghai</td><td>2026-02-22</td><td>130d</td><td>¥0</td><td>¥29K</td><td>¥0</td><td>0%</td><td>0.00</td><td>9</td></tr><tr><td>16196527</td><td>FENG, YU</td><td>PLATINUM</td><td>D</td><td>At-Risk</td><td>Unassigned</td><td>Jiangsu</td><td>2026-02-27</td><td>125d</td><td>¥0</td><td>¥28K</td><td>¥0</td><td>0%</td><td>0.00</td><td>34</td></tr><tr><td>16881932</td><td>LI, MI</td><td>PLATINUM</td><td>D</td><td>At-Risk</td><td>Unassigned</td><td>Shanghai</td><td>2026-03-01</td><td>123d</td><td>¥0</td><td>¥25K</td><td>¥0</td><td>0%</td><td>0.00</td><td>29</td></tr><tr><td>16651781</td><td>PAN,YINKAI</td><td>ELITE</td><td>D</td><td>At-Risk</td><td>Unassigned</td><td>Unknown</td><td>2026-02-02</td><td>150d</td><td>¥0</td><td>¥24K</td><td>¥0</td><td>0%</td><td>0.00</td><td>34</td></tr><tr><td>16280228</td><td>XIAO,HUAJUN</td><td>ELITE</td><td>D</td><td>At-Risk</td><td>Unassigned</td><td>Hubei</td><td>2026-01-07</td><td>176d</td><td>¥0</td><td>¥24K</td><td>¥0</td><td>0%</td><td>0.00</td><td>3</td></tr><tr><td>15635755</td><td>LAI, JIALIANG</td><td>ELITE</td><td>D</td><td>At-Risk</td><td>Unassigned</td><td>Unknown</td><td>2026-02-13</td><td>139d</td><td>¥0</td><td>¥23K</td><td>¥0</td><td>0%</td><td>0.00</td><td>33</td></tr><tr><td>16036633</td><td>WANG,HONGZE</td><td>ELITE</td><td>D</td><td>At-Risk</td><td>Unassigned</td><td>Zhejiang</td><td>2026-01-27</td><td>156d</td><td>¥0</td><td>¥21K</td><td>¥0</td><td>0%</td><td>0.00</td><td>20</td></tr><tr><td>16729216</td><td>PLAENAK,</td><td>ELITE</td><td>D</td><td>At-Risk</td><td>Unassigned</td><td>Unknown</td><td>2026-02-11</td><td>141d</td><td>¥0</td><td>¥21K</td><td>¥0</td><td>0%</td><td>0.00</td><td>40</td></tr><tr><td>15792353</td><td>LI, KAI</td><td>ELITE</td><td>D</td><td>At-Risk</td><td>Unassigned</td><td>Hebei</td><td>2026-02-22</td><td>130d</td><td>¥0</td><td>¥20K</td><td>¥0</td><td>0%</td><td>0.00</td><td>10</td></tr><tr><td>13878018</td><td>LIU, YUE</td><td>ELITE</td><td>D</td><td>At-Risk</td><td>Unassigned</td><td>Unknown</td><td>2026-02-26</td><td>126d</td><td>¥0</td><td>¥20K</td><td>¥0</td><td>0%</td><td>0.00</td><td>41</td></tr><tr><td>16861086</td><td>HUANG, WEI</td><td>ELITE</td><td>D</td><td>At-Risk</td><td>Unassigned</td><td>Hubei</td><td>2026-02-02</td><td>150d</td><td>¥0</td><td>¥19K</td><td>¥0</td><td>0%</td><td>0.00</td><td>36</td></tr><tr><td>16500809</td><td>TIAN,WEI</td><td>ELITE</td><td>D</td><td>At-Risk</td><td>Unassigned</td><td>Inner</td><td>2026-01-19</td><td>164d</td><td>¥0</td><td>¥19K</td><td>¥0</td><td>0%</td><td>0.00</td><td>5</td></tr></tbody></table>
+            <table class="trace-table"><thead><tr><th>ID</th><th>Name</th><th>Tier</th><th>Seg</th><th>Risk</th><th>Host</th><th>Province</th><th>Last</th><th>Days</th><th>R3M</th><th>R6M</th><th>Jun</th><th>RI</th><th>M</th><th>SrcRow</th></tr></thead><tbody><tr><td>16129799</td><td>MA, XIANG</td><td>ELITE</td><td>D</td><td>At-Risk</td><td>Unassigned</td><td>Shaanxi</td><td>2026-02-18</td><td>134d</td><td>¥0</td><td>¥51K</td><td>¥0</td><td>0%</td><td>0.00</td><td>20</td></tr><tr><td>16132593</td><td>LYU, QI</td><td>ELITE</td><td>D</td><td>Dormant</td><td>Unassigned</td><td>Zhejiang</td><td>2025-12-31</td><td>183d</td><td>¥0</td><td>¥50K</td><td>¥0</td><td>0%</td><td>0.00</td><td>24</td></tr><tr><td>10920718</td><td>LEI, LIHUIMEI</td><td>PLATINUM</td><td>D</td><td>At-Risk</td><td>Unassigned</td><td>Unknown</td><td>2026-01-15</td><td>168d</td><td>¥0</td><td>¥49K</td><td>¥0</td><td>0%</td><td>0.00</td><td>14</td></tr><tr><td>16862832</td><td>CHEN, BIN</td><td>PLATINUM</td><td>D</td><td>At-Risk</td><td>Unassigned</td><td>Zhejiang</td><td>2026-02-05</td><td>147d</td><td>¥0</td><td>¥49K</td><td>¥0</td><td>0%</td><td>0.00</td><td>25</td></tr><tr><td>16031173</td><td>JIAO,RUI</td><td>SUPREME</td><td>D</td><td>At-Risk</td><td>Unassigned</td><td>Shanxi</td><td>2026-03-10</td><td>114d</td><td>¥0</td><td>¥47K</td><td>¥0</td><td>0%</td><td>0.00</td><td>3</td></tr><tr><td>15637380</td><td>REN,SHUAISHUAI</td><td>PLATINUM</td><td>D</td><td>At-Risk</td><td>Unassigned</td><td>Jiangsu</td><td>2026-01-23</td><td>160d</td><td>¥0</td><td>¥46K</td><td>¥0</td><td>0%</td><td>0.00</td><td>38</td></tr><tr><td>16510779</td><td>ZHONG,KAI</td><td>PLATINUM</td><td>D</td><td>At-Risk</td><td>Unassigned</td><td>Jiangsu</td><td>2026-02-27</td><td>125d</td><td>¥0</td><td>¥45K</td><td>¥0</td><td>0%</td><td>0.00</td><td>36</td></tr><tr><td>16812090</td><td>ZHAO,SHENGLIN</td><td>ELITE</td><td>D</td><td>At-Risk</td><td>Unassigned</td><td>Liaoning</td><td>2026-02-05</td><td>147d</td><td>¥0</td><td>¥41K</td><td>¥0</td><td>0%</td><td>0.00</td><td>23</td></tr></tbody></table>
           </div>
           <footer><span>口径：Unassigned 且 Dormant Value ≥ ¥10K，按 Dormant Value 降序</span><span>动作：P0 本周分配 Host，P1 两周触达，P2 自动化旅程</span></footer>
         </div>
@@ -1399,14 +1566,14 @@
           <header>
             <div>
               <p class="eyebrow">Trace · Unassigned Reactivation</p>
-              <h2>P0/P1/P2 无主唤醒名单追溯（5/6）</h2>
+              <h2>P0/P1/P2 无主唤醒名单追溯（5/10）</h2>
             </div>
-            <div class="page-no">26 / 37</div>
+            <div class="page-no">35 / 53</div>
           </header>
           <div class="content trace-block">
             <p class="trace-summary">74 人 · R3M ¥0 · R6M ¥6.88M · Dormant ¥6.88M</p>
 
-            <table class="trace-table"><thead><tr><th>ID</th><th>Name</th><th>Tier</th><th>Seg</th><th>Risk</th><th>Host</th><th>Province</th><th>Last</th><th>Days</th><th>R3M</th><th>R6M</th><th>Jun</th><th>RI</th><th>M</th><th>SrcRow</th></tr></thead><tbody><tr><td>16311165</td><td>QIN,YUMING</td><td>ELITE</td><td>D</td><td>At-Risk</td><td>Unassigned</td><td>Unknown</td><td>2026-03-01</td><td>123d</td><td>¥0</td><td>¥18K</td><td>¥0</td><td>0%</td><td>0.00</td><td>27</td></tr><tr><td>16850807</td><td>CHEN,DAN</td><td>PLATINUM</td><td>D</td><td>At-Risk</td><td>Unassigned</td><td>Unknown</td><td>2026-01-10</td><td>173d</td><td>¥0</td><td>¥17K</td><td>¥0</td><td>0%</td><td>0.00</td><td>33</td></tr><tr><td>15675010</td><td>ZOU,BIN</td><td>ELITE</td><td>D</td><td>At-Risk</td><td>Unassigned</td><td>Zhejiang</td><td>2026-02-04</td><td>148d</td><td>¥0</td><td>¥16K</td><td>¥0</td><td>0%</td><td>0.00</td><td>29</td></tr><tr><td>15788920</td><td>CAO,YUNLONG</td><td>ELITE</td><td>D</td><td>At-Risk</td><td>Unassigned</td><td>Hebei</td><td>2026-03-10</td><td>114d</td><td>¥0</td><td>¥16K</td><td>¥0</td><td>0%</td><td>0.00</td><td>2</td></tr><tr><td>16693950</td><td>XU,BEISEN</td><td>ELITE</td><td>D</td><td>At-Risk</td><td>Unassigned</td><td>Shanghai</td><td>2026-02-01</td><td>151d</td><td>¥0</td><td>¥16K</td><td>¥0</td><td>0%</td><td>0.00</td><td>37</td></tr><tr><td>16863068</td><td>WANG,ZENGYOU</td><td>PLATINUM</td><td>D</td><td>At-Risk</td><td>Unassigned</td><td>Hebei</td><td>2026-02-09</td><td>143d</td><td>¥0</td><td>¥15K</td><td>¥0</td><td>0%</td><td>0.00</td><td>9</td></tr><tr><td>12238359</td><td>LI, XIQIN</td><td>ELITE</td><td>D</td><td>At-Risk</td><td>Unassigned</td><td>Hubei</td><td>2026-01-08</td><td>175d</td><td>¥0</td><td>¥14K</td><td>¥0</td><td>0%</td><td>0.00</td><td>42</td></tr><tr><td>15662905</td><td>YING, JIANAN</td><td>ELITE</td><td>D</td><td>At-Risk</td><td>Unassigned</td><td>Zhejiang</td><td>2026-02-19</td><td>133d</td><td>¥0</td><td>¥14K</td><td>¥0</td><td>0%</td><td>0.00</td><td>18</td></tr><tr><td>16515189</td><td>LIU, XIAOLONG</td><td>ELITE</td><td>D</td><td>Dormant</td><td>Unassigned</td><td>Jiangsu</td><td>2026-01-02</td><td>181d</td><td>¥0</td><td>¥14K</td><td>¥0</td><td>0%</td><td>0.00</td><td>16</td></tr><tr><td>16602896</td><td>CHANG,FENG</td><td>ELITE</td><td>D</td><td>At-Risk</td><td>Unassigned</td><td>Jiangsu</td><td>2026-01-28</td><td>155d</td><td>¥0</td><td>¥13K</td><td>¥0</td><td>0%</td><td>0.00</td><td>11</td></tr><tr><td>13281870</td><td>MA,GUOZHEN</td><td>ELITE</td><td>D</td><td>At-Risk</td><td>Unassigned</td><td>Zhejiang</td><td>2026-02-06</td><td>146d</td><td>¥0</td><td>¥13K</td><td>¥0</td><td>0%</td><td>0.00</td><td>18</td></tr><tr><td>11228302</td><td>ZHU,YING</td><td>ELITE</td><td>D</td><td>At-Risk</td><td>Unassigned</td><td>Hunan</td><td>2026-01-13</td><td>170d</td><td>¥0</td><td>¥13K</td><td>¥0</td><td>0%</td><td>0.00</td><td>21</td></tr><tr><td>13588362</td><td>LI, XIAOLONG</td><td>ELITE</td><td>D</td><td>At-Risk</td><td>Unassigned</td><td>Jilin</td><td>2026-01-23</td><td>160d</td><td>¥0</td><td>¥12K</td><td>¥0</td><td>0%</td><td>0.00</td><td>36</td></tr><tr><td>16809217</td><td>LIU,JUN</td><td>GOLD</td><td>D</td><td>At-Risk</td><td>Unassigned</td><td>Unknown</td><td>2026-01-10</td><td>173d</td><td>¥0</td><td>¥12K</td><td>¥0</td><td>0%</td><td>0.00</td><td>32</td></tr></tbody></table>
+            <table class="trace-table"><thead><tr><th>ID</th><th>Name</th><th>Tier</th><th>Seg</th><th>Risk</th><th>Host</th><th>Province</th><th>Last</th><th>Days</th><th>R3M</th><th>R6M</th><th>Jun</th><th>RI</th><th>M</th><th>SrcRow</th></tr></thead><tbody><tr><td>15019088</td><td>GUO,YONGPING</td><td>PLATINUM</td><td>D</td><td>At-Risk</td><td>Unassigned</td><td>Zhejiang</td><td>2026-02-22</td><td>130d</td><td>¥0</td><td>¥41K</td><td>¥0</td><td>0%</td><td>0.00</td><td>8</td></tr><tr><td>16033627</td><td>DONG,XINYU</td><td>ELITE</td><td>D</td><td>At-Risk</td><td>Unassigned</td><td>Guangxi</td><td>2026-03-03</td><td>121d</td><td>¥0</td><td>¥39K</td><td>¥0</td><td>0%</td><td>0.00</td><td>20</td></tr><tr><td>16739307</td><td>PAN,RISUO</td><td>PLATINUM</td><td>D</td><td>At-Risk</td><td>Unassigned</td><td>Liaoning</td><td>2026-01-10</td><td>173d</td><td>¥0</td><td>¥37K</td><td>¥0</td><td>0%</td><td>0.00</td><td>31</td></tr><tr><td>11015036</td><td>TIAN,YUGUI</td><td>SUPREME</td><td>D</td><td>At-Risk</td><td>Unassigned</td><td>Shanxi</td><td>2026-01-18</td><td>165d</td><td>¥0</td><td>¥36K</td><td>¥0</td><td>0%</td><td>0.00</td><td>8</td></tr><tr><td>16033321</td><td>ZHANG,</td><td>PLATINUM</td><td>D</td><td>At-Risk</td><td>Unassigned</td><td>Jiangsu</td><td>2026-01-21</td><td>162d</td><td>¥0</td><td>¥36K</td><td>¥0</td><td>0%</td><td>0.00</td><td>39</td></tr><tr><td>11236505</td><td>YING, SHANXI</td><td>ELITE</td><td>D</td><td>At-Risk</td><td>Unassigned</td><td>Zhejiang</td><td>2026-02-18</td><td>134d</td><td>¥0</td><td>¥35K</td><td>¥0</td><td>0%</td><td>0.00</td><td>21</td></tr><tr><td>16736132</td><td>LEI QINGZHU</td><td>PLATINUM</td><td>D</td><td>At-Risk</td><td>Unassigned</td><td>Unknown</td><td>2026-01-03</td><td>180d</td><td>¥0</td><td>¥34K</td><td>¥0</td><td>0%</td><td>0.00</td><td>15</td></tr><tr><td>15705630</td><td>LONG,JIAWEI</td><td>PLATINUM</td><td>D</td><td>At-Risk</td><td>Unassigned</td><td>Zhejiang</td><td>2026-02-14</td><td>138d</td><td>¥0</td><td>¥33K</td><td>¥0</td><td>0%</td><td>0.00</td><td>31</td></tr></tbody></table>
           </div>
           <footer><span>口径：Unassigned 且 Dormant Value ≥ ¥10K，按 Dormant Value 降序</span><span>动作：P0 本周分配 Host，P1 两周触达，P2 自动化旅程</span></footer>
         </div>
@@ -1417,14 +1584,86 @@
           <header>
             <div>
               <p class="eyebrow">Trace · Unassigned Reactivation</p>
-              <h2>P0/P1/P2 无主唤醒名单追溯（6/6）</h2>
+              <h2>P0/P1/P2 无主唤醒名单追溯（6/10）</h2>
             </div>
-            <div class="page-no">27 / 37</div>
+            <div class="page-no">36 / 53</div>
           </header>
           <div class="content trace-block">
             <p class="trace-summary">74 人 · R3M ¥0 · R6M ¥6.88M · Dormant ¥6.88M</p>
 
-            <table class="trace-table"><thead><tr><th>ID</th><th>Name</th><th>Tier</th><th>Seg</th><th>Risk</th><th>Host</th><th>Province</th><th>Last</th><th>Days</th><th>R3M</th><th>R6M</th><th>Jun</th><th>RI</th><th>M</th><th>SrcRow</th></tr></thead><tbody><tr><td>16136258</td><td>ZANG,DONGQING</td><td>ELITE</td><td>D</td><td>At-Risk</td><td>Unassigned</td><td>Shanxi</td><td>2026-01-28</td><td>155d</td><td>¥0</td><td>¥12K</td><td>¥0</td><td>0%</td><td>0.00</td><td>10</td></tr><tr><td>13068026</td><td>TANG,ZICHAO</td><td>GOLD</td><td>D</td><td>At-Risk</td><td>Unassigned</td><td>Hunan</td><td>2026-02-06</td><td>146d</td><td>¥0</td><td>¥11K</td><td>¥0</td><td>0%</td><td>0.00</td><td>17</td></tr><tr><td>12192001</td><td>JIN,DAOXUAN</td><td>ELITE</td><td>D</td><td>At-Risk</td><td>Unassigned</td><td>Jilin</td><td>2026-03-05</td><td>119d</td><td>¥0</td><td>¥11K</td><td>¥0</td><td>0%</td><td>0.00</td><td>14</td></tr><tr><td>16327727</td><td>SU,LIN</td><td>GOLD</td><td>D</td><td>At-Risk</td><td>Unassigned</td><td>Bejing</td><td>2026-01-10</td><td>173d</td><td>¥0</td><td>¥10K</td><td>¥0</td><td>0%</td><td>0.00</td><td>30</td></tr></tbody></table>
+            <table class="trace-table"><thead><tr><th>ID</th><th>Name</th><th>Tier</th><th>Seg</th><th>Risk</th><th>Host</th><th>Province</th><th>Last</th><th>Days</th><th>R3M</th><th>R6M</th><th>Jun</th><th>RI</th><th>M</th><th>SrcRow</th></tr></thead><tbody><tr><td>16693825</td><td>ZHENG, LIN</td><td>PLATINUM</td><td>D</td><td>At-Risk</td><td>Unassigned</td><td>Anhui</td><td>2026-02-10</td><td>142d</td><td>¥0</td><td>¥31K</td><td>¥0</td><td>0%</td><td>0.00</td><td>42</td></tr><tr><td>13878097</td><td>MIAO,YAGEN</td><td>ELITE</td><td>D</td><td>At-Risk</td><td>Unassigned</td><td>Unknown</td><td>2026-02-28</td><td>124d</td><td>¥0</td><td>¥30K</td><td>¥0</td><td>0%</td><td>0.00</td><td>33</td></tr><tr><td>10575368</td><td>WU.ZHENZHONG</td><td>PLATINUM</td><td>D</td><td>At-Risk</td><td>Unassigned</td><td>Unknown</td><td>2026-02-19</td><td>133d</td><td>¥0</td><td>¥29K</td><td>¥0</td><td>0%</td><td>0.00</td><td>15</td></tr><tr><td>10983898</td><td>TIAN,GUOWEI</td><td>ELITE</td><td>D</td><td>At-Risk</td><td>Unassigned</td><td>Bejing</td><td>2026-01-21</td><td>162d</td><td>¥0</td><td>¥29K</td><td>¥0</td><td>0%</td><td>0.00</td><td>40</td></tr><tr><td>15518788</td><td>LU, CHOUYU</td><td>ELITE</td><td>D</td><td>At-Risk</td><td>Unassigned</td><td>Shanghai</td><td>2026-02-22</td><td>130d</td><td>¥0</td><td>¥29K</td><td>¥0</td><td>0%</td><td>0.00</td><td>9</td></tr><tr><td>16196527</td><td>FENG, YU</td><td>PLATINUM</td><td>D</td><td>At-Risk</td><td>Unassigned</td><td>Jiangsu</td><td>2026-02-27</td><td>125d</td><td>¥0</td><td>¥28K</td><td>¥0</td><td>0%</td><td>0.00</td><td>34</td></tr><tr><td>16881932</td><td>LI, MI</td><td>PLATINUM</td><td>D</td><td>At-Risk</td><td>Unassigned</td><td>Shanghai</td><td>2026-03-01</td><td>123d</td><td>¥0</td><td>¥25K</td><td>¥0</td><td>0%</td><td>0.00</td><td>29</td></tr><tr><td>16651781</td><td>PAN,YINKAI</td><td>ELITE</td><td>D</td><td>At-Risk</td><td>Unassigned</td><td>Unknown</td><td>2026-02-02</td><td>150d</td><td>¥0</td><td>¥24K</td><td>¥0</td><td>0%</td><td>0.00</td><td>34</td></tr></tbody></table>
+          </div>
+          <footer><span>口径：Unassigned 且 Dormant Value ≥ ¥10K，按 Dormant Value 降序</span><span>动作：P0 本周分配 Host，P1 两周触达，P2 自动化旅程</span></footer>
+        </div>
+      </section>
+
+      <section class="slide" data-title="P0/P1/P2 无主唤醒名单追溯">
+        <div class="page">
+          <header>
+            <div>
+              <p class="eyebrow">Trace · Unassigned Reactivation</p>
+              <h2>P0/P1/P2 无主唤醒名单追溯（7/10）</h2>
+            </div>
+            <div class="page-no">37 / 53</div>
+          </header>
+          <div class="content trace-block">
+            <p class="trace-summary">74 人 · R3M ¥0 · R6M ¥6.88M · Dormant ¥6.88M</p>
+
+            <table class="trace-table"><thead><tr><th>ID</th><th>Name</th><th>Tier</th><th>Seg</th><th>Risk</th><th>Host</th><th>Province</th><th>Last</th><th>Days</th><th>R3M</th><th>R6M</th><th>Jun</th><th>RI</th><th>M</th><th>SrcRow</th></tr></thead><tbody><tr><td>16280228</td><td>XIAO,HUAJUN</td><td>ELITE</td><td>D</td><td>At-Risk</td><td>Unassigned</td><td>Hubei</td><td>2026-01-07</td><td>176d</td><td>¥0</td><td>¥24K</td><td>¥0</td><td>0%</td><td>0.00</td><td>3</td></tr><tr><td>15635755</td><td>LAI, JIALIANG</td><td>ELITE</td><td>D</td><td>At-Risk</td><td>Unassigned</td><td>Unknown</td><td>2026-02-13</td><td>139d</td><td>¥0</td><td>¥23K</td><td>¥0</td><td>0%</td><td>0.00</td><td>33</td></tr><tr><td>16036633</td><td>WANG,HONGZE</td><td>ELITE</td><td>D</td><td>At-Risk</td><td>Unassigned</td><td>Zhejiang</td><td>2026-01-27</td><td>156d</td><td>¥0</td><td>¥21K</td><td>¥0</td><td>0%</td><td>0.00</td><td>20</td></tr><tr><td>16729216</td><td>PLAENAK,</td><td>ELITE</td><td>D</td><td>At-Risk</td><td>Unassigned</td><td>Unknown</td><td>2026-02-11</td><td>141d</td><td>¥0</td><td>¥21K</td><td>¥0</td><td>0%</td><td>0.00</td><td>40</td></tr><tr><td>15792353</td><td>LI, KAI</td><td>ELITE</td><td>D</td><td>At-Risk</td><td>Unassigned</td><td>Hebei</td><td>2026-02-22</td><td>130d</td><td>¥0</td><td>¥20K</td><td>¥0</td><td>0%</td><td>0.00</td><td>10</td></tr><tr><td>13878018</td><td>LIU, YUE</td><td>ELITE</td><td>D</td><td>At-Risk</td><td>Unassigned</td><td>Unknown</td><td>2026-02-26</td><td>126d</td><td>¥0</td><td>¥20K</td><td>¥0</td><td>0%</td><td>0.00</td><td>41</td></tr><tr><td>16861086</td><td>HUANG, WEI</td><td>ELITE</td><td>D</td><td>At-Risk</td><td>Unassigned</td><td>Hubei</td><td>2026-02-02</td><td>150d</td><td>¥0</td><td>¥19K</td><td>¥0</td><td>0%</td><td>0.00</td><td>36</td></tr><tr><td>16500809</td><td>TIAN,WEI</td><td>ELITE</td><td>D</td><td>At-Risk</td><td>Unassigned</td><td>Inner</td><td>2026-01-19</td><td>164d</td><td>¥0</td><td>¥19K</td><td>¥0</td><td>0%</td><td>0.00</td><td>5</td></tr></tbody></table>
+          </div>
+          <footer><span>口径：Unassigned 且 Dormant Value ≥ ¥10K，按 Dormant Value 降序</span><span>动作：P0 本周分配 Host，P1 两周触达，P2 自动化旅程</span></footer>
+        </div>
+      </section>
+
+      <section class="slide" data-title="P0/P1/P2 无主唤醒名单追溯">
+        <div class="page">
+          <header>
+            <div>
+              <p class="eyebrow">Trace · Unassigned Reactivation</p>
+              <h2>P0/P1/P2 无主唤醒名单追溯（8/10）</h2>
+            </div>
+            <div class="page-no">38 / 53</div>
+          </header>
+          <div class="content trace-block">
+            <p class="trace-summary">74 人 · R3M ¥0 · R6M ¥6.88M · Dormant ¥6.88M</p>
+
+            <table class="trace-table"><thead><tr><th>ID</th><th>Name</th><th>Tier</th><th>Seg</th><th>Risk</th><th>Host</th><th>Province</th><th>Last</th><th>Days</th><th>R3M</th><th>R6M</th><th>Jun</th><th>RI</th><th>M</th><th>SrcRow</th></tr></thead><tbody><tr><td>16311165</td><td>QIN,YUMING</td><td>ELITE</td><td>D</td><td>At-Risk</td><td>Unassigned</td><td>Unknown</td><td>2026-03-01</td><td>123d</td><td>¥0</td><td>¥18K</td><td>¥0</td><td>0%</td><td>0.00</td><td>27</td></tr><tr><td>16850807</td><td>CHEN,DAN</td><td>PLATINUM</td><td>D</td><td>At-Risk</td><td>Unassigned</td><td>Unknown</td><td>2026-01-10</td><td>173d</td><td>¥0</td><td>¥17K</td><td>¥0</td><td>0%</td><td>0.00</td><td>33</td></tr><tr><td>15675010</td><td>ZOU,BIN</td><td>ELITE</td><td>D</td><td>At-Risk</td><td>Unassigned</td><td>Zhejiang</td><td>2026-02-04</td><td>148d</td><td>¥0</td><td>¥16K</td><td>¥0</td><td>0%</td><td>0.00</td><td>29</td></tr><tr><td>15788920</td><td>CAO,YUNLONG</td><td>ELITE</td><td>D</td><td>At-Risk</td><td>Unassigned</td><td>Hebei</td><td>2026-03-10</td><td>114d</td><td>¥0</td><td>¥16K</td><td>¥0</td><td>0%</td><td>0.00</td><td>2</td></tr><tr><td>16693950</td><td>XU,BEISEN</td><td>ELITE</td><td>D</td><td>At-Risk</td><td>Unassigned</td><td>Shanghai</td><td>2026-02-01</td><td>151d</td><td>¥0</td><td>¥16K</td><td>¥0</td><td>0%</td><td>0.00</td><td>37</td></tr><tr><td>16863068</td><td>WANG,ZENGYOU</td><td>PLATINUM</td><td>D</td><td>At-Risk</td><td>Unassigned</td><td>Hebei</td><td>2026-02-09</td><td>143d</td><td>¥0</td><td>¥15K</td><td>¥0</td><td>0%</td><td>0.00</td><td>9</td></tr><tr><td>12238359</td><td>LI, XIQIN</td><td>ELITE</td><td>D</td><td>At-Risk</td><td>Unassigned</td><td>Hubei</td><td>2026-01-08</td><td>175d</td><td>¥0</td><td>¥14K</td><td>¥0</td><td>0%</td><td>0.00</td><td>42</td></tr><tr><td>15662905</td><td>YING, JIANAN</td><td>ELITE</td><td>D</td><td>At-Risk</td><td>Unassigned</td><td>Zhejiang</td><td>2026-02-19</td><td>133d</td><td>¥0</td><td>¥14K</td><td>¥0</td><td>0%</td><td>0.00</td><td>18</td></tr></tbody></table>
+          </div>
+          <footer><span>口径：Unassigned 且 Dormant Value ≥ ¥10K，按 Dormant Value 降序</span><span>动作：P0 本周分配 Host，P1 两周触达，P2 自动化旅程</span></footer>
+        </div>
+      </section>
+
+      <section class="slide" data-title="P0/P1/P2 无主唤醒名单追溯">
+        <div class="page">
+          <header>
+            <div>
+              <p class="eyebrow">Trace · Unassigned Reactivation</p>
+              <h2>P0/P1/P2 无主唤醒名单追溯（9/10）</h2>
+            </div>
+            <div class="page-no">39 / 53</div>
+          </header>
+          <div class="content trace-block">
+            <p class="trace-summary">74 人 · R3M ¥0 · R6M ¥6.88M · Dormant ¥6.88M</p>
+
+            <table class="trace-table"><thead><tr><th>ID</th><th>Name</th><th>Tier</th><th>Seg</th><th>Risk</th><th>Host</th><th>Province</th><th>Last</th><th>Days</th><th>R3M</th><th>R6M</th><th>Jun</th><th>RI</th><th>M</th><th>SrcRow</th></tr></thead><tbody><tr><td>16515189</td><td>LIU, XIAOLONG</td><td>ELITE</td><td>D</td><td>Dormant</td><td>Unassigned</td><td>Jiangsu</td><td>2026-01-02</td><td>181d</td><td>¥0</td><td>¥14K</td><td>¥0</td><td>0%</td><td>0.00</td><td>16</td></tr><tr><td>16602896</td><td>CHANG,FENG</td><td>ELITE</td><td>D</td><td>At-Risk</td><td>Unassigned</td><td>Jiangsu</td><td>2026-01-28</td><td>155d</td><td>¥0</td><td>¥13K</td><td>¥0</td><td>0%</td><td>0.00</td><td>11</td></tr><tr><td>13281870</td><td>MA,GUOZHEN</td><td>ELITE</td><td>D</td><td>At-Risk</td><td>Unassigned</td><td>Zhejiang</td><td>2026-02-06</td><td>146d</td><td>¥0</td><td>¥13K</td><td>¥0</td><td>0%</td><td>0.00</td><td>18</td></tr><tr><td>11228302</td><td>ZHU,YING</td><td>ELITE</td><td>D</td><td>At-Risk</td><td>Unassigned</td><td>Hunan</td><td>2026-01-13</td><td>170d</td><td>¥0</td><td>¥13K</td><td>¥0</td><td>0%</td><td>0.00</td><td>21</td></tr><tr><td>13588362</td><td>LI, XIAOLONG</td><td>ELITE</td><td>D</td><td>At-Risk</td><td>Unassigned</td><td>Jilin</td><td>2026-01-23</td><td>160d</td><td>¥0</td><td>¥12K</td><td>¥0</td><td>0%</td><td>0.00</td><td>36</td></tr><tr><td>16809217</td><td>LIU,JUN</td><td>GOLD</td><td>D</td><td>At-Risk</td><td>Unassigned</td><td>Unknown</td><td>2026-01-10</td><td>173d</td><td>¥0</td><td>¥12K</td><td>¥0</td><td>0%</td><td>0.00</td><td>32</td></tr><tr><td>16136258</td><td>ZANG,DONGQING</td><td>ELITE</td><td>D</td><td>At-Risk</td><td>Unassigned</td><td>Shanxi</td><td>2026-01-28</td><td>155d</td><td>¥0</td><td>¥12K</td><td>¥0</td><td>0%</td><td>0.00</td><td>10</td></tr><tr><td>13068026</td><td>TANG,ZICHAO</td><td>GOLD</td><td>D</td><td>At-Risk</td><td>Unassigned</td><td>Hunan</td><td>2026-02-06</td><td>146d</td><td>¥0</td><td>¥11K</td><td>¥0</td><td>0%</td><td>0.00</td><td>17</td></tr></tbody></table>
+          </div>
+          <footer><span>口径：Unassigned 且 Dormant Value ≥ ¥10K，按 Dormant Value 降序</span><span>动作：P0 本周分配 Host，P1 两周触达，P2 自动化旅程</span></footer>
+        </div>
+      </section>
+
+      <section class="slide" data-title="P0/P1/P2 无主唤醒名单追溯">
+        <div class="page">
+          <header>
+            <div>
+              <p class="eyebrow">Trace · Unassigned Reactivation</p>
+              <h2>P0/P1/P2 无主唤醒名单追溯（10/10）</h2>
+            </div>
+            <div class="page-no">40 / 53</div>
+          </header>
+          <div class="content trace-block">
+            <p class="trace-summary">74 人 · R3M ¥0 · R6M ¥6.88M · Dormant ¥6.88M</p>
+
+            <table class="trace-table"><thead><tr><th>ID</th><th>Name</th><th>Tier</th><th>Seg</th><th>Risk</th><th>Host</th><th>Province</th><th>Last</th><th>Days</th><th>R3M</th><th>R6M</th><th>Jun</th><th>RI</th><th>M</th><th>SrcRow</th></tr></thead><tbody><tr><td>12192001</td><td>JIN,DAOXUAN</td><td>ELITE</td><td>D</td><td>At-Risk</td><td>Unassigned</td><td>Jilin</td><td>2026-03-05</td><td>119d</td><td>¥0</td><td>¥11K</td><td>¥0</td><td>0%</td><td>0.00</td><td>14</td></tr><tr><td>16327727</td><td>SU,LIN</td><td>GOLD</td><td>D</td><td>At-Risk</td><td>Unassigned</td><td>Bejing</td><td>2026-01-10</td><td>173d</td><td>¥0</td><td>¥10K</td><td>¥0</td><td>0%</td><td>0.00</td><td>30</td></tr></tbody></table>
           </div>
           <footer><span>口径：Unassigned 且 Dormant Value ≥ ¥10K，按 Dormant Value 降序</span><span>动作：P0 本周分配 Host，P1 两周触达，P2 自动化旅程</span></footer>
         </div>
@@ -1435,14 +1674,14 @@
           <header>
             <div>
               <p class="eyebrow">Trace · Hosted Dormant</p>
-              <h2>Hosted D 段零产出客户追溯（1/5）</h2>
+              <h2>Hosted D 段零产出客户追溯（1/8）</h2>
             </div>
-            <div class="page-no">28 / 37</div>
+            <div class="page-no">41 / 53</div>
           </header>
           <div class="content trace-block">
             <p class="trace-summary">61 人 · R3M ¥0 · R6M ¥2.04M · Dormant ¥2.04M</p>
             <p class="trace-action">这批客户有 Host 但零产出，不能只交回给原 Host；要由管理层复盘关系断点。</p>
-            <table class="trace-table"><thead><tr><th>ID</th><th>Name</th><th>Tier</th><th>Seg</th><th>Risk</th><th>Host</th><th>Province</th><th>Last</th><th>Days</th><th>R3M</th><th>R6M</th><th>Jun</th><th>RI</th><th>M</th><th>SrcRow</th></tr></thead><tbody><tr><td>16722795</td><td>WU,ZHIDONG</td><td>SUPREME</td><td>D</td><td>At-Risk</td><td>Isaac Su</td><td>Tianjin</td><td>2026-03-10</td><td>114d</td><td>¥0</td><td>¥389K</td><td>¥0</td><td>0%</td><td>0.00</td><td>42</td></tr><tr><td>16619259</td><td>TANG,WEI</td><td>PLATINUM</td><td>D</td><td>At-Risk</td><td>Isaac Su</td><td>Sichuan</td><td>2026-03-13</td><td>111d</td><td>¥0</td><td>¥324K</td><td>¥0</td><td>0%</td><td>0.00</td><td>34</td></tr><tr><td>16755828</td><td>CAI,XIN</td><td>SUPREME</td><td>D</td><td>At-Risk</td><td>Isaac Su</td><td>Gansu</td><td>2026-03-22</td><td>102d</td><td>¥0</td><td>¥173K</td><td>¥0</td><td>0%</td><td>0.00</td><td>6</td></tr><tr><td>11873290</td><td>FEI,YOUNA</td><td>SUPREME</td><td>D</td><td>At-Risk</td><td>Isaac Su</td><td>Shanghai</td><td>2026-03-21</td><td>103d</td><td>¥0</td><td>¥109K</td><td>¥0</td><td>0%</td><td>0.00</td><td>9</td></tr><tr><td>10729663</td><td>DONG,CHENG</td><td>SUPREME</td><td>D</td><td>At-Risk</td><td>Isaac Su</td><td>Jiangsu</td><td>2026-03-10</td><td>114d</td><td>¥0</td><td>¥93K</td><td>¥0</td><td>0%</td><td>0.00</td><td>39</td></tr><tr><td>15632163</td><td>JIANG,AO</td><td>ELITE</td><td>D</td><td>At-Risk</td><td>Isaac Su</td><td>Tianjin</td><td>2026-03-17</td><td>107d</td><td>¥0</td><td>¥67K</td><td>¥0</td><td>0%</td><td>0.00</td><td>22</td></tr><tr><td>16098878</td><td>LI, JINPENG</td><td>ELITE</td><td>D</td><td>At-Risk</td><td>Isaac Su</td><td>Jiangxi</td><td>2026-03-16</td><td>108d</td><td>¥0</td><td>¥66K</td><td>¥0</td><td>0%</td><td>0.00</td><td>24</td></tr><tr><td>16850731</td><td>WEN, ZHANG</td><td>PLATINUM</td><td>D</td><td>At-Risk</td><td>Isaac Su</td><td>Anhui</td><td>2026-03-14</td><td>110d</td><td>¥0</td><td>¥63K</td><td>¥0</td><td>0%</td><td>0.00</td><td>31</td></tr><tr><td>16636186</td><td>ZHANG,ZHIQIANG</td><td>ELITE</td><td>D</td><td>At-Risk</td><td>Isaac Su</td><td>Henan</td><td>2026-03-15</td><td>109d</td><td>¥0</td><td>¥63K</td><td>¥0</td><td>0%</td><td>0.00</td><td>27</td></tr><tr><td>16675217</td><td>ZHAO,YUN</td><td>PLATINUM</td><td>D</td><td>At-Risk</td><td>Isaac Su</td><td>Jiangxi</td><td>2026-03-22</td><td>102d</td><td>¥0</td><td>¥61K</td><td>¥0</td><td>0%</td><td>0.00</td><td>5</td></tr><tr><td>16291056</td><td>WEILESI, WEILESI</td><td>PLATINUM</td><td>D</td><td>At-Risk</td><td>Isaac Su</td><td>Inner</td><td>2026-03-23</td><td>101d</td><td>¥0</td><td>¥59K</td><td>¥0</td><td>0%</td><td>0.00</td><td>41</td></tr><tr><td>16381509</td><td>LUO,YUN</td><td>ELITE</td><td>D</td><td>At-Risk</td><td>Isaac Su</td><td>Shanxi</td><td>2026-03-21</td><td>103d</td><td>¥0</td><td>¥58K</td><td>¥0</td><td>0%</td><td>0.00</td><td>7</td></tr><tr><td>16705038</td><td>LIANG,ZHONGHUA</td><td>ELITE</td><td>D</td><td>At-Risk</td><td>Isaac Su</td><td>Liaoning</td><td>2026-03-28</td><td>96d</td><td>¥0</td><td>¥40K</td><td>¥0</td><td>0%</td><td>0.00</td><td>29</td></tr><tr><td>12285929</td><td>TIAN,LIANG</td><td>ELITE</td><td>D</td><td>At-Risk</td><td>Isaac Su</td><td>Bejjing</td><td>2026-03-13</td><td>111d</td><td>¥0</td><td>¥39K</td><td>¥0</td><td>0%</td><td>0.00</td><td>33</td></tr></tbody></table>
+            <table class="trace-table"><thead><tr><th>ID</th><th>Name</th><th>Tier</th><th>Seg</th><th>Risk</th><th>Host</th><th>Province</th><th>Last</th><th>Days</th><th>R3M</th><th>R6M</th><th>Jun</th><th>RI</th><th>M</th><th>SrcRow</th></tr></thead><tbody><tr><td>16722795</td><td>WU,ZHIDONG</td><td>SUPREME</td><td>D</td><td>At-Risk</td><td>Isaac Su</td><td>Tianjin</td><td>2026-03-10</td><td>114d</td><td>¥0</td><td>¥389K</td><td>¥0</td><td>0%</td><td>0.00</td><td>42</td></tr><tr><td>16619259</td><td>TANG,WEI</td><td>PLATINUM</td><td>D</td><td>At-Risk</td><td>Isaac Su</td><td>Sichuan</td><td>2026-03-13</td><td>111d</td><td>¥0</td><td>¥324K</td><td>¥0</td><td>0%</td><td>0.00</td><td>34</td></tr><tr><td>16755828</td><td>CAI,XIN</td><td>SUPREME</td><td>D</td><td>At-Risk</td><td>Isaac Su</td><td>Gansu</td><td>2026-03-22</td><td>102d</td><td>¥0</td><td>¥173K</td><td>¥0</td><td>0%</td><td>0.00</td><td>6</td></tr><tr><td>11873290</td><td>FEI,YOUNA</td><td>SUPREME</td><td>D</td><td>At-Risk</td><td>Isaac Su</td><td>Shanghai</td><td>2026-03-21</td><td>103d</td><td>¥0</td><td>¥109K</td><td>¥0</td><td>0%</td><td>0.00</td><td>9</td></tr><tr><td>10729663</td><td>DONG,CHENG</td><td>SUPREME</td><td>D</td><td>At-Risk</td><td>Isaac Su</td><td>Jiangsu</td><td>2026-03-10</td><td>114d</td><td>¥0</td><td>¥93K</td><td>¥0</td><td>0%</td><td>0.00</td><td>39</td></tr><tr><td>15632163</td><td>JIANG,AO</td><td>ELITE</td><td>D</td><td>At-Risk</td><td>Isaac Su</td><td>Tianjin</td><td>2026-03-17</td><td>107d</td><td>¥0</td><td>¥67K</td><td>¥0</td><td>0%</td><td>0.00</td><td>22</td></tr><tr><td>16098878</td><td>LI, JINPENG</td><td>ELITE</td><td>D</td><td>At-Risk</td><td>Isaac Su</td><td>Jiangxi</td><td>2026-03-16</td><td>108d</td><td>¥0</td><td>¥66K</td><td>¥0</td><td>0%</td><td>0.00</td><td>24</td></tr><tr><td>16850731</td><td>WEN, ZHANG</td><td>PLATINUM</td><td>D</td><td>At-Risk</td><td>Isaac Su</td><td>Anhui</td><td>2026-03-14</td><td>110d</td><td>¥0</td><td>¥63K</td><td>¥0</td><td>0%</td><td>0.00</td><td>31</td></tr></tbody></table>
           </div>
           <footer><span>口径：Hosted + D-Zero，按 Dormant Value 降序</span><span>动作：销售管理层访谈，判断客户流失还是服务失效</span></footer>
         </div>
@@ -1453,14 +1692,14 @@
           <header>
             <div>
               <p class="eyebrow">Trace · Hosted Dormant</p>
-              <h2>Hosted D 段零产出客户追溯（2/5）</h2>
+              <h2>Hosted D 段零产出客户追溯（2/8）</h2>
             </div>
-            <div class="page-no">29 / 37</div>
+            <div class="page-no">42 / 53</div>
           </header>
           <div class="content trace-block">
             <p class="trace-summary">61 人 · R3M ¥0 · R6M ¥2.04M · Dormant ¥2.04M</p>
 
-            <table class="trace-table"><thead><tr><th>ID</th><th>Name</th><th>Tier</th><th>Seg</th><th>Risk</th><th>Host</th><th>Province</th><th>Last</th><th>Days</th><th>R3M</th><th>R6M</th><th>Jun</th><th>RI</th><th>M</th><th>SrcRow</th></tr></thead><tbody><tr><td>15887873</td><td>CHEN,FENGQIAN</td><td>ELITE</td><td>D</td><td>At-Risk</td><td>Isaac Su</td><td>Hunan</td><td>2026-03-27</td><td>97d</td><td>¥0</td><td>¥36K</td><td>¥0</td><td>0%</td><td>0.00</td><td>35</td></tr><tr><td>10969371</td><td>LIU.HAIBO</td><td>PLATINUM</td><td>D</td><td>At-Risk</td><td>Isaac Su</td><td>Unknown</td><td>2026-03-22</td><td>102d</td><td>¥0</td><td>¥32K</td><td>¥0</td><td>0%</td><td>0.00</td><td>3</td></tr><tr><td>16313067</td><td>ZHAN,FUJIA</td><td>PLATINUM</td><td>D</td><td>At-Risk</td><td>Isaac Su</td><td>Liaoning</td><td>2026-03-11</td><td>113d</td><td>¥0</td><td>¥30K</td><td>¥0</td><td>0%</td><td>0.00</td><td>36</td></tr><tr><td>16703961</td><td>ZHANG,ZHIGUO</td><td>ELITE</td><td>D</td><td>At-Risk</td><td>Isaac Su</td><td>Hubei</td><td>2026-03-13</td><td>111d</td><td>¥0</td><td>¥27K</td><td>¥0</td><td>0%</td><td>0.00</td><td>35</td></tr><tr><td>16625203</td><td>GU, XIN</td><td>ELITE</td><td>D</td><td>At-Risk</td><td>Isaac Su</td><td>Unknown</td><td>2026-03-20</td><td>104d</td><td>¥0</td><td>¥23K</td><td>¥0</td><td>0%</td><td>0.00</td><td>13</td></tr><tr><td>16695017</td><td>ZHANG,JINGJING</td><td>ELITE</td><td>D</td><td>At-Risk</td><td>Isaac Su</td><td>Anhui</td><td>2026-03-28</td><td>96d</td><td>¥0</td><td>¥23K</td><td>¥0</td><td>0%</td><td>0.00</td><td>28</td></tr><tr><td>16733290</td><td>LU,PENGLONG</td><td>PLATINUM</td><td>D</td><td>At-Risk</td><td>Isaac Su</td><td>Hebei</td><td>2026-03-15</td><td>109d</td><td>¥0</td><td>¥21K</td><td>¥0</td><td>0%</td><td>0.00</td><td>28</td></tr><tr><td>16155697</td><td>LEI, ZHI</td><td>SUPREME</td><td>D</td><td>At-Risk</td><td>Isaac Su</td><td>Shaanxi</td><td>2026-03-10</td><td>114d</td><td>¥0</td><td>¥21K</td><td>¥0</td><td>0%</td><td>0.00</td><td>38</td></tr><tr><td>16387555</td><td>HUO,YANLONG</td><td>ELITE</td><td>D</td><td>At-Risk</td><td>Isaac Su</td><td>Shanxi</td><td>2026-03-21</td><td>103d</td><td>¥0</td><td>¥19K</td><td>¥0</td><td>0%</td><td>0.00</td><td>8</td></tr><tr><td>16155276</td><td>GU,XINGZHEN</td><td>ELITE</td><td>D</td><td>At-Risk</td><td>Isaac Su</td><td>Jiangsu</td><td>2026-03-14</td><td>110d</td><td>¥0</td><td>¥19K</td><td>¥0</td><td>0%</td><td>0.00</td><td>29</td></tr><tr><td>12225660</td><td>YU.HAUIAN</td><td>ELITE</td><td>D</td><td>At-Risk</td><td>Isaac Su</td><td>Hebei</td><td>2026-03-27</td><td>97d</td><td>¥0</td><td>¥19K</td><td>¥0</td><td>0%</td><td>0.00</td><td>34</td></tr><tr><td>13227033</td><td>LI, SHIYAO</td><td>ELITE</td><td>D</td><td>At-Risk</td><td>Isaac Su</td><td>Shanghai</td><td>2026-03-23</td><td>101d</td><td>¥0</td><td>¥18K</td><td>¥0</td><td>0%</td><td>0.00</td><td>42</td></tr><tr><td>16273102</td><td>XIE,JIXIANG</td><td>ELITE</td><td>D</td><td>At-Risk</td><td>Isaac Su</td><td>Shaanxi</td><td>2026-03-13</td><td>111d</td><td>¥0</td><td>¥15K</td><td>¥0</td><td>0%</td><td>0.00</td><td>32</td></tr><tr><td>16852671</td><td>YANG,HAILONG</td><td>ELITE</td><td>D</td><td>At-Risk</td><td>Isaac Su</td><td>Unknown</td><td>2026-03-19</td><td>105d</td><td>¥0</td><td>¥15K</td><td>¥0</td><td>0%</td><td>0.00</td><td>16</td></tr></tbody></table>
+            <table class="trace-table"><thead><tr><th>ID</th><th>Name</th><th>Tier</th><th>Seg</th><th>Risk</th><th>Host</th><th>Province</th><th>Last</th><th>Days</th><th>R3M</th><th>R6M</th><th>Jun</th><th>RI</th><th>M</th><th>SrcRow</th></tr></thead><tbody><tr><td>16636186</td><td>ZHANG,ZHIQIANG</td><td>ELITE</td><td>D</td><td>At-Risk</td><td>Isaac Su</td><td>Henan</td><td>2026-03-15</td><td>109d</td><td>¥0</td><td>¥63K</td><td>¥0</td><td>0%</td><td>0.00</td><td>27</td></tr><tr><td>16675217</td><td>ZHAO,YUN</td><td>PLATINUM</td><td>D</td><td>At-Risk</td><td>Isaac Su</td><td>Jiangxi</td><td>2026-03-22</td><td>102d</td><td>¥0</td><td>¥61K</td><td>¥0</td><td>0%</td><td>0.00</td><td>5</td></tr><tr><td>16291056</td><td>WEILESI, WEILESI</td><td>PLATINUM</td><td>D</td><td>At-Risk</td><td>Isaac Su</td><td>Inner</td><td>2026-03-23</td><td>101d</td><td>¥0</td><td>¥59K</td><td>¥0</td><td>0%</td><td>0.00</td><td>41</td></tr><tr><td>16381509</td><td>LUO,YUN</td><td>ELITE</td><td>D</td><td>At-Risk</td><td>Isaac Su</td><td>Shanxi</td><td>2026-03-21</td><td>103d</td><td>¥0</td><td>¥58K</td><td>¥0</td><td>0%</td><td>0.00</td><td>7</td></tr><tr><td>16705038</td><td>LIANG,ZHONGHUA</td><td>ELITE</td><td>D</td><td>At-Risk</td><td>Isaac Su</td><td>Liaoning</td><td>2026-03-28</td><td>96d</td><td>¥0</td><td>¥40K</td><td>¥0</td><td>0%</td><td>0.00</td><td>29</td></tr><tr><td>12285929</td><td>TIAN,LIANG</td><td>ELITE</td><td>D</td><td>At-Risk</td><td>Isaac Su</td><td>Bejjing</td><td>2026-03-13</td><td>111d</td><td>¥0</td><td>¥39K</td><td>¥0</td><td>0%</td><td>0.00</td><td>33</td></tr><tr><td>15887873</td><td>CHEN,FENGQIAN</td><td>ELITE</td><td>D</td><td>At-Risk</td><td>Isaac Su</td><td>Hunan</td><td>2026-03-27</td><td>97d</td><td>¥0</td><td>¥36K</td><td>¥0</td><td>0%</td><td>0.00</td><td>35</td></tr><tr><td>10969371</td><td>LIU.HAIBO</td><td>PLATINUM</td><td>D</td><td>At-Risk</td><td>Isaac Su</td><td>Unknown</td><td>2026-03-22</td><td>102d</td><td>¥0</td><td>¥32K</td><td>¥0</td><td>0%</td><td>0.00</td><td>3</td></tr></tbody></table>
           </div>
           <footer><span>口径：Hosted + D-Zero，按 Dormant Value 降序</span><span>动作：销售管理层访谈，判断客户流失还是服务失效</span></footer>
         </div>
@@ -1471,14 +1710,14 @@
           <header>
             <div>
               <p class="eyebrow">Trace · Hosted Dormant</p>
-              <h2>Hosted D 段零产出客户追溯（3/5）</h2>
+              <h2>Hosted D 段零产出客户追溯（3/8）</h2>
             </div>
-            <div class="page-no">30 / 37</div>
+            <div class="page-no">43 / 53</div>
           </header>
           <div class="content trace-block">
             <p class="trace-summary">61 人 · R3M ¥0 · R6M ¥2.04M · Dormant ¥2.04M</p>
 
-            <table class="trace-table"><thead><tr><th>ID</th><th>Name</th><th>Tier</th><th>Seg</th><th>Risk</th><th>Host</th><th>Province</th><th>Last</th><th>Days</th><th>R3M</th><th>R6M</th><th>Jun</th><th>RI</th><th>M</th><th>SrcRow</th></tr></thead><tbody><tr><td>11003737</td><td>LIN,WEN</td><td>ELITE</td><td>D</td><td>At-Risk</td><td>Isaac Su</td><td>Fujian</td><td>2026-03-10</td><td>114d</td><td>¥0</td><td>¥12K</td><td>¥0</td><td>0%</td><td>0.00</td><td>40</td></tr><tr><td>16385866</td><td>CHAI, WEIMIN</td><td>ELITE</td><td>D</td><td>At-Risk</td><td>Isaac Su</td><td>Zhejiang</td><td>2026-03-28</td><td>96d</td><td>¥0</td><td>¥10K</td><td>¥0</td><td>0%</td><td>0.00</td><td>25</td></tr><tr><td>16390587</td><td>GUO,LEIMING</td><td>GOLD</td><td>D</td><td>At-Risk</td><td>Isaac Su</td><td>Shaanxi</td><td>2026-03-22</td><td>102d</td><td>¥0</td><td>¥9K</td><td>¥0</td><td>0%</td><td>0.00</td><td>4</td></tr><tr><td>13269186</td><td>ZHOU,JIANHENG</td><td>GOLD</td><td>D</td><td>At-Risk</td><td>Isaac Su</td><td>Hainan</td><td>2026-03-19</td><td>105d</td><td>¥0</td><td>¥8K</td><td>¥0</td><td>0%</td><td>0.00</td><td>15</td></tr><tr><td>15818053</td><td>ZHANG,XUESONG</td><td>GOLD</td><td>D</td><td>At-Risk</td><td>Isaac Su</td><td>Inner</td><td>2026-03-11</td><td>113d</td><td>¥0</td><td>¥7K</td><td>¥0</td><td>0%</td><td>0.00</td><td>37</td></tr><tr><td>10935561</td><td>LIJINGXIU</td><td>ELITE</td><td>D</td><td>At-Risk</td><td>Isaac Su</td><td>Jilin</td><td>2026-03-18</td><td>106d</td><td>¥0</td><td>¥7K</td><td>¥0</td><td>0%</td><td>0.00</td><td>18</td></tr><tr><td>16639889</td><td>JIANG,HONGLE</td><td>GOLD</td><td>D</td><td>At-Risk</td><td>Isaac Su</td><td>Jilin</td><td>2026-03-28</td><td>96d</td><td>¥0</td><td>¥7K</td><td>¥0</td><td>0%</td><td>0.00</td><td>27</td></tr><tr><td>16596976</td><td>LI, QIN</td><td>GOLD</td><td>D</td><td>At-Risk</td><td>Isaac Su</td><td>Hunan</td><td>2026-03-16</td><td>108d</td><td>¥0</td><td>¥6K</td><td>¥0</td><td>0%</td><td>0.00</td><td>25</td></tr><tr><td>16639582</td><td>XING,ZHIPENG</td><td>GOLD</td><td>D</td><td>At-Risk</td><td>Isaac Su</td><td>Zhejiang</td><td>2026-03-26</td><td>98d</td><td>¥0</td><td>¥6K</td><td>¥0</td><td>0%</td><td>0.00</td><td>36</td></tr><tr><td>16165627</td><td>LIUTAO</td><td>GOLD</td><td>D</td><td>At-Risk</td><td>Isaac Su</td><td>Henan</td><td>2026-03-17</td><td>107d</td><td>¥0</td><td>¥6K</td><td>¥0</td><td>0%</td><td>0.00</td><td>20</td></tr><tr><td>15519928</td><td>ZHANG,DANXU</td><td>ELITE</td><td>D</td><td>At-Risk</td><td>Isaac Su</td><td>Unknown</td><td>2026-03-28</td><td>96d</td><td>¥0</td><td>¥5K</td><td>¥0</td><td>0%</td><td>0.00</td><td>30</td></tr><tr><td>12521315</td><td>PAN,ZHENMEI</td><td>GOLD</td><td>D</td><td>At-Risk</td><td>Isaac Su</td><td>Unknown</td><td>2026-03-28</td><td>96d</td><td>¥0</td><td>¥4K</td><td>¥0</td><td>0%</td><td>0.00</td><td>26</td></tr><tr><td>16826630</td><td>ZHOU,YOU</td><td>ELITE</td><td>D</td><td>At-Risk</td><td>Isaac Su</td><td>Henan</td><td>2026-03-24</td><td>100d</td><td>¥0</td><td>¥4K</td><td>¥0</td><td>0%</td><td>0.00</td><td>40</td></tr><tr><td>15759776</td><td>ZHU,CHANGSHENG</td><td>GOLD</td><td>D</td><td>At-Risk</td><td>Isaac Su</td><td>Anhui</td><td>2026-03-28</td><td>96d</td><td>¥0</td><td>¥4K</td><td>¥0</td><td>0%</td><td>0.00</td><td>32</td></tr></tbody></table>
+            <table class="trace-table"><thead><tr><th>ID</th><th>Name</th><th>Tier</th><th>Seg</th><th>Risk</th><th>Host</th><th>Province</th><th>Last</th><th>Days</th><th>R3M</th><th>R6M</th><th>Jun</th><th>RI</th><th>M</th><th>SrcRow</th></tr></thead><tbody><tr><td>16313067</td><td>ZHAN,FUJIA</td><td>PLATINUM</td><td>D</td><td>At-Risk</td><td>Isaac Su</td><td>Liaoning</td><td>2026-03-11</td><td>113d</td><td>¥0</td><td>¥30K</td><td>¥0</td><td>0%</td><td>0.00</td><td>36</td></tr><tr><td>16703961</td><td>ZHANG,ZHIGUO</td><td>ELITE</td><td>D</td><td>At-Risk</td><td>Isaac Su</td><td>Hubei</td><td>2026-03-13</td><td>111d</td><td>¥0</td><td>¥27K</td><td>¥0</td><td>0%</td><td>0.00</td><td>35</td></tr><tr><td>16625203</td><td>GU, XIN</td><td>ELITE</td><td>D</td><td>At-Risk</td><td>Isaac Su</td><td>Unknown</td><td>2026-03-20</td><td>104d</td><td>¥0</td><td>¥23K</td><td>¥0</td><td>0%</td><td>0.00</td><td>13</td></tr><tr><td>16695017</td><td>ZHANG,JINGJING</td><td>ELITE</td><td>D</td><td>At-Risk</td><td>Isaac Su</td><td>Anhui</td><td>2026-03-28</td><td>96d</td><td>¥0</td><td>¥23K</td><td>¥0</td><td>0%</td><td>0.00</td><td>28</td></tr><tr><td>16733290</td><td>LU,PENGLONG</td><td>PLATINUM</td><td>D</td><td>At-Risk</td><td>Isaac Su</td><td>Hebei</td><td>2026-03-15</td><td>109d</td><td>¥0</td><td>¥21K</td><td>¥0</td><td>0%</td><td>0.00</td><td>28</td></tr><tr><td>16155697</td><td>LEI, ZHI</td><td>SUPREME</td><td>D</td><td>At-Risk</td><td>Isaac Su</td><td>Shaanxi</td><td>2026-03-10</td><td>114d</td><td>¥0</td><td>¥21K</td><td>¥0</td><td>0%</td><td>0.00</td><td>38</td></tr><tr><td>16387555</td><td>HUO,YANLONG</td><td>ELITE</td><td>D</td><td>At-Risk</td><td>Isaac Su</td><td>Shanxi</td><td>2026-03-21</td><td>103d</td><td>¥0</td><td>¥19K</td><td>¥0</td><td>0%</td><td>0.00</td><td>8</td></tr><tr><td>16155276</td><td>GU,XINGZHEN</td><td>ELITE</td><td>D</td><td>At-Risk</td><td>Isaac Su</td><td>Jiangsu</td><td>2026-03-14</td><td>110d</td><td>¥0</td><td>¥19K</td><td>¥0</td><td>0%</td><td>0.00</td><td>29</td></tr></tbody></table>
           </div>
           <footer><span>口径：Hosted + D-Zero，按 Dormant Value 降序</span><span>动作：销售管理层访谈，判断客户流失还是服务失效</span></footer>
         </div>
@@ -1489,14 +1728,14 @@
           <header>
             <div>
               <p class="eyebrow">Trace · Hosted Dormant</p>
-              <h2>Hosted D 段零产出客户追溯（4/5）</h2>
+              <h2>Hosted D 段零产出客户追溯（4/8）</h2>
             </div>
-            <div class="page-no">31 / 37</div>
+            <div class="page-no">44 / 53</div>
           </header>
           <div class="content trace-block">
             <p class="trace-summary">61 人 · R3M ¥0 · R6M ¥2.04M · Dormant ¥2.04M</p>
 
-            <table class="trace-table"><thead><tr><th>ID</th><th>Name</th><th>Tier</th><th>Seg</th><th>Risk</th><th>Host</th><th>Province</th><th>Last</th><th>Days</th><th>R3M</th><th>R6M</th><th>Jun</th><th>RI</th><th>M</th><th>SrcRow</th></tr></thead><tbody><tr><td>12688325</td><td>TIAN,XIAOPENG</td><td>GOLD</td><td>D</td><td>At-Risk</td><td>Isaac Su</td><td>Liaoning</td><td>2026-03-17</td><td>107d</td><td>¥0</td><td>¥4K</td><td>¥0</td><td>0%</td><td>0.00</td><td>21</td></tr><tr><td>16707855</td><td>NG,FUK HONG</td><td>GOLD</td><td>D</td><td>At-Risk</td><td>Isaac Su</td><td>Unknown</td><td>2026-03-20</td><td>104d</td><td>¥0</td><td>¥3K</td><td>¥0</td><td>0%</td><td>0.00</td><td>14</td></tr><tr><td>15792693</td><td>LIANG, CHENGLIN</td><td>GOLD</td><td>D</td><td>At-Risk</td><td>Isaac Su</td><td>Unknown</td><td>2026-03-19</td><td>105d</td><td>¥0</td><td>¥3K</td><td>¥0</td><td>0%</td><td>0.00</td><td>17</td></tr><tr><td>16570162</td><td>LIU,HONGBING</td><td>PLATINUM</td><td>D</td><td>At-Risk</td><td>Isaac Su</td><td>Jilin</td><td>2026-03-29</td><td>95d</td><td>¥0</td><td>¥3K</td><td>¥0</td><td>0%</td><td>0.00</td><td>24</td></tr><tr><td>16956207</td><td>MO,SHOUCHENG</td><td>GOLD</td><td>D</td><td>At-Risk</td><td>Isaac Su</td><td>Fujian</td><td>2026-03-17</td><td>107d</td><td>¥0</td><td>¥2K</td><td>¥0</td><td>0%</td><td>0.00</td><td>23</td></tr><tr><td>16377688</td><td>XIONG,TAO</td><td>GOLD</td><td>D</td><td>At-Risk</td><td>Isaac Su</td><td>Chongqing</td><td>2026-03-14</td><td>110d</td><td>¥0</td><td>¥2K</td><td>¥0</td><td>0%</td><td>0.00</td><td>30</td></tr><tr><td>16735975</td><td>WONG, MUN KIN</td><td>GOLD</td><td>D</td><td>At-Risk</td><td>Isaac Su</td><td>Unknown</td><td>2026-03-23</td><td>101d</td><td>¥0</td><td>¥2K</td><td>¥0</td><td>0%</td><td>0.00</td><td>2</td></tr><tr><td>16570159</td><td>MA,HONGXING</td><td>ELITE</td><td>D</td><td>At-Risk</td><td>Isaac Su</td><td>Jilin</td><td>2026-03-27</td><td>97d</td><td>¥0</td><td>¥1K</td><td>¥0</td><td>0%</td><td>0.00</td><td>33</td></tr><tr><td>12018860</td><td>LAI, FENGLEI</td><td>ELITE</td><td>D</td><td>At-Risk</td><td>Isaac Su</td><td>Unknown</td><td>2026-03-21</td><td>103d</td><td>¥0</td><td>¥1K</td><td>¥0</td><td>0%</td><td>0.00</td><td>10</td></tr><tr><td>15665966</td><td>HU,HUANXIN</td><td>ELITE</td><td>D</td><td>At-Risk</td><td>Isaac Su</td><td>Unknown</td><td>2026-03-26</td><td>98d</td><td>¥0</td><td>¥641</td><td>¥0</td><td>0%</td><td>0.00</td><td>37</td></tr><tr><td>12588765</td><td>FENG,QWEN</td><td>GOLD</td><td>D</td><td>At-Risk</td><td>Isaac Su</td><td>Henan</td><td>2026-03-20</td><td>104d</td><td>¥0</td><td>¥451</td><td>¥0</td><td>0%</td><td>0.00</td><td>12</td></tr><tr><td>16757901</td><td>MA,LONG</td><td>PLATINUM</td><td>D</td><td>At-Risk</td><td>Isaac Su</td><td>Henan</td><td>2026-03-25</td><td>99d</td><td>¥0</td><td>¥439</td><td>¥0</td><td>0%</td><td>0.00</td><td>38</td></tr><tr><td>16688295</td><td>LI, HAOXUAN</td><td>GOLD</td><td>D</td><td>At-Risk</td><td>Isaac Su</td><td>Jiangsu</td><td>2026-03-10</td><td>114d</td><td>¥0</td><td>¥185</td><td>¥0</td><td>0%</td><td>0.00</td><td>41</td></tr><tr><td>15576825</td><td>CHEONG,KOK</td><td>ELITE</td><td>D</td><td>At-Risk</td><td>Isaac Su</td><td>Unknown</td><td>2026-03-18</td><td>106d</td><td>¥0</td><td>¥106</td><td>¥0</td><td>0%</td><td>0.00</td><td>19</td></tr></tbody></table>
+            <table class="trace-table"><thead><tr><th>ID</th><th>Name</th><th>Tier</th><th>Seg</th><th>Risk</th><th>Host</th><th>Province</th><th>Last</th><th>Days</th><th>R3M</th><th>R6M</th><th>Jun</th><th>RI</th><th>M</th><th>SrcRow</th></tr></thead><tbody><tr><td>12225660</td><td>YU.HAUIAN</td><td>ELITE</td><td>D</td><td>At-Risk</td><td>Isaac Su</td><td>Hebei</td><td>2026-03-27</td><td>97d</td><td>¥0</td><td>¥19K</td><td>¥0</td><td>0%</td><td>0.00</td><td>34</td></tr><tr><td>13227033</td><td>LI, SHIYAO</td><td>ELITE</td><td>D</td><td>At-Risk</td><td>Isaac Su</td><td>Shanghai</td><td>2026-03-23</td><td>101d</td><td>¥0</td><td>¥18K</td><td>¥0</td><td>0%</td><td>0.00</td><td>42</td></tr><tr><td>16273102</td><td>XIE,JIXIANG</td><td>ELITE</td><td>D</td><td>At-Risk</td><td>Isaac Su</td><td>Shaanxi</td><td>2026-03-13</td><td>111d</td><td>¥0</td><td>¥15K</td><td>¥0</td><td>0%</td><td>0.00</td><td>32</td></tr><tr><td>16852671</td><td>YANG,HAILONG</td><td>ELITE</td><td>D</td><td>At-Risk</td><td>Isaac Su</td><td>Unknown</td><td>2026-03-19</td><td>105d</td><td>¥0</td><td>¥15K</td><td>¥0</td><td>0%</td><td>0.00</td><td>16</td></tr><tr><td>11003737</td><td>LIN,WEN</td><td>ELITE</td><td>D</td><td>At-Risk</td><td>Isaac Su</td><td>Fujian</td><td>2026-03-10</td><td>114d</td><td>¥0</td><td>¥12K</td><td>¥0</td><td>0%</td><td>0.00</td><td>40</td></tr><tr><td>16385866</td><td>CHAI, WEIMIN</td><td>ELITE</td><td>D</td><td>At-Risk</td><td>Isaac Su</td><td>Zhejiang</td><td>2026-03-28</td><td>96d</td><td>¥0</td><td>¥10K</td><td>¥0</td><td>0%</td><td>0.00</td><td>25</td></tr><tr><td>16390587</td><td>GUO,LEIMING</td><td>GOLD</td><td>D</td><td>At-Risk</td><td>Isaac Su</td><td>Shaanxi</td><td>2026-03-22</td><td>102d</td><td>¥0</td><td>¥9K</td><td>¥0</td><td>0%</td><td>0.00</td><td>4</td></tr><tr><td>13269186</td><td>ZHOU,JIANHENG</td><td>GOLD</td><td>D</td><td>At-Risk</td><td>Isaac Su</td><td>Hainan</td><td>2026-03-19</td><td>105d</td><td>¥0</td><td>¥8K</td><td>¥0</td><td>0%</td><td>0.00</td><td>15</td></tr></tbody></table>
           </div>
           <footer><span>口径：Hosted + D-Zero，按 Dormant Value 降序</span><span>动作：销售管理层访谈，判断客户流失还是服务失效</span></footer>
         </div>
@@ -1507,9 +1746,63 @@
           <header>
             <div>
               <p class="eyebrow">Trace · Hosted Dormant</p>
-              <h2>Hosted D 段零产出客户追溯（5/5）</h2>
+              <h2>Hosted D 段零产出客户追溯（5/8）</h2>
             </div>
-            <div class="page-no">32 / 37</div>
+            <div class="page-no">45 / 53</div>
+          </header>
+          <div class="content trace-block">
+            <p class="trace-summary">61 人 · R3M ¥0 · R6M ¥2.04M · Dormant ¥2.04M</p>
+
+            <table class="trace-table"><thead><tr><th>ID</th><th>Name</th><th>Tier</th><th>Seg</th><th>Risk</th><th>Host</th><th>Province</th><th>Last</th><th>Days</th><th>R3M</th><th>R6M</th><th>Jun</th><th>RI</th><th>M</th><th>SrcRow</th></tr></thead><tbody><tr><td>15818053</td><td>ZHANG,XUESONG</td><td>GOLD</td><td>D</td><td>At-Risk</td><td>Isaac Su</td><td>Inner</td><td>2026-03-11</td><td>113d</td><td>¥0</td><td>¥7K</td><td>¥0</td><td>0%</td><td>0.00</td><td>37</td></tr><tr><td>10935561</td><td>LIJINGXIU</td><td>ELITE</td><td>D</td><td>At-Risk</td><td>Isaac Su</td><td>Jilin</td><td>2026-03-18</td><td>106d</td><td>¥0</td><td>¥7K</td><td>¥0</td><td>0%</td><td>0.00</td><td>18</td></tr><tr><td>16639889</td><td>JIANG,HONGLE</td><td>GOLD</td><td>D</td><td>At-Risk</td><td>Isaac Su</td><td>Jilin</td><td>2026-03-28</td><td>96d</td><td>¥0</td><td>¥7K</td><td>¥0</td><td>0%</td><td>0.00</td><td>27</td></tr><tr><td>16596976</td><td>LI, QIN</td><td>GOLD</td><td>D</td><td>At-Risk</td><td>Isaac Su</td><td>Hunan</td><td>2026-03-16</td><td>108d</td><td>¥0</td><td>¥6K</td><td>¥0</td><td>0%</td><td>0.00</td><td>25</td></tr><tr><td>16639582</td><td>XING,ZHIPENG</td><td>GOLD</td><td>D</td><td>At-Risk</td><td>Isaac Su</td><td>Zhejiang</td><td>2026-03-26</td><td>98d</td><td>¥0</td><td>¥6K</td><td>¥0</td><td>0%</td><td>0.00</td><td>36</td></tr><tr><td>16165627</td><td>LIUTAO</td><td>GOLD</td><td>D</td><td>At-Risk</td><td>Isaac Su</td><td>Henan</td><td>2026-03-17</td><td>107d</td><td>¥0</td><td>¥6K</td><td>¥0</td><td>0%</td><td>0.00</td><td>20</td></tr><tr><td>15519928</td><td>ZHANG,DANXU</td><td>ELITE</td><td>D</td><td>At-Risk</td><td>Isaac Su</td><td>Unknown</td><td>2026-03-28</td><td>96d</td><td>¥0</td><td>¥5K</td><td>¥0</td><td>0%</td><td>0.00</td><td>30</td></tr><tr><td>12521315</td><td>PAN,ZHENMEI</td><td>GOLD</td><td>D</td><td>At-Risk</td><td>Isaac Su</td><td>Unknown</td><td>2026-03-28</td><td>96d</td><td>¥0</td><td>¥4K</td><td>¥0</td><td>0%</td><td>0.00</td><td>26</td></tr></tbody></table>
+          </div>
+          <footer><span>口径：Hosted + D-Zero，按 Dormant Value 降序</span><span>动作：销售管理层访谈，判断客户流失还是服务失效</span></footer>
+        </div>
+      </section>
+
+      <section class="slide" data-title="Hosted D 段零产出客户追溯">
+        <div class="page">
+          <header>
+            <div>
+              <p class="eyebrow">Trace · Hosted Dormant</p>
+              <h2>Hosted D 段零产出客户追溯（6/8）</h2>
+            </div>
+            <div class="page-no">46 / 53</div>
+          </header>
+          <div class="content trace-block">
+            <p class="trace-summary">61 人 · R3M ¥0 · R6M ¥2.04M · Dormant ¥2.04M</p>
+
+            <table class="trace-table"><thead><tr><th>ID</th><th>Name</th><th>Tier</th><th>Seg</th><th>Risk</th><th>Host</th><th>Province</th><th>Last</th><th>Days</th><th>R3M</th><th>R6M</th><th>Jun</th><th>RI</th><th>M</th><th>SrcRow</th></tr></thead><tbody><tr><td>16826630</td><td>ZHOU,YOU</td><td>ELITE</td><td>D</td><td>At-Risk</td><td>Isaac Su</td><td>Henan</td><td>2026-03-24</td><td>100d</td><td>¥0</td><td>¥4K</td><td>¥0</td><td>0%</td><td>0.00</td><td>40</td></tr><tr><td>15759776</td><td>ZHU,CHANGSHENG</td><td>GOLD</td><td>D</td><td>At-Risk</td><td>Isaac Su</td><td>Anhui</td><td>2026-03-28</td><td>96d</td><td>¥0</td><td>¥4K</td><td>¥0</td><td>0%</td><td>0.00</td><td>32</td></tr><tr><td>12688325</td><td>TIAN,XIAOPENG</td><td>GOLD</td><td>D</td><td>At-Risk</td><td>Isaac Su</td><td>Liaoning</td><td>2026-03-17</td><td>107d</td><td>¥0</td><td>¥4K</td><td>¥0</td><td>0%</td><td>0.00</td><td>21</td></tr><tr><td>16707855</td><td>NG,FUK HONG</td><td>GOLD</td><td>D</td><td>At-Risk</td><td>Isaac Su</td><td>Unknown</td><td>2026-03-20</td><td>104d</td><td>¥0</td><td>¥3K</td><td>¥0</td><td>0%</td><td>0.00</td><td>14</td></tr><tr><td>15792693</td><td>LIANG, CHENGLIN</td><td>GOLD</td><td>D</td><td>At-Risk</td><td>Isaac Su</td><td>Unknown</td><td>2026-03-19</td><td>105d</td><td>¥0</td><td>¥3K</td><td>¥0</td><td>0%</td><td>0.00</td><td>17</td></tr><tr><td>16570162</td><td>LIU,HONGBING</td><td>PLATINUM</td><td>D</td><td>At-Risk</td><td>Isaac Su</td><td>Jilin</td><td>2026-03-29</td><td>95d</td><td>¥0</td><td>¥3K</td><td>¥0</td><td>0%</td><td>0.00</td><td>24</td></tr><tr><td>16956207</td><td>MO,SHOUCHENG</td><td>GOLD</td><td>D</td><td>At-Risk</td><td>Isaac Su</td><td>Fujian</td><td>2026-03-17</td><td>107d</td><td>¥0</td><td>¥2K</td><td>¥0</td><td>0%</td><td>0.00</td><td>23</td></tr><tr><td>16377688</td><td>XIONG,TAO</td><td>GOLD</td><td>D</td><td>At-Risk</td><td>Isaac Su</td><td>Chongqing</td><td>2026-03-14</td><td>110d</td><td>¥0</td><td>¥2K</td><td>¥0</td><td>0%</td><td>0.00</td><td>30</td></tr></tbody></table>
+          </div>
+          <footer><span>口径：Hosted + D-Zero，按 Dormant Value 降序</span><span>动作：销售管理层访谈，判断客户流失还是服务失效</span></footer>
+        </div>
+      </section>
+
+      <section class="slide" data-title="Hosted D 段零产出客户追溯">
+        <div class="page">
+          <header>
+            <div>
+              <p class="eyebrow">Trace · Hosted Dormant</p>
+              <h2>Hosted D 段零产出客户追溯（7/8）</h2>
+            </div>
+            <div class="page-no">47 / 53</div>
+          </header>
+          <div class="content trace-block">
+            <p class="trace-summary">61 人 · R3M ¥0 · R6M ¥2.04M · Dormant ¥2.04M</p>
+
+            <table class="trace-table"><thead><tr><th>ID</th><th>Name</th><th>Tier</th><th>Seg</th><th>Risk</th><th>Host</th><th>Province</th><th>Last</th><th>Days</th><th>R3M</th><th>R6M</th><th>Jun</th><th>RI</th><th>M</th><th>SrcRow</th></tr></thead><tbody><tr><td>16735975</td><td>WONG, MUN KIN</td><td>GOLD</td><td>D</td><td>At-Risk</td><td>Isaac Su</td><td>Unknown</td><td>2026-03-23</td><td>101d</td><td>¥0</td><td>¥2K</td><td>¥0</td><td>0%</td><td>0.00</td><td>2</td></tr><tr><td>16570159</td><td>MA,HONGXING</td><td>ELITE</td><td>D</td><td>At-Risk</td><td>Isaac Su</td><td>Jilin</td><td>2026-03-27</td><td>97d</td><td>¥0</td><td>¥1K</td><td>¥0</td><td>0%</td><td>0.00</td><td>33</td></tr><tr><td>12018860</td><td>LAI, FENGLEI</td><td>ELITE</td><td>D</td><td>At-Risk</td><td>Isaac Su</td><td>Unknown</td><td>2026-03-21</td><td>103d</td><td>¥0</td><td>¥1K</td><td>¥0</td><td>0%</td><td>0.00</td><td>10</td></tr><tr><td>15665966</td><td>HU,HUANXIN</td><td>ELITE</td><td>D</td><td>At-Risk</td><td>Isaac Su</td><td>Unknown</td><td>2026-03-26</td><td>98d</td><td>¥0</td><td>¥641</td><td>¥0</td><td>0%</td><td>0.00</td><td>37</td></tr><tr><td>12588765</td><td>FENG,QWEN</td><td>GOLD</td><td>D</td><td>At-Risk</td><td>Isaac Su</td><td>Henan</td><td>2026-03-20</td><td>104d</td><td>¥0</td><td>¥451</td><td>¥0</td><td>0%</td><td>0.00</td><td>12</td></tr><tr><td>16757901</td><td>MA,LONG</td><td>PLATINUM</td><td>D</td><td>At-Risk</td><td>Isaac Su</td><td>Henan</td><td>2026-03-25</td><td>99d</td><td>¥0</td><td>¥439</td><td>¥0</td><td>0%</td><td>0.00</td><td>38</td></tr><tr><td>16688295</td><td>LI, HAOXUAN</td><td>GOLD</td><td>D</td><td>At-Risk</td><td>Isaac Su</td><td>Jiangsu</td><td>2026-03-10</td><td>114d</td><td>¥0</td><td>¥185</td><td>¥0</td><td>0%</td><td>0.00</td><td>41</td></tr><tr><td>15576825</td><td>CHEONG,KOK</td><td>ELITE</td><td>D</td><td>At-Risk</td><td>Isaac Su</td><td>Unknown</td><td>2026-03-18</td><td>106d</td><td>¥0</td><td>¥106</td><td>¥0</td><td>0%</td><td>0.00</td><td>19</td></tr></tbody></table>
+          </div>
+          <footer><span>口径：Hosted + D-Zero，按 Dormant Value 降序</span><span>动作：销售管理层访谈，判断客户流失还是服务失效</span></footer>
+        </div>
+      </section>
+
+      <section class="slide" data-title="Hosted D 段零产出客户追溯">
+        <div class="page">
+          <header>
+            <div>
+              <p class="eyebrow">Trace · Hosted Dormant</p>
+              <h2>Hosted D 段零产出客户追溯（8/8）</h2>
+            </div>
+            <div class="page-no">48 / 53</div>
           </header>
           <div class="content trace-block">
             <p class="trace-summary">61 人 · R3M ¥0 · R6M ¥2.04M · Dormant ¥2.04M</p>
@@ -1520,15 +1813,14 @@
         </div>
       </section>
 
-
-      <section class="slide" data-title="核心结论">
+<section class="slide" data-title="核心结论">
         <div class="page">
           <header>
             <div>
               <p class="eyebrow">Core Conclusions</p>
               <h2>核心结论：五件事必须马上承认</h2>
             </div>
-            <div class="page-no">33 / 37</div>
+            <div class="page-no">49 / 53</div>
           </header>
           <div class="content">
             <table>
@@ -1572,14 +1864,14 @@
         </div>
       </section>
 
-      <section class="slide" data-title="下一步">
+<section class="slide" data-title="下一步">
         <div class="page">
           <header>
             <div>
               <p class="eyebrow">Next Actions</p>
               <h2>下一步怎么做：30 / 60 / 90 天作战表</h2>
             </div>
-            <div class="page-no">34 / 37</div>
+            <div class="page-no">50 / 53</div>
           </header>
           <div class="content">
             <table>
@@ -1600,7 +1892,7 @@
                 </tr>
                 <tr>
                   <td>Day 8–30</td>
-                  <td>诊断 27 名 Falling 客户；C 段 RI 封顶 30%；P1/P2 唤醒旅程上线</td>
+                  <td>逐人诊断 Falling 客户；C 段 RI 封顶 30%；P1/P2 唤醒旅程上线</td>
                   <td>Sales + CRM Ops</td>
                   <td>C 段新规上线；Falling 原因归类；唤醒漏斗开始计数</td>
                 </tr>
@@ -1622,11 +1914,12 @@
           <footer><span>Priority: 先止血、再抢窗口、再修结构</span><span>不要把 Day 1–7 变成会议</span></footer>
         </div>
       </section>
-      <section class="slide" data-title="执行建议清单">
+
+<section class="slide" data-title="执行建议清单">
         <div class="page">
           <header>
             <div><p class="eyebrow">Execution</p><h2>具体执行建议：从名单到工单</h2></div>
-            <div class="page-no">35 / 37</div>
+            <div class="page-no">51 / 53</div>
           </header>
           <div class="content">
             <table class="trace-table">
@@ -1645,11 +1938,11 @@
         </div>
       </section>
 
-      <section class="slide" data-title="CRM工单字段">
+<section class="slide" data-title="CRM工单字段">
         <div class="page">
           <header>
             <div><p class="eyebrow">Execution System</p><h2>CRM 工单字段：保证后续可复盘</h2></div>
-            <div class="page-no">36 / 37</div>
+            <div class="page-no">52 / 53</div>
           </header>
           <div class="content grid cols-2">
             <div class="card"><h3>客户级必填字段</h3><ul class="dense-list"><li>Player ID / Name / Tier / Host / Source Row</li><li>当前标签：Top12、Cooling、Falling、Stalled、P0/P1/P2、RI Leak</li><li>最近一次触达时间、触达方式、触达结果</li><li>未到访主因：行程、预算、关系、竞品、资料、未知</li><li>下一步动作、截止日期、验收人</li></ul></div>
@@ -1659,15 +1952,14 @@
         </div>
       </section>
 
-
-      <section class="slide" data-title="KPI治理">
+<section class="slide" data-title="KPI治理">
         <div class="page">
           <header>
             <div>
               <p class="eyebrow">Governance</p>
               <h2>KPI 与治理节奏：每周看风险，每月复跑模型</h2>
             </div>
-            <div class="page-no">37 / 37</div>
+            <div class="page-no">53 / 53</div>
           </header>
           <div class="content grid cols-2">
             <div class="kpi">
@@ -1697,7 +1989,7 @@
 
     <nav class="deck-nav" aria-label="Slide navigation">
       <button id="prevSlide" type="button" aria-label="上一页">‹</button>
-      <span id="slideLabel">1 / 37</span>
+      <span id="slideLabel">1 / 53</span>
       <button id="nextSlide" type="button" aria-label="下一页">›</button>
     </nav>
 
