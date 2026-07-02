@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Hosted Players 客户资产分析报告</title>
+    <title>娱乐高端 VIP 客户业绩季度洞察报告</title>
     <style>
       :root {
         color-scheme: light;
@@ -446,7 +446,7 @@
         text-align: center;
       }
 
-      @media (max-height: 720px) and (min-width: 901px) {
+      @media (max-height: 720px) and (min-width: 641px) {
         .slide {
           padding: 18px 28px;
         }
@@ -612,7 +612,7 @@
         }
       }
 
-      @media (max-width: 900px) {
+      @media (max-width: 640px) {
         body {
           overflow: auto;
         }
@@ -648,20 +648,20 @@
     </style>
   </head>
   <body>
-    <main class="deck" aria-label="Hosted Players 客户资产分析报告">
-      <section class="slide active" data-title="结论先行">
+    <main class="deck" aria-label="娱乐高端 VIP 客户业绩季度洞察报告">
+      <section class="slide active" data-title="季度洞察">
         <div class="page">
           <header>
             <div>
-              <p class="eyebrow">Hosted Players Report</p>
-              <h1>结论先行：这是一张客户资产负债表</h1>
+              <p class="eyebrow">VIP Sales · Casino Portfolio</p>
+              <h1>娱乐高端 VIP 客户业绩季度洞察报告</h1>
             </div>
             <div class="page-no">01 / 12</div>
           </header>
           <div class="content verdict">
             <div>
               <p class="lead">
-                当前问题不是“客户多不多”，而是高价值客户极端集中、休眠资产快过期、无主客户无人负责、再投资预算倒挂。
+                从 VIP Sales 与 casino portfolio 视角，看清高端客户业绩结构、头部依赖、流失风险、休眠资产和再投资效率。
               </p>
               <div style="height: 24px"></div>
               <span class="ribbon">直接行动口径</span>
@@ -1170,6 +1170,10 @@
           title: slides[current]?.dataset.title || ""
         };
         window.parent?.postMessage(payload, "*");
+        window.parent?.postMessage(
+          { type: "atelier-slide", index: current, total: slides.length },
+          "*"
+        );
       }
 
       window.showSlide = showSlide;
@@ -1181,6 +1185,9 @@
         const data = event.data || {};
         if (data.type === "open-slide:go-to" && Number.isFinite(Number(data.slide))) {
           showSlide(Number(data.slide) - 1);
+        }
+        if (data.type === "atelier-go" && Number.isFinite(Number(data.index))) {
+          showSlide(Number(data.index));
         }
         if (data.type === "open-slide:next") showSlide(current + 1);
         if (data.type === "open-slide:prev") showSlide(current - 1);
