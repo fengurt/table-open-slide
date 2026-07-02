@@ -5,6 +5,15 @@ export type ProjectModule = {
   end: number;
 };
 
+export type ProjectVisualStream = {
+  brand: string;
+  tag: string;
+  module: string;
+  start: number;
+  end: number;
+  beats: string[];
+};
+
 export type AtelierProject = {
   id: string;
   title: string;
@@ -67,6 +76,7 @@ export function getProject(id: string): AtelierProject | undefined {
 
 export async function fetchProjectManifest(manifestPath: string): Promise<{
   modules: ProjectModule[];
+  visualStreams?: ProjectVisualStream[];
   slideCount: number;
   title: string;
   subtitle: string;
@@ -75,6 +85,7 @@ export async function fetchProjectManifest(manifestPath: string): Promise<{
   if (!res.ok) throw new Error(`manifest ${res.status}`);
   return res.json() as Promise<{
     modules: ProjectModule[];
+    visualStreams?: ProjectVisualStream[];
     slideCount: number;
     title: string;
     subtitle: string;

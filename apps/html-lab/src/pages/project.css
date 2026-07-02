@@ -127,7 +127,7 @@
 
 .project-body {
   display: grid;
-  grid-template-rows: auto minmax(0, 1fr);
+  grid-template-rows: auto auto minmax(0, 1fr);
   flex: 1;
   min-height: 0;
 }
@@ -197,6 +197,87 @@
 .project-module-range {
   font-size: 0.65rem;
   opacity: 0.55;
+  font-variant-numeric: tabular-nums;
+}
+
+.project-streams {
+  display: flex;
+  align-items: stretch;
+  gap: 0.42rem;
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding: 0.5rem 0.8rem 0.62rem;
+  border-bottom: 1px solid rgba(184, 150, 62, 0.14);
+  background:
+    linear-gradient(90deg, rgba(184, 150, 62, 0.12), transparent 34rem), rgba(5, 10, 18, 0.8);
+  scrollbar-width: thin;
+}
+
+.project-streams-label {
+  display: flex;
+  align-items: center;
+  flex: 0 0 auto;
+  margin: 0 0.3rem 0 0;
+  font-size: 0.64rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: rgba(232, 217, 181, 0.72);
+  white-space: nowrap;
+}
+
+.project-stream {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 0.08rem 0.55rem;
+  flex: 0 0 clamp(8rem, 13vw, 10.75rem);
+  min-height: 3.2rem;
+  padding: 0.46rem 0.62rem;
+  border: 1px solid rgba(184, 150, 62, 0.2);
+  border-radius: 5px;
+  background: rgba(184, 150, 62, 0.055);
+  color: rgba(248, 241, 223, 0.78);
+  text-align: left;
+  cursor: pointer;
+  transition:
+    background 0.18s ease,
+    border-color 0.18s ease,
+    color 0.18s ease,
+    transform 0.18s ease;
+}
+
+.project-stream:hover,
+.project-stream.is-active {
+  color: var(--hl-white);
+  border-color: rgba(232, 199, 120, 0.66);
+  background: rgba(184, 150, 62, 0.15);
+  transform: translateY(-1px);
+}
+
+.project-stream-brand {
+  min-width: 0;
+  overflow: hidden;
+  color: inherit;
+  font-weight: 650;
+  font-size: 0.78rem;
+  line-height: 1.25;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.project-stream-tag {
+  grid-column: 1 / -1;
+  color: rgba(231, 238, 248, 0.58);
+  font-size: 0.65rem;
+  line-height: 1.25;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.project-stream-range {
+  color: rgba(232, 199, 120, 0.72);
+  font-family: var(--font-mono);
+  font-size: 0.64rem;
   font-variant-numeric: tabular-nums;
 }
 
@@ -298,13 +379,22 @@
     padding: 0.45rem;
   }
 
-  .project-modules-label {
+  .project-modules-label,
+  .project-streams-label {
     display: none;
   }
 
   .project-module {
     flex-basis: 8.4rem;
     padding: 0.4rem 0.65rem;
+  }
+
+  .project-streams {
+    padding: 0.4rem 0.45rem;
+  }
+
+  .project-stream {
+    flex-basis: 8.6rem;
   }
 
   .project-stage {

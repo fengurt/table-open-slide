@@ -4,6 +4,7 @@ import {
   fetchProjectManifest,
   getProject,
   type ProjectModule,
+  type ProjectVisualStream,
   previewDeckUrl,
 } from '../data/projects';
 import './project.css';
@@ -13,6 +14,7 @@ export function ProjectJourneyPage() {
   const project = getProject(projectId);
   const iframeRef = useRef<HTMLIFrameElement>(null);
   const [modules, setModules] = useState<ProjectModule[]>([]);
+  const [visualStreams, setVisualStreams] = useState<ProjectVisualStream[]>([]);
   const [slideIndex, setSlideIndex] = useState(0);
   const [slideTotal, setSlideTotal] = useState(project?.slideCount ?? 600);
   const [activeModule, setActiveModule] = useState<string | null>(null);
@@ -35,6 +37,7 @@ export function ProjectJourneyPage() {
     fetchProjectManifest(project.manifestPath)
       .then((m) => {
         setModules(m.modules);
+        setVisualStreams(m.visualStreams ?? []);
         setSlideTotal(m.slideCount);
       })
       .catch(() => {});
@@ -155,6 +158,33 @@ export function ProjectJourneyPage() {
             </button>
           ))}
         </aside>
+
+        {visualStreams.length > 0 ? (
+          <aside className="project-streams" aria-label="Case visual streams">
+            <p className="project-streams-label">案例视觉流 · 对标门店</p>
+            {visualStreams.map((stream) => (
+              <button
+                key={`${stream.brand}-${stream.start}`}
+                type="button"
+                className={`project-stream${
+                  slideIndex + 1 >= stream.start && slideIndex + 1 <= stream.end ? ' is-active' : ''
+                }`}
+                aria-current={
+                  slideIndex + 1 >= stream.start && slideIndex + 1 <= stream.end
+                    ? 'step'
+                    : undefined
+                }
+                onClick={() => goSlide(stream.start - 1)}
+              >
+                <span className="project-stream-brand">{stream.brand}</span>
+                <span className="project-stream-tag">{stream.tag}</span>
+                <span className="project-stream-range">
+                  {stream.start}–{stream.end}
+                </span>
+              </button>
+            ))}
+          </aside>
+        ) : null}
 
         <main className="project-stage">
           <div className="project-frame-shell">
