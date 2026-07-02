@@ -33,7 +33,7 @@ const IS_PROD = process.env.NODE_ENV === 'production';
 // path - the real endpoint is `/api/lab/health`; keep both for safety.)
 const PUBLIC_PATHS = new Set(['/api/docx/auth-status', '/api/lab/health', '/api/lab-health']);
 
-const PUBLIC_GET_PATHS = new Set(['/api/preview', '/api/project-manifest']);
+const PUBLIC_GET_PATHS = new Set(['/api/preview', '/api/project-manifest', '/api/asset']);
 
 let warned = false;
 function warnOnce(): void {
