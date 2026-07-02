@@ -417,6 +417,18 @@
           linear-gradient(135deg, rgba(255, 253, 247, 0.08), rgba(255, 253, 247, 0.025));
       }
 
+      .prototype-img,
+      .ref-img {
+        position: absolute;
+        inset: 0;
+        z-index: 1;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+        display: block;
+      }
+
       .ref-art::before {
         content: "";
         position: absolute;
@@ -549,7 +561,7 @@
         position: absolute;
         left: 18px;
         bottom: 12px;
-        z-index: 2;
+        z-index: 3;
         color: rgba(255, 253, 247, 0.7);
         font-size: 10px;
         font-weight: 900;
@@ -626,6 +638,16 @@
         border-radius: 10px;
         background: #0a0d12;
         box-shadow: inset 0 0 0 1px rgba(255, 253, 247, 0.06), var(--shadow);
+        overflow: hidden;
+      }
+
+      .prototype.is-image {
+        grid-template-rows: auto 1fr;
+      }
+
+      .prototype-frame {
+        position: relative;
+        min-height: 0;
         overflow: hidden;
       }
 
@@ -1133,34 +1155,17 @@
           .replaceAll('"', "&quot;");
       }
 
+      function prototypeAssetSrc(file) {
+        const rel = `slides/projects/enterprise-ai-delivery-reference/assets/prototypes/${file}`;
+        if (location.protocol === "file:") return `../assets/prototypes/${file}`;
+        return `/api/asset?path=${encodeURIComponent(rel)}`;
+      }
+
       function renderReferenceArt(item, caseCode) {
+        const file = `${caseCode.toLowerCase().replace("c", "case-")}.svg`;
         return `<div class="ref-art" aria-label="${escapeHtml(item.title)} 参考图">
-          <div class="art-window">
-            <div class="art-nav">
-              <div class="art-dot"></div>
-              <div class="art-row"></div>
-              <div class="art-row short"></div>
-              <div class="art-row"></div>
-              <div class="art-row short"></div>
-            </div>
-            <div class="art-panel">
-              <div class="art-panel-head">
-                <div class="art-line gold"></div>
-                <div class="art-pill"></div>
-              </div>
-              <div class="art-cards">
-                <div class="art-card"><div class="art-line gold"></div><div class="art-line"></div><div class="art-line short"></div></div>
-                <div class="art-card"><div class="art-line cyan"></div><div class="art-line"></div><div class="art-line short"></div></div>
-                <div class="art-card"><div class="art-line gold"></div><div class="art-line"></div><div class="art-line short"></div></div>
-              </div>
-            </div>
-            <div class="art-chat">
-              <div class="art-bubble"></div>
-              <div class="art-bubble ai"></div>
-              <div class="art-bubble"></div>
-            </div>
-          </div>
-          <div class="ref-caption">${caseCode} · Generated reference prototype</div>
+          <img class="ref-img" src="${prototypeAssetSrc(file)}" alt="${escapeHtml(item.title)} demo prototype reference" />
+          <div class="ref-caption">${caseCode} · Inserted demo prototype image</div>
         </div>`;
       }
 
@@ -1235,33 +1240,13 @@
                   ${item.points.map((point, i) => `<li data-i="${String(i + 1).padStart(2, "0")}">${escapeHtml(point)}</li>`).join("")}
                 </ul>
               </section>
-              <section class="prototype">
+              <section class="prototype is-image">
                 <div class="proto-top">
                   <div class="proto-title">${escapeHtml(item.title)}</div>
                   <div class="proto-status">Live Demo</div>
                 </div>
-                <div class="proto-body">
-                  <nav class="proto-side">
-                    ${item.tabs.map((tab, i) => `<div class="proto-tab ${i === 0 ? "is-active" : ""}">${escapeHtml(tab)}</div>`).join("")}
-                  </nav>
-                  <div class="proto-main">
-                    <div class="proto-grid">
-                      ${item.cards.map(([value, label]) => `<div class="proto-card"><b>${escapeHtml(value)}</b><span>${escapeHtml(label)}</span></div>`).join("")}
-                    </div>
-                    <div class="proto-workspace">
-                      <div class="proto-panel">
-                        <h3>${escapeHtml(item.panelTitle)}</h3>
-                        <div class="proto-line wide"></div>
-                        <div class="proto-line mid"></div>
-                        <div class="proto-line short"></div>
-                        <div class="proto-line wide"></div>
-                      </div>
-                      <div class="proto-panel">
-                        <h3>AI Action Path</h3>
-                        ${item.actions.map((action, i) => `<div class="proto-action"><i>${i + 1}</i><span>${escapeHtml(action)}</span></div>`).join("")}
-                      </div>
-                    </div>
-                  </div>
+                <div class="prototype-frame">
+                  <img class="prototype-img" src="${prototypeAssetSrc(`demo-${String(demoIndex + 1).padStart(2, "0")}.svg`)}" alt="${escapeHtml(item.title)} prototype screen" />
                 </div>
               </section>
             </div>
