@@ -96,3 +96,11 @@ export function previewDeckUrl(deckPath: string, slide = 1): string {
   const hash = slide > 1 ? `#${slide}` : '';
   return `/api/preview?path=${encodeURIComponent(deckPath)}${hash}`;
 }
+
+export function exportPdfUrl(deckPath: string, slide: number): string {
+  const q = new URLSearchParams({
+    path: deckPath,
+    slide: String(slide),
+  });
+  return `/api/export-pdf?${q}`;
+}

@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { Link, useParams, useSearchParams } from 'react-router-dom';
 import {
+  exportPdfUrl,
   fetchProjectManifest,
   getProject,
   type ProjectModule,
@@ -11,15 +12,22 @@ import './project.css';
 
 export function ProjectJourneyPage() {
   const { projectId = '' } = useParams();
+  const [searchParams] = useSearchParams();
   const project = getProject(projectId);
   const iframeRef = useRef<HTMLIFrameElement>(null);
+  const requestedSlide = Math.max(1, Number.parseInt(searchParams.get('slide') ?? '1', 10) || 1);
   const [modules, setModules] = useState<ProjectModule[]>([]);
   const [visualStreams, setVisualStreams] = useState<ProjectVisualStream[]>([]);
-  const [slideIndex, setSlideIndex] = useState(0);
+  const [slideIndex, setSlideIndex] = useState(requestedSlide - 1);
   const [slideTotal, setSlideTotal] = useState(project?.slideCount ?? 600);
   const [activeModule, setActiveModule] = useState<string | null>(null);
-  const [jumpValue, setJumpValue] = useState('1');
-  const deckSrc = project ? previewDeckUrl(project.deckPath) : '';
+  const [jumpValue, setJumpValue] = useState(String(requestedSlide));
+  const deckSrc = project ? previewDeckUrl(project.deckPath, requestedSlide) : '';
+
+  useEffect(() => {
+    setSlideIndex(requestedSlide - 1);
+    setJumpValue(String(requestedSlide));
+  }, [requestedSlide]);
 
   useEffect(() => {
     if (!project || project.slideCount <= 40) return;
@@ -106,6 +114,22 @@ export function ProjectJourneyPage() {
           <strong>
             {slideIndex + 1} / {slideTotal}
           </strong>
+        </div>
+        <div className="project-actions">
+          <a
+            className="project-action"
+            href={project ? exportPdfUrl(project.deckPath, slideIndex + 1) : '#'}
+            target="_blank"
+            rel="noreferrer"
+          >
+            导出当前页 PDF
+          </a>
+          <Link
+            className="project-action project-action--case"
+            to="/project/2day-fb-profit2chain?slide=139"
+          >
+            餐饮案例
+          </Link>
         </div>
         <div className="project-progress">
           <div className="project-progress-track">

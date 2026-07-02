@@ -9,6 +9,7 @@ import { attachAdminApi } from './server/adminApi.js';
 import { attachAuthGate } from './server/authGate.js';
 import { attachDocxApi } from './server/docxApi.js';
 import { attachDocxFormatApi } from './server/docxFormat.js';
+import { captureHtmlPdf } from './server/exportPdf.js';
 import { captureHtmlPng, type ExportVariant } from './server/exportPng.js';
 import { attachDocxIngestApi } from './server/ingest.js';
 import { attachLabHealthApi } from './server/labHealth.js';
@@ -289,6 +290,32 @@ function attachHtmlLabApi(middlewares: Connect.Server) {
         const { buffer, contentType } = await captureHtmlPng(abs, variant, p, tuneParams);
         res.statusCode = 200;
         res.setHeader('Content-Type', contentType);
+        res.setHeader('Cache-Control', 'no-store');
+        res.end(buffer);
+        return;
+      }
+      if (req.method === 'GET' && url.startsWith('/api/export-pdf')) {
+        const u = new URL(url, 'http://localhost');
+        const p = u.searchParams.get('path');
+        const slideRaw = u.searchParams.get('slide');
+        if (!p) {
+          res.statusCode = 400;
+          res.end('missing path');
+          return;
+        }
+        const abs = safeHtmlPath(p);
+        const slide = slideRaw ? Number.parseInt(slideRaw, 10) : undefined;
+        if (slideRaw && (!Number.isFinite(slide) || (slide ?? 0) < 1)) {
+          res.statusCode = 400;
+          res.end('invalid slide');
+          return;
+        }
+        const buffer = await captureHtmlPdf(abs, repoRoot, { slide });
+        const name = path.basename(abs, '.html');
+        const suffix = slide ? `-slide-${String(slide).padStart(3, '0')}` : '';
+        res.statusCode = 200;
+        res.setHeader('Content-Type', 'application/pdf');
+        res.setHeader('Content-Disposition', `attachment; filename="${name}${suffix}.pdf"`);
         res.setHeader('Cache-Control', 'no-store');
         res.end(buffer);
         return;
