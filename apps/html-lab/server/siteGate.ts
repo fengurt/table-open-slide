@@ -322,6 +322,11 @@ function loginPage(error = ''): string {
       transition: transform .2s ease, background .2s ease;
     }
     button:hover { transform: translateY(-1px); background: #111f32; }
+    button[disabled] {
+      cursor: wait;
+      opacity: .72;
+      transform: none;
+    }
     .error { color: var(--red) !important; }
     .fine {
       margin-top: 24px !important;
@@ -359,15 +364,37 @@ function loginPage(error = ''): string {
         <span>Account</span>
         <code>${user}</code>
       </div>
-      <form method="post" action="/api/site-login">
+      <form id="login-form" method="post" action="/api/site-login">
         <input type="hidden" name="redirect" value="/">
         <label for="pin">Studio PIN</label>
-        <input id="pin" name="pin" type="password" inputmode="numeric" autocomplete="current-password" autofocus required>
-        <button type="submit">Unlock workspace</button>
+        <input id="pin" name="pin" type="password" inputmode="numeric" autocomplete="current-password" pattern="\\d{6}" maxlength="6" autofocus required>
+        <button id="unlock-button" type="submit">Unlock workspace</button>
       </form>
       <p class="fine">For automation, HTTP Basic auth remains available with the same account and PIN.</p>
     </section>
   </main>
+  <script>
+    const form = document.getElementById('login-form');
+    const pin = document.getElementById('pin');
+    const button = document.getElementById('unlock-button');
+    let submitting = false;
+    function submitWhenReady() {
+      const clean = pin.value.replace(/\\D/g, '').slice(0, 6);
+      if (pin.value !== clean) pin.value = clean;
+      if (clean.length !== 6 || submitting) return;
+      submitting = true;
+      button.textContent = 'Unlocking...';
+      button.disabled = true;
+      form.requestSubmit();
+    }
+    pin.addEventListener('input', submitWhenReady);
+    pin.addEventListener('paste', () => requestAnimationFrame(submitWhenReady));
+    form.addEventListener('submit', () => {
+      submitting = true;
+      button.textContent = 'Unlocking...';
+      button.disabled = true;
+    });
+  </script>
 </body>
 </html>`;
 }
