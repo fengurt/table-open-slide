@@ -18,12 +18,19 @@ export function ProjectJourneyPage() {
   const [project, setProject] = useState(staticProject);
   const iframeRef = useRef<HTMLIFrameElement>(null);
   const requestedSlide = Math.max(1, Number.parseInt(searchParams.get('slide') ?? '1', 10) || 1);
+  const requestedAutoplay =
+    searchParams.get('autoplay') === '1' || searchParams.get('auto') === '1';
+  const delaySeconds = Math.max(
+    3,
+    Math.min(60, Number.parseInt(searchParams.get('delay') ?? '6', 10) || 6),
+  );
   const [modules, setModules] = useState<ProjectModule[]>([]);
   const [visualStreams, setVisualStreams] = useState<ProjectVisualStream[]>([]);
   const [slideIndex, setSlideIndex] = useState(requestedSlide - 1);
   const [slideTotal, setSlideTotal] = useState(project?.slideCount ?? 600);
   const [activeModule, setActiveModule] = useState<string | null>(null);
   const [jumpValue, setJumpValue] = useState(String(requestedSlide));
+  const [isAutoPlaying, setIsAutoPlaying] = useState(requestedAutoplay);
   const deckSrc = project ? previewDeckUrl(project.deckPath, requestedSlide) : '';
 
   useEffect(() => {
@@ -44,6 +51,10 @@ export function ProjectJourneyPage() {
     setSlideIndex(requestedSlide - 1);
     setJumpValue(String(requestedSlide));
   }, [requestedSlide]);
+
+  useEffect(() => {
+    setIsAutoPlaying(requestedAutoplay);
+  }, [requestedAutoplay]);
 
   useEffect(() => {
     if (!project || project.slideCount <= 40) return;
@@ -76,6 +87,19 @@ export function ProjectJourneyPage() {
     },
     [slideTotal],
   );
+
+  useEffect(() => {
+    if (!isAutoPlaying || slideTotal <= 1) return;
+    const timer = window.setInterval(() => {
+      setSlideIndex((current) => {
+        const next = current >= slideTotal - 1 ? 0 : current + 1;
+        setJumpValue(String(next + 1));
+        iframeRef.current?.contentWindow?.postMessage({ type: 'atelier-go', index: next }, '*');
+        return next;
+      });
+    }, delaySeconds * 1000);
+    return () => window.clearInterval(timer);
+  }, [delaySeconds, isAutoPlaying, slideTotal]);
 
   useEffect(() => {
     const onMessage = (e: MessageEvent) => {
@@ -132,6 +156,14 @@ export function ProjectJourneyPage() {
           </strong>
         </div>
         <div className="project-actions">
+          <button
+            className={`project-action project-action--auto${isAutoPlaying ? ' is-active' : ''}`}
+            type="button"
+            aria-pressed={isAutoPlaying}
+            onClick={() => setIsAutoPlaying((playing) => !playing)}
+          >
+            {isAutoPlaying ? '暂停自动播放' : '自动播放'}
+          </button>
           <a
             className="project-action"
             href={project ? exportPdfUrl(project.deckPath, slideIndex + 1) : '#'}
