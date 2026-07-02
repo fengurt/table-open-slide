@@ -20,6 +20,9 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const repoRoot = path.resolve(__dirname, '../..');
 const MAX_FILE_BYTES = 6 * 1024 * 1024;
 const MAX_LIST = 2500;
+const VIRTUAL_DECK_PREFIX = 'virtual-slide-folder:';
+const VIRTUAL_MANIFEST_PREFIX = 'virtual-slide-folder-manifest:';
+const VIRTUAL_SLIDE_ROOTS = ['slides', 'event'];
 const ASSET_CONTENT_TYPES: Record<string, string> = {
   '.jpg': 'image/jpeg',
   '.jpeg': 'image/jpeg',
@@ -69,6 +72,20 @@ function safeRepoAssetPath(raw: string): string {
   return abs;
 }
 
+function safeRepoDirPath(raw: string): string {
+  const decoded = decodeURIComponent(raw);
+  const normalized = path.normalize(decoded).replace(/^(\.\.(\/|\\|$))+/, '');
+  const abs = path.resolve(repoRoot, normalized);
+  if (!abs.startsWith(repoRoot)) {
+    throw new Error('path outside repo');
+  }
+  const rel = path.relative(repoRoot, abs).split(path.sep).join('/');
+  if (!VIRTUAL_SLIDE_ROOTS.some((root) => rel === root || rel.startsWith(`${root}/`))) {
+    throw new Error('unsupported virtual deck root');
+  }
+  return abs;
+}
+
 type ProjectManifestSummary = {
   id?: unknown;
   title?: unknown;
@@ -87,6 +104,121 @@ function stringValue(value: unknown, fallback = ''): string {
 function projectIdFromManifestPath(rel: string): string {
   const parts = rel.split('/');
   return parts.length >= 3 ? parts[2] : path.basename(path.dirname(rel));
+}
+
+function slugFromPath(rel: string): string {
+  return rel
+    .replace(/\.[^.]+$/g, '')
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-+|-+$/g, '')
+    .slice(0, 90);
+}
+
+function titleFromPath(rel: string): string {
+  return path.basename(rel).replace(/[-_]+/g, ' ').replace(/\s+/g, ' ').trim() || rel;
+}
+
+function slideFileSort(a: string, b: string): number {
+  const na = Number(a.match(/(?:slide[_-]?|^)(\d+)/i)?.[1] ?? Number.NaN);
+  const nb = Number(b.match(/(?:slide[_-]?|^)(\d+)/i)?.[1] ?? Number.NaN);
+  if (Number.isFinite(na) && Number.isFinite(nb) && na !== nb) return na - nb;
+  return a.localeCompare(b, undefined, { numeric: true, sensitivity: 'base' });
+}
+
+function escapeHtml(value: string): string {
+  return value
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;');
+}
+
+async function listVirtualSlideFiles(relDir: string): Promise<string[]> {
+  const absDir = safeRepoDirPath(relDir);
+  const entries = await fs.readdir(absDir, { withFileTypes: true });
+  return entries
+    .filter((entry) => entry.isFile() && entry.name.toLowerCase().endsWith('.html'))
+    .map((entry) => path.posix.join(relDir, entry.name))
+    .sort(slideFileSort);
+}
+
+async function buildVirtualManifest(relDir: string) {
+  const files = await listVirtualSlideFiles(relDir);
+  const title = titleFromPath(relDir);
+  return {
+    id: slugFromPath(relDir),
+    title,
+    subtitle: `Auto-discovered folder deck · ${files.length} HTML slides`,
+    description: `Generated from ${relDir}`,
+    slideCount: files.length,
+    deckPath: `${VIRTUAL_DECK_PREFIX}${relDir}`,
+    modules: [
+      {
+        id: 'slides',
+        title: 'Slides',
+        start: 1,
+        end: files.length,
+        act: 'Folder',
+      },
+    ],
+  };
+}
+
+async function buildVirtualDeckHtml(relDir: string): Promise<string> {
+  const files = await listVirtualSlideFiles(relDir);
+  const title = titleFromPath(relDir);
+  const sections = files
+    .map((file, index) => {
+      const slideTitle = titleFromPath(file);
+      const src = `/api/preview?path=${encodeURIComponent(file)}`;
+      return `<section class="slide" data-title="${escapeHtml(slideTitle)}"><iframe title="${escapeHtml(
+        slideTitle,
+      )}" src="${src}"></iframe><span class="slide-badge">${String(index + 1).padStart(
+        2,
+        '0',
+      )}</span></section>`;
+    })
+    .join('\n');
+  return `<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>${escapeHtml(title)} · Folder Deck</title>
+<style>
+html,body{width:100%;height:100%;margin:0;overflow:hidden;background:#050a12;color:#f7f4ed;font-family:ui-sans-serif,system-ui,sans-serif}
+#deck{position:fixed;inset:0;display:flex;height:100vh;transition:transform .48s cubic-bezier(.76,0,.24,1)}
+.slide{position:relative;flex:0 0 100vw;width:100vw;height:100vh;background:#050a12;overflow:hidden}
+.slide iframe{position:absolute;inset:0;width:100%;height:100%;border:0;background:#fff}
+.slide-badge{position:absolute;right:1rem;bottom:1rem;z-index:3;padding:.35rem .5rem;border:1px solid rgba(255,255,255,.22);background:rgba(5,10,18,.72);font:600 11px/1 ui-monospace,Menlo,monospace;letter-spacing:.12em;color:#f7f4ed}
+#nav{position:fixed;right:1rem;top:1rem;z-index:5;display:flex;gap:.55rem;align-items:center;padding:.5rem .65rem;border:1px solid rgba(255,255,255,.18);background:rgba(5,10,18,.72);backdrop-filter:blur(12px);font:600 11px/1 ui-monospace,Menlo,monospace;letter-spacing:.12em;color:#f7f4ed}
+body.is-embedded #nav{display:none}
+</style>
+</head>
+<body>
+<div id="deck">
+${sections}
+</div>
+<div id="nav"><span id="label">1 / ${files.length}</span></div>
+<script>
+const deck=document.getElementById('deck');
+const slides=[...document.querySelectorAll('.slide')];
+const label=document.getElementById('label');
+let idx=0,lock=false;
+if(window.parent!==window) document.body.classList.add('is-embedded');
+deck.style.width=\`\${slides.length*100}vw\`;
+function post(){try{parent.postMessage({type:'atelier-slide',index:idx,total:slides.length},'*')}catch(_){}}
+function update(){deck.style.transform=\`translateX(\${-idx*100}vw)\`;label.textContent=\`\${idx+1} / \${slides.length}\`;history.replaceState(null,'',\`#\${idx+1}\`);post()}
+function go(n){if(lock)return;idx=Math.max(0,Math.min(slides.length-1,n));lock=true;update();setTimeout(()=>lock=false,160)}
+addEventListener('keydown',e=>{if(['ArrowRight','PageDown',' '].includes(e.key))go(idx+1);if(['ArrowLeft','PageUp'].includes(e.key))go(idx-1);if(e.key==='Home')go(0);if(e.key==='End')go(slides.length-1)});
+addEventListener('wheel',e=>{if(Math.abs(e.deltaY)+Math.abs(e.deltaX)<45)return;go(idx+(e.deltaY+e.deltaX>0?1:-1))},{passive:true});
+addEventListener('message',e=>{if(e.data?.type==='atelier-go'&&typeof e.data.index==='number')go(e.data.index);if(e.data?.type==='atelier-low-power')document.body.classList.add('is-embedded')});
+addEventListener('hashchange',()=>{const m=location.hash.match(/^#(\\d+)$/);if(m)go(Number(m[1])-1)});
+const m=location.hash.match(/^#(\\d+)$/);if(m)idx=Math.max(0,Math.min(slides.length-1,Number(m[1])-1));update();
+</script>
+</body>
+</html>`;
 }
 
 async function discoverSlideProjects() {
@@ -124,7 +256,40 @@ async function discoverSlideProjects() {
       };
     }),
   );
-  return projects;
+  const htmlFiles = await fg(['slides/**/*.html', 'event/**/*.html'], {
+    cwd: repoRoot,
+    onlyFiles: true,
+    ignore: [
+      '**/node_modules/**',
+      '**/dist/**',
+      '**/.next/**',
+      '**/coverage/**',
+      'slides/projects/**',
+    ],
+    followSymbolicLinks: false,
+  });
+  const dirs = new Map<string, string[]>();
+  for (const file of htmlFiles) {
+    const dir = path.posix.dirname(file);
+    dirs.set(dir, [...(dirs.get(dir) ?? []), file]);
+  }
+  const virtualProjects = [...dirs.entries()]
+    .filter(([, files]) => files.length >= 3)
+    .map(([dir, files]) => {
+      const slideCount = files.length;
+      const title = titleFromPath(dir);
+      return {
+        id: slugFromPath(dir),
+        title,
+        subtitle: `Folder deck · ${slideCount} HTML slides`,
+        description: `Auto-discovered from ${dir}`,
+        slideCount,
+        manifestPath: `${VIRTUAL_MANIFEST_PREFIX}${dir}`,
+        deckPath: `${VIRTUAL_DECK_PREFIX}${dir}`,
+        tags: ['folder', `${slideCount}p`],
+      };
+    });
+  return [...projects, ...virtualProjects].sort((a, b) => a.title.localeCompare(b.title));
 }
 
 async function wrapProjectSlideFragment(relPath: string, html: string): Promise<string> {
@@ -238,6 +403,12 @@ function attachHtmlLabApi(middlewares: Connect.Server) {
           res.end('missing path');
           return;
         }
+        if (p.startsWith(VIRTUAL_MANIFEST_PREFIX)) {
+          const body = await buildVirtualManifest(p.slice(VIRTUAL_MANIFEST_PREFIX.length));
+          res.setHeader('Content-Type', 'application/json; charset=utf-8');
+          res.end(JSON.stringify(body));
+          return;
+        }
         const abs = safeRepoJsonPath(p);
         const body = await fs.readFile(abs, 'utf8');
         res.setHeader('Content-Type', 'application/json; charset=utf-8');
@@ -284,6 +455,13 @@ function attachHtmlLabApi(middlewares: Connect.Server) {
           res.statusCode = 400;
           res.setHeader('Content-Type', 'text/plain; charset=utf-8');
           res.end('missing path');
+          return;
+        }
+        if (url.startsWith('/api/preview') && p.startsWith(VIRTUAL_DECK_PREFIX)) {
+          const body = await buildVirtualDeckHtml(p.slice(VIRTUAL_DECK_PREFIX.length));
+          res.setHeader('Content-Type', 'text/html; charset=utf-8');
+          res.setHeader('X-Content-Type-Options', 'nosniff');
+          res.end(body);
           return;
         }
         const abs = safeHtmlPath(p);
