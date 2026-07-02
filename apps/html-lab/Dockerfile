@@ -26,6 +26,8 @@ RUN pnpm install --filter html-lab... --filter docx-mcp-server... --frozen-lockf
 
 COPY apps/html-lab apps/html-lab
 COPY apps/docx-mcp-server apps/docx-mcp-server
+COPY slides slides
+COPY landing01 landing01
 
 RUN pnpm --filter html-lab build && pnpm --filter docx-mcp-server build
 

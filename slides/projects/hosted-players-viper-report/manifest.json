@@ -1,37 +1,37 @@
 {
   "id": "hosted-players-viper-report",
-  "title": "Hosted Players 客户资产全景分析",
-  "subtitle": "V.I.P.E.R. Method · Customer Asset War Room",
-  "description": "基于 hosted_players_fixed.csv 与 hosted_players_full_report_v2.md 重制的高净值客户资产分析 slides",
-  "slideCount": 16,
+  "title": "Hosted Players 客户资产分析报告",
+  "subtitle": "方法论 · 数据说明 · 分析过程 · 结论 · 行动计划",
+  "description": "基于 hosted_players_fixed.csv 与 hosted_players_full_report_v2.md 重制的 12 页可执行客户资产分析报告",
+  "slideCount": 12,
   "deckPath": "slides/projects/hosted-players-viper-report/deck/index.html",
   "source": {
     "csv": "slides/projects/hosted-players-viper-report/source/hosted_players_fixed.csv",
     "report": "slides/projects/hosted-players-viper-report/source/hosted_players_full_report_v2.md"
   },
-  "theme": "war-room",
+  "theme": "executive-report",
   "modules": [
     {
-      "id": "overview",
-      "title": "资产总览",
+      "id": "method-data",
+      "title": "方法与数据",
       "start": 1,
       "end": 4,
-      "act": "Briefing"
+      "act": "Method"
     },
     {
-      "id": "diagnosis",
-      "title": "七维诊断",
+      "id": "analysis-process",
+      "title": "分析过程",
       "start": 5,
-      "end": 12,
-      "act": "Diagnosis"
+      "end": 9,
+      "act": "Analysis"
     },
     {
-      "id": "execution",
-      "title": "行动与治理",
-      "start": 13,
-      "end": 16,
-      "act": "Execution"
+      "id": "conclusion-action",
+      "title": "结论与行动",
+      "start": 10,
+      "end": 12,
+      "act": "Action"
     }
   ],
-  "generatedAt": "2026-07-02T15:10:00.000+08:00"
+  "generatedAt": "2026-07-02T20:35:00.000+08:00"
 }

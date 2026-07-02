@@ -1,938 +1,1200 @@
 <!doctype html>
 <html lang="zh-CN">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>HOSTED PLAYERS 客户资产全景分析报告 · V.I.P.E.R.</title>
-<style>
-:root {
-  --bg: #071015;
-  --ink: #f4f0e6;
-  --muted: #aeb8b7;
-  --line: rgba(244, 240, 230, .18);
-  --panel: rgba(255, 255, 255, .062);
-  --paper: #efe7d6;
-  --paper-ink: #111822;
-  --gold: #d8aa55;
-  --jade: #5fd3b8;
-  --blue: #82bbff;
-  --red: #ff6d5f;
-  --serif: "Songti SC", "Noto Serif SC", "Source Han Serif SC", Georgia, serif;
-  --sans: "Avenir Next", "Noto Sans SC", "PingFang SC", ui-sans-serif, system-ui, sans-serif;
-  --mono: "SFMono-Regular", "Cascadia Code", Menlo, Consolas, monospace;
-}
-* { box-sizing: border-box; }
-html, body {
-  width: 100%;
-  height: 100%;
-  margin: 0;
-  overflow: hidden;
-  background: #03080b;
-  color: var(--ink);
-  font-family: var(--sans);
-  -webkit-font-smoothing: antialiased;
-}
-body.is-embedded * {
-  animation: none;
-  transition: none;
-}
-#deck {
-  position: fixed;
-  inset: 0;
-  display: flex;
-  height: 100vh;
-  transition: transform .52s cubic-bezier(.76, 0, .24, 1);
-}
-.slide {
-  position: relative;
-  flex: 0 0 100vw;
-  width: 100vw;
-  height: 100vh;
-  overflow: hidden;
-  padding: 3.8vh 4.2vw 3.4vh;
-  display: flex;
-  flex-direction: column;
-  isolation: isolate;
-  background:
-    radial-gradient(circle at 15% 14%, rgba(95, 211, 184, .14), transparent 28vw),
-    radial-gradient(circle at 84% 18%, rgba(216, 170, 85, .14), transparent 25vw),
-    linear-gradient(135deg, #08131a 0%, #05090d 56%, #0c1112 100%);
-}
-.slide::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  z-index: -1;
-  pointer-events: none;
-  background:
-    linear-gradient(90deg, rgba(255, 255, 255, .034) 1px, transparent 1px),
-    linear-gradient(180deg, rgba(255, 255, 255, .03) 1px, transparent 1px);
-  background-size: 6.25vw 6.25vw;
-  mask-image: linear-gradient(180deg, rgba(0, 0, 0, .8), transparent 84%);
-}
-.slide.light {
-  color: var(--paper-ink);
-  background:
-    radial-gradient(circle at 12% 12%, rgba(216, 170, 85, .18), transparent 28vw),
-    linear-gradient(135deg, #f2ead9 0%, #e5edf0 72%, #d8e4e3 100%);
-}
-.slide.light::before {
-  background:
-    linear-gradient(90deg, rgba(17, 24, 34, .055) 1px, transparent 1px),
-    linear-gradient(180deg, rgba(17, 24, 34, .04) 1px, transparent 1px);
-}
-.chrome, .foot {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  gap: 2vw;
-  font-family: var(--mono);
-  font-size: clamp(9px, .66vw, 12px);
-  letter-spacing: .16em;
-  text-transform: uppercase;
-  color: rgba(244, 240, 230, .58);
-}
-.light .chrome, .light .foot { color: rgba(17, 24, 34, .58); }
-.brand { display: flex; align-items: center; gap: .7vw; }
-.mark {
-  width: .76vw;
-  height: .76vw;
-  border: 1px solid var(--jade);
-  transform: rotate(45deg);
-  box-shadow: 0 0 22px rgba(95, 211, 184, .55);
-}
-.num { color: var(--gold); }
-.content {
-  flex: 1;
-  min-height: 0;
-  width: 100%;
-  display: flex;
-  align-items: center;
-  padding: 2.3vh 0;
-}
-.foot { align-items: flex-end; margin-top: auto; }
-h1, h2, h3, p { margin: 0; }
-h1, h2 { font-family: var(--serif); letter-spacing: 0; font-weight: 650; }
-h1 { font-size: clamp(54px, 6vw, 112px); line-height: .94; max-width: 70vw; }
-h2 { font-size: clamp(34px, 3.65vw, 72px); line-height: 1.04; }
-h3 { font-size: clamp(15px, 1.02vw, 22px); line-height: 1.25; }
-.kicker {
-  margin-bottom: 1.35vh;
-  font-family: var(--mono);
-  color: var(--jade);
-  font-size: clamp(10px, .72vw, 14px);
-  letter-spacing: .22em;
-  text-transform: uppercase;
-}
-.lead {
-  font-size: clamp(15px, 1.06vw, 22px);
-  line-height: 1.48;
-  color: rgba(244, 240, 230, .77);
-}
-.light .lead { color: rgba(17, 24, 34, .72); }
-.rule {
-  width: min(23vw, 330px);
-  height: 1px;
-  margin: 2vh 0;
-  background: linear-gradient(90deg, var(--gold), transparent);
-}
-.grid { display: grid; grid-template-columns: repeat(12, 1fr); gap: 1vw; width: 100%; }
-.span-3 { grid-column: span 3; }
-.span-4 { grid-column: span 4; }
-.span-5 { grid-column: span 5; }
-.span-6 { grid-column: span 6; }
-.span-7 { grid-column: span 7; }
-.span-8 { grid-column: span 8; }
-.span-12 { grid-column: span 12; }
-.card {
-  position: relative;
-  min-height: 13vh;
-  padding: 1.65vh 1.05vw;
-  border: 1px solid var(--line);
-  background: linear-gradient(180deg, rgba(255, 255, 255, .075), rgba(255, 255, 255, .026));
-  overflow: hidden;
-}
-.light .card {
-  border-color: rgba(17, 24, 34, .14);
-  background: rgba(255, 255, 255, .48);
-}
-.card::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  height: 2px;
-  background: linear-gradient(90deg, var(--gold), transparent);
-}
-.metric {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  gap: .85vh;
-}
-.metric b {
-  font-family: var(--mono);
-  font-size: clamp(28px, 3vw, 58px);
-  line-height: .92;
-  letter-spacing: -.035em;
-  color: var(--gold);
-}
-.metric span, .note {
-  color: var(--muted);
-  font-size: clamp(11px, .78vw, 15px);
-  line-height: 1.42;
-}
-.light .metric span, .light .note { color: rgba(17, 24, 34, .58); }
-.quote {
-  font-family: var(--serif);
-  font-size: clamp(28px, 3.1vw, 62px);
-  line-height: 1.12;
-}
-.split {
-  display: grid;
-  grid-template-columns: .96fr 1.04fr;
-  gap: 3.2vw;
-  align-items: center;
-  width: 100%;
-}
-table {
-  width: 100%;
-  border-collapse: collapse;
-  font-size: clamp(10px, .74vw, 14px);
-  line-height: 1.32;
-}
-th, td {
-  padding: .72vh .55vw;
-  border-bottom: 1px solid var(--line);
-  vertical-align: top;
-}
-th {
-  color: var(--jade);
-  text-align: left;
-  font-family: var(--mono);
-  font-size: clamp(9px, .62vw, 12px);
-  letter-spacing: .08em;
-  text-transform: uppercase;
-}
-.light th, .light td { border-color: rgba(17, 24, 34, .14); }
-.light th { color: #117c69; }
-.tight table { font-size: clamp(9px, .64vw, 12px); }
-.tiny-table table { font-size: clamp(8px, .58vw, 11px); }
-.fact-list { display: grid; gap: .72vh; }
-.fact {
-  display: grid;
-  grid-template-columns: 2.4vw 1fr auto;
-  gap: .9vw;
-  align-items: center;
-  padding: .96vh 0;
-  border-bottom: 1px solid var(--line);
-}
-.fact i {
-  font-style: normal;
-  font-family: var(--mono);
-  color: var(--jade);
-}
-.fact strong { font-size: clamp(12px, .92vw, 18px); }
-.fact b {
-  white-space: nowrap;
-  font-family: var(--mono);
-  color: var(--gold);
-  font-size: clamp(13px, 1.05vw, 21px);
-}
-.pill {
-  display: inline-flex;
-  margin: .25vh .28vw .25vh 0;
-  padding: .58vh .72vw;
-  border: 1px solid rgba(95, 211, 184, .34);
-  color: var(--jade);
-  font-family: var(--mono);
-  font-size: clamp(9px, .62vw, 12px);
-  letter-spacing: .12em;
-  text-transform: uppercase;
-}
-.steps {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  gap: .9vw;
-  width: 100%;
-}
-.step {
-  min-height: 50vh;
-  border-top: 3px solid var(--gold);
-  padding: 1.7vh .95vw;
-  background: rgba(255, 255, 255, .056);
-}
-.step b {
-  display: block;
-  margin-bottom: 1.1vh;
-  color: var(--gold);
-  font-family: var(--mono);
-  font-size: clamp(38px, 4vw, 82px);
-  line-height: .84;
-}
-.step p {
-  color: rgba(244, 240, 230, .75);
-  font-size: clamp(11px, .78vw, 15px);
-  line-height: 1.43;
-}
-.phase {
-  min-height: 53vh;
-  padding: 1.9vh 1.05vw;
-  border-top: 3px solid var(--gold);
-  background: rgba(255, 255, 255, .06);
-}
-.phase ul {
-  display: grid;
-  gap: .85vh;
-  margin: 1.3vh 0 0;
-  padding: 0;
-  list-style: none;
-}
-.phase li {
-  color: rgba(244, 240, 230, .77);
-  font-size: clamp(10px, .72vw, 14px);
-  line-height: 1.36;
-}
-.phase li::before {
-  content: "";
-  display: inline-block;
-  width: .42vw;
-  height: .42vw;
-  margin-right: .48vw;
-  background: var(--jade);
-  transform: rotate(45deg);
-}
-pre {
-  max-height: 50vh;
-  margin: 0;
-  padding: 1.3vh .9vw;
-  overflow: hidden;
-  border: 1px solid rgba(17, 24, 34, .16);
-  background: rgba(255, 255, 255, .58);
-  color: #111822;
-  font-family: var(--mono);
-  font-size: clamp(8px, .56vw, 11px);
-  line-height: 1.32;
-}
-.red { color: var(--red); }
-.good { color: var(--jade); }
-.gold { color: var(--gold); }
-#nav {
-  position: fixed;
-  right: 1.8vw;
-  bottom: 2vh;
-  z-index: 20;
-  display: flex;
-  align-items: center;
-  gap: .72vw;
-  color: rgba(244, 240, 230, .62);
-  font-family: var(--mono);
-  font-size: 11px;
-}
-#bar {
-  position: fixed;
-  left: 0;
-  bottom: 0;
-  z-index: 21;
-  width: 0;
-  height: 3px;
-  background: linear-gradient(90deg, var(--jade), var(--gold));
-  transition: width .22s ease;
-}
-.btn {
-  width: 32px;
-  height: 32px;
-  border: 1px solid rgba(255, 255, 255, .18);
-  background: rgba(255, 255, 255, .06);
-  color: var(--ink);
-}
-@media (max-width: 900px) {
-  .grid, .split, .steps { grid-template-columns: 1fr; }
-  .span-3, .span-4, .span-5, .span-6, .span-7, .span-8, .span-12 { grid-column: span 1; }
-  .content { align-items: flex-start; overflow: auto; }
-  h1 { max-width: 90vw; }
-  .slide { padding: 4vh 5vw; }
-}
-</style>
-</head>
-<body>
-<div id="deck">
-  <section class="slide" data-title="封面" data-module="overview">
-    <div class="chrome"><div class="brand"><span class="mark"></span><span>HOSTED PLAYERS REPORT</span></div><span class="num">001</span></div>
-    <div class="content">
-      <div>
-        <div class="kicker">V.I.P.E.R. 方法论 · 完整版 v2.0</div>
-        <h1>客户资产全景分析报告</h1>
-        <div class="rule"></div>
-        <p class="lead" style="max-width:52vw">多维诊断 · 行动计划 · 数据治理修复。数据源: hosted_players_fixed.csv, 881 名玩家 × 35 字段, 分析基准日 2026-07-02, Theo Win 价值口径。</p>
-        <div style="margin-top:2.2vh">
-          <span class="pill">Internal Confidential</span>
-          <span class="pill">881 Players</span>
-          <span class="pill">35 Fields</span>
-          <span class="pill">Theo Win Lens</span>
-        </div>
-      </div>
-    </div>
-    <div class="foot"><span>From Top Sales & CRM Master Perspective × 统计学严谨性</span><span>Cover</span></div>
-  </section>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Hosted Players 客户资产分析报告</title>
+    <style>
+      :root {
+        color-scheme: light;
+        --ink: #11151c;
+        --muted: #667085;
+        --line: #d8dee8;
+        --paper: #f6f3ec;
+        --panel: #ffffff;
+        --navy: #10233f;
+        --blue: #225ea8;
+        --gold: #b9822f;
+        --red: #b42318;
+        --green: #16735a;
+        --shadow: 0 18px 45px rgba(17, 21, 28, 0.12);
+        font-family:
+          "Aptos",
+          "PingFang SC",
+          "Microsoft YaHei",
+          system-ui,
+          sans-serif;
+      }
 
-  <section class="slide light" data-title="目录" data-module="overview">
-    <div class="chrome"><div class="brand"><span class="mark"></span><span>PAGE-BREAK DESIGN</span></div><span class="num">002</span></div>
-    <div class="content">
-      <div class="grid">
-        <div class="span-5">
-          <div class="kicker">MD 原文页级结构</div>
-          <h2>一章一页,每页一个经营判断。</h2>
-          <div class="rule"></div>
-          <p class="lead">本 deck 按 Markdown 中每个 `##` 页重排: 封面、目录与说明、P3 到 P16。核心原则是保留原报告的表格、数字、动作与附录,不擅自省略关键页。</p>
-        </div>
-        <div class="span-7 tight">
-          <table>
-            <thead><tr><th>页</th><th>章节</th><th>页</th><th>章节</th></tr></thead>
-            <tbody>
-              <tr><td>P3</td><td>执行摘要与核心数字</td><td>P9</td><td>休眠资产与唤醒窗口</td></tr>
-              <tr><td>P4</td><td>数据定义与指标体系</td><td>P10</td><td>地理与人口画像 · 生日营销日历</td></tr>
-              <tr><td>P5</td><td>V.I.P.E.R. 可复用方法论</td><td>P11</td><td>Tier 体系完整性审计</td></tr>
-              <tr><td>P6</td><td>价值集中度 Pareto/Gini</td><td>P12</td><td>30/60/90 天作战地图</td></tr>
-              <tr><td>P7</td><td>价值 × 风险分层矩阵</td><td>P13</td><td>KPI 看板与运营节奏</td></tr>
-              <tr><td>P8</td><td>动能诊断与到访经济学</td><td>P14-P16</td><td>CSV 修复 · 代码骨架 · 字段字典</td></tr>
-              <tr><td>P8b</td><td>再投资效率与预算重配</td><td></td><td></td></tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-    </div>
-    <div class="foot"><span>Printed/PDF-ready source mapped to 16 slides</span><span>002</span></div>
-  </section>
+      * {
+        box-sizing: border-box;
+      }
 
-  <section class="slide" data-title="执行摘要" data-module="overview">
-    <div class="chrome"><div class="brand"><span class="mark"></span><span>P3 · EXECUTIVE SUMMARY</span></div><span class="num">003</span></div>
-    <div class="content">
-      <div class="grid">
-        <div class="span-5">
-          <div class="kicker">一本 ¥40M 量级的客户资产账本</div>
-          <p class="quote">这不是一份名单,是一张资产负债表。</p>
-          <div class="rule"></div>
-          <p class="lead">325 名 Hosted 在册客户构成“生息资产”, R3M ¥12.95M、R6M ¥26.47M; 556 名 Unassigned 构成“闲置资产”, R3M 为零但 R6M 仍达 ¥7.30M。</p>
-        </div>
-        <div class="span-7">
-          <div class="grid">
-            <div class="card metric span-3"><b>¥12.95M</b><span>Hosted R3M Theo</span></div>
-            <div class="card metric span-3"><b>¥33.77M</b><span>全库 R6M Theo</span></div>
-            <div class="card metric span-3"><b>556</b><span>Unassigned 玩家</span></div>
-            <div class="card metric span-3"><b>¥9.34M</b><span>休眠资产</span></div>
+      html,
+      body {
+        margin: 0;
+        min-height: 100%;
+        background: #e9edf3;
+        color: var(--ink);
+      }
+
+      body {
+        overflow: hidden;
+      }
+
+      button {
+        font: inherit;
+      }
+
+      .deck {
+        height: 100vh;
+        width: 100vw;
+      }
+
+      .slide {
+        display: none;
+        height: 100vh;
+        width: 100vw;
+        padding: clamp(28px, 4vw, 56px);
+        background:
+          linear-gradient(90deg, rgba(16, 35, 63, 0.08) 1px, transparent 1px),
+          linear-gradient(180deg, rgba(16, 35, 63, 0.08) 1px, transparent 1px),
+          var(--paper);
+        background-size: 44px 44px;
+      }
+
+      .slide.active {
+        display: grid;
+      }
+
+      .page {
+        position: relative;
+        display: grid;
+        grid-template-rows: auto 1fr auto;
+        gap: 22px;
+        height: 100%;
+        max-width: 1500px;
+        margin: 0 auto;
+      }
+
+      header {
+        display: grid;
+        grid-template-columns: 1fr auto;
+        gap: 24px;
+        align-items: end;
+        border-bottom: 2px solid var(--navy);
+        padding-bottom: 14px;
+      }
+
+      .eyebrow {
+        margin: 0 0 8px;
+        color: var(--gold);
+        font-size: 13px;
+        font-weight: 800;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+      }
+
+      h1,
+      h2,
+      h3,
+      p {
+        margin: 0;
+      }
+
+      h1 {
+        color: var(--navy);
+        font-family: Georgia, "Noto Serif SC", serif;
+        font-size: clamp(38px, 4.5vw, 76px);
+        line-height: 0.98;
+        letter-spacing: 0;
+      }
+
+      h2 {
+        color: var(--navy);
+        font-family: Georgia, "Noto Serif SC", serif;
+        font-size: clamp(30px, 3.1vw, 50px);
+        line-height: 1.06;
+        letter-spacing: 0;
+      }
+
+      h3 {
+        color: var(--navy);
+        font-size: clamp(18px, 1.4vw, 24px);
+        line-height: 1.2;
+      }
+
+      .page-no {
+        min-width: 86px;
+        border-left: 2px solid var(--line);
+        padding-left: 18px;
+        color: var(--navy);
+        font-size: 18px;
+        font-weight: 800;
+        text-align: right;
+      }
+
+      .content {
+        min-height: 0;
+      }
+
+      .grid {
+        display: grid;
+        gap: 16px;
+      }
+
+      .cols-2 {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .cols-3 {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+
+      .cols-4 {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+      }
+
+      .card,
+      .metric,
+      .note,
+      .step,
+      .quote {
+        background: rgba(255, 255, 255, 0.9);
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        box-shadow: var(--shadow);
+      }
+
+      .card,
+      .step {
+        padding: 20px;
+      }
+
+      .metric {
+        min-height: 132px;
+        padding: 18px;
+      }
+
+      .metric strong {
+        display: block;
+        margin-bottom: 6px;
+        color: var(--navy);
+        font-family: Georgia, "Noto Serif SC", serif;
+        font-size: clamp(32px, 3vw, 48px);
+        line-height: 1;
+      }
+
+      .metric span,
+      .card p,
+      .step p,
+      li {
+        color: #273447;
+        font-size: clamp(16px, 1.18vw, 21px);
+        line-height: 1.48;
+      }
+
+      .metric small,
+      footer,
+      .meta {
+        color: var(--muted);
+        font-size: 13px;
+        line-height: 1.35;
+      }
+
+      .lead {
+        max-width: 980px;
+        color: #263348;
+        font-size: clamp(20px, 1.8vw, 31px);
+        line-height: 1.35;
+      }
+
+      .big-number {
+        color: var(--navy);
+        font-family: Georgia, "Noto Serif SC", serif;
+        font-size: clamp(54px, 8vw, 140px);
+        line-height: 0.86;
+      }
+
+      .verdict {
+        display: grid;
+        grid-template-columns: 0.9fr 1.1fr;
+        gap: 28px;
+        align-items: center;
+      }
+
+      .ribbon {
+        display: inline-flex;
+        align-items: center;
+        width: fit-content;
+        padding: 7px 12px;
+        border: 1px solid var(--gold);
+        border-radius: 999px;
+        color: var(--navy);
+        background: #fff8ea;
+        font-size: 13px;
+        font-weight: 800;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        overflow: hidden;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: var(--panel);
+        box-shadow: var(--shadow);
+      }
+
+      th,
+      td {
+        padding: 14px 16px;
+        border-bottom: 1px solid var(--line);
+        vertical-align: top;
+        text-align: left;
+      }
+
+      th {
+        color: #fff;
+        background: var(--navy);
+        font-size: 14px;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+      }
+
+      td {
+        color: #273447;
+        font-size: clamp(15px, 1.08vw, 19px);
+        line-height: 1.42;
+      }
+
+      tr:last-child td {
+        border-bottom: 0;
+      }
+
+      .tag {
+        display: inline-flex;
+        margin: 0 6px 6px 0;
+        padding: 5px 8px;
+        border-radius: 6px;
+        background: #edf3fb;
+        color: var(--blue);
+        font-size: 13px;
+        font-weight: 800;
+      }
+
+      .danger {
+        color: var(--red);
+      }
+
+      .good {
+        color: var(--green);
+      }
+
+      .accent {
+        color: var(--gold);
+      }
+
+      .process {
+        display: grid;
+        grid-template-columns: repeat(5, minmax(0, 1fr));
+        gap: 12px;
+      }
+
+      .step {
+        min-height: 230px;
+      }
+
+      .step b {
+        display: block;
+        margin-bottom: 12px;
+        color: var(--gold);
+        font-family: Georgia, "Noto Serif SC", serif;
+        font-size: 42px;
+      }
+
+      .matrix {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 16px;
+      }
+
+      .bar {
+        display: grid;
+        grid-template-columns: minmax(120px, 180px) 1fr auto;
+        gap: 12px;
+        align-items: center;
+        margin: 14px 0;
+      }
+
+      .bar-track {
+        height: 18px;
+        border-radius: 999px;
+        background: #e6ebf2;
+        overflow: hidden;
+      }
+
+      .bar-fill {
+        height: 100%;
+        border-radius: 999px;
+        background: linear-gradient(90deg, var(--blue), var(--gold));
+      }
+
+      .quote {
+        padding: 28px;
+        background: var(--navy);
+        color: #fff;
+      }
+
+      .quote p {
+        color: #fff;
+        font-family: Georgia, "Noto Serif SC", serif;
+        font-size: clamp(28px, 3vw, 54px);
+        line-height: 1.08;
+      }
+
+      .quote small {
+        display: block;
+        margin-top: 18px;
+        color: #ced7e5;
+        font-size: 16px;
+      }
+
+      ul {
+        margin: 12px 0 0;
+        padding-left: 1.15em;
+      }
+
+      .dense-list li {
+        margin-bottom: 8px;
+      }
+
+      .kpi {
+        display: grid;
+        grid-template-columns: 1.1fr 0.8fr 0.8fr 0.8fr;
+        gap: 1px;
+        overflow: hidden;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: var(--line);
+        box-shadow: var(--shadow);
+      }
+
+      .kpi div {
+        padding: 13px 14px;
+        background: #fff;
+        font-size: clamp(14px, 1vw, 18px);
+        line-height: 1.35;
+      }
+
+      .kpi .head {
+        background: var(--navy);
+        color: #fff;
+        font-size: 13px;
+        font-weight: 800;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+      }
+
+      footer {
+        display: flex;
+        justify-content: space-between;
+        border-top: 1px solid var(--line);
+        padding-top: 10px;
+      }
+
+      .deck-nav {
+        position: fixed;
+        right: 18px;
+        bottom: 16px;
+        z-index: 20;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        padding: 8px;
+        border: 1px solid rgba(16, 35, 63, 0.16);
+        border-radius: 8px;
+        background: rgba(255, 255, 255, 0.84);
+        box-shadow: 0 12px 30px rgba(17, 21, 28, 0.16);
+        backdrop-filter: blur(10px);
+      }
+
+      .deck-nav button {
+        display: inline-grid;
+        place-items: center;
+        width: 34px;
+        height: 34px;
+        border: 1px solid var(--line);
+        border-radius: 6px;
+        background: #fff;
+        color: var(--navy);
+        cursor: pointer;
+      }
+
+      .deck-nav button:disabled {
+        color: #aab3c2;
+        cursor: default;
+      }
+
+      .deck-nav span {
+        min-width: 58px;
+        color: var(--navy);
+        font-size: 13px;
+        font-weight: 800;
+        text-align: center;
+      }
+
+      @media (max-height: 720px) and (min-width: 901px) {
+        .slide {
+          padding: 18px 28px;
+        }
+
+        .page {
+          gap: 12px;
+          max-width: 1220px;
+        }
+
+        header {
+          gap: 14px;
+          padding-bottom: 8px;
+        }
+
+        .eyebrow {
+          margin-bottom: 4px;
+          font-size: 10px;
+        }
+
+        h1 {
+          font-size: clamp(30px, 4vw, 52px);
+        }
+
+        h2 {
+          font-size: clamp(24px, 2.6vw, 34px);
+        }
+
+        h3 {
+          font-size: 16px;
+        }
+
+        .page-no {
+          min-width: 70px;
+          padding-left: 12px;
+          font-size: 15px;
+        }
+
+        .grid,
+        .matrix {
+          gap: 10px;
+        }
+
+        .card,
+        .step {
+          padding: 12px;
+        }
+
+        .metric {
+          min-height: 86px;
+          padding: 12px;
+        }
+
+        .metric strong {
+          margin-bottom: 3px;
+          font-size: clamp(26px, 2.5vw, 34px);
+        }
+
+        .metric span,
+        .card p,
+        .step p,
+        li {
+          font-size: 13px;
+          line-height: 1.34;
+        }
+
+        .metric small,
+        footer,
+        .meta {
+          font-size: 10px;
+        }
+
+        .lead {
+          font-size: clamp(15px, 1.5vw, 20px);
+          line-height: 1.28;
+        }
+
+        .process {
+          gap: 8px;
+        }
+
+        .step {
+          min-height: 170px;
+        }
+
+        .step b {
+          margin-bottom: 6px;
+          font-size: 30px;
+        }
+
+        th,
+        td {
+          padding: 8px 10px;
+        }
+
+        th {
+          font-size: 11px;
+        }
+
+        td {
+          font-size: 12px;
+          line-height: 1.28;
+        }
+
+        ul {
+          margin-top: 7px;
+        }
+
+        .dense-list li {
+          margin-bottom: 4px;
+        }
+
+        .quote {
+          padding: 16px;
+        }
+
+        .quote p {
+          font-size: clamp(22px, 2.5vw, 34px);
+        }
+
+        .quote small {
+          margin-top: 10px;
+          font-size: 12px;
+        }
+
+        .bar {
+          grid-template-columns: 92px 1fr auto;
+          gap: 8px;
+          margin: 8px 0;
+          font-size: 12px;
+        }
+
+        .bar-track {
+          height: 12px;
+        }
+
+        .kpi div {
+          padding: 7px 9px;
+          font-size: 11px;
+        }
+
+        .kpi .head {
+          font-size: 10px;
+        }
+
+        footer {
+          padding-top: 6px;
+        }
+
+        .deck-nav {
+          right: 12px;
+          bottom: 10px;
+          padding: 5px;
+        }
+
+        .deck-nav button {
+          width: 28px;
+          height: 28px;
+        }
+
+        .deck-nav span {
+          min-width: 48px;
+          font-size: 11px;
+        }
+      }
+
+      @media (max-width: 900px) {
+        body {
+          overflow: auto;
+        }
+
+        .deck,
+        .slide {
+          height: auto;
+          min-height: 100vh;
+        }
+
+        .slide {
+          padding: 24px;
+        }
+
+        .slide.active {
+          display: block;
+        }
+
+        header,
+        .verdict,
+        .cols-2,
+        .cols-3,
+        .cols-4,
+        .process,
+        .matrix {
+          grid-template-columns: 1fr;
+        }
+
+        .page {
+          min-height: calc(100vh - 48px);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="deck" aria-label="Hosted Players 客户资产分析报告">
+      <section class="slide active" data-title="结论先行">
+        <div class="page">
+          <header>
+            <div>
+              <p class="eyebrow">Hosted Players Report</p>
+              <h1>结论先行：这是一张客户资产负债表</h1>
+            </div>
+            <div class="page-no">01 / 12</div>
+          </header>
+          <div class="content verdict">
+            <div>
+              <p class="lead">
+                当前问题不是“客户多不多”，而是高价值客户极端集中、休眠资产快过期、无主客户无人负责、再投资预算倒挂。
+              </p>
+              <div style="height: 24px"></div>
+              <span class="ribbon">直接行动口径</span>
+            </div>
+            <div class="grid cols-2">
+              <div class="metric">
+                <strong>¥33.77M</strong>
+                <span>R6M Theo 全库资产盘面</span>
+                <small>881 名玩家；价值口径为 Theo Win</small>
+              </div>
+              <div class="metric">
+                <strong>0.936</strong>
+                <span>R3M Gini，极端鲸鱼依赖</span>
+                <small>前 12 人贡献 50%；前 50 人贡献 80%</small>
+              </div>
+              <div class="metric">
+                <strong>¥9.34M</strong>
+                <span>休眠 / 无主资产需要唤醒</span>
+                <small>无主 ¥7.30M + Hosted D 段 ¥2.04M</small>
+              </div>
+              <div class="metric">
+                <strong>9 人</strong>
+                <span>S/A Cooling 客户 48 小时止血</span>
+                <small>合计 ¥735K；必须一对一外呼</small>
+              </div>
+            </div>
           </div>
-          <div class="fact-list" style="margin-top:2vh">
-            <div class="fact"><i>1</i><strong>极端鲸鱼依赖: 前 12 人 = 50% 价值</strong><b>Gini .936</b></div>
-            <div class="fact"><i>2</i><strong>休眠资产窗口正在关闭</strong><b>¥9.34M</b></div>
-            <div class="fact"><i>3</i><strong>在册价值处于动能危险区</strong><b>¥3.37M</b></div>
-            <div class="fact"><i>4</i><strong>再投资预算结构倒挂</strong><b>¥4.7M</b></div>
-            <div class="fact"><i>5</i><strong>数据带病但可治</strong><b>98.4%</b></div>
+          <footer><span>Base date: 2026-07-02</span><span>先止血，再唤醒，再修结构</span></footer>
+        </div>
+      </section>
+
+      <section class="slide" data-title="方法论">
+        <div class="page">
+          <header>
+            <div>
+              <p class="eyebrow">Methodology</p>
+              <h2>方法论：V.I.P.E.R. 五步法</h2>
+            </div>
+            <div class="page-no">02 / 12</div>
+          </header>
+          <div class="content">
+            <div class="process">
+              <div class="step">
+                <b>V</b>
+                <h3>Validate</h3>
+                <p>先修数据，不信原始字段。检查主键、日期、R6M/R3M、OCR 置信度、地域缺失。</p>
+              </div>
+              <div class="step">
+                <b>I</b>
+                <h3>Identify</h3>
+                <p>用 Theo 识别价值集中度。Gini 超过 0.85 时，经营逻辑变成资产管理。</p>
+              </div>
+              <div class="step">
+                <b>P</b>
+                <h3>Partition</h3>
+                <p>按价值段 S/A/B/C/D 与风险段 Active/Cooling/At-Risk/Dormant 建矩阵。</p>
+              </div>
+              <div class="step">
+                <b>E</b>
+                <h3>Evaluate</h3>
+                <p>同时看动能和效率：谁正在下坠，谁吃掉了过高 RI 预算。</p>
+              </div>
+              <div class="step">
+                <b>R</b>
+                <h3>Reactivate</h3>
+                <p>按 Dormant Value 排 P0/P1/P2，并把高价值无主客户强制路由给 Host。</p>
+              </div>
+            </div>
           </div>
+          <footer><span>Output: 可复跑的月度客户资产诊断</span><span>不是描述名单，是生成工单</span></footer>
         </div>
-      </div>
-    </div>
-    <div class="foot"><span>Immediate grips: 9 人保卫战 · 生日钩子 · 5 条无主鲸鱼认领</span><span>003</span></div>
-  </section>
+      </section>
 
-  <section class="slide light" data-title="数据定义" data-module="overview">
-    <div class="chrome"><div class="brand"><span class="mark"></span><span>P4 · DEFINE BEFORE COMPUTE</span></div><span class="num">004</span></div>
-    <div class="content">
-      <div class="grid">
-        <div class="span-4">
-          <div class="kicker">第一纪律</div>
-          <h2>字段定义必须经内部一致性逆向验证。</h2>
-          <div class="rule"></div>
-          <p class="lead">`Days To Lapsed` 经验证发现两批数据基准日不一致,861 行与统一基准重算值不符,因此在修复文件中废弃并替换。</p>
+      <section class="slide" data-title="数据说明">
+        <div class="page">
+          <header>
+            <div>
+              <p class="eyebrow">Data Boundary</p>
+              <h2>数据说明：能用，但必须带着边界用</h2>
+            </div>
+            <div class="page-no">03 / 12</div>
+          </header>
+          <div class="content grid cols-2">
+            <div class="card">
+              <h3>本次分析使用什么</h3>
+              <ul class="dense-list">
+                <li><strong>输入：</strong>hosted_players_fixed.csv，881 名玩家 × 35 字段。</li>
+                <li><strong>价值口径：</strong>Theo Win，避免被短期输赢运气污染。</li>
+                <li><strong>客户池：</strong>Hosted 325 人；Unassigned 556 人。</li>
+                <li><strong>资产口径：</strong>R3M ¥12.95M；R6M ¥33.77M。</li>
+              </ul>
+            </div>
+            <div class="card">
+              <h3>数据质量红线</h3>
+              <ul class="dense-list">
+                <li><strong class="good">0</strong> 个 Player ID 重复；<strong class="good">0</strong> 个 R6M &lt; R3M 违例。</li>
+                <li><strong class="danger">867 / 881</strong> 行有修复或标记项，但已留痕。</li>
+                <li><strong class="danger">Days To Lapsed</strong> 原字段基准日混乱，861 行不可信，改用 Days Since Seen。</li>
+                <li><strong class="danger">Unknown 省份</strong>承载约 ¥3.3M R6M，地域判断存在盲区。</li>
+              </ul>
+            </div>
+          </div>
+          <footer><span>Trust rule: 使用修复字段，废弃原 Days To Lapsed</span><span>CSV + MD 均保留在 source/</span></footer>
         </div>
-        <div class="span-8 tight">
-          <table>
-            <thead><tr><th>字段/指标</th><th>业务定义</th><th>验证结论 / 决策用途</th></tr></thead>
-            <tbody>
-              <tr><td>Player ID</td><td>玩家唯一标识</td><td>881 行零重复,合格主键</td></tr>
-              <tr><td>Tier</td><td>GOLD→SUPREME 88 五级</td><td>金字塔形 501/183/93/75/28,与价值高度相关</td></tr>
-              <tr><td>Theo Win</td><td>理论赢额 = 投注额 × 理论优势 × 时长</td><td>R6M ≥ R3M 恒成立;剔除运气噪声的价值金标准</td></tr>
-              <tr><td>RI %</td><td>优惠成本 ÷ Theo</td><td>行业健康带 20-40%;尾部畸高 max 5600%</td></tr>
-              <tr><td>Days Since Seen</td><td>基准日 - Last Seen</td><td>近因/风险分档,替代废弃 DTL</td></tr>
-              <tr><td>Momentum Index</td><td>最近完整月 Theo ÷ R3M 月均</td><td>上升 / 平稳 / 下坠 / 熄火</td></tr>
-              <tr><td>Dormant Value</td><td>max(R6M - R3M, 0)</td><td>唤醒名单排序唯一正确键</td></tr>
-              <tr><td>Value Segment + Risk Band</td><td>S/A/B/C/D × 四档近因风险</td><td>分层运营与 SLA 触发</td></tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-    </div>
-    <div class="foot"><span>PFP/C OP 全库为 0,疑似管道失效;需回源核对</span><span>004</span></div>
-  </section>
+      </section>
 
-  <section class="slide" data-title="VIPER方法论" data-module="diagnosis">
-    <div class="chrome"><div class="brand"><span class="mark"></span><span>P5 · V.I.P.E.R.</span></div><span class="num">005</span></div>
-    <div class="content">
-      <div style="width:100%">
-        <div class="kicker">五步标准作业</div>
-        <h2>适用于高净值客户组合的可复用方法论。</h2>
-        <div class="rule"></div>
-        <div class="steps">
-          <div class="step"><b>V</b><h3>Validate</h3><p>审血缘、置信度、审核标记;用 R6M≥R3M 与字段共线性找口径断裂。脏数据承载价值 ≥5% 时先修后析。</p></div>
-          <div class="step"><b>I</b><h3>Identify</h3><p>Theo 为锚做 Pareto、洛伦兹、Gini。Gini > .85 时,业务本质是资产管理而非流量营销。</p></div>
-          <div class="step"><b>P</b><h3>Partition</h3><p>价值段 × 近因风险矩阵,每格绑定标准 Playbook 与 SLA。</p></div>
-          <div class="step"><b>E</b><h3>Evaluate</h3><p>动能指数找正在发生的流失;RI% 按价值段检验钱是否花在鲸鱼身上。</p></div>
-          <div class="step"><b>R</b><h3>Reactivate</h3><p>Dormant Value 排序生成 P0/P1/P2 唤醒名单;高价值无主客户触发强制分配工单。</p></div>
+      <section class="slide" data-title="分析过程">
+        <div class="page">
+          <header>
+            <div>
+              <p class="eyebrow">Analysis Workflow</p>
+              <h2>分析过程：从数据表到行动名单</h2>
+            </div>
+            <div class="page-no">04 / 12</div>
+          </header>
+          <div class="content">
+            <table>
+              <thead>
+                <tr>
+                  <th>步骤</th>
+                  <th>问题</th>
+                  <th>计算</th>
+                  <th>输出</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>1. 价值集中度</td>
+                  <td>收入是否由少数人决定？</td>
+                  <td>Pareto、Gini、Top N 累计贡献</td>
+                  <td>Top 12 / Top 50 保卫清单</td>
+                </tr>
+                <tr>
+                  <td>2. 价值 × 风险</td>
+                  <td>高价值客户是否在冷却？</td>
+                  <td>Value Segment × Risk Band</td>
+                  <td>S/A Cooling 48h SLA 工单</td>
+                </tr>
+                <tr>
+                  <td>3. 动能</td>
+                  <td>谁正在下坠但还救得回来？</td>
+                  <td>Momentum Index 与最近到访</td>
+                  <td>Falling / Stalled 诊断名单</td>
+                </tr>
+                <tr>
+                  <td>4. RI 效率</td>
+                  <td>预算是不是花反了？</td>
+                  <td>RI% by segment，Theo / reinvestment</td>
+                  <td>C 段封顶和预算重配</td>
+                </tr>
+                <tr>
+                  <td>5. 唤醒路由</td>
+                  <td>无主资产什么时候过期？</td>
+                  <td>Dormant Value、静默天数、P0/P1/P2</td>
+                  <td>Host 分配和唤醒节奏</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <footer><span>每一步都必须落到名单、负责人、SLA、验收口径</span><span>拒绝只做漂亮图表</span></footer>
         </div>
-      </div>
-    </div>
-    <div class="foot"><span>复检节奏: V 每次落地; I/P/E 月度; R 周度刷新</span><span>005</span></div>
-  </section>
+      </section>
 
-  <section class="slide" data-title="价值集中度" data-module="diagnosis">
-    <div class="chrome"><div class="brand"><span class="mark"></span><span>P6 · CONCENTRATION</span></div><span class="num">006</span></div>
-    <div class="content">
-      <div class="grid">
-        <div class="span-4">
-          <div class="kicker">Gini 0.936</div>
-          <h2>任何“平均客户”话术都是统计谎言。</h2>
-          <div class="rule"></div>
-          <p class="lead">R3M Theo 全库 ¥12,950,973;均值 ¥14.7K,中位数 0,P99 ¥250K,最大值 ¥1.85M。</p>
+      <section class="slide" data-title="价值集中度">
+        <div class="page">
+          <header>
+            <div>
+              <p class="eyebrow">Process 1</p>
+              <h2>价值集中度：这不是平均客户生意</h2>
+            </div>
+            <div class="page-no">05 / 12</div>
+          </header>
+          <div class="content grid cols-2">
+            <div class="quote">
+              <p>前 12 人决定一半价值；前 50 人决定八成价值。</p>
+              <small>R3M Gini = 0.936；任何“平均客户”策略都会误导资源配置。</small>
+            </div>
+            <div class="card">
+              <h3>累计贡献</h3>
+              <div class="bar"><span>Top 12</span><div class="bar-track"><div class="bar-fill" style="width: 50%"></div></div><strong>50%</strong></div>
+              <div class="bar"><span>Top 50</span><div class="bar-track"><div class="bar-fill" style="width: 80%"></div></div><strong>80%</strong></div>
+              <div class="bar"><span>Top 81</span><div class="bar-track"><div class="bar-fill" style="width: 90%"></div></div><strong>90%</strong></div>
+              <ul class="dense-list">
+                <li>最大单客 ID 16677567 贡献约 14.3%。</li>
+                <li>管理动作：Top 12 双人覆盖，Top 50 周状态复盘。</li>
+                <li>核心 KPI：头部活跃留存，不是群发触达数。</li>
+              </ul>
+            </div>
+          </div>
+          <footer><span>Decision: 先保护资产头部</span><span>Owner: Sales Director + Host</span></footer>
         </div>
-        <div class="span-8 tight">
-          <div class="grid">
-            <div class="span-6">
+      </section>
+
+      <section class="slide" data-title="价值风险矩阵">
+        <div class="page">
+          <header>
+            <div>
+              <p class="eyebrow">Process 2</p>
+              <h2>价值 × 风险矩阵：先处理 9 个红标客户</h2>
+            </div>
+            <div class="page-no">06 / 12</div>
+          </header>
+          <div class="content matrix">
+            <div class="grid cols-2">
+              <div class="metric">
+                <strong>2</strong>
+                <span>S 段 Cooling 鲸鱼</span>
+                <small>高价值，已进入 31–90 天冷却</small>
+              </div>
+              <div class="metric">
+                <strong>7</strong>
+                <span>A 段 Cooling 客户</span>
+                <small>同样进入 48 小时人工外呼 SLA</small>
+              </div>
+              <div class="metric">
+                <strong>¥735K</strong>
+                <span>红标合计 Theo</span>
+                <small>不应等自动营销触达</small>
+              </div>
+              <div class="metric">
+                <strong>61</strong>
+                <span>Hosted D 段</span>
+                <small>管理访谈，判断是真流失还是资料失真</small>
+              </div>
+            </div>
+            <div class="card">
+              <h3>标准动作</h3>
+              <ul class="dense-list">
+                <li><strong>S/A Active：</strong>固定拜访节奏、事件营销、RI 预算用足健康区间。</li>
+                <li><strong>S/A Cooling：</strong>48 小时内 Host 一对一外呼，销售总监看结果。</li>
+                <li><strong>B Cooling / At-Risk：</strong>半自动触达 + 小额定向 Offer。</li>
+                <li><strong>C 全区：</strong>RI 封顶，进入自动化运营，不消耗高阶 Host 时间。</li>
+                <li><strong>D 段：</strong>并入唤醒流程，先用数据判断是否值得人工救。</li>
+              </ul>
+            </div>
+          </div>
+          <footer><span>Decision: 人工资源只投向高价值和高风险交叉点</span><span>SLA: 48h</span></footer>
+        </div>
+      </section>
+
+      <section class="slide" data-title="动能诊断">
+        <div class="page">
+          <header>
+            <div>
+              <p class="eyebrow">Process 3</p>
+              <h2>动能诊断：繁荣下面有 ¥3.37M 在失速</h2>
+            </div>
+            <div class="page-no">07 / 12</div>
+          </header>
+          <div class="content grid cols-3">
+            <div class="metric">
+              <strong>¥1.67M</strong>
+              <span>Falling 客户承载价值</span>
+              <small>27 人，需要逐个问原因</small>
+            </div>
+            <div class="metric">
+              <strong>¥1.70M</strong>
+              <span>Stalled 客户承载价值</span>
+              <small>75 人，需要激活行程和频次</small>
+            </div>
+            <div class="metric">
+              <strong>26%</strong>
+              <span>组合价值处于失速区</span>
+              <small>不是小问题，是经营预警</small>
+            </div>
+            <div class="card" style="grid-column: span 3">
+              <h3>第一优先个案：ID 12502191</h3>
+              <p class="lead">
+                SUPREME，R3M Theo 约 ¥258K，6 月零到访，81 天未见，生日 7 月 17 日。动作不是群发祝福，而是生日前 7 天完成高感知挽回邀约。
+              </p>
+              <div style="margin-top: 14px">
+                <span class="tag">生日钩子</span>
+                <span class="tag">高价值</span>
+                <span class="tag">动能下坠</span>
+                <span class="tag">Host 一对一</span>
+              </div>
+            </div>
+          </div>
+          <footer><span>Decision: Momentum Index 进入月度预警</span><span>不要等 R6M 才发现客户已经走了</span></footer>
+        </div>
+      </section>
+
+      <section class="slide" data-title="RI效率">
+        <div class="page">
+          <header>
+            <div>
+              <p class="eyebrow">Process 4</p>
+              <h2>RI 效率：预算结构倒挂，尾部太贵</h2>
+            </div>
+            <div class="page-no">08 / 12</div>
+          </header>
+          <div class="content grid cols-2">
+            <div class="card">
+              <h3>当前 RI 曲线</h3>
+              <div class="bar"><span>S 段</span><div class="bar-track"><div class="bar-fill" style="width: 32%"></div></div><strong>32.4%</strong></div>
+              <div class="bar"><span>A 段</span><div class="bar-track"><div class="bar-fill" style="width: 38%"></div></div><strong>38.3%</strong></div>
+              <div class="bar"><span>B 段</span><div class="bar-track"><div class="bar-fill" style="width: 50%"></div></div><strong>50.3%</strong></div>
+              <div class="bar"><span>C 段</span><div class="bar-track"><div class="bar-fill" style="width: 100%"></div></div><strong>144.6%</strong></div>
+            </div>
+            <div class="quote">
+              <p>C 段封顶 30%，季度释放约 ¥80K，年化约 ¥320K。</p>
+              <small>释放预算投给 S/A Cooling 的 9 人保卫战与高强度低频客户行程激励。</small>
+            </div>
+          </div>
+          <footer><span>Decision: Offer 跟着 Theo 走，不跟着人头走</span><span>Owner: CRM Ops + Marketing</span></footer>
+        </div>
+      </section>
+
+      <section class="slide" data-title="休眠无主资产">
+        <div class="page">
+          <header>
+            <div>
+              <p class="eyebrow">Process 5</p>
+              <h2>休眠 / 无主资产：¥6.70M 正贴近 180 天断崖</h2>
+            </div>
+            <div class="page-no">09 / 12</div>
+          </header>
+          <div class="content grid cols-2">
+            <div class="card">
+              <h3>资产池拆解</h3>
               <table>
-                <thead><tr><th>累计价值份额</th><th>所需头部人数</th><th>占比</th></tr></thead>
                 <tbody>
-                  <tr><td>50%</td><td>12 人</td><td>1.4%</td></tr>
-                  <tr><td>80%</td><td>50 人</td><td>5.7%</td></tr>
-                  <tr><td>90%</td><td>81 人</td><td>9.2%</td></tr>
-                  <tr><td>单一最大玩家 ID 16677567</td><td>1 人</td><td>14.3%</td></tr>
+                  <tr><td>Unassigned 无主池</td><td><strong>556 人</strong></td><td><strong>¥7.30M</strong></td></tr>
+                  <tr><td>Hosted D 段</td><td><strong>61 人</strong></td><td><strong>¥2.04M</strong></td></tr>
+                  <tr><td>P0 无主玩家</td><td><strong>11 人</strong></td><td><strong>¥4.36M</strong></td></tr>
                 </tbody>
               </table>
             </div>
-            <div class="span-6">
-              <table>
-                <thead><tr><th>Tier</th><th>人数</th><th>R3M 合计</th><th>价值份额</th></tr></thead>
-                <tbody>
-                  <tr><td>SUPREME 88</td><td>28</td><td>¥4.39M</td><td>33.9%</td></tr>
-                  <tr><td>SUPREME</td><td>74</td><td>¥3.79M</td><td>29.3%</td></tr>
-                  <tr><td>PLATINUM</td><td>92</td><td>¥3.42M</td><td>26.4%</td></tr>
-                  <tr><td>ELITE</td><td>182</td><td>¥1.03M</td><td>8.0%</td></tr>
-                  <tr><td>GOLD</td><td>486</td><td>¥0.32M</td><td>2.5%</td></tr>
-                </tbody>
-              </table>
+            <div class="card">
+              <h3>唤醒优先级</h3>
+              <ul class="dense-list">
+                <li><strong>P0：</strong>R6M ≥ ¥200K，7 天内完成 Host 分配和首触。</li>
+                <li><strong>P1：</strong>R6M ¥50K–200K，30 天内批量分配、分层话术。</li>
+                <li><strong>P2：</strong>R6M ¥10K–50K，自动化唤醒，不占用核心 Host。</li>
+                <li><strong>180 天断崖：</strong>121–180 天区间承载约 ¥6.70M，越过后可观测价值急剧归零。</li>
+              </ul>
             </div>
           </div>
-          <p class="lead" style="margin-top:2vh">经营含义: 前 30 名客户的行为波动 ≈ 整个组合的业绩波动;头部 12 人实行双人覆盖;GOLD 段不占用人工服务产能,转自动化。</p>
+          <footer><span>Decision: 先抢 P0，再跑 P1/P2 漏斗</span><span>Owner: Sales Director</span></footer>
         </div>
-      </div>
-    </div>
-    <div class="foot"><span>Action: single-client health files for top players</span><span>006</span></div>
-  </section>
+      </section>
 
-  <section class="slide" data-title="价值风险矩阵" data-module="diagnosis">
-    <div class="chrome"><div class="brand"><span class="mark"></span><span>P7 · VALUE x RISK MATRIX</span></div><span class="num">007</span></div>
-    <div class="content">
-      <div class="grid">
-        <div class="span-5">
-          <div class="kicker">在册 325 人</div>
-          <h2>9 人红标,¥735K 是最高性价比动作。</h2>
-          <div class="rule"></div>
-          <p class="lead">组合表面健康,但 30 天以上未见客户承载 ¥1.04M,其中 S/A×Cooling 的 9 人必须 48 小时人工外呼。</p>
-          <div class="grid" style="margin-top:2vh">
-            <div class="card metric span-6"><b>28</b><span>S-鲸鱼人数 · Theo ¥8.79M</span></div>
-            <div class="card metric span-6"><b>70</b><span>A-高值人数 · Theo ¥3.30M</span></div>
+      <section class="slide" data-title="核心结论">
+        <div class="page">
+          <header>
+            <div>
+              <p class="eyebrow">Core Conclusions</p>
+              <h2>核心结论：五件事必须马上承认</h2>
+            </div>
+            <div class="page-no">10 / 12</div>
+          </header>
+          <div class="content">
+            <table>
+              <thead>
+                <tr>
+                  <th>结论</th>
+                  <th>证据</th>
+                  <th>管理含义</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>客户价值极端集中</td>
+                  <td>Top 12 = 50%，Top 50 = 80%，Gini 0.936</td>
+                  <td>头部留存是第一经营指标</td>
+                </tr>
+                <tr>
+                  <td>休眠资产窗口正在关闭</td>
+                  <td>¥9.34M 休眠 / 无主资产；121–180 天承载 ¥6.70M</td>
+                  <td>P0/P1/P2 必须本周启动</td>
+                </tr>
+                <tr>
+                  <td>高价值客户正在失速</td>
+                  <td>Falling + Stalled 合计 ¥3.37M</td>
+                  <td>Momentum 应进入周报</td>
+                </tr>
+                <tr>
+                  <td>RI 预算花反了</td>
+                  <td>C 段 RI 144.6%，S/A 只有 32%–38%</td>
+                  <td>低值段封顶，高值风险段加码</td>
+                </tr>
+                <tr>
+                  <td>数据治理影响经营判断</td>
+                  <td>98.4% 行有修复项；Unknown 省份约 ¥3.3M</td>
+                  <td>Top100 + 省份缺失优先回源</td>
+                </tr>
+              </tbody>
+            </table>
           </div>
+          <footer><span>Conclusion: 不是缺营销活动，是缺资产管理机制</span><span>所有结论都可落到名单</span></footer>
         </div>
-        <div class="span-7 tight">
-          <table>
-            <thead><tr><th>价值段</th><th>Active ≤30d</th><th>Cooling 31-90d</th><th>At-Risk >90d</th></tr></thead>
-            <tbody>
-              <tr><td>S-鲸鱼</td><td>26 / ¥8.34M</td><td class="red">2 / ¥446K · 48h SLA</td><td>0</td></tr>
-              <tr><td>A-高值</td><td>62 / ¥2.98M</td><td class="red">7 / ¥289K · 48h SLA</td><td>1 / ¥28K</td></tr>
-              <tr><td>B-中值</td><td>49 / ¥492K</td><td>20 / ¥185K</td><td>2 / ¥17K</td></tr>
-              <tr><td>C-低值</td><td>56 / ¥101K</td><td>32 / ¥60K</td><td>7 / ¥12K</td></tr>
-              <tr><td>D-零产出</td><td>0</td><td>0</td><td>60 人 · 转唤醒流程</td></tr>
-            </tbody>
-          </table>
-          <p class="lead" style="margin-top:2vh">Playbook: S/A×Active = 资产保卫;S/A×Cooling = 48h SLA;B/C = 半自动或自动化;D = 管理层流失访谈。</p>
-        </div>
-      </div>
-    </div>
-    <div class="foot"><span>D 段是有 Host 却零产出,需要销售管理层访谈</span><span>007</span></div>
-  </section>
+      </section>
 
-  <section class="slide" data-title="动能诊断" data-module="diagnosis">
-    <div class="chrome"><div class="brand"><span class="mark"></span><span>P8 · MOMENTUM</span></div><span class="num">008</span></div>
-    <div class="content">
-      <div class="grid">
-        <div class="span-5">
-          <div class="kicker">动能诊断与到访经济学</div>
-          <h2>整体强上升,但四分之一资产已经失速。</h2>
-          <div class="rule"></div>
-          <p class="lead">6 月单月 ¥7.20M vs R3M 月均 ¥4.32M,整体动能指数 1.67。但下坠/熄火区合计承载 ¥3.37M。</p>
-          <div class="card" style="margin-top:2vh"><h3>ID 12502191 · SUPREME · 生日 7/17</h3><p class="lead">R3M ¥258K,6 月零到访、81 天未见。这是教科书级挽回时机。</p></div>
-        </div>
-        <div class="span-7 tight">
-          <table>
-            <thead><tr><th>动能象限</th><th>人数</th><th>承载 Theo</th><th>解读</th></tr></thead>
-            <tbody>
-              <tr><td>上升 >1.2</td><td>154</td><td>¥9.24M</td><td>顺风段,趁热加码</td></tr>
-              <tr><td>平稳 0.8-1.2</td><td>8</td><td>¥0.34M</td><td>维持</td></tr>
-              <tr><td>下坠 0.2-0.8</td><td>27</td><td class="red">¥1.67M</td><td>干预黄金窗口</td></tr>
-              <tr><td>熄火 &lt;0.2</td><td>75</td><td class="red">¥1.70M</td><td>事实上已停摆</td></tr>
-            </tbody>
-          </table>
-          <table style="margin-top:2vh">
-            <thead><tr><th>强度 × 频次</th><th>人数</th><th>Theo</th><th>策略</th></tr></thead>
-            <tbody>
-              <tr><td>高强度 × 高频次</td><td>77</td><td>¥9.33M</td><td>核心资产: 保频次即保盘面</td></tr>
-              <tr><td>高强度 × 低频次</td><td>54</td><td>¥1.10M</td><td>头号增量杠杆: 多来一天</td></tr>
-              <tr><td>低强度 × 高频次</td><td>56</td><td>¥0.90M</td><td>提桌均</td></tr>
-              <tr><td>低强度 × 低频次</td><td>77</td><td>¥1.63M</td><td>观察池,自动化维护</td></tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-    </div>
-    <div class="foot"><span>中位数每季仅 3 个活跃日,错过一次预订≈损失季度产值 1/3</span><span>008</span></div>
-  </section>
-
-  <section class="slide light" data-title="再投资效率" data-module="diagnosis">
-    <div class="chrome"><div class="brand"><span class="mark"></span><span>P8b · RI EFFICIENCY</span></div><span class="num">009</span></div>
-    <div class="content">
-      <div class="grid">
-        <div class="span-5">
-          <div class="kicker">¥4.7M 预算结构性倒挂</div>
-          <h2>Offer 应该跟着 Theo 走,不是跟着人头走。</h2>
-          <div class="rule"></div>
-          <p class="lead">健康 RI 曲线应随价值上升趋近 30-40%,尾部趋零。当前 C 段 22 人 RI >100%,是确定性亏损。</p>
-        </div>
-        <div class="span-7 tight">
-          <table>
-            <thead><tr><th>价值段</th><th>Theo</th><th>平均 RI%</th><th>估算投入</th><th>每 ¥1 投入撬动 Theo</th></tr></thead>
-            <tbody>
-              <tr><td>S-鲸鱼</td><td>¥8.79M</td><td>32.4%</td><td>¥2.85M</td><td>¥3.09</td></tr>
-              <tr><td>A-高值</td><td>¥3.30M</td><td>38.3%</td><td>¥1.26M</td><td>¥2.61</td></tr>
-              <tr><td>B-中值</td><td>¥0.69M</td><td>50.3%</td><td>¥0.35M</td><td>¥1.99</td></tr>
-              <tr><td>C-低值</td><td>¥0.17M</td><td class="red">144.6%</td><td>¥0.13M</td><td class="red">¥0.69</td></tr>
-            </tbody>
-          </table>
-          <div class="grid" style="margin-top:2vh">
-            <div class="card metric span-6"><b>¥80K/季</b><span>C 段 RI 封顶 30% 可释放</span></div>
-            <div class="card metric span-6"><b>~¥320K</b><span>年化预算释放</span></div>
+      <section class="slide" data-title="下一步">
+        <div class="page">
+          <header>
+            <div>
+              <p class="eyebrow">Next Actions</p>
+              <h2>下一步怎么做：30 / 60 / 90 天作战表</h2>
+            </div>
+            <div class="page-no">11 / 12</div>
+          </header>
+          <div class="content">
+            <table>
+              <thead>
+                <tr>
+                  <th>时间</th>
+                  <th>动作</th>
+                  <th>负责人</th>
+                  <th>验收</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Day 1–7</td>
+                  <td>9 名 S/A Cooling 外呼；11 名 P0 无主客户分配；ID 12502191 生日挽回方案</td>
+                  <td>Host + 销售总监</td>
+                  <td>触达 100%；P0 首触 100%；≥5 人预订回访</td>
+                </tr>
+                <tr>
+                  <td>Day 8–30</td>
+                  <td>诊断 32 名高价值下坠客户；C 段 RI 封顶 30%；P1/P2 唤醒旅程上线</td>
+                  <td>Sales + CRM Ops</td>
+                  <td>C 段新规上线；Falling 原因归类；唤醒漏斗开始计数</td>
+                </tr>
+                <tr>
+                  <td>Day 31–60</td>
+                  <td>D 段 61 人管理访谈；Top100 OCR 复核；省份 Unknown 回源补录</td>
+                  <td>数据团队 + Host</td>
+                  <td>Top100 复核 100%；省份缺失率降至 &lt;5%</td>
+                </tr>
+                <tr>
+                  <td>Day 61–90</td>
+                  <td>Tier 季度复核；Top 12 双人覆盖；VIPER 月度复跑自动化</td>
+                  <td>销售总监 + IT</td>
+                  <td>38 名升级候选处理；32 名 over-tiered 进入观察；月报自动生成</td>
+                </tr>
+              </tbody>
+            </table>
           </div>
+          <footer><span>Priority: 先止血、再抢窗口、再修结构</span><span>不要把 Day 1–7 变成会议</span></footer>
         </div>
-      </div>
-    </div>
-    <div class="foot"><span>释放预算定向注入 S/A×Cooling 与高强度低频 54 人</span><span>009</span></div>
-  </section>
+      </section>
 
-  <section class="slide" data-title="休眠资产" data-module="diagnosis">
-    <div class="chrome"><div class="brand"><span class="mark"></span><span>P9 · DORMANT ASSET WINDOW</span></div><span class="num">010</span></div>
-    <div class="content">
-      <div class="grid">
-        <div class="span-4">
-          <div class="kicker">¥9.34M 与正在关闭的门</div>
-          <h2>休眠不是名单,是有到期日的期权。</h2>
-          <div class="rule"></div>
-          <div class="grid">
-            <div class="card metric span-6"><b>¥7.30M</b><span>Unassigned 无主池</span></div>
-            <div class="card metric span-6"><b>¥2.04M</b><span>Hosted D 段</span></div>
+      <section class="slide" data-title="KPI治理">
+        <div class="page">
+          <header>
+            <div>
+              <p class="eyebrow">Governance</p>
+              <h2>KPI 与治理节奏：每周看风险，每月复跑模型</h2>
+            </div>
+            <div class="page-no">12 / 12</div>
+          </header>
+          <div class="content grid cols-2">
+            <div class="kpi">
+              <div class="head">指标</div><div class="head">当前</div><div class="head">30 天</div><div class="head">90 天</div>
+              <div>月度 Theo Base</div><div>¥7.2M</div><div>≥¥7.0M</div><div>≥¥7.5M</div>
+              <div>高价值无主数</div><div>25</div><div>0</div><div>0 常态化</div>
+              <div>High-value Falling</div><div>32</div><div>≤24</div><div>≤15</div>
+              <div>P0–P2 唤醒率</div><div>0%</div><div>≥8%</div><div>≥15%</div>
+              <div>C 段 RI%</div><div>144.6%</div><div>≤60%</div><div>≤35%</div>
+              <div>省份缺失率</div><div>16.2%</div><div>回源中</div><div>&lt;5%</div>
+            </div>
+            <div class="card">
+              <h3>会议节奏</h3>
+              <ul class="dense-list">
+                <li><strong>周一 30 分钟：</strong>Top 28 鲸鱼逐一状态、Cooling 新增名单、48h SLA 达成。</li>
+                <li><strong>每月经营会：</strong>VIPER 全量复跑，矩阵迁移、唤醒漏斗、RI 曲线复查。</li>
+                <li><strong>季度复核：</strong>Tier 升降级、Host 覆盖、Top 12 双人覆盖有效性。</li>
+              </ul>
+              <div style="height: 18px"></div>
+              <p class="lead">验收标准只有一个：是否把 ¥3–5M 量级风险资产转成可管理的工单和结果。</p>
+            </div>
           </div>
+          <footer><span>Hosted Players 客户资产分析报告</span><span>End</span></footer>
         </div>
-        <div class="span-8 tight">
-          <table>
-            <thead><tr><th>静默天数</th><th>人数</th><th>R6M 合计</th><th>人均 R6M</th></tr></thead>
-            <tbody>
-              <tr><td>91-120 天</td><td>18</td><td>¥520,740</td><td>¥28,930</td></tr>
-              <tr><td>121-150 天</td><td>97</td><td>¥3,490,897</td><td>¥35,989</td></tr>
-              <tr><td>151-180 天</td><td>104</td><td>¥3,207,469</td><td>¥30,841</td></tr>
-              <tr><td>181-240 天</td><td>190</td><td class="red">¥80,104</td><td class="red">¥438 · 断崖</td></tr>
-              <tr><td>241 天以上</td><td>128</td><td>¥0</td><td>¥0</td></tr>
-            </tbody>
-          </table>
-          <table style="margin-top:2vh">
-            <thead><tr><th>层</th><th>定义</th><th>人数</th><th>价值</th><th>动作与 SLA</th></tr></thead>
-            <tbody>
-              <tr><td>P0</td><td>R6M ≥ ¥200K</td><td>11</td><td>¥4.36M</td><td>本周分配资深 Host,7 天内首触</td></tr>
-              <tr><td>P1</td><td>¥50-200K</td><td>14</td><td>¥1.26M</td><td>分配 Host,14 天内触达</td></tr>
-              <tr><td>P2</td><td>¥10-50K</td><td>49</td><td>¥1.26M</td><td>半自动唤醒 + Host 抽访</td></tr>
-              <tr><td>Hosted D</td><td>在册零产出</td><td>61</td><td>¥2.04M</td><td>销售管理层流失访谈</td></tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-    </div>
-    <div class="foot"><span>当前 ¥6.70M 休眠价值集中在 121-180 天,距断崖仅 0-2 个月</span><span>010</span></div>
-  </section>
+      </section>
+    </main>
 
-  <section class="slide light" data-title="地理生日" data-module="diagnosis">
-    <div class="chrome"><div class="brand"><span class="mark"></span><span>P10 · GEO + BIRTHDAY CALENDAR</span></div><span class="num">011</span></div>
-    <div class="content">
-      <div class="grid">
-        <div class="span-7 tight">
-          <table>
-            <thead><tr><th>省份</th><th>在册人数/R6M</th><th>无主人数/R6M</th><th>战略判断</th></tr></thead>
-            <tbody>
-              <tr><td>吉林</td><td>10 / ¥3.13M</td><td>19 / ¥1.08M</td><td>在册人效高 + 最大无主池之一</td></tr>
-              <tr><td>安徽</td><td>8 / ¥3.20M</td><td>11 / ¥0.04M</td><td>人效之王,定向获客样板省</td></tr>
-              <tr><td>江苏</td><td>29 / ¥3.13M</td><td>52 / ¥0.72M</td><td>体量第一大省</td></tr>
-              <tr><td>浙江</td><td>17 / ¥1.95M</td><td>35 / ¥1.28M</td><td>最大无主省级金矿</td></tr>
-              <tr><td>未知</td><td>54 / ¥3.00M</td><td>89 / ¥0.32M</td><td class="red">¥3.3M 画像盲区</td></tr>
-            </tbody>
-          </table>
-          <table style="margin-top:2vh">
-            <thead><tr><th>生日</th><th>Player ID</th><th>Tier</th><th>价值线索</th><th>战术</th></tr></thead>
-            <tbody>
-              <tr><td>7/11</td><td>16631586</td><td>PLATINUM</td><td>R3M ¥268K</td><td>生日专属到访邀约</td></tr>
-              <tr><td>7/12</td><td>16706500</td><td>SUPREME</td><td>R3M ¥248K</td><td>同上</td></tr>
-              <tr><td>7/17</td><td>12502191</td><td>SUPREME</td><td>R3M ¥258K,下坠中</td><td class="red">本报告第一优先个案</td></tr>
-              <tr><td>8/1</td><td>12659559</td><td>SUPREME 88</td><td>R6M ¥2.73M</td><td>管理层级别生日礼遇</td></tr>
-              <tr><td>8/18</td><td>15635026</td><td>SUPREME 88</td><td>R3M ¥936K</td><td>同上</td></tr>
-            </tbody>
-          </table>
-        </div>
-        <div class="span-5">
-          <div class="kicker">高价值客户未来 90 天生日</div>
-          <h2>生日是数据中被浪费的最高情感杠杆。</h2>
-          <div class="rule"></div>
-          <p class="lead">42 名高价值玩家将在 90 天内过生日。CRM 应固化“生日前 21 天自动生成 Host 任务”, T-7 确认礼遇与到访邀约。</p>
-        </div>
-      </div>
-    </div>
-    <div class="foot"><span>预算方向: 安徽人效模型 × 吉浙苏无主存量</span><span>011</span></div>
-  </section>
+    <nav class="deck-nav" aria-label="Slide navigation">
+      <button id="prevSlide" type="button" aria-label="上一页">‹</button>
+      <span id="slideLabel">1 / 12</span>
+      <button id="nextSlide" type="button" aria-label="下一页">›</button>
+    </nav>
 
-  <section class="slide" data-title="Tier审计" data-module="diagnosis">
-    <div class="chrome"><div class="brand"><span class="mark"></span><span>P11 · TIER INTEGRITY</span></div><span class="num">012</span></div>
-    <div class="content">
-      <div class="grid">
-        <div class="span-5">
-          <div class="kicker">身份承诺与资源路由器</div>
-          <h2>Tier 错位会直接制造流失漏斗。</h2>
-          <div class="rule"></div>
-          <p class="lead">Tier 与价值总体高度相关,体系有效;但 70 人的双向错位说明升降级规则执行频率不足,建议由年度改为季度。</p>
-        </div>
-        <div class="span-7">
-          <div class="grid">
-            <div class="card metric span-6"><b class="good">38</b><span>被低估客户: GOLD/ELITE 但 R3M ≥ ¥20K 或 R6M ≥ ¥50K</span></div>
-            <div class="card metric span-6"><b class="red">32</b><span>名不副实: SUPREME 及以上但 R6M = 0</span></div>
-            <div class="card span-6"><h3>向上错位</h3><p class="lead">典型: ID 12231608, ID 16071678, 以及 4 名无主池高价值 ELITE。升级即触发 Host 分配。</p></div>
-            <div class="card span-6"><h3>向下错位</h3><p class="lead">进入层级观察期: 保留尊重、冻结增量礼遇、Host 访谈确认状态。</p></div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="foot"><span>R6M Theo 为主锚,TPD 为辅锚自动生成升降级建议名单</span><span>012</span></div>
-  </section>
+    <script>
+      const slides = Array.from(document.querySelectorAll(".slide"));
+      const prevButton = document.getElementById("prevSlide");
+      const nextButton = document.getElementById("nextSlide");
+      const slideLabel = document.getElementById("slideLabel");
+      let current = 0;
 
-  <section class="slide" data-title="行动计划" data-module="execution">
-    <div class="chrome"><div class="brand"><span class="mark"></span><span>P12 · 30 / 60 / 90 WAR MAP</span></div><span class="num">013</span></div>
-    <div class="content">
-      <div style="width:100%">
-        <div class="kicker">先止血,再抢窗口,最后固化结构</div>
-        <h2>每项含负责人、SLA、验收口径。</h2>
-        <div class="rule"></div>
-        <div class="grid">
-          <div class="phase span-4">
-            <h3>Day 1-30 · 止血与抢窗</h3>
-            <ul>
-              <li>红标 9 人一对一外呼 + 回归礼遇,48 小时,触达率 100%</li>
-              <li>11 名 P0 无主玩家完成 Host 分配并首触,7 天</li>
-              <li>32 名下坠高价值客户逐一诊断,14 天</li>
-              <li>7 月生日高价值客户行动,含 ID 12502191</li>
-              <li>C 段 RI 硬封顶 30%,新规上线</li>
-            </ul>
-          </div>
-          <div class="phase span-4">
-            <h3>Day 31-60 · 系统性唤醒</h3>
-            <ul>
-              <li>P1 电话 + 定向 Offer; P2 半自动唤醒旅程</li>
-              <li>Hosted D 段 61 人由销售管理层做流失访谈</li>
-              <li>高强度低频次 54 人“多留一晚”试点</li>
-              <li>Tier 季度复核: 38 人升级 + 32 人观察期</li>
-              <li>Top100 OCR 复核;省份缺失回源补录</li>
-            </ul>
-          </div>
-          <div class="phase span-4">
-            <h3>Day 61-90 · 结构固化</h3>
-            <ul>
-              <li>头部 12 人双人覆盖制度落地</li>
-              <li>生日 T-21、Cooling 48h、无主高值自动分配写入 CRM</li>
-              <li>Host 产能评估: 325+ 名单 vs 单人覆盖极限</li>
-              <li>安徽人效模型复制: 吉林/浙江无主激活配合</li>
-              <li>V.I.P.E.R. 月度复跑机制固化</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="foot"><span>90 天价值锚: 牵动 ¥3-5M 量级 Theo</span><span>013</span></div>
-  </section>
+      function showSlide(index) {
+        current = Math.max(0, Math.min(slides.length - 1, index));
+        slides.forEach((slide, slideIndex) => {
+          slide.classList.toggle("active", slideIndex === current);
+        });
+        slideLabel.textContent = `${current + 1} / ${slides.length}`;
+        prevButton.disabled = current === 0;
+        nextButton.disabled = current === slides.length - 1;
+        history.replaceState(null, "", `#${current + 1}`);
+        const payload = {
+          type: "open-slide:deck-state",
+          current: current + 1,
+          total: slides.length,
+          title: slides[current]?.dataset.title || ""
+        };
+        window.parent?.postMessage(payload, "*");
+      }
 
-  <section class="slide" data-title="KPI看板" data-module="execution">
-    <div class="chrome"><div class="brand"><span class="mark"></span><span>P13 · KPI DASHBOARD</span></div><span class="num">014</span></div>
-    <div class="content">
-      <div class="grid">
-        <div class="span-8 tiny-table">
-          <table>
-            <thead><tr><th>层级</th><th>KPI</th><th>当前基线</th><th>30 天目标</th><th>90 天目标</th><th>频率</th><th>Owner</th></tr></thead>
-            <tbody>
-              <tr><td>北极星</td><td>在册组合月度 Theo</td><td>¥7.2M</td><td>≥¥7.0M</td><td>≥¥7.5M</td><td>月</td><td>销售总监</td></tr>
-              <tr><td>资产保卫</td><td>鲸鱼留存率</td><td>92.9%</td><td>≥96%</td><td>≥96%</td><td>周</td><td>Host</td></tr>
-              <tr><td>资产保卫</td><td>高价值下坠人数</td><td>32</td><td>≤24</td><td>≤15</td><td>周</td><td>Host</td></tr>
-              <tr><td>流程</td><td>S/A×Cooling 48h 触达完成率</td><td>未统计</td><td>100%</td><td>100%</td><td>周</td><td>销售总监</td></tr>
-              <tr><td>唤醒</td><td>P0-P2 唤醒率</td><td>0%</td><td>≥8%</td><td>≥15%</td><td>月</td><td>Host</td></tr>
-              <tr><td>唤醒</td><td>高价值无主数</td><td>25</td><td>0</td><td>0</td><td>月</td><td>销售总监</td></tr>
-              <tr><td>效率</td><td>C 段平均 RI%</td><td>144.6%</td><td>≤60%</td><td>≤35%</td><td>月</td><td>CRM 运营</td></tr>
-              <tr><td>体系</td><td>Tier 双向错位人数</td><td>70</td><td>-</td><td>≤20</td><td>季</td><td>会员体系</td></tr>
-              <tr><td>数据</td><td>省份缺失率</td><td>16.2%</td><td>-</td><td>&lt;5%</td><td>月</td><td>数据团队</td></tr>
-            </tbody>
-          </table>
-        </div>
-        <div class="span-4">
-          <div class="kicker">运营节奏</div>
-          <h2>北极星不是拜访次数,而是资产迁移。</h2>
-          <div class="rule"></div>
-          <p class="lead"><b>周一晨会:</b> 鲸鱼周报、Cooling 新增、48h SLA。</p>
-          <p class="lead" style="margin-top:1.4vh"><b>月度经营会:</b> V.I.P.E.R. 全量复跑、矩阵迁移、唤醒漏斗、RI 曲线。</p>
-          <p class="lead" style="margin-top:1.4vh"><b>季度战略会:</b> Tier 复核、Host 产能、分段阈值、省域获客。</p>
-        </div>
-      </div>
-    </div>
-    <div class="foot"><span>Measure movement between risk bands, not activity volume</span><span>014</span></div>
-  </section>
+      window.showSlide = showSlide;
 
-  <section class="slide light" data-title="CSV修复" data-module="execution">
-    <div class="chrome"><div class="brand"><span class="mark"></span><span>P14 · APPENDIX A</span></div><span class="num">015</span></div>
-    <div class="content">
-      <div class="grid">
-        <div class="span-5">
-          <div class="kicker">CSV 审查与修复报告</div>
-          <h2>867 / 881 行存在需修复或需标记问题。</h2>
-          <div class="rule"></div>
-          <p class="lead">全部已在交付文件处理,并以行级 `Fix Log` 留痕。零行删除,原则为“纠正 + 标注”,不做破坏性清洗。</p>
-          <div class="grid" style="margin-top:2vh">
-            <div class="card metric span-6"><b>11</b><span>新增字段,24 列扩为 35 列</span></div>
-            <div class="card metric span-6"><b>0</b><span>R6M≥R3M 违例 / Player ID 重复</span></div>
-          </div>
-        </div>
-        <div class="span-7 tight">
-          <table>
-            <thead><tr><th>问题类别</th><th>影响量</th><th>严重度</th><th>处理方式</th></tr></thead>
-            <tbody>
-              <tr><td>数值千分位逗号存为文本</td><td>1,093 单元格</td><td>中</td><td>全部转纯数值</td></tr>
-              <tr><td>Days To Lapsed 基准日不一致</td><td>861 行</td><td class="red">高</td><td>字段保留但标记废弃,新增替代字段</td></tr>
-              <tr><td>省份缺失/半缺失</td><td>181 行</td><td>中</td><td>规范为 Unknown 并标记回源</td></tr>
-              <tr><td>地理字段格式混乱</td><td>159 行</td><td>低</td><td>拆分 Country / Province</td></tr>
-              <tr><td>百分比列含 % 存文本</td><td>全列</td><td>中</td><td>转为数值</td></tr>
-              <tr><td>PFP/C OP 全列为 0</td><td>881 行</td><td>待核</td><td>保留原值,标注管道核查</td></tr>
-            </tbody>
-          </table>
-          <p class="lead" style="margin-top:2vh">遗留待办: 143 条 Unknown 省份补录;PFP/C OP 管道核查;Top100 OCR 行人工复核;TheoWin May 缺失 681 行需上游报表。</p>
-        </div>
-      </div>
-    </div>
-    <div class="foot"><span>Delivery: hosted_players_fixed.csv</span><span>015</span></div>
-  </section>
+      prevButton.addEventListener("click", () => showSlide(current - 1));
+      nextButton.addEventListener("click", () => showSlide(current + 1));
 
-  <section class="slide light" data-title="附录代码字段" data-module="execution">
-    <div class="chrome"><div class="brand"><span class="mark"></span><span>P15-P16 · APPENDIX B/C</span></div><span class="num">016</span></div>
-    <div class="content">
-      <div class="grid">
-        <div class="span-7">
-<pre>REF = pd.Timestamp("2026-07-02")
-df = pd.read_csv("hosted_players_fixed.csv")
+      window.addEventListener("message", (event) => {
+        const data = event.data || {};
+        if (data.type === "open-slide:go-to" && Number.isFinite(Number(data.slide))) {
+          showSlide(Number(data.slide) - 1);
+        }
+        if (data.type === "open-slide:next") showSlide(current + 1);
+        if (data.type === "open-slide:prev") showSlide(current - 1);
+      });
 
-# V: consistency guards
-assert df["Player ID"].is_unique
-assert (df["R6M Performance Theo Win"].fillna(0)
-        >= df["R3M Performance Theo Win"].fillna(0) - 1).all()
+      window.addEventListener("keydown", (event) => {
+        if (["ArrowRight", "PageDown", " "].includes(event.key)) showSlide(current + 1);
+        if (["ArrowLeft", "PageUp"].includes(event.key)) showSlide(current - 1);
+        if (event.key === "Home") showSlide(0);
+        if (event.key === "End") showSlide(slides.length - 1);
+      });
 
-# I/P/E/R: concentration, matrix, momentum, RI, winback
-gini = (2*np.arange(1, n+1) - n - 1).dot(v) / (n * v.sum())
-matrix = df.pivot_table(index="Value Segment", columns="Risk Band",
-    values="R3M Performance Theo Win", aggfunc=["count", "sum"])
-falling = df.query("`R3M Performance Theo Win` >= 20000 "
-                   "and `Momentum Index (Jun/R3Mavg)` < 0.8")
-winback = df[(df["Hosted Flag"] == "Unassigned")
-             & (df["Dormant Value (R6M-R3M)"] >= 10000)]
-bday_tasks = df[(df["Days To Bday"].between(0, 21))
-                & (df["R6M Performance Theo Win"] >= 50000)]</pre>
-        </div>
-        <div class="span-5 tiny-table">
-          <div class="kicker">修复文件字段字典 · 881 × 35</div>
-          <h2>可月度复跑的分析资产。</h2>
-          <div class="rule"></div>
-          <table>
-            <thead><tr><th>#</th><th>字段</th><th>来源</th></tr></thead>
-            <tbody>
-              <tr><td>1-24</td><td>原始字段,数值/日期/百分比标准化</td><td>原文件</td></tr>
-              <tr><td>25-26</td><td>Country / Province</td><td>派生</td></tr>
-              <tr><td>27-29</td><td>Days Since Seen / Lapse Date / Days To Lapse</td><td>派生</td></tr>
-              <tr><td>30-32</td><td>Hosted Flag / Value Segment / Risk Band</td><td>派生</td></tr>
-              <tr><td>33-35</td><td>Momentum Index / Dormant Value / Fix Log</td><td>派生 + 审计</td></tr>
-            </tbody>
-          </table>
-          <p class="lead" style="margin-top:1.8vh">报告、修复文件、复用脚本共同构成可月度复跑的分析资产。</p>
-        </div>
-      </div>
-    </div>
-    <div class="foot"><span>报告完</span><span>End</span></div>
-  </section>
-</div>
-<div id="bar"></div>
-<div id="nav"><button class="btn" id="prev" type="button">‹</button><span id="label">1 / 16</span><button class="btn" id="next" type="button">›</button></div>
-<script>
-const deck = document.getElementById('deck');
-const slides = [...document.querySelectorAll('.slide')];
-const bar = document.getElementById('bar');
-const label = document.getElementById('label');
-let idx = 0;
-let lock = false;
-if (window.parent !== window) document.body.classList.add('is-embedded');
-deck.style.width = `${slides.length * 100}vw`;
-function post() {
-  try {
-    parent.postMessage({ type: 'atelier-slide', index: idx, total: slides.length }, '*');
-  } catch (_) {}
-}
-function update() {
-  deck.style.transform = `translateX(${-idx * 100}vw)`;
-  bar.style.width = `${((idx + 1) / slides.length) * 100}%`;
-  label.textContent = `${idx + 1} / ${slides.length}`;
-  history.replaceState(null, '', `#${idx + 1}`);
-  post();
-}
-function go(n) {
-  if (lock) return;
-  idx = Math.max(0, Math.min(slides.length - 1, n));
-  lock = true;
-  update();
-  setTimeout(() => { lock = false; }, 180);
-}
-document.getElementById('prev').onclick = () => go(idx - 1);
-document.getElementById('next').onclick = () => go(idx + 1);
-addEventListener('keydown', (e) => {
-  if (['ArrowRight', 'PageDown', ' '].includes(e.key)) go(idx + 1);
-  if (['ArrowLeft', 'PageUp'].includes(e.key)) go(idx - 1);
-  if (e.key === 'Home') go(0);
-  if (e.key === 'End') go(slides.length - 1);
-});
-addEventListener('wheel', (e) => {
-  if (Math.abs(e.deltaY) + Math.abs(e.deltaX) < 45) return;
-  go(idx + (e.deltaY + e.deltaX > 0 ? 1 : -1));
-}, { passive: true });
-addEventListener('message', (e) => {
-  if (e.data?.type === 'atelier-go' && typeof e.data.index === 'number') go(e.data.index);
-  if (e.data?.type === 'atelier-low-power') document.body.classList.add('is-embedded');
-});
-addEventListener('hashchange', () => {
-  const m = location.hash.match(/^#(\d+)$/);
-  if (m) go(Number(m[1]) - 1);
-});
-const m = location.hash.match(/^#(\d+)$/);
-if (m) idx = Math.max(0, Math.min(slides.length - 1, Number(m[1]) - 1));
-update();
-</script>
-</body>
+      const hashSlide = Number.parseInt(window.location.hash.replace("#", ""), 10);
+      showSlide(Number.isFinite(hashSlide) ? hashSlide - 1 : 0);
+    </script>
+  </body>
 </html>
