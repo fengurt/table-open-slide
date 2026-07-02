@@ -1,9 +1,9 @@
 {
   "id": "enterprise-ai-delivery-reference",
   "title": "企业级 AI 助手与 AI Worker 交付参考",
-  "subtitle": "Table AI · 18 个企业级 AI Worker 交付案例",
-  "description": "脱敏案例展示，每页一个可交付 AI 助手 / AI Worker 场景，用于乙方与合伙生态参考",
-  "slideCount": 18,
+  "subtitle": "Table AI · 18 个 AI Worker 案例 + 6 个 Demo 原型页",
+  "description": "脱敏案例展示与 Demo 原型参考，用于乙方与合伙生态做企业级 AI 助手 / AI Worker 交付说明",
+  "slideCount": 24,
   "deckPath": "slides/projects/enterprise-ai-delivery-reference/deck/index.html",
   "source": {
     "note": "slides/projects/enterprise-ai-delivery-reference/source/source-notes.txt"
@@ -30,8 +30,15 @@
       "start": 13,
       "end": 18,
       "act": "Cases"
+    },
+    {
+      "id": "demo-prototypes",
+      "title": "Demo 19–24 · 参考原型与配图支持",
+      "start": 19,
+      "end": 24,
+      "act": "Demo"
     }
   ],
-  "tags": ["Table AI", "AI Worker", "delivery", "18 cases"],
+  "tags": ["Table AI", "AI Worker", "delivery", "18 cases", "6 demos"],
   "generatedAt": "2026-07-02T23:30:00.000+08:00"
 }

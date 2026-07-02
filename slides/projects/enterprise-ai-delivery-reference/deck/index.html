@@ -405,6 +405,241 @@
           linear-gradient(90deg, var(--gold-2), rgba(89, 182, 212, 0.85), rgba(255, 253, 247, 0.2));
       }
 
+      .demo-content {
+        display: grid;
+        grid-template-columns: 0.76fr 1.24fr;
+        gap: 20px;
+        min-height: 0;
+        align-items: stretch;
+      }
+
+      .demo-brief {
+        position: relative;
+        display: grid;
+        gap: 13px;
+        align-content: start;
+        border: 1px solid rgba(9, 11, 15, 0.16);
+        border-radius: 8px;
+        padding: 20px;
+        background:
+          linear-gradient(180deg, rgba(255, 253, 247, 0.97), rgba(235, 229, 216, 0.96)),
+          var(--white);
+        box-shadow: 16px 16px 0 rgba(9, 11, 15, 0.08), var(--shadow);
+        overflow: hidden;
+      }
+
+      .demo-brief::before {
+        content: attr(data-demo);
+        position: absolute;
+        right: -10px;
+        top: -22px;
+        color: rgba(9, 11, 15, 0.055);
+        font-family: Georgia, serif;
+        font-size: 118px;
+        font-weight: 900;
+        line-height: 1;
+      }
+
+      .demo-list {
+        display: grid;
+        gap: 9px;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      .demo-list li {
+        display: grid;
+        grid-template-columns: 28px 1fr;
+        gap: 9px;
+        color: var(--graphite);
+        font-size: clamp(13px, 0.96vw, 15px);
+        font-weight: 720;
+        line-height: 1.34;
+      }
+
+      .demo-list li::before {
+        content: attr(data-i);
+        color: var(--gold);
+        font-family: Georgia, serif;
+        font-weight: 900;
+      }
+
+      .prototype {
+        position: relative;
+        display: grid;
+        grid-template-rows: auto 1fr;
+        min-height: 0;
+        border: 1px solid rgba(9, 11, 15, 0.92);
+        border-radius: 10px;
+        background: #0a0d12;
+        box-shadow: inset 0 0 0 1px rgba(255, 253, 247, 0.06), var(--shadow);
+        overflow: hidden;
+      }
+
+      .proto-top {
+        display: grid;
+        grid-template-columns: 1fr auto;
+        gap: 16px;
+        align-items: center;
+        border-bottom: 1px solid rgba(255, 253, 247, 0.12);
+        padding: 13px 16px;
+        background: linear-gradient(90deg, rgba(255, 253, 247, 0.06), rgba(184, 138, 59, 0.12));
+      }
+
+      .proto-title {
+        color: var(--white);
+        font-size: 14px;
+        font-weight: 900;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      .proto-status {
+        border: 1px solid rgba(224, 189, 117, 0.45);
+        border-radius: 999px;
+        padding: 6px 10px;
+        color: var(--gold-2);
+        font-size: 11px;
+        font-weight: 900;
+        letter-spacing: 0.08em;
+      }
+
+      .proto-body {
+        display: grid;
+        grid-template-columns: 132px 1fr;
+        gap: 14px;
+        min-height: 0;
+        padding: 14px;
+      }
+
+      .proto-side {
+        display: grid;
+        gap: 9px;
+        align-content: start;
+        border-right: 1px solid rgba(255, 253, 247, 0.1);
+        padding-right: 12px;
+      }
+
+      .proto-tab {
+        border: 1px solid rgba(255, 253, 247, 0.1);
+        border-radius: 6px;
+        padding: 9px 10px;
+        color: rgba(255, 253, 247, 0.68);
+        font-size: 12px;
+        font-weight: 780;
+      }
+
+      .proto-tab.is-active {
+        border-color: rgba(224, 189, 117, 0.44);
+        background: rgba(184, 138, 59, 0.14);
+        color: var(--gold-2);
+      }
+
+      .proto-main {
+        display: grid;
+        grid-template-rows: auto 1fr;
+        gap: 12px;
+        min-height: 0;
+      }
+
+      .proto-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 10px;
+      }
+
+      .proto-card {
+        min-height: 70px;
+        border: 1px solid rgba(255, 253, 247, 0.12);
+        border-radius: 7px;
+        padding: 10px;
+        background: rgba(255, 253, 247, 0.06);
+      }
+
+      .proto-card b {
+        display: block;
+        color: var(--white);
+        font-size: 17px;
+        line-height: 1;
+      }
+
+      .proto-card span {
+        display: block;
+        margin-top: 7px;
+        color: rgba(255, 253, 247, 0.58);
+        font-size: 11px;
+        font-weight: 760;
+        line-height: 1.24;
+      }
+
+      .proto-workspace {
+        display: grid;
+        grid-template-columns: 1fr 0.86fr;
+        gap: 10px;
+        min-height: 0;
+      }
+
+      .proto-panel {
+        display: grid;
+        gap: 9px;
+        align-content: start;
+        border: 1px solid rgba(255, 253, 247, 0.12);
+        border-radius: 8px;
+        padding: 12px;
+        background: rgba(255, 253, 247, 0.045);
+      }
+
+      .proto-panel h3 {
+        color: var(--gold-2);
+        font-size: 13px;
+        font-weight: 900;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+      }
+
+      .proto-line {
+        height: 9px;
+        border-radius: 999px;
+        background: rgba(255, 253, 247, 0.16);
+      }
+
+      .proto-line.wide {
+        width: 92%;
+      }
+
+      .proto-line.mid {
+        width: 68%;
+      }
+
+      .proto-line.short {
+        width: 44%;
+      }
+
+      .proto-action {
+        display: grid;
+        grid-template-columns: auto 1fr;
+        gap: 9px;
+        align-items: start;
+        color: rgba(255, 253, 247, 0.82);
+        font-size: 12px;
+        font-weight: 760;
+        line-height: 1.28;
+      }
+
+      .proto-action i {
+        display: grid;
+        place-items: center;
+        width: 22px;
+        height: 22px;
+        border-radius: 50%;
+        background: rgba(224, 189, 117, 0.16);
+        color: var(--gold-2);
+        font-style: normal;
+        font-size: 11px;
+        font-weight: 900;
+      }
+
       table {
         width: 100%;
         border-collapse: collapse;
@@ -673,7 +908,70 @@
         }
       ];
 
-      const total = cases.length;
+      const demos = [
+        {
+          title: "员工服务统一入口 Demo",
+          tag: "Demo Prototype · Employee Portal",
+          brief: "把制度问答、表单补齐、工单创建和人工转接放在同一个员工入口里，适合做第一批上线样板。",
+          points: ["首页展示常用服务和待办", "右侧 AI 对话保留引用依据", "复杂问题一键转工单并带上上下文"],
+          tabs: ["员工首页", "知识问答", "工单路由", "运营看板"],
+          cards: [["87%", "首轮解决率"], ["3.2min", "平均响应"], ["42", "待治理问题"]],
+          panelTitle: "Employee Request",
+          actions: ["识别员工身份与服务类型", "引用制度原文并显示来源", "生成工单草稿并推送责任团队"]
+        },
+        {
+          title: "销售拜访 Copilot Demo",
+          tag: "Demo Prototype · Sales Brief",
+          brief: "销售输入客户名称后，系统自动生成拜访 brief、痛点假设、问题清单和会后 follow-up。",
+          points: ["CRM 机会卡片自动拉取", "行业案例与产品卖点联动", "会后纪要回写 CRM"],
+          tabs: ["客户概览", "拜访问题", "方案素材", "跟进动作"],
+          cards: [["15min", "准备周期"], ["4组", "痛点假设"], ["6条", "跟进动作"]],
+          panelTitle: "Visit Brief",
+          actions: ["汇总客户背景和历史互动", "生成拜访问句与异议处理", "输出邮件和下一步任务"]
+        },
+        {
+          title: "供应商审核工作台 Demo",
+          tag: "Demo Prototype · Supplier Audit",
+          brief: "把材料清单、字段抽取、风险标注和专家复核做成一个任务工作台，适合展示 AI Worker 的强执行价值。",
+          points: ["材料缺口实时高亮", "风险字段可追溯到原文", "专家修正反哺规则库"],
+          tabs: ["材料清单", "字段抽取", "风险等级", "专家复核"],
+          cards: [["21类", "材料模板"], ["96%", "字段识别"], ["8项", "风险提示"]],
+          panelTitle: "Audit Evidence",
+          actions: ["识别证照和附件类型", "抽取主体、有效期、资质范围", "生成风险等级和证据链接"]
+        },
+        {
+          title: "B2B 报价推荐 Demo",
+          tag: "Demo Prototype · Pricing Desk",
+          brief: "把模糊需求转成产品组合、实施范围和价格解释，异常折扣自动进入审批。",
+          points: ["需求澄清表单自动生成", "服务包与价格带联动", "折扣权限和审批路径前置校验"],
+          tabs: ["需求澄清", "组合推荐", "价格解释", "审批路径"],
+          cards: [["3套", "推荐组合"], ["2项", "边界提醒"], ["1键", "审批提交"]],
+          panelTitle: "Quote Builder",
+          actions: ["解析客户规模、周期和预算", "匹配产品与服务包", "生成报价解释和审批原因"]
+        },
+        {
+          title: "知识运营中台 Demo",
+          tag: "Demo Prototype · Knowledge Ops",
+          brief: "用于说明 AI 项目不是一次性交付，而是持续运营：命中率、未解答、低满意答案都要进入治理队列。",
+          points: ["知识命中率按主题拆解", "未解答问题自动派单", "低满意答案进入复测"],
+          tabs: ["命中率", "未解答", "内容责任人", "复测记录"],
+          cards: [["91%", "知识命中"], ["37", "新增问题"], ["12", "更新任务"]],
+          panelTitle: "Knowledge Queue",
+          actions: ["分析问答日志和满意度", "识别内容缺口与冲突口径", "派发知识更新并复测答案"]
+        },
+        {
+          title: "AI 交付运营看板 Demo",
+          tag: "Demo Prototype · Delivery Control Tower",
+          brief: "面向客户复盘和乙方项目管理，统一呈现使用、效率、质量、风险和 ROI。",
+          points: ["按场景展示任务完成率", "人工兜底和风险拦截透明化", "自动生成月度复盘和扩展建议"],
+          tabs: ["价值指标", "场景用量", "风险闭环", "二期路线图"],
+          cards: [["18", "上线场景"], ["64h", "节省工时"], ["5项", "二期建议"]],
+          panelTitle: "Executive Review",
+          actions: ["汇总使用与任务执行数据", "计算效率收益和质量风险", "输出复盘报告和路线图"]
+        }
+      ];
+
+      const total = cases.length + demos.length;
 
       function escapeHtml(value) {
         return String(value)
@@ -731,8 +1029,65 @@
         </section>`;
       }
 
+      function renderDemoSlide(item, demoIndex) {
+        const index = cases.length + demoIndex;
+        const no = `${String(index + 1).padStart(2, "0")} / ${String(total).padStart(2, "0")}`;
+        const demoCode = `D${String(demoIndex + 1).padStart(2, "0")}`;
+        return `<section class="slide" data-index="${index + 1}" aria-label="${escapeHtml(item.title)}">
+          <div class="page">
+            <header>
+              <div class="brand"><span class="brand-mark">T</span><span>TABLE AI · DEMO PROTOTYPES</span></div>
+              <div class="case-no"><span>${demoCode}</span> · ${no}</div>
+            </header>
+            <div>
+              <p class="case-kicker">${escapeHtml(item.tag)}</p>
+              <h2>${escapeHtml(item.title)}</h2>
+            </div>
+            <div class="demo-content">
+              <section class="demo-brief" data-demo="${demoCode}">
+                <span class="label">Reference Prototype · 配图支持</span>
+                <p class="lead">${escapeHtml(item.brief)}</p>
+                <ul class="demo-list">
+                  ${item.points.map((point, i) => `<li data-i="${String(i + 1).padStart(2, "0")}">${escapeHtml(point)}</li>`).join("")}
+                </ul>
+              </section>
+              <section class="prototype">
+                <div class="proto-top">
+                  <div class="proto-title">${escapeHtml(item.title)}</div>
+                  <div class="proto-status">Live Demo</div>
+                </div>
+                <div class="proto-body">
+                  <nav class="proto-side">
+                    ${item.tabs.map((tab, i) => `<div class="proto-tab ${i === 0 ? "is-active" : ""}">${escapeHtml(tab)}</div>`).join("")}
+                  </nav>
+                  <div class="proto-main">
+                    <div class="proto-grid">
+                      ${item.cards.map(([value, label]) => `<div class="proto-card"><b>${escapeHtml(value)}</b><span>${escapeHtml(label)}</span></div>`).join("")}
+                    </div>
+                    <div class="proto-workspace">
+                      <div class="proto-panel">
+                        <h3>${escapeHtml(item.panelTitle)}</h3>
+                        <div class="proto-line wide"></div>
+                        <div class="proto-line mid"></div>
+                        <div class="proto-line short"></div>
+                        <div class="proto-line wide"></div>
+                      </div>
+                      <div class="proto-panel">
+                        <h3>AI Action Path</h3>
+                        ${item.actions.map((action, i) => `<div class="proto-action"><i>${i + 1}</i><span>${escapeHtml(action)}</span></div>`).join("")}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </section>
+            </div>
+            <footer><span>TABLE AI PROTOTYPE REFERENCE</span><span>DEMO PAGES FOR CLIENT DISCUSSION</span></footer>
+          </div>
+        </section>`;
+      }
+
       const deck = document.getElementById("deck");
-      deck.innerHTML = cases.map(renderSlide).join("");
+      deck.innerHTML = cases.map(renderSlide).join("") + demos.map(renderDemoSlide).join("");
 
       const nav = document.createElement("div");
       nav.className = "nav";
