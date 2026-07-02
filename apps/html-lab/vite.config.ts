@@ -19,6 +19,14 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const repoRoot = path.resolve(__dirname, '../..');
 const MAX_FILE_BYTES = 6 * 1024 * 1024;
 const MAX_LIST = 2500;
+const ASSET_CONTENT_TYPES: Record<string, string> = {
+  '.jpg': 'image/jpeg',
+  '.jpeg': 'image/jpeg',
+  '.png': 'image/png',
+  '.webp': 'image/webp',
+  '.gif': 'image/gif',
+  '.svg': 'image/svg+xml',
+};
 
 function safeHtmlPath(raw: string): string {
   const decoded = decodeURIComponent(raw);
@@ -42,6 +50,20 @@ function safeRepoJsonPath(raw: string): string {
   }
   if (!abs.endsWith('.json')) {
     throw new Error('not a json file');
+  }
+  return abs;
+}
+
+function safeRepoAssetPath(raw: string): string {
+  const decoded = decodeURIComponent(raw);
+  const normalized = path.normalize(decoded).replace(/^(\.\.(\/|\\|$))+/, '');
+  const abs = path.resolve(repoRoot, normalized);
+  if (!abs.startsWith(repoRoot)) {
+    throw new Error('path outside repo');
+  }
+  const ext = path.extname(abs).toLowerCase();
+  if (!ASSET_CONTENT_TYPES[ext]) {
+    throw new Error('unsupported asset type');
   }
   return abs;
 }
@@ -160,6 +182,30 @@ function attachHtmlLabApi(middlewares: Connect.Server) {
         const abs = safeRepoJsonPath(p);
         const body = await fs.readFile(abs, 'utf8');
         res.setHeader('Content-Type', 'application/json; charset=utf-8');
+        res.end(body);
+        return;
+      }
+      if (req.method === 'GET' && url.startsWith('/api/asset')) {
+        const u = new URL(url, 'http://localhost');
+        const p = u.searchParams.get('path');
+        if (!p) {
+          res.statusCode = 400;
+          res.end('missing path');
+          return;
+        }
+        const abs = safeRepoAssetPath(p);
+        const st = await fs.stat(abs);
+        if (st.size > MAX_FILE_BYTES) {
+          res.statusCode = 413;
+          res.end('file too large');
+          return;
+        }
+        const ext = path.extname(abs).toLowerCase();
+        const body = await fs.readFile(abs);
+        res.statusCode = 200;
+        res.setHeader('Content-Type', ASSET_CONTENT_TYPES[ext]);
+        res.setHeader('X-Content-Type-Options', 'nosniff');
+        res.setHeader('Cache-Control', 'public, max-age=3600');
         res.end(body);
         return;
       }
