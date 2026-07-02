@@ -3,7 +3,7 @@
   "title": "娱乐高端 VIP 客户业绩季度洞察报告",
   "subtitle": "VIP Sales · Casino Portfolio · Quarterly Performance Insight",
   "description": "高端 VIP 客户业绩、风险与增长机会季度洞察",
-  "slideCount": 13,
+  "slideCount": 37,
   "deckPath": "slides/projects/hosted-players-viper-report/deck/index.html",
   "source": {
     "csv": "slides/projects/hosted-players-viper-report/source/hosted_players_fixed.csv",
@@ -20,16 +20,16 @@
     },
     {
       "id": "analysis-process",
-      "title": "分析过程",
+      "title": "分析与追溯",
       "start": 5,
-      "end": 10,
+      "end": 30,
       "act": "Analysis"
     },
     {
       "id": "conclusion-action",
-      "title": "结论与行动",
-      "start": 11,
-      "end": 13,
+      "title": "结论与执行",
+      "start": 31,
+      "end": 37,
       "act": "Action"
     }
   ],
