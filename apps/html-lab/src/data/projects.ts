@@ -138,3 +138,10 @@ export function exportPdfUrl(deckPath: string, slide: number): string {
   });
   return `/api/export-pdf?${q}`;
 }
+
+export function exportDeckPdfUrl(deckPath: string): string {
+  const q = new URLSearchParams({
+    path: deckPath,
+  });
+  return `/api/export-pdf?${q}`;
+}

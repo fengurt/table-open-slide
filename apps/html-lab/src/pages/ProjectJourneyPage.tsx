@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { Link, useParams, useSearchParams } from 'react-router-dom';
 import {
+  exportDeckPdfUrl,
   exportPdfUrl,
   fetchProject,
   fetchProjectManifest,
@@ -171,6 +172,14 @@ export function ProjectJourneyPage() {
             rel="noreferrer"
           >
             导出当前页 PDF
+          </a>
+          <a
+            className="project-action project-action--deck"
+            href={project ? exportDeckPdfUrl(project.deckPath) : '#'}
+            target="_blank"
+            rel="noreferrer"
+          >
+            导出整套 PDF
           </a>
           <Link
             className="project-action project-action--case"

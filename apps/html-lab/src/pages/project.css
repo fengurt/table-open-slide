@@ -115,6 +115,12 @@
   background: rgba(86, 174, 191, 0.1);
 }
 
+.project-action--deck {
+  border-color: rgba(232, 199, 120, 0.42);
+  background: rgba(232, 199, 120, 0.14);
+  color: rgba(255, 248, 229, 0.95);
+}
+
 .project-action--auto {
   border-color: rgba(122, 197, 147, 0.32);
   background: rgba(122, 197, 147, 0.1);
