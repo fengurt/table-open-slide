@@ -7,20 +7,19 @@
     <style>
       :root {
         color-scheme: light;
-        --ink: #111827;
-        --sub: #526070;
-        --muted: #7b8794;
-        --line: #d9e0e8;
-        --paper: #f7f6f1;
-        --panel: #ffffff;
-        --night: #0f2237;
-        --blue: #1f5f9f;
-        --teal: #087b74;
-        --red: #b93d2f;
-        --amber: #c58a25;
-        --green: #2f7d4f;
-        --shade: #e9edf2;
-        --shadow: 0 18px 42px rgba(15, 34, 55, 0.18);
+        --ink: #090b0f;
+        --paper: #f6f4ed;
+        --white: #fffdf7;
+        --graphite: #1b2028;
+        --muted: #69717d;
+        --line: #d8d2c5;
+        --gold: #b88a3b;
+        --gold-2: #e0bd75;
+        --red: #b43a2f;
+        --blue: #185c8f;
+        --green: #18715f;
+        --violet: #6554b8;
+        --shadow: 0 28px 70px rgba(9, 11, 15, 0.18);
         font-family:
           "Aptos",
           "PingFang SC",
@@ -39,7 +38,7 @@
         width: 100%;
         height: 100%;
         overflow: hidden;
-        background: #081421;
+        background: #05070a;
         color: var(--ink);
       }
 
@@ -61,59 +60,97 @@
         height: min(56.25vw, 100vh);
         overflow: hidden;
         background:
-          linear-gradient(90deg, rgba(15, 34, 55, 0.055) 1px, transparent 1px),
-          linear-gradient(180deg, rgba(15, 34, 55, 0.055) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(9, 11, 15, 0.055) 1px, transparent 1px),
+          linear-gradient(180deg, rgba(9, 11, 15, 0.055) 1px, transparent 1px),
           var(--paper);
-        background-size: 38px 38px;
+        background-size: 42px 42px;
       }
 
       .slide.active {
         display: block;
       }
 
+      .slide::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+        background:
+          radial-gradient(circle at 8% 0%, rgba(184, 138, 59, 0.22), transparent 28%),
+          linear-gradient(135deg, rgba(255, 255, 255, 0) 0 66%, rgba(184, 138, 59, 0.12) 66% 66.3%, transparent 66.3%);
+      }
+
       .page {
+        position: relative;
+        z-index: 1;
         display: grid;
         grid-template-rows: auto 1fr auto;
-        gap: 22px;
+        gap: 16px;
         width: 100%;
         height: 100%;
-        padding: 44px 54px 34px;
+        padding: 32px 48px 26px;
       }
 
-      .cover {
-        color: #fff;
-        background:
-          radial-gradient(circle at 84% 20%, rgba(197, 138, 37, 0.3), transparent 28%),
-          linear-gradient(135deg, rgba(8, 20, 33, 0.94), rgba(15, 34, 55, 0.9)),
-          linear-gradient(90deg, rgba(255, 255, 255, 0.08) 1px, transparent 1px),
-          linear-gradient(180deg, rgba(255, 255, 255, 0.08) 1px, transparent 1px);
-        background-size: auto, auto, 42px 42px, 42px 42px;
-      }
-
-      .cover .page {
-        grid-template-rows: auto 1fr auto;
+      header,
+      footer {
+        display: grid;
+        grid-template-columns: 1fr auto;
+        gap: 22px;
+        align-items: center;
       }
 
       header {
+        border-bottom: 2px solid var(--ink);
+        padding-bottom: 9px;
+      }
+
+      footer {
+        border-top: 1px solid var(--line);
+        padding-top: 9px;
+        color: var(--muted);
+        font-size: 12px;
+        font-weight: 800;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+      }
+
+      .brand {
+        display: flex;
+        gap: 12px;
+        align-items: center;
+        color: var(--ink);
+        font-weight: 950;
+        letter-spacing: 0.08em;
+      }
+
+      .brand-mark {
         display: grid;
-        grid-template-columns: minmax(0, 1fr) auto;
-        gap: 28px;
-        align-items: end;
-        border-bottom: 2px solid var(--night);
-        padding-bottom: 13px;
+        place-items: center;
+        width: 34px;
+        height: 34px;
+        border: 2px solid var(--ink);
+        background: var(--ink);
+        color: var(--gold-2);
+        font-family: Georgia, serif;
+        font-size: 16px;
+        font-weight: 900;
       }
 
-      .cover header {
-        border-color: rgba(255, 255, 255, 0.34);
+      .case-no {
+        color: var(--ink);
+        font-family: Georgia, "Noto Serif SC", serif;
+        font-size: 18px;
+        font-weight: 900;
+        white-space: nowrap;
       }
 
-      .kicker {
-        margin: 0 0 7px;
-        color: var(--amber);
-        font-size: 13px;
-        font-weight: 850;
-        letter-spacing: 0.14em;
-        line-height: 1.15;
+      .case-kicker {
+        margin: 0 0 9px;
+        color: var(--gold);
+        font-size: 12px;
+        font-weight: 900;
+        letter-spacing: 0.18em;
+        line-height: 1;
         text-transform: uppercase;
       }
 
@@ -126,410 +163,224 @@
 
       h1,
       h2 {
-        color: var(--night);
+        color: var(--ink);
         font-family: Georgia, "Noto Serif SC", "Songti SC", serif;
         letter-spacing: 0;
       }
 
-      .cover h1,
-      .cover h2 {
-        color: #fff;
-      }
-
       h1 {
-        max-width: 980px;
-        font-size: clamp(46px, 5.4vw, 78px);
-        line-height: 1.03;
+        max-width: 1010px;
+        font-size: clamp(39px, 4.35vw, 66px);
+        line-height: 1.05;
       }
 
       h2 {
-        max-width: 980px;
-        font-size: clamp(32px, 3.4vw, 50px);
+        max-width: 1040px;
+        font-size: clamp(29px, 3.05vw, 46px);
         line-height: 1.08;
       }
 
-      h3 {
-        color: var(--night);
-        font-size: clamp(17px, 1.55vw, 23px);
-        line-height: 1.2;
-        letter-spacing: 0;
-      }
-
-      .cover h3 {
-        color: #fff;
-      }
-
-      .page-no {
-        color: var(--night);
-        font-size: 18px;
-        font-weight: 850;
-        line-height: 1;
-        white-space: nowrap;
-      }
-
-      .cover .page-no {
-        color: #fff;
-      }
-
       .lead {
-        max-width: 960px;
-        color: var(--sub);
-        font-size: clamp(21px, 2.05vw, 31px);
-        font-weight: 650;
-        line-height: 1.35;
-      }
-
-      .cover .lead {
-        color: rgba(255, 255, 255, 0.86);
+        max-width: 1030px;
+        color: var(--graphite);
+        font-size: clamp(18px, 1.6vw, 25px);
+        font-weight: 760;
+        line-height: 1.36;
       }
 
       .content {
+        display: grid;
+        grid-template-columns: 0.92fr 1.08fr;
+        gap: 18px;
         min-height: 0;
-      }
-
-      .hero-stack {
-        align-self: center;
-        display: grid;
-        gap: 28px;
-        max-width: 1120px;
-      }
-
-      .pill-row,
-      .footer-row {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 10px;
-        align-items: center;
-      }
-
-      .pill {
-        display: inline-flex;
-        align-items: center;
-        min-height: 32px;
-        border: 1px solid rgba(197, 138, 37, 0.45);
-        border-radius: 999px;
-        padding: 7px 13px;
-        background: rgba(255, 255, 255, 0.08);
-        color: inherit;
-        font-size: 13px;
-        font-weight: 800;
-        letter-spacing: 0.06em;
-      }
-
-      .grid {
-        display: grid;
-        gap: 16px;
-      }
-
-      .cols-2 {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
-
-      .cols-3 {
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-      }
-
-      .cols-4 {
-        grid-template-columns: repeat(4, minmax(0, 1fr));
-      }
-
-      .card,
-      .metric,
-      .lane,
-      .table-wrap {
-        border: 1px solid var(--line);
-        border-radius: 8px;
-        background: rgba(255, 255, 255, 0.88);
-        box-shadow: 0 10px 26px rgba(15, 34, 55, 0.08);
-      }
-
-      .card {
-        display: grid;
-        gap: 10px;
-        min-height: 142px;
-        padding: 20px 20px 18px;
-      }
-
-      .card strong {
-        color: var(--night);
-        font-size: clamp(18px, 1.5vw, 23px);
-        line-height: 1.18;
-      }
-
-      .card p,
-      li {
-        color: var(--sub);
-        font-size: clamp(15px, 1.18vw, 19px);
-        line-height: 1.42;
-      }
-
-      .accent-blue {
-        border-top: 5px solid var(--blue);
-      }
-
-      .accent-teal {
-        border-top: 5px solid var(--teal);
-      }
-
-      .accent-red {
-        border-top: 5px solid var(--red);
-      }
-
-      .accent-amber {
-        border-top: 5px solid var(--amber);
-      }
-
-      .accent-green {
-        border-top: 5px solid var(--green);
-      }
-
-      .metrics {
-        display: grid;
-        grid-template-columns: repeat(4, minmax(0, 1fr));
-        gap: 14px;
-      }
-
-      .metric {
-        padding: 18px;
-      }
-
-      .metric .value {
-        color: var(--night);
-        font-size: clamp(27px, 3vw, 46px);
-        font-weight: 900;
-        line-height: 1;
-      }
-
-      .metric .label {
-        margin-top: 9px;
-        color: var(--sub);
-        font-size: clamp(14px, 1.1vw, 18px);
-        font-weight: 700;
-        line-height: 1.3;
-      }
-
-      .mini-metrics {
-        display: grid;
-        grid-template-columns: repeat(4, minmax(0, 1fr));
-        gap: 12px;
-      }
-
-      .mini-metrics div {
-        min-height: 70px;
-        border: 1px solid var(--line);
-        border-radius: 8px;
-        padding: 12px 14px;
-        background: #fff;
-      }
-
-      .mini-metrics b {
-        display: block;
-        color: var(--night);
-        font-size: clamp(17px, 1.25vw, 20px);
-        line-height: 1.1;
-      }
-
-      .mini-metrics span {
-        display: block;
-        margin-top: 6px;
-        color: var(--sub);
-        font-size: clamp(12px, 0.92vw, 15px);
-        font-weight: 700;
-        line-height: 1.24;
-      }
-
-      .flow {
-        display: grid;
-        grid-template-columns: repeat(5, minmax(0, 1fr));
-        gap: 12px;
         align-items: stretch;
       }
 
-      .step {
-        position: relative;
+      .case-card {
         display: grid;
-        gap: 10px;
+        gap: 12px;
         align-content: start;
-        min-height: 178px;
         border: 1px solid var(--line);
         border-radius: 8px;
         padding: 18px;
-        background: #fff;
+        background: rgba(255, 253, 247, 0.94);
+        box-shadow: var(--shadow);
       }
 
-      .step b {
-        color: var(--amber);
-        font-size: 14px;
-        letter-spacing: 0.1em;
-      }
-
-      .step strong {
-        color: var(--night);
-        font-size: clamp(17px, 1.35vw, 21px);
+      .case-card strong {
+        color: var(--ink);
+        font-size: clamp(18px, 1.45vw, 23px);
         line-height: 1.2;
       }
 
-      .step span {
-        color: var(--sub);
-        font-size: clamp(14px, 1vw, 17px);
-        line-height: 1.35;
+      .case-card p,
+      li,
+      td {
+        color: var(--graphite);
+        font-size: clamp(13px, 0.98vw, 16px);
+        line-height: 1.42;
       }
 
-      .matrix {
+      .label {
+        display: inline-flex;
+        width: max-content;
+        border: 1px solid rgba(184, 138, 59, 0.5);
+        padding: 7px 10px;
+        color: var(--gold);
+        font-size: 12px;
+        font-weight: 900;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+      }
+
+      .visual {
+        position: relative;
         display: grid;
-        grid-template-columns: 0.95fr 1.05fr 1.05fr 1.05fr;
-        border: 1px solid var(--line);
-        border-radius: 8px;
-        overflow: hidden;
-        background: #fff;
-      }
-
-      .matrix div {
-        min-height: 74px;
-        border-right: 1px solid var(--line);
-        border-bottom: 1px solid var(--line);
-        padding: 14px 16px;
-        color: var(--sub);
-        font-size: clamp(14px, 1vw, 17px);
-        line-height: 1.35;
-      }
-
-      .matrix div:nth-child(4n) {
-        border-right: 0;
-      }
-
-      .matrix div:nth-last-child(-n + 4) {
-        border-bottom: 0;
-      }
-
-      .matrix .head,
-      .matrix .rowhead {
-        background: #edf2f7;
-        color: var(--night);
-        font-weight: 850;
-      }
-
-      .split {
-        display: grid;
-        grid-template-columns: 0.95fr 1.05fr;
-        gap: 20px;
-        align-items: stretch;
-      }
-
-      .lane {
-        display: grid;
+        grid-template-rows: auto 1fr;
         gap: 12px;
-        align-content: start;
-        padding: 22px;
+        min-height: 0;
+        border: 1px solid var(--ink);
+        border-radius: 8px;
+        padding: 16px;
+        background:
+          linear-gradient(135deg, rgba(9, 11, 15, 0.96), rgba(27, 32, 40, 0.94)),
+          var(--ink);
+        color: var(--white);
+        overflow: hidden;
       }
 
-      .lane h3 {
-        font-size: clamp(20px, 1.8vw, 28px);
+      .visual::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background:
+          linear-gradient(90deg, rgba(255, 255, 255, 0.06) 1px, transparent 1px),
+          linear-gradient(180deg, rgba(255, 255, 255, 0.06) 1px, transparent 1px),
+          radial-gradient(circle at 82% 18%, rgba(184, 138, 59, 0.32), transparent 32%);
+        background-size: 36px 36px, 36px 36px, auto;
+        pointer-events: none;
       }
 
-      ul {
+      .visual > * {
+        position: relative;
+        z-index: 1;
+      }
+
+      .metric-row {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 10px;
+      }
+
+      .metric {
+        min-height: 66px;
+        border: 1px solid rgba(255, 255, 255, 0.16);
+        border-radius: 6px;
+        padding: 10px;
+        background: rgba(255, 255, 255, 0.06);
+      }
+
+      .metric b {
+        display: block;
+        color: var(--gold-2);
+        font-size: clamp(17px, 1.42vw, 23px);
+        line-height: 1.08;
+      }
+
+      .metric span {
+        display: block;
+        margin-top: 6px;
+        color: rgba(255, 253, 247, 0.74);
+        font-size: clamp(11px, 0.82vw, 13px);
+        font-weight: 700;
+        line-height: 1.25;
+      }
+
+      .workflow {
         display: grid;
         gap: 10px;
-        margin: 0;
-        padding-left: 1.1em;
+        align-content: start;
       }
 
-      .table-wrap {
-        overflow: hidden;
+      .step {
+        display: grid;
+        grid-template-columns: 58px 1fr;
+        gap: 12px;
+        align-items: start;
+        border-top: 1px solid rgba(255, 255, 255, 0.14);
+        padding-top: 9px;
+      }
+
+      .step b {
+        color: var(--gold-2);
+        font-family: Georgia, serif;
+        font-size: 20px;
+      }
+
+      .step span {
+        color: rgba(255, 253, 247, 0.86);
+        font-size: clamp(13px, 0.98vw, 16px);
+        font-weight: 720;
+        line-height: 1.34;
       }
 
       table {
         width: 100%;
         border-collapse: collapse;
-        background: #fff;
       }
 
       th,
       td {
         border-bottom: 1px solid var(--line);
-        padding: 12px 14px;
+        padding: 8px 0;
         text-align: left;
         vertical-align: top;
-        font-size: clamp(13px, 0.98vw, 17px);
-        line-height: 1.32;
       }
 
       th {
-        background: var(--night);
-        color: #fff;
-        font-weight: 850;
+        color: var(--muted);
+        font-size: 12px;
+        font-weight: 900;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
       }
 
       tr:last-child td {
         border-bottom: 0;
       }
 
-      .quote {
-        display: grid;
-        align-content: center;
-        min-height: 235px;
-        border-left: 7px solid var(--amber);
-        padding: 20px 34px;
-        background: rgba(255, 255, 255, 0.78);
-        box-shadow: var(--shadow);
-      }
-
-      .quote p {
-        color: var(--night);
-        font-family: Georgia, "Noto Serif SC", serif;
-        font-size: clamp(30px, 3.45vw, 50px);
-        font-weight: 760;
-        line-height: 1.14;
-      }
-
-      footer {
-        display: flex;
-        justify-content: space-between;
-        gap: 20px;
-        border-top: 1px solid var(--line);
-        padding-top: 12px;
-        color: var(--muted);
-        font-size: 13px;
-        font-weight: 750;
-        letter-spacing: 0.04em;
-      }
-
-      .cover footer {
-        border-color: rgba(255, 255, 255, 0.22);
-        color: rgba(255, 255, 255, 0.7);
-      }
-
       .nav {
         position: absolute;
         right: 28px;
-        bottom: 24px;
+        bottom: 22px;
+        z-index: 5;
         display: flex;
         gap: 8px;
         align-items: center;
-        border: 1px solid rgba(15, 34, 55, 0.12);
+        border: 1px solid rgba(9, 11, 15, 0.12);
         border-radius: 8px;
         padding: 8px;
-        background: rgba(255, 255, 255, 0.88);
-        box-shadow: 0 12px 24px rgba(15, 34, 55, 0.12);
+        background: rgba(255, 253, 247, 0.9);
+        box-shadow: 0 12px 30px rgba(9, 11, 15, 0.16);
       }
 
       .nav button {
-        width: 42px;
-        height: 38px;
+        width: 40px;
+        height: 36px;
         border: 1px solid var(--line);
-        border-radius: 7px;
-        background: #fff;
-        color: var(--night);
+        border-radius: 6px;
+        background: var(--white);
+        color: var(--ink);
         cursor: pointer;
-        font-size: 20px;
+        font-size: 19px;
       }
 
       .nav span {
-        min-width: 62px;
-        color: var(--night);
+        min-width: 58px;
+        color: var(--ink);
         text-align: center;
-        font-size: 15px;
-        font-weight: 850;
+        font-size: 14px;
+        font-weight: 900;
       }
 
       @media print {
@@ -557,226 +408,190 @@
   <body>
     <main class="deck" id="deck" aria-label="企业级 AI 助手与 AI Worker 交付参考"></main>
     <script>
-      const slides = [
+      const cases = [
         {
-          module: "匿名案例展示",
-          type: "cover",
-          title: "企业级 AI 助手与 AI Worker 交付参考",
-          lead: "面向乙方与合伙生态的可复用交付样板：从知识问答走向任务执行，从卖软件走向交付工作结果。",
-          pills: ["业务 + 知识", "AI Agent", "AI Worker", "交付生态"]
+          title: "员工服务 AI 助手",
+          tag: "Employee Service",
+          scene: "企业内部 IT、HR、财务、行政咨询分散，员工反复找群、找人、找制度。",
+          action: "统一入口回答制度问题，自动补齐表单信息，必要时创建工单并路由到责任团队。",
+          data: "制度文档、FAQ、服务目录、工单系统、组织架构、权限角色。",
+          output: "首轮解决率、转人工率、平均响应时间、未解答问题闭环。",
+          metrics: [["5类", "共享服务入口"], ["24h", "在线响应"], ["4周", "首批上线"]],
+          steps: ["识别员工身份与问题类型", "检索有权限的制度依据", "生成答案或创建工单", "沉淀未解决问题"]
         },
         {
-          module: "价值判断",
-          title: "企业不是缺软件，而是缺能持续完成工作的 AI 系统",
-          lead: "AI 项目的价值不在“又多一个入口”，而在让员工、销售、运营和供应链把重复工作交给可追溯的智能流程。",
-          layout: "quote",
-          quote: "先定义要完成的工作，再选择模型、知识库、流程和系统接口。",
-          metrics: [
-            ["入口", "统一入口承接咨询与任务"],
-            ["知识", "把文档沉淀成可运营资产"],
-            ["动作", "连接系统并发起流程"],
-            ["复盘", "用数据持续优化回答与执行"]
-          ]
+          title: "IT Helpdesk AI Worker",
+          tag: "IT Operations",
+          scene: "密码、VPN、权限、设备、软件安装类问题占用大量一线 IT 时间。",
+          action: "按故障类型生成排查步骤，自动收集环境信息，低风险请求直接发起审批或工单。",
+          data: "IT 知识库、CMDB、账号系统、设备台账、历史工单。",
+          output: "自助解决率、重复工单下降、SLA 达成率、故障分类准确率。",
+          metrics: [["L1", "问题自动处理"], ["CMDB", "资产联动"], ["SLA", "自动追踪"]],
+          steps: ["判断故障类别", "引导用户完成自检", "生成工单并带上证据", "持续更新排障知识"]
         },
         {
-          module: "价值判断",
-          title: "“卖工作”意味着报价对象从账号转为任务结果",
-          lead: "客户真正购买的是更短响应时间、更少人工反复、更稳定的知识复用，以及可验证的任务完成率。",
-          layout: "three",
-          cards: [
-            ["传统软件", "按账号、模块、部署收费；客户仍要自己组织人、流程和知识治理。", "blue"],
-            ["AI 助手", "按高频场景交付问答、检索、生成、表单和工单协同。", "teal"],
-            ["AI Worker", "按明确工作包交付结果，例如审核、报价、培训、销售素材和员工服务闭环。", "amber"]
-          ]
+          title: "HR 政策与入转调离助手",
+          tag: "HR Shared Service",
+          scene: "员工对假勤、福利、入职、转岗、离职政策理解不一致，HR 被重复咨询淹没。",
+          action: "按员工地区、合同类型、岗位权限回答政策，并生成对应流程清单。",
+          data: "员工手册、地区政策、福利制度、审批流程、人员主数据。",
+          output: "政策引用可追溯、流程遗漏下降、HR 咨询负载下降。",
+          metrics: [["多地区", "政策适配"], ["可追溯", "条款引用"], ["清单化", "流程执行"]],
+          steps: ["识别员工适用规则", "引用原文条款", "输出办理清单", "提醒关键节点"]
         },
         {
-          module: "价值判断",
-          title: "一套可复用交付体系由四个闭环组成",
-          lead: "乙方交付不要只交一个机器人，要交一套能被运营、验收、迭代、复制的业务系统。",
-          layout: "flow",
-          steps: [
-            ["01", "场景诊断", "明确高频问题、关键岗位、系统边界和可量化目标。"],
-            ["02", "知识治理", "将制度、产品、流程、案例转成带权限的回答资产。"],
-            ["03", "任务编排", "把查询、判断、生成、审批、提醒连接成可执行流程。"],
-            ["04", "上线运营", "监控命中率、满意度、人工转接、未解决问题和成本。"],
-            ["05", "生态复制", "沉淀标准包、实施手册、验收表和行业话术。"]
-          ]
+          title: "财务报销与采购问答助手",
+          tag: "Finance & Procurement",
+          scene: "报销标准、发票要求、采购额度、供应商准入规则常常反复解释。",
+          action: "根据费用类型判断规则，提示缺失材料，生成报销或采购申请草稿。",
+          data: "财务制度、费用标准、采购目录、供应商库、审批矩阵。",
+          output: "退单率下降、材料一次通过率提升、审批前置校验。",
+          metrics: [["退单", "前置拦截"], ["票据", "材料校验"], ["审批", "路径建议"]],
+          steps: ["识别费用/采购类型", "校验额度与材料", "生成申请草稿", "进入审批流"]
         },
         {
-          module: "方案架构",
-          title: "场景组合要覆盖员工服务、前线赋能和管理决策",
-          lead: "企业级 AI 助手应以角色和任务组织能力，而不是以模型功能堆叠页面。",
-          layout: "matrix",
-          cells: [
-            ["角色", "员工与共享服务", "销售与渠道", "运营与管理"],
-            ["高频需求", "制度咨询、工单发起、报销采购、IT 支持", "产品查询、客户拜访、培训材料、方案生成", "风险提示、绩效复盘、异常追踪、经营看板"],
-            ["AI 能力", "知识问答、表单填充、流程指引", "话术生成、资料整合、报价建议", "指标解释、根因分析、行动建议"],
-            ["验收指标", "响应时间、转人工率、满意度、知识命中率", "素材产出效率、拜访准备时长、转化支持率", "异常识别率、会议准备时长、行动闭环率"]
-          ]
+          title: "销售拜访准备 Copilot",
+          tag: "Sales Enablement",
+          scene: "销售拜访前需要查客户背景、历史互动、痛点假设、产品资料，准备成本高。",
+          action: "自动生成拜访 brief、问题清单、异议处理话术和会后跟进邮件。",
+          data: "CRM、客户档案、产品库、历史纪要、行业案例。",
+          output: "拜访准备时间下降、客户问题覆盖率提升、跟进动作标准化。",
+          metrics: [["15min", "生成拜访 brief"], ["CRM", "自动回写"], ["话术", "按行业适配"]],
+          steps: ["抓取客户与机会信息", "匹配行业案例", "生成拜访问题", "输出跟进动作"]
         },
         {
-          module: "方案架构",
-          title: "参考架构要同时处理信息流、控制流和业务流",
-          lead: "真正可交付的方案需要把知识、权限、流程、系统接口和运营数据放在同一张设计图里。",
-          layout: "split",
-          leftTitle: "三层能力",
-          left: ["信息流：文档、知识库、业务数据、外部资料的检索和总结。", "控制流：意图识别、任务路由、审批规则、人工转接和异常拦截。", "业务流：写入工单、生成报价、发起审核、同步记录、输出报告。"],
-          rightTitle: "平台组件",
-          right: ["统一入口：网页、企业 IM、移动端、后台门户。", "知识运营：采集、清洗、切片、标签、权限、版本。", "Agent 编排：工具调用、流程节点、表单、系统连接器。", "运营分析：命中率、未解答、风险问题、任务完成率。"]
+          title: "渠道伙伴知识助手",
+          tag: "Partner Enablement",
+          scene: "生态伙伴对产品、交付范围、报价边界理解不一致，导致售前承诺失控。",
+          action: "向伙伴开放受控知识库，生成标准话术、配置建议和不可承诺边界提示。",
+          data: "产品手册、报价规则、交付边界、伙伴等级、授权范围。",
+          output: "伙伴答复一致性、违规承诺拦截、培训材料复用率。",
+          metrics: [["伙伴", "分级权限"], ["边界", "自动提示"], ["话术", "统一生成"]],
+          steps: ["识别伙伴身份", "限制可见知识", "生成客户答复", "记录高频问题"]
         },
         {
-          module: "方案架构",
-          title: "知识库不是资料仓库，而是可运营的回答资产",
-          lead: "知识项目失败通常不是模型问题，而是没有建立内容边界、答案口径、权限规则和更新责任。",
-          layout: "three",
-          cards: [
-            ["结构化", "制度、FAQ、产品参数、流程表单要有标签、版本、适用对象和责任人。", "green"],
-            ["可追溯", "每个回答要能回到原文、条款、数据表或业务系统记录。", "blue"],
-            ["可运营", "定期处理未命中问题、冲突口径、过期内容和高风险答案。", "red"]
-          ]
+          title: "售前方案生成 Worker",
+          tag: "Pre-sales Proposal",
+          scene: "售前方案常从空白文档开始，结构不统一，案例与报价边界容易遗漏。",
+          action: "根据客户行业、需求、预算与时间线生成方案大纲、范围表、实施计划和风险清单。",
+          data: "案例库、方案模板、能力清单、报价模型、实施工期库。",
+          output: "方案初稿生成时间下降、范围遗漏减少、版本口径统一。",
+          metrics: [["1h", "方案初稿"], ["范围", "自动拆解"], ["风险", "前置列出"]],
+          steps: ["解析客户需求", "匹配案例与模块", "生成交付范围", "输出风险与报价依据"]
         },
         {
-          module: "方案架构",
-          title: "业务自动化要从“能回答”推进到“能发起动作”",
-          lead: "AI Worker 的核心是把语言理解转成受控动作，所有动作都要有权限、确认、记录和回滚路径。",
-          layout: "flow",
-          steps: [
-            ["问", "识别意图", "判断用户要查资料、走流程、生成内容还是追踪状态。"],
-            ["查", "检索证据", "从知识库、业务系统和历史案例中取回可引用依据。"],
-            ["判", "规则校验", "用权限、阈值、业务规则和风险等级过滤可执行动作。"],
-            ["做", "发起任务", "生成工单、草拟报价、创建审核清单或通知相关角色。"],
-            ["记", "沉淀反馈", "记录过程、结果、人工修正和下一轮优化样本。"]
-          ]
+          title: "B2B 报价推荐助手",
+          tag: "Pricing Copilot",
+          scene: "客户需求模糊，销售靠经验报价，折扣、交付范围和审批边界不透明。",
+          action: "把需求转成产品组合与服务包，解释价格构成，异常折扣进入审批。",
+          data: "产品目录、价格表、折扣权限、库存/产能、历史成交。",
+          output: "报价解释一致、审批效率提升、异常折扣可审计。",
+          metrics: [["组合", "自动推荐"], ["折扣", "权限校验"], ["审批", "异常触发"]],
+          steps: ["澄清需求参数", "匹配产品服务包", "校验折扣权限", "生成报价说明"]
         },
         {
-          module: "方案架构",
-          title: "权限体系必须内置在每一次回答和动作里",
-          lead: "企业客户最关心的不是能不能答，而是谁能看、能不能转发、能不能触发动作、出错后谁负责。",
-          layout: "table",
-          columns: ["权限层", "必须控制", "交付物"],
-          rows: [
-            ["身份", "员工、外包、伙伴、门店、部门、岗位、区域", "SSO / 账号映射 / 角色矩阵"],
-            ["内容", "哪些知识可读、可引用、可下载、可分享", "知识标签、密级、适用范围"],
-            ["动作", "哪些流程可发起、审批、修改、撤回", "工具白名单、二次确认、审批规则"],
-            ["审计", "谁问了什么、引用什么、执行什么、结果如何", "日志、异常告警、复盘报表"]
-          ]
+          title: "供应商资质审核 Worker",
+          tag: "Supplier Audit",
+          scene: "供应商材料多、格式杂，专家审核耗时，风险点难沉淀为规则。",
+          action: "识别材料类型，抽取关键字段，提示缺失文件，输出风险等级与证据链接。",
+          data: "证照、合同、审计报告、供应商档案、专家规则。",
+          output: "审核周期缩短、风险字段可追溯、专家经验数字化。",
+          metrics: [["21类", "材料清单"], ["字段", "自动抽取"], ["风险", "证据链"]],
+          steps: ["识别文件与缺口", "抽取主体和有效期", "按规则判风险", "交专家复核"]
         },
         {
-          module: "脱敏案例",
-          title: "员工服务场景：先从高频咨询和工单流转切入",
-          lead: "目标不是替代共享服务团队，而是把重复咨询、跨部门找人、流程不清楚的问题前置处理。",
-          layout: "case",
-          metrics: [
-            ["覆盖对象", "员工、外包、合作伙伴"],
-            ["入口", "企业 IM / Web / 移动端"],
-            ["首批场景", "IT、HR、财务、行政、采购"],
-            ["核心指标", "命中率、转人工率、满意度"]
-          ],
-          bullets: ["建立统一员工服务入口，按问题类型自动路由到知识、表单或工单。", "把制度、流程、模板和常见异常沉淀为可追溯答案。", "对高风险问题保持人工确认，不把灰区判断交给模型自由发挥。"]
+          title: "合同条款审阅 Worker",
+          tag: "Legal Review",
+          scene: "合同初审依赖法务逐条阅读，常见风险、偏离条款和缺失附件重复出现。",
+          action: "比对模板条款，标注偏离点，生成风险摘要和谈判建议。",
+          data: "合同模板、条款库、审批规则、历史红线、附件清单。",
+          output: "初审时间下降、红线条款漏检下降、审阅意见结构化。",
+          metrics: [["红线", "自动标注"], ["偏离", "逐条比对"], ["意见", "一键生成"]],
+          steps: ["识别合同类型", "匹配标准模板", "标注风险条款", "输出审阅意见"]
         },
         {
-          module: "脱敏案例",
-          title: "销售赋能场景：服务拜访、培训、查询和方案生成",
-          lead: "销售团队需要的是可直接用于客户沟通的材料，不是泛泛而谈的知识库搜索结果。",
-          layout: "case",
-          metrics: [
-            ["拜访准备", "客户背景、痛点假设、问题清单"],
-            ["产品查询", "卖点、参数、适配场景"],
-            ["方案生成", "行业话术、提案大纲、FAQ"],
-            ["复盘沉淀", "有效话术、异议、成交原因"]
-          ],
-          bullets: ["按客户类型、行业、阶段生成销售动作建议。", "把培训资料、产品手册和优秀案例转成前线可用话术。", "将一线反馈反哺知识库，形成销售方法论资产。"]
+          title: "客服知识与质检助手",
+          tag: "Customer Service",
+          scene: "客服回答口径不一致，质检依赖抽样，客户投诉原因沉淀慢。",
+          action: "实时推荐标准答案，通话后自动总结，按规则质检并归因投诉。",
+          data: "客服知识库、通话文本、工单记录、质检规则、投诉标签。",
+          output: "回答一致性提升、质检覆盖率提升、投诉根因可复盘。",
+          metrics: [["实时", "答案推荐"], ["100%", "规则质检"], ["标签", "自动归因"]],
+          steps: ["识别客户意图", "推荐标准答复", "生成通话摘要", "输出质检结果"]
         },
         {
-          module: "脱敏案例",
-          title: "供应链审核场景：体现 AI Agent 的任务交付价值",
-          lead: "复杂审核不是简单问答，而是资料收集、字段抽取、风险识别、专家复核和结论输出的连续任务。",
-          layout: "table",
-          columns: ["环节", "人工痛点", "AI Worker 交付动作"],
-          rows: [
-            ["资料收集", "材料类型多、格式不统一、反复补件", "识别文件类型、建立清单、提示缺失材料"],
-            ["信息抽取", "关键字段散落在合同、证照、报告和附件中", "抽取主体、有效期、资质范围、风险字段"],
-            ["规则判断", "专家经验难复制，新人依赖反复请教", "固化审核规则，输出风险等级和依据"],
-            ["复核闭环", "结论难追溯，问题难复盘", "生成审核记录、证据链接、人工修正样本"]
-          ]
+          title: "门店营运 SOP 助手",
+          tag: "Retail Operations",
+          scene: "门店员工流动快，开闭店、陈列、巡检、异常处理 SOP 执行不稳定。",
+          action: "按门店角色推送任务清单，拍照/表单回传，异常自动生成整改工单。",
+          data: "SOP 手册、巡检表、门店档案、照片记录、整改闭环。",
+          output: "巡检完成率、异常闭环率、SOP 执行一致性。",
+          metrics: [["SOP", "任务化"], ["照片", "证据回传"], ["整改", "闭环追踪"]],
+          steps: ["按角色生成清单", "收集照片与表单", "识别异常项", "追踪整改结果"]
         },
         {
-          module: "脱敏案例",
-          title: "B2B 报价场景：把模糊需求转成可解释推荐",
-          lead: "报价类 AI 不应直接替人定价，而应帮助团队快速完成需求澄清、方案组合、约束校验和报价解释。",
-          layout: "flow",
-          steps: [
-            ["01", "澄清需求", "识别客户规模、使用场景、预算、周期和约束。"],
-            ["02", "匹配组合", "推荐产品、服务包、实施范围和可选项。"],
-            ["03", "校验边界", "检查库存、交付能力、折扣权限、合规约束。"],
-            ["04", "生成解释", "输出价格构成、价值理由和风险提示。"],
-            ["05", "进入审批", "高折扣或异常条款自动进入人工审批。"]
-          ]
+          title: "培训内容生成助手",
+          tag: "Training Studio",
+          scene: "培训材料更新慢，新人学习路径不清楚，专家经验无法规模复制。",
+          action: "把制度、案例、产品资料转成课程脚本、测验题、角色演练和学习路径。",
+          data: "培训资料、岗位能力模型、案例库、考试题库、学习记录。",
+          output: "课程生产速度提升、岗位学习路径标准化、考试结果可追踪。",
+          metrics: [["脚本", "自动生成"], ["测验", "题库扩展"], ["路径", "按岗位配置"]],
+          steps: ["抽取知识点", "生成课程结构", "创建测验与演练", "追踪学习效果"]
         },
         {
-          module: "交付打法",
-          title: "乙方交付要分成诊断、构建、上线、运营四段",
-          lead: "客户不需要一份泛方案，需要一张能执行的交付地图：谁负责、交什么、验什么、什么时候复盘。",
-          layout: "table",
-          columns: ["阶段", "核心动作", "关键交付物"],
-          rows: [
-            ["1. 诊断", "访谈角色、盘点流程、梳理数据与知识、选定首批场景", "场景优先级、指标定义、系统边界"],
-            ["2. 构建", "知识治理、流程编排、权限配置、原型体验、样本测试", "知识库、Agent 流程、权限矩阵、测试报告"],
-            ["3. 上线", "灰度发布、培训运营、人工兜底、问题收集", "上线手册、运营看板、FAQ、应急机制"],
-            ["4. 运营", "未解答治理、口径更新、流程优化、复盘扩展", "月度复盘、优化清单、二期路线图"]
-          ]
+          title: "经营数据解读助手",
+          tag: "Business Insight",
+          scene: "管理层看报表要等分析师解释，异常指标和原因拆解不及时。",
+          action: "自动解释 KPI 波动，关联维度找原因，生成会议纪要和行动建议。",
+          data: "BI 报表、经营指标、门店/区域/产品维度、历史同比环比。",
+          output: "异常解释速度提升、会议准备时间下降、行动项可追踪。",
+          metrics: [["KPI", "自动解释"], ["异常", "归因拆解"], ["行动", "追踪闭环"]],
+          steps: ["读取指标波动", "拆解相关维度", "生成原因假设", "输出行动清单"]
         },
         {
-          module: "交付打法",
-          title: "生态伙伴适合交付场景包，而不是从零做平台",
-          lead: "合伙生态的效率来自标准化：行业场景、方法论、配置模板、验收清单和复盘机制要提前产品化。",
-          layout: "three",
-          cards: [
-            ["总部平台", "提供底座、标准组件、安全规范、连接器、交付治理和质量评审。", "blue"],
-            ["行业伙伴", "负责行业场景理解、客户关系、业务访谈、内容整理和一线运营。", "teal"],
-            ["专家网络", "贡献审核规则、销售方法、知识口径、风险经验和复盘样本。", "amber"]
-          ]
+          title: "项目管理 PMO 助手",
+          tag: "PMO Worker",
+          scene: "项目周报、风险、纪要、待办分散在不同工具里，管理者难以及时掌握。",
+          action: "汇总会议纪要、任务状态、风险阻塞，自动生成周报和升级提醒。",
+          data: "项目计划、会议纪要、任务系统、风险清单、交付物目录。",
+          output: "周报自动化、风险升级及时、待办责任明确。",
+          metrics: [["周报", "自动生成"], ["风险", "升级提醒"], ["责任", "到人到期"]],
+          steps: ["汇总项目证据", "识别延期与阻塞", "生成周报", "推送升级提醒"]
         },
         {
-          module: "交付打法",
-          title: "定价应围绕工作包、处理量和结果指标组合",
-          lead: "更专业的报价方式不是卖模型调用量，而是把 AI 可完成的工作拆成可验收单元。",
-          layout: "matrix",
-          cells: [
-            ["报价对象", "基础平台", "场景工作包", "运营增长包"],
-            ["客户购买", "入口、权限、知识库、Agent 编排能力", "员工服务、销售赋能、供应链审核、报价助手", "月度知识治理、模型调优、数据复盘"],
-            ["计价维度", "项目制 + 年服务", "场景数 + 处理量 + 复杂度", "月费 + KPI 奖励"],
-            ["验收重点", "可用、安全、可追溯", "任务完成率、效率提升、人工兜底", "命中率提升、未解答下降、复用率提升"]
-          ]
+          title: "知识库运营中台",
+          tag: "Knowledge Ops",
+          scene: "知识库上线后无人运营，过期内容、冲突口径和未解答问题持续累积。",
+          action: "监控命中率、未回答、低满意答案，自动生成知识更新任务和责任人。",
+          data: "知识条目、问答日志、满意度、引用来源、内容责任人。",
+          output: "知识命中率提升、过期内容下降、问题闭环可追踪。",
+          metrics: [["命中率", "持续优化"], ["未解答", "自动建单"], ["责任人", "内容治理"]],
+          steps: ["分析问答日志", "识别知识缺口", "派发更新任务", "复测答案质量"]
         },
         {
-          module: "交付打法",
-          title: "项目验收要同时看体验、效率、质量和沉淀",
-          lead: "没有验收表的 AI 项目很容易变成演示项目。每个场景都要提前定义上线门槛和持续运营指标。",
-          layout: "table",
-          columns: ["维度", "建议指标", "验收口径"],
-          rows: [
-            ["体验", "响应速度、首轮解决率、满意度", "真实用户灰度反馈，不只看内部演示"],
-            ["效率", "咨询处理时长、工单创建时长、资料审核时长", "与上线前基线对比"],
-            ["质量", "回答准确率、引用可追溯率、风险拦截率", "抽样复核 + 高风险全量复核"],
-            ["沉淀", "新增知识条目、未解答闭环、人工修正样本", "每周运营复盘形成优化清单"]
-          ]
+          title: "合规风险预警助手",
+          tag: "Compliance Monitor",
+          scene: "销售、采购、客服、合同流程中存在敏感承诺、违规条款和高风险表达。",
+          action: "监控文本与流程动作，识别风险表达，提示替代表述并触发复核。",
+          data: "合规规则、敏感词库、合同/聊天/邮件、审批记录。",
+          output: "风险拦截率、复核闭环、违规表达下降。",
+          metrics: [["实时", "风险识别"], ["替代", "合规话术"], ["复核", "自动触发"]],
+          steps: ["扫描业务文本", "匹配风险规则", "生成修改建议", "触发人工复核"]
         },
         {
-          module: "交付打法",
-          title: "建议把参考案例转成三个可销售标准包",
-          lead: "下一步不是继续写大而全方案，而是把案例转成能被客户快速理解、能被伙伴稳定交付的产品化工作包。",
-          layout: "three",
-          cards: [
-            ["01 员工服务 AI 助手", "4 周完成高频知识治理、统一入口、工单路由和运营看板。", "green"],
-            ["02 销售与渠道赋能助手", "围绕拜访准备、资料查询、方案生成、培训问答和复盘沉淀交付。", "blue"],
-            ["03 专家审核 AI Worker", "把资料清单、字段抽取、风险判断、专家复核和审计记录产品化。", "red"]
-          ]
+          title: "AI 交付运营看板",
+          tag: "Delivery Control Tower",
+          scene: "AI 项目上线后难证明价值，客户只看到演示，看不到真实使用、节省和风险。",
+          action: "统一展示使用量、解决率、任务完成率、人工兜底、知识沉淀和 ROI。",
+          data: "问答日志、任务执行、工单、人工转接、成本与工时基线。",
+          output: "验收证据、月度复盘、二期扩展路线图。",
+          metrics: [["ROI", "持续呈现"], ["验收", "证据化"], ["路线图", "自动建议"]],
+          steps: ["汇总使用数据", "计算效率收益", "识别扩展场景", "生成复盘报告"]
         }
       ];
 
-      const total = slides.length;
-      const accentClass = (name) => `accent-${name || "blue"}`;
+      const total = cases.length;
 
       function escapeHtml(value) {
         return String(value)
@@ -786,112 +601,50 @@
           .replaceAll('"', "&quot;");
       }
 
-      function renderCards(cards) {
-        return `<div class="grid cols-3">${cards
-          .map(
-            ([title, text, accent]) =>
-              `<article class="card ${accentClass(accent)}"><strong>${escapeHtml(title)}</strong><p>${escapeHtml(text)}</p></article>`
-          )
-          .join("")}</div>`;
-      }
-
-      function renderMetrics(metrics) {
-        return `<div class="metrics">${metrics
-          .map(
-            ([value, label]) =>
-              `<article class="metric"><div class="value">${escapeHtml(value)}</div><div class="label">${escapeHtml(label)}</div></article>`
-          )
-          .join("")}</div>`;
-      }
-
-      function renderMiniMetrics(metrics) {
-        return `<div class="mini-metrics">${metrics
-          .map(([value, label]) => `<div><b>${escapeHtml(value)}</b><span>${escapeHtml(label)}</span></div>`)
-          .join("")}</div>`;
-      }
-
-      function renderFlow(steps) {
-        return `<div class="flow">${steps
-          .map(
-            ([n, title, text]) =>
-              `<article class="step"><b>${escapeHtml(n)}</b><strong>${escapeHtml(title)}</strong><span>${escapeHtml(text)}</span></article>`
-          )
-          .join("")}</div>`;
-      }
-
-      function renderMatrix(cells) {
-        return `<div class="matrix">${cells
-          .flatMap((row, rowIndex) =>
-            row.map((cell, colIndex) => {
-              const klass = rowIndex === 0 ? "head" : colIndex === 0 ? "rowhead" : "";
-              return `<div class="${klass}">${escapeHtml(cell)}</div>`;
-            })
-          )
-          .join("")}</div>`;
-      }
-
-      function renderSplit(slide) {
-        const list = (items) => `<ul>${items.map((item) => `<li>${escapeHtml(item)}</li>`).join("")}</ul>`;
-        return `<div class="split">
-          <section class="lane accent-blue"><h3>${escapeHtml(slide.leftTitle)}</h3>${list(slide.left)}</section>
-          <section class="lane accent-teal"><h3>${escapeHtml(slide.rightTitle)}</h3>${list(slide.right)}</section>
-        </div>`;
-      }
-
-      function renderTable(slide) {
-        return `<div class="table-wrap"><table><thead><tr>${slide.columns
-          .map((col) => `<th>${escapeHtml(col)}</th>`)
-          .join("")}</tr></thead><tbody>${slide.rows
-          .map((row) => `<tr>${row.map((cell) => `<td>${escapeHtml(cell)}</td>`).join("")}</tr>`)
-          .join("")}</tbody></table></div>`;
-      }
-
-      function renderCase(slide) {
-        return `<div class="grid" style="gap: 18px;">${renderMetrics(slide.metrics)}
-          <section class="lane accent-amber"><h3>交付重点</h3><ul>${slide.bullets
-            .map((item) => `<li>${escapeHtml(item)}</li>`)
-            .join("")}</ul></section>
-        </div>`;
-      }
-
-      function renderContent(slide) {
-        if (slide.type === "cover") {
-          return `<div class="hero-stack"><h1>${escapeHtml(slide.title)}</h1><p class="lead">${escapeHtml(slide.lead)}</p><div class="pill-row">${slide.pills
-            .map((pill) => `<span class="pill">${escapeHtml(pill)}</span>`)
-            .join("")}</div></div>`;
-        }
-        if (slide.layout === "quote") {
-          return `<div class="grid" style="gap: 14px;"><div class="quote"><p>${escapeHtml(slide.quote)}</p></div>${renderMiniMetrics(slide.metrics)}</div>`;
-        }
-        if (slide.layout === "three") return renderCards(slide.cards);
-        if (slide.layout === "flow") return renderFlow(slide.steps);
-        if (slide.layout === "matrix") return renderMatrix(slide.cells);
-        if (slide.layout === "split") return renderSplit(slide);
-        if (slide.layout === "table") return renderTable(slide);
-        if (slide.layout === "case") return renderCase(slide);
-        return "";
-      }
-
-      function renderSlide(slide, index) {
+      function renderSlide(item, index) {
         const no = `${String(index + 1).padStart(2, "0")} / ${String(total).padStart(2, "0")}`;
-        const cover = slide.type === "cover";
-        return `<section class="slide ${cover ? "cover" : ""}" data-index="${index + 1}" aria-label="${escapeHtml(slide.title)}">
+        return `<section class="slide" data-index="${index + 1}" aria-label="${escapeHtml(item.title)}">
           <div class="page">
             <header>
-              <div>
-                <p class="kicker">${escapeHtml(slide.module)}</p>
-                ${cover ? "" : `<h2>${escapeHtml(slide.title)}</h2>`}
-              </div>
-              <div class="page-no">${no}</div>
+              <div class="brand"><span class="brand-mark">T</span><span>TABLE AI · DELIVERY CASEBOOK</span></div>
+              <div class="case-no">${no}</div>
             </header>
-            <div class="content">${cover ? renderContent(slide) : `<p class="lead">${escapeHtml(slide.lead)}</p><div style="height: 20px;"></div>${renderContent(slide)}`}</div>
-            <footer><span>ANONYMIZED CASE SHOWCASE</span><span>PARTY-B DELIVERY PLAYBOOK</span></footer>
+            <div>
+              <p class="case-kicker">${escapeHtml(item.tag)}</p>
+              <h2>${escapeHtml(item.title)}</h2>
+            </div>
+            <div class="content">
+              <section class="case-card">
+                <span class="label">Direct Case</span>
+                <p class="lead">${escapeHtml(item.scene)}</p>
+                <table>
+                  <tbody>
+                    <tr><th>AI Worker</th><td>${escapeHtml(item.action)}</td></tr>
+                    <tr><th>接入资料</th><td>${escapeHtml(item.data)}</td></tr>
+                    <tr><th>验收结果</th><td>${escapeHtml(item.output)}</td></tr>
+                  </tbody>
+                </table>
+              </section>
+              <section class="visual">
+                <div class="metric-row">
+                  ${item.metrics
+                    .map(([value, label]) => `<div class="metric"><b>${escapeHtml(value)}</b><span>${escapeHtml(label)}</span></div>`)
+                    .join("")}
+                </div>
+                <div class="workflow">
+                  ${item.steps
+                    .map((step, i) => `<div class="step"><b>${String(i + 1).padStart(2, "0")}</b><span>${escapeHtml(step)}</span></div>`)
+                    .join("")}
+                </div>
+              </section>
+            </div>
+            <footer><span>TABLE AI BRAND SYSTEM</span><span>ANONYMIZED PARTY-B DELIVERY REFERENCE</span></footer>
           </div>
         </section>`;
       }
 
       const deck = document.getElementById("deck");
-      deck.innerHTML = slides.map(renderSlide).join("");
+      deck.innerHTML = cases.map(renderSlide).join("");
 
       const nav = document.createElement("div");
       nav.className = "nav";
