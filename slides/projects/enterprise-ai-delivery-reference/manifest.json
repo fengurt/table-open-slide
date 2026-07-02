@@ -1,0 +1,44 @@
+{
+  "id": "enterprise-ai-delivery-reference",
+  "title": "企业级 AI 助手与 AI Worker 交付参考",
+  "subtitle": "匿名案例展示 · 业务 + 知识 + AI Worker",
+  "description": "基于历史方案抽象重构的脱敏案例 deck，用于乙方与合伙生态交付参考",
+  "slideCount": 18,
+  "deckPath": "slides/projects/enterprise-ai-delivery-reference/deck/index.html",
+  "source": {
+    "note": "slides/projects/enterprise-ai-delivery-reference/source/source-notes.txt"
+  },
+  "theme": "ai-delivery-reference",
+  "modules": [
+    {
+      "id": "strategic-frame",
+      "title": "价值判断",
+      "start": 1,
+      "end": 4,
+      "act": "Frame"
+    },
+    {
+      "id": "solution-architecture",
+      "title": "方案架构",
+      "start": 5,
+      "end": 9,
+      "act": "Architecture"
+    },
+    {
+      "id": "anonymized-cases",
+      "title": "脱敏案例",
+      "start": 10,
+      "end": 13,
+      "act": "Cases"
+    },
+    {
+      "id": "delivery-playbook",
+      "title": "交付打法",
+      "start": 14,
+      "end": 18,
+      "act": "Playbook"
+    }
+  ],
+  "tags": ["AI", "delivery", "case", "18p"],
+  "generatedAt": "2026-07-02T23:30:00.000+08:00"
+}

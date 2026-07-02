@@ -1,0 +1,16 @@
+This deck is an anonymized, abstracted case-showcase artifact derived from two external proposal folders supplied by the user.
+
+Scope:
+- Enterprise AI assistant for employee service, business knowledge, and process automation.
+- AI Worker / AI Agent delivery model focused on completed work rather than software seats.
+- Reference material for party-B delivery teams and partner ecosystem packaging.
+
+Anonymization:
+- Original company names, client names, vendor names, brand names, and named partner references are intentionally removed.
+- Case descriptions are generalized by industry scenario, operating problem, architecture pattern, delivery method, and reusable playbook.
+- Source documents are not copied into this project folder.
+
+Usage:
+- Case showcase only.
+- Not a public claim of client relationship.
+- Use as a delivery and sales-enablement reference for enterprise AI projects.

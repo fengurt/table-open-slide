@@ -1,0 +1,933 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>企业级 AI 助手与 AI Worker 交付参考</title>
+    <style>
+      :root {
+        color-scheme: light;
+        --ink: #111827;
+        --sub: #526070;
+        --muted: #7b8794;
+        --line: #d9e0e8;
+        --paper: #f7f6f1;
+        --panel: #ffffff;
+        --night: #0f2237;
+        --blue: #1f5f9f;
+        --teal: #087b74;
+        --red: #b93d2f;
+        --amber: #c58a25;
+        --green: #2f7d4f;
+        --shade: #e9edf2;
+        --shadow: 0 18px 42px rgba(15, 34, 55, 0.18);
+        font-family:
+          "Aptos",
+          "PingFang SC",
+          "Microsoft YaHei",
+          system-ui,
+          sans-serif;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html,
+      body {
+        margin: 0;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        background: #081421;
+        color: var(--ink);
+      }
+
+      button {
+        font: inherit;
+      }
+
+      .deck {
+        display: grid;
+        place-items: center;
+        width: 100vw;
+        height: 100vh;
+      }
+
+      .slide {
+        position: relative;
+        display: none;
+        width: min(100vw, 177.7778vh);
+        height: min(56.25vw, 100vh);
+        overflow: hidden;
+        background:
+          linear-gradient(90deg, rgba(15, 34, 55, 0.055) 1px, transparent 1px),
+          linear-gradient(180deg, rgba(15, 34, 55, 0.055) 1px, transparent 1px),
+          var(--paper);
+        background-size: 38px 38px;
+      }
+
+      .slide.active {
+        display: block;
+      }
+
+      .page {
+        display: grid;
+        grid-template-rows: auto 1fr auto;
+        gap: 22px;
+        width: 100%;
+        height: 100%;
+        padding: 44px 54px 34px;
+      }
+
+      .cover {
+        color: #fff;
+        background:
+          radial-gradient(circle at 84% 20%, rgba(197, 138, 37, 0.3), transparent 28%),
+          linear-gradient(135deg, rgba(8, 20, 33, 0.94), rgba(15, 34, 55, 0.9)),
+          linear-gradient(90deg, rgba(255, 255, 255, 0.08) 1px, transparent 1px),
+          linear-gradient(180deg, rgba(255, 255, 255, 0.08) 1px, transparent 1px);
+        background-size: auto, auto, 42px 42px, 42px 42px;
+      }
+
+      .cover .page {
+        grid-template-rows: auto 1fr auto;
+      }
+
+      header {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) auto;
+        gap: 28px;
+        align-items: end;
+        border-bottom: 2px solid var(--night);
+        padding-bottom: 13px;
+      }
+
+      .cover header {
+        border-color: rgba(255, 255, 255, 0.34);
+      }
+
+      .kicker {
+        margin: 0 0 7px;
+        color: var(--amber);
+        font-size: 13px;
+        font-weight: 850;
+        letter-spacing: 0.14em;
+        line-height: 1.15;
+        text-transform: uppercase;
+      }
+
+      h1,
+      h2,
+      h3,
+      p {
+        margin: 0;
+      }
+
+      h1,
+      h2 {
+        color: var(--night);
+        font-family: Georgia, "Noto Serif SC", "Songti SC", serif;
+        letter-spacing: 0;
+      }
+
+      .cover h1,
+      .cover h2 {
+        color: #fff;
+      }
+
+      h1 {
+        max-width: 980px;
+        font-size: clamp(46px, 5.4vw, 78px);
+        line-height: 1.03;
+      }
+
+      h2 {
+        max-width: 980px;
+        font-size: clamp(32px, 3.4vw, 50px);
+        line-height: 1.08;
+      }
+
+      h3 {
+        color: var(--night);
+        font-size: clamp(17px, 1.55vw, 23px);
+        line-height: 1.2;
+        letter-spacing: 0;
+      }
+
+      .cover h3 {
+        color: #fff;
+      }
+
+      .page-no {
+        color: var(--night);
+        font-size: 18px;
+        font-weight: 850;
+        line-height: 1;
+        white-space: nowrap;
+      }
+
+      .cover .page-no {
+        color: #fff;
+      }
+
+      .lead {
+        max-width: 960px;
+        color: var(--sub);
+        font-size: clamp(21px, 2.05vw, 31px);
+        font-weight: 650;
+        line-height: 1.35;
+      }
+
+      .cover .lead {
+        color: rgba(255, 255, 255, 0.86);
+      }
+
+      .content {
+        min-height: 0;
+      }
+
+      .hero-stack {
+        align-self: center;
+        display: grid;
+        gap: 28px;
+        max-width: 1120px;
+      }
+
+      .pill-row,
+      .footer-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        align-items: center;
+      }
+
+      .pill {
+        display: inline-flex;
+        align-items: center;
+        min-height: 32px;
+        border: 1px solid rgba(197, 138, 37, 0.45);
+        border-radius: 999px;
+        padding: 7px 13px;
+        background: rgba(255, 255, 255, 0.08);
+        color: inherit;
+        font-size: 13px;
+        font-weight: 800;
+        letter-spacing: 0.06em;
+      }
+
+      .grid {
+        display: grid;
+        gap: 16px;
+      }
+
+      .cols-2 {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .cols-3 {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+
+      .cols-4 {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+      }
+
+      .card,
+      .metric,
+      .lane,
+      .table-wrap {
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: rgba(255, 255, 255, 0.88);
+        box-shadow: 0 10px 26px rgba(15, 34, 55, 0.08);
+      }
+
+      .card {
+        display: grid;
+        gap: 10px;
+        min-height: 142px;
+        padding: 20px 20px 18px;
+      }
+
+      .card strong {
+        color: var(--night);
+        font-size: clamp(18px, 1.5vw, 23px);
+        line-height: 1.18;
+      }
+
+      .card p,
+      li {
+        color: var(--sub);
+        font-size: clamp(15px, 1.18vw, 19px);
+        line-height: 1.42;
+      }
+
+      .accent-blue {
+        border-top: 5px solid var(--blue);
+      }
+
+      .accent-teal {
+        border-top: 5px solid var(--teal);
+      }
+
+      .accent-red {
+        border-top: 5px solid var(--red);
+      }
+
+      .accent-amber {
+        border-top: 5px solid var(--amber);
+      }
+
+      .accent-green {
+        border-top: 5px solid var(--green);
+      }
+
+      .metrics {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 14px;
+      }
+
+      .metric {
+        padding: 18px;
+      }
+
+      .metric .value {
+        color: var(--night);
+        font-size: clamp(27px, 3vw, 46px);
+        font-weight: 900;
+        line-height: 1;
+      }
+
+      .metric .label {
+        margin-top: 9px;
+        color: var(--sub);
+        font-size: clamp(14px, 1.1vw, 18px);
+        font-weight: 700;
+        line-height: 1.3;
+      }
+
+      .mini-metrics {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 12px;
+      }
+
+      .mini-metrics div {
+        min-height: 70px;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        padding: 12px 14px;
+        background: #fff;
+      }
+
+      .mini-metrics b {
+        display: block;
+        color: var(--night);
+        font-size: clamp(17px, 1.25vw, 20px);
+        line-height: 1.1;
+      }
+
+      .mini-metrics span {
+        display: block;
+        margin-top: 6px;
+        color: var(--sub);
+        font-size: clamp(12px, 0.92vw, 15px);
+        font-weight: 700;
+        line-height: 1.24;
+      }
+
+      .flow {
+        display: grid;
+        grid-template-columns: repeat(5, minmax(0, 1fr));
+        gap: 12px;
+        align-items: stretch;
+      }
+
+      .step {
+        position: relative;
+        display: grid;
+        gap: 10px;
+        align-content: start;
+        min-height: 178px;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        padding: 18px;
+        background: #fff;
+      }
+
+      .step b {
+        color: var(--amber);
+        font-size: 14px;
+        letter-spacing: 0.1em;
+      }
+
+      .step strong {
+        color: var(--night);
+        font-size: clamp(17px, 1.35vw, 21px);
+        line-height: 1.2;
+      }
+
+      .step span {
+        color: var(--sub);
+        font-size: clamp(14px, 1vw, 17px);
+        line-height: 1.35;
+      }
+
+      .matrix {
+        display: grid;
+        grid-template-columns: 0.95fr 1.05fr 1.05fr 1.05fr;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        overflow: hidden;
+        background: #fff;
+      }
+
+      .matrix div {
+        min-height: 74px;
+        border-right: 1px solid var(--line);
+        border-bottom: 1px solid var(--line);
+        padding: 14px 16px;
+        color: var(--sub);
+        font-size: clamp(14px, 1vw, 17px);
+        line-height: 1.35;
+      }
+
+      .matrix div:nth-child(4n) {
+        border-right: 0;
+      }
+
+      .matrix div:nth-last-child(-n + 4) {
+        border-bottom: 0;
+      }
+
+      .matrix .head,
+      .matrix .rowhead {
+        background: #edf2f7;
+        color: var(--night);
+        font-weight: 850;
+      }
+
+      .split {
+        display: grid;
+        grid-template-columns: 0.95fr 1.05fr;
+        gap: 20px;
+        align-items: stretch;
+      }
+
+      .lane {
+        display: grid;
+        gap: 12px;
+        align-content: start;
+        padding: 22px;
+      }
+
+      .lane h3 {
+        font-size: clamp(20px, 1.8vw, 28px);
+      }
+
+      ul {
+        display: grid;
+        gap: 10px;
+        margin: 0;
+        padding-left: 1.1em;
+      }
+
+      .table-wrap {
+        overflow: hidden;
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        background: #fff;
+      }
+
+      th,
+      td {
+        border-bottom: 1px solid var(--line);
+        padding: 12px 14px;
+        text-align: left;
+        vertical-align: top;
+        font-size: clamp(13px, 0.98vw, 17px);
+        line-height: 1.32;
+      }
+
+      th {
+        background: var(--night);
+        color: #fff;
+        font-weight: 850;
+      }
+
+      tr:last-child td {
+        border-bottom: 0;
+      }
+
+      .quote {
+        display: grid;
+        align-content: center;
+        min-height: 235px;
+        border-left: 7px solid var(--amber);
+        padding: 20px 34px;
+        background: rgba(255, 255, 255, 0.78);
+        box-shadow: var(--shadow);
+      }
+
+      .quote p {
+        color: var(--night);
+        font-family: Georgia, "Noto Serif SC", serif;
+        font-size: clamp(30px, 3.45vw, 50px);
+        font-weight: 760;
+        line-height: 1.14;
+      }
+
+      footer {
+        display: flex;
+        justify-content: space-between;
+        gap: 20px;
+        border-top: 1px solid var(--line);
+        padding-top: 12px;
+        color: var(--muted);
+        font-size: 13px;
+        font-weight: 750;
+        letter-spacing: 0.04em;
+      }
+
+      .cover footer {
+        border-color: rgba(255, 255, 255, 0.22);
+        color: rgba(255, 255, 255, 0.7);
+      }
+
+      .nav {
+        position: absolute;
+        right: 28px;
+        bottom: 24px;
+        display: flex;
+        gap: 8px;
+        align-items: center;
+        border: 1px solid rgba(15, 34, 55, 0.12);
+        border-radius: 8px;
+        padding: 8px;
+        background: rgba(255, 255, 255, 0.88);
+        box-shadow: 0 12px 24px rgba(15, 34, 55, 0.12);
+      }
+
+      .nav button {
+        width: 42px;
+        height: 38px;
+        border: 1px solid var(--line);
+        border-radius: 7px;
+        background: #fff;
+        color: var(--night);
+        cursor: pointer;
+        font-size: 20px;
+      }
+
+      .nav span {
+        min-width: 62px;
+        color: var(--night);
+        text-align: center;
+        font-size: 15px;
+        font-weight: 850;
+      }
+
+      @media print {
+        html,
+        body,
+        .deck {
+          width: 100%;
+          height: auto;
+          background: #fff;
+        }
+
+        .slide {
+          display: block;
+          width: 100vw;
+          height: 56.25vw;
+          page-break-after: always;
+        }
+
+        .nav {
+          display: none;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="deck" id="deck" aria-label="企业级 AI 助手与 AI Worker 交付参考"></main>
+    <script>
+      const slides = [
+        {
+          module: "匿名案例展示",
+          type: "cover",
+          title: "企业级 AI 助手与 AI Worker 交付参考",
+          lead: "面向乙方与合伙生态的可复用交付样板：从知识问答走向任务执行，从卖软件走向交付工作结果。",
+          pills: ["业务 + 知识", "AI Agent", "AI Worker", "交付生态"]
+        },
+        {
+          module: "价值判断",
+          title: "企业不是缺软件，而是缺能持续完成工作的 AI 系统",
+          lead: "AI 项目的价值不在“又多一个入口”，而在让员工、销售、运营和供应链把重复工作交给可追溯的智能流程。",
+          layout: "quote",
+          quote: "先定义要完成的工作，再选择模型、知识库、流程和系统接口。",
+          metrics: [
+            ["入口", "统一入口承接咨询与任务"],
+            ["知识", "把文档沉淀成可运营资产"],
+            ["动作", "连接系统并发起流程"],
+            ["复盘", "用数据持续优化回答与执行"]
+          ]
+        },
+        {
+          module: "价值判断",
+          title: "“卖工作”意味着报价对象从账号转为任务结果",
+          lead: "客户真正购买的是更短响应时间、更少人工反复、更稳定的知识复用，以及可验证的任务完成率。",
+          layout: "three",
+          cards: [
+            ["传统软件", "按账号、模块、部署收费；客户仍要自己组织人、流程和知识治理。", "blue"],
+            ["AI 助手", "按高频场景交付问答、检索、生成、表单和工单协同。", "teal"],
+            ["AI Worker", "按明确工作包交付结果，例如审核、报价、培训、销售素材和员工服务闭环。", "amber"]
+          ]
+        },
+        {
+          module: "价值判断",
+          title: "一套可复用交付体系由四个闭环组成",
+          lead: "乙方交付不要只交一个机器人，要交一套能被运营、验收、迭代、复制的业务系统。",
+          layout: "flow",
+          steps: [
+            ["01", "场景诊断", "明确高频问题、关键岗位、系统边界和可量化目标。"],
+            ["02", "知识治理", "将制度、产品、流程、案例转成带权限的回答资产。"],
+            ["03", "任务编排", "把查询、判断、生成、审批、提醒连接成可执行流程。"],
+            ["04", "上线运营", "监控命中率、满意度、人工转接、未解决问题和成本。"],
+            ["05", "生态复制", "沉淀标准包、实施手册、验收表和行业话术。"]
+          ]
+        },
+        {
+          module: "方案架构",
+          title: "场景组合要覆盖员工服务、前线赋能和管理决策",
+          lead: "企业级 AI 助手应以角色和任务组织能力，而不是以模型功能堆叠页面。",
+          layout: "matrix",
+          cells: [
+            ["角色", "员工与共享服务", "销售与渠道", "运营与管理"],
+            ["高频需求", "制度咨询、工单发起、报销采购、IT 支持", "产品查询、客户拜访、培训材料、方案生成", "风险提示、绩效复盘、异常追踪、经营看板"],
+            ["AI 能力", "知识问答、表单填充、流程指引", "话术生成、资料整合、报价建议", "指标解释、根因分析、行动建议"],
+            ["验收指标", "响应时间、转人工率、满意度、知识命中率", "素材产出效率、拜访准备时长、转化支持率", "异常识别率、会议准备时长、行动闭环率"]
+          ]
+        },
+        {
+          module: "方案架构",
+          title: "参考架构要同时处理信息流、控制流和业务流",
+          lead: "真正可交付的方案需要把知识、权限、流程、系统接口和运营数据放在同一张设计图里。",
+          layout: "split",
+          leftTitle: "三层能力",
+          left: ["信息流：文档、知识库、业务数据、外部资料的检索和总结。", "控制流：意图识别、任务路由、审批规则、人工转接和异常拦截。", "业务流：写入工单、生成报价、发起审核、同步记录、输出报告。"],
+          rightTitle: "平台组件",
+          right: ["统一入口：网页、企业 IM、移动端、后台门户。", "知识运营：采集、清洗、切片、标签、权限、版本。", "Agent 编排：工具调用、流程节点、表单、系统连接器。", "运营分析：命中率、未解答、风险问题、任务完成率。"]
+        },
+        {
+          module: "方案架构",
+          title: "知识库不是资料仓库，而是可运营的回答资产",
+          lead: "知识项目失败通常不是模型问题，而是没有建立内容边界、答案口径、权限规则和更新责任。",
+          layout: "three",
+          cards: [
+            ["结构化", "制度、FAQ、产品参数、流程表单要有标签、版本、适用对象和责任人。", "green"],
+            ["可追溯", "每个回答要能回到原文、条款、数据表或业务系统记录。", "blue"],
+            ["可运营", "定期处理未命中问题、冲突口径、过期内容和高风险答案。", "red"]
+          ]
+        },
+        {
+          module: "方案架构",
+          title: "业务自动化要从“能回答”推进到“能发起动作”",
+          lead: "AI Worker 的核心是把语言理解转成受控动作，所有动作都要有权限、确认、记录和回滚路径。",
+          layout: "flow",
+          steps: [
+            ["问", "识别意图", "判断用户要查资料、走流程、生成内容还是追踪状态。"],
+            ["查", "检索证据", "从知识库、业务系统和历史案例中取回可引用依据。"],
+            ["判", "规则校验", "用权限、阈值、业务规则和风险等级过滤可执行动作。"],
+            ["做", "发起任务", "生成工单、草拟报价、创建审核清单或通知相关角色。"],
+            ["记", "沉淀反馈", "记录过程、结果、人工修正和下一轮优化样本。"]
+          ]
+        },
+        {
+          module: "方案架构",
+          title: "权限体系必须内置在每一次回答和动作里",
+          lead: "企业客户最关心的不是能不能答，而是谁能看、能不能转发、能不能触发动作、出错后谁负责。",
+          layout: "table",
+          columns: ["权限层", "必须控制", "交付物"],
+          rows: [
+            ["身份", "员工、外包、伙伴、门店、部门、岗位、区域", "SSO / 账号映射 / 角色矩阵"],
+            ["内容", "哪些知识可读、可引用、可下载、可分享", "知识标签、密级、适用范围"],
+            ["动作", "哪些流程可发起、审批、修改、撤回", "工具白名单、二次确认、审批规则"],
+            ["审计", "谁问了什么、引用什么、执行什么、结果如何", "日志、异常告警、复盘报表"]
+          ]
+        },
+        {
+          module: "脱敏案例",
+          title: "员工服务场景：先从高频咨询和工单流转切入",
+          lead: "目标不是替代共享服务团队，而是把重复咨询、跨部门找人、流程不清楚的问题前置处理。",
+          layout: "case",
+          metrics: [
+            ["覆盖对象", "员工、外包、合作伙伴"],
+            ["入口", "企业 IM / Web / 移动端"],
+            ["首批场景", "IT、HR、财务、行政、采购"],
+            ["核心指标", "命中率、转人工率、满意度"]
+          ],
+          bullets: ["建立统一员工服务入口，按问题类型自动路由到知识、表单或工单。", "把制度、流程、模板和常见异常沉淀为可追溯答案。", "对高风险问题保持人工确认，不把灰区判断交给模型自由发挥。"]
+        },
+        {
+          module: "脱敏案例",
+          title: "销售赋能场景：服务拜访、培训、查询和方案生成",
+          lead: "销售团队需要的是可直接用于客户沟通的材料，不是泛泛而谈的知识库搜索结果。",
+          layout: "case",
+          metrics: [
+            ["拜访准备", "客户背景、痛点假设、问题清单"],
+            ["产品查询", "卖点、参数、适配场景"],
+            ["方案生成", "行业话术、提案大纲、FAQ"],
+            ["复盘沉淀", "有效话术、异议、成交原因"]
+          ],
+          bullets: ["按客户类型、行业、阶段生成销售动作建议。", "把培训资料、产品手册和优秀案例转成前线可用话术。", "将一线反馈反哺知识库，形成销售方法论资产。"]
+        },
+        {
+          module: "脱敏案例",
+          title: "供应链审核场景：体现 AI Agent 的任务交付价值",
+          lead: "复杂审核不是简单问答，而是资料收集、字段抽取、风险识别、专家复核和结论输出的连续任务。",
+          layout: "table",
+          columns: ["环节", "人工痛点", "AI Worker 交付动作"],
+          rows: [
+            ["资料收集", "材料类型多、格式不统一、反复补件", "识别文件类型、建立清单、提示缺失材料"],
+            ["信息抽取", "关键字段散落在合同、证照、报告和附件中", "抽取主体、有效期、资质范围、风险字段"],
+            ["规则判断", "专家经验难复制，新人依赖反复请教", "固化审核规则，输出风险等级和依据"],
+            ["复核闭环", "结论难追溯，问题难复盘", "生成审核记录、证据链接、人工修正样本"]
+          ]
+        },
+        {
+          module: "脱敏案例",
+          title: "B2B 报价场景：把模糊需求转成可解释推荐",
+          lead: "报价类 AI 不应直接替人定价，而应帮助团队快速完成需求澄清、方案组合、约束校验和报价解释。",
+          layout: "flow",
+          steps: [
+            ["01", "澄清需求", "识别客户规模、使用场景、预算、周期和约束。"],
+            ["02", "匹配组合", "推荐产品、服务包、实施范围和可选项。"],
+            ["03", "校验边界", "检查库存、交付能力、折扣权限、合规约束。"],
+            ["04", "生成解释", "输出价格构成、价值理由和风险提示。"],
+            ["05", "进入审批", "高折扣或异常条款自动进入人工审批。"]
+          ]
+        },
+        {
+          module: "交付打法",
+          title: "乙方交付要分成诊断、构建、上线、运营四段",
+          lead: "客户不需要一份泛方案，需要一张能执行的交付地图：谁负责、交什么、验什么、什么时候复盘。",
+          layout: "table",
+          columns: ["阶段", "核心动作", "关键交付物"],
+          rows: [
+            ["1. 诊断", "访谈角色、盘点流程、梳理数据与知识、选定首批场景", "场景优先级、指标定义、系统边界"],
+            ["2. 构建", "知识治理、流程编排、权限配置、原型体验、样本测试", "知识库、Agent 流程、权限矩阵、测试报告"],
+            ["3. 上线", "灰度发布、培训运营、人工兜底、问题收集", "上线手册、运营看板、FAQ、应急机制"],
+            ["4. 运营", "未解答治理、口径更新、流程优化、复盘扩展", "月度复盘、优化清单、二期路线图"]
+          ]
+        },
+        {
+          module: "交付打法",
+          title: "生态伙伴适合交付场景包，而不是从零做平台",
+          lead: "合伙生态的效率来自标准化：行业场景、方法论、配置模板、验收清单和复盘机制要提前产品化。",
+          layout: "three",
+          cards: [
+            ["总部平台", "提供底座、标准组件、安全规范、连接器、交付治理和质量评审。", "blue"],
+            ["行业伙伴", "负责行业场景理解、客户关系、业务访谈、内容整理和一线运营。", "teal"],
+            ["专家网络", "贡献审核规则、销售方法、知识口径、风险经验和复盘样本。", "amber"]
+          ]
+        },
+        {
+          module: "交付打法",
+          title: "定价应围绕工作包、处理量和结果指标组合",
+          lead: "更专业的报价方式不是卖模型调用量，而是把 AI 可完成的工作拆成可验收单元。",
+          layout: "matrix",
+          cells: [
+            ["报价对象", "基础平台", "场景工作包", "运营增长包"],
+            ["客户购买", "入口、权限、知识库、Agent 编排能力", "员工服务、销售赋能、供应链审核、报价助手", "月度知识治理、模型调优、数据复盘"],
+            ["计价维度", "项目制 + 年服务", "场景数 + 处理量 + 复杂度", "月费 + KPI 奖励"],
+            ["验收重点", "可用、安全、可追溯", "任务完成率、效率提升、人工兜底", "命中率提升、未解答下降、复用率提升"]
+          ]
+        },
+        {
+          module: "交付打法",
+          title: "项目验收要同时看体验、效率、质量和沉淀",
+          lead: "没有验收表的 AI 项目很容易变成演示项目。每个场景都要提前定义上线门槛和持续运营指标。",
+          layout: "table",
+          columns: ["维度", "建议指标", "验收口径"],
+          rows: [
+            ["体验", "响应速度、首轮解决率、满意度", "真实用户灰度反馈，不只看内部演示"],
+            ["效率", "咨询处理时长、工单创建时长、资料审核时长", "与上线前基线对比"],
+            ["质量", "回答准确率、引用可追溯率、风险拦截率", "抽样复核 + 高风险全量复核"],
+            ["沉淀", "新增知识条目、未解答闭环、人工修正样本", "每周运营复盘形成优化清单"]
+          ]
+        },
+        {
+          module: "交付打法",
+          title: "建议把参考案例转成三个可销售标准包",
+          lead: "下一步不是继续写大而全方案，而是把案例转成能被客户快速理解、能被伙伴稳定交付的产品化工作包。",
+          layout: "three",
+          cards: [
+            ["01 员工服务 AI 助手", "4 周完成高频知识治理、统一入口、工单路由和运营看板。", "green"],
+            ["02 销售与渠道赋能助手", "围绕拜访准备、资料查询、方案生成、培训问答和复盘沉淀交付。", "blue"],
+            ["03 专家审核 AI Worker", "把资料清单、字段抽取、风险判断、专家复核和审计记录产品化。", "red"]
+          ]
+        }
+      ];
+
+      const total = slides.length;
+      const accentClass = (name) => `accent-${name || "blue"}`;
+
+      function escapeHtml(value) {
+        return String(value)
+          .replaceAll("&", "&amp;")
+          .replaceAll("<", "&lt;")
+          .replaceAll(">", "&gt;")
+          .replaceAll('"', "&quot;");
+      }
+
+      function renderCards(cards) {
+        return `<div class="grid cols-3">${cards
+          .map(
+            ([title, text, accent]) =>
+              `<article class="card ${accentClass(accent)}"><strong>${escapeHtml(title)}</strong><p>${escapeHtml(text)}</p></article>`
+          )
+          .join("")}</div>`;
+      }
+
+      function renderMetrics(metrics) {
+        return `<div class="metrics">${metrics
+          .map(
+            ([value, label]) =>
+              `<article class="metric"><div class="value">${escapeHtml(value)}</div><div class="label">${escapeHtml(label)}</div></article>`
+          )
+          .join("")}</div>`;
+      }
+
+      function renderMiniMetrics(metrics) {
+        return `<div class="mini-metrics">${metrics
+          .map(([value, label]) => `<div><b>${escapeHtml(value)}</b><span>${escapeHtml(label)}</span></div>`)
+          .join("")}</div>`;
+      }
+
+      function renderFlow(steps) {
+        return `<div class="flow">${steps
+          .map(
+            ([n, title, text]) =>
+              `<article class="step"><b>${escapeHtml(n)}</b><strong>${escapeHtml(title)}</strong><span>${escapeHtml(text)}</span></article>`
+          )
+          .join("")}</div>`;
+      }
+
+      function renderMatrix(cells) {
+        return `<div class="matrix">${cells
+          .flatMap((row, rowIndex) =>
+            row.map((cell, colIndex) => {
+              const klass = rowIndex === 0 ? "head" : colIndex === 0 ? "rowhead" : "";
+              return `<div class="${klass}">${escapeHtml(cell)}</div>`;
+            })
+          )
+          .join("")}</div>`;
+      }
+
+      function renderSplit(slide) {
+        const list = (items) => `<ul>${items.map((item) => `<li>${escapeHtml(item)}</li>`).join("")}</ul>`;
+        return `<div class="split">
+          <section class="lane accent-blue"><h3>${escapeHtml(slide.leftTitle)}</h3>${list(slide.left)}</section>
+          <section class="lane accent-teal"><h3>${escapeHtml(slide.rightTitle)}</h3>${list(slide.right)}</section>
+        </div>`;
+      }
+
+      function renderTable(slide) {
+        return `<div class="table-wrap"><table><thead><tr>${slide.columns
+          .map((col) => `<th>${escapeHtml(col)}</th>`)
+          .join("")}</tr></thead><tbody>${slide.rows
+          .map((row) => `<tr>${row.map((cell) => `<td>${escapeHtml(cell)}</td>`).join("")}</tr>`)
+          .join("")}</tbody></table></div>`;
+      }
+
+      function renderCase(slide) {
+        return `<div class="grid" style="gap: 18px;">${renderMetrics(slide.metrics)}
+          <section class="lane accent-amber"><h3>交付重点</h3><ul>${slide.bullets
+            .map((item) => `<li>${escapeHtml(item)}</li>`)
+            .join("")}</ul></section>
+        </div>`;
+      }
+
+      function renderContent(slide) {
+        if (slide.type === "cover") {
+          return `<div class="hero-stack"><h1>${escapeHtml(slide.title)}</h1><p class="lead">${escapeHtml(slide.lead)}</p><div class="pill-row">${slide.pills
+            .map((pill) => `<span class="pill">${escapeHtml(pill)}</span>`)
+            .join("")}</div></div>`;
+        }
+        if (slide.layout === "quote") {
+          return `<div class="grid" style="gap: 14px;"><div class="quote"><p>${escapeHtml(slide.quote)}</p></div>${renderMiniMetrics(slide.metrics)}</div>`;
+        }
+        if (slide.layout === "three") return renderCards(slide.cards);
+        if (slide.layout === "flow") return renderFlow(slide.steps);
+        if (slide.layout === "matrix") return renderMatrix(slide.cells);
+        if (slide.layout === "split") return renderSplit(slide);
+        if (slide.layout === "table") return renderTable(slide);
+        if (slide.layout === "case") return renderCase(slide);
+        return "";
+      }
+
+      function renderSlide(slide, index) {
+        const no = `${String(index + 1).padStart(2, "0")} / ${String(total).padStart(2, "0")}`;
+        const cover = slide.type === "cover";
+        return `<section class="slide ${cover ? "cover" : ""}" data-index="${index + 1}" aria-label="${escapeHtml(slide.title)}">
+          <div class="page">
+            <header>
+              <div>
+                <p class="kicker">${escapeHtml(slide.module)}</p>
+                ${cover ? "" : `<h2>${escapeHtml(slide.title)}</h2>`}
+              </div>
+              <div class="page-no">${no}</div>
+            </header>
+            <div class="content">${cover ? renderContent(slide) : `<p class="lead">${escapeHtml(slide.lead)}</p><div style="height: 20px;"></div>${renderContent(slide)}`}</div>
+            <footer><span>ANONYMIZED CASE SHOWCASE</span><span>PARTY-B DELIVERY PLAYBOOK</span></footer>
+          </div>
+        </section>`;
+      }
+
+      const deck = document.getElementById("deck");
+      deck.innerHTML = slides.map(renderSlide).join("");
+
+      const nav = document.createElement("div");
+      nav.className = "nav";
+      nav.innerHTML = `<button type="button" aria-label="上一页" data-dir="-1">&#8249;</button><span id="navCount">1 / ${total}</span><button type="button" aria-label="下一页" data-dir="1">&#8250;</button>`;
+      deck.appendChild(nav);
+
+      let current = 1;
+
+      function show(index, updateHash = true) {
+        current = Math.max(1, Math.min(total, index));
+        document.querySelectorAll(".slide").forEach((slide) => {
+          slide.classList.toggle("active", Number(slide.dataset.index) === current);
+        });
+        document.getElementById("navCount").textContent = `${current} / ${total}`;
+        if (updateHash) history.replaceState(null, "", `#${current}`);
+      }
+
+      nav.addEventListener("click", (event) => {
+        const button = event.target.closest("button[data-dir]");
+        if (!button) return;
+        show(current + Number(button.dataset.dir));
+      });
+
+      window.addEventListener("keydown", (event) => {
+        if (["ArrowRight", "PageDown", " "].includes(event.key)) show(current + 1);
+        if (["ArrowLeft", "PageUp", "Backspace"].includes(event.key)) show(current - 1);
+        if (event.key === "Home") show(1);
+        if (event.key === "End") show(total);
+      });
+
+      window.addEventListener("hashchange", () => {
+        const requested = Number(location.hash.replace("#", ""));
+        if (requested) show(requested, false);
+      });
+
+      show(Number(location.hash.replace("#", "")) || 1, false);
+    </script>
+  </body>
+</html>
