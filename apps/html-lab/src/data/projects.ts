@@ -95,7 +95,10 @@ export async function fetchAtelierProjects(): Promise<AtelierProject[]> {
   const res = await fetch('/api/projects');
   if (!res.ok) throw new Error(`projects ${res.status}`);
   const body = (await res.json()) as { projects?: AtelierProject[] };
-  return mergeProjects(ATELIER_PROJECTS, body.projects ?? []);
+  const builtInProjects = ATELIER_PROJECTS.filter(
+    (project) => !project.manifestPath.startsWith('slides/'),
+  );
+  return mergeProjects(builtInProjects, body.projects ?? []);
 }
 
 export async function fetchProject(id: string): Promise<AtelierProject | undefined> {
